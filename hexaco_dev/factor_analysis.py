@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 
 # データの読み込み
 # file_path_in = 'csv/fa_240_ch.csv'
-file_path_in = 'csv/hexaco-jp_facet_for_fa_v6.csv'
+file_path_in = 'csv/hexaco-jp_facet_for_fa_v7.csv'
 # file_path_in = 'csv/hexaco-jp24_facet_for_fa_v2.csv'
 data = pd.read_csv(file_path_in)
 
@@ -50,7 +50,7 @@ factor_loadings_df = pd.DataFrame(factor_loadings, index=data_clean.columns, col
 # omega_df = pd.DataFrame(omega, index=[f"Factor{i+1}" for i in range(len(omega))], columns=["Omega"])
 
 # CSVファイルとして出力
-factor_loadings_df.to_csv('csv/hexaco-jp_fa_v6.csv', index=True)
+factor_loadings_df.to_csv('csv/hexaco-jp_fa_v7.csv', index=True)
 # factor_loadings_df.to_csv('csv/hexaco-jp24_fa_v2.csv', index=True)
 
 # factor_loadings_df.to_csv('csv/factor_loadings_240_ch.csv', index=True)

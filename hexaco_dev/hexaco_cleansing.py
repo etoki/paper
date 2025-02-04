@@ -3,7 +3,7 @@ import numpy as np
 import pingouin as pg
 
 # CSVファイルのパス
-input_csv_path1  = 'csv/hexaco-jp_for_cleansing_v6.csv'
+input_csv_path1  = 'csv/hexaco-jp_for_cleansing_v7.csv'
 # input_csv_path1  = 'csv/hexaco-jp24_for_cleansing_v2.csv'
 
 # input_csv_path2  = 'csv/hexaco_raw_googleform.csv'
@@ -11,7 +11,7 @@ input_csv_path1  = 'csv/hexaco-jp_for_cleansing_v6.csv'
 # output_csv_path2 = 'csv/hexaco_facet.csv' # クラスタリング論文用
 # output_csv_path1 = 'csv/hexaco-jp_domain.csv'
 
-output_csv_path2 = 'csv/hexaco-jp_facet_for_alpha_v6.csv'
+output_csv_path2 = 'csv/hexaco-jp_facet_for_alpha_v7.csv'
 # output_csv_path2 = 'csv/hexaco-jp24_facet_for_alpha_v2.csv'
 
 
