@@ -31,4 +31,5 @@ print(statistics_df)
 
 # CSVファイルに保存
 statistics_df.to_csv('csv/hexaco_statistics_output_domain.csv', encoding='utf-8-sig')
+# statistics_df.to_csv('csv/hexaco_statistics_output_facet.csv', encoding='utf-8-sig')
 
