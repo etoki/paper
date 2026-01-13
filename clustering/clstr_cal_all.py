@@ -65,6 +65,6 @@ for i in range(n_clusters):
 plt.tight_layout()
 
 # グラフの保存
-plt.savefig('pic/clstr_kmeans_7c.png')
+plt.savefig('csv/clstr_kmeans_7c.png')
 plt.show()
 
