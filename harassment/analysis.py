@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 
 from scipy.stats import spearmanr, shapiro
+import scipy.stats as st
 import statsmodels.api as sm
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 from statsmodels.stats.diagnostic import het_breuschpagan
@@ -159,6 +160,24 @@ def analyze_harassment_models(df0, target):
 
     delta_R2 = mB.rsquared - mA.rsquared
 
+    # --- Power for incremental R^2 (HEXACO added beyond controls+DT) ---
+    u = len(X_HX)  # HEXACOの追加本数（通常6）
+    k_full = len(XB_cols)  # フルモデルの予測子数（定数除く）
+    v = n - k_full - 1
+
+    # Cohen's f^2 for incremental set:
+    # f2 = ΔR^2 / (1 - R^2_full)
+    f2_inc = delta_R2 / (1 - mB.rsquared)
+
+    # noncentrality parameter
+    lam = f2_inc * (u + v + 1)
+
+    # critical F
+    fcrit = st.f.isf(0.05, u, v)
+
+    # achieved power
+    power_inc = st.ncf.sf(fcrit, u, v, lam)
+
     # Nested F (non-robust reference)
     mA_nr = sm.OLS(y, XA).fit()
     mB_nr = sm.OLS(y, XB).fit()
@@ -264,7 +283,9 @@ def analyze_harassment_models(df0, target):
         "Max_CooksD_B": np.nanmax(cooks) if len(cooks)>0 else np.nan,
         "Num_CooksD_gt_4n_B": int(flags.sum()),
         "R2_B_sensitivity": sens_R2,
-        "R2_with_interactions": R2_int
+        "R2_with_interactions": R2_int,
+        "Power_inc_HEXACO": power_inc,
+        "f2_inc_HEXACO": f2_inc
     }])
 
     return {
