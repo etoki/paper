@@ -1,0 +1,17 @@
+# PDFs (large, stored elsewhere)
+*.pdf
+
+# Claude Code local settings
+.claude/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
