@@ -318,3 +318,279 @@ pooling 時は r を Fisher's z に変換:
 4. 独立サブサンプルの場合: 別 ID として併存
 
 ---
+
+## 12. 統計解析計画
+
+### 12.1 Pooling モデル
+
+**Random-effects model を採用**（true effect が study 間で変動する前提）。
+- Restricted maximum likelihood (REML) estimator を使用
+- Hartung-Knapp-Sidik-Jonkman (HKSJ) 調整で信頼区間を補正（k が少なめの本メタ分析で推奨）
+
+### 12.2 効果量
+
+- 主要効果量: **Pearson r**（Fisher's z 変換後に pooling、最後に r に逆変換）
+- 報告: pooled r, 95% CI, k, N (total), p-value
+
+### 12.3 ペアワイズ統合
+
+Big Five の各特性ごとに **5 つの独立メタ分析**を実施:
+1. Conscientiousness × achievement
+2. Openness × achievement
+3. Extraversion × achievement
+4. Agreeableness × achievement
+5. Neuroticism × achievement
+
+副次分析で:
+6. Each trait × satisfaction
+7. Each trait × engagement
+
+### 12.4 HEXACO マッピング
+
+HEXACO 研究（特に A-19 MacLean 2022）からは以下を抽出:
+- H-Honesty-Humility: 補助分析のみ
+- H-Emotionality → Big Five Neuroticism (軸は近いが一致ではない)
+- H-eXtraversion → Big Five Extraversion
+- H-Agreeableness → Big Five Agreeableness (定義に差あり)
+- H-Conscientiousness → Big Five Conscientiousness
+- H-Openness → Big Five Openness
+
+マッピング詳細は Ashton & Lee (2007) に依拠し、感度分析で HEXACO-only pool と Big Five-only pool の差分を検証。
+
+---
+
+## 13. 異質性評価（Heterogeneity）
+
+### 13.1 異質性統計量
+
+- **Q-statistic** (Cochran's Q, chi-square test)
+- **I²**: 異質性の割合（%）
+  - < 25%: 低
+  - 25–50%: 中
+  - 50–75%: 高
+  - > 75%: 極めて高
+- **τ²**: Between-study variance
+- **95% prediction interval**: 新研究の予測区間
+
+### 13.2 異質性が高い場合の対応
+
+I² > 50% の場合:
+- Moderator 分析で説明力を評価
+- Sub-group 分析で層化
+- Outlier 診断（Studentized residuals）
+
+---
+
+## 14. Moderator / Meta-regression 分析
+
+### 14.1 事前登録するモデレーター
+
+1. **Modality**: Fully online / Blended / MOOC / Synchronous / Asynchronous
+2. **Education level**: K-12 / Undergraduate / Graduate / Adult
+3. **Region**: Asia / Europe / North America / Other
+4. **Era**: Pre-COVID (≤ 2019) / COVID (2020–2022) / Post-COVID (2023–)
+5. **Outcome type**: GPA / Exam / LMS behavior / Composite
+6. **Personality instrument**: BFI / BFI-2 / NEO-FFI / NEO-PI-R / IPIP / HEXACO
+7. **Publication year** (continuous)
+8. **Sample size** (continuous, log-transformed)
+9. **Risk of bias score** (continuous)
+
+### 14.2 Meta-regression
+
+連続モデレーターには mixed-effects meta-regression を使用。カテゴリカルモデレーターにはサブグループ分析。
+
+### 14.3 多重比較の調整
+
+複数のモデレーター × 複数 trait で多重検定となるため、**Holm-Bonferroni 法**で調整。
+
+---
+
+## 15. 出版バイアス評価
+
+### 15.1 Funnel plot
+
+各 trait ごとに funnel plot を作成し、非対称性を視覚的に検出。
+
+### 15.2 統計的検定
+
+- **Egger's regression test**: 非対称性の検出
+- **Begg & Mazumdar's rank correlation test**: 補助的
+- **Trim-and-fill method** (Duval & Tweedie): 欠損研究を推定して調整後効果量を報告
+
+### 15.3 p-curve analysis
+
+Simonsohn, Nelson, & Simmons (2014) の p-curve を使用:
+- 真の効果の有無を p 値分布で判定
+- Publication bias に対する追加検証
+
+---
+
+## 16. 感度分析
+
+以下を実施し結果の頑健性を確認:
+
+1. **Risk of bias 低リスクのみ**: 高品質研究のみで再解析
+2. **Peer-reviewed のみ**: gray literature を除いた解析
+3. **Leave-one-out**: 各研究を逐次除外した再解析
+4. **Outlier 除外**: Studentized residuals > |3| を除外
+5. **Influential case 除外**: Cook's distance で判定
+6. **Facet-level vs domain-level**: facet 報告研究と domain 報告研究の差分
+
+---
+
+## 17. 使用ソフトウェア
+
+### 17.1 推奨ソフトウェア
+
+| 用途 | ツール |
+|------|--------|
+| Meta-analysis 計算 | R: `metafor` package（Viechtbauer 2010）推奨 |
+| 代替 | R: `meta` package、Stata `metan`、Comprehensive Meta-Analysis (CMA) |
+| 検索管理 | Rayyan / Covidence |
+| 書誌管理 | Zotero / EndNote |
+| Risk of bias | ROBIS / JBI checklist (manual) |
+| フォレストプロット | R `metafor::forest()` |
+| Funnel plot | R `metafor::funnel()` |
+
+### 17.2 再現性
+
+- 解析スクリプトを `metaanalysis/analysis/` 配下に保存
+- データ抽出 CSV も同 dir に保存
+- すべて Git 管理
+
+---
+
+## 18. タイムライン（推定）
+
+| フェーズ | 期間 | 内容 |
+|---------|------|------|
+| **Phase 1**: プロトコル確定 | 1 週間 | 本計画の最終化、PROSPERO 登録 |
+| **Phase 2**: データベース検索 | 1 週間 | 全 DB での検索実施、検索ログ記録 |
+| **Phase 3**: スクリーニング | 2–3 週間 | Title/abstract → Full-text eligibility |
+| **Phase 4**: Full-text 入手 | 1–2 週間 | PDF 取得、著者問合せ |
+| **Phase 5**: データ抽出 | 2–3 週間 | 全 included study の抽出 |
+| **Phase 6**: Risk of bias 評価 | 1 週間 | JBI/ROBINS-E 適用 |
+| **Phase 7**: 統計解析 | 1–2 週間 | Pooling, heterogeneity, moderators |
+| **Phase 8**: 執筆 | 3–4 週間 | Methods, Results, Discussion |
+| **Phase 9**: 内部レビュー・改訂 | 1–2 週間 | |
+| **Phase 10**: 投稿・査読対応 | 変動 | |
+
+**合計**: 約 12–20 週間（3–5 ヶ月）
+
+---
+
+## 19. 報告・成果物
+
+### 19.1 論文本体に含める図表
+
+- **Table 1**: Study characteristics of included studies
+- **Figure 1**: PRISMA 2020 flow diagram
+- **Figure 2**: Forest plot (per trait)
+- **Figure 3**: Funnel plot (per trait)
+- **Table 2**: Heterogeneity statistics and meta-regression results
+- **Table 3**: Sensitivity analysis summary
+- **Figure 4** (optional): Sub-group forest plots by modality/region
+
+### 19.2 Supplementary materials
+
+- 検索ログ（全 DB の検索式・日付・ヒット数）
+- データ抽出 CSV
+- Risk of bias 評価表
+- 除外研究リスト（除外理由付き）
+- 分析スクリプト
+
+### 19.3 投稿先候補
+
+| 優先度 | ジャーナル | IF 目安 |
+|--------|-----------|---------|
+| 高 | *Educational Psychology Review* | 10+ |
+| 高 | *Computers & Education* | 12+ |
+| 中 | *Review of Educational Research* | 13+ |
+| 中 | *Internet and Higher Education* | 8+ |
+| 中 | *Journal of Educational Psychology* | 6+ |
+| 標準 | *Education and Information Technologies* | 5+ |
+| 標準 | *Frontiers in Psychology* (Educational Psychology) | 2.5+ |
+
+### 19.4 PROSPERO 報告
+
+完成後、PROSPERO 登録内容に対する逸脱があれば透明に報告。
+
+---
+
+## 20. 倫理・利益相反
+
+### 20.1 倫理
+
+- 二次データ（既発表論文）のみ扱うため、参加者個別の倫理承認は不要
+- 著者への問合せでは、データ使用範囲・引用方針を明示
+
+### 20.2 利益相反
+
+- 筆者の先行研究（Tokiwa, 2025）を含むため、本メタ分析に利益相反の可能性あり
+- 論文内で明示的に開示
+- 可能なら先行研究を **除外した sensitivity analysis** も報告
+
+---
+
+## 21. 当面の実施ステップ（Next Actions）
+
+本計画に基づき、**次のチャットまたはセッションで最初に実施するタスク**:
+
+### Step 1: PROSPERO 事前確認（1 日）
+- PROSPERO で "Big Five online learning" 等で検索
+- 同じテーマの登録がないか確認
+- あれば scope 再検討、なければ自分の登録準備
+
+### Step 2: 検索ログ作成（2–3 日）
+- 各 DB で Section 7.2 の検索式を実行
+- ヒット数・実施日を記録
+- 全 DB のヒットを Rayyan/Zotero にインポート
+
+### Step 3: 重複除去・初回スクリーニング（1 週間）
+- Rayyan で重複除去
+- Title/abstract で第一次スクリーニング
+- この時点で既知の 28 論文（`literature_review.md` A-01 〜 A-28）がヒットすることを確認
+
+### Step 4: Full-text 取得（並行、1–2 週間）
+- `literature_review.md` の「PDF 取得優先度」に従って PDF 入手
+- 不明な書誌情報（MacLean 2022, Nishino 2018 等）を PDF で確認
+
+### Step 5: データ抽出開始
+- Section 9.1 のフィールドに基づく抽出 CSV 作成
+- まず優先度高 10 本から開始
+
+---
+
+## 22. 既知のリスクと対策
+
+| リスク | 対策 |
+|--------|------|
+| オンライン学習論文が少なすぎる（k < 10 per trait） | satisfaction 等の secondary outcome を追加、narrative synthesis に変更 |
+| 同じテーマの先行登録がある | scope を教育段階や特定地域に狭めて差別化 |
+| 効果量抽出不能論文が多い | 著者問合せ、部分的報告論文も含める、限界として明示 |
+| Publication bias が深刻 | Trim-and-fill と p-curve で調整、限界として明示 |
+| LLM 由来の著者誤認が残存 | 全 PDF で目視確認、共著者と相互チェック |
+| 単独執筆での reviewer 不足 | intra-rater reliability で代替、限界として明示 |
+
+---
+
+## 23. 参考資料
+
+### 23.1 PRISMA 関連
+- Page, M. J., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ, 372*, n71.
+- [PRISMA 2020 Checklist](http://www.prisma-statement.org/PRISMAStatement/Checklist)
+
+### 23.2 メタ分析手法
+- Borenstein, M., Hedges, L. V., Higgins, J. P. T., & Rothstein, H. R. (2021). *Introduction to Meta-Analysis* (2nd ed.). Wiley.
+- Viechtbauer, W. (2010). Conducting meta-analyses in R with the metafor package. *Journal of Statistical Software, 36*(3), 1–48.
+- Harrer, M., et al. (2021). *Doing Meta-Analysis with R: A Hands-On Guide*. CRC Press. [Free online book](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/)
+
+### 23.3 Cochrane
+- [Cochrane Handbook for Systematic Reviews of Interventions](https://training.cochrane.org/handbook)
+
+### 23.4 Risk of bias
+- [Joanna Briggs Institute Critical Appraisal Tools](https://jbi.global/critical-appraisal-tools)
+
+---
+
+**最終更新**: 本計画は執筆前段階の方針書。実際の実施時には、検索結果や PROSPERO 下調べの結果を踏まえ適宜改訂する。
