@@ -129,3 +129,78 @@
   - Openness and Conscientiousness → strong positive effect on satisfaction
   - Neuroticism → negative effect
 - **Status**: Include for satisfaction (secondary outcome)
+
+## A-07. Baruth & Cohen (2023) ✓
+
+**Citation**: Baruth, O., & Cohen, A. (2023). Personality and satisfaction with online courses: The relation between the Big Five personality traits and satisfaction with online learning activities. *Education and Information Technologies, 28*(1), 879–904. https://doi.org/10.1007/s10639-022-11199-x
+
+- **Sample**: Online-course students (Israel); neurotic vs non-neurotic group comparison
+- **Modality**: Fully online
+- **Outcomes**: Satisfaction with Techno-Pedagogical Learning Solutions (TPLS)
+- **Personality framework**: Big Five (Costa & McCrae)
+- **Key findings**:
+  - High neuroticism → lower satisfaction in online activities
+  - Significant correlations between all five traits and at least one TPLS satisfaction
+- **Status**: Include for satisfaction outcome
+
+## A-08. Bhagat, Wu, & Chang (2019) ✓
+
+**Citation**: Bhagat, K. K., Wu, L. Y., & Chang, C.-Y. (2019). The impact of personality on students' perceptions towards online learning. *Australasian Journal of Educational Technology, 35*(4), 98–108. https://doi.org/10.14742/ajet.4162
+
+- **Sample**: N = 208 students with prior online course experience (Taiwan; 96M / 112F)
+- **Modality**: Online courses (context of experience)
+- **Outcomes**: Perceptions toward online learning (POSTOL instrument)
+- **Personality framework**: Mini-IPIP (five traits: Extraversion, Agreeableness, Conscientiousness, Neuroticism, Intellect/Imagination)
+- **Key findings**:
+  - Conscientiousness and Intellect/Imagination → positive impact on perceptions
+  - Neuroticism → significant negative effect
+- **Status**: Include (perceptions outcome — eligible as satisfaction proxy)
+
+## A-09. Bhattacharjee & Ramkumar (2025) ✓
+
+**Citation**: Bhattacharjee, R., & Ramkumar, A. (2025). Effect of Big Five personality dimensions on the academic performance of college students. *Frontiers in Psychology, 16*, Article 1490427. https://doi.org/10.3389/fpsyg.2025.1490427
+
+- **Sample**: N = 384 college students (India; 220M / 164F; age 16–21; joint and nuclear families)
+- **Modality**: NOT clearly online-specific — **may be excluded** (to verify from PDF)
+- **Outcomes**: GPA
+- **Personality framework**: Big Five
+- **Key findings**: All Big Five dimensions associated with GPA (details from PDF)
+- **Status**: ⚠ Modality check required. If general academic (not online), move to supplementary section as benchmark.
+
+## A-10. Boonyapison, Sittironnarit, & Rattanaumpawan (2025) ✓
+
+**Citation**: Boonyapison, K., Sittironnarit, G., & Rattanaumpawan, P. (2025). Association between the Big Five personalities and academic performance among grade 12 students at international high school in Thailand. *Scientific Reports, 15*, Article 16484. https://doi.org/10.1038/s41598-025-01038-7
+
+- **Sample**: Grade 12 students, Mahidol University International Demonstration School (Thailand)
+- **Modality**: NOT clearly online-specific — **may be excluded** (to verify from PDF)
+- **Outcomes**: Academic performance
+- **Personality framework**: Big Five
+- **Status**: ⚠ Modality check required. If in-person, move to benchmark section.
+
+## A-11. Cheng, Chang, Quilantan-Garza, & Gutierrez (2023) ✓
+
+**Citation**: Cheng, S.-L., Chang, J.-C., Quilantan-Garza, K., & Gutierrez, M. L. (2023). Conscientiousness, prior experience, achievement emotions and academic procrastination in online learning environments. *British Journal of Educational Technology, 54*(4), 898–923. https://doi.org/10.1111/bjet.13302
+
+- **Sample**: Online-learning university students (US)
+- **Modality**: Fully online
+- **Outcomes**: Academic procrastination (mediated by achievement emotions)
+- **Personality framework**: Big Five (Conscientiousness facets: proactive / inhibitive)
+- **Key findings** (SEM):
+  - Proactive conscientiousness → ↓procrastination via enjoyment path
+  - Inhibitive conscientiousness → ↓procrastination via negative emotions path
+  - Low-C + inexperienced online learners at highest risk
+- **Status**: Include (procrastination as behavioral outcome; achievement linkage indirect)
+
+## A-12. Cohen & Baruth (2017) ✓
+
+**Citation**: Cohen, A., & Baruth, O. (2017). Personality, learning, and satisfaction in fully online academic courses. *Computers in Human Behavior, 72*, 1–12. https://doi.org/10.1016/j.chb.2017.02.030
+
+- **Sample**: University students in fully online academic course (Israel, Tel Aviv University)
+- **Modality**: Fully online
+- **Outcomes**: Satisfaction with online course
+- **Personality framework**: Big Five
+- **Key findings**:
+  - Openness and Conscientiousness predicted satisfaction
+  - Agreeableness NOT related to satisfaction
+  - Similar traits → similar preference for synchronized learning
+- **Status**: Include for satisfaction outcome
