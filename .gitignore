@@ -1,5 +1,7 @@
 # PDFs (large, stored elsewhere)
 *.pdf
+# ...except under simulation/data/
+!simulation/data/**/*.pdf
 
 # Claude Code local settings
 .claude/
