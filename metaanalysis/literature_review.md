@@ -284,3 +284,86 @@
   - Extraversion and Neuroticism (Emotional Stability) — no consistent relationships
   - Conscientiousness most consistently predicted online learning impressions
 - **Status**: Include (perceptions outcome)
+
+## A-19. MacLean (2022) ⚠
+
+**Citation**: MacLean, K. (2022). *Endorsed, or just enforced? Personality and preferences for online learning during COVID-19* [Master's thesis, University of Calgary]. PRISM Repository. https://prism.ucalgary.ca/
+
+- **Sample**: N = 465 university students (Canada, University of Calgary; cross-sectional)
+- **Modality**: Online learning during COVID
+- **Outcomes**: Preference for online learning, preference for remote work
+- **Personality framework**: **HEXACO** (not Big Five)
+- **Key findings**:
+  - HEXACO profile predicts overall online learning preference (modest effect)
+  - Honesty-Humility and Extraversion = significant negative predictors
+  - More students preferred in-person learning
+- **Status**: ⚠ **Author name requires verification** (tentatively MacLean from LLM-derived source). MSc thesis (gray literature) — typically include in meta-analysis for comprehensiveness. HEXACO framework — extract 5 shared factors with Big Five mapping.
+
+## A-20. Mustafa, Qiao, Yan, Anwar, Hao, & Rana (2022) ✓
+
+**Citation**: Mustafa, S., Qiao, Y., Yan, X., Anwar, A., Hao, T., & Rana, S. (2022). Digital students' satisfaction with and intention to use online teaching modes, role of Big Five personality traits. *Frontiers in Psychology, 13*, Article 956281. https://doi.org/10.3389/fpsyg.2022.956281
+
+- **Sample**: N = 718 bachelor's and master's students across 4 universities (Pakistan/international)
+- **Modality**: Online teaching modes during COVID
+- **Outcomes**: Satisfaction, behavioral intention to use online teaching
+- **Personality framework**: Big Five
+- **Key findings**: Big Five traits relate to both satisfaction and intention (structural model; details from PDF)
+- **Status**: Include for satisfaction outcome
+
+## A-21. Nakayama, Mutsuura, & Yamamoto (2014) ✓
+
+**Citation**: Nakayama, M., Mutsuura, K., & Yamamoto, H. (2014). Impact of learner's characteristics and learning behaviour on learning performance during a fully online course. *Electronic Journal of e-Learning, 12*(4), 394–408. https://files.eric.ed.gov/fulltext/EJ1035656.pdf
+
+- **Sample**: Students in fully online course (Japan)
+- **Modality**: Fully online
+- **Outcomes**: Test scores (weekly tests, final exam), note-taking behavior
+- **Personality framework**: Big Five
+- **Key findings** (SEM):
+  - Note-taking factors strongly correlate with Agreeableness and Conscientiousness
+  - Neuroticism correlates with NT-F3 (presentation of notes)
+  - Openness correlates with NT-F1 and NT-F2
+  - High-note-takers significantly higher on weekly and final exam scores
+- **Status**: Include (test score outcomes; full tables in PDF)
+
+## A-22. Quigley, Bradley, Playfoot, & Harrad (2022) ✓
+
+**Citation**: Quigley, M., Bradley, A. P., Playfoot, D., & Harrad, R. (2022). Personality traits and stress perception as predictors of students' online engagement during the COVID-19 pandemic. *Personality and Individual Differences, 194*, Article 111645. https://doi.org/10.1016/j.paid.2022.111645
+
+- **Sample**: N = 301 first-year psychology students (UK; data Jan–Mar 2021)
+- **Modality**: Fully online (COVID lockdown — weekly synchronous + async lectures)
+- **Outcomes**: Online Student Engagement Scale (engagement skills, emotional engagement, participation, performance)
+- **Personality framework**: Big Five Inventory
+- **Key findings**:
+  - Conscientiousness → POSITIVE predictor of all engagement types
+  - Extraversion → predicted participation and performance
+  - Neuroticism → predicted engagement skills, emotional engagement, performance
+  - Agreeableness → participation
+  - Openness → emotional engagement
+  - Hindrance-stress → negatively predicted performance
+- **Status**: Include (performance sub-scale is achievement-proxy)
+
+## A-23. Rodrigues, Rose, & Hewig (2024) ✓
+
+**Citation**: Rodrigues, J., Rose, R., & Hewig, J. (2024). The relation of Big Five personality traits on academic performance, well-being and home study satisfaction in corona times. *European Journal of Investigation in Health, Psychology and Education, 14*(2), Article 25. https://doi.org/10.3390/ejihpe14020025
+
+- **Sample**: N = 287 online German participants (Spring 2020, COVID home study)
+- **Modality**: Home study (forced online)
+- **Outcomes**: Academic performance, well-being, home-study satisfaction
+- **Personality framework**: Big Five
+- **Key findings**:
+  - Conscientiousness → ↑positive affect, ↑academic performance, ↑academic satisfaction
+  - Extraversion → positive supporting effect on affective level
+- **Status**: Include (achievement outcome)
+
+## A-24. Tlili, Sun, Denden, Kinshuk, Graf, Fei, & Wang (2023) ✓
+
+**Citation**: Tlili, A., Sun, T., Denden, M., Kinshuk, Graf, S., Fei, C., & Wang, H. (2023). Impact of personality traits on learners' navigational behavior patterns in an online course: A lag sequential analysis approach. *Frontiers in Psychology, 14*, Article 1071985. https://doi.org/10.3389/fpsyg.2023.1071985
+
+- **Sample**: Online course learners (international)
+- **Modality**: Online course
+- **Outcomes**: Navigational behavior patterns (sequential)
+- **Personality framework**: Big Five
+- **Key findings**:
+  - Different personalities → different navigational strategies
+  - Extraverts: peer profile/list navigation (extrinsic motivation)
+- **Status**: ⚠ Behavioral outcome only; achievement linkage weak. May exclude from primary analysis.
