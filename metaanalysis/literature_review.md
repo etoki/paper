@@ -437,3 +437,96 @@
 - **Outcomes**: Achievement in Chinese, Math, English, and overall
 - **Personality framework**: **MBTI (Myers-Briggs Type Indicator)** — NOT Big Five
 - **Status**: ❌ **EXCLUDE** (MBTI excluded per scope). Note: K-12 online × achievement with very large N — useful as contextual citation but not in effect-size pool.
+
+---
+
+# C. General Big Five × Academic Performance Meta-Analyses
+
+**⚠ 重要な注意**: これらは **一般的な学業成績**（オンライン学習ではなく通常の学校教育）を対象としたメタ分析である。本メタ分析の対象には含まれないが、**ベンチマーク値の参照点**として位置づける。
+
+## C-01. Poropat (2009) ✓ — 一般的学業、NOT online-specific
+
+**Citation**: Poropat, A. E. (2009). A meta-analysis of the five-factor model of personality and academic performance. *Psychological Bulletin, 135*(2), 322–338. https://doi.org/10.1037/a0014996
+
+- **Scope**: 一般的学業成績（GPA、標準化テスト等）。オンライン学習ではない
+- **k**: 138 studies, N > 70,000（当時最大）
+- **Key findings (pooled ρ)**:
+  - Conscientiousness ρ ≈ .22（最強）
+  - Openness ρ ≈ .12
+  - Agreeableness ρ ≈ .07
+  - Extraversion ρ ≈ -.01
+  - Neuroticism ρ ≈ -.04
+- **Use**: 本メタ分析における「一般的学業ベンチマーク」と「オンライン学習」の差分検証の基準点
+
+## C-02. Vedel (2014) ✓ — 一般的学業（大学レベル）、NOT online-specific
+
+**Citation**: Vedel, A. (2014). The Big Five and tertiary academic performance: A systematic review and meta-analysis. *Personality and Individual Differences, 71*, 66–76. https://doi.org/10.1016/j.paid.2014.07.011
+
+- **Scope**: 大学学業成績（tertiary level）
+- **Key findings**: C は一貫して最強。O も有意。E, A, N は混合
+- **Use**: 大学レベルのベンチマーク
+
+## C-03. Mammadov (2022) ✓ — 一般的学業、NOT online-specific
+
+**Citation**: Mammadov, S. (2022). Big Five personality traits and academic performance: A meta-analysis. *Journal of Personality, 90*(2), 222–255. https://doi.org/10.1111/jopy.12663
+
+- **Scope**: 一般的学業。特に **アジア層のサブ分析が重要**
+- **Key findings**:
+  - Asian samples: Conscientiousness ρ = **0.35**（世界平均より高い）
+  - Asian + Middle Eastern: Agreeableness ρ = 0.23 / 0.17
+  - Openness: 標準化テストで強め
+  - Neuroticism: STEM でやや負
+- **Use**: 日本サンプル用の最も近いベンチマーク（文化的コンテクスト整合）
+
+## C-04. Stajkovic, Bandura, Locke, Lee, & Sergent (2018) ✓ — NOT online-specific
+
+**Citation**: Stajkovic, A. D., Bandura, A., Locke, E. A., Lee, D., & Sergent, K. (2018). Test of three conceptual models of influence of the Big Five personality traits and self-efficacy on academic performance: A meta-analytic path-analysis. *Personality and Individual Differences, 120*, 238–245. https://doi.org/10.1016/j.paid.2017.08.014
+
+- **Scope**: 50+ prior meta-analyses の再統合
+- **Key findings**:
+  - C ρ = 0.19（最強）
+  - E = 0.10, A = 0.10, N = -0.12, O = 0.13
+  - C は認知能力コントロール後も 28% の分散を説明
+- **Use**: 最新の大規模 synthesis。本メタ分析の pooled effect と比較する基準
+
+## C-05. McAbee & Oswald (2013) ✓ — NOT online-specific
+
+**Citation**: McAbee, S. T., & Oswald, F. L. (2013). The criterion-related validity of personality measures for predicting GPA: A meta-analytic validity competition. *Psychological Assessment, 25*(2), 532–544. https://doi.org/10.1037/a0031748
+
+- **Scope**: GPA 予測のための性格測定の妥当性
+- **Use**: GPA アウトカムのベンチマーク
+
+---
+
+# D. Systematic Reviews on Online Learning × Personality
+
+## D-01. Gray & DiLoreto (2024 推定) ⚠
+
+**Citation (tentative)**: [Authors unconfirmed]. (2024). The influence of student personality traits on satisfaction and success in online education in higher education: A systematic review. *Journal of Occupational Therapy Education, 9*(2), Article 9. https://encompass.eku.edu/jote/vol9/iss2/9/
+
+- **Scope**: January 2000 – June 2024、PRISMA 準拠、848 articles screened → 23 included
+- **Status**: ⚠ 著者名未確認。PDF で要確認。本メタ分析で既存レビューとして位置づけ
+
+**📌 極めて重要**: 本レビューは **narrative synthesis** であり **meta-analysis ではない**。**オンライン学習に特化した pooled effect size を計算したメタ分析は現時点で存在しない**。これが本研究のギャップ。
+
+---
+
+# E. Japanese-Context References
+
+## E-01. Kanou (2020) ✓
+
+**Citation**: Kanou, H. (2020). Possibilities of online classes in higher education during the COVID-19 pandemic: Based on a survey of students' communication environments and ICT device ownership for online classes. *Proceedings of the 44th Annual Meeting of the Japan Society for Science Education*, 521–524. https://doi.org/10.14935/jssep.44.0_521
+
+- **Use**: 日本のオンライン学習コンテクスト記述
+
+## E-02. Komiyama (2016) ✓
+
+**Citation**: Komiyama, R. (2016). ここまできた！ アプリケーションによる個人学習：2. スタディサプリとは何か. その概要と特徴 [Personalized learning via applications: What is Study Sapuri?]. *IPSJ Magazine, 57*(9), 890–893.
+
+- **Use**: Study Sapuri プラットフォーム記述
+
+## E-03. Nishino (2018) ⚠
+
+**Citation**: Nishino, Y. (2018). 学習支援サービス「スタディサプリ」を通じたスマートフォンでの学習の可能性 [Possibility of smartphone learning via "Study Sapuri"]. *Journal of Japanese Society for Engineering Education, 66*(5), 23–28.
+
+- **Status**: ⚠ 著者名は LLM 要約由来、PDF で要確認
