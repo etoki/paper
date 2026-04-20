@@ -367,3 +367,73 @@
   - Different personalities → different navigational strategies
   - Extraverts: peer profile/list navigation (extrinsic motivation)
 - **Status**: ⚠ Behavioral outcome only; achievement linkage weak. May exclude from primary analysis.
+
+## A-25. Tokiwa (2025) ✓ [自己引用]
+
+**Citation**: Tokiwa, E. (2025). Who excels in online learning in Japan? *Frontiers in Psychology, 16*, Article 1420996. https://doi.org/10.3389/fpsyg.2025.1420996
+
+- **Sample**: N = 103 third-year high school students in Tokyo (Japan)
+- **Modality**: Online learning platform "Study Sapuri" (asynchronous video + confirmation tests); data Apr–Dec 2023
+- **Outcomes**: StudySapuri use (Number of Lectures Watched, Viewing Time, Tests Completed/Mastered, First-attempt Correct Rate)
+- **Personality framework**: BFI-2-J (Yoshino et al., 2022)
+- **Key findings (Spearman r, p<.05 bolded)**:
+  - **Conscientiousness → Tests Completed r=0.34, Mastered r=0.35** (p<.001)
+  - **Agreeableness → Lectures Watched r=0.23** (p<.05)
+  - Extraversion facet: Sociability → Lectures Watched r=−0.23, First-attempt Correct r=−0.25; Assertiveness → Tests Completed r=0.26
+  - Neuroticism (Anxiety facet) → Viewing Time (English r=0.24, Math r=0.20)
+  - Subject-specific patterns: C strongest in Japanese/English/Math/Science
+- **Status**: Include (outcome = test completion / mastery; cross-sectional correlation design)
+
+## A-26. Wang, Wang, & Li (2023) ⚠
+
+**Citation**: Wang, P., Wang, F., & Li, Z. (2023). Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era. *Frontiers in Psychology, 14*, Article 1241477. https://doi.org/10.3389/fpsyg.2023.1241477
+
+- **Sample**: N = 1,625 K-12 students in Shenzhen (China; mixed primary, junior high, senior high; public/private/international); survey Mar 2023
+- **Modality**: K-12 online learning (Dec 2022 – end of semester)
+- **Outcomes**: Academic achievement
+- **Personality framework**: Big Five — C, O, emotional stability highlighted as mediators
+- **Key findings** (SEM, ecosystem theory):
+  - Family and school investment → achievement, mediated by Big Five (especially C, O, emotional stability)
+- **Status**: Include (K-12 sample highly relevant; achievement outcome; path coefficients from PDF)
+
+## A-27. Wu & Yu (2024) ✓
+
+**Citation**: Wu, R., & Yu, Z. (2024). Relationship between university students' personalities and e-learning engagement mediated by achievement emotions and adaptability. *Education and Information Technologies, 29*, 10821–10850. https://doi.org/10.1007/s10639-023-12222-5
+
+- **Sample**: N = 1,004 students at Guizhou University (China)
+- **Modality**: E-learning
+- **Outcomes**: E-learning engagement
+- **Personality framework**: Big Five
+- **Key findings** (SEM):
+  - Extraversion, Agreeableness, Openness, Conscientiousness → POSITIVE on e-learning engagement
+  - Neuroticism → NEGATIVE on engagement
+  - Achievement emotions (enjoyment) mediate 4 traits (excluding N) → engagement
+  - Adaptability mediates 3 traits (excluding C and N) → engagement
+- **Status**: Include (engagement outcome)
+
+## A-28. Yu (2021) ✓
+
+**Citation**: Yu, Z. (2021). The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic. *International Journal of Educational Technology in Higher Education, 18*, Article 14. https://doi.org/10.1186/s41239-021-00252-3
+
+- **Sample**: N = 1,152 students (undergraduates 553, graduates 599; China); COVID-era
+- **Modality**: Online learning
+- **Outcomes**: Online learning outcomes (achievement composite)
+- **Personality framework**: Big Five
+- **Key findings**:
+  - Postgraduates > undergraduates
+  - Learners with high A, C, O > learners with high E, N
+- **Status**: Include (achievement outcome)
+
+---
+
+# B. Studies Excluded for Framework (MBTI)
+
+## B-01. Wang, Yu, Wu, et al. (2025) ❌
+
+**Citation**: Wang, Y., Yu, R., Wu, X., et al. (2025). The impact of personality type on online learning performance among high school students. *Education and Information Technologies, 30*. https://doi.org/10.1007/s10639-024-13161-5
+
+- **Sample**: N = 4,340 first-year high school students (China)
+- **Modality**: Face-to-face vs online (compared)
+- **Outcomes**: Achievement in Chinese, Math, English, and overall
+- **Personality framework**: **MBTI (Myers-Briggs Type Indicator)** — NOT Big Five
+- **Status**: ❌ **EXCLUDE** (MBTI excluded per scope). Note: K-12 online × achievement with very large N — useful as contextual citation but not in effect-size pool.
