@@ -14,18 +14,18 @@
 
 | ID | Status | Author (Year) | 主要 URL |
 |----|--------|---------------|---------|
-| A-01 | 📧 | Abe (2020) | https://doi.org/10.1016/j.iheduc.2019.100724 |
+| A-01 | ✅ | Abe (2020) | https://doi.org/10.1016/j.iheduc.2019.100724 |
 | A-02 | ✅ | Alkış & Temizel (2018) | https://www.jstor.org/stable/26458505 |
 | A-03 | ✅ | Ashouri et al. (2025) | https://pmc.ncbi.nlm.nih.gov/articles/PMC12340728/ |
 | A-04 | ✅ | Audet et al. (2021) | https://pmc.ncbi.nlm.nih.gov/articles/PMC9756973/ |
-| A-05 | 📧 | Audet et al. (2023) Unanticipated Virtual Year | https://doi.org/10.1080/10790195.2023.2250402 |
+| A-05 | ✅ | Audet et al. (2023) Unanticipated Virtual Year | https://doi.org/10.1080/10790195.2023.2250402 |
 | A-06 | ✅ | Baruth & Cohen (2021) SOAL | https://doi.org/10.1007/978-3-030-66154-0_10 |
 | A-07 | ✅ | Baruth & Cohen (2023) | https://doi.org/10.1007/s10639-022-11199-x |
 | A-08 | ✅ | Bhagat, Wu, & Chang (2019) | https://ajet.org.au/index.php/AJET/article/view/4162 |
 | A-09 | ✅ | Bhattacharjee & Ramkumar (2025) | https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1490427/full |
 | A-10 | ✅ | Boonyapison et al. (2025) | https://www.nature.com/articles/s41598-025-01038-7 |
-| A-11 | 📧 | Cheng et al. (2023) BJET | https://doi.org/10.1111/bjet.13302 |
-| A-12 | 📧 | Cohen & Baruth (2017) | https://doi.org/10.1016/j.chb.2017.02.030 |
+| A-11 | ✅ | Cheng et al. (2023) BJET | https://doi.org/10.1111/bjet.13302 |
+| A-12 | ✅ | Cohen & Baruth (2017) | https://doi.org/10.1016/j.chb.2017.02.030 |
 | A-13 | ✅ | Dang et al. (2024) | https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1476437/full |
 | A-14 | ❌ | Eilam et al. (2009) — 対面のため除外 | https://doi.org/10.1002/pits.20387 |
 | A-15 | ✅ | Elvers et al. (2003) | https://ecommons.udayton.edu/psy_fac_pub/79/ |
@@ -40,7 +40,7 @@
 | A-24 | ✅ | Tlili et al. (2023) | https://pmc.ncbi.nlm.nih.gov/articles/PMC10245556/ |
 | A-25 | 📁 | Tokiwa (2025) — `simulation/data/` に所持 | https://doi.org/10.3389/fpsyg.2025.1420996 |
 | A-26 | ✅ | Wang et al. (2023) K-12 | https://pmc.ncbi.nlm.nih.gov/articles/PMC10564997/ |
-| A-27 | 📧 | Wu & Yu (2024) | https://doi.org/10.1007/s10639-023-12222-5 |
+| A-27 | ✅ | Wu & Yu (2024) | https://doi.org/10.1007/s10639-023-12222-5 |
 | A-28 | ✅ | Yu (2021) | https://pmc.ncbi.nlm.nih.gov/articles/PMC8016506/ |
 
 ## B. Excluded（MBTI）
@@ -77,27 +77,14 @@
 
 ## 取得状況サマリ
 
-- **取得済 (✅)**: 25 本
-- **著者リクエスト中 (📧)**: 5 本（A-01, A-05, A-11, A-12, A-27）
-- **別フォルダで所持 (📁)**: 1 本（A-25 Tokiwa）
-- **スコープ外 (❌)**: 6 本（A-14 + B-01 + E-01〜E-03）
+- **取得済 (✅)**: 30 本（primary 26 + benchmark 5 − Eilam 除外）
+- **別フォルダで所持 (📁)**: 1 本（A-25 Tokiwa、`simulation/data/`）
+- **スコープ外 (❌)**: 6 本（A-14 Eilam 対面 + B-01 MBTI + E-01〜E-03 日本語）
 
-**実質的な取得率**: 25/28 primary = 89%（Eilam 2009 除外後）
+**実質的な取得率**: 27/27 primary = **100%**（A-14 除外前提）
 
-## 代替取得ルート（📧 のフォールバック）
+## 全 PDF 確保済み — 次の作業
 
-### ResearchGate 直リンク
-
-- A-01 Abe (2020): https://www.researchgate.net/publication/331923195
-- A-05 Audet (2023): McGill Motivation Lab https://www.mcgillhumanmotivation.com/special-topics
-- A-11 Cheng (2023): https://www.researchgate.net/publication/367099872
-- A-12 Cohen & Baruth (2017): https://www.researchgate.net/publication/313591234
-- A-27 Wu & Yu (2024): https://www.researchgate.net/publication/376396167
-
-### フォールバック順序
-1. ResearchGate（送信済み）
-2. Google Scholar「All versions」
-3. 著者 website / 所属大学リポジトリ
-4. 著者直接メール
-5. 図書館 ILL
-6. 除外（limitation 明記）
+1. `data_extraction.csv` の記入（`data_extraction_README.md` 参照）
+2. PROSPERO 登録（`prospero_draft.md` コピペ）
+3. R `metafor` による pooling
