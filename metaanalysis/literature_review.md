@@ -530,3 +530,117 @@
 **Citation**: Nishino, Y. (2018). 学習支援サービス「スタディサプリ」を通じたスマートフォンでの学習の可能性 [Possibility of smartphone learning via "Study Sapuri"]. *Journal of Japanese Society for Engineering Education, 66*(5), 23–28.
 
 - **Status**: ⚠ 著者名は LLM 要約由来、PDF で要確認
+
+---
+
+# F. Summary Table: Primary Studies
+
+| ID | 著者・年 | N | 国 | Level | Modality | Primary Outcome | Big Five/HEXACO |
+|----|---------|---|---|-------|---------|-----------------|-----------------|
+| A-01 | Abe (2020) | ? | US | Univ | Fully online async | Quiz / paper grade | Big Five |
+| A-02 | Alkış & Temizel (2018) | 316 | Turkey | Univ | Online + Blended | LMS use / grade | BFI |
+| A-03 | Ashouri et al. (2025) | ? | Iran | Health sci | E-learning | Satisfaction | BFI |
+| A-04 | Audet et al. (2021) | ? | Canada | Univ | Fully online (COVID) | Engagement/well-being | Big Five |
+| A-05 | Audet et al. (2023) | ? | N.America | Univ | Online (COVID) | Engagement | Big 5 (O,C) |
+| A-06 | Baruth & Cohen (2021) | ? | Israel | Univ | Synchronous online | Satisfaction | Big Five |
+| A-07 | Baruth & Cohen (2023) | ? | Israel | Univ | Fully online | Satisfaction | Big Five |
+| A-08 | Bhagat et al. (2019) | 208 | Taiwan | Univ | Online courses | Perceptions | Mini-IPIP |
+| A-09 | Bhattacharjee & Ramkumar (2025) ⚠ | 384 | India | Univ | Gen. academic? | GPA | Big Five |
+| A-10 | Boonyapison et al. (2025) ⚠ | ? | Thailand | HS | Gen. academic? | Achievement | Big Five |
+| A-11 | Cheng et al. (2023) | ? | US | Univ | Fully online | Procrastination | Big Five (C facets) |
+| A-12 | Cohen & Baruth (2017) | ? | Israel | Univ | Fully online | Satisfaction | Big Five |
+| A-13 | Dang et al. (2024) ⚠ | ? | China | Univ | Gen./online? | Engagement | Big Five |
+| A-14 | Eilam et al. (2009) ❌ | 52 | Israel | Grade 8 | Offline | Science ach. | Big Five |
+| A-15 | Elvers et al. (2003) | ? | US | Univ | Online vs Lecture | Procrastination/exam | (not FFM) |
+| A-16 | Garzón-Umerenkova et al. (2024) ⚠ | ? | Honduras/Spain | Univ | Gen. academic? | Procrastination | Big Five |
+| A-17 | Kara et al. (2024) | 437 | Turkey | Univ | Online | Engagement | Big Five |
+| A-18 | Keller & Karau (2013) | ? | US | Univ | Online | Perceptions | NEO-FFI |
+| A-19 | MacLean (2022) ⚠ | 465 | Canada | Univ | Online (COVID) | Preference | HEXACO |
+| A-20 | Mustafa et al. (2022) | 718 | Pakistan+ | Univ/Grad | Online (COVID) | Satisfaction/intent | Big Five |
+| A-21 | Nakayama et al. (2014) | ? | Japan | Univ | Fully online | Test scores | Big Five |
+| A-22 | Quigley et al. (2022) | 301 | UK | Univ | Fully online (COVID) | Engagement/performance | BFI |
+| A-23 | Rodrigues et al. (2024) | 287 | Germany | Univ | Home study (COVID) | Performance/well-being | Big Five |
+| A-24 | Tlili et al. (2023) | ? | International | Univ | Online course | Navigation behavior | Big Five |
+| A-25 | Tokiwa (2025) | 103 | Japan | HS | Online async | Tests completed/mastered | BFI-2-J |
+| A-26 | Wang et al. (2023) | 1,625 | China | K-12 | Online | Achievement | Big Five |
+| A-27 | Wu & Yu (2024) | 1,004 | China | Univ | E-learning | Engagement | Big Five |
+| A-28 | Yu (2021) | 1,152 | China | Univ/Grad | Online (COVID) | Outcomes | Big Five |
+
+**Total k (primary analysis候補)**: ~25 studies（A-14, A-15, A-24 は境界事例、A-09/A-10/A-13/A-16 はモダリティ確認後）
+
+---
+
+# G. 研究ギャップ と 本メタ分析の必要性
+
+1. **既存メタ分析は全て一般的学業対象**（オンライン学習特化のメタ分析は存在しない）
+   - Poropat 2009, Mammadov 2022, Stajkovic 2018, Vedel 2014, McAbee & Oswald 2013 — すべて一般的学業
+2. **既存レビューは narrative のみ**（D-01 Gray & DiLoreto 2024 推定 — 23 studies の質的 synthesis）
+3. **本メタ分析が初の quantitative synthesis** となる余地がある
+4. COVID 期間（2020–2023）に primary study が一気に増加 → 「収穫期」
+
+---
+
+# H. 追加で検索が必要な軸
+
+網羅性を担保するため、以下の軸で追加探索が望ましい：
+
+1. **MOOC × Big Five × dropout/performance**（1 本のみ、通常 10+ 本存在のはず）
+2. **LMS engagement × Big Five**（Alkış & Temizel 以外）
+3. **Synchronous vs asynchronous 比較**（Baruth & Cohen 以外）
+4. **Pre-COVID 定常期（2013–2019）オンライン学習**
+5. **ヨーロッパサンプル（ドイツ以外：UK, オランダ, スカンジナビア等）**
+6. **中東・アフリカ（Iran の Ashouri 以外）**
+7. **インド・東南アジア**
+8. **大学院・成人学習者**
+9. **Longitudinal 研究**
+10. **Big Five facet-level**（下位因子詳細）
+
+---
+
+# I. PDF 取得優先度
+
+メタ分析実施（効果量抽出）には PDF が必須。**最優先 10 本**（サンプル大 / 効果量明記 / モダリティ明確）：
+
+1. Wu & Yu (2024) — N=1,004, SEM モデル、効果量豊富
+2. Yu (2021) — N=1,152、明確な online outcomes
+3. Wang et al. (2023) — N=1,625, K-12 Shenzhen, SEM
+4. Mustafa et al. (2022) — N=718, SEM
+5. Kara et al. (2024) — N=437, SEM
+6. Quigley et al. (2022) — N=301, 全 Big Five × engagement 報告
+7. Rodrigues et al. (2024) — N=287, achievement 直接測定
+8. Alkış & Temizel (2018) — N=316, 明確な grade outcome
+9. Tokiwa (2025) — N=103 (自己引用), 相関行列既知
+10. Audet et al. (2021) — 基盤論文、self-efficacy / engagement
+
+**次順位 5 本**:
+11. Cohen & Baruth (2017)
+12. Keller & Karau (2013)
+13. Nakayama et al. (2014)
+14. Audet et al. (2023)
+15. Bhagat et al. (2019)
+
+**モダリティ確認必要 4 本**（online かどうかで含有判定）:
+- Bhattacharjee & Ramkumar (2025)
+- Boonyapison et al. (2025)
+- Dang et al. (2024)
+- Garzón-Umerenkova et al. (2024)
+
+**境界事例 3 本**:
+- Eilam et al. (2009) — SRL 理論参考として維持、メタ分析対象外
+- Elvers et al. (2003) — personality 測定詳細要確認
+- Tlili et al. (2023) — 行動アウトカムのみ、achievement 連結弱
+
+---
+
+# J. 検証ステータスの注意事項
+
+本一覧の **著者名・書誌情報は LLM 要約経由で再検証した結果**。過去の検索で複数の誤認が発生したため（例: Dong→Bhattacharjee, Pei→Wang, Guo→Wu, Zhou→Kara, Bhardwaj→Mustafa, Chairatana→Boonyapison）、**最終的な正確性は PDF 直接参照で確認必要**。特に以下は要再確認：
+
+- A-19 MacLean (2022) — MSc thesis author unconfirmed
+- E-03 Nishino (2018) — JSEE author unconfirmed
+- D-01 Gray & DiLoreto (2024) — JOTE 著者未確認
+- Audet et al. (2023) — volume/issue/page 未確定
+
+---
+
+**最終更新**: 本ドキュメントは執筆前段階の素材集。メタ分析本文執筆時は PDF 取得後に数値を再検証すること。
