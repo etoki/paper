@@ -204,3 +204,83 @@
   - Agreeableness NOT related to satisfaction
   - Similar traits → similar preference for synchronized learning
 - **Status**: Include for satisfaction outcome
+
+## A-13. Dang, Du, Niu, & Xu (2024) ✓
+
+**Citation**: Dang, T., Du, W., Niu, M., & Xu, Z. (2024). The effects of personality traits on learning engagement among college students: The mediating role of emotion regulation. *Frontiers in Psychology, 15*, Article 1476437. https://doi.org/10.3389/fpsyg.2024.1476437
+
+- **Sample**: College students in Shandong Province (China); published online Jan 2025, Volume 15 (2024)
+- **Modality**: General (context implies online learning engagement)
+- **Outcomes**: Learning engagement (cognitive, emotional, behavioral)
+- **Personality framework**: Big Five
+- **Key findings**:
+  - Personality traits directly affect engagement
+  - Emotion regulation partially mediates personality → engagement
+  - No significant sex/grade/major effects on Big Five means
+- **Status**: ⚠ Modality check required — may not be strictly online
+
+## A-14. Eilam, Zeidner, & Aharon (2009) ✓
+
+**Citation**: Eilam, B., Zeidner, M., & Aharon, I. (2009). Student conscientiousness, self-regulated learning, and science achievement: An explorative field study. *Psychology in the Schools, 46*(5), 420–432. https://doi.org/10.1002/pits.20387
+
+- **Sample**: N = 52 eighth-grade students (Israel); year-long inquiry-based ecology project
+- **Modality**: Field/project-based (NOT online)
+- **Outcomes**: Science achievement
+- **Personality framework**: Big Five (Conscientiousness focus)
+- **Key findings**:
+  - Conscientiousness significantly impacted achievement
+  - Enacted self-regulated learning (SRL) mediated the C → achievement path
+- **Status**: ❌ **Exclude from primary analysis** (not online). Keep as supporting reference for SRL mediation theory.
+
+## A-15. Elvers, Polzella, & Graetz (2003) ✓
+
+**Citation**: Elvers, G. C., Polzella, D. J., & Graetz, K. (2003). Procrastination in online courses: Performance and attitudinal differences. *Teaching of Psychology, 30*(2), 159–162. https://doi.org/10.1207/S15328023TOP3002_13
+
+- **Sample**: Introductory psychology students (US); randomly assigned to online vs lecture section
+- **Modality**: Online vs lecture (compared)
+- **Outcomes**: Procrastination, exam performance, class attitudes
+- **Personality framework**: Not Big Five — focus on procrastination behavior
+- **Key findings**:
+  - No overall differences in exam performance or procrastination
+  - Procrastination negatively correlated with exam scores AND attitudes — ONLY in online students, NOT lecture
+- **Status**: ⚠ Include as supporting (procrastination behavioral outcome; personality measure needed from PDF — likely minimal)
+
+## A-16. Garzón-Umerenkova, Gil-Flores, & De Besa-Gutiérrez (2024) ✓
+
+**Citation**: Garzón-Umerenkova, A., Gil-Flores, J., & De Besa-Gutiérrez, M. R. (2024). The role of Big Five traits and self-esteem on academic procrastination in Honduran and Spanish university students: A cross-cultural study. *Heliyon, 10*(17), Article e36604. https://doi.org/10.1016/j.heliyon.2024.e36604
+
+- **Sample**: University students in Honduras and Spain (cross-cultural)
+- **Modality**: General academic (not clearly online-specific)
+- **Outcomes**: Academic procrastination
+- **Personality framework**: Big Five + self-esteem
+- **Key findings**:
+  - Conscientiousness predicted procrastination in both samples
+  - Other traits varied by sample
+- **Status**: ⚠ Modality check required — may be general academic
+
+## A-17. Kara, Ergulec, & Eren (2024) ✓
+
+**Citation**: Kara, A., Ergulec, F., & Eren, E. (2024). The mediating role of self-regulated online learning behaviors: Exploring the impact of personality traits on student engagement. *Education and Information Technologies*. Advance online publication. https://doi.org/10.1007/s10639-024-12755-3
+
+- **Sample**: N = 437 university students from educational, social, and health sciences (Turkey; Kastamonu & Eskişehir Osmangazi Universities)
+- **Modality**: Online learning environment
+- **Outcomes**: Student engagement in online learning
+- **Personality framework**: Five-factor model
+- **Key findings**:
+  - Personality traits significantly predict self-regulated online learning (SROL)
+  - SROL partially mediates Big Five → engagement
+- **Status**: Include (engagement outcome)
+
+## A-18. Keller & Karau (2013) ✓
+
+**Citation**: Keller, H., & Karau, S. J. (2013). The importance of personality in students' perceptions of the online learning experience. *Computers in Human Behavior, 29*(6), 2494–2500. https://doi.org/10.1016/j.chb.2013.06.007
+
+- **Sample**: University students with online course experience (US)
+- **Modality**: Online courses
+- **Outcomes**: 5 dimensions of online course impressions (engagement, career value, overall evaluation, anxiety/frustration, preference)
+- **Personality framework**: NEO Five-Factor Inventory (short)
+- **Key findings**:
+  - Conscientiousness, Agreeableness, Openness → positive associations with engagement, career value, evaluation, preference
+  - Extraversion and Neuroticism (Emotional Stability) — no consistent relationships
+  - Conscientiousness most consistently predicted online learning impressions
+- **Status**: Include (perceptions outcome)
