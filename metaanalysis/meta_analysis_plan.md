@@ -145,3 +145,176 @@ Phase 4: Included
 ## 6. 研究 ID 割当
 
 各 included study に一意な ID を付与（例: `A-01`, `A-02`, ...）。同一著者グループの複数論文は `A-01a`, `A-01b` で区別。`literature_review.md` の ID 体系と統一。
+
+---
+
+## 7. 検索戦略
+
+### 7.1 対象データベース
+
+| 優先度 | データベース | 対象分野 |
+|--------|-------------|---------|
+| 必須 | PubMed / MEDLINE | 心理学・教育・医学 |
+| 必須 | PsycINFO (APA) | 心理学専門 |
+| 必須 | ERIC | 教育学専門 |
+| 必須 | Web of Science (Core Collection) | 多分野 SSCI |
+| 必須 | Scopus | 多分野、引用網羅 |
+| 推奨 | Google Scholar | gray literature, snowballing |
+| 推奨 | ProQuest Dissertations & Theses | 修士・博士論文 |
+| 補助 | IEEE Xplore | 工学系 online learning |
+
+### 7.2 検索文字列（英語）
+
+**Concept 1: Personality framework**
+```
+("Big Five" OR "Five-Factor Model" OR "FFM" OR "HEXACO" OR
+ "BFI" OR "NEO-PI-R" OR "NEO-FFI" OR "IPIP" OR
+ "conscientiousness" OR "openness to experience" OR "extraversion" OR
+ "agreeableness" OR "neuroticism" OR "emotional stability")
+```
+
+**Concept 2: Online learning**
+```
+("online learning" OR "e-learning" OR "distance learning" OR
+ "remote learning" OR "virtual learning" OR "blended learning" OR
+ "hybrid learning" OR "MOOC" OR "massive open online course" OR
+ "web-based learning" OR "computer-mediated learning" OR
+ "learning management system" OR "LMS" OR "online course" OR
+ "synchronous online" OR "asynchronous online")
+```
+
+**Concept 3: Outcome**
+```
+("academic performance" OR "academic achievement" OR "GPA" OR
+ "grade point average" OR "test score" OR "course grade" OR
+ "learning outcome" OR "learning performance" OR
+ "satisfaction" OR "engagement" OR "completion")
+```
+
+**最終検索式**: `Concept 1 AND Concept 2 AND Concept 3`
+
+### 7.3 検索フィルタ
+
+- 言語: English
+- Document type: Journal article, conference paper, thesis/dissertation
+- 期間: 制限なし（実質 2003 以降のみヒット見込み）
+- 除外: review article（メタ分析対象からは除外、ただし reference list は参考）
+
+### 7.4 Snowballing
+
+- Primary studies の reference list から遡及（backward）
+- Google Scholar で引用している論文をチェック（forward）
+
+### 7.5 検索ログ
+
+各 DB で実施した検索式・日付・ヒット数を記録する検索ログを `metaanalysis/search_log.md` に保存。
+
+---
+
+## 8. スクリーニング
+
+### 8.1 推奨: 2 名レビュアー体制
+
+独立した 2 名レビュアーで以下を実施:
+
+1. **Title/abstract screening**: 明らかに対象外を除外
+2. **Full-text eligibility**: 包含基準を厳密適用
+3. **Disagreement resolution**: 第 3 名仲裁 or 議論
+
+### 8.2 1 名実施時の対応
+
+単独実施の場合、ランダムに抽出した 10% サブセットを 2 回目レビュー（時間差）で実施し **intra-rater reliability** を Cohen's κ で報告。κ ≥ 0.80 推奨。
+
+### 8.3 スクリーニングツール
+
+推奨ツール（ライセンス問題なく無料）:
+- **Rayyan** (https://www.rayyan.ai/) — 体系的レビュー専用
+- **Covidence** (https://www.covidence.org/) — Cochrane 推奨
+- **Zotero** — 書誌管理＋タグ付けで代用可能
+
+---
+
+## 9. データ抽出テーブル
+
+### 9.1 抽出フィールド
+
+各 included study から以下を抽出。Excel/CSV で管理。
+
+| カテゴリ | フィールド |
+|---------|----------|
+| **Study identification** | Study ID, 1st author, year, country, DOI |
+| **Publication** | Journal/conference, volume, issue, pages |
+| **Sample** | N (total), N(analyzed), age (mean/SD/range), gender (% female), education level, sampling method |
+| **Design** | Cross-sectional / longitudinal / experimental, measurement waves |
+| **Learning context** | Modality (fully online / blended / MOOC / LMS), synchronous/asynchronous, duration, subject domain, platform name |
+| **Personality measurement** | Instrument (BFI/BFI-2/NEO-FFI/IPIP/HEXACO-PI-R 等), item count, Cronbach α (per trait), facet-level reported (Y/N) |
+| **Outcome measurement** | Type (GPA/exam/LMS activity 等), instrument, reliability, range, unit |
+| **Effect sizes** | For each Big Five × outcome pair: r (Pearson), ρ (Spearman), β (from regression), N for that pair, p-value, 95% CI |
+| **Moderator variables** | Country, year collected, COVID era (pre/during/post), education level, platform type |
+| **Risk of bias** | (Section 10 参照) |
+
+### 9.2 効果量の変換ルール
+
+報告形式が異なる場合、以下の変換を適用:
+
+| 報告形式 | 変換先 (Pearson r) |
+|---------|-------------------|
+| Spearman ρ | 近似: r ≈ ρ（軽微な調整: r = 2·sin(π·ρ/6)） |
+| Cohen's d | r = d / √(d² + 4) |
+| t-statistic | r = √(t² / (t² + df)) |
+| F(1, df) | r = √(F / (F + df)) |
+| OR | r = log(OR) × √3 / π（近似） |
+| β (bivariate) | ≈ r（近似、共変量なしの場合） |
+| β (multivariate) | 非推奨 — bivariate が報告されていれば優先 |
+
+### 9.3 Fisher's z 変換
+
+pooling 時は r を Fisher's z に変換:
+- z = 0.5 × ln((1+r)/(1-r))
+- 逆変換: r = (e^(2z) − 1) / (e^(2z) + 1)
+
+### 9.4 不足情報の対応
+
+- 相関行列が報告されていない → 著者にメールで請求（6 週間待機）
+- 返信なし → 当該論文を分析から除外（PRISMA フローで記録）
+- 部分的報告（例: 3 traits のみ）→ 該当 traits のみ pool
+
+---
+
+## 10. Risk of Bias 評価
+
+### 10.1 評価ツール
+
+**推奨: ROBINS-E (for observational exposure studies)** または **Joanna Briggs Institute (JBI) checklist for analytical cross-sectional studies**。
+
+### 10.2 評価ドメイン（JBI ベース、8 項目）
+
+1. サンプリングフレームの適切性
+2. 参加者・セッティングの記述の詳細
+3. 性格測定の validity/reliability
+4. サンプルサイズの正当性
+5. アウトカム測定の客観性
+6. 統計解析の適切性
+7. 交絡因子の同定と調整
+8. 倫理承認の報告
+
+各項目 Yes / No / Unclear で評価、総合スコア算出。
+
+### 10.3 スコア使用方針
+
+- Risk of bias を sensitivity analysis の moderator として使用
+- 低リスク研究のみの subset 分析を実施
+- 極端に低品質の研究は予備的に除外を検討
+
+---
+
+## 11. 研究間のサンプル重複対策
+
+同一著者グループが複数論文で同一データを使用することがある（特に Baruth & Cohen シリーズ、Audet et al. シリーズ）:
+
+1. 著者グループ内で複数論文を特定
+2. 各論文のサンプル特性（N, 収集期間, 国, etc.）を比較
+3. **重複と判断した場合: 最も包括的な 1 本を採用**（原則）
+4. 独立サブサンプルの場合: 別 ID として併存
+
+---
