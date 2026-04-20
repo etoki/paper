@@ -42,3 +42,90 @@
 - d: Cohen's d
 - N: サンプルサイズ
 - "p<.05" 等は統計的有意水準
+
+---
+
+# A. Primary Studies (Big Five × Online Learning)
+
+## A-01. Abe (2020) ✓
+
+**Citation**: Abe, J. A. A. (2020). Big Five, linguistic styles, and successful online learning. *The Internet and Higher Education, 45*, Article 100724. https://doi.org/10.1016/j.iheduc.2019.100724
+
+- **Sample**: Fully online asynchronous class students (US)
+- **Modality**: Fully online asynchronous
+- **Outcomes**: Online quiz performance, final paper grade
+- **Personality framework**: Big Five (Five Factor Model)
+- **Key findings**:
+  - Conscientiousness and Analytic Thinking predicted online quiz performance
+  - Openness to Experience and Analytic Thinking predicted final paper grade
+  - Other personality dimensions showed weak associations with outcomes
+  - Word Count was the most robust linguistic predictor of academic performance
+- **Status for meta-analysis**: Include (need PDF for exact effect sizes)
+
+## A-02. Alkış & Temizel (2018) ✓
+
+**Citation**: Alkış, N., & Temizel, T. T. (2018). The impact of motivation and personality on academic performance in online and blended learning environments. *Journal of Educational Technology & Society, 21*(3), 35–47.
+
+- **Sample**: N = 316 university students taking mandatory introductory IT course (Turkey)
+- **Modality**: Online and blended (compared)
+- **Outcomes**: LMS use, course grade
+- **Personality framework**: Big Five Inventory (BFI)
+- **Key findings**:
+  - Online: Conscientiousness significantly related to LMS use
+  - Blended: no significant personality-LMS use relations
+  - Conscientiousness and LMS use significantly related to course grades in BOTH environments
+  - Self-efficacy predicted LMS use in online; task value and test anxiety predicted in blended
+- **Status**: Include (effect sizes extractable from PDF)
+
+## A-03. Ashouri, Taheri, Rasouli, & Rouhalamin (2025) ✓
+
+**Citation**: Ashouri, A., Taheri, M., Rasouli, M., & Rouhalamin, S. (2025). Personality traits and e-learning course satisfaction: A study of health science students. *Cureus*. Advance online publication.
+
+- **Sample**: Health science students, Guilan University of Medical Sciences (Iran); data collected 2022
+- **Modality**: E-learning (1+ academic semester)
+- **Outcomes**: E-learning course satisfaction (NOTE: not achievement — secondary outcome eligibility)
+- **Personality framework**: Big Five Personality Inventory (BFI)
+- **Key findings**: Personality traits correlate with e-learning satisfaction (details require PDF)
+- **Status**: Secondary-outcome candidate (satisfaction only, not achievement)
+
+## A-04. Audet, Levine, Metin, Koestner, & Barcan (2021) ✓
+
+**Citation**: Audet, É. C., Levine, S. L., Metin, E., Koestner, S., & Barcan, S. (2021). Zooming their way through university: Which Big 5 traits facilitated students' adjustment to online courses during the COVID-19 pandemic. *Personality and Individual Differences, 180*, Article 110969. https://doi.org/10.1016/j.paid.2021.110969
+
+- **Sample**: University students (Canada, McGill); COVID-era
+- **Modality**: Fully online (forced transition during COVID)
+- **Outcomes**: Self-efficacy, online engagement, satisfaction, motivation quality (SDT), well-being
+- **Personality framework**: Big Five
+- **Key findings**:
+  - Conscientiousness + Openness → higher self-efficacy
+  - Openness strongly related to online engagement and well-being (intrinsic motivation path)
+  - Conscientiousness related to identified motivation
+  - Neuroticism → increase in controlled motivation
+- **Status**: Include (extract correlations for C, O, E, A, N × achievement proxies from PDF)
+
+## A-05. Audet, Levine, Dubois, Koestner, & Koestner (2023) ⚠
+
+**Citation**: Audet, É. C., Levine, S. L., Dubois, P., Koestner, S., & Koestner, R. (2023). The unanticipated virtual year: How the Big 5 personality traits of openness to experience and conscientiousness impacted engagement in online classes during the COVID-19 crisis. *Journal of College Reading and Learning*. Advance online publication. https://doi.org/10.1080/10790195.2023.2250402
+
+- **Sample**: University students (Canada/North America)
+- **Modality**: Forced online during COVID
+- **Outcomes**: Online class engagement, well-being
+- **Personality framework**: Big 5 — focus on Openness and Conscientiousness only (partial)
+- **Key findings**:
+  - Openness benefits mediated by intrinsic motivation
+  - Conscientiousness benefits mediated by self-efficacy
+  - Openness was strongly related to engagement and well-being
+- **Status**: Include (volume/issue/pages TBD from PDF)
+
+## A-06. Baruth & Cohen (2021) ✓
+
+**Citation**: Baruth, O., & Cohen, A. (2021). Exploring the relationship of the Big Five personality traits with student satisfaction with synchronous online academic learning: The case of Covid-19-induced changes. In *Blended Learning: Re-thinking and Re-defining the Learning Process* (pp. 116–130). Springer. https://doi.org/10.1007/978-3-030-66154-0_10
+
+- **Sample**: Synchronous online learners during COVID (Israel)
+- **Modality**: Synchronous online academic learning (SOAL)
+- **Outcomes**: Student satisfaction with synchronous online learning
+- **Personality framework**: Big Five
+- **Key findings**:
+  - Openness and Conscientiousness → strong positive effect on satisfaction
+  - Neuroticism → negative effect
+- **Status**: Include for satisfaction (secondary outcome)
