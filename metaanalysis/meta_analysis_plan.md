@@ -41,21 +41,33 @@ COVID-19 期（2020–2023）に primary study が急増し、現在は **初の
 
 ## 2. プレ・レジストレーション
 
-### 2.1 PROSPERO 登録
+### 2.1 OSF Registries 登録
 
-**実施予定**: 本計画を PROSPERO (https://www.crd.york.ac.uk/prospero/) に登録する。登録内容:
+**登録先変更の経緯**: 当初 PROSPERO への登録を検討したが、PROSPERO は **health-related outcome** を必須とする scope 制約があり、教育心理領域の本研究は対象外と判明（2026-04 確認）。代替として **OSF Registries** (https://osf.io/registries) を pre-registration venue として採用する。
 
-- Title, Review Question, Searches, Types of study to be included
-- Participants/population, Intervention/exposure, Comparators, Outcomes
-- Analysis plan (including moderators)
-- Timing
-- Funding, Conflicts of interest
+**実施予定**: 本計画を OSF Registries に登録する。登録形式:
+
+- **テンプレート**: OSF Preregistration (汎用、PRISMA-P 2015 準拠本文で記述)
+- **代替**: Open-Ended Registration (本 markdown を PDF 化して添付)
+- **登録本文**: `osf_registration_draft.md` を参照（PRISMA-P 17 項目準拠、コピペ投稿可能）
+- **OSF Project**: `Big Five Online Learning Meta-Analysis` を作成し、プロトコル・検索式・抽出 CSV・解析コード等を supplementary materials として公開
+
+**OSF を採用する利点**:
+- 時刻付き不変スナップショット（time-stamped, immutable registration）
+- DOI 発行によるピアレビュー時の参照可能性
+- 付随ファイル（検索ログ、抽出 CSV、R コード）の同一プロジェクト内寄託
+- Scope 制限なし（教育・心理・社会科学全般に対応）
+- バージョン管理（amendments を透明に記録可能）
 
 ### 2.2 事前チェック
 
 登録前に以下を確認:
-- [ ] 同一テーマの先行登録がないか PROSPERO 検索
-- [ ] 関連の新規 systematic review が Open Science Framework (OSF) 等に登録されていないか
+- [ ] OSF Registries で同一テーマの先行登録がないか検索
+  - 検索語: `"Big Five" "online learning" meta-analysis`
+  - 検索語: `personality "e-learning" systematic review`
+- [ ] PROSPERO でも念のため重複確認（health-adjacent な登録が無いか）
+- [ ] Google Scholar / OpenAlex で進行中の systematic review を確認
+- [ ] OSF アカウントを作成（ORCID 連携推奨）
 
 ---
 
