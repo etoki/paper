@@ -476,7 +476,7 @@ Simonsohn, Nelson, & Simmons (2014) の p-curve を使用:
 
 | フェーズ | 期間 | 内容 |
 |---------|------|------|
-| **Phase 1**: プロトコル確定 | 1 週間 | 本計画の最終化、PROSPERO 登録 |
+| **Phase 1**: プロトコル確定 | 1 週間 | 本計画の最終化、OSF Registries 登録 |
 | **Phase 2**: データベース検索 | 1 週間 | 全 DB での検索実施、検索ログ記録 |
 | **Phase 3**: スクリーニング | 2–3 週間 | Title/abstract → Full-text eligibility |
 | **Phase 4**: Full-text 入手 | 1–2 週間 | PDF 取得、著者問合せ |
@@ -523,9 +523,9 @@ Simonsohn, Nelson, & Simmons (2014) の p-curve を使用:
 | 標準 | *Education and Information Technologies* | 5+ |
 | 標準 | *Frontiers in Psychology* (Educational Psychology) | 2.5+ |
 
-### 19.4 PROSPERO 報告
+### 19.4 OSF 登録報告
 
-完成後、PROSPERO 登録内容に対する逸脱があれば透明に報告。
+完成後、OSF Registries 登録内容に対する逸脱があれば透明に報告。OSF 上で新 version を登録し、変更点・理由・日付を明記。論文本体の Methods 章にも OSF registration DOI を記載し deviations を開示する。
 
 ---
 
@@ -548,10 +548,13 @@ Simonsohn, Nelson, & Simmons (2014) の p-curve を使用:
 
 本計画に基づき、**次のチャットまたはセッションで最初に実施するタスク**:
 
-### Step 1: PROSPERO 事前確認（1 日）
-- PROSPERO で "Big Five online learning" 等で検索
-- 同じテーマの登録がないか確認
-- あれば scope 再検討、なければ自分の登録準備
+### Step 1: OSF 登録準備（1–2 日）
+- OSF Registries で "Big Five online learning meta-analysis" 等を検索し、同テーマの先行登録がないか確認
+- PROSPERO でも health-adjacent な重複登録がないか念のため確認
+- OSF アカウント作成（ORCID 連携）
+- OSF Project `Big Five Online Learning Meta-Analysis` を作成
+- `osf_registration_draft.md` の内容を OSF Preregistration テンプレートに投入し登録
+- Registration DOI を受領 → `osf_registration_draft.md` §2 と本計画 §2.1 に追記
 
 ### Step 2: 検索ログ作成（2–3 日）
 - 各 DB で Section 7.2 の検索式を実行
@@ -605,4 +608,4 @@ Simonsohn, Nelson, & Simmons (2014) の p-curve を使用:
 
 ---
 
-**最終更新**: 本計画は執筆前段階の方針書。実際の実施時には、検索結果や PROSPERO 下調べの結果を踏まえ適宜改訂する。
+**最終更新**: 本計画は執筆前段階の方針書。実際の実施時には、検索結果や OSF Registries 下調べの結果を踏まえ適宜改訂する。
