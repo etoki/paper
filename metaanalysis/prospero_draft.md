@@ -1,4 +1,21 @@
-# PROSPERO Pre-Registration Draft
+# PROSPERO Pre-Registration Draft [ARCHIVED]
+
+> **⚠ このドキュメントはアーカイブです（2026-04 時点）**
+>
+> PROSPERO は **health-related outcome** を必須とする scope 制約があり、本メタ分析（教育心理領域、学業成績アウトカム）は登録対象外と判明したため、登録先を **OSF Registries** に変更しました。
+>
+> **現行の登録下書き**: [`osf_registration_draft.md`](./osf_registration_draft.md)（PRISMA-P 2015 準拠）
+>
+> 本ファイルは以下の目的で残しています:
+> - 検討経緯の記録（なぜ PROSPERO ではなく OSF を選んだか）
+> - OSF 登録で流用可能な本文（Review title, Search strategy, Eligibility criteria 等）の参照元
+> - 将来 PROSPERO scope が拡張された場合の再利用
+>
+> 以下の内容は **編集を停止**しており、OSF 登録下書き（`osf_registration_draft.md`）が single source of truth です。
+
+---
+
+# 以下、アーカイブされた PROSPERO 登録下書き原文
 
 本ドキュメントは PROSPERO (https://www.crd.york.ac.uk/prospero/) 登録用の下書き。登録時に各フィールドへコピー＆ペースト可能な形で作成。
 

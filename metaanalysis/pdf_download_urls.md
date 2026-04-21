@@ -86,5 +86,6 @@
 ## 全 PDF 確保済み — 次の作業
 
 1. `data_extraction.csv` の記入（`data_extraction_README.md` 参照）
-2. PROSPERO 登録（`prospero_draft.md` コピペ）
+2. OSF Registries 登録（`osf_registration_draft.md` コピペ）
+   - ※ PROSPERO は health-related scope 外のため不採用。`prospero_draft.md` はアーカイブ済み
 3. R `metafor` による pooling
