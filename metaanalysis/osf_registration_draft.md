@@ -439,4 +439,279 @@ Notes:
 
 ---
 
-（以降 §13 以降は次コミットで追記）
+## 13. Outcomes and prioritization
+
+### Primary outcome
+
+```
+Academic achievement, operationalized as any of:
+- GPA (cumulative or course-specific)
+- Final course grade (percentage or letter-grade converted to numeric)
+- Exam / test score
+- Composite learning performance index reported by study authors
+
+When a study reports multiple achievement indicators, the most objective
+and distally-scored measure is prioritized in this order:
+  standardized exam > course grade > GPA > self-reported performance.
+
+Multiple effect sizes within a single sample are handled via §15
+robust variance estimation (RVE) / three-level model to avoid
+dependent-effect-size violations.
+```
+
+### Secondary outcomes (if k ≥ 10 per trait)
+
+```
+- Academic satisfaction (course satisfaction scales, Likert)
+- Academic engagement (behavioral / cognitive / emotional subscales)
+- LMS behavior (login count, time on task, completion rate)
+- Dropout / persistence
+```
+
+### Effect size metric
+
+```
+Primary: Pearson product-moment correlation coefficient (r) between
+         each Big Five trait and the outcome.
+
+Conversion rules:
+- Standardized β → r via Peterson & Brown (2005) approximation,
+  flagged as conversion and reported separately in sensitivity analysis
+- Cohen's d (group comparison) → r via formula
+  r = d / sqrt(d^2 + 4)  (for equal groups) or adjusted for n1/n2
+- η² / partial η² → r = sqrt(η²)
+- F, t statistics → r via standard formulas when df reported
+
+All effect sizes transformed to Fisher's z for pooling; back-transformed
+to r for reporting.
+```
+
+## 14. Risk of bias in individual studies
+
+```
+Instrument: Joanna Briggs Institute (JBI) Critical Appraisal Checklist
+for Analytical Cross-Sectional Studies (8 items).
+
+Assessed domains:
+  1. Clearly defined inclusion criteria for the sample
+  2. Detailed description of study subjects and setting
+  3. Valid and reliable measurement of exposure (personality inventory)
+  4. Objective, standard criteria for measurement of condition (outcome)
+  5. Identification of confounding factors
+  6. Strategies to deal with confounding factors stated
+  7. Valid and reliable measurement of outcomes
+  8. Appropriate statistical analysis
+
+Each item rated: Yes (1) / No (0) / Unclear (0) / Not applicable.
+Aggregate score: 0–8 (higher = lower risk of bias).
+
+Reviewer: ET assesses all studies; 20% random subsample re-assessed
+after ≥ 7 days for intra-rater reliability (target κ ≥ 0.80).
+
+Use of RoB in synthesis:
+- Aggregate score included as continuous moderator in meta-regression
+- Sensitivity analysis excluding studies with score < 5
+- Narrative discussion of domains with systematic weakness
+```
+
+## 15. Data synthesis
+
+### 15a. Quantitative synthesis approach
+
+```
+Yes — quantitative synthesis (meta-analysis) is planned.
+
+Model: Random-effects meta-analysis, estimated per trait (5 models for
+       Big Five, 6 if HEXACO subsample permits).
+
+Estimator: Restricted Maximum Likelihood (REML) for τ².
+
+Confidence interval: Hartung-Knapp-Sidik-Jonkman (HKSJ) adjustment to
+       address inflated Type I error in small-k scenarios (IntHout
+       et al., 2014).
+
+Effect size pooling: Pearson r transformed to Fisher's z; pooled on z
+       scale; back-transformed to r for reporting.
+
+Software: R (≥ 4.3.0) with metafor package (Viechtbauer, 2010).
+         Analysis code deposited on OSF at time of manuscript submission.
+```
+
+### 15b. Dependent effect sizes
+
+```
+When a single sample contributes multiple effect sizes (e.g., Big Five
+traits all from one dataset), dependence is handled via:
+
+Primary approach: Robust Variance Estimation (RVE) with small-sample
+       correction (Tipton, 2015) using the clubSandwich R package.
+
+Alternative approach: Three-level meta-analysis (random effects at
+       effect-size, study, and sample levels) via metafor::rma.mv,
+       reported as sensitivity check.
+
+Rationale: Trait-specific pooling means most studies contribute 5 non-
+independent effect sizes; RVE accommodates this without assuming
+independence.
+```
+
+### 15c. Heterogeneity assessment
+
+```
+Reported statistics:
+- Q (Cochran's heterogeneity test)
+- I² (percentage of variance attributable to heterogeneity)
+- τ² (between-study variance estimate)
+- τ (prediction interval scale)
+- 95% prediction interval for the population effect distribution
+
+Interpretation thresholds (Higgins et al., 2003):
+  I² ≈ 25% low, 50% moderate, 75% high.
+
+High heterogeneity triggers moderator exploration (§15d).
+```
+
+### 15d. Subgroup / moderator analyses
+
+```
+Planned moderators (a priori):
+  1. Learning modality (categorical: fully online / blended / MOOC /
+                        synchronous / asynchronous / mixed)
+  2. Education level (categorical: K-12 / undergraduate / graduate /
+                      adult / mixed)
+  3. Region (categorical: Asia / Europe / North America / Other)
+  4. Era (categorical: pre-COVID ≤ 2019 / COVID 2020–2022 /
+          post-COVID 2023–)
+  5. Outcome type (categorical: GPA / exam / LMS behavior / composite)
+  6. Personality instrument (categorical: BFI / BFI-2 / NEO-FFI /
+                             NEO-PI-R / IPIP / HEXACO / other)
+  7. Publication year (continuous)
+  8. Sample size (log-transformed, continuous)
+  9. Risk of bias aggregate score (continuous, 0–8)
+
+Analyses:
+- Subgroup analysis: separate random-effects models per subgroup plus
+  Q_between test
+- Meta-regression: mixed-effects model via metafor::rma, with QM test
+  for each moderator
+- Multiple-moderator model fit only if k > 10 per predictor level
+  (Borenstein et al., 2021 guidance)
+
+Multiple comparison correction: Holm-Bonferroni across the 9 pre-
+specified moderators within each trait.
+
+Interaction effects (e.g., era × modality) analyzed only if descriptively
+warranted and k permits; otherwise reported narratively.
+```
+
+### 15e. Sensitivity analyses
+
+```
+- Excluding low-quality studies (RoB score < 5)
+- Excluding author's prior primary study (Tokiwa, 2025) for COI
+  transparency
+- Excluding studies using converted effect sizes (β→r, d→r)
+- Excluding studies with N < 50 (small-study effects)
+- Alternative HEXACO → Big Five mapping (full exclusion vs. inclusion)
+- Leave-one-out analysis for influential single studies (Cook's distance)
+- Alternative estimator (DerSimonian-Laird vs. REML)
+```
+
+## 16. Meta-bias(es)
+
+### 16a. Publication bias
+
+```
+Assessment methods:
+- Funnel plot visualization (per trait)
+- Egger's regression test (Egger et al., 1997)
+- Peters' regression test (for log odds / correlation)
+- Trim-and-fill (Duval & Tweedie, 2000) as sensitivity, not inference
+- p-curve analysis (Simonsohn et al., 2014) for evidential value
+
+Grey literature inclusion (dissertations, conference papers) partially
+mitigates publication bias. Unpublished manuscripts excluded (quality
+threshold); this trade-off acknowledged as limitation.
+```
+
+### 16b. Selective reporting within studies
+
+```
+- Checked by cross-referencing reported effect sizes with stated
+  measures in Methods sections
+- Flagged if study mentions multiple personality traits but reports
+  only a subset
+- Author contact for missing trait-level statistics
+- Sensitivity analysis reported both with and without studies suspected
+  of selective reporting
+```
+
+## 17. Confidence in cumulative evidence
+
+```
+Evaluated using the GRADE framework adapted for observational
+correlational syntheses (Schünemann et al., 2019):
+
+Domains assessed per Big Five trait:
+  1. Risk of bias (aggregate JBI score across included studies)
+  2. Inconsistency (I², prediction interval)
+  3. Indirectness (sample, exposure, outcome relevance to review question)
+  4. Imprecision (95% CI width relative to minimum effect of interest;
+     threshold r = .10)
+  5. Publication bias (Egger, funnel asymmetry, p-curve)
+
+Upgrade considerations:
+  - Large magnitude (|r| ≥ .30)
+  - Dose-response (facet-level gradient, if data permit)
+
+Final confidence rating per trait: High / Moderate / Low / Very Low.
+Reported as GRADE Summary of Findings table in the manuscript.
+```
+
+---
+
+## 付録 A: OSF Project 構成（登録時作成予定）
+
+```
+Big Five Online Learning Meta-Analysis/
+├── 01_protocol/
+│   ├── osf_registration_draft.md          ← 本ファイル
+│   ├── meta_analysis_plan.md              ← 詳細計画
+│   └── prospero_draft_archived.md         ← PROSPERO 検討履歴
+├── 02_search/
+│   ├── search_log.csv                     ← 実施後
+│   └── search_strategy_per_database.md    ← DB 別検索式
+├── 03_screening/
+│   ├── rayyan_export.csv                  ← 実施後
+│   └── prisma_flow_counts.md              ← 実施後
+├── 04_extraction/
+│   ├── data_extraction.csv
+│   └── data_extraction_README.md
+├── 05_risk_of_bias/
+│   └── jbi_ratings.csv                    ← 実施後
+├── 06_analysis/
+│   ├── analysis_code.R                    ← metafor スクリプト
+│   ├── forest_plots/                      ← 実施後
+│   └── funnel_plots/                      ← 実施後
+└── 07_prior_research_pdfs/
+    └── （プライバシー上、PDF は公開せず index のみ公開）
+```
+
+## 付録 B: 登録後チェックリスト
+
+- [ ] OSF Registration ID / DOI を受領 → 本ファイル §2 に記入
+- [ ] `meta_analysis_plan.md` §2.1 に OSF registration URL を追記
+- [ ] 論文の Methods 章で OSF ID を明記
+- [ ] 登録内容からの deviations は OSF に新 version を登録し透明に開示
+- [ ] 検索実施後、search log を OSF に supplementary file として追加
+
+---
+
+## 参考文献
+
+- Moher, D., Shamseer, L., Clarke, M., et al. (2015). Preferred reporting items for systematic review and meta-analysis protocols (PRISMA-P) 2015 statement. *Systematic Reviews*, 4(1), 1.
+- Page, M. J., McKenzie, J. E., Bossuyt, P. M., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ*, 372, n71.
+- Viechtbauer, W. (2010). Conducting meta-analyses in R with the metafor package. *Journal of Statistical Software*, 36(3), 1–48.
+- IntHout, J., Ioannidis, J. P. A., & Borm, G. F. (2014). The Hartung-Knapp-Sidik-Jonkman method for random effects meta-analysis is straightforward and considerably outperforms the standard DerSimonian-Laird method. *BMC Medical Research Methodology*, 14, 25.
+- Tipton, E. (2015). Small sample adjustments for robust variance estimation with meta-regression. *Psychological Methods*, 20(3), 375–393.
+- Schünemann, H. J., Higgins, J. P. T., Vist, G. E., et al. (2019). Completing 'Summary of findings' tables and grading the certainty of the evidence. In *Cochrane Handbook for Systematic Reviews of Interventions* (Chapter 14).
