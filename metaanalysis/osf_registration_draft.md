@@ -184,4 +184,259 @@ and face-to-face personality–achievement patterns are equivalent).
 
 ---
 
-（以降 §8 以降は次コミットで追記）
+## 8. Eligibility criteria
+
+### 8a. Participants / population
+
+```
+Included: Students of any educational level (K-12, undergraduate, graduate,
+adult learners) enrolled in online learning environments. No geographic,
+linguistic, or demographic restriction on participants.
+
+Excluded:
+- Fully face-to-face samples with no online learning component
+- Non-human learners (e.g., AI agents, simulated students)
+- Samples with N < 10 (insufficient statistical information)
+```
+
+### 8b. Intervention / exposure
+
+```
+Big Five personality traits (Conscientiousness, Openness to Experience,
+Extraversion, Agreeableness, Neuroticism) or HEXACO personality traits
+(adding Honesty-Humility; H-Emotionality mapped to Big Five Neuroticism
+per Ashton & Lee, 2007) measured by validated inventories:
+
+- BFI / BFI-2 / BFI-44
+- NEO-PI-R / NEO-FFI / NEO-FFI-3
+- IPIP (any Big Five-scored variant)
+- HEXACO-PI-R / HEXACO-60
+- Other peer-reviewed Big Five-aligned scales with published reliability
+
+Excluded:
+- MBTI (non-Big Five typology)
+- Ad-hoc / unvalidated scales without published psychometric properties
+- Single-trait measures (e.g., Grit-only) not mappable to Big Five
+```
+
+### 8c. Comparator
+
+```
+Not applicable. This is a meta-analysis of observational correlational
+studies. No explicit comparator group is required. Moderator analyses
+(§15) effectively compare effect sizes across modalities, eras, etc.
+```
+
+### 8d. Outcomes
+
+```
+Primary: Academic achievement — GPA, course grade, exam/test score,
+         learning performance, or equivalent quantitative academic outcome.
+
+Secondary (if sufficient studies): academic satisfaction, academic
+         engagement, learning-related behaviors (LMS activity, completion
+         rates, dropout).
+```
+
+### 8e. Study design
+
+```
+Included:
+- Cross-sectional correlational studies
+- Longitudinal / prospective studies reporting cross-sectional statistics
+- Dissertations with peer-review-equivalent quality
+
+Excluded:
+- Qualitative-only studies
+- Commentary, editorial, narrative review (but reference lists will be
+  hand-searched)
+- Single case studies (N < 10)
+- Studies without extractable effect size statistics (after author
+  contact)
+```
+
+### 8f. Report characteristics
+
+```
+Language: English only (due to single-reviewer resource constraints;
+          limitation acknowledged in Discussion).
+Date: No restriction. Year of publication included as moderator.
+Publication status: Peer-reviewed journal articles, conference papers,
+          and dissertations included. Unpublished manuscripts and
+          preprints excluded to maintain quality threshold.
+```
+
+## 9. Information sources
+
+```
+Electronic databases to be searched:
+- PubMed / MEDLINE
+- PsycINFO (APA PsycNET)
+- ERIC (Education Resources Information Center)
+- Web of Science (Core Collection)
+- Scopus
+- ProQuest Dissertations & Theses Global
+
+Supplementary sources:
+- Google Scholar (first 200 hits per query, as recommended by Haddaway
+  et al., 2015)
+- Forward and backward reference snowballing from all included studies
+  and from prior meta-analyses (Poropat 2009, Vedel 2014, Stajkovic 2018,
+  Mammadov 2022)
+- Author contact for unpublished statistics or clarifications
+
+Grey literature:
+- ProQuest Dissertations (covered above)
+- No additional grey literature search (limitation acknowledged)
+
+Search date: Initial search planned 2026-MM-DD. Search will be updated
+             prior to final analysis if > 6 months elapse.
+```
+
+## 10. Search strategy
+
+```
+Three concept blocks combined with AND. Within each block, terms
+combined with OR. Draft strategy (for PubMed; adapted per database):
+
+Concept 1 — Personality (Big Five / HEXACO):
+  "Big Five"[tiab] OR "Five-Factor Model"[tiab] OR "FFM"[tiab]
+  OR "HEXACO"[tiab] OR "BFI"[tiab] OR "NEO-PI-R"[tiab] OR "NEO-FFI"[tiab]
+  OR "IPIP"[tiab] OR "conscientiousness"[tiab] OR "openness"[tiab]
+  OR "extraversion"[tiab] OR "agreeableness"[tiab] OR "neuroticism"[tiab]
+  OR "emotional stability"[tiab] OR "personality traits"[tiab]
+
+AND
+
+Concept 2 — Online learning:
+  "online learning"[tiab] OR "e-learning"[tiab] OR "distance learning"[tiab]
+  OR "remote learning"[tiab] OR "virtual learning"[tiab]
+  OR "blended learning"[tiab] OR "hybrid learning"[tiab] OR "MOOC"[tiab]
+  OR "massive open online course"[tiab] OR "web-based learning"[tiab]
+  OR "computer-mediated learning"[tiab] OR "learning management system"[tiab]
+  OR "LMS"[tiab] OR "online course"[tiab] OR "synchronous online"[tiab]
+  OR "asynchronous online"[tiab]
+
+AND
+
+Concept 3 — Academic outcomes:
+  "academic performance"[tiab] OR "academic achievement"[tiab] OR "GPA"[tiab]
+  OR "grade point average"[tiab] OR "test score"[tiab] OR "course grade"[tiab]
+  OR "learning outcome"[tiab] OR "learning performance"[tiab]
+  OR "academic success"[tiab]
+
+Limits: English language; publication date unrestricted.
+
+The full executed strategy (database-specific syntax, filters, hit counts,
+dates) will be deposited on OSF as a supplementary file upon completion.
+```
+
+## 11. Study records
+
+### 11a. Data management
+
+```
+- Search results exported as RIS/BibTeX from each database
+- Imported into Zotero (master library) for de-duplication
+- Screening conducted in Rayyan (https://rayyan.ai/) for blinded
+  title/abstract screening workflow
+- Included full-text PDFs stored under metaanalysis/prior_research/
+  (already collected 27/27 primary studies as of protocol registration)
+- Data extraction in structured CSV (metaanalysis/data_extraction.csv)
+- All files version-controlled on Git + archived on OSF
+```
+
+### 11b. Selection process
+
+```
+Single-reviewer workflow (resource constraint; mitigated by procedures
+below):
+
+Stage 1 — Title/abstract screening:
+  One reviewer (ET) screens all records against the eligibility criteria
+  (§8). A 10% random subsample is re-screened after a ≥ 7-day interval
+  to compute intra-rater reliability (Cohen's κ); target κ ≥ 0.80.
+  If κ < 0.80, criteria are refined and full set is re-screened.
+
+Stage 2 — Full-text assessment:
+  Retrieved full texts are assessed against detailed eligibility criteria.
+  Exclusion reasons are recorded per PRISMA 2020.
+  A 20% random subsample is re-assessed after a ≥ 7-day interval
+  (κ target ≥ 0.80).
+
+Disagreements (intra-rater): resolved by re-reading the full text and
+  documenting the final decision with rationale.
+
+Limitation: absence of a second independent reviewer is an acknowledged
+  limitation; sensitivity analyses will be reported.
+```
+
+### 11c. Data collection process
+
+```
+One reviewer (ET) extracts data using the pre-specified extraction form
+(metaanalysis/data_extraction.csv, see data_extraction_README.md).
+A 10% random subsample is re-extracted after a ≥ 7-day interval to
+compute extraction reliability; target κ ≥ 0.80 for categorical fields,
+ICC(2,1) ≥ 0.90 for continuous fields.
+
+Authors will be contacted by email (up to two attempts, ≥ 2 weeks apart)
+for missing statistics, unclear sample characteristics, or data on
+online-only subsamples. Non-response after two attempts will be recorded
+as "author unreachable."
+```
+
+## 12. Data items
+
+```
+Extracted fields (full specification in data_extraction_README.md):
+
+Study identification:
+  - Author(s), year, DOI, source (journal/proceedings/dissertation)
+  - Country of first author, country of data collection
+
+Sample characteristics:
+  - Total N, analytic N
+  - Age mean/SD/range
+  - Gender composition (% female)
+  - Education level (K-12 / undergraduate / graduate / adult / mixed)
+  - Discipline / subject domain
+  - Recruitment method
+
+Learning context:
+  - Modality (fully online / blended / MOOC / synchronous /
+    asynchronous / mixed)
+  - Platform (LMS name, if reported)
+  - Course duration (weeks)
+  - Era (pre-COVID ≤ 2019 / COVID 2020–2022 / post-COVID 2023–)
+
+Personality measure:
+  - Instrument name (BFI, NEO-FFI, IPIP, HEXACO, etc.)
+  - Item count
+  - Reliability (α or ω) per trait
+  - HEXACO → Big Five mapping flag
+
+Outcome measure:
+  - Instrument (GPA, course grade, exam score, LMS behavior, etc.)
+  - Timing (concurrent / prospective)
+  - Reliability (if applicable)
+
+Effect sizes:
+  - Pearson r per trait × outcome (primary)
+  - β, partial r, d, η² (secondary — convertible to r)
+  - 95% CI or SE
+  - p-value
+  - Sample size used for each effect size
+
+Risk of bias (§14):
+  - 8-domain JBI ratings
+  - Aggregate score (0–8)
+
+Notes:
+  - Any deviation from protocol, author contact outcomes, coding
+    ambiguities
+```
+
+---
+
+（以降 §13 以降は次コミットで追記）
