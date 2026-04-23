@@ -204,6 +204,102 @@ def build_abstract(doc):
     # APA keywords use italicized "Keywords:" label; for simplicity we keep plain.
 
 
+def add_h2(doc, text):
+    p = doc.add_paragraph(text, style="Heading 2")
+    set_double_space(p)
+    return p
+
+
+def build_intro_part1(doc):
+    """Introduction opening + Personality benchmarks subsection."""
+    p = doc.add_paragraph("Introduction", style="Heading 1")
+    set_double_space(p)
+
+    opening = (
+        "Academic performance in higher education has shifted dramatically in the past "
+        "decade, first through the gradual adoption of learning management systems and "
+        "massive open online courses, and then, abruptly, through the COVID-19 pandemic, "
+        "which forced millions of students worldwide into fully online or blended "
+        "learning environments. As of 2023, a substantial proportion of post-secondary "
+        "instruction continues to be delivered online or in hybrid modalities, even in "
+        "contexts where face-to-face teaching is again available. This structural shift "
+        "raises a fundamental question: do the non-cognitive predictors of academic "
+        "achievement that were established in face-to-face classrooms retain their "
+        "predictive validity when instruction is mediated by technology? Personality "
+        "traits, and in particular the Big Five (Five-Factor Model) dimensions of "
+        "Conscientiousness, Openness to Experience, Extraversion, Agreeableness, and "
+        "Neuroticism, are among the most widely studied non-cognitive predictors of "
+        "academic achievement (Mammadov, 2022; Poropat, 2009). Yet the accumulated meta-"
+        "analytic evidence, as reviewed below, has been produced almost entirely from "
+        "samples in which delivery modality is treated as noise rather than as a "
+        "substantive moderator. The present review is the first to address this gap "
+        "quantitatively."
+    )
+    add_para(doc, opening, indent_first=True)
+
+    add_h2(doc, "Personality and Academic Achievement in Face-to-Face Contexts")
+
+    p1 = (
+        "Eight large-scale meta-analyses have established a robust pattern of "
+        "associations between the Big Five personality traits and academic achievement. "
+        "Poropat (2009), synthesizing 138 samples and over 70,000 participants, "
+        "reported a corrected correlation of ρ = .22 between Conscientiousness and "
+        "academic performance, with smaller but significant effects for Openness "
+        "(ρ = .12) and Agreeableness (ρ = .07), and essentially null effects for "
+        "Extraversion (ρ = −.01) and Neuroticism (ρ = .02). These findings were "
+        "replicated and extended by McAbee and Oswald (2013; k = 57, N = 26,382; C "
+        "ρ = .26) and by Vedel (2014; k = 21, N = 17,717; C ρ = .26), both restricted "
+        "to tertiary education. Stajkovic, Bandura, Locke, Lee, and Sergent (2018) "
+        "provided additional evidence that Conscientiousness predicts academic "
+        "achievement both directly and indirectly through self-efficacy, with the "
+        "self-efficacy path carrying a substantial proportion of the Conscientiousness "
+        "effect (β = .24 to .33)."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    p2 = (
+        "More recent syntheses have substantially expanded the evidence base. Mammadov "
+        "(2022), in the largest meta-analysis to date (267 independent samples, N = "
+        "413,074), reported a corrected pooled correlation of ρ = .27 for "
+        "Conscientiousness and ρ = .16 for Openness, and documented a striking "
+        "cultural moderation effect in which Asian samples showed markedly stronger "
+        "associations (C ρ = .35; A ρ = .23; N ρ = −.19). Meyer, Jansen, Hübner, and "
+        "Lüdtke (2023), focusing exclusively on K-12 samples (110 samples, N = "
+        "500,218), obtained even larger estimates (C ρ = .24; O ρ = .21) and "
+        "identified domain specificity as a critical moderator: Openness was "
+        "substantially stronger for language than for STEM domains, while "
+        "Conscientiousness effects were larger for grades than for standardized tests. "
+        "This latter finding was theorized under the Personality-Achievement Saturation "
+        "Hypothesis (PASH), which posits that the behavioral signals captured by "
+        "Conscientiousness (e.g., on-task engagement, homework completion) are more "
+        "visible to teachers assigning grades than to standardized test scorers. Zell "
+        "and Lesick (2021), in a second-order synthesis of 54 meta-analyses, confirmed "
+        "the stability of these effects, with academic-specific estimates of C ρ = "
+        ".28 and E ρ = −.01. Most recently, Chen, Cheung, and Zeng (2025), examining "
+        "84 articles and 370 independent correlations restricted to university students "
+        "with samples of at least 200 participants, reported somewhat smaller estimates "
+        "(C r = .206; O r = .081; A r = .082; E r = −.009; N r = −.029), consistent "
+        "with the idea that stricter methodological inclusion criteria attenuate "
+        "apparent trait-performance relationships."
+    )
+    add_para(doc, p2, indent_first=True)
+
+    p3 = (
+        "Across these eight meta-analyses, a convergent picture emerges: "
+        "Conscientiousness is the dominant predictor of academic achievement "
+        "(ρ = .19 to .28), with Openness serving as a reliable secondary predictor "
+        "(ρ = .07 to .21). Agreeableness exhibits small positive effects "
+        "(ρ = .04 to .10), and Extraversion and Neuroticism are generally near zero "
+        "in academic contexts, although both may show meaningful directional effects "
+        "under specific moderators. Critically, however, none of these eight meta-"
+        "analyses has tested learning modality—online, blended, face-to-face, or "
+        "MOOC—as a moderator. The samples pooled in these syntheses were drawn almost "
+        "entirely from traditional classroom contexts, or from contexts in which "
+        "delivery modality was not reported."
+    )
+    add_para(doc, p3, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -213,6 +309,7 @@ def main():
     build_declarations(doc)
     doc.add_page_break()
     build_abstract(doc)
+    build_intro_part1(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
