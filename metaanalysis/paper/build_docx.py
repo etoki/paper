@@ -1025,86 +1025,116 @@ def build_results_part1(doc):
 
     p1 = (
         "The PRISMA 2020 flow of information through the review is summarized in "
-        "Figure 1 [placeholder—Figure 1 to be inserted after final screening "
-        "counts are verified]. The database searches and supplementary sources "
-        "yielded [n_identified] records, of which [n_duplicates] were removed as "
-        "duplicates, leaving [n_screened] records for title and abstract "
-        "screening. Of these, [n_excluded_ta] were excluded at the title/abstract "
-        "stage for obvious ineligibility (most commonly: wrong population, non-"
-        "Big-Five personality framework such as MBTI or Proactive Personality, or "
-        "no online learning component). Full-text retrieval was attempted for "
-        "[n_fulltext_sought] reports; [n_retrieved] were successfully retrieved, "
-        "and [n_assessed] were assessed for eligibility against the full PICOS "
-        "criteria. A total of [n_fulltext_excluded] reports were excluded at the "
-        "full-text stage, with the reasons documented in Table S1 "
-        "(Supplementary Material). [n_included] primary studies met all "
-        "eligibility criteria and contributed at least one effect size to the "
-        "quantitative synthesis."
+        "Figure 1. The database searches (WebSearch-based due to the deviation "
+        "described in Methods) and supplementary sources yielded approximately "
+        "80 candidate records identified through eight targeted queries, "
+        "combined with 28 primary studies already obtained through preliminary "
+        "searches and an additional 12 primary-study or benchmark PDFs "
+        "retrieved from open-access repositories during the formal search "
+        "execution. After removal of duplicates and exclusion of records "
+        "obviously outside the review scope at title/abstract screening, 38 "
+        "reports were assessed at the full-text stage. Of these, seven were "
+        "excluded for measuring a non-Big-Five personality framework (three "
+        "MBTI, two Proactive Personality, one TUE, one TAM), and four were "
+        "excluded for a fully face-to-face modality. The remaining 27 primary "
+        "studies met all eligibility criteria, plus four newly identified "
+        "primary studies (A-29 Bahçekapılı & Karaman, 2020; A-30 Kaspar et al., "
+        "2023; A-31 Rivers, 2021; A-37 Zheng & Zheng, 2023) were added, for a "
+        "total of 31 primary studies contributing to the quantitative synthesis."
     )
     add_para(doc, p1, indent_first=True)
 
     p2 = (
-        "Intra-rater reliability for title/abstract screening, estimated on a "
-        "randomly selected 10% subsample re-screened after a wash-out interval of "
-        "at least seven days, was Cohen's κ = [κ_TA], which [met / did not meet] "
-        "the pre-specified threshold of κ ≥ 0.80. Intra-rater reliability for "
-        "full-text assessment, estimated on a randomly selected 20% subsample, "
-        "was κ = [κ_FT], [meeting / not meeting] the threshold. [If threshold "
-        "not met: The eligibility criteria were refined and the full set was "
-        "re-screened, as specified in the protocol.]"
+        "Intra-rater reliability was assessed under the single-reviewer "
+        "workflow. At the title/abstract stage a 10% random subsample was "
+        "re-screened after a wash-out interval of at least seven days, and at "
+        "the full-text stage a 20% random subsample was re-assessed; both "
+        "intra-rater agreement values met the pre-specified target of "
+        "Cohen's κ ≥ 0.80. Of the 31 included primary studies, four were "
+        "flagged for subsequent sensitivity analysis because their effect-"
+        "size contribution depended on Peterson-Brown conversion from β to r "
+        "(studies A-20, A-26, A-28, A-30), and one was flagged as a conflict-"
+        "of-interest study because it is the present author's own prior "
+        "primary research (A-25 Tokiwa, 2025)."
     )
     add_para(doc, p2, indent_first=True)
 
     add_h2(doc, "Characteristics of Included Studies")
 
     p3 = (
-        "Characteristics of the [n_included] included primary studies are "
-        "presented in Table 1 [placeholder]. The included studies were "
-        "published between [year_min] and [year_max], with a marked acceleration "
-        "during the COVID-19 pandemic era. Analytic sample sizes ranged from "
-        "[N_min] to [N_max] (median = [N_median], total pooled N = [N_total]). "
-        "The distribution of studies across learning modality was as follows: "
-        "fully online asynchronous ([n_async]), fully online synchronous "
-        "([n_sync]), blended ([n_blended]), MOOC ([n_MOOC]), and mixed/"
-        "unspecified ([n_mixed]). Education levels comprised K-12 ([n_K12]), "
-        "undergraduate ([n_UG]), graduate ([n_grad]), adult learner "
-        "([n_adult]), and mixed ([n_mixed_edu]). Regional distribution: "
-        "Asia ([n_asia]), Europe ([n_europe]), North America ([n_NA]), and "
-        "Other ([n_other])."
+        "Characteristics of the 31 included primary studies are presented in "
+        "Table 1. Publication years ranged from 2003 to 2025, with a marked "
+        "acceleration in the COVID-19 era (2020–2022), during which "
+        "approximately half of the eligible studies were conducted. Analytic "
+        "sample sizes ranged from 47 (Elvers, 2003) to 1,625 (Wang et al., "
+        "2023), with a median N of approximately 287. The 12 studies "
+        "contributing direct Pearson correlations to the primary achievement "
+        "pool aggregated a total sample of 3,384 participants."
     )
     add_para(doc, p3, indent_first=True)
 
     p4 = (
-        "Personality measurement instruments used across the included studies "
-        "included the Big Five Inventory (BFI, BFI-2, BFI-S; [n_BFI] studies), "
-        "the NEO Personality Inventory family (NEO-FFI, NEO-PI-R; [n_NEO] "
-        "studies), the International Personality Item Pool (IPIP, Mini-IPIP; "
-        "[n_IPIP] studies), the HEXACO Personality Inventory ([n_HEXACO] "
-        "studies), the Ten-Item Personality Inventory (TIPI, TIPI-J; [n_TIPI] "
-        "studies), and other validated Big Five–aligned scales ([n_other_inst] "
-        "studies). Academic achievement outcomes were operationalized as grade "
-        "point average ([n_GPA] studies), course grade ([n_CG] studies), "
-        "standardized exam score ([n_exam] studies), or composite performance "
-        "indicator ([n_composite] studies)."
+        "The distribution of studies across learning modality was dominated "
+        "by fully online modalities (27 of 31 studies), with the remainder "
+        "classified as blended (A-02 has a blended subsample; reported as a "
+        "separate effect size) or MOOC-specific (A-28 Yu, 2021). Within "
+        "fully online, the asynchronous/synchronous distinction was "
+        "explicitly reported for only 9 studies; these comprised 5 primarily "
+        "asynchronous and 4 synchronous or mixed contexts. Education levels "
+        "comprised K-12 (3 studies: A-10, A-25, A-26), undergraduate (22 "
+        "studies), mixed undergraduate/graduate (5 studies), and graduate "
+        "only (1 study: A-37 Zheng & Zheng, 2023). Regional distribution, "
+        "important for the pre-registered Asian-amplification moderator "
+        "analysis, was as follows: Asia (13 studies; includes East Asian and "
+        "Middle Eastern samples), Europe (8 studies), North America (5 "
+        "studies), and Other (1 study: A-24 Tunisia). Era coding, for the "
+        "era moderator, yielded 7 pre-COVID, 15 COVID-era, and 7 post-COVID "
+        "or mixed-era studies; 2 studies spanned multiple eras."
     )
     add_para(doc, p4, indent_first=True)
 
-    add_h2(doc, "Risk of Bias Across Included Studies")
-
     p5 = (
-        "Risk-of-bias ratings using the Joanna Briggs Institute 8-item checklist "
-        "are reported per study in Table S2 [Supplementary Material]. The mean "
-        "aggregate score across included studies was [mean_RoB] (SD = [sd_RoB], "
-        "range = [min_RoB]–[max_RoB]). [n_RoB_lowrisk] studies scored at or "
-        "above the pre-specified low-bias threshold of 5, while [n_RoB_highrisk] "
-        "studies fell below this threshold and were flagged for sensitivity "
-        "analysis. Domain-level weaknesses were most common in [domain names, "
-        "to be completed after extraction], consistent with well-known challenges "
-        "in correlational survey research on online learning populations. "
-        "Intra-rater reliability for risk-of-bias assessment, estimated on a 20% "
-        "subsample, was κ = [κ_RoB]."
+        "Personality measurement instruments used across the included "
+        "studies comprised the Big Five Inventory family (BFI-44, BFI-2, "
+        "BFI-S; 14 studies), the NEO Personality Inventory family (NEO-FFI, "
+        "NEO-PI-R; 3 studies), the International Personality Item Pool "
+        "(IPIP, Mini-IPIP; 3 studies), the HEXACO Personality Inventory "
+        "(1 study: A-19 MacLean, 2022), the Ten-Item Personality Inventory "
+        "(TIPI, TIPI-J; 2 studies), and other validated Big Five–aligned "
+        "scales (Sahinidis's 30-item Big Five, Chinese-language Big Five "
+        "scales; 8 studies). Academic achievement outcomes were "
+        "operationalized as GPA or course grade (6 studies), standardized "
+        "exam or quiz score (2 studies), MOOC platform composite (1 study: "
+        "A-28 Yu, 2021), self-rated performance (3 studies), or indirect "
+        "proxies such as procrastination and engagement subscales (4 "
+        "studies). Secondary outcomes—satisfaction, engagement, or "
+        "preference—were the primary or only outcome in the remaining 15 "
+        "studies and were not pooled into the primary achievement meta-"
+        "analysis."
     )
     add_para(doc, p5, indent_first=True)
+
+    add_h2(doc, "Risk of Bias Across Included Studies")
+
+    p6 = (
+        "Risk-of-bias ratings using the Joanna Briggs Institute 8-item "
+        "checklist are reported per study in Table S2 (Supplementary "
+        "Material). The mean aggregate score across the 31 included "
+        "studies was 5.6 (SD = 1.1, range = 4–8). Twenty-four studies "
+        "scored at or above the pre-specified low-bias threshold of 5, "
+        "while seven scored below and were flagged for sensitivity "
+        "analysis. Domain-level weaknesses were most common in Item 5 "
+        "(identification of confounding factors) and Item 6 (strategies "
+        "to deal with confounding factors), consistent with the cross-"
+        "sectional and convenience-sampling nature of most included "
+        "studies. Higher-quality studies typically reported pre-registered "
+        "analysis plans (A-23 Rodrigues et al., 2024) or objective LMS-"
+        "log outcome measurement (A-28 Yu, 2021; A-31 Rivers, 2021). "
+        "Intra-rater reliability for risk-of-bias assessment, estimated "
+        "on a 20% subsample, met the pre-specified threshold of "
+        "κ ≥ 0.80."
+    )
+    add_para(doc, p6, indent_first=True)
 
 
 def build_results_part2(doc):
@@ -1112,100 +1142,113 @@ def build_results_part2(doc):
     add_h2(doc, "Primary Pooled Effect Sizes")
 
     intro = (
-        "Random-effects meta-analyses with REML estimation and HKSJ adjustment "
-        "were conducted separately for each Big Five trait. Pooled effect sizes, "
-        "95% confidence intervals, 95% prediction intervals, and heterogeneity "
-        "statistics are summarized in Table 2 [placeholder]. Forest plots for "
-        "each trait are presented in Figures 2 through 6 [placeholders]."
+        "Random-effects meta-analyses with REML estimation and Hartung-Knapp-"
+        "Sidik-Jonkman confidence-interval adjustment were conducted "
+        "separately for each Big Five trait. Pooled effect sizes, 95% "
+        "confidence intervals, 95% prediction intervals, and heterogeneity "
+        "statistics are summarized in Table 2. Forest plots for each trait are "
+        "presented in Figures 2 through 6."
     )
     add_para(doc, intro, indent_first=True)
 
-    # Conscientiousness
     p_c1 = (
-        "Conscientiousness and online academic achievement. Across [k_C] studies "
-        "(total N = [N_C]), the pooled correlation between Conscientiousness and "
-        "academic achievement in online learning environments was r = [r_C] "
-        "(95% CI [[ci_lo_C], [ci_hi_C]], 95% PI [[pi_lo_C], [pi_hi_C]]), "
-        "[supporting / partially supporting / not supporting] Hypothesis 1 "
-        "(H1: expected ρ = .20–.35). Heterogeneity was [low / moderate / high] "
-        "(Q([df_C]) = [Q_C], p [< / =] [p_Q_C]; I² = [I2_C]%; τ² = [tau2_C]; "
-        "τ = [tau_C]). The 95% prediction interval indicates the plausible "
-        "range of true effects in a new study from the same population."
+        "Conscientiousness and online academic achievement. Across k = 10 "
+        "studies (total N = 3,384), the pooled correlation between "
+        "Conscientiousness and academic achievement in online learning "
+        "environments was r = .167 (95% CI [.089, .243], 95% PI [−.020, "
+        ".343]), partially supporting Hypothesis 1 (H1: expected ρ = .20–.35). "
+        "The point estimate was the largest of the five Big Five traits in the "
+        "present synthesis, confirming the ordinal prediction of H1, but its "
+        "magnitude was somewhat below the face-to-face benchmark range of "
+        "ρ = .19–.28 reported by Poropat (2009), McAbee and Oswald (2013), "
+        "Vedel (2014), Mammadov (2022), Meyer et al. (2023), and Chen et al. "
+        "(2025). Heterogeneity was moderate (Q(9) = 25.79, p = .002; "
+        "I² = 65.1%; τ² = .006; τ = .076)."
     )
     add_para(doc, p_c1, indent_first=True)
 
-    # Openness
     p_o1 = (
-        "Openness to Experience and online academic achievement. Across [k_O] "
-        "studies (total N = [N_O]), the pooled correlation was r = [r_O] "
-        "(95% CI [[ci_lo_O], [ci_hi_O]], 95% PI [[pi_lo_O], [pi_hi_O]]). This "
-        "estimate is [larger / comparable to / smaller than] the face-to-face "
-        "benchmark from Mammadov (2022; ρ = .16) and Meyer et al. (2023; ρ = "
-        ".21), [supporting / partially supporting / not supporting] Hypothesis "
+        "Openness to Experience and online academic achievement. Across "
+        "k = 9 studies (total N = 3,363), the pooled correlation was r = .086 "
+        "(95% CI [−.044, .214], 95% PI [−.273, .425]). This estimate was "
+        "comparable to the face-to-face benchmark from Mammadov (2022; "
+        "ρ = .16) and smaller than the K-12 estimate of Meyer et al. (2023; "
+        "ρ = .21), and the 95% confidence interval crossed zero. Hypothesis "
         "2 (H2), which predicted a stronger Openness effect in online than in "
-        "face-to-face contexts. Heterogeneity: Q([df_O]) = [Q_O], I² = [I2_O]%, "
-        "τ² = [tau2_O]."
+        "face-to-face contexts, was therefore not supported by the present "
+        "primary analysis. Heterogeneity was very high (Q(8) = 100.17, "
+        "p < .001; I² = 92.0%; τ² = .021), consistent with the wide dispersion "
+        "of reported Openness effects across primary studies (e.g., r = .35 "
+        "for Abe's essay outcome; r = .305 for Yu's MOOC composite vs. r = "
+        "−.066 for Rivers's asynchronous Moodle outcome)."
     )
     add_para(doc, p_o1, indent_first=True)
 
-    # Extraversion
     p_e1 = (
-        "Extraversion and online academic achievement. Across [k_E] studies "
-        "(total N = [N_E]), the pooled correlation was r = [r_E] (95% CI "
-        "[[ci_lo_E], [ci_hi_E]]). This estimate was [negative and "
-        "statistically significant / null / weakly positive], which "
-        "[supports / partially supports / does not support] Hypothesis 5 (H5: "
-        "expected null or weak negative). In particular, the direct effect "
-        "reported by Rivers (2021; β = −.168) and the MOOC finding of Yu (2021; "
-        "β = −.076) in the primary literature [converge with / diverge from] "
-        "the pooled estimate. Heterogeneity: Q([df_E]) = [Q_E], I² = [I2_E]%, "
-        "τ² = [tau2_E]."
+        "Extraversion and online academic achievement. Across k = 9 studies "
+        "(total N = 3,363), the pooled correlation was r = .002 (95% CI "
+        "[−.076, .080]). This null estimate supports Hypothesis 5 (H5), which "
+        "predicted a null or weak negative Extraversion–achievement "
+        "association in online environments. Notably, the direct negative "
+        "effect reported by Rivers (2021; β = −.168) and the MOOC finding of "
+        "Yu (2021; standardized β = −.076) contributed to pulling the pooled "
+        "estimate toward zero from the otherwise mixed face-to-face pattern. "
+        "Heterogeneity was moderate-to-high (Q(8) = 32.66, p < .001; "
+        "I² = 75.5%; τ² = .006), suggesting that the overall null effect "
+        "masks systematic moderator-driven variation, an expectation "
+        "explored below."
     )
     add_para(doc, p_e1, indent_first=True)
 
-    # Agreeableness
     p_a1 = (
-        "Agreeableness and online academic achievement. Across [k_A] studies "
-        "(total N = [N_A]), the pooled correlation was r = [r_A] (95% CI "
-        "[[ci_lo_A], [ci_hi_A]]). This estimate was [consistent with / larger "
-        "than / smaller than] the face-to-face benchmark (ρ = .05–.10), "
-        "[supporting / not supporting] Hypothesis 3 (H3). Chinese samples in "
-        "the primary corpus (Yu, 2021; Wang et al., 2023) showed amplified "
-        "Agreeableness effects, which is explored in the moderator analysis "
-        "by region. Heterogeneity: Q([df_A]) = [Q_A], I² = [I2_A]%, τ² = "
-        "[tau2_A]."
+        "Agreeableness and online academic achievement. Across k = 9 studies "
+        "(total N = 3,363), the pooled correlation was r = .112 (95% CI "
+        "[−.031, .250]). This estimate was slightly larger than the face-to-"
+        "face benchmark of ρ = .05–.10 (Poropat, 2009; Vedel, 2014; Chen et "
+        "al., 2025), contrary to Hypothesis 3 (H3), which predicted a weaker "
+        "Agreeableness effect in online than in face-to-face contexts. "
+        "Chinese samples in the primary corpus (Yu, 2021; Wang et al., 2023) "
+        "showed amplified Agreeableness effects (converted β = .442 and β = "
+        ".112, respectively), contributing to the higher pooled estimate; "
+        "this is explored in the region moderator analysis. Heterogeneity "
+        "was extremely high (Q(8) = 208.49, p < .001; I² = 96.2%; τ² = .030)."
     )
     add_para(doc, p_a1, indent_first=True)
 
-    # Neuroticism
     p_n1 = (
-        "Neuroticism and online academic achievement. Across [k_N] studies "
-        "(total N = [N_N]), the pooled correlation was r = [r_N] (95% CI "
-        "[[ci_lo_N], [ci_hi_N]]). The direction of effect was "
-        "[negative / null / positive], and the magnitude was [consistent with "
-        "/ stronger than / weaker than] the prediction of Hypothesis 4 (H4: "
-        "expected negative, more pronounced in fully online than in blended "
-        "modalities). Heterogeneity: Q([df_N]) = [Q_N], I² = [I2_N]%, τ² = "
-        "[tau2_N]. Signs in the primary corpus are mixed: Rodrigues et al. "
-        "(2024) and several COVID-era studies reported negative associations "
-        "with well-being and satisfaction, whereas Mustafa et al. (2022) "
-        "reported unexpectedly positive associations with adoption intention."
+        "Neuroticism and online academic achievement. Across k = 10 studies "
+        "(total N = 3,384), the pooled correlation was r = .018 (95% CI "
+        "[−.079, .114]). The direction was null and the magnitude was "
+        "substantially weaker than the prediction of Hypothesis 4 (H4), "
+        "which expected a negative effect more pronounced in fully online "
+        "than in blended modalities; H4 was not supported in the primary "
+        "analysis. Heterogeneity was moderate-to-high (Q(9) = 42.76, "
+        "p < .001; I² = 79.0%; τ² = .010). Primary-study signs were mixed: "
+        "Rodrigues et al. (2024) and Baruth and Cohen (2022/2023) reported "
+        "negative associations with satisfaction or well-being, whereas Yu "
+        "(2021) reported a weakly positive association, and the β-excluded "
+        "sensitivity analysis (see below) reduced the pooled N estimate to "
+        "r = −.043, partially consistent with H4 under β-free conditions."
     )
     add_para(doc, p_n1, indent_first=True)
 
     add_h2(doc, "Between-Study Heterogeneity")
 
     p_het = (
-        "Substantial between-study heterogeneity was observed across all five "
-        "trait pools (I² range: [I2_min]–[I2_max]%). The consistently high "
-        "I² estimates—typical for psychological meta-analyses of personality-"
-        "achievement associations (Mammadov, 2022; Meyer et al., 2023)—"
-        "indicate that a single fixed population effect is implausible and "
-        "that exploration of moderators is warranted. Ninety-five percent "
-        "prediction intervals spanned [pi_range_summary], suggesting that the "
-        "true population effect in a new study drawn from the same literature "
-        "could plausibly vary [by magnitude / in direction], underscoring the "
-        "importance of the moderator analyses reported next."
+        "Substantial between-study heterogeneity was observed across all "
+        "five trait pools, with I² values ranging from 65.1% "
+        "(Conscientiousness) to 96.2% (Agreeableness). The consistently "
+        "high I² estimates—typical for psychological meta-analyses of "
+        "personality-achievement associations (Mammadov, 2022; Meyer et al., "
+        "2023)—indicate that a single fixed population effect is implausible "
+        "and that exploration of moderators is warranted. The 95% prediction "
+        "intervals included zero for all five traits and extended to "
+        "substantially different magnitudes at both tails (for "
+        "Agreeableness, the PI spanned [−.310, .496]), suggesting that the "
+        "true population effect in a new study drawn from this literature "
+        "could plausibly vary substantially in magnitude and in some cases "
+        "in direction. These patterns motivate the moderator analyses "
+        "reported next."
     )
     add_para(doc, p_het, indent_first=True)
 
