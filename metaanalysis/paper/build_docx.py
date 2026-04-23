@@ -2231,6 +2231,108 @@ def build_table4_sensitivity(doc):
     run2.font.size = Pt(11)
 
 
+def build_table5_grade(doc):
+    """Table 5: GRADE Summary of Findings per trait."""
+    doc.add_page_break()
+    _add_table_title(
+        doc, 5,
+        "GRADE Summary of Findings: Confidence in the Pooled Associations "
+        "Between Big Five Personality Traits and Academic Achievement in "
+        "Online Learning Environments",
+    )
+
+    data = [
+        ["Trait (k, N)", "Risk of Bias", "Inconsistency",
+         "Indirectness", "Imprecision", "Publication Bias",
+         "Magnitude", "GRADE"],
+        ["Conscientiousness\n(k=10, N=3,384)",
+         "Not serious\n(mean JBI=5.9)",
+         "Serious\n(I²=65.1%)",
+         "Not serious",
+         "Not serious\n(CI width=.15)",
+         "Not serious\n(Egger p=.094)",
+         "Small\n(r=.167)",
+         "Moderate"],
+        ["Openness\n(k=9, N=3,363)",
+         "Not serious\n(mean JBI=5.7)",
+         "Very serious\n(I²=92.0%)",
+         "Not serious",
+         "Serious\n(CI crosses 0)",
+         "Serious\n(Egger p=.045) †",
+         "Small\n(r=.086)",
+         "Low"],
+        ["Extraversion\n(k=9, N=3,363)",
+         "Not serious\n(mean JBI=5.8)",
+         "Serious\n(I²=75.5%)",
+         "Not serious",
+         "Not serious\n(null robust)",
+         "Not serious\n(Egger p=.255)",
+         "Null\n(r=.002)",
+         "Moderate"],
+        ["Agreeableness\n(k=9, N=3,363)",
+         "Not serious\n(mean JBI=5.7)",
+         "Very serious\n(I²=96.2%)",
+         "Not serious",
+         "Serious\n(CI crosses 0)",
+         "Serious\n(Egger p=.072) †",
+         "Small\n(r=.112)",
+         "Low"],
+        ["Neuroticism\n(k=10, N=3,384)",
+         "Not serious\n(mean JBI=5.9)",
+         "Serious\n(I²=79.0%)",
+         "Not serious",
+         "Serious\n(null, wide CI)",
+         "Not serious\n(Egger p=.304)",
+         "Null\n(r=.018)",
+         "Low"],
+    ]
+
+    table = doc.add_table(rows=len(data), cols=len(data[0]))
+    table.style = "Light Grid Accent 1"
+    for i, row in enumerate(data):
+        for j, val in enumerate(row):
+            cell = table.rows[i].cells[j]
+            cell.text = val
+            if i == 0:
+                for para in cell.paragraphs:
+                    for run in para.runs:
+                        run.bold = True
+    _style_table(table)
+
+    p_note = doc.add_paragraph()
+    set_double_space(p_note)
+    run = p_note.add_run("Note. ")
+    run.italic = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(11)
+    run2 = p_note.add_run(
+        "GRADE = Grading of Recommendations, Assessment, Development and "
+        "Evaluations, adapted for observational correlational syntheses "
+        "(Schünemann et al., 2019). Five standard domains are evaluated per "
+        "trait: Risk of Bias (mean JBI aggregate score across studies in "
+        "the pool; serious if mean < 5), Inconsistency (I² and prediction "
+        "interval; serious if I² > 50%, very serious if I² > 75%), "
+        "Indirectness (population, exposure, or outcome indirectness "
+        "relative to the review question), Imprecision (serious if 95% CI "
+        "crosses the null or is wider than 2 × MOI of |r| = .10), and "
+        "Publication Bias (serious if Egger's test is significant at "
+        "p < .05 with asymmetric funnel plot). Magnitude (|r|) is "
+        "provided for descriptive context but was not grounds for upgrade "
+        "under the large-magnitude criterion of |r| ≥ .30. Dagger (†) "
+        "denotes Egger's test intercept suggestive of small-study or "
+        "publication bias. GRADE ratings: High = further research is very "
+        "unlikely to change confidence; Moderate = further research is "
+        "likely to have an important impact; Low = further research is "
+        "very likely to have an important impact; Very Low = any estimate "
+        "of effect is very uncertain. All estimates in the present "
+        "synthesis fall within the Moderate-to-Low confidence range, "
+        "reflecting the modest k of the available online-specific "
+        "literature."
+    )
+    run2.font.name = "Times New Roman"
+    run2.font.size = Pt(11)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -2258,6 +2360,7 @@ def main():
     build_table2_pooled(doc)
     build_table3_moderators(doc)
     build_table4_sensitivity(doc)
+    build_table5_grade(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
