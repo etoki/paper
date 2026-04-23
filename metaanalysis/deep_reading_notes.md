@@ -715,17 +715,108 @@ R²=.30
 
 ---
 
-## A-08. Bhagat et al. (2019)
-**TBD**: Phase 2 で精読
+## A-08. Keller & Karau (2013) 🔴 **lit review 著者誤認 — 訂正必要**
 
-## A-09. Bhattacharjee & Ramkumar (2025) ⚠
-**TBD**: Phase 2 で精読
+**重要**: lit review では "Bhagat et al. 2019" だが、実 PDF は **Keller & Karau (2013)** — 完全に異なる論文（Bhagat 2019 は実は A-18 の PDF）。
 
-## A-10. Boonyapison et al. (2025) ⚠
-**TBD**: Phase 2 で精読
+**Citation**: Keller, H., & Karau, S. J. (2013). The importance of personality in students' perceptions of the online learning experience. *Computers in Human Behavior, 29*(6), 2494–2500. https://doi.org/10.1016/j.chb.2013.06.007
+**Modality**: Fully online (Blackboard, async) | **Country**: USA Southeast | **Era**: pre-COVID
 
-## A-11. Cheng et al. (2023)
-**TBD**: Phase 2 で精読
+### Sample
+- N=250, mixed (59% UG + 41% Grad), M age 35 (range 19–57), 73% female
+- Discipline: business 36%, nursing 26%, integrated 13%, education 10%, etc.
+- IPIP 50-item; α: E=.87, A=.83, C=.81, ES=.86, O=.77
+
+### Effect sizes (Table 2: r with OCI subscales)
+
+| Trait | r × Engagement | r × Career value | r × Overall eval | r × Anxiety | r × Online pref |
+|-------|---------------|------------------|------------------|-------------|----------------|
+| **C** | **.39** | .26 | **.32** | -.24 | .17 |
+| O | .18 | .21 | — | — | — |
+| A | — | .25 | — | — | — |
+| E | .02–.12 (ns) | — | — | — | — |
+| ES | — | .18 | — | — | — |
+
+(全て p<.01)
+
+### Key findings
+- C が 5 OCI subscales 全てで最 stable な予測因子
+- O と A は career value のみ
+- E は全 OCI と無関連
+
+### Status: **Ambiguous** — 副次（OCI=perceptions/satisfaction, no GPA）プールに include 可
+### ⚠ **Authorship correction needed in literature_review.md**（A-08 = Keller & Karau, NOT Bhagat）
+### RoB: **5/8**
+
+---
+
+## A-09. Rani Bhattacharjee & Ramkumar (2025) ❌ **EXCLUDE**
+
+**Citation**: Rani Bhattacharjee, R., & Ramkumar, A. (2025). Effect of big five personality dimensions on the academic performance of college students. *Frontiers in Psychology, 16*, 1490427.
+**Modality**: **Face-to-face** (Tamil Nadu engineering college; not online) | **Country**: India | **Era**: post-COVID
+
+### Sample
+- N=384 (purposive from 600), 1st-year engineering, 43% female
+- BFI 44; Goldberg 1993; α .76–.84
+
+### Effect sizes
+- 個別 r 報告なし; group means (GPA>7 vs <7) のみ
+- C のみ有意差（M=36.26 vs 29.75, t<.001, d≈1.35）
+- N が逆方向で高 GPA 群高い（反直感）
+
+### Status: ❌ **EXCLUDE** — オンライン要素なし（face-to-face engineering）
+### RoB: **4/8**
+
+---
+
+## A-10. Boonyapison, Sittironnarit & Rattanaumpawan (2025) ❌ **EXCLUDE**
+
+**Citation**: Boonyapison, K., Sittironnarit, G., & Rattanaumpawan, P. (2025). Association between the big five personalities and academic performance among grade 12 students at international high school in Thailand. *Scientific Reports, 15*, 16484.
+**Modality**: **Face-to-face** (international high school physical classes) | **Country**: Thailand | **Era**: post-COVID
+
+### Sample
+- N=203 (response 81%), Grade 12, M age 17.19, 66% female
+- BFI 44 English; α 未報告
+
+### Effect sizes (group means; multivariable OR Table 3)
+- C のみ独立予測（aOR=1.89 [1.12–3.20]）, AA M=3.31 vs AN M=3.12 (p=.02)
+- 他 4 特性 ns
+- 関連: Female gender (aOR=2.66), high BMI 負, physical activity 負
+
+### Status: ❌ **EXCLUDE** — オンライン要素なし（K-12 face-to-face）
+### RoB: **6/8**
+
+---
+
+## A-11. Cheng, Chang, Quilantan-Garza & Gutierrez (2023)
+
+**Citation**: Cheng, S.-L., Chang, J.-C., Quilantan-Garza, K., & Gutierrez, M. L. (2023). Conscientiousness, prior experience, achievement emotions and academic procrastination in online learning environments. *British Journal of Educational Technology, 54*(4), 898–923.
+**Modality**: **Fully online** (COVID lockdown Taiwan) | **Country**: Taiwan | **Era**: COVID 2021
+
+### Sample
+- N=746 (response 65%), mixed (68% secondary + 32% postsecondary)
+- 53% female, M age 18.02
+- BFI 9 C items only（C only — proactive ω=.92, inhibitive ω=.86）
+- Procrastination: Yockey 2016 5 items, ω=.96
+
+### Effect sizes（latent SEM, Table 2）
+
+| Trait | r × Procrastination | r × Enjoyment | r × Anxiety | r × Hopelessness | r × Boredom |
+|-------|---------------------|---------------|-------------|------------------|-------------|
+| C-proactive | -.24 | +.24 | — | — | — |
+| C-inhibitive | **-.39** | — | -.27 | -.26 | -.30 |
+
+O/E/A/N: **未測定**
+
+### Key findings
+- C-inhibitive facet が procrastination と最強関連
+- 負の感情が procrastination の主要近接因
+- Prior online experience は indirect via emotions
+
+### Status: **Include with caveats** — C のみ、procrastination 副次プール
+### RoB: **6/8**
+
+---
 
 ## A-12. Cohen & Baruth (2017)
 **TBD**: Phase 2 で精読
