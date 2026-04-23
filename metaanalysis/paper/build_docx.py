@@ -1107,6 +1107,109 @@ def build_results_part1(doc):
     add_para(doc, p5, indent_first=True)
 
 
+def build_results_part2(doc):
+    """Primary pooled effects for each Big Five trait + overall heterogeneity."""
+    add_h2(doc, "Primary Pooled Effect Sizes")
+
+    intro = (
+        "Random-effects meta-analyses with REML estimation and HKSJ adjustment "
+        "were conducted separately for each Big Five trait. Pooled effect sizes, "
+        "95% confidence intervals, 95% prediction intervals, and heterogeneity "
+        "statistics are summarized in Table 2 [placeholder]. Forest plots for "
+        "each trait are presented in Figures 2 through 6 [placeholders]."
+    )
+    add_para(doc, intro, indent_first=True)
+
+    # Conscientiousness
+    p_c1 = (
+        "Conscientiousness and online academic achievement. Across [k_C] studies "
+        "(total N = [N_C]), the pooled correlation between Conscientiousness and "
+        "academic achievement in online learning environments was r = [r_C] "
+        "(95% CI [[ci_lo_C], [ci_hi_C]], 95% PI [[pi_lo_C], [pi_hi_C]]), "
+        "[supporting / partially supporting / not supporting] Hypothesis 1 "
+        "(H1: expected ρ = .20–.35). Heterogeneity was [low / moderate / high] "
+        "(Q([df_C]) = [Q_C], p [< / =] [p_Q_C]; I² = [I2_C]%; τ² = [tau2_C]; "
+        "τ = [tau_C]). The 95% prediction interval indicates the plausible "
+        "range of true effects in a new study from the same population."
+    )
+    add_para(doc, p_c1, indent_first=True)
+
+    # Openness
+    p_o1 = (
+        "Openness to Experience and online academic achievement. Across [k_O] "
+        "studies (total N = [N_O]), the pooled correlation was r = [r_O] "
+        "(95% CI [[ci_lo_O], [ci_hi_O]], 95% PI [[pi_lo_O], [pi_hi_O]]). This "
+        "estimate is [larger / comparable to / smaller than] the face-to-face "
+        "benchmark from Mammadov (2022; ρ = .16) and Meyer et al. (2023; ρ = "
+        ".21), [supporting / partially supporting / not supporting] Hypothesis "
+        "2 (H2), which predicted a stronger Openness effect in online than in "
+        "face-to-face contexts. Heterogeneity: Q([df_O]) = [Q_O], I² = [I2_O]%, "
+        "τ² = [tau2_O]."
+    )
+    add_para(doc, p_o1, indent_first=True)
+
+    # Extraversion
+    p_e1 = (
+        "Extraversion and online academic achievement. Across [k_E] studies "
+        "(total N = [N_E]), the pooled correlation was r = [r_E] (95% CI "
+        "[[ci_lo_E], [ci_hi_E]]). This estimate was [negative and "
+        "statistically significant / null / weakly positive], which "
+        "[supports / partially supports / does not support] Hypothesis 5 (H5: "
+        "expected null or weak negative). In particular, the direct effect "
+        "reported by Rivers (2021; β = −.168) and the MOOC finding of Yu (2021; "
+        "β = −.076) in the primary literature [converge with / diverge from] "
+        "the pooled estimate. Heterogeneity: Q([df_E]) = [Q_E], I² = [I2_E]%, "
+        "τ² = [tau2_E]."
+    )
+    add_para(doc, p_e1, indent_first=True)
+
+    # Agreeableness
+    p_a1 = (
+        "Agreeableness and online academic achievement. Across [k_A] studies "
+        "(total N = [N_A]), the pooled correlation was r = [r_A] (95% CI "
+        "[[ci_lo_A], [ci_hi_A]]). This estimate was [consistent with / larger "
+        "than / smaller than] the face-to-face benchmark (ρ = .05–.10), "
+        "[supporting / not supporting] Hypothesis 3 (H3). Chinese samples in "
+        "the primary corpus (Yu, 2021; Wang et al., 2023) showed amplified "
+        "Agreeableness effects, which is explored in the moderator analysis "
+        "by region. Heterogeneity: Q([df_A]) = [Q_A], I² = [I2_A]%, τ² = "
+        "[tau2_A]."
+    )
+    add_para(doc, p_a1, indent_first=True)
+
+    # Neuroticism
+    p_n1 = (
+        "Neuroticism and online academic achievement. Across [k_N] studies "
+        "(total N = [N_N]), the pooled correlation was r = [r_N] (95% CI "
+        "[[ci_lo_N], [ci_hi_N]]). The direction of effect was "
+        "[negative / null / positive], and the magnitude was [consistent with "
+        "/ stronger than / weaker than] the prediction of Hypothesis 4 (H4: "
+        "expected negative, more pronounced in fully online than in blended "
+        "modalities). Heterogeneity: Q([df_N]) = [Q_N], I² = [I2_N]%, τ² = "
+        "[tau2_N]. Signs in the primary corpus are mixed: Rodrigues et al. "
+        "(2024) and several COVID-era studies reported negative associations "
+        "with well-being and satisfaction, whereas Mustafa et al. (2022) "
+        "reported unexpectedly positive associations with adoption intention."
+    )
+    add_para(doc, p_n1, indent_first=True)
+
+    add_h2(doc, "Between-Study Heterogeneity")
+
+    p_het = (
+        "Substantial between-study heterogeneity was observed across all five "
+        "trait pools (I² range: [I2_min]–[I2_max]%). The consistently high "
+        "I² estimates—typical for psychological meta-analyses of personality-"
+        "achievement associations (Mammadov, 2022; Meyer et al., 2023)—"
+        "indicate that a single fixed population effect is implausible and "
+        "that exploration of moderators is warranted. Ninety-five percent "
+        "prediction intervals spanned [pi_range_summary], suggesting that the "
+        "true population effect in a new study drawn from the same literature "
+        "could plausibly vary [by magnitude / in direction], underscoring the "
+        "importance of the moderator analyses reported next."
+    )
+    add_para(doc, p_het, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -1125,6 +1228,7 @@ def main():
     build_methods_part4(doc)
     build_methods_part5(doc)
     build_results_part1(doc)
+    build_results_part2(doc)
     build_references(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
