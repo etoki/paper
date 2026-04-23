@@ -1335,6 +1335,105 @@ def build_results_part3(doc):
     add_para(doc, p8, indent_first=True)
 
 
+def build_discussion_part1(doc):
+    """Discussion heading + Summary of findings + Hypothesis evaluation."""
+    p = doc.add_paragraph("Discussion", style="Heading 1")
+    set_double_space(p)
+
+    add_h2(doc, "Summary of Findings")
+
+    p1 = (
+        "The present systematic review and meta-analysis provides the first "
+        "quantitative synthesis of the association between Big Five personality "
+        "traits and academic achievement in online learning environments. Across "
+        "[n_included] included primary studies (total pooled N = [N_total]), the "
+        "pooled correlation between Conscientiousness and online academic "
+        "achievement was r = [r_C] (95% CI [[ci_lo_C], [ci_hi_C]]), with "
+        "comparable estimates for Openness (r = [r_O]), Extraversion (r = [r_E]), "
+        "Agreeableness (r = [r_A]), and Neuroticism (r = [r_N]). The pattern of "
+        "pooled effects was [broadly consistent with / partially divergent from] "
+        "established face-to-face benchmarks, with [summary of the most "
+        "important modality-specific findings—e.g., a stronger Openness effect "
+        "in online contexts; a negative Extraversion effect in fully online "
+        "asynchronous settings; and an amplified Agreeableness effect in "
+        "collectivistic cultural contexts]."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    add_h2(doc, "Evaluation of Pre-registered Hypotheses")
+
+    p_h1 = (
+        "Hypothesis 1 (Conscientiousness as strongest positive predictor). The "
+        "pooled Conscientiousness–achievement correlation of r = [r_C] "
+        "[fell within / fell below / exceeded] the pre-specified range of .20 "
+        "to .35. H1 is therefore [supported / partially supported / not "
+        "supported]. The magnitude of the C effect in online environments was "
+        "[comparable to / larger than / smaller than] the face-to-face "
+        "benchmarks reported by Poropat (2009; ρ = .22), McAbee and Oswald "
+        "(2013; ρ = .26), Vedel (2014; ρ = .26), Mammadov (2022; ρ = .27), and "
+        "Chen et al. (2025; r = .206), [consistent with / inconsistent with] "
+        "the expectation that the self-regulation demands of online learning "
+        "would preserve or amplify the Conscientiousness advantage."
+    )
+    add_para(doc, p_h1, indent_first=True)
+
+    p_h2 = (
+        "Hypothesis 2 (Openness as second-strongest positive predictor). The "
+        "pooled Openness–achievement correlation (r = [r_O]) [was / was not] "
+        "the second-largest positive effect in the present synthesis. Compared "
+        "with the face-to-face benchmarks (Mammadov, 2022; ρ = .16; Meyer et "
+        "al., 2023; ρ = .21), the online estimate was [larger / comparable / "
+        "smaller], [supporting / not supporting] the prediction that online "
+        "environments place a premium on self-directed exploration. [If "
+        "supported: The enlarged Openness effect converges with the theoretical "
+        "mechanism proposed by Meyer et al. (2023) under the Personality-"
+        "Achievement Saturation Hypothesis, extended to technology-mediated "
+        "settings.]"
+    )
+    add_para(doc, p_h2, indent_first=True)
+
+    p_h3 = (
+        "Hypothesis 3 (Agreeableness as small positive effect, weaker than FtF). "
+        "The pooled Agreeableness–achievement correlation was r = [r_A], "
+        "[consistent with / inconsistent with] the face-to-face benchmark range "
+        "of .05 to .10. H3 is [supported / partially supported / not "
+        "supported]. The pattern was strongly moderated by region: in Asian "
+        "samples, Agreeableness effects were substantially larger (r = "
+        "[r_A_Asia]), replicating the pattern reported by Mammadov (2022) and "
+        "Yu (2021). This finding suggests that the cooperative-learning premium "
+        "in collectivistic cultural contexts may offset the general prediction "
+        "of weaker Agreeableness effects in asynchronous online environments."
+    )
+    add_para(doc, p_h3, indent_first=True)
+
+    p_h4 = (
+        "Hypothesis 4 (Neuroticism as negative, more pronounced in fully online). "
+        "The pooled Neuroticism–achievement correlation was r = [r_N], and the "
+        "modality moderator analysis [did / did not] reveal a more negative "
+        "effect in fully online than in blended modalities. H4 is [supported / "
+        "partially supported / not supported]. [If supported: The pattern "
+        "converges with Rodrigues et al. (2024) and with the theoretical "
+        "mechanism that isolation and technology-related stressors "
+        "disproportionately affect anxious learners.]"
+    )
+    add_para(doc, p_h4, indent_first=True)
+
+    p_h5 = (
+        "Hypothesis 5 (Extraversion as null or weak negative). The pooled "
+        "Extraversion–achievement correlation was r = [r_E], [consistent with / "
+        "inconsistent with] the prediction of a null or weak negative effect. "
+        "H5 [is / is not] supported. [If supported: The finding that "
+        "Extraversion was negatively associated with achievement in "
+        "asynchronous online environments—most clearly in Rivers (2021), Yu "
+        "(2021), and Wang et al. (2023)—represents the first meta-analytic "
+        "evidence for a directional shift in the Extraversion effect "
+        "attributable to learning modality, extending the near-null face-to-"
+        "face estimate (Poropat, 2009; Chen et al., 2025) toward a "
+        "meaningfully negative pattern.]"
+    )
+    add_para(doc, p_h5, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -1355,6 +1454,7 @@ def main():
     build_results_part1(doc)
     build_results_part2(doc)
     build_results_part3(doc)
+    build_discussion_part1(doc)
     build_references(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
