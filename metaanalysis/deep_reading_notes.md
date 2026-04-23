@@ -818,17 +818,113 @@ O/E/A/N: **未測定**
 
 ---
 
-## A-12. Cohen & Baruth (2017)
-**TBD**: Phase 2 で精読
+## A-12. Baruth & Cohen (2022/2023) 🔴 **lit review 著者・年次混乱 — 訂正必要**
 
-## A-13. Dang et al. (2024) ⚠
-**TBD**: Phase 2 で精読
+**重要**: lit review では "Cohen & Baruth 2017" だが、実 PDF は **Baruth & Cohen (2022/2023)** — 著者順逆 + 別論文（Cohen & Baruth 2017 は A-07 別 PDF として既登録）。
 
-## A-14. Eilam et al. (2009) ❌（対面、除外予定）
-**TBD**: Phase 2 で精読（除外根拠の確認）
+**Citation**: Baruth, O., & Cohen, A. (2023). Personality and satisfaction with online courses: The relation between the Big Five personality traits and satisfaction with online learning activities. *Education and Information Technologies, 28*, 879–904.
+**Modality**: Fully online | **Country**: Israel (Tel Aviv U.) | **Era**: COVID-era 2022
 
-## A-15. Elvers et al. (2003)
-**TBD**: Phase 2 で精読
+### Sample
+- N=108, undergraduate, single online course
+- BFI-44 Hebrew; α: E=.80, N=.81, A=.68, C=.73, O=.76
+
+### Effect sizes（Table 3 Spearman ρ × general satisfaction）
+
+| Trait | ρ × Gen. satisfaction |
+|-------|----------------------|
+| **N** | **-.542** (p<.001) ⭐ 最強負 |
+| A | .458 (p<.001) |
+| C | .335 (p<.001) |
+| E | .324 (p<.001) |
+| O | .294 (p<.01) |
+
+Discussion-group satisfaction: E=.44, N=-.47
+
+### Key findings
+- N が全 satisfaction subscales で強い負相関
+- A/C/O は正、E も正（A-07 と異なる pattern）
+- Neurotic cluster で uniformly low satisfaction
+
+### Status: **Include for satisfaction pool only** （achievement なし）
+### ⚠ **Authorship correction needed in literature_review.md**（A-12 = Baruth & Cohen 2022/2023, NOT Cohen & Baruth 2017）
+### RoB: **4/8**
+
+---
+
+## A-13. Dang, Du, Niu & Xu (2025) ⚠ **モダリティ要再評価**
+
+**重要**: lit review では Dang 2024 だが、実は **Dang, Du, Niu, Xu (2025)** — Wu & Yu との混同なし。**ただし online-specific ではない**（一般 learning engagement scale）。
+
+**Citation**: Dang, T., Du, W., Niu, M., & Xu, Z. (2025). The effects of personality traits on learning engagement among college students: The mediating role of emotion regulation. *Frontiers in Psychology, 15*, 1476437.
+**Modality**: 一般学習（online-specific でない、Questionnaire Star 配信のみ online） | **Country**: China (Shandong) | **Era**: post-COVID 2024
+
+### Sample
+- N=235 (response 97%), undergraduate, 73% female, M age 21
+- Discipline: Education 68%, Science 14%, etc.
+- NEO-FFI Chinese 60 items（item-analysis で削減）, α=.90 total
+
+### Effect sizes（Table 3 r matrix, N=235）
+
+| Trait | r × LE total | Behavioral | Affective | Cognitive |
+|-------|--------------|-----------|-----------|-----------|
+| **C** | **+.438** ⭐ | .389 | .371 | .314 |
+| E | +.309 | .340 | .301 | .123 (ns) |
+| O | +.301 | .265 | .312 | .160 |
+| A | +.247 | .282 | .222 | .108 (ns) |
+| N | -.037 (ns) | -.042 | -.091 | .042 (ns) |
+
+(全特性 p<.01 を除き Big Five total = +.480)
+
+ER mediation = 4.79%（小）
+
+### Key findings
+- C が engagement の最強予測（中国学生でも一般 pattern と一致）
+- N は負方向だが ns（中国 sample で典型的）
+- Emotion Regulation の媒介効果は小
+
+### Status: **Conditional include** — engagement プールで含めるが、modality moderator 分析時 "online-specific 不明確" として感度分析で除外
+### RoB: **5/8**
+
+---
+
+## A-14. Eilam et al. (2009) ❌ **EXCLUDE**
+
+**Status**: 対面・science achievement (Israel Grade 8, N=52)。オンライン要素なし。
+**lit review 確認**: 既に excluded として記録済み。本研究のスコープ外。
+**Use**: SRL theory parameter として narrative reference のみ
+
+---
+
+## A-15. Elvers, Polzella & Graetz (2003)
+
+**Citation**: Elvers, G. C., Polzella, D. J., & Graetz, K. (2003). Procrastination in online courses: Performance and attitudinal differences. *Teaching of Psychology, 30*(2), 159–162.
+**Modality**: **Random assignment** (online vs lecture, same Intro Psych) | **Country**: USA (U. Dayton) | **Era**: pre-COVID
+
+### Sample
+- N=47 (22 online + 25 lecture), 7 dropout（attrition 13%）
+- Intro Psych undergraduate, M age 18.6, 66% female
+- **NEO-FFI** (Big Five 確認, lit review caveat 解決) — only C and N reported
+
+### Effect sizes（text）
+
+| Setting | C × Procrastination | N × Procrastination |
+|---------|--------------------|--------------------|
+| All (N=44) | .27 (p=.07, trend) | .02 (ns) |
+| **Online (N=21)** | **.41** (p=.06, trend) | **-.38** (p=.09, trend negative) |
+| Lecture (N=23) | .20 (ns) | .27 (ns) |
+
+Procrastination × Exam total: Online r=.58 (p=.01); Lecture r=.14 (ns)
+
+### Key findings
+- Online のみで procrastination → exam の有意関係
+- C と N が online procrastination 予測（trend level、N small ゆえ低 power）
+- O/E/A 未報告
+
+### Status: **Include with strong caveat** — C/N only, very small N, randomized design は強み
+### RoB: **6/8**
+
+---
 
 ## A-16. Garzón-Umerenkova et al. (2024) ⚠
 **TBD**: Phase 2 で精読
