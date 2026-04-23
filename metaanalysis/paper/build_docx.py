@@ -2403,6 +2403,62 @@ def build_figure1_prisma(doc):
     run2.font.size = Pt(11)
 
 
+def _add_figure_image(doc, number, title, note, img_filename, width_inches=6.0):
+    """Insert a figure with APA title + image + Note caption."""
+    from pathlib import Path as _Path
+    doc.add_page_break()
+    _add_figure_title(doc, number, title)
+
+    img_path = (_Path(__file__).parent.parent / "analysis"
+                / "figures" / img_filename)
+    if img_path.exists():
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        run = p.add_run()
+        run.add_picture(str(img_path), width=Inches(width_inches))
+
+    p_note = doc.add_paragraph()
+    set_double_space(p_note)
+    run = p_note.add_run("Note. ")
+    run.italic = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(11)
+    run2 = p_note.add_run(note)
+    run2.font.name = "Times New Roman"
+    run2.font.size = Pt(11)
+
+
+def build_forest_plots(doc):
+    """Figures 2–6: Forest plots per Big Five trait (ordered by effect size)."""
+    base_note = (
+        "Forest plot of study-level Pearson correlations between "
+        "{trait_name} and academic achievement in online learning "
+        "environments. Each square represents a study; square size is "
+        "proportional to the inverse-variance weight. Horizontal bars "
+        "show 95% confidence intervals. The red diamond represents the "
+        "random-effects REML pooled estimate with HKSJ 95% confidence "
+        "interval. Studies are sorted by effect size (descending). "
+        "See Table 2 for pooled statistics."
+    )
+
+    specs = [
+        (2, "Conscientiousness", "forest_C.png"),
+        (3, "Agreeableness",     "forest_A.png"),
+        (4, "Openness",          "forest_O.png"),
+        (5, "Neuroticism",       "forest_N.png"),
+        (6, "Extraversion",      "forest_E.png"),
+    ]
+    for fig_num, trait_name, filename in specs:
+        _add_figure_image(
+            doc,
+            fig_num,
+            f"Forest Plot: {trait_name} and Academic Achievement in "
+            f"Online Learning Environments",
+            base_note.format(trait_name=trait_name),
+            filename,
+        )
+
+
 def _load_studies_for_table1():
     """Read data_extraction_populated.csv and return compact summary rows."""
     import csv
@@ -2577,6 +2633,7 @@ def main():
     build_discussion_part3(doc)
     build_references(doc)
     build_figure1_prisma(doc)
+    build_forest_plots(doc)
     build_table1_characteristics(doc)
     build_table2_pooled(doc)
     build_table3_moderators(doc)
