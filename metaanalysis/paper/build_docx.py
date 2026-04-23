@@ -2459,6 +2459,47 @@ def build_forest_plots(doc):
         )
 
 
+def build_funnel_plots(doc):
+    """Figures 7–11: Funnel plots per Big Five trait."""
+    base_note = (
+        "Funnel plot of Pearson correlations between {trait_name} and "
+        "academic achievement in online learning environments. Points "
+        "represent individual studies. The vertical dashed red line "
+        "indicates the random-effects pooled correlation. Diagonal "
+        "dashed lines represent pseudo-95% confidence bounds under the "
+        "assumption of no heterogeneity. Asymmetric dispersion may "
+        "suggest small-study effects or publication bias. Egger's test "
+        "results: {egger}. See Table 4 for full publication-bias "
+        "assessment."
+    )
+
+    eggers = {
+        "Conscientiousness": "intercept = 2.14, p = .094",
+        "Agreeableness":     "intercept = −8.53, p = .072",
+        "Openness":          "intercept = −6.41, p = .045",
+        "Neuroticism":       "intercept = −1.79, p = .304",
+        "Extraversion":      "intercept = 2.29, p = .255",
+    }
+
+    specs = [
+        (7,  "Conscientiousness", "funnel_C.png"),
+        (8,  "Agreeableness",     "funnel_A.png"),
+        (9,  "Openness",          "funnel_O.png"),
+        (10, "Neuroticism",       "funnel_N.png"),
+        (11, "Extraversion",      "funnel_E.png"),
+    ]
+    for fig_num, trait_name, filename in specs:
+        _add_figure_image(
+            doc,
+            fig_num,
+            f"Funnel Plot: {trait_name} and Academic Achievement in "
+            f"Online Learning Environments",
+            base_note.format(trait_name=trait_name, egger=eggers[trait_name]),
+            filename,
+            width_inches=5.0,  # smaller for funnel plots
+        )
+
+
 def _load_studies_for_table1():
     """Read data_extraction_populated.csv and return compact summary rows."""
     import csv
@@ -2634,6 +2675,7 @@ def main():
     build_references(doc)
     build_figure1_prisma(doc)
     build_forest_plots(doc)
+    build_funnel_plots(doc)
     build_table1_characteristics(doc)
     build_table2_pooled(doc)
     build_table3_moderators(doc)
