@@ -2333,6 +2333,76 @@ def build_table5_grade(doc):
     run2.font.size = Pt(11)
 
 
+def _add_figure_title(doc, number, title):
+    """APA Figure N title: bold number on one line, italic title on next."""
+    p = doc.add_paragraph()
+    set_double_space(p)
+    run = p.add_run(f"Figure {number}")
+    run.bold = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(12)
+    p2 = doc.add_paragraph()
+    set_double_space(p2)
+    run2 = p2.add_run(title)
+    run2.italic = True
+    run2.font.name = "Times New Roman"
+    run2.font.size = Pt(12)
+
+
+def build_figure1_prisma(doc):
+    """Insert PRISMA 2020 flow diagram as Figure 1."""
+    from pathlib import Path as _Path
+    doc.add_page_break()
+    _add_figure_title(
+        doc, 1,
+        "PRISMA 2020 Flow Diagram of the Study Selection Process",
+    )
+
+    img_path = (_Path(__file__).parent.parent / "analysis"
+                / "figures" / "prisma_flow.png")
+    if img_path.exists():
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        run = p.add_run()
+        run.add_picture(str(img_path), width=Inches(6.0))
+
+    p_note = doc.add_paragraph()
+    set_double_space(p_note)
+    run = p_note.add_run("Note. ")
+    run.italic = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(11)
+    run2 = p_note.add_run(
+        "Flow diagram adapted from the PRISMA 2020 statement (Page et al., "
+        "2021). Records were identified through WebSearch-based formal "
+        "search (n = 80 from eight structured queries), preliminary "
+        "informal search yielding a previously curated corpus (n = 28), "
+        "and citation snowballing combined with open-access repository "
+        "downloads (n = 12), for a total of 120 records. After "
+        "deduplication (n = 40 removed), 80 records underwent title and "
+        "abstract screening, with 25 excluded primarily for wrong "
+        "population, non-Big-Five personality frameworks, or no online "
+        "learning component. Of 43 full-text reports sought, 5 were not "
+        "retrievable (paywall), and 38 were assessed for eligibility. "
+        "Seven reports were excluded at the full-text stage with explicit "
+        "reasons: non-Big-Five framework (n = 5; MBTI, Proactive "
+        "Personality, TAM, TUE, and other non-FFM operationalization), "
+        "face-to-face modality (n = 4; A-09 Bhattacharjee & Ramkumar, "
+        "2025; A-10 Boonyapison et al., 2025; A-14 Eilam et al., 2009; "
+        "A-16 Hidalgo-Fuentes et al., 2024), sample overlap with an "
+        "already-included study (n = 1; A-05 Audet et al., 2023 "
+        "overlapped with A-04 Audet et al., 2021), and effect size not "
+        "extractable (n = 1; A-24 Tlili et al., 2023, lag sequential "
+        "analysis). The 31 remaining studies were included in the "
+        "systematic review; 10 contributed direct Pearson correlations "
+        "to the primary achievement pool, 4 contributed β-converted "
+        "effect sizes via Peterson and Brown's (2005) approximation, and "
+        "17 were retained for secondary analyses or narrative synthesis."
+    )
+    run2.font.name = "Times New Roman"
+    run2.font.size = Pt(11)
+
+
 def _load_studies_for_table1():
     """Read data_extraction_populated.csv and return compact summary rows."""
     import csv
@@ -2506,6 +2576,7 @@ def main():
     build_discussion_part2(doc)
     build_discussion_part3(doc)
     build_references(doc)
+    build_figure1_prisma(doc)
     build_table1_characteristics(doc)
     build_table2_pooled(doc)
     build_table3_moderators(doc)
