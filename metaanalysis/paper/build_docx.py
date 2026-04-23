@@ -790,6 +790,104 @@ def build_methods_part3(doc):
     add_para(doc, p4, indent_first=True)
 
 
+def build_methods_part4(doc):
+    """Statistical analysis + Moderator analyses + Publication bias."""
+    add_h2(doc, "Statistical Analysis and Synthesis Strategy")
+
+    p1 = (
+        "Five primary meta-analytic models were estimated, one for each Big Five "
+        "trait (Conscientiousness, Openness, Extraversion, Agreeableness, "
+        "Neuroticism) paired with academic achievement. Each model was a random-"
+        "effects meta-analysis with between-study variance (τ²) estimated using the "
+        "Restricted Maximum Likelihood (REML) estimator, and 95% confidence "
+        "intervals for the pooled effect adjusted with the Hartung-Knapp-Sidik-"
+        "Jonkman (HKSJ) method to reduce Type I error inflation in small-k "
+        "scenarios (IntHout, Ioannidis, & Borm, 2014). Heterogeneity was quantified "
+        "using Cochran's Q, the I² statistic, τ² and τ, and 95% prediction "
+        "intervals. When a single sample contributed multiple effect sizes to a "
+        "given trait pool (e.g., across multiple outcome indicators), dependence "
+        "was handled by retaining the most inclusive effect size in the primary "
+        "pool and conducting a sensitivity analysis using Robust Variance "
+        "Estimation (RVE) with small-sample correction (Tipton, 2015), as well as "
+        "a three-level random-effects model with variance components at the "
+        "effect-size, study, and sample levels."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    p2 = (
+        "All primary pooling was conducted on the Fisher z scale, and pooled z "
+        "values were back-transformed to r for reporting. Inference criteria were "
+        "two-tailed, with α = .05 for pooled effect significance tests, α = .10 "
+        "for Cochran's Q (per convention), and α = .05 for moderator QM tests. "
+        "Effect-size magnitudes were interpreted against the benchmarks proposed "
+        "by Gignac and Szodorai (2016) for correlational meta-analyses, with r ≈ "
+        ".10 small, r ≈ .20 moderate, and r ≈ .30 large. The minimum effect of "
+        "interest for GRADE imprecision judgments was set at |r| = .10."
+    )
+    add_para(doc, p2, indent_first=True)
+
+    add_h2(doc, "Moderator and Sensitivity Analyses")
+
+    p3 = (
+        "Nine moderators were pre-specified. Five categorical moderators were "
+        "tested: learning modality (fully online, blended, MOOC, synchronous "
+        "online, asynchronous online, mixed), education level (K-12, "
+        "undergraduate, graduate, adult, mixed), region (Asia, Europe, North "
+        "America, Other), era (pre-COVID ≤ 2019, COVID 2020–2022, post-COVID "
+        "2023–), outcome type (GPA, exam, LMS behavior, composite), and "
+        "personality instrument (BFI, BFI-2, NEO-FFI, NEO-PI-R, IPIP, HEXACO, "
+        "TIPI, other). Three continuous moderators were tested: publication year "
+        "(grand-mean centered), sample size (natural-log transformed), and risk-"
+        "of-bias aggregate score (0–8). Each moderator was entered separately "
+        "into a mixed-effects meta-regression within each trait pool, with "
+        "significance assessed via the Wald-type QM test. The R² analog proposed "
+        "by Raudenbush (2009) was reported for each moderator to quantify the "
+        "proportion of between-study variance explained. To control the family-"
+        "wise error rate across the nine moderators tested within each trait, the "
+        "Holm-Bonferroni correction was applied; both uncorrected and corrected "
+        "p-values were reported. Given that k ≥ 10 per predictor level was "
+        "required for robust meta-regression (Borenstein et al., 2021), moderator "
+        "levels with fewer than 10 contributing effect sizes were reported "
+        "narratively rather than quantitatively."
+    )
+    add_para(doc, p3, indent_first=True)
+
+    p4 = (
+        "Seven sensitivity analyses were pre-specified. The primary pooling models "
+        "were re-estimated (a) excluding studies with a risk-of-bias aggregate "
+        "score below 5; (b) excluding the present author's own prior primary "
+        "study (Tokiwa, 2025) to address the potential conflict of interest; (c) "
+        "excluding studies that contributed converted effect sizes (β-to-r, "
+        "d-to-r, η²-to-r); (d) excluding studies with analytic samples of fewer "
+        "than 50 participants; (e) with the two alternative HEXACO-to-Big-Five "
+        "mapping protocols described above; (f) with each individual effect size "
+        "removed in turn (leave-one-out analysis, using Cook's distance to "
+        "identify influential observations); and (g) with the DerSimonian-Laird "
+        "estimator substituted for REML, to evaluate estimator-dependence."
+    )
+    add_para(doc, p4, indent_first=True)
+
+    add_h2(doc, "Publication Bias")
+
+    p5 = (
+        "Publication bias was assessed per trait using four complementary "
+        "procedures: visual inspection of funnel plots with pseudo-95% confidence "
+        "bounds; Egger's regression asymmetry test (Egger, Davey Smith, Schneider, "
+        "& Minder, 1997); Peters' regression test adapted for correlation effect "
+        "sizes; and Duval and Tweedie's (2000) trim-and-fill procedure, reported "
+        "as a sensitivity check rather than as a point-estimate correction. In "
+        "addition, p-curve analysis (Simonsohn, Nelson, & Simmons, 2014) was "
+        "performed to evaluate the evidential value of the statistically "
+        "significant primary findings. Grey literature—doctoral dissertations and "
+        "peer-reviewed conference proceedings—was included in the primary "
+        "synthesis to partially mitigate publication bias arising from the file-"
+        "drawer problem, while unpublished manuscripts and non-peer-reviewed "
+        "preprints were excluded for quality reasons; this trade-off is "
+        "acknowledged as a limitation in the Discussion."
+    )
+    add_para(doc, p5, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -805,6 +903,7 @@ def main():
     build_methods_part1(doc)
     build_methods_part2(doc)
     build_methods_part3(doc)
+    build_methods_part4(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
