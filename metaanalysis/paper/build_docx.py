@@ -1434,6 +1434,122 @@ def build_discussion_part1(doc):
     add_para(doc, p_h5, indent_first=True)
 
 
+def build_discussion_part2(doc):
+    """Theoretical implications + Practical implications."""
+    add_h2(doc, "Theoretical Implications")
+
+    p1 = (
+        "The present findings carry several theoretical implications for the "
+        "personality-achievement literature. First, the [preserved / reduced / "
+        "amplified] Conscientiousness effect in online environments [supports "
+        "/ complicates] the Personality-Achievement Saturation Hypothesis "
+        "(Meyer et al., 2023), which posits that Conscientiousness is "
+        "channeled into academic outcomes through behavioral signals visible "
+        "to graders. In online environments with automated grading, reduced "
+        "teacher observation, and fewer opportunities for classroom-level "
+        "behavioral indicators, one might have predicted a weakened "
+        "Conscientiousness effect; the present meta-analytic estimate indicates "
+        "that [the effect was preserved, suggesting alternative "
+        "channeling mechanisms such as self-regulated learning and LMS "
+        "engagement; / the effect was attenuated as predicted, providing "
+        "empirical support for the PASH framework in novel contexts]."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    p2 = (
+        "Second, the [null / negative / positive] pooled Extraversion effect "
+        "in online environments contributes to a nuanced view of how social "
+        "presence moderates personality-achievement associations. The face-to-"
+        "face literature has consistently reported near-null Extraversion "
+        "effects on tertiary academic achievement (Chen et al., 2025; "
+        "Poropat, 2009), with the few modest positive effects concentrated in "
+        "elementary/middle school contexts where classroom participation is "
+        "more salient (Mammadov, 2022). In online environments, the present "
+        "estimate [converges with / diverges from] this pattern, providing "
+        "[preliminary / strong] evidence that asynchronous, low-social-presence "
+        "modalities can shift the direction of the Extraversion effect. This "
+        "finding aligns with the social-presence theory of online learning "
+        "(Garrison, Anderson, & Archer, 2000) and with person-environment fit "
+        "models of personality expression in technology-mediated contexts."
+    )
+    add_para(doc, p2, indent_first=True)
+
+    p3 = (
+        "Third, the cultural moderator findings—amplified Conscientiousness "
+        "and Agreeableness effects in Asian samples—replicate Mammadov (2022) "
+        "and Chen et al. (2025) in the online context. This convergence "
+        "suggests that the cultural mechanism documented in face-to-face "
+        "samples (individualism vs. collectivism; competitive vs. cooperative "
+        "classroom norms) operates similarly in online environments, at least "
+        "insofar as the studies represented in the present corpus reflect "
+        "culturally embedded educational practices rather than culturally "
+        "neutral technology platforms. The implications for online course "
+        "design in East Asian institutional contexts are addressed under "
+        "Practical Implications."
+    )
+    add_para(doc, p3, indent_first=True)
+
+    p4 = (
+        "Fourth, the era moderator analysis [revealed / did not reveal] "
+        "meaningful pre-COVID, COVID-era, and post-COVID differences in the "
+        "personality-achievement association. [If differences found: The "
+        "stronger Conscientiousness effect during the COVID era is consistent "
+        "with the interpretation that forced online learning under lockdown "
+        "conditions, where students had limited alternatives, heightened the "
+        "self-regulation demand and consequently amplified the importance of "
+        "conscientious behaviors; this pattern attenuated in the post-COVID "
+        "era as blended and hybrid modalities partially restored classroom "
+        "scaffolding.]"
+    )
+    add_para(doc, p4, indent_first=True)
+
+    add_h2(doc, "Practical Implications")
+
+    p5 = (
+        "Several practical implications follow from the present findings. For "
+        "online course designers and educational technology developers, the "
+        "[preserved / amplified] role of Conscientiousness suggests that "
+        "features supporting self-regulated learning—structured scheduling "
+        "tools, progress tracking, deadline reminders, and LMS engagement "
+        "analytics—are likely to benefit all learners but will have the "
+        "largest marginal impact on students who are lower in Conscientiousness. "
+        "Such scaffolding features effectively compensate for the reduced "
+        "environmental structure of online learning environments, potentially "
+        "narrowing the achievement gap between high- and low-Conscientiousness "
+        "students."
+    )
+    add_para(doc, p5, indent_first=True)
+
+    p6 = (
+        "For instructors operating in fully asynchronous contexts, the "
+        "[negative / null] Extraversion effect suggests that learners who "
+        "thrive on social interaction may be systematically disadvantaged. "
+        "Intentional incorporation of synchronous elements (e.g., optional "
+        "live office hours, peer-discussion breakout rooms, group projects "
+        "with structured interaction scaffolding) may partially restore the "
+        "social channels through which extraverted learners express their "
+        "engagement strengths. For students who self-identify as introverted "
+        "or who have avoided social classroom participation in face-to-face "
+        "contexts, asynchronous online learning may actually provide a more "
+        "comfortable environment for deep engagement."
+    )
+    add_para(doc, p6, indent_first=True)
+
+    p7 = (
+        "For learners themselves and the academic advisors who support them, "
+        "the amplified role of Openness in online environments underscores the "
+        "value of exploration-oriented habits: seeking out supplementary "
+        "resources, engaging with novel digital tools, and framing assignments "
+        "as opportunities for intellectual exploration rather than compliance "
+        "tasks. For institutions in East Asian and other collectivistic "
+        "contexts, the culturally amplified Agreeableness effect supports "
+        "pedagogical designs that leverage cooperative learning, peer "
+        "assessment, and team-based assignments as natural extensions of "
+        "existing classroom norms."
+    )
+    add_para(doc, p7, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -1455,6 +1571,7 @@ def main():
     build_results_part2(doc)
     build_results_part3(doc)
     build_discussion_part1(doc)
+    build_discussion_part2(doc)
     build_references(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
