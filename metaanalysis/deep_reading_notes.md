@@ -446,6 +446,185 @@ Trim-and-fill 調整後の Conscientiousness r+ = .24***（微減、堅牢）
 
 ---
 
+## C-06. Meyer, Jansen, Hübner & Lüdtke (2023) 🔴 K-12 benchmark
+
+**Citation**: Meyer, J., Jansen, T., Hübner, N., & Lüdtke, O. (2023). Disentangling the association between the Big Five personality traits and student achievement: Meta-analytic evidence on the role of domain specificity and achievement measures. *Educational Psychology Review, 35*(12), 1–34. https://doi.org/10.1007/s10648-023-09736-2
+
+**Institution**: IPN Kiel + University of Tübingen
+
+### Study characteristics
+| 項目 | 値 |
+|------|------|
+| k (samples) | **110 samples, 1,491 effect sizes, 78 studies** |
+| Total N | **500,218** |
+| Coverage | **K-12 only（tertiary 除外）**, 87% European, 〜2022-08 |
+| Analysis model | Random-effects RVE + REML |
+| Effect size metric | ρ (Fisher z, measurement error corrected) |
+
+### Overall pooled effect sizes
+| Trait | ρ | 95% CI | r_raw |
+|-------|---|--------|-------|
+| **C** | **0.24** | [0.21, 0.28] | 0.20 |
+| **O** | **0.21** | [0.17, 0.25] | 0.17 |
+| N | -0.05 | [-0.09, -0.02] | -0.04 |
+| A | 0.04 | [0.01, 0.08] | 0.04 |
+| E | 0.02 | [-0.02, 0.05] | 0.02 |
+| Intelligence | 0.42 | [0.38, 0.47] | 0.36 |
+
+### Domain × Measure moderators 🔴
+
+| Trait | Domain effect | Measure effect |
+|-------|--------------|---------------|
+| O | **Lang 0.25 > STEM 0.13** (z=-7.80***) | Grade/Test 差 n.s. |
+| **C** | 領域差 n.s. (0.22-0.23) | **Grade 0.28 > Test 0.13** (z=5.17***) 🔴 |
+| E | Lang 0.06 > STEM -0.02 | — |
+| A | STEM tests で A 逆効果 (0.06 vs -0.05) | Domain × measure 相互作用有意 |
+| N | STEM 0.09 負 > Lang 0.03 負 | **STEM tests ρ=-0.14 最大負** |
+
+### Key findings
+- ρ 値は Poropat 2009/Mammadov 2022 より**大きい**（O .21 vs .10-.13; C .24 vs .19-.20）— 領域/測定を分離したため
+- **PASH (Personality-Achievement Saturation Hypothesis)** が理論フレーム: Conscientiousness は grading (teacher observation) で強化される
+- Openness は verbal orientation → language-specific
+- Neuroticism は主に STEM testing で有害（anxiety）
+- Modality (online/FtF) **未検討** — 本研究の gap を明確化
+
+### 🔴 含意（本メタ分析への）
+- **Benchmark ρ (K-12 FtF)**: O=.21, C=.24, E=.02, A=.04, N=-.05
+- **PASH framework** は理論的アンカーとして強力: オンライン環境は standardized auto-graded → **C 効果が減弱する**予測可能
+- **我々の independent contribution**: (1) modality moderator, (2) tertiary+adult 含む, (3) post-COVID corpus
+
+### RoB（JBI 8-item）: **7/8**
+
+---
+
+## C-07. Chen, Cheung & Zeng (2025) 🔴 **直接 comparator**
+
+**Citation**: Chen, S., Cheung, A. C. K., & Zeng, Z. (2025). Big Five personality traits and university students' academic performance: A meta-analysis. *Personality and Individual Differences, 240*, 113163. https://doi.org/10.1016/j.paid.2025.113163
+
+**Institution**: Faculty of Education, Chinese University of Hong Kong
+
+### Study characteristics
+| 項目 | 値 |
+|------|------|
+| k (articles/correlations) | **84 articles, 370 independent correlations** |
+| Total N | **46,729** |
+| Coverage | 1995–2024 (search 2024-08), 26 countries |
+| Inclusion | University students only, N≥200 |
+| Analysis model | Random-effects (CMA v3), Fisher z |
+| Effect size metric | Pearson r |
+
+### Overall pooled effect sizes (Table 2)
+| Trait | k | r | 95% CI | I² |
+|-------|---|---|--------|-----|
+| **C** | 81 | **0.206** | [0.170, 0.241] | 93.0% |
+| A | 72 | 0.082 | [0.050, 0.113] | 89.5% |
+| O | 72 | 0.081 | [0.055, 0.108] | 84.2% |
+| N | 73 | -0.029 (ns) | [-0.065, 0.008] | 92.0% |
+| E | 72 | -0.009 (ns) | [-0.036, 0.017] | 84.9% |
+
+Egger's test: no publication bias
+
+### Moderator findings 🔴
+
+| Moderator | 重要発見 |
+|-----------|---------|
+| **Culture (Hofstede)** | A and O 強い in collectivistic (A: 0.126 vs 0.059); **E negative in individualistic (-0.036), null in collectivistic** |
+| Measurement tool | C stable (0.190-0.219); BFI 最高 heterogeneity |
+| **Academic major** | **E positive only in Education (0.046)**; A/O in Psychology |
+| **Year of study** | C 高学年で強い (0.210 vs 0.135 低学年); **N positive in 1-2 年生 (0.042)** |
+| Gender composition | 女性比率 ↑ → E効果 減（β=-0.235*）; 他の特性影響なし |
+
+**重要**: **学習モダリティ (online/blended/FtF) moderator 未検討** — 本メタ分析の核心的 gap を Chen 自身が作り出している
+
+### Comparison with prior meta-analyses
+| Source | A | C | N | E | O |
+|--------|---|---|---|---|---|
+| Poropat 2009 | .07 | .22 | .02 | -.01 | .12 |
+| Vedel 2014 | .08 | .26 | .00 | -.01 | .07 |
+| McAbee 2013 | .08 | .23 | -.03 | -.03 | .08 |
+| Mammadov 2022 | .09 | .27 | -.02 | .01 | .16 |
+| Meyer 2023 (K-12) | .04 | .24 | -.05 | .02 | .21 |
+| **Chen 2025** | **.082** | **.206** | **-.029** | **-.009** | **.081** |
+
+Chen 2025 の C は先行より**やや低め** — N≥200 + 大学生限定による厳格化
+
+### 🔴 **Duplicate check with our 28 studies** (critical)
+
+Chen 2025 の 84-study list は Supplementary のみ（Elsevier 要別途 DL）。本文で引用された included studies:
+- Wolfe & Johnson (1995) earliest
+- Novikova & Vorobyeva (2017)
+- Zhang & Wang (2023)
+
+**候補マッチ度高** (Chen に含まれる可能性): A-02 Alkış, A-06 Sahinidis, A-07 Cohen&Baruth, A-15 Elvers, A-18 Bhagat, A-21 Nakayama, A-26 Wang
+**含まれていない可能性高**: A-13 Dang 2025, A-17 Kara 2024 後半, A-25 Tokiwa 2025（検索終了 2024-08 後）
+**不明 (要確認)**: オンライン特化研究 (A-04 Audet, A-24 Tlili, A-28 Yu)
+
+→ **要アクション**: Elsevier 補足資料を DL して 84-study list と A-01〜A-28 の重複洗い出し
+
+### 🔴 含意（本メタ分析への）
+1. **Benchmark value**: Chen 2025 C r=.206 が最新かつ**大学生特化・N≥200 ベンチマーク**。我々の online pooled r とこの値で差分検定
+2. **Novel contribution gap CONFIRMED**: Chen はモダリティ未検討 → 本研究の **modality × culture × year 3-way interaction** が真に新規
+3. **E の文化依存 + N の学年依存**: 本研究で online × culture × year の interaction を設計できれば新規貢献
+4. **Gender composition moderator**: 連続変数として meta-regression 可能と実証（我々の corpus は多くが female-majority → 要採用）
+5. **N≥200 基準は採用せず**（small-N online 研究が除外されすぎる） — sensitivity のみ
+
+### RoB（JBI 8-item）: **7.5/8**
+
+---
+
+## C-08. Zell & Lesick (2021) Umbrella review
+
+**Citation**: Zell, E., & Lesick, T. L. (2021). Big five personality traits and performance: A quantitative synthesis of 50+ meta-analyses. *Journal of Personality, 90*(4), 559–573. https://doi.org/10.1111/jopy.12683
+
+**Institution**: UNC Greensboro
+
+### Study characteristics
+| 項目 | 値 |
+|------|------|
+| m (meta-analyses) | **54 meta-analyses（second-order）** |
+| k (primary effects) | 1,539–2,028 per trait |
+| Total N | 406,696–554,778 |
+| Coverage | Job (m=32), **Academic (m=7)**, Other (m=15) |
+| Analysis model | Unweighted 2nd-order + sensitivity weights |
+
+### Overall pooled effect sizes (Table 1, m=54)
+| Trait | ρ | 95% CI |
+|-------|---|--------|
+| **C** | **0.19** | [0.16, 0.21] |
+| O | 0.13 | [0.10, 0.15] |
+| E | 0.10 | [0.08, 0.13] |
+| A | 0.10 | [0.07, 0.13] |
+| N | -0.12 | [-0.15, -0.10] |
+
+### By performance category
+| Trait | Academic (m=7) | Job (m=32) | Other (m=15) |
+|-------|---------------|-----------|-------------|
+| **C** | **0.28** ⭐ | 0.20 | 0.12 |
+| O | 0.14 | 0.11 | 0.16 |
+| A | 0.07 | 0.11 | 0.09 |
+| E | **-0.01** ⭐ | 0.14 | 0.08 |
+| N | **-0.03** ⭐ | -0.15 | -0.10 |
+
+**University subset** (m=5): C=.25, O=.09, A=.07, N=-.01, E=-.03
+
+### Key findings
+- 54 meta-analyses で **C-GPA の堅牢性確認** (ρ=.19 全体、.28 academic)
+- **Academic vs Job で profile 大きく異なる**: Academic は C-dominant, E/N ほぼ null; Job は balanced
+- 全 Big Five で SD across metas は .01–.04（極めて replicable）→ **差 > .04 でないと novel ではない**
+- Modality (online/FtF) **未検討** — 2021 搜索で post-COVID 研究包含せず
+
+### Prior meta-analyses synthesized (academic subset)
+Poropat (2009, 2014), McAbee & Oswald (2013), O'Connor & Paunonen (2007), Richardson et al. (2012), Trapmann et al. (2007), Vedel (2014)
+
+### 🔴 含意（本メタ分析への）
+1. **University benchmark**: C=.25, O=.09 — Chen 2025 (.206, .081) より大きめだが overlap する
+2. **Replicability bar**: 我々の online-specific ρ が FtF benchmark と **.04 超** で異なれば modality effect として valid claim
+3. Zell & Lesick は **2021 年 1 月で検索終了 → post-COVID 研究包含せず** → 本研究の post-COVID online literature 統合が直接的な contribution
+
+### RoB（JBI 8-item）: **6–7/8**
+
+---
+
 # Part B: Existing Systematic Reviews（online-specific）
 
 ## D-01. Hunter et al. (2025) ⚠ 著者名訂正
