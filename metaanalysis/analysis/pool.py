@@ -26,6 +26,7 @@ from scipy import stats
 INPUT_CSV = Path("/home/user/paper/metaanalysis/analysis/data_extraction_populated.csv")
 RESULTS_CSV = Path("/home/user/paper/metaanalysis/analysis/pooling_results.csv")
 SUMMARY_MD = Path("/home/user/paper/metaanalysis/analysis/pooling_summary.md")
+MODERATOR_CSV = Path("/home/user/paper/metaanalysis/analysis/moderator_results.csv")
 
 TRAITS = ["O", "C", "E", "A", "N"]
 
@@ -230,6 +231,164 @@ def extract_effect_for_trait(row, trait):
     return None
 
 
+# -----------------------------------------------------------------------------
+# Subgroup (moderator) analysis
+# -----------------------------------------------------------------------------
+def classify_region(raw):
+    """Collapse region to 'Asia' vs 'non-Asia' (Europe/NA/Other)."""
+    if not raw:
+        return None
+    r = raw.strip()
+    if r == "Asia":
+        return "Asia"
+    if r in ("Europe", "North_America", "Other"):
+        return "non-Asia"
+    return None
+
+
+def classify_era(raw):
+    """Collapse era to 3 levels."""
+    if not raw:
+        return None
+    r = raw.strip()
+    if r.startswith("pre"):
+        return "pre-COVID"
+    if r == "COVID":
+        return "COVID"
+    if r.startswith("post"):
+        return "post-COVID"
+    if r == "Mixed_3era":
+        return "mixed"  # not used in primary subgroup; reported separately
+    return None
+
+
+def classify_outcome_type(raw):
+    """Collapse outcome to two groups: achievement-like vs engagement-like."""
+    if not raw:
+        return None
+    r = raw.strip().lower()
+    # Achievement-like: GPA, course_grade, test_score, MOOC_composite,
+    # achievement_self_report, course_grade (anything with grade/GPA/score)
+    if any(k in r for k in ("gpa", "grade", "test", "mooc", "achievement",
+                              "composite", "procrastination_exam")):
+        return "achievement-like"
+    if any(k in r for k in ("engagement", "satisfaction", "perception",
+                              "preference")):
+        return "engagement-like"
+    return None
+
+
+def pool_by_subgroup(rows, trait, classifier, moderator_name):
+    """Run random-effects meta-analysis within each subgroup level.
+
+    Returns dict: {level: pool_result, ..., "Q_between": Q_b, "df_between": df_b,
+    "p_between": p_b}
+    """
+    by_level = {}
+    for row in rows:
+        ext = extract_effect_for_trait(row, trait)
+        if ext is None:
+            continue
+        r, n, source = ext
+        level = classifier(row.get("region", "") if moderator_name == "region"
+                           else row.get("era", "") if moderator_name == "era"
+                           else row.get("outcome_type", ""))
+        if level is None:
+            continue
+        try:
+            z = fisher_z(r)
+        except (ValueError, ZeroDivisionError):
+            continue
+        by_level.setdefault(level, {"y": [], "v": [], "labels": [], "N": []})
+        by_level[level]["y"].append(z)
+        by_level[level]["v"].append(var_z(n))
+        by_level[level]["labels"].append(
+            f"{row['study_id']} {row.get('first_author','')} {row.get('year','')}"
+        )
+        by_level[level]["N"].append(n)
+
+    results = {}
+    sub_pools = []  # list of (level, z_pooled, se, k) for Q_between
+    for level, data in by_level.items():
+        if len(data["y"]) < 2:
+            results[level] = {"k": len(data["y"]), "note": "k<2"}
+            continue
+        res = pool_random_effects(data["y"], data["v"], data["labels"])
+        res["N_total"] = sum(data["N"])
+        res["level"] = level
+        results[level] = res
+        sub_pools.append((level, res["z_pooled"], res["se_hksj"], res["k"]))
+
+    # Q_between: test whether subgroup pooled effects differ
+    # Q_b = sum(w_i (y_i - y_bar)²), where w_i = 1/se_i²
+    if len(sub_pools) >= 2:
+        y_arr = np.array([p[1] for p in sub_pools])
+        se_arr = np.array([p[2] for p in sub_pools])
+        w = 1.0 / se_arr**2
+        y_bar_b = np.sum(w * y_arr) / np.sum(w)
+        Q_b = np.sum(w * (y_arr - y_bar_b) ** 2)
+        df_b = len(sub_pools) - 1
+        p_b = 1 - stats.chi2.cdf(Q_b, df_b)
+        results["_between"] = {"Q": Q_b, "df": df_b, "p": p_b,
+                                "k_subgroups": len(sub_pools)}
+    else:
+        results["_between"] = {"Q": None, "df": 0, "p": None, "k_subgroups": len(sub_pools)}
+
+    return results
+
+
+def run_moderator_analyses():
+    """Run Region/Era/Outcome-type subgroup analyses for each trait."""
+    rows = load_extractions()
+    moderators = {
+        "region": classify_region,
+        "era": classify_era,
+        "outcome_type": classify_outcome_type,
+    }
+    all_results = {}
+    for mod_name, classifier in moderators.items():
+        all_results[mod_name] = {}
+        for trait in TRAITS:
+            all_results[mod_name][trait] = pool_by_subgroup(
+                rows, trait, classifier, mod_name
+            )
+    return all_results
+
+
+def write_moderator_csv(mod_results):
+    with MODERATOR_CSV.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            "moderator", "trait", "level", "k", "N_total",
+            "r_pooled", "r_ci_lo", "r_ci_hi",
+            "I2", "tau2",
+            "Q_between", "df_between", "p_between",
+        ])
+        for mod_name, by_trait in mod_results.items():
+            for trait in TRAITS:
+                res = by_trait.get(trait, {})
+                between = res.get("_between", {})
+                for level, sub in res.items():
+                    if level == "_between":
+                        continue
+                    if "r_pooled" in sub:
+                        writer.writerow([
+                            mod_name, trait, level, sub["k"], sub["N_total"],
+                            f"{sub['r_pooled']:.4f}",
+                            f"{sub['r_ci_lo']:.4f}", f"{sub['r_ci_hi']:.4f}",
+                            f"{sub['I2']:.1f}", f"{sub['tau2']:.4f}",
+                            f"{between.get('Q', 'NA')}" if isinstance(between.get('Q'), (int, float)) else "NA",
+                            between.get("df", "NA"),
+                            f"{between.get('p', 'NA')}" if isinstance(between.get('p'), (int, float)) else "NA",
+                        ])
+                    else:
+                        writer.writerow([
+                            mod_name, trait, level,
+                            sub.get("k", 0), "", "", "", "", "", "",
+                            "", "", "",
+                        ])
+
+
 def run_pooling():
     rows = load_extractions()
     results = {}
@@ -347,8 +506,12 @@ def main():
     write_results_csv(results)
     write_summary_md(results)
 
+    mod_results = run_moderator_analyses()
+    write_moderator_csv(mod_results)
+
     print(f"Wrote {RESULTS_CSV}")
     print(f"Wrote {SUMMARY_MD}")
+    print(f"Wrote {MODERATOR_CSV}")
     print()
     print("=== Pooled results ===")
     for t in TRAITS:
@@ -361,6 +524,28 @@ def main():
                   f"I²={r['I2']:.1f}%, τ²={r['tau2']:.4f}")
         else:
             print(f"{t}: k={r.get('k', 0)} — insufficient data")
+
+    print()
+    print("=== Moderator analyses ===")
+    for mod_name, by_trait in mod_results.items():
+        print(f"\n[{mod_name}]")
+        for t in TRAITS:
+            res = by_trait.get(t, {})
+            between = res.get("_between", {})
+            if between.get("Q") is None:
+                continue
+            parts = []
+            for level, sub in res.items():
+                if level == "_between" or "r_pooled" not in sub:
+                    continue
+                parts.append(
+                    f"{level}(k={sub['k']}): r={sub['r_pooled']:.3f}"
+                )
+            q = between.get("Q")
+            p = between.get("p")
+            if q is not None and p is not None:
+                print(f"  {t}: " + "; ".join(parts) +
+                      f"  | Q_b={q:.2f} df={between['df']} p={p:.3f}")
 
 
 if __name__ == "__main__":
