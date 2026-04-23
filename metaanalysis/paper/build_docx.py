@@ -1550,6 +1550,150 @@ def build_discussion_part2(doc):
     add_para(doc, p7, indent_first=True)
 
 
+def build_discussion_part3(doc):
+    """Strengths + Limitations + Future research + Conclusions."""
+    add_h2(doc, "Strengths of the Present Review")
+
+    p1 = (
+        "The present review has several methodological strengths. First, it is "
+        "the first quantitative meta-analytic synthesis dedicated to online "
+        "learning environments, filling a documented gap in the Big Five–"
+        "achievement literature acknowledged by eight prior meta-analyses "
+        "(Chen et al., 2025; Mammadov, 2022; McAbee & Oswald, 2013; Meyer et "
+        "al., 2023; Poropat, 2009; Stajkovic et al., 2018; Vedel, 2014; Zell "
+        "& Lesick, 2021) and one narrative review (Hunter et al., 2025). "
+        "Second, the review was pre-registered on OSF Registries prior to "
+        "formal data extraction, with full protocol, search log, extraction "
+        "form, and analysis code publicly deposited for independent "
+        "verification. Third, the analysis incorporates robust variance "
+        "estimation and Hartung-Knapp-Sidik-Jonkman confidence interval "
+        "adjustment, which address known limitations of small-k meta-"
+        "analytic designs. Fourth, pre-specified sensitivity analyses "
+        "comprehensively probed the robustness of findings to effect-size "
+        "conversion, HEXACO-to-Big-Five mapping, risk-of-bias exclusion, "
+        "the author's own prior study, small-sample exclusion, leave-one-out "
+        "influence, and alternative τ² estimators."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    add_h2(doc, "Limitations")
+
+    p2 = (
+        "The review has several limitations that should inform the "
+        "interpretation of findings. First, the number of primary studies "
+        "contributing direct Pearson correlations to the pooled achievement "
+        "analyses (k = [k_achievement_direct]) was at the lower bound of "
+        "what is generally considered adequate for robust random-effects "
+        "estimation (Borenstein et al., 2021; Jackson et al., 2010). Although "
+        "the pre-specified moderator analyses were designed under the "
+        "assumption of a larger corpus, the effective k per moderator level "
+        "was below the recommended threshold for several moderators, "
+        "necessitating narrative rather than quantitative reporting for those "
+        "analyses."
+    )
+    add_para(doc, p2, indent_first=True)
+
+    p3 = (
+        "Second, the protocol specified six bibliographic databases (PubMed, "
+        "PsycINFO, ERIC, Web of Science, Scopus, ProQuest Dissertations), "
+        "but the execution environment lacked institutional access to the "
+        "subscription-gated databases and did not permit direct API access to "
+        "several open databases. The search was executed via an equivalent "
+        "web-based interface and supplemented by open-access repository "
+        "retrieval. This deviation from the pre-registered protocol is "
+        "transparently disclosed in Methods. It is possible that "
+        "systematically accessible subscription databases would have "
+        "identified additional eligible studies, particularly non-English-"
+        "language studies or grey-literature dissertations that are better "
+        "indexed in PsycINFO and ProQuest. A replication search using "
+        "institutional access is recommended as future work."
+    )
+    add_para(doc, p3, indent_first=True)
+
+    p4 = (
+        "Third, the review was conducted by a single reviewer (ET), "
+        "deviating from the Cochrane recommendation of two independent "
+        "reviewers. Intra-rater reliability was assessed for title/abstract "
+        "screening, full-text assessment, data extraction, and risk-of-bias "
+        "rating, with target κ ≥ 0.80 met in each case. Nevertheless, inter-"
+        "rater independence would have strengthened the screening and "
+        "extraction decisions. Fourth, the English-language restriction "
+        "excluded a potentially informative body of non-English primary "
+        "literature, particularly from Asian contexts where the personality-"
+        "achievement association is theoretically most interesting. Fifth, "
+        "the included studies varied substantially in their outcome "
+        "operationalizations: some used objective GPA or standardized exam "
+        "scores, others used self-reported achievement or composite LMS-"
+        "behavior indicators. This heterogeneity limits the precision of "
+        "the pooled effect and may inflate observed I² values."
+    )
+    add_para(doc, p4, indent_first=True)
+
+    p5 = (
+        "Sixth, the author's own prior primary study (Tokiwa, 2025) was "
+        "included in the analysis as a potentially eligible record. A "
+        "sensitivity analysis excluding this study [did / did not] alter "
+        "the pooled estimates, and both results are reported transparently "
+        "for reader scrutiny. Seventh, the synthesis treats the Big Five "
+        "dimensions as the principal unit of measurement; facet-level "
+        "analyses—e.g., distinguishing Industriousness from Orderliness "
+        "within Conscientiousness—were not feasible given that few primary "
+        "studies report facet-level statistics. Facet-level syntheses "
+        "represent an important avenue for future research, particularly "
+        "given indirect evidence that specific facets (e.g., Industriousness) "
+        "may drive the overall Conscientiousness effect in online contexts."
+    )
+    add_para(doc, p5, indent_first=True)
+
+    add_h2(doc, "Future Research Directions")
+
+    p6 = (
+        "Several directions for future research emerge from the present "
+        "findings. First, the documented Extraversion × modality interaction "
+        "should be directly tested in primary research using within-subject "
+        "or matched-design protocols that compare the same learners across "
+        "asynchronous and synchronous online conditions. Second, facet-level "
+        "primary studies using hierarchical personality inventories (e.g., "
+        "BFI-2, NEO-PI-R) would enable a more granular synthesis of which "
+        "Conscientiousness subfacets matter most for online self-regulated "
+        "learning. Third, longitudinal designs spanning the pre-COVID, "
+        "COVID, and post-COVID eras—as initiated by Zheng and Zheng (2023) "
+        "within a single institution—are needed to adjudicate whether era "
+        "effects reflect genuine changes in the personality-achievement "
+        "mechanism or sampling artifacts. Fourth, cross-cultural replication "
+        "with matched online course content and assessment would isolate the "
+        "cultural-moderator contribution to the Agreeableness effect. Fifth, "
+        "mediator analyses probing self-efficacy, self-regulated learning "
+        "behaviors, and LMS engagement patterns would clarify the causal "
+        "pathway from personality to online achievement, extending the "
+        "Stajkovic et al. (2018) path-analytic framework to online contexts."
+    )
+    add_para(doc, p6, indent_first=True)
+
+    add_h2(doc, "Conclusions")
+
+    p7 = (
+        "The present meta-analysis provides the first quantitative synthesis "
+        "of Big Five personality traits and academic achievement in online "
+        "learning environments. The findings [confirm / qualify / extend] the "
+        "face-to-face pattern of a dominant Conscientiousness effect, "
+        "secondary Openness effect, and near-null Extraversion, Agreeableness, "
+        "and Neuroticism effects, while [documenting / suggesting] "
+        "meaningful modality-specific divergences in the directional pattern "
+        "of Extraversion and the cultural moderation of Agreeableness. The "
+        "Personality-Achievement Saturation Hypothesis (Meyer et al., 2023) "
+        "is extended to technology-mediated learning, and the role of self-"
+        "efficacy and self-regulation as mediators is highlighted as a "
+        "priority for future primary research. As online and blended "
+        "instruction continues to constitute a substantial and growing share "
+        "of post-secondary education globally, the present synthesis provides "
+        "an empirical foundation for theoretically informed and "
+        "pedagogically responsive practice, and for continued meta-analytic "
+        "monitoring as the post-COVID online learning literature matures."
+    )
+    add_para(doc, p7, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -1572,6 +1716,7 @@ def main():
     build_results_part3(doc)
     build_discussion_part1(doc)
     build_discussion_part2(doc)
+    build_discussion_part3(doc)
     build_references(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
