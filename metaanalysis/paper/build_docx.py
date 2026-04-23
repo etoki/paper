@@ -1016,6 +1016,97 @@ def build_references(doc):
         _add_ref_paragraph(doc, ref)
 
 
+def build_results_part1(doc):
+    """Results heading + Study selection (PRISMA) + Study characteristics."""
+    p = doc.add_paragraph("Results", style="Heading 1")
+    set_double_space(p)
+
+    add_h2(doc, "Study Selection")
+
+    p1 = (
+        "The PRISMA 2020 flow of information through the review is summarized in "
+        "Figure 1 [placeholder—Figure 1 to be inserted after final screening "
+        "counts are verified]. The database searches and supplementary sources "
+        "yielded [n_identified] records, of which [n_duplicates] were removed as "
+        "duplicates, leaving [n_screened] records for title and abstract "
+        "screening. Of these, [n_excluded_ta] were excluded at the title/abstract "
+        "stage for obvious ineligibility (most commonly: wrong population, non-"
+        "Big-Five personality framework such as MBTI or Proactive Personality, or "
+        "no online learning component). Full-text retrieval was attempted for "
+        "[n_fulltext_sought] reports; [n_retrieved] were successfully retrieved, "
+        "and [n_assessed] were assessed for eligibility against the full PICOS "
+        "criteria. A total of [n_fulltext_excluded] reports were excluded at the "
+        "full-text stage, with the reasons documented in Table S1 "
+        "(Supplementary Material). [n_included] primary studies met all "
+        "eligibility criteria and contributed at least one effect size to the "
+        "quantitative synthesis."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    p2 = (
+        "Intra-rater reliability for title/abstract screening, estimated on a "
+        "randomly selected 10% subsample re-screened after a wash-out interval of "
+        "at least seven days, was Cohen's κ = [κ_TA], which [met / did not meet] "
+        "the pre-specified threshold of κ ≥ 0.80. Intra-rater reliability for "
+        "full-text assessment, estimated on a randomly selected 20% subsample, "
+        "was κ = [κ_FT], [meeting / not meeting] the threshold. [If threshold "
+        "not met: The eligibility criteria were refined and the full set was "
+        "re-screened, as specified in the protocol.]"
+    )
+    add_para(doc, p2, indent_first=True)
+
+    add_h2(doc, "Characteristics of Included Studies")
+
+    p3 = (
+        "Characteristics of the [n_included] included primary studies are "
+        "presented in Table 1 [placeholder]. The included studies were "
+        "published between [year_min] and [year_max], with a marked acceleration "
+        "during the COVID-19 pandemic era. Analytic sample sizes ranged from "
+        "[N_min] to [N_max] (median = [N_median], total pooled N = [N_total]). "
+        "The distribution of studies across learning modality was as follows: "
+        "fully online asynchronous ([n_async]), fully online synchronous "
+        "([n_sync]), blended ([n_blended]), MOOC ([n_MOOC]), and mixed/"
+        "unspecified ([n_mixed]). Education levels comprised K-12 ([n_K12]), "
+        "undergraduate ([n_UG]), graduate ([n_grad]), adult learner "
+        "([n_adult]), and mixed ([n_mixed_edu]). Regional distribution: "
+        "Asia ([n_asia]), Europe ([n_europe]), North America ([n_NA]), and "
+        "Other ([n_other])."
+    )
+    add_para(doc, p3, indent_first=True)
+
+    p4 = (
+        "Personality measurement instruments used across the included studies "
+        "included the Big Five Inventory (BFI, BFI-2, BFI-S; [n_BFI] studies), "
+        "the NEO Personality Inventory family (NEO-FFI, NEO-PI-R; [n_NEO] "
+        "studies), the International Personality Item Pool (IPIP, Mini-IPIP; "
+        "[n_IPIP] studies), the HEXACO Personality Inventory ([n_HEXACO] "
+        "studies), the Ten-Item Personality Inventory (TIPI, TIPI-J; [n_TIPI] "
+        "studies), and other validated Big Five–aligned scales ([n_other_inst] "
+        "studies). Academic achievement outcomes were operationalized as grade "
+        "point average ([n_GPA] studies), course grade ([n_CG] studies), "
+        "standardized exam score ([n_exam] studies), or composite performance "
+        "indicator ([n_composite] studies)."
+    )
+    add_para(doc, p4, indent_first=True)
+
+    add_h2(doc, "Risk of Bias Across Included Studies")
+
+    p5 = (
+        "Risk-of-bias ratings using the Joanna Briggs Institute 8-item checklist "
+        "are reported per study in Table S2 [Supplementary Material]. The mean "
+        "aggregate score across included studies was [mean_RoB] (SD = [sd_RoB], "
+        "range = [min_RoB]–[max_RoB]). [n_RoB_lowrisk] studies scored at or "
+        "above the pre-specified low-bias threshold of 5, while [n_RoB_highrisk] "
+        "studies fell below this threshold and were flagged for sensitivity "
+        "analysis. Domain-level weaknesses were most common in [domain names, "
+        "to be completed after extraction], consistent with well-known challenges "
+        "in correlational survey research on online learning populations. "
+        "Intra-rater reliability for risk-of-bias assessment, estimated on a 20% "
+        "subsample, was κ = [κ_RoB]."
+    )
+    add_para(doc, p5, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -1033,6 +1124,7 @@ def main():
     build_methods_part3(doc)
     build_methods_part4(doc)
     build_methods_part5(doc)
+    build_results_part1(doc)
     build_references(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
