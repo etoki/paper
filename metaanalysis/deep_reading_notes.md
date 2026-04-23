@@ -1448,6 +1448,77 @@ Indirect effects (e.g., FI→C→OLE→AA = .048***, FI→O→OLE→AA = .041***
 
 ---
 
+## A-37. Zheng & Zheng (2023) ⚠ **AMBIGUOUS/INCLUDE** — 3-era TIPI Big Five
+
+**Citation**: Zheng, Y., & Zheng, S. (2023). Exploring educational impacts among pre, during and post COVID-19 lockdowns from students with different personality traits. *International Journal of Educational Technology in Higher Education, 20*(1), 21. https://doi.org/10.1186/s41239-023-00388-4
+**Modality**: Mixed across eras (F2F pre / online during / F2F post) | **Country**: USA (IIT Chicago) | **Era**: **Pre + During + Post COVID** (2018-2022)
+
+### Sample
+- N=282 unique graduate students, 386 academic records
+- By era: Pre 186/222, During 63/91, Post 67/73
+- Graduate ITM (data science specialization), 41% female
+- **TIPI** (10-item Big Five inventory, Gosling 2003) — α 未報告（TIPI は低α で有名）
+
+### Outcomes
+- Class grade (0-100)
+- Late submission rate
+- Assignment attempts
+
+### Effect sizes
+- 本文記述: "|r| < 0.10 for all traits × outcomes" — **trait-level r 未表示**
+- K-means 4 cluster で分析 — r/β ではない
+- Era × cluster interaction: Kruskal-Wallis p=0.001 (grades), p=0.009 (attempts)
+
+### Era-specific findings 🔴
+- **Pre**: 安定、weak trait effects
+- **During**: **grades stable (M=84.01)** — online への適応良好
+- **Post**: **grades dropped (M=76.56)** — post-pandemic transition が remote learning 本体より困難
+- 高 O/E cluster (C3) が post で late submission 増（social activity 復活）
+
+### Status
+- **Ambiguous/Include**: 3-era 内 Big Five × achievement 設計は稀少だが、trait-level r 未公開
+- 著者連絡 or r≈0 (ns) として null-effect 扱いで include 可能
+- **Era moderator に uniquely valuable** (interaction p=0.001)
+
+### RoB: **4/8**（cluster analysis のみ、small Post N、α 未報告、TIPI 限界）
+
+---
+
+## Excluded new candidates (Big Five PICO 不適合)
+
+### ❌ P-04. Engel et al. (2023) Germany digital studying
+- Personality 未測定 (digital competencies + peer interaction のみ)
+- N=18,262 nationwide German HE
+- **EXCLUDE**
+
+### ❌ P-05. Wang et al. (2025) China K-12 MBTI 🔴 惜しい
+- K-12 online 大規模 (N=4,340) — gap filler に期待
+- **MBTI** (4 dimension categorical) — Big Five ではない
+- Findings: extroverts/intuitives/thinkers/perceivers が online で成績低下（本研究仮説と整合）
+- **EXCLUDE** for Big Five pool、narrative comparator として議論で言及可
+
+### ❌ P-06. Chai et al. (2023) China proactive personality
+- Proactive Personality のみ (Big Five 未測定)
+- N=322 UG, online learning performance r=.53
+- Narrative adjacent construct として価値あり（Conscientiousness + Extraversion と overlap）
+- **EXCLUDE**
+
+### ❌ P-07. Ma & Lee (2025) China 3-era intention
+- Personality 未測定 (TUE framework)
+- Outcome = use intention ではなく achievement なし
+- **EXCLUDE**
+
+### ❌ P-08. Salem et al. (2024) Oman 3-mode TAM
+- Personality 未測定 (TAM constructs)
+- Outcome = GPA だが predictor が TAM
+- **EXCLUDE**
+
+### ⚠ Summary: 9 candidates から 1 のみ include (A-37 Zheng & Zheng 2023)
+
+残念ながら P-04〜P-09 の 6 本中 5 本が Big Five 不測定で exclude。K-12 gap（A-26 Wang 2023 が現在唯一）は依然として埋まらず、P-05 は MBTI で惜しかった。**Tier 1 primary の yield: 1/6 = 17%**。
+
+---
+
 ## A-28. Yu (2021) 🔴 objective MOOC outcome
 
 **Citation**: Yu, Z. (2021). The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic. *International Journal of Educational Technology in Higher Education, 18*, 14.
