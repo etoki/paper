@@ -319,4 +319,49 @@ Ashton, M. C., Lee, K., & de Vries, R. E. (2014). The HEXACO Honesty-Humility, A
 
 ---
 
+## II-B. Meta-Analytic Methods Standards 📖
+
+### Hedges & Olkin (1985) — meta-analysis textbook
+Hedges, L. V., & Olkin, I. (1985). *Statistical methods for meta-analysis*. Academic Press.
+
+### Hunter & Schmidt (2004) — Hunter-Schmidt method
+Hunter, J. E., & Schmidt, F. L. (2004). *Methods of meta-analysis: Correcting error and bias in research findings* (2nd ed.). Sage.
+
+### Borenstein, Hedges, Higgins, & Rothstein (2009) — Intro to meta-analysis (1st ed)
+Borenstein, M., Hedges, L. V., Higgins, J. P. T., & Rothstein, H. R. (2009). *Introduction to meta-analysis*. John Wiley & Sons.
+
+### Borenstein et al. (2021) — Intro to meta-analysis (2nd ed)
+Borenstein, M., Hedges, L. V., Higgins, J. P. T., & Rothstein, H. R. (2021). *Introduction to meta-analysis* (2nd ed.). John Wiley & Sons.
+
+### Cooper, Hedges, & Valentine (2019) — Handbook of research synthesis (3rd ed)
+Cooper, H., Hedges, L. V., & Valentine, J. C. (Eds.). (2019). *The handbook of research synthesis and meta-analysis* (3rd ed.). Russell Sage Foundation.
+
+### Higgins & Thompson (2002) — I² statistic
+Higgins, J. P. T., & Thompson, S. G. (2002). Quantifying heterogeneity in a meta-analysis. *Statistics in Medicine, 21*(11), 1539–1558. https://doi.org/10.1002/sim.1186
+
+### Higgins, Thompson, Deeks, & Altman (2003) — Measuring inconsistency
+Higgins, J. P. T., Thompson, S. G., Deeks, J. J., & Altman, D. G. (2003). Measuring inconsistency in meta-analyses. *BMJ, 327*(7414), 557–560. https://doi.org/10.1136/bmj.327.7414.557
+
+### Higgins, Thompson, & Spiegelhalter (2009) — Prediction intervals
+Higgins, J. P. T., Thompson, S. G., & Spiegelhalter, D. J. (2009). A re-evaluation of random-effects meta-analysis. *Journal of the Royal Statistical Society: Series A (Statistics in Society), 172*(1), 137–159. https://doi.org/10.1111/j.1467-985X.2008.00552.x
+
+### DerSimonian & Laird (1986) — DL estimator
+DerSimonian, R., & Laird, N. (1986). Meta-analysis in clinical trials. *Controlled Clinical Trials, 7*(3), 177–188. https://doi.org/10.1016/0197-2456(86)90046-2
+
+### Hartung & Knapp (2001) — HKSJ adjustment origin
+Hartung, J., & Knapp, G. (2001). A refined method for the meta-analysis of controlled clinical trials with binary outcome. *Statistics in Medicine, 20*(24), 3875–3889. https://doi.org/10.1002/sim.1009
+
+（IntHout et al. 2014, Tipton 2015, Viechtbauer 2010, Raudenbush 2009 は Part I-A/B references 掲載済み）
+
+### Sidik & Jonkman (2002) — Sidik-Jonkman variance estimator
+Sidik, K., & Jonkman, J. N. (2002). A simple confidence interval for meta-analysis. *Statistics in Medicine, 21*(21), 3153–3159. https://doi.org/10.1002/sim.1262
+
+### Peters, Sutton, Jones, Abrams, & Rushton (2006) — Peters regression test
+Peters, J. L., Sutton, A. J., Jones, D. R., Abrams, K. R., & Rushton, L. (2006). Comparison of two methods to detect publication bias in meta-analysis. *JAMA, 295*(6), 676–680. https://doi.org/10.1001/jama.295.6.676
+
+### Sterne, Sutton, Ioannidis, Terrin, Jones, Lau, Carpenter, Rücker, Harbord, Schmid, Tetzlaff, Deeks, Peters, Macaskill, Schwarzer, Duval, Altman, Moher, & Higgins (2011) — Pub bias recommendations
+Sterne, J. A. C., Sutton, A. J., Ioannidis, J. P. A., Terrin, N., Jones, D. R., Lau, J., Carpenter, J., Rücker, G., Harbord, R. M., Schmid, C. H., Tetzlaff, J., Deeks, J. J., Peters, J., Macaskill, P., Schwarzer, G., Duval, S., Altman, D. G., Moher, D., & Higgins, J. P. T. (2011). Recommendations for examining and interpreting funnel plot asymmetry in meta-analyses of randomised controlled trials. *BMJ, 343*, d4002. https://doi.org/10.1136/bmj.d4002
+
+---
+
 
