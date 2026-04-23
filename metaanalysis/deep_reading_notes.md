@@ -25,7 +25,110 @@
 
 ## C-01. Poropat (2009)
 
-**TBD**: Phase 2 で精読
+**Citation**: Poropat, A. E. (2009). A meta-analysis of the five-factor model of personality and academic performance. *Psychological Bulletin, 135*(2), 322–338. https://doi.org/10.1037/a0014996
+
+**Institution**: Griffith University, Australia
+
+### Study characteristics
+
+| 項目 | 値 |
+|------|------|
+| k (samples) | 109–138 (trait による) |
+| Total N | 58,522–70,926 |
+| Coverage | ~2008 まで |
+| Analysis model | Random-effects with Hunter-Schmidt correction |
+| Effect size | ρ (disattenuated correlation) |
+| Moderators tested | Academic level (primary/secondary/tertiary), age |
+
+### Overall pooled effect sizes（Table 1）
+
+| Trait | k | N | r | ρ | d | 95% Cred. Int. | ρg (intelligence 控除) |
+|-------|---|---|---|---|---|---------------|----------------------|
+| **Conscientiousness** | 138 | 70,926 | 0.19 | **0.22** | 0.46 | [-0.09, 0.54] | 0.24 ⭐ 増加 |
+| Openness | 113 | 60,442 | 0.10 | 0.12 | 0.24 | [0.09, 0.17] | 0.09 |
+| Agreeableness | 109 | 58,522 | 0.07 | 0.07 | 0.14 | [-0.16, 0.30] | 0.07 |
+| Emotional Stability | 114 | 59,554 | 0.01 | 0.02 | 0.03 | [-0.29, 0.32] | 0.01 |
+| Extraversion | 113 | 59,986 | -0.01 | -0.01 | -0.02 | [-0.32, 0.30] | -0.01 |
+| Intelligence | 47 | 31,955 | 0.23 | 0.25 | 0.52 | [-0.18, 0.68] | — |
+
+- **Q, I²**: すべて p < .001 で heterogeneous（I² = 88–97%）
+- Conscientiousness は intelligence 控除後も ρg = 0.24（むしろ増加）— C は intelligence と負相関 (-.03) のため
+- 全相関は p < .001（大サンプルゆえ practical significance でない差も統計有意）
+
+### Moderation by academic level（Table 2）🔴 重要
+
+| Level | k | N | ρ(A) | ρ(C) | ρ(ES) | ρ(E) | ρ(O) |
+|-------|---|---|------|------|-------|------|------|
+| Primary | 8 | 3,196 | 0.30 | **0.28** | 0.20 | 0.18 | 0.24 |
+| Secondary | 24–35 | 25,488–31,980 | 0.05 | **0.21** | 0.01 | -0.03 | 0.12 |
+| Tertiary | 75–92 | 27,944–32,887 | 0.06 | **0.23** | -0.01 | -0.01 | 0.07 |
+
+**重要な発見**:
+- **Conscientiousness のみ**教育段階を通じて安定（0.21–0.28）
+- 他の全特性は primary から secondary/tertiary で急激に減衰
+- Openness は secondary まで持続 (0.12) → tertiary で減衰 (0.07)
+- Intelligence も同様に減衰（primary 0.58 → tertiary 0.23）= range restriction
+
+### Incremental validity over secondary GPA（著者の独自分析）
+
+| Predictor | rpartial（tertiary GPA への追加予測力） |
+|-----------|-------------------------------------|
+| **Conscientiousness** | **0.17** ⭐（intelligence より大） |
+| Intelligence | 0.14 |
+| Agreeableness | 0.05 |
+| Openness | 0.03 |
+| Emotional Stability | -0.01 |
+| Extraversion | 0.00 |
+
+- 過去の成績 (secondary GPA, ρ=.35) 控除後も C は tertiary GPA を独立に予測
+- これは C が過去成績に captured されない「新しい情報」を持つことを示す
+
+### 仕事パフォーマンスとの比較（Barrick et al. 2001）
+
+Poropat は FFM × 仕事パフォーマンス meta-analysis と本結果を Westen & Rosenthal 比較:
+- Primary education: 仕事との対応小 (ralerting = .37)
+- Secondary: 中程度 (.60)
+- Tertiary: 高 (.15 alerting / .79 contrast) ⭐
+
+**含意**: 高等教育は職場行動により近く、C が支配的になる。
+
+### 年齢の moderation（Table 3）
+
+- Primary: 年齢↑ → C, ES, E ↑ / O ↓
+- Secondary: 年齢↑ → A, ES, O ↓
+- Tertiary: 年齢の影響 n.s.
+
+### Limitations（Poropat 自身の記述）
+
+1. k < 10 for primary education → 推定不安定
+2. Agreeableness の credibility interval が広い [-0.16, 0.30]
+3. 公開バイアス未検証（本メタ分析の課題）
+4. Cross-cultural 分析なし（Mammadov 2022 が補填）
+
+### 🔴 本メタ分析（Tokiwa）への含意
+
+1. **ベンチマーク ρ(C) = 0.22**: 本メタ分析（オンライン学習特化）の pooled ρ との第一次比較対象
+2. **Tertiary level の ρ は primary/secondary より低い**: 本研究サンプル（主に大学）での効果量期待値の目安
+3. **Intelligence 控除後も C は ρg = 0.24**: オンライン学習でも C の独自寄与が期待される
+4. **Poropat vs Mammadov の差**: 
+   - Poropat 2009: C ρ = 0.22 (N=70,926)
+   - Mammadov 2022: C ρ = 0.27 (N=413,074)
+   - 13 年の研究蓄積で effect size が上方修正 → 本研究も類似の上昇があり得る
+5. **Intro 骨子への直接引用**: 「Conscientiousness is the most robust non-cognitive predictor of academic performance (Poropat, 2009; Mammadov, 2022)」が確立された定式
+
+### RoB（JBI 8 項目推定）
+
+| 項目 | 評価 | 根拠 |
+|------|------|------|
+| 1. 包含基準明示 | Yes | Method 詳述 |
+| 2. サンプル記述 | Yes | Table 1, 2 |
+| 3. Exposure 妥当性 | Yes | validated FFM measures |
+| 4. Outcome 客観性 | Partial | GPA/grade 混在 |
+| 5. Confounder 特定 | Yes | Intelligence 含む |
+| 6. Confounder 対処 | Yes | Partial correlations |
+| 7. Outcome 信頼性 | Partial | 測定法 moderator 未実施 |
+| 8. 統計適切性 | Yes | WLS regression |
+| **Aggregate** | **7/8** | **低リスク**（Mammadov 2022 より若干劣る：publication bias 検定なし） |
 
 ## C-02. Vedel (2014)
 
