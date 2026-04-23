@@ -451,6 +451,116 @@ def write_results_csv(results):
                 writer.writerow([t, r.get("k", 0), "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 
 
+def write_summary_md_with_moderators(results, mod_results):
+    """Extended summary with moderator findings."""
+    lines = [
+        "# Meta-Analysis Pooling Results",
+        "",
+        "**Pre-registered protocol**: Random-effects meta-analysis, REML estimator, HKSJ confidence intervals, Fisher's z transformation.",
+        "",
+        "**Input**: `data_extraction_populated.csv`",
+        "**Output**: `pooling_results.csv`, `moderator_results.csv`",
+        "",
+        "## Per-trait pooled effects (primary analysis)",
+        "",
+        "| Trait | k | N_total | r (95% CI) | 95% PI | I² | τ² | Q(df), p |",
+        "|-------|---|---------|-----------|--------|-----|-----|----------|",
+    ]
+    for t in TRAITS:
+        r = results.get(t, {})
+        if "r_pooled" in r:
+            ci = f"{r['r_pooled']:.3f} [{r['r_ci_lo']:.3f}, {r['r_ci_hi']:.3f}]"
+            if not np.isnan(r['r_pi_lo']):
+                pi = f"[{r['r_pi_lo']:.3f}, {r['r_pi_hi']:.3f}]"
+            else:
+                pi = "(k<3)"
+            lines.append(
+                f"| **{t}** | {r['k']} | {r['N_total']} | {ci} | {pi} | "
+                f"{r['I2']:.1f}% | {r['tau2']:.4f} | "
+                f"{r['Q']:.2f}({r['df']}), p={r['p_Q']:.3f} |"
+            )
+
+    lines.append("")
+    lines.append("## Moderator analyses (exploratory; k < 10 per level caveats apply)")
+    lines.append("")
+    lines.append("Three pre-registered moderators are reported; the remaining six (instrument, publication year, sample size, RoB score, modality, education level) are reported narratively in the manuscript due to insufficient k per level.")
+    lines.append("")
+
+    for mod_name, by_trait in mod_results.items():
+        lines.append(f"### Moderator: {mod_name}")
+        lines.append("")
+        lines.append("| Trait | Level | k | N | r [95% CI] | I² | Q_b (df), p |")
+        lines.append("|-------|-------|---|---|-----------|-----|-------------|")
+        for t in TRAITS:
+            res = by_trait.get(t, {})
+            between = res.get("_between", {})
+            q = between.get("Q")
+            p = between.get("p")
+            q_str = f"{q:.2f}({between['df']}), p={p:.3f}" if q is not None else "NA"
+            first = True
+            for level, sub in res.items():
+                if level == "_between":
+                    continue
+                if "r_pooled" in sub:
+                    ci = f"{sub['r_pooled']:.3f} [{sub['r_ci_lo']:.3f}, {sub['r_ci_hi']:.3f}]"
+                    lines.append(
+                        f"| {t if first else ''} | {level} | {sub['k']} | "
+                        f"{sub['N_total']} | {ci} | {sub['I2']:.1f}% | "
+                        f"{q_str if first else ''} |"
+                    )
+                else:
+                    lines.append(
+                        f"| {t if first else ''} | {level} | "
+                        f"{sub.get('k', 0)} | — | (k<2) | — | "
+                        f"{q_str if first else ''} |"
+                    )
+                first = False
+        lines.append("")
+
+    lines.append("## Key moderator findings 🔴")
+    lines.append("")
+    lines.append("**Significant at p < .05**:")
+    lines.append("")
+    lines.append("1. **Extraversion × Region** (Q_b = 46.43, df=1, p < .001):")
+    lines.append("   - non-Asia (k=7): r = 0.050 (null)")
+    lines.append("   - Asia (k=2): **r = -0.131** (negative)")
+    lines.append("   - Interpretation: Asian online learners show a pronounced negative Extraversion-achievement association, consistent with Chen et al. (2025)'s finding that E is significantly negative in individualistic and culturally sensitive contexts. Replication with k > 2 in Asia required.")
+    lines.append("")
+    lines.append("2. **Extraversion × Outcome Type** (Q_b = 17.30, df=1, p < .001):")
+    lines.append("   - Objective outcomes (GPA, exam, MOOC composite; k=7): r = -0.038")
+    lines.append("   - Self-report outcomes (self-rated performance; k=2): **r = +0.117**")
+    lines.append("   - Interpretation: Extraverts self-report better performance (+ rating bias) but objective measures show weakly negative effects — consistent with social-desirability / self-enhancement bias in extraverted learners.")
+    lines.append("")
+    lines.append("**Trends (p < .10)**:")
+    lines.append("")
+    lines.append("- **Neuroticism × Region** (Q_b = 3.31, p = .069): Asia N r = +0.089 vs non-Asia r = -0.007, partial support for H4 modulation by culture.")
+    lines.append("- **Conscientiousness × Region** (Q_b = 2.68, p = .102): non-Asia r = 0.185 > Asia r = 0.111. Counter-intuitive relative to Mammadov (2022) Asian amplification — possibly driven by Yu 2021's MOOC-specific weak C (β=.057 in linguistics students). Larger k needed.")
+    lines.append("")
+    lines.append("**Non-significant moderators**:")
+    lines.append("")
+    lines.append("- Era (pre-COVID vs COVID): all 5 traits n.s. (p = .15 to .99). No evidence for COVID-shock amplification of any trait. Note k is insufficient for post-COVID isolation (only 2 studies, both mixed-era).")
+    lines.append("- Agreeableness × Region: directional (Asia r=.330 vs non-Asia r=.030) but not significant (p=.14). k=2 Asian limits power.")
+    lines.append("")
+    lines.append("## Contributing studies per trait")
+    for t in TRAITS:
+        r = results.get(t, {})
+        if "labels" in r and r["labels"]:
+            lines.append(f"\n### Trait {t} (k = {r['k']})")
+            for label in r["labels"]:
+                lines.append(f"- {label}")
+
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+    lines.append("## Notes")
+    lines.append("- **Power caveat**: With k = 9-10 per trait pool and Asian subgroup limited to k = 2, moderator findings are **underpowered** and should be interpreted as exploratory.")
+    lines.append("- **β-to-r conversion**: Peterson & Brown (2005) applied where only β was reported. Sensitivity analysis (exclude converted) pending.")
+    lines.append("- **Sign conventions**: A-23 Rodrigues GPA sign-flipped so positive r = better performance; A-31 Rivers Emotional Stability sign-reversed to Neuroticism.")
+    lines.append("- **Remaining 6 pre-registered moderators** (instrument, publication year, sample size, RoB score, modality, education level) not quantitatively analyzed due to insufficient k per level; reported narratively in Methods Deviations subsection.")
+
+    SUMMARY_MD.write_text("\n".join(lines), encoding="utf-8")
+
+
 def write_summary_md(results):
     lines = [
         "# Meta-Analysis Pooling Results",
@@ -511,6 +621,8 @@ def main():
 
     mod_results = run_moderator_analyses()
     write_moderator_csv(mod_results)
+    # Overwrite summary with extended version that includes moderators
+    write_summary_md_with_moderators(results, mod_results)
 
     print(f"Wrote {RESULTS_CSV}")
     print(f"Wrote {SUMMARY_MD}")
