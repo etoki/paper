@@ -1681,14 +1681,26 @@ R²=.565, Adj. R²=.563
 
 ## D1. 性格 × 学業のベンチマーク効果量（一般学業）
 
-| Meta-analysis | k | N | C ρ | O ρ | A ρ | E ρ | N ρ |
-|---------------|---|---|-----|-----|-----|-----|-----|
-| Poropat (2009) | 138 | 70,926 | **.22** | .12 | .07 | -.01 | .02 |
-| McAbee & Oswald (2013) | 57 | 26,382 | **.26** | .08 | .07 | -.03 | -.00 |
-| Vedel (2014) | 21 | 17,717 | **.26** | .07 | .08 | -.00 | -.01 |
-| Stajkovic et al. (2018) | 5 samples | 875 | **.21** | -.01 | .05 | -.02 | .00 |
-| Mammadov (2022) | 267 | 413,074 | **.27** | .16 | .09 | .01 | -.02 |
-| **Convergent ベンチマーク** | — | — | **.22–.27** | **.07–.16** | **.05–.09** | **~.00** | **~.00** |
+### D1.1 Meta-analyses (FtF/mixed, all non-online-specific)
+
+| Meta-analysis | k | N | C ρ/r | O ρ/r | A ρ/r | E ρ/r | N ρ/r | Population |
+|---------------|---|---|-----|-----|-----|-----|-----|------------|
+| Poropat (2009) | 138 | 70,926 | **.22** | .12 | .07 | -.01 | .02 | All education |
+| McAbee & Oswald (2013) | 57 | 26,382 | **.26** | .08 | .07 | -.03 | -.00 | Tertiary GPA |
+| Vedel (2014) | 21 | 17,717 | **.26** | .07 | .08 | -.00 | -.01 | Tertiary |
+| Stajkovic et al. (2018) | 5 samples | 875 | **.21** | -.01 | .05 | -.02 | .00 | Tertiary |
+| Mammadov (2022) | 267 | 413,074 | **.27** | .16 | .09 | .01 | -.02 | All education |
+| **Meyer et al. (2023) NEW** | **110 samples** | **500,218** | **.24** | **.21** | .04 | .02 | **-.05** | **K-12 only** |
+| **Chen et al. (2025) NEW** | **84** | **46,729** | **.206** | .081 | .082 | -.009 | -.029 | **University only, N≥200** |
+| **Zell & Lesick (2021) umbrella** | **54 meta-analyses** | >500K | **.19 (all), .28 (academic)** | .13 / .14 | .10 / .07 | .10 / -.01 | -.12 / -.03 | Mixed job+academic |
+| **Convergent ベンチマーク** | — | — | **.19–.28** | **.07–.21** | **.04–.10** | **-.01 to +.10** | **-.12 to +.02** | — |
+
+### D1.2 新規ベンチマークの特徴
+
+- **Chen 2025** は最も**直接的 comparator**: 大学生のみ、N≥200、2024-08 までカバー、Hofstede 文化 moderator。C r=.206 は過去よりやや低め（N≥200 基準で small-N 除外のため）
+- **Meyer 2023** は **K-12 専用** で最大、domain × measure moderator: C は grade で .28 vs test で .13、Openness は language で強い（PASH framework）
+- **Zell 2021 umbrella** は academic m=7, university m=5、replicability SD < .04（差 > .04 で valid claim）
+- **全 8 メタ分析が modality moderator 未検討** — 本研究の gap を 8 つ独立に confirm
 
 ### Mammadov 2022 の region moderator（Asia 強い）
 - Asia: C ρ = **.35**（H1 の重要根拠）, O ρ=.29, E ρ=.16, A ρ=.23, N ρ=-.19
@@ -1722,18 +1734,29 @@ R²=.565, Adj. R²=.563
 
 ### 本メタ分析の primary studies からの実証的 effect size パターン
 
-| Source | Modality | C × Achievement | O | E | A | N |
-|--------|---------|----------------|---|---|---|---|
-| A-01 Abe 2020 (US, async) | Quiz | **.48** | .13 | -.07 | .13 | -.10 |
-| A-01 Abe 2020 | Paper | .37 | **.35** | .03 | .16 | -.02 |
-| A-02 Alkış 2018 (Turkey, online) | Grade | **.205** | -.09 | .05 | .09 | .03 |
-| A-02 Alkış 2018 (Turkey, blended) | Grade | **.244** | .08 | .00 | .02 | -.01 |
-| A-15 Elvers 2003 (US online) | Procrast | .41† | — | — | — | -.38† |
-| A-23 Rodrigues 2024 (Germany) | GPA | **-.228**¶ | ns | ns | ns | ns |
-| A-26 Wang 2023 (China K-12) | Achievement (β) | **.322***§ | .253 | -.058 | .112 | .169 |
-| A-28 Yu 2021 (China) | MOOC composite β | .057 | **.305** | -.076 | **.442** | .037 |
+| Source | Modality | C | O | E | A | N |
+|--------|---------|---|---|---|---|---|
+| A-01 Abe 2020 (US, async) Quiz | **.48** | .13 | -.07 | .13 | -.10 | — |
+| A-01 Abe 2020 Paper | .37 | **.35** | .03 | .16 | -.02 | — |
+| A-02 Alkış 2018 (Turkey online) Grade | **.205** | -.09 | .05 | .09 | .03 | — |
+| A-02 Alkış 2018 (Turkey blended) Grade | **.244** | .08 | .00 | .02 | -.01 | — |
+| A-15 Elvers 2003 (US online) Procrast | .41† | — | — | — | -.38† | — |
+| A-23 Rodrigues 2024 (Germany) GPA | **-.228**¶ | ns | ns | ns | ns | — |
+| A-26 Wang 2023 (China K-12) Eng β | **.322***§ | .253 | -.058 | .112 | .169 | — |
+| A-28 Yu 2021 (China) MOOC β | .057 | **.305** | **-.076** | **.442** | .037 | — |
+| **A-29 Bahçekapılı 2020 (Turkey pre-COVID)** GPA | **.068** ns | .070 ns | .027 ns | -.013 ns | **-.072** ns | — |
+| **A-30 Kaspar 2023 (Germany COVID)** self-perf (β) | **.15*** | .08 | .05 | -.01 | **.20*** (suppressor) | — |
+| **A-31 Rivers 2021 (Japan async)** CA obj | **.144** | -.066 | **-.173** | .118 | ≈+.107 | — |
+| A-37 Zheng 2023 (US 3-era) CA | \|r\|<.10 all | \|r\|<.10 | \|r\|<.10 | \|r\|<.10 | \|r\|<.10 | — |
 
 ¶ German GPA: 1=高, 6=低 → 負相関 = better。 †trend (p<.10)。 §β to engagement, indirect to achievement.
+
+### D2.1 新しい primary finding summary
+
+- **A-29 Bahçekapılı (Turkey pre-COVID)**: 全 Big Five × GPA 直接効果は ns → mediated via SE + external LoC が online の pattern
+- **A-30 Kaspar (Germany COVID)**: N が suppressor effect で sign flip — covariates 統制時のみ positive
+- **A-31 Rivers (Japan async)**: **E × CA = -.173 direct 負効果** → H5 (online で E 負) を強く支持
+- **A-37 Zheng (US 3-era)**: 全 trait × grade \|r\|<.10 → 3 era interaction で pattern 変動
 
 ### オンライン学習で観察される pattern の特徴
 
@@ -1744,16 +1767,25 @@ R²=.565, Adj. R²=.563
 
 ---
 
-## D3. 本メタ分析の novel contribution
+## D3. 本メタ分析の novel contribution（8 benchmark meta-analyses 全てで未検討）
 
-| Gap | 既存研究 | 本研究 |
-|-----|---------|--------|
-| Online-specific pooled ρ | **存在せず** | 初の quantitative pooling |
-| Modality moderator | 未検証（既存は全モード混合） | 5 modality の subgroup |
-| Era moderator (pre/COVID/post) | 未検証 | 3 era subgroup |
-| Region moderator (Asia 特化) | Mammadov 2022 で示唆 | Asia subset で再検証 |
-| Risk of bias-weighted synthesis | Hunter et al. のみ qualitative | JBI 8-item で量的 |
-| Self-efficacy / SRL mediator | Stajkovic 2018 (FtF) | online で再検証 |
+| Gap | 既存 8 meta-analyses | 本研究 |
+|-----|---------------------|--------|
+| Online-specific pooled ρ | **全 8 本で未検討** | 初の online-specific quantitative pooling |
+| Modality moderator (online/blended/MOOC) | 未検証（全モード混合） | 5 modality の subgroup |
+| Era moderator (pre/COVID/post COVID) | 未検証（全期間一括） | 3 era subgroup |
+| Region moderator (Asia vs West) | Mammadov 2022 Asian C=.35 | Asia subset で再検証 |
+| Cultural moderator (Hofstede) | Chen 2025 新規導入 | Online × individualism で追加 |
+| Domain × measure (PASH) | Meyer 2023 (K-12 only) | Online × domain × measure の 3-way |
+| Risk of bias-weighted synthesis | Hunter 2025 qualitative のみ | JBI 8-item で量的 RoB moderator |
+| Self-efficacy / SRL mediator | Stajkovic 2018 (FtF) | online で SE mediation が強化するか検証 |
+| Post-COVID corpus | Chen 2025 が 2024-08 まで | 2025 含む最新 |
+
+### Novel contribution の階層
+
+1. **Primary contribution**: Online × Big Five × achievement の初の pooled ρ（8 meta-analyses が全く touch していない gap）
+2. **Secondary**: Modality × era × region の 3-way moderator
+3. **Theoretical**: PASH hypothesis (Meyer 2023) の online 拡張 — online で auto-graded → C 効果は weakening か amplifying か
 
 ### Hunter et al. (2025) との位置関係
 
@@ -1867,6 +1899,53 @@ Hunter et al. は narrative synthesis のみ（vote-counting + thematic analysis
 | A-18 | Keller & Karau (2013) | **Bhagat, Wu & Chang (2019)** | 完全別論文 |
 | A-20 | Mustafa et al. (2022) Pakistan | **Mustafa et al. (2022) China** | 国名のみ訂正 |
 | A-21 | Nakayama et al. (2014) N=? | **N=53** 確定 | N 値追加 |
+
+---
+
+## D6b. 新規追加後の k 総合評価（2026-04-23 更新）
+
+### Primary studies（既存 A-01..A-28 + 新規 A-29..A-37）
+
+| 包含状態 | Count |
+|----------|-------|
+| Include（全確定）| A-01, A-02, A-11 (C-only), A-15 (C/N), A-17, A-19 (HEXACO), A-22, A-23, A-26, A-27 (PDF 未), A-28 | 11 |
+| 新規 Include | A-29 Bahçekapılı, A-30 Kaspar, A-31 Rivers, A-37 Zheng | **+4** |
+| Conditional Include | A-03, A-04, A-05 (overlap), A-06, A-07, A-08, A-12, A-13, A-20, A-21, A-24, A-25 | 12 |
+| Exclude (modality) | A-09, A-10, A-14, A-16 | 4 |
+| **Total primary** | | **~32（+4 from new search）** |
+
+### Achievement outcome extractable 直接相関
+
+| ID | N | C × achievement | 備考 |
+|----|---|----------------|------|
+| A-01 Abe | 92 | **.48** (quiz) / .37 (paper) | 最大効果 |
+| A-02 Alkış online | 189 | **.205** | Turkey grade |
+| A-22 Quigley | 301 | **.26** (perf subscale) | UK, 2-item proxy |
+| A-23 Rodrigues | 260 | **-.228** (sign-flipped) | Germany GPA |
+| **A-29 Bahçekapılı** | **525** | **.068** (ns, r 完備) | Turkey pre-COVID **largest direct-r study** |
+| **A-30 Kaspar** | **413** | **β=.15** | Germany COVID (β only, 要 Table 4 確認) |
+| **A-31 Rivers** | **149** | **.144** | Japan objective grade |
+| A-15 Elvers | 21 online | .41† (via procrast) | RCT但 small N |
+| A-28 Yu | 1152 | β=.057 | China MOOC composite |
+| A-37 Zheng | 282 | \|r\|<.10 | US 3-era, cluster-based |
+
+→ **Primary achievement pool: k = 9–10**（閾値 ≥10 達成）
+
+### Pooling 実施可能性
+
+| Analysis | k required | 現状 k |
+|----------|-----------|--------|
+| Random-effects REML | ≥5 | **9–10** ✅ |
+| Tau² 推定（Jackson） | ≥10 | **borderline** |
+| Subgroup per level | ≥5 | modality/era で可能 |
+| Meta-regression (9 mod) | ≥10 per predictor | ❌ still under |
+| Egger publication bias | ≥10 | **borderline** |
+
+### 結論
+
+- **9 moderator 全てを REG 予定通り実施するには k がまだ足りない**
+- Primary analysis は可能（random-effects pooling + forest plot）
+- Moderator 分析は 2-3 に絞るか、narrative での補完が必要
 
 ---
 
