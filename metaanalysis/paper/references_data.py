@@ -99,8 +99,8 @@ REFERENCES = [
     'Meyer, J., Jansen, T., Hübner, N., & Lüdtke, O. (2023). Disentangling '
     'the association between the Big Five personality traits and student '
     'achievement: Meta-analytic evidence on the role of domain specificity '
-    'and achievement measures. <i>Educational Psychology Review, 35</i>(12), '
-    '1–34. https://doi.org/10.1007/s10648-023-09736-2',
+    'and achievement measures. <i>Educational Psychology Review, 35</i>, '
+    'Article 12. https://doi.org/10.1007/s10648-023-09736-2',
 
     'Moher, D., Shamseer, L., Clarke, M., Ghersi, D., Liberati, A., '
     'Petticrew, M., Shekelle, P., Stewart, L. A., & PRISMA-P Group. (2015). '
@@ -202,7 +202,7 @@ REFERENCES = [
     'Education, 18</i>, Article 14. https://doi.org/10.1186/s41239-021-00252-3',
 
     # Z
-    'Zell, E., & Lesick, T. L. (2021). Big five personality traits and '
+    'Zell, E., & Lesick, T. L. (2022). Big five personality traits and '
     'performance: A quantitative synthesis of 50+ meta-analyses. <i>Journal '
     'of Personality, 90</i>(4), 559–573. https://doi.org/10.1111/jopy.12683',
 ]
