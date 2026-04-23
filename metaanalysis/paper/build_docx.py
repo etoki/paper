@@ -1923,6 +1923,104 @@ def build_discussion_part3(doc):
     add_para(doc, p7, indent_first=True)
 
 
+def _style_table(table):
+    """Apply APA-style formatting (Times New Roman 11pt for compact tables)."""
+    for row in table.rows:
+        for cell in row.cells:
+            for para in cell.paragraphs:
+                para.paragraph_format.space_before = Pt(0)
+                para.paragraph_format.space_after = Pt(0)
+                para.paragraph_format.line_spacing = 1.15
+                for run in para.runs:
+                    run.font.name = "Times New Roman"
+                    run.font.size = Pt(10)
+                    rPr = run._element.get_or_add_rPr()
+                    rFonts = rPr.find(qn("w:rFonts"))
+                    if rFonts is None:
+                        rFonts = OxmlElement("w:rFonts")
+                        rPr.append(rFonts)
+                    rFonts.set(qn("w:eastAsia"), "Times New Roman")
+
+
+def _add_table_title(doc, number, title):
+    """APA Table N title format: bold number line + italic title line."""
+    p = doc.add_paragraph()
+    set_double_space(p)
+    run = p.add_run(f"Table {number}")
+    run.bold = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(12)
+    p2 = doc.add_paragraph()
+    set_double_space(p2)
+    run2 = p2.add_run(title)
+    run2.italic = True
+    run2.font.name = "Times New Roman"
+    run2.font.size = Pt(12)
+
+
+def build_table2_pooled(doc):
+    """Table 2: Pooled random-effects meta-analytic correlations per trait."""
+    doc.add_page_break()
+    _add_table_title(
+        doc, 2,
+        "Random-Effects Pooled Correlations Between Big Five Personality "
+        "Traits and Academic Achievement in Online Learning Environments",
+    )
+
+    data = [
+        ["Trait", "k", "N", "r", "95% CI", "95% PI", "I²", "τ²", "Q(df), p"],
+        ["Conscientiousness", "10", "3,384", ".167",
+         "[.089, .243]", "[−.020, .343]", "65.1%", ".006",
+         "25.79(9), .002"],
+        ["Agreeableness", "9", "3,363", ".112",
+         "[−.031, .250]", "[−.310, .496]", "96.2%", ".030",
+         "208.49(8), <.001"],
+        ["Openness", "9", "3,363", ".086",
+         "[−.044, .214]", "[−.273, .425]", "92.0%", ".021",
+         "100.17(8), <.001"],
+        ["Neuroticism", "10", "3,384", ".018",
+         "[−.079, .114]", "[−.229, .263]", "79.0%", ".010",
+         "42.76(9), <.001"],
+        ["Extraversion", "9", "3,363", ".002",
+         "[−.076, .080]", "[−.195, .200]", "75.5%", ".006",
+         "32.66(8), <.001"],
+    ]
+
+    table = doc.add_table(rows=len(data), cols=len(data[0]))
+    table.style = "Light Grid Accent 1"
+    for i, row in enumerate(data):
+        for j, val in enumerate(row):
+            cell = table.rows[i].cells[j]
+            cell.text = val
+            if i == 0:
+                for para in cell.paragraphs:
+                    for run in para.runs:
+                        run.bold = True
+    _style_table(table)
+
+    # Add note
+    p_note = doc.add_paragraph()
+    set_double_space(p_note)
+    run = p_note.add_run("Note. ")
+    run.italic = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(11)
+    run2 = p_note.add_run(
+        "k = number of independent samples contributing a direct Pearson r "
+        "or Peterson-Brown-converted β to the trait pool. N = total pooled "
+        "sample size. r = random-effects REML pooled correlation on the "
+        "Fisher z scale, back-transformed to r for display. 95% CI = "
+        "Hartung-Knapp-Sidik-Jonkman–adjusted confidence interval. 95% PI "
+        "= prediction interval for true effects in a new study. I² = "
+        "Higgins & Thompson's heterogeneity index. τ² = REML between-"
+        "study variance. Q = Cochran's heterogeneity statistic; df = "
+        "degrees of freedom; p = associated p-value. Traits are sorted by "
+        "pooled r (descending)."
+    )
+    run2.font.name = "Times New Roman"
+    run2.font.size = Pt(11)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -1947,6 +2045,7 @@ def main():
     build_discussion_part2(doc)
     build_discussion_part3(doc)
     build_references(doc)
+    build_table2_pooled(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
