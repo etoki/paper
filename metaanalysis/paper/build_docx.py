@@ -430,6 +430,97 @@ def build_intro_part2(doc):
     add_para(doc, p6, indent_first=True)
 
 
+def build_intro_part3(doc):
+    """Moderators + Present Study subsections."""
+    add_h2(doc, "Potential Moderators of the Personality-Achievement Association in Online Contexts")
+
+    p1 = (
+        "Several moderators are theoretically and empirically motivated for the "
+        "present review. First, learning modality itself—fully online, blended, MOOC, "
+        "synchronous online, asynchronous online—may moderate the personality-"
+        "achievement association because the four dimensions of online learning "
+        "identified above vary in intensity across modalities. Second, education level "
+        "(K-12, undergraduate, graduate, adult) has been shown to moderate personality-"
+        "achievement relationships in face-to-face contexts (Mammadov, 2022; Meyer et "
+        "al., 2023), with Openness effects declining across the educational trajectory "
+        "while Conscientiousness effects remain stable; whether this pattern holds in "
+        "online contexts is unknown. Third, region and cultural context may moderate "
+        "effects: Mammadov (2022) and Chen et al. (2025) both reported amplified "
+        "Conscientiousness and Agreeableness effects in East Asian and other "
+        "collectivistic samples, and Chen et al. (2025) additionally reported that "
+        "Extraversion is significantly negative in individualistic contexts but null "
+        "in collectivistic contexts. Fourth, the COVID-19 era may constitute a "
+        "meaningful moderator: pre-COVID online learning was typically self-selected "
+        "and involved learners with strong motivation for online study, whereas COVID-"
+        "era online learning was imposed on all learners regardless of preference, "
+        "and post-COVID online learning reflects a mixture of voluntary and mandatory "
+        "adoption. Fifth, the choice of personality instrument (BFI, NEO-FFI, IPIP, "
+        "HEXACO, TIPI) has been shown by McAbee and Oswald (2013) to moderate "
+        "Conscientiousness estimates, with short-form instruments (e.g., Mini-Markers, "
+        "TIPI) yielding smaller effects; this moderator is particularly relevant for "
+        "the present review because online studies more frequently use short-form "
+        "instruments than traditional paper-and-pencil contexts."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    add_h2(doc, "The Present Study")
+
+    p2 = (
+        "The present systematic review and meta-analysis is, to our knowledge, the "
+        "first quantitative synthesis of the association between Big Five personality "
+        "traits and academic achievement that focuses specifically on online learning "
+        "environments. Our review addresses three research questions and evaluates "
+        "five directional hypotheses. The research questions are as follows. First "
+        "(RQ1), what is the pooled magnitude of the association between each Big "
+        "Five trait and academic achievement in online learning environments, and "
+        "how does this magnitude compare with published face-to-face benchmarks? "
+        "Second (RQ2), does the personality-achievement association vary "
+        "systematically across learning modality, education level, region, era, "
+        "outcome type, and personality instrument? Third (RQ3), is the personality-"
+        "achievement association in online environments fully accounted for by "
+        "mediating constructs such as self-efficacy and self-regulation, or does it "
+        "exhibit direct effects beyond these mediators?"
+    )
+    add_para(doc, p2, indent_first=True)
+
+    p3 = (
+        "Five directional hypotheses, pre-specified in the OSF registration "
+        "(https://osf.io/e5w47/), are evaluated. Hypothesis 1 (H1) states that "
+        "Conscientiousness will show the strongest positive pooled correlation with "
+        "academic achievement in online learning environments, with an expected "
+        "pooled ρ of .20 to .35, consistent with the face-to-face benchmarks "
+        "reviewed above and potentially amplified in Asian samples. Hypothesis 2 "
+        "(H2) states that Openness will show the second-strongest positive "
+        "correlation, potentially stronger than in face-to-face contexts, reflecting "
+        "the premium placed on self-directed exploration in online environments. "
+        "Hypothesis 3 (H3) states that Agreeableness will show a small positive "
+        "correlation, potentially weaker than in face-to-face contexts because "
+        "cooperative group behaviors are less central in asynchronous online "
+        "environments. Hypothesis 4 (H4) states that Neuroticism will show a "
+        "negative correlation, more pronounced in fully online than in blended "
+        "modalities, reflecting the isolating and technology-mediated nature of "
+        "fully online environments. Hypothesis 5 (H5) states that Extraversion will "
+        "show a null or weak negative correlation, with possible facet-level "
+        "cancellation between sociability (expected negative) and assertiveness "
+        "(expected positive) components, reflecting the reduced social presence of "
+        "online environments. Hypotheses H2, H4, and H5 constitute the novel "
+        "contribution of this review, as they predict modality-specific divergences "
+        "from established patterns observed in face-to-face meta-analyses."
+    )
+    add_para(doc, p3, indent_first=True)
+
+    p4 = (
+        "A null result for any of these hypotheses would itself be informative, "
+        "indicating that online and face-to-face personality-achievement "
+        "relationships are equivalent in the corresponding dimension. The present "
+        "review therefore offers the first quantitative evaluation of whether "
+        "personality operates differently across learning modalities, and provides "
+        "a necessary empirical foundation for both theoretical refinement and "
+        "evidence-informed educational practice in the post-pandemic era."
+    )
+    add_para(doc, p4, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -441,6 +532,7 @@ def main():
     build_abstract(doc)
     build_intro_part1(doc)
     build_intro_part2(doc)
+    build_intro_part3(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
