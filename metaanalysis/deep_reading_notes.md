@@ -132,7 +132,68 @@ Poropat は FFM × 仕事パフォーマンス meta-analysis と本結果を Wes
 
 ## C-02. Vedel (2014)
 
-**TBD**: Phase 2 で精読
+**Citation**: Vedel, A. (2014). The Big Five and tertiary academic performance: A systematic review and meta-analysis. *Personality and Individual Differences, 71*, 66–76. https://doi.org/10.1016/j.paid.2014.07.011
+
+**Institution**: Department of Psychology and Behavioural Sciences, Aarhus University, Denmark
+
+### Study characteristics
+| 項目 | 値 |
+|------|------|
+| k (samples) | 21 independent samples (from 20 studies) |
+| Total N | 17,717 |
+| Coverage | 1996–2013 |
+| Analysis model | Random-effects (CMA software) |
+| Effect size metric | r+ (weighted, uncorrected); trim-and-fill adjusted |
+
+### Overall pooled effect sizes (Table 2)
+| Trait | r+ | 95% CI | I² | Q | Fail-safe N |
+|-------|-----|--------|-----|---|-------------|
+| **Conscientiousness** | **.26*** | [.23, .30] | 72.10% | 71.67*** | 3,625 |
+| Openness | .07*** | [.03, .11] | 71.18% | 69.39*** | 222 |
+| Agreeableness | .08*** | [.05, .11] | 54.50% | 43.96*** | 280 |
+| Neuroticism | −.01 ns | [−.05, .03] | 73.64% | 75.86*** | 0 |
+| Extraversion | −.00 ns | [−.03, .02] | 29.08% | 28.20 | 0 |
+
+Trim-and-fill 調整後の Conscientiousness r+ = .24***（微減、堅牢）
+
+### Moderator findings（academic major: psychology vs. other）
+- **Conscientiousness**: Psychology r+ = .31 [.26, .37] vs. Other r+ = .22 [.17, .27], Q = 5.05*, **R² = .68** 🔴
+- Openness: no moderation (psy .09 vs. other .06, ns)
+- Agreeableness: no moderation (psy .07 vs. other .09, ns)
+- **Validity threat flagged**: 心理学専攻への過剰依存が結果を押し上げている可能性
+
+### Key findings
+- C が tertiary GPA の最強予測因子 (r+ = .26), trim-and-fill および one-study-removed でも堅牢
+- A と O は統計有意だが weak (r+ = .07–.08)
+- N と E は GPA と実質的に無関係
+- 限定的な 5 validated Big Five measures のみ使用しても、Poropat (2009) より大きな効果は得られず
+- Major が C-GPA 関係を moderate（68% の heterogeneity を説明）
+
+### Limitations（著者の記述）
+- Psychology 専攻依存、subgroup は 2 群比較のみ
+- 線形性仮定（曲線関係未検証）
+- Range restriction 未補正（GPA は上方選択集団）
+- Achievement Motivation mediation 未検証
+
+### 🔴 含意（本メタ分析への）
+- **Benchmark value**: C-GPA の FtF tertiary ceiling = ρ ≈ .24–.26
+- **Hypothesis test (H2/H4)**: オンラインで C-GPA ρ ≥ .26 なら self-regulation premium 仮説を支持
+- **Gap filled**: Vedel は delivery mode (online vs. FtF) を全く検討せず → 本研究が online-specific benchmark を提供
+- **Moderator implication**: 専攻 (major/discipline) を本研究でも moderator に入れるべき
+
+### RoB（JBI 8-item）
+
+| 項目 | 評価 |
+|------|------|
+| Review Q 明示 | Yes |
+| 包含基準適切 | Yes (5 validated measures) |
+| 検索戦略適切 | Yes (3 DBs + manual) |
+| Source 網羅 | Yes |
+| Critical appraisal tool | Unclear（formal なし） |
+| 複数 reviewer | **No（単著）** |
+| Error 最小化 | Yes (sensitivity + trim-fill) |
+| Pooling 適切 | Yes |
+| **Aggregate** | **6/8** |
 
 ## C-03. Mammadov (2022) 🔴
 
@@ -280,9 +341,58 @@ Poropat は FFM × 仕事パフォーマンス meta-analysis と本結果を Wes
 | 8. 統計適切性 | Yes | Hunter-Schmidt + subgroups |
 | **Aggregate** | **8/8** | **低リスク**（C-01〜C-05 中最高品質） |
 
-## C-04. Stajkovic et al. (2018)
+## C-04. Stajkovic, Bandura, Locke, Lee, & Sergent (2018)
 
-**TBD**: Phase 2 で精読
+**Citation**: Stajkovic, A. D., Bandura, A., Locke, E. A., Lee, D., & Sergent, K. (2018). Test of three conceptual models of influence of the big five personality traits and self-efficacy on academic performance: A meta-analytic path-analysis. *Personality and Individual Differences, 120*, 238–245. https://doi.org/10.1016/j.paid.2017.08.014
+
+**Institution**: University of Wisconsin-Madison
+
+### Study characteristics
+| 項目 | 値 |
+|------|------|
+| k (samples) | 5 independent primary samples（従来的文献 meta-analysis でなく、著者収集データ） |
+| Total N | 875 (GMA subset N = 744) |
+| Coverage | Cross-sectional, 3 universities（Midwestern US + 韓国私立） |
+| Analysis model | Meta-analytic path-analysis (LISREL 8), Hunter-Schmidt 方式 |
+| Effect size metric | r → G(r) → Z+ → weighted-average ρ; β for path coefficients |
+
+### Overall pooled effect sizes（Table 3: meta-analytic ρ with performance）
+
+| Predictor → Performance | G(r+) | 95% CI | Qt |
+|------------------------|-------|--------|-----|
+| **Conscientiousness** | **0.21** | [.14, .28] | 4.03 (homog.) |
+| Agreeableness | 0.05 | [-.02, .12] | 3.03 |
+| Extraversion | -0.02 | [-.09, .05] | 10.22† (heterog.) |
+| Openness | -0.01 | [-.08, .06] | 0.07 |
+| Emotional stability | 0.00 | [-.07, .07] | 3.03 |
+| Self-efficacy | 0.33 | [.26, .40] | 2.34 |
+| GPA (prior) | 0.48 | [.41, .55] | 5.21 |
+| GMA | 0.26 | [.19, .33] | 4.88 |
+
+### Path-analytic findings（Table 4, harmonic mean N = 842）
+
+- **C → SE** β = .16**; **C → performance** β = .11** (direct)
+- **ES → SE** β = .18**; **ES → performance** β = -.08* (direct)
+- A, E, O: "fleeting" — 有意性が散発的
+- **SE → performance** β = .24** (一貫して強い mediator)
+- R² performance: Trait model = .30, Independent = .26, Intrapersonal = .29
+- **Intrapersonal (fully-mediated) model が最 parsimonious** (χ² = 18.06, CFI = .99, RMSEA = .056)
+
+### Key findings
+- C と ES（逆コード N）のみが SE を経由して academic performance に一貫寄与
+- A, E, O は 6 モデル中で有意性散発
+- Self-efficacy が最も predictive な proximal variable — Big Five を部分〜完全 mediate
+- Full mediation via SE の model が trait model にほぼ劣らず parsimony で勝る
+
+### 🔴 含意（本メタ分析への）
+- **Benchmark value**: C → Performance ρ ≈ .21; SE が強い mediator (β = .24–.33)
+- **Gap**: オンライン環境で SE mediation が強まる/弱まるかは未検証 → 本研究で SE / self-regulation を mediator として含めれば online-specific path が描ける
+- **仮説**: Online mode では **SE mediation が強化** される（physical oversight なしで学習行動を自律的に調整する必要）→ C の direct path は弱く、indirect path (via SE) が強い可能性
+
+### RoB（JBI 8-item）
+**Aggregate: 3–4/8** — 伝統的メタ分析ではない点に注意（独自データ収集、5 sample のみ）
+
+---
 
 ## C-05. McAbee & Oswald (2013)
 
