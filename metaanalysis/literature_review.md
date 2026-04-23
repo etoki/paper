@@ -2,6 +2,55 @@
 
 本ドキュメントはメタ分析論文のための先行研究一覧である。
 
+---
+
+## ⚠ 重要訂正通知（2026-04-23）
+
+PDF 全 30 本の精読（→ `deep_reading_notes.md` 参照）により、本リストに **LLM 由来の著者誤認・モダリティ誤分類が複数発見**された。本セクションでは概要のみ記載し、正確な情報は `deep_reading_notes.md` を **single source of truth** とする。
+
+### 著者誤認（要訂正）
+
+| ID | 本ファイル記載 | 実際の論文（PDF 確認済） |
+|----|---------------|------------------------|
+| A-06 | Baruth & Cohen (2021) | **Sahinidis & Tsaknis (2021)** Greece N=555 satisfaction |
+| A-07 | Baruth & Cohen (2023) | **Cohen & Baruth (2017)** Israel N=72 pre-COVID |
+| A-08 | Bhagat et al. (2019) | **Keller & Karau (2013)** USA N=250 IPIP perceptions |
+| A-12 | Cohen & Baruth (2017) | **Baruth & Cohen (2022/2023)** Israel N=108 satisfaction |
+| A-13 | Dang et al. (2024) | **Dang, Du, Niu, Xu (2025)** China N=235 NEO-FFI engagement |
+| A-16 | Garzón-Umerenkova et al. (2024) | **Hidalgo-Fuentes et al. (2024)** Honduras+Spain N=457 procrastination |
+| A-18 | Keller & Karau (2013) | **Bhagat, Wu & Chang (2019)** Taiwan N=208 perceptions |
+
+### スコープ訂正
+
+| ID | 訂正内容 |
+|----|---------|
+| A-09 Bhattacharjee 2025 | **Face-to-face**（オンライン要素なし）→ ❌ EXCLUDE |
+| A-10 Boonyapison 2025 | **Face-to-face K-12**（オンライン要素なし）→ ❌ EXCLUDE |
+| A-16 Hidalgo-Fuentes 2024 | **Face-to-face**（in-class Google Forms）→ ❌ EXCLUDE |
+| A-20 Mustafa 2022 | 国名 Pakistan/international → **China**（4 中国大学） |
+| A-21 Nakayama 2014 | N=? → **N=53** 確定 |
+
+### Achievement outcome 抽出可能性（精読結果）
+
+- **直接 GPA / objective grade 報告**: A-01 (quiz/paper), A-02 (online grade), A-23 (GPA), A-28 (MOOC composite) — **わずか 4 研究**
+- **Self-rated achievement**: A-22, A-26
+- **Engagement/satisfaction のみ**（achievement なし）: A-03, A-04, A-05, A-06, A-07, A-08, A-11 (C only), A-12, A-13, A-17, A-19 (HEXACO), A-20
+- **抽出不能**: A-24 (process data), A-21 (indirect via note-taking)
+
+→ Primary achievement プールは **k ≈ 6–8**、副次 (engagement/satisfaction) プールで k 拡大可能
+
+### 既存 review の著者訂正
+
+| ID | 本ファイル記載 | 実際 |
+|----|---------------|------|
+| D-01 | Gray & DiLoreto (2024) | **Hunter et al. (2025)** Journal of Occupational Therapy Education |
+
+### 詳細: `deep_reading_notes.md` Part D6 を参照
+
+本ファイルの A-XX セクションは執筆履歴として残置するが、**最終的な書誌情報・効果量は `deep_reading_notes.md` を参照**。
+
+---
+
 ## スコープ（確定）
 
 | 項目 | 確定内容 |
