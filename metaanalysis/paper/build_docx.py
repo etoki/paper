@@ -2021,6 +2021,103 @@ def build_table2_pooled(doc):
     run2.font.size = Pt(11)
 
 
+def build_table3_moderators(doc):
+    """Table 3: Subgroup moderator analyses (region, era, outcome type)."""
+    doc.add_page_break()
+    _add_table_title(
+        doc, 3,
+        "Subgroup Moderator Analyses: Region, Era, and Outcome Type per "
+        "Big Five Trait",
+    )
+
+    data = [
+        ["Moderator / Trait", "Level", "k", "r [95% CI]", "Q_between(df), p"],
+        # Region
+        ["Region: Conscientiousness", "non-Asia", "8",
+         ".185 [.082, .284]", "2.68(1), .102"],
+        ["", "Asia", "2", ".111 [−.039, .257]", ""],
+        ["Region: Openness", "non-Asia", "7",
+         ".053 [−.060, .164]", "0.26(1), .612"],
+        ["", "Asia", "2", ".164 [−.989, .994]", ""],
+        ["Region: Extraversion", "non-Asia", "7",
+         ".050 [−.004, .104]", "46.43(1), <.001 †"],
+        ["", "Asia", "2", "−.131 [−.314, .061]", ""],
+        ["Region: Agreeableness", "non-Asia", "7",
+         ".030 [−.047, .106]", "2.17(1), .140"],
+        ["", "Asia", "2", ".330 [−.981, .995]", ""],
+        ["Region: Neuroticism", "non-Asia", "8",
+         "−.007 [−.130, .117]", "3.31(1), .069"],
+        ["", "Asia", "2", ".089 [.008, .169]", ""],
+        # Era
+        ["Era: Conscientiousness", "pre-COVID", "4",
+         ".208 [−.041, .434]", "0.13(1), .716"],
+        ["", "COVID-era", "5", ".179 [.095, .260]", ""],
+        ["Era: Openness", "pre-COVID", "3",
+         ".098 [−.423, .570]", "0.00(1), .994"],
+        ["", "COVID-era", "5", ".097 [−.123, .308]", ""],
+        ["Era: Extraversion", "pre-COVID", "3",
+         ".033 [.002, .063]", "0.59(1), .443"],
+        ["", "COVID-era", "5", "−.014 [−.180, .153]", ""],
+        ["Era: Agreeableness", "pre-COVID", "3",
+         ".033 [−.162, .225]", "1.09(1), .296"],
+        ["", "COVID-era", "5", ".153 [−.141, .422]", ""],
+        ["Era: Neuroticism", "pre-COVID", "4",
+         "−.050 [−.173, .074]", "2.04(1), .153"],
+        ["", "COVID-era", "5", ".060 [−.125, .240]", ""],
+        # Outcome type
+        ["Outcome: Conscientiousness", "objective", "8",
+         ".147 [.076, .217]", "2.40(1), .121"],
+        ["", "self-rated", "2", ".225 [.126, .319]", ""],
+        ["Outcome: Openness", "objective", "7",
+         ".092 [−.068, .246]", "0.04(1), .839"],
+        ["", "self-rated", "2", ".072 [−.027, .170]", ""],
+        ["Outcome: Extraversion", "objective", "7",
+         "−.038 [−.134, .060]", "17.30(1), <.001 †"],
+        ["", "self-rated", "2", ".117 [.017, .214]", ""],
+        ["Outcome: Agreeableness", "objective", "7",
+         ".131 [−.088, .336]", "0.49(1), .485"],
+        ["", "self-rated", "2", ".041 [−.056, .137]", ""],
+        ["Outcome: Neuroticism", "objective", "8",
+         "−.009 [−.154, .137]", "0.82(1), .364"],
+        ["", "self-rated", "2", ".120 [−.142, .364]", ""],
+    ]
+
+    table = doc.add_table(rows=len(data), cols=len(data[0]))
+    table.style = "Light Grid Accent 1"
+    for i, row in enumerate(data):
+        for j, val in enumerate(row):
+            cell = table.rows[i].cells[j]
+            cell.text = val
+            if i == 0:
+                for para in cell.paragraphs:
+                    for run in para.runs:
+                        run.bold = True
+    _style_table(table)
+
+    p_note = doc.add_paragraph()
+    set_double_space(p_note)
+    run = p_note.add_run("Note. ")
+    run.italic = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(11)
+    run2 = p_note.add_run(
+        "k = number of studies contributing to each subgroup. Q_between = "
+        "between-subgroup heterogeneity statistic testing whether "
+        "subgroups' pooled effects differ significantly. Dagger (†) "
+        "indicates the two significant subgroup differences at p < .001 "
+        "after Holm-Bonferroni correction within the Extraversion trait "
+        "pool. Categorical levels: Asia = East or Middle Eastern samples; "
+        "non-Asia = European, North American, or Other regions. Era: "
+        "pre-COVID = data collected ≤2019; COVID-era = 2020–2022. Post-"
+        "COVID studies (k = 2) were insufficient for subgroup isolation. "
+        "Outcome type: objective = GPA, course grade, standardized exam, "
+        "or MOOC platform composite; self-rated = student self-reported "
+        "performance."
+    )
+    run2.font.name = "Times New Roman"
+    run2.font.size = Pt(11)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -2046,6 +2143,7 @@ def main():
     build_discussion_part3(doc)
     build_references(doc)
     build_table2_pooled(doc)
+    build_table3_moderators(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
