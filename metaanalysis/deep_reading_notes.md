@@ -33,7 +33,149 @@
 
 ## C-03. Mammadov (2022) 🔴
 
-**TBD**: Phase 1 で精読（最重要 — H1 Asian ρ = .35 の根拠）
+**Citation**: Mammadov, S. (2022). Big Five personality traits and academic performance: A meta-analysis. *Journal of Personality, 90*(2), 222–255. https://doi.org/10.1111/jopy.12663
+
+**Received**: 14 Feb 2021 | **Revised**: 9 Jul 2021 | **Accepted**: 12 Jul 2021
+
+### Study characteristics
+
+| 項目 | 値 |
+|------|------|
+| k (independent samples) | **267** |
+| k (unique studies) | **228** |
+| Total N | **413,074** |
+| Range of publication years | 〜2020 まで |
+| Analysis model | Random-effects, Hunter-Schmidt corrected for measurement error |
+| Effect size metric | ρ (disattenuated correlation) |
+| Data availability | OSF https://osf.io/tkwdu/ |
+
+### Overall pooled effect sizes（corrected ρ）
+
+| Trait | ρ | 95% CI | d (Cohen) | 統計的有意 |
+|-------|---|--------|-----------|-----------|
+| **Conscientiousness** | **0.27** | — | 0.56 | p < .001 ⭐ 最強 |
+| Openness | 0.16 | — | 0.33 | p < .001 |
+| Agreeableness | 0.09 | — | 0.19 | p < .001 |
+| Extraversion | 0.01 | — | 0.03 | **n.s.** (CI includes 0) |
+| Neuroticism | -0.02 | — | -0.04 | **n.s.** (CI includes 0) |
+
+- Uncorrected overall mean: r = 0.08
+- Heterogeneity: **I² ≈ 97.63%** (extreme) → moderator 必須
+- Conscientiousness は cognitive ability 統制後も **28% の説明分散**を保持
+
+### Moderation by education level（Table 3）
+
+| Level | k | ρ(O) | ρ(C) | ρ(E) | ρ(A) | ρ(N) |
+|-------|---|------|------|------|------|------|
+| Elementary/Middle (ref) | 24–31 | **0.40** 🔴 | 0.31 | 0.15 | 0.18 | -0.01 |
+| Secondary | 48–55 | 0.22 | 0.27 | 0.01 | 0.08 | -0.01 |
+| Postsecondary | 152–175 | 0.10 | **0.26** | -0.01 | 0.08 | -0.02 |
+
+**含意**:
+- Openness は**年齢とともに減衰**（小学生最強、大学生最弱）
+- Conscientiousness は**教育段階を通じて安定**（0.26–0.31）
+- Extraversion, Agreeableness も elementary で最強 → secondary で減衰
+- Neuroticism は全段階で n.s.
+
+### Moderation by region（Table 5）🔴 本メタ分析 H1 の根拠
+
+| Region | k | ρ(O) | ρ(C) | ρ(E) | ρ(A) | ρ(N) |
+|--------|---|------|------|------|------|------|
+| **Asia** | 16 | 0.29 | **0.35** 🔴 | 0.16 | 0.23 | **-0.19** |
+| Australia | 7–9 | 0.17 | 0.24 | 0.06 | 0.12 | -0.02 |
+| E. Europe/Russia | 24–26 | 0.18 | 0.30 | 0.00 | 0.07 | 0.03 |
+| Middle East | 10–11 | 0.15 | **0.35** | 0.07 | 0.17 | -0.02 |
+| **N. America** | 74–96 | 0.14 | 0.23 | -0.01 | 0.09 | 0.00 |
+| W. Europe | 93–104 | 0.17 | 0.28 | -0.01 | 0.07 | -0.01 |
+
+**Mammadov 本人の caveat**: Asian samples は全体の **1.5%** しかなく、結果の解釈には注意が必要。WEIRD 偏重の既存文献に対する限界として報告。
+
+### Moderation by personality measure（Table 4）
+
+| Measure | ρ(C) | ρ(O) | ρ(N) |
+|---------|------|------|------|
+| BFI | 0.26 | 0.10 | 0.00 |
+| BFQ | 0.30 | 0.45 (outlier?) | -0.01 |
+| IPIP | 0.31 | 0.10 | -0.02 |
+| Markers (Mini) | 0.18 (最低) | 0.06 | 0.01 |
+| NEO-FFI | 0.28 | 0.13 | **-0.07** ⭐ |
+| NEO-PI-R | 0.28 | 0.13 | 0.01 |
+
+**含意**:
+- Conscientiousness の範囲 0.18–0.31 — Markers が最弱（performance-striving facet を欠くため）
+- BFI は C のサンプル内異質性大
+- Neuroticism は NEO-FFI でのみ有意負（他は n.s.）
+
+### Comparison with prior meta-analyses（自己批判）
+
+| Study | ρ(C) | N |
+|-------|------|---|
+| Poropat (2009) | 0.22 | 70,926 |
+| McAbee & Oswald (2013) | 0.26 | 26,382 |
+| Vedel (2014) | 0.26 | 17,717 |
+| **Mammadov (2022)** | **0.27** | **413,074** |
+
+- Mammadov 2022 は C の estimation を **最も堅牢**に確立（N が 5.8 倍）
+- Openness は過去の meta-analyses より大きく推定（Poropat 0.12 → Mammadov 0.16）
+
+### Incremental validity（Table 8）
+
+| Predictor | B | RW | RW% |
+|-----------|---|-----|-----|
+| Cognitive ability | 0.42 | 0.177 | **63.59%** |
+| Conscientiousness | 0.35 | 0.078 | **27.93%** |
+| Openness | 0.03 | 0.011 | 3.94% |
+| Neuroticism | 0.13 | 0.005 | 1.88% |
+| Agreeableness | -0.02 | 0.005 | 1.84% |
+| Extraversion | -0.05 | 0.002 | 0.81% |
+| Total R² | — | — | **27.8%** |
+
+- Conscientiousness は cognitive ability 控除後も**相対重要度 27.93%** を保持
+- Openness は 3.94%（誤差レベル）
+- 他の Big Five は negligible
+
+### Meta-regression（gender, age）
+
+- Openness: 女性比率↑ → ρ↓ (B=-0.003***), 年齢↑ → ρ↓ (B=-0.014***)
+- Extraversion: 女性比率↑ → ρ↓ (B=-0.001*), 年齢↑ → ρ↓ (B=-0.004*)
+- C, A, N: gender・age の影響小
+
+### Publication bias
+
+- Egger's regression: **C 以外すべて有意**（β0 = -0.59〜0.83）
+- C は CI = [-2.62, 1.44] で bias なし
+- Trim-and-fill 実施済み
+- 出版バイアスと extreme heterogeneity の区別は困難と注記
+
+### Limitations（本人記述）
+
+1. 出版バイアスの証拠（Egger test）→ 効果量過大推定の可能性
+2. Academic performance 測定の異質性（GPA, exam, test score が混在）
+3. Asian 16 samples 少なく、region moderation の解釈に留保
+4. Facet-level 分析なし（長尺版 inventory の研究限定のため）
+
+### 🔴 本メタ分析（Tokiwa）への含意
+
+1. **H1 (C 最強) の根拠**: 本 meta-analysis で C ρ = 0.27 は教育段階・地域・測定法を問わず堅牢 → オンライン学習でも同様が予測される
+2. **H1 の Asian 特化**: Asian samples で C ρ = 0.35 → 日本サンプル（Nakayama, Tokiwa）でも高めの推定期待
+3. **ベンチマーク比較 (RQ2)**: 本メタ分析の online-specific pooled ρ と Mammadov の ρ を差分検定すべき
+4. **Openness の age decline**: オンライン学習は主に大学生 → 本研究では O の効果は小さい可能性（H2 と整合するかは k 次第）
+5. **Extraversion の elementary 効果**: K-12 sub-analysis で検証可能か → A-26 Wang (2023) K-12 中国が重要
+6. **測定法モデレーター**: NEO-FFI 採用研究では N が有意負 → 本研究でも measure を moderator に入れる必要
+
+### RoB（Risk of Bias, JBI 8 項目、推定）
+
+| 項目 | 評価 | 根拠 |
+|------|------|------|
+| 1. サンプル包含基準明示 | Yes | Method 2.1 |
+| 2. サンプル設定記述 | Yes | Table 1 詳細 |
+| 3. Exposure 妥当性 | Yes | 6 validated measures |
+| 4. Outcome 客観性 | Partial | GPA/exam/test mixed |
+| 5. Confounder 特定 | Yes | Cognitive ability 含む |
+| 6. Confounder 対処 | Yes | Incremental validity 検定 |
+| 7. Outcome 信頼性 | Yes | 測定法 moderator |
+| 8. 統計適切性 | Yes | Hunter-Schmidt + subgroups |
+| **Aggregate** | **8/8** | **低リスク**（C-01〜C-05 中最高品質） |
 
 ## C-04. Stajkovic et al. (2018)
 
