@@ -2118,6 +2118,119 @@ def build_table3_moderators(doc):
     run2.font.size = Pt(11)
 
 
+def build_table4_sensitivity(doc):
+    """Table 4: Sensitivity analyses (Tokiwa exclusion, β-conversion, low quality, pub bias)."""
+    doc.add_page_break()
+    _add_table_title(
+        doc, 4,
+        "Pre-Specified Sensitivity Analyses of the Primary Pooled Effect "
+        "Sizes",
+    )
+
+    data = [
+        ["Trait", "Analysis", "k", "r [95% CI]", "Δr vs primary"],
+        # Conscientiousness
+        ["Conscientiousness", "Primary", "10",
+         ".167 [.089, .243]", "—"],
+        ["", "Exclude Tokiwa (COI)", "10",
+         ".167 [.089, .243]", "±.000"],
+        ["", "Exclude β-converted", "7",
+         ".203 [.095, .307]", "+.036"],
+        ["", "Exclude RoB < 5", "9",
+         ".182 [.099, .262]", "+.015"],
+        ["", "Egger regression", "—",
+         "intercept = 2.14, p = .094", "—"],
+        ["", "Trim-and-fill adjusted", "10",
+         ".167 [.089, .243]", "±.000"],
+        # Openness
+        ["Openness", "Primary", "9",
+         ".086 [−.044, .214]", "—"],
+        ["", "Exclude Tokiwa (COI)", "9",
+         ".086 [−.044, .214]", "±.000"],
+        ["", "Exclude β-converted", "6",
+         ".031 [−.127, .184]", "−.055 ‡"],
+        ["", "Exclude RoB < 5", "8",
+         ".097 [−.040, .228]", "+.011"],
+        ["", "Egger regression", "—",
+         "intercept = −6.41, p = .045 †", "—"],
+        ["", "Trim-and-fill adjusted", "10",
+         ".107 [−.017, .228]", "+.021"],
+        # Extraversion
+        ["Extraversion", "Primary", "9",
+         ".002 [−.076, .080]", "—"],
+        ["", "Exclude Tokiwa (COI)", "9",
+         ".002 [−.076, .080]", "±.000"],
+        ["", "Exclude β-converted", "6",
+         ".018 [−.081, .117]", "+.016"],
+        ["", "Exclude RoB < 5", "8",
+         ".003 [−.080, .086]", "+.001"],
+        ["", "Egger regression", "—",
+         "intercept = 2.29, p = .255", "—"],
+        ["", "Trim-and-fill adjusted", "11",
+         "−.036 [−.117, .046]", "−.038"],
+        # Agreeableness
+        ["Agreeableness", "Primary", "9",
+         ".112 [−.031, .250]", "—"],
+        ["", "Exclude Tokiwa (COI)", "9",
+         ".112 [−.031, .250]", "±.000"],
+        ["", "Exclude β-converted", "6",
+         ".067 [−.089, .219]", "−.045"],
+        ["", "Exclude RoB < 5", "8",
+         ".126 [−.028, .273]", "+.014"],
+        ["", "Egger regression", "—",
+         "intercept = −8.53, p = .072", "—"],
+        ["", "Trim-and-fill adjusted", "9",
+         ".112 [−.031, .250]", "±.000"],
+        # Neuroticism
+        ["Neuroticism", "Primary", "10",
+         ".018 [−.079, .114]", "—"],
+        ["", "Exclude Tokiwa (COI)", "10",
+         ".018 [−.079, .114]", "±.000"],
+        ["", "Exclude β-converted", "7",
+         "−.043 [−.165, .082]", "−.061 ‡"],
+        ["", "Exclude RoB < 5", "9",
+         ".019 [−.084, .121]", "+.001"],
+        ["", "Egger regression", "—",
+         "intercept = −1.79, p = .304", "—"],
+        ["", "Trim-and-fill adjusted", "10",
+         ".018 [−.079, .114]", "±.000"],
+    ]
+
+    table = doc.add_table(rows=len(data), cols=len(data[0]))
+    table.style = "Light Grid Accent 1"
+    for i, row in enumerate(data):
+        for j, val in enumerate(row):
+            cell = table.rows[i].cells[j]
+            cell.text = val
+            if i == 0:
+                for para in cell.paragraphs:
+                    for run in para.runs:
+                        run.bold = True
+    _style_table(table)
+
+    p_note = doc.add_paragraph()
+    set_double_space(p_note)
+    run = p_note.add_run("Note. ")
+    run.italic = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(11)
+    run2 = p_note.add_run(
+        "Δr = change in pooled correlation from the primary analysis. A "
+        "double dagger (‡) denotes a sensitivity-analysis-induced shift "
+        "exceeding |Δr| = .05, which is considered potentially influential "
+        "per the pre-registered threshold. A single dagger (†) denotes a "
+        "significant Egger test at p < .05. \"Exclude Tokiwa (COI)\" "
+        "removes the present author's prior primary study (Tokiwa, 2025); "
+        "the zero delta reflects that this study did not contribute a "
+        "direct r to the primary pool. \"Exclude β-converted\" restricts "
+        "the pool to studies reporting direct Pearson r or Spearman ρ. "
+        "\"Exclude RoB < 5\" removes studies scoring below the pre-"
+        "specified low-bias threshold of 5 on the JBI 8-item checklist."
+    )
+    run2.font.name = "Times New Roman"
+    run2.font.size = Pt(11)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -2144,6 +2257,7 @@ def main():
     build_references(doc)
     build_table2_pooled(doc)
     build_table3_moderators(doc)
+    build_table4_sensitivity(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
