@@ -232,6 +232,72 @@ def extract_effect_for_trait(row, trait):
 
 
 # -----------------------------------------------------------------------------
+# Publication bias tests
+# -----------------------------------------------------------------------------
+def egger_test(y, v):
+    """Egger's regression test for funnel-plot asymmetry.
+
+    Regress standardized effect size (y/sqrt(v)) on precision (1/sqrt(v)).
+    The intercept tests for small-study effects (publication bias).
+
+    Returns: (intercept, intercept_se, t, p, k)
+    """
+    y = np.asarray(y, dtype=float)
+    v = np.asarray(v, dtype=float)
+    k = len(y)
+    if k < 3:
+        return None
+
+    se = np.sqrt(v)
+    precision = 1.0 / se
+    std_effect = y / se  # standardized normal deviate
+
+    # Fit: std_effect = intercept + slope * precision + e
+    # Weighted by 1/se² is equivalent to unweighted regression of std_effect on precision
+    X = np.column_stack([np.ones(k), precision])
+    beta, *_ = np.linalg.lstsq(X, std_effect, rcond=None)
+    intercept, slope = beta
+
+    # Residuals and SE of intercept
+    y_hat = X @ beta
+    resid = std_effect - y_hat
+    df = k - 2
+    if df <= 0:
+        return None
+    sigma2 = np.sum(resid**2) / df
+    XtX_inv = np.linalg.inv(X.T @ X)
+    se_intercept = np.sqrt(sigma2 * XtX_inv[0, 0])
+    t = intercept / se_intercept
+    p = 2 * (1 - stats.t.cdf(abs(t), df=df))
+
+    return {
+        "intercept": intercept, "se_intercept": se_intercept,
+        "t": t, "p": p, "df": df, "k": k,
+    }
+
+
+def run_publication_bias():
+    """Run Egger's test per trait."""
+    rows = load_extractions()
+    results = {}
+    for trait in TRAITS:
+        ys, vs = [], []
+        for row in rows:
+            ext = extract_effect_for_trait(row, trait)
+            if ext is None:
+                continue
+            r, n, source = ext
+            try:
+                z = fisher_z(r)
+            except (ValueError, ZeroDivisionError):
+                continue
+            ys.append(z)
+            vs.append(var_z(n))
+        results[trait] = egger_test(ys, vs) if len(ys) >= 3 else None
+    return results
+
+
+# -----------------------------------------------------------------------------
 # Subgroup (moderator) analysis
 # -----------------------------------------------------------------------------
 def classify_region(raw):
@@ -561,6 +627,28 @@ def write_summary_md_with_moderators(results, mod_results):
     SUMMARY_MD.write_text("\n".join(lines), encoding="utf-8")
 
 
+def append_publication_bias_to_summary(bias_results):
+    """Append publication bias section to summary."""
+    lines = ["", "## Publication Bias Assessment (Egger's test)", ""]
+    lines.append("| Trait | k | Intercept | SE | t | p |")
+    lines.append("|-------|---|-----------|-----|---|---|")
+    for t in TRAITS:
+        r = bias_results.get(t)
+        if r is None:
+            lines.append(f"| {t} | — | insufficient k | — | — | — |")
+        else:
+            sig = " 🔴" if r["p"] < .05 else ""
+            lines.append(
+                f"| {t} | {r['k']} | {r['intercept']:.3f} | "
+                f"{r['se_intercept']:.3f} | {r['t']:.2f} | {r['p']:.3f}{sig} |"
+            )
+    lines.append("")
+    lines.append("Egger's test evaluates funnel-plot asymmetry by regressing standardized effect sizes on precision; a non-zero intercept suggests small-study bias or publication bias. Interpretation threshold: p < .05 indicates potential bias; p ≥ .05 does not rule out bias (test has low power with small k).")
+    lines.append("")
+    with SUMMARY_MD.open("a", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+
 def write_summary_md(results):
     lines = [
         "# Meta-Analysis Pooling Results",
@@ -621,8 +709,13 @@ def main():
 
     mod_results = run_moderator_analyses()
     write_moderator_csv(mod_results)
-    # Overwrite summary with extended version that includes moderators
+
+    bias_results = run_publication_bias()
+
+    # Overwrite summary with extended version that includes moderators + bias
     write_summary_md_with_moderators(results, mod_results)
+    # Append bias section
+    append_publication_bias_to_summary(bias_results)
 
     print(f"Wrote {RESULTS_CSV}")
     print(f"Wrote {SUMMARY_MD}")

@@ -159,3 +159,14 @@ Three pre-registered moderators are reported; the remaining six (instrument, pub
 - **β-to-r conversion**: Peterson & Brown (2005) applied where only β was reported. Sensitivity analysis (exclude converted) pending.
 - **Sign conventions**: A-23 Rodrigues GPA sign-flipped so positive r = better performance; A-31 Rivers Emotional Stability sign-reversed to Neuroticism.
 - **Remaining 6 pre-registered moderators** (instrument, publication year, sample size, RoB score, modality, education level) not quantitatively analyzed due to insufficient k per level; reported narratively in Methods Deviations subsection.
+## Publication Bias Assessment (Egger's test)
+
+| Trait | k | Intercept | SE | t | p |
+|-------|---|-----------|-----|---|---|
+| O | 9 | -6.407 | 2.631 | -2.43 | 0.045 🔴 |
+| C | 10 | 2.143 | 1.128 | 1.90 | 0.094 |
+| E | 9 | 2.291 | 1.849 | 1.24 | 0.255 |
+| A | 9 | -8.527 | 4.029 | -2.12 | 0.072 |
+| N | 10 | -1.790 | 1.631 | -1.10 | 0.304 |
+
+Egger's test evaluates funnel-plot asymmetry by regressing standardized effect sizes on precision; a non-zero intercept suggests small-study bias or publication bias. Interpretation threshold: p < .05 indicates potential bias; p ≥ .05 does not rule out bias (test has low power with small k).
