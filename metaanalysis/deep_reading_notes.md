@@ -652,11 +652,68 @@ Subgroup regression:
 
 ---
 
-## A-06. Baruth & Cohen (2021)
-**TBD**: Phase 2 で精読
+## A-06. Sahinidis & Tsaknis (2021) 🔴 **lit review 著者誤認 — 訂正必要**
 
-## A-07. Baruth & Cohen (2023)
-**TBD**: Phase 2 で精読
+**重要**: lit review では "Baruth & Cohen 2021" とされていたが、実 PDF は **Sahinidis & Tsaknis (2021, Greece)** — LLM 由来の著者誤認。
+
+**Citation**: Sahinidis, A. G., & Tsaknis, P. A. (2021). Exploring the relationship of the Big Five personality traits with student satisfaction with synchronous online academic learning: The case of Covid-19-induced changes. In *Strategic Innovative Marketing and Tourism* (Springer Proceedings).
+**Modality**: Synchronous online (lockdown) | **Country**: Greece (Univ. of West Attica) | **Era**: COVID March-April 2020
+
+### Sample
+- N=555, undergraduate, 59% female
+- 30-item Big Five (著者独自 scale, NOT BFI); α: O=.79, C=.75, E=.75, N=.70, A=.57 (低)
+
+### Effect sizes（standardized β only — no zero-order r）
+
+| Trait | β × Satisfaction (synchronous online) |
+|-------|---------------------------------------|
+| O | **.469** (p<.001) ⭐ 最強 |
+| C | **.338** (p<.001) |
+| N | -.082 (p=.009) |
+| E | .018 (ns) |
+| A | -.024 (ns) |
+
+R²=.507
+
+### Status: **Exclude** for primary（satisfaction only, non-standard scale, A α<.70）
+### ⚠ **Authorship correction needed in literature_review.md**
+### RoB: **4/8**
+
+---
+
+## A-07. Cohen & Baruth (2017) 🔴 **lit review 著者・年次誤認 — 訂正必要**
+
+**重要**: lit review では "Baruth & Cohen 2023" だが、実 PDF は **Cohen & Baruth (2017)** — author 順 + 年次が異なる。
+
+**Citation**: Cohen, A., & Baruth, O. (2017). Personality, learning, and satisfaction in fully online academic courses. *Computers in Human Behavior, 72*, 1–12. https://doi.org/10.1016/j.chb.2017.02.030
+**Modality**: Fully online (mostly async) | **Country**: Israel (Tel Aviv U.) | **Era**: pre-COVID
+
+### Sample
+- N=72, post-BA teacher education, 63% female, M age ~30
+- BFI-44 Hebrew; α: E=.81, N=.89, A=.84, C=.78, O=.73
+
+### Effect sizes（Tables 3 & 5）
+
+| Trait | r (Spearman) × Satisfaction | β |
+|-------|----------------------------|----|
+| O | **.376** (p<.01) | .416 (p<.001) |
+| C | **.390** (p<.01) | .451 (p<.001) |
+| A | .099 (ns) | -.067 (ns) |
+| E | .025 (ns) | -.212 (p=.066) |
+| N | .041 (ns) | .074 (ns) |
+
+R²=.30
+
+### Key findings
+- O と C のみ satisfaction を予測
+- E は trend で負（外向者は online で満足度低い）
+- 3 cluster 解析で synchronous preference 差異
+
+### Status: **Exclude** for primary（satisfaction only, N=72 small, bespoke scale）
+### ⚠ **Authorship correction needed in literature_review.md** (this is 2017, not 2023)
+### RoB: **5/8**
+
+---
 
 ## A-08. Bhagat et al. (2019)
 **TBD**: Phase 2 で精読
