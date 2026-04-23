@@ -181,4 +181,60 @@ Zheng, Y., & Zheng, S. (2023). Exploring educational impacts among pre, during a
 
 **ID**: A-37 | **Modality**: Mixed (F2F pre / online during / F2F post) | **Country**: USA (IIT Chicago) | **Era**: Pre + During + Post COVID (2018-2022) | **N**: 282 | **Inclusion**: ⚠ Include with caveat (TIPI 10 items、\|r\|<.10 all、cluster-based analysis)
 
+---
+
+## I-B. Benchmark Meta-Analyses (8 件、general/face-to-face academic)
+
+### C-01. Poropat (2009) ✅
+Poropat, A. E. (2009). A meta-analysis of the five-factor model of personality and academic performance. *Psychological Bulletin, 135*(2), 322–338. https://doi.org/10.1037/a0014996
+
+**k** = 138 | **N** = 70,926 | **Coverage**: ～2008 | **C ρ** = .22 | **Use**: Primary benchmark — 最早期の大規模メタ
+
+### C-02. Vedel (2014) ✅
+Vedel, A. (2014). The Big Five and tertiary academic performance: A systematic review and meta-analysis. *Personality and Individual Differences, 71*, 66–76. https://doi.org/10.1016/j.paid.2014.07.011
+
+**k** = 21 | **N** = 17,717 | **Coverage**: 1996–2013 | **C r+** = .26 | **Use**: Tertiary-level benchmark
+
+### C-03. Mammadov (2022) ✅ 🔴
+Mammadov, S. (2022). Big Five personality traits and academic performance: A meta-analysis. *Journal of Personality, 90*(2), 222–255. https://doi.org/10.1111/jopy.12663
+
+**k** = 267 samples | **N** = 413,074 | **Coverage**: ～2020 | **C ρ** = .27 (Asian .35) | **Use**: Largest benchmark + Asian amplification エビデンス
+
+### C-04. Stajkovic, Bandura, Locke, Lee, & Sergent (2018) ✅
+Stajkovic, A. D., Bandura, A., Locke, E. A., Lee, D., & Sergent, K. (2018). Test of three conceptual models of influence of the big five personality traits and self-efficacy on academic performance: A meta-analytic path-analysis. *Personality and Individual Differences, 120*, 238–245. https://doi.org/10.1016/j.paid.2017.08.014
+
+**k** = 5 primary samples | **N** = 875 | **Coverage**: Cross-sectional path analysis | **C → Perf ρ** = .21 | **Use**: SE mediator framework
+
+### C-05. McAbee & Oswald (2013) ✅
+McAbee, S. T., & Oswald, F. L. (2013). The criterion-related validity of personality measures for predicting GPA: A meta-analytic validity competition. *Psychological Assessment, 25*(2), 532–544. https://doi.org/10.1037/a0031748
+
+**k** = 57 (C) | **N** = 26,382 | **Coverage**: 1992–2012 | **C ρ** = .26 | **Use**: Measurement-comparison benchmark (BFI vs NEO vs IPIP)
+
+### C-06. Meyer, Jansen, Hübner, & Lüdtke (2023) ✅ 🔴
+Meyer, J., Jansen, T., Hübner, N., & Lüdtke, O. (2023). Disentangling the association between the Big Five personality traits and student achievement: Meta-analytic evidence on the role of domain specificity and achievement measures. *Educational Psychology Review, 35*, Article 12. https://doi.org/10.1007/s10648-023-09736-2
+
+**k** = 110 samples | **N** = 500,218 | **Coverage**: ～2022, K-12 only | **C ρ** = .24, **O ρ** = .21 | **Use**: K-12 benchmark + PASH framework
+
+### C-07. Chen, Cheung, & Zeng (2025) ✅ 🔴 **直接 comparator**
+Chen, S., Cheung, A. C. K., & Zeng, Z. (2025). Big Five personality traits and university students' academic performance: A meta-analysis. *Personality and Individual Differences, 240*, 113163. https://doi.org/10.1016/j.paid.2025.113163
+
+**k** = 84 | **N** = 46,729 | **Coverage**: 1995–2024, university only N≥200 | **C r** = .206 | **Use**: 本研究の最も直接的な comparator
+
+### C-08. Zell & Lesick (2022) ✅
+Zell, E., & Lesick, T. L. (2022). Big five personality traits and performance: A quantitative synthesis of 50+ meta-analyses. *Journal of Personality, 90*(4), 559–573. https://doi.org/10.1111/jopy.12683
+
+**m** = 54 meta-analyses (second-order) | **N** = 406,696–554,778 | **Coverage**: ～2021 | **C academic ρ** = .28 | **Use**: Umbrella review, replicability bar (SD ≈ .04)
+
+---
+
+## I-C. Systematic Reviews on Online Learning (1 件)
+
+### D-01. Hunter, Niblock, Barefoot, Miller, Hughes, Kite, & Scarletto (2025) ✅ 🔴 **著者訂正**
+Hunter, E. G., Niblock, J., Barefoot, S., Miller, J., Hughes, J., Kite, L., & Scarletto, E. (2025). The influence of student personality traits on satisfaction and success in online education in higher education: A systematic review. *Journal of Occupational Therapy Education, 9*(2), Article 9. https://doi.org/10.26681/jote.2025.090209
+
+**k** = 23 included (from 848 de-dup) | **Coverage**: Jan 2000 – June 2024 | **Analysis**: Qualitative thematic synthesis（pooled effect なし）| **Use**: Only prior online-specific review、本研究が初の quantitative pooling となる根拠
+**⚠ 訂正**: lit review の「Gray & DiLoreto (2024)」は誤り、実際は Hunter et al. (2025)
+
+---
+
 
