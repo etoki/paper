@@ -50,13 +50,18 @@ environments: A systematic review and meta-analysis
 ## 2. Registration
 
 ```
-Registration platform: OSF Registries (https://osf.io/registries)
-Registration type: OSF Preregistration (PRISMA-P compliant)
-Registration date: （登録時に自動付与）
-Registration DOI: （登録後に更新）
+Registration platform:   OSF Registries (https://osf.io/registries)
+Registration type:       OSF Preregistration (PRISMA-P 2015 compliant)
+Registration GUID:       e5w47
+Registration URL:        https://osf.io/e5w47/
+Registration DOI:        10.17605/OSF.IO/E5W47
+Registration date:       2026-04-23
+Associated OSF project:  https://osf.io/79m5j/
 
 Note: PROSPERO was initially considered but excluded because the review
 does not address a health-related outcome (scope restriction of PROSPERO).
+See prospero_draft.md for the archived PROSPERO draft documenting the
+venue decision history.
 ```
 
 ## 3. Authors
