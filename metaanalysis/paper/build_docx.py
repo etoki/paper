@@ -164,6 +164,46 @@ def build_declarations(doc):
         add_para(doc, "")  # blank line between sections
 
 
+def build_abstract(doc):
+    """APA Abstract section (Heading 1 style, block paragraph, keywords)."""
+    p = doc.add_paragraph("Abstract", style="Heading 1")
+    set_double_space(p)
+
+    abstract_body = (
+        "Academic achievement in online learning environments has become a central "
+        "concern for post-secondary education following the global shift toward digital "
+        "instruction, yet existing meta-analyses of Big Five personality traits and "
+        "academic performance have pooled samples across face-to-face, blended, and "
+        "online modalities without testing delivery mode as a substantive moderator. "
+        "The present systematic review and meta-analysis is the first quantitative "
+        "synthesis dedicated to online learning environments. The review was pre-"
+        "registered on OSF Registries prior to data extraction. Following PRISMA 2020 "
+        "reporting standards, correlational primary studies reporting associations "
+        "between Big Five (or HEXACO) personality traits and academic achievement in "
+        "fully online, blended, MOOC, synchronous online, or asynchronous online "
+        "environments were identified through a structured search of multiple "
+        "databases and supplementary sources. Effect sizes were pooled using random-"
+        "effects meta-analysis with Restricted Maximum Likelihood estimation and "
+        "Hartung-Knapp-Sidik-Jonkman confidence-interval adjustment; Fisher's z "
+        "transformation was applied prior to pooling, and robust variance estimation "
+        "was used to handle dependent effect sizes. Pre-specified moderator analyses "
+        "examined learning modality, education level, region, era, outcome type, and "
+        "personality instrument. [Results and conclusions to be finalized after the "
+        "quantitative synthesis is completed. This placeholder will be replaced with "
+        "concrete pooled effect sizes, heterogeneity statistics, moderator findings, "
+        "and GRADE-based confidence ratings.]"
+    )
+    add_para(doc, abstract_body)
+    add_para(doc, "")
+
+    p_kw = add_para(
+        doc,
+        "Keywords: Big Five; Five-Factor Model; HEXACO; online learning; e-learning; "
+        "MOOC; academic achievement; meta-analysis; systematic review; PRISMA",
+    )
+    # APA keywords use italicized "Keywords:" label; for simplicity we keep plain.
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -171,6 +211,8 @@ def main():
     build_title_page(doc)
     doc.add_page_break()
     build_declarations(doc)
+    doc.add_page_break()
+    build_abstract(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
