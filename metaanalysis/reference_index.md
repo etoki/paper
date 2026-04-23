@@ -353,6 +353,8 @@ Hartung, J., & Knapp, G. (2001). A refined method for the meta-analysis of contr
 
 （IntHout et al. 2014, Tipton 2015, Viechtbauer 2010, Raudenbush 2009 は Part I-A/B references 掲載済み）
 
+
+
 ### Sidik & Jonkman (2002) — Sidik-Jonkman variance estimator
 Sidik, K., & Jonkman, J. N. (2002). A simple confidence interval for meta-analysis. *Statistics in Medicine, 21*(21), 3153–3159. https://doi.org/10.1002/sim.1262
 
@@ -361,6 +363,51 @@ Peters, J. L., Sutton, A. J., Jones, D. R., Abrams, K. R., & Rushton, L. (2006).
 
 ### Sterne, Sutton, Ioannidis, Terrin, Jones, Lau, Carpenter, Rücker, Harbord, Schmid, Tetzlaff, Deeks, Peters, Macaskill, Schwarzer, Duval, Altman, Moher, & Higgins (2011) — Pub bias recommendations
 Sterne, J. A. C., Sutton, A. J., Ioannidis, J. P. A., Terrin, N., Jones, D. R., Lau, J., Carpenter, J., Rücker, G., Harbord, R. M., Schmid, C. H., Tetzlaff, J., Deeks, J. J., Peters, J., Macaskill, P., Schwarzer, G., Duval, S., Altman, D. G., Moher, D., & Higgins, J. P. T. (2011). Recommendations for examining and interpreting funnel plot asymmetry in meta-analyses of randomised controlled trials. *BMJ, 343*, d4002. https://doi.org/10.1136/bmj.d4002
+
+---
+
+## II-C. Online Learning, SRL, and Social Presence Theory 📖
+
+### Garrison, Anderson, & Archer (2000) — Community of Inquiry
+Garrison, D. R., Anderson, T., & Archer, W. (2000). Critical inquiry in a text-based environment: Computer conferencing in higher education. *The Internet and Higher Education, 2*(2-3), 87–105. https://doi.org/10.1016/S1096-7516(00)00016-6
+
+### Moore (1993) — Transactional distance theory
+Moore, M. G. (1993). Theory of transactional distance. In D. Keegan (Ed.), *Theoretical principles of distance education* (pp. 22–38). Routledge.
+
+### Zimmerman (2000) — Self-regulated learning (SRL)
+Zimmerman, B. J. (2000). Attaining self-regulation: A social cognitive perspective. In M. Boekaerts, P. R. Pintrich, & M. Zeidner (Eds.), *Handbook of self-regulation* (pp. 13–39). Academic Press.
+
+### Pintrich (2004) — SRL conceptual framework
+Pintrich, P. R. (2004). A conceptual framework for assessing motivation and self-regulated learning in college students. *Educational Psychology Review, 16*(4), 385–407. https://doi.org/10.1007/s10648-004-0006-x
+
+### Barnard, Lan, To, Paton, & Lai (2009) — Online SRL behaviors
+Barnard, L., Lan, W. Y., To, Y. M., Paton, V. O., & Lai, S.-L. (2009). Measuring self-regulation in online and blended learning environments. *The Internet and Higher Education, 12*(1), 1–6. https://doi.org/10.1016/j.iheduc.2008.10.005
+
+### Bandura (1986) — Social cognitive theory (self-efficacy)
+Bandura, A. (1986). *Social foundations of thought and action: A social cognitive theory*. Prentice-Hall.
+
+### Bandura (1997) — Self-efficacy
+Bandura, A. (1997). *Self-efficacy: The exercise of control*. W. H. Freeman.
+
+### Pintrich & De Groot (1990) — MSLQ
+Pintrich, P. R., & De Groot, E. V. (1990). Motivational and self-regulated learning components of classroom academic performance. *Journal of Educational Psychology, 82*(1), 33–40. https://doi.org/10.1037/0022-0663.82.1.33
+
+### Deci & Ryan (2000) — Self-determination theory
+Deci, E. L., & Ryan, R. M. (2000). The "what" and "why" of goal pursuits: Human needs and the self-determination of behavior. *Psychological Inquiry, 11*(4), 227–268. https://doi.org/10.1207/S15327965PLI1104_01
+
+### Pekrun, Goetz, Titz, & Perry (2002) — Achievement emotions
+Pekrun, R., Goetz, T., Titz, W., & Perry, R. P. (2002). Academic emotions in students' self-regulated learning and achievement: A program of qualitative and quantitative research. *Educational Psychologist, 37*(2), 91–105. https://doi.org/10.1207/S15326985EP3702_4
+
+### Dixson (2015) — Online Student Engagement Scale (OSES)
+Dixson, M. D. (2015). Measuring student engagement in the online course: The Online Student Engagement scale (OSE). *Online Learning, 19*(4), 143–157. https://doi.org/10.24059/olj.v19i4.561
+
+### Davis (1989) — Technology Acceptance Model (TAM)
+Davis, F. D. (1989). Perceived usefulness, perceived ease of use, and user acceptance of information technology. *MIS Quarterly, 13*(3), 319–340. https://doi.org/10.2307/249008
+
+### Bateman & Crant (1993) — Proactive personality
+Bateman, T. S., & Crant, J. M. (1993). The proactive component of organizational behavior: A measure and correlates. *Journal of Organizational Behavior, 14*(2), 103–118. https://doi.org/10.1002/job.4030140202
+
+（Broadbent & Poon 2015, Cheng 2023, Hunter 2025 は Part I に掲載済み）
 
 ---
 
