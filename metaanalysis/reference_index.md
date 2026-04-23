@@ -65,6 +65,59 @@ Boonyapison, K., Sittironnarit, G., & Rattanaumpawan, P. (2025). Association bet
 
 **ID**: A-10 | **Modality**: **Face-to-face K-12** | **Country**: Thailand | **N**: 203 | **Inclusion**: ❌ Exclude — modality ineligible
 
----
+### A-11. Cheng, Chang, Quilantan-Garza, & Gutierrez (2023) ✅
+Cheng, S.-L., Chang, J.-C., Quilantan-Garza, K., & Gutierrez, M. L. (2023). Conscientiousness, prior experience, achievement emotions and academic procrastination in online learning environments. *British Journal of Educational Technology, 54*(4), 898–923. https://doi.org/10.1111/bjet.13302
 
-（続き: A-11 〜 A-31、benchmark 8 本、narrative review 1 本を順次追加予定）
+**ID**: A-11 | **Modality**: Fully online async (COVID lockdown) | **Country**: Taiwan | **Era**: COVID 2021 | **N**: 746 | **Inclusion**: ⚠ Include with caveat (C only, procrastination outcome)
+
+### A-12. Baruth & Cohen (2023) ✅ 🔴 **著者順 + 年次訂正**
+Baruth, O., & Cohen, A. (2023). Personality and satisfaction with online courses: The relation between the Big Five personality traits and satisfaction with online learning activities. *Education and Information Technologies, 28*(1), 879–904. https://doi.org/10.1007/s10639-022-11199-x
+
+**ID**: A-12 | **Modality**: Fully online | **Country**: Israel (Tel Aviv U.) | **Era**: COVID 2022 | **N**: 108 | **Inclusion**: ⚠ Exclude from primary (satisfaction only)
+**⚠ 訂正**: lit review の「Cohen & Baruth (2017)」は誤り、実際は Baruth & Cohen (2023)（A-07 が 2017 年版）
+
+### A-13. Dang, Du, Niu, & Xu (2025) ⚠
+Dang, T., Du, W., Niu, M., & Xu, Z. (2025). The effects of personality traits on learning engagement among college students: The mediating role of emotion regulation. *Frontiers in Psychology, 15*, 1476437. https://doi.org/10.3389/fpsyg.2024.1476437
+
+**ID**: A-13 | **Modality**: 一般 learning engagement（online-specific 不明確）| **Country**: China (Shandong) | **Era**: post-COVID 2024 | **N**: 235 | **Inclusion**: ⚠ Conditional include (engagement outcome, modality ambiguous)
+
+### A-14. Eilam et al. (2009) ❌ EXCLUDE (PDF 非所持)
+Eilam, B., et al. (2009). [Science achievement study in Grade 8 Israeli students].
+
+**ID**: A-14 | **Modality**: **Face-to-face**（K-12, science achievement）| **Country**: Israel | **N**: 52 | **Inclusion**: ❌ Exclude — modality ineligible（SRL theory reference として narrative citation のみ）
+**Note**: PDF 非所持、詳細書誌は lit review より
+
+### A-15. Elvers, Polzella, & Graetz (2003) ✅
+Elvers, G. C., Polzella, D. J., & Graetz, K. (2003). Procrastination in online courses: Performance and attitudinal differences. *Teaching of Psychology, 30*(2), 159–162. https://doi.org/10.1207/S15328023TOP3002_13
+
+**ID**: A-15 | **Modality**: Online vs lecture RCT | **Country**: USA (U. Dayton) | **Era**: pre-COVID | **N**: 47 (online 22) | **Inclusion**: ⚠ Include with caveat (C/N only, N small, RCT strength)
+
+### A-16. Hidalgo-Fuentes, Martínez-Álvarez, Llamas-Salguero, Pineda-Zelaya, Merino-Soto, & Chans (2024) ✅ 🔴 **著者訂正** ❌ EXCLUDE
+Hidalgo-Fuentes, S., Martínez-Álvarez, I., Llamas-Salguero, F., Pineda-Zelaya, I. S., Merino-Soto, C., & Chans, G. M. (2024). The role of big five traits and self-esteem on academic procrastination in Honduran and Spanish university students: A cross-cultural study. *Heliyon, 10*, e36172. https://doi.org/10.1016/j.heliyon.2024.e36172
+
+**ID**: A-16 | **Modality**: **Face-to-face**（in-class Google Forms）| **Country**: Honduras + Spain | **N**: 457 | **Inclusion**: ❌ Exclude — modality ineligible
+**⚠ 訂正**: lit review の「Garzón-Umerenkova et al. (2024)」は誤り
+
+### A-17. Kara, Ergulec, & Eren (2024) ✅
+Kara, A., Ergulec, F., & Eren, E. (2024). The mediating role of self-regulated online learning behaviors: Exploring the impact of personality traits on student engagement. *Education and Information Technologies, 29*(17), 23517–23546. https://doi.org/10.1007/s10639-024-12755-3
+
+**ID**: A-17 | **Modality**: Mixed (sync + async, 14 週 IT course) | **Country**: Turkey | **Era**: post-COVID | **N**: 437 | **Inclusion**: ⚠ Include secondary (engagement outcome)
+
+### A-18. Bhagat, Wu, & Chang (2019) ✅ 🔴 **著者訂正**
+Bhagat, K. K., Wu, L. Y., & Chang, C. Y. (2019). The impact of personality on students' perceptions towards online learning. *Australasian Journal of Educational Technology, 35*(4), 98–108. https://doi.org/10.14742/ajet.4162
+
+**ID**: A-18 | **Modality**: Fully online | **Country**: Taiwan | **Era**: pre-COVID | **N**: 208 | **Inclusion**: ⚠ Exclude from primary (perception only)
+**⚠ 訂正**: lit review の「Keller & Karau (2013)」は誤り（A-08 が Keller & Karau）
+
+### A-19. MacLean (2022) ⚠
+MacLean, K. A. (2022). *Endorsed, or just enforced? Personality and preferences for online learning during COVID-19* [Master's thesis, University of Calgary]. PRISM: University of Calgary's Digital Repository. https://prism.ucalgary.ca/handle/1880/115281
+
+**ID**: A-19 | **Modality**: Fully online (COVID preference) | **Country**: Canada | **Era**: COVID 2022 | **N**: 465 | **Inclusion**: ⚠ Include with caveat (HEXACO 6-factor, preference outcome, grey literature/MSc thesis)
+
+### A-20. Mustafa, Qiao, Yan, Anwar, Hao, & Rana (2022) ✅ 🔴 **国名訂正**
+Mustafa, S., Qiao, Y., Yan, X., Anwar, A., Hao, T., & Rana, S. (2022). Digital students' satisfaction with and intention to use online teaching modes, role of Big Five personality traits. *Frontiers in Psychology, 13*, 956281. https://doi.org/10.3389/fpsyg.2022.956281
+
+**ID**: A-20 | **Modality**: Fully online (4 中国大学) | **Country**: **China** | **Era**: COVID 2022 | **N**: 718 | **Inclusion**: ⚠ Exclude from primary (satisfaction/intention only)
+**⚠ 訂正**: lit review の「Pakistan/international」は誤り、実際は China（4 中国大学）
+
+
