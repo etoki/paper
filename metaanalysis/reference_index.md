@@ -267,4 +267,56 @@ Hunter, E. G., Niblock, J., Barefoot, S., Miller, J., Hughes, J., Kite, L., & Sc
 
 ---
 
+# Part II: 本コーパス PDF 内で頻出する主要参考文献
+
+複数の本コーパス PDF で共通引用されている foundational references を分類・APA 形式で一覧化。本研究およびフォローアップ論文で引用する際はこちらを参照。
+
+## II-A. Big Five / HEXACO 測定尺度の原典 📖
+
+### Costa & McCrae (1992) — NEO PI-R
+Costa, P. T., Jr., & McCrae, R. R. (1992). *Revised NEO Personality Inventory (NEO PI-R) and NEO Five-Factor Inventory (NEO-FFI) professional manual*. Psychological Assessment Resources.
+
+### McCrae & Costa (1996) — FFM theory
+McCrae, R. R., & Costa, P. T., Jr. (1996). Toward a new generation of personality theories: Theoretical contexts for the five-factor model. In J. S. Wiggins (Ed.), *The five-factor model of personality: Theoretical perspectives* (pp. 51–87). Guilford Press.
+
+### McCrae & John (1992) — FFM overview
+McCrae, R. R., & John, O. P. (1992). An introduction to the five-factor model and its applications. *Journal of Personality, 60*(2), 175–215. https://doi.org/10.1111/j.1467-6494.1992.tb00970.x
+
+### John & Srivastava (1999) — BFI
+John, O. P., & Srivastava, S. (1999). The Big-Five trait taxonomy: History, measurement, and theoretical perspectives. In L. A. Pervin & O. P. John (Eds.), *Handbook of personality: Theory and research* (2nd ed., pp. 102–138). Guilford Press.
+
+### Benet-Martínez & John (1998) — BFI cross-cultural
+Benet-Martínez, V., & John, O. P. (1998). Los Cinco Grandes across cultures and ethnic groups: Multitrait-multimethod analyses of the Big Five in Spanish and English. *Journal of Personality and Social Psychology, 75*(3), 729–750. https://doi.org/10.1037/0022-3514.75.3.729
+
+### Soto & John (2017) — BFI-2
+Soto, C. J., & John, O. P. (2017). The next Big Five Inventory (BFI-2): Developing and assessing a hierarchical model with 15 facets to enhance bandwidth, fidelity, and predictive power. *Journal of Personality and Social Psychology, 113*(1), 117–143. https://doi.org/10.1037/pspp0000096
+
+### Goldberg (1990) — Big Five structure
+Goldberg, L. R. (1990). An alternative "description of personality": The Big-Five factor structure. *Journal of Personality and Social Psychology, 59*(6), 1216–1229. https://doi.org/10.1037/0022-3514.59.6.1216
+
+### Goldberg (1999) — IPIP
+Goldberg, L. R. (1999). A broad-bandwidth, public-domain, personality inventory measuring the lower-level facets of several five-factor models. In I. Mervielde, I. J. Deary, F. De Fruyt, & F. Ostendorf (Eds.), *Personality psychology in Europe* (Vol. 7, pp. 7–28). Tilburg University Press.
+
+### Saucier (1994) — Mini-Markers
+Saucier, G. (1994). Mini-markers: A brief version of Goldberg's unipolar Big-Five markers. *Journal of Personality Assessment, 63*(3), 506–516. https://doi.org/10.1207/s15327752jpa6303_8
+
+### Donnellan, Oswald, Baird, & Lucas (2006) — Mini-IPIP
+Donnellan, M. B., Oswald, F. L., Baird, B. M., & Lucas, R. E. (2006). The Mini-IPIP Scales: Tiny-yet-effective measures of the Big Five factors of personality. *Psychological Assessment, 18*(2), 192–203. https://doi.org/10.1037/1040-3590.18.2.192
+
+### Gosling, Rentfrow, & Swann (2003) — TIPI
+Gosling, S. D., Rentfrow, P. J., & Swann, W. B., Jr. (2003). A very brief measure of the Big-Five personality domains. *Journal of Research in Personality, 37*(6), 504–528. https://doi.org/10.1016/S0092-6566(03)00046-1
+
+### Oshio, Abe, Cutrone, & Gosling (2013) — TIPI-J
+Oshio, A., Abe, S., Cutrone, P., & Gosling, S. D. (2013). Big Five content representation of the Japanese version of the Ten-Item Personality Inventory. *Psychology, 4*(12), 924–929. https://doi.org/10.4236/psych.2013.412133
+
+### Rammstedt & John (2007) — BFI-10
+Rammstedt, B., & John, O. P. (2007). Measuring personality in one minute or less: A 10-item short version of the Big Five Inventory in English and German. *Journal of Research in Personality, 41*(1), 203–212. https://doi.org/10.1016/j.jrp.2006.02.001
+
+### Ashton, Lee, & de Vries (2014) — HEXACO overview
+Ashton, M. C., Lee, K., & de Vries, R. E. (2014). The HEXACO Honesty-Humility, Agreeableness, and Emotionality factors: A review of research and theory. *Personality and Social Psychology Review, 18*(2), 139–152. https://doi.org/10.1177/1088868314523838
+
+（Ashton & Lee, 2007 は Part I-C 関連で References 掲載済み）
+
+---
+
 
