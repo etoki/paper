@@ -43,14 +43,24 @@ COVID-19 期（2020–2023）に primary study が急増し、現在は **初の
 
 ### 2.1 OSF Registries 登録
 
-**登録先変更の経緯**: 当初 PROSPERO への登録を検討したが、PROSPERO は **health-related outcome** を必須とする scope 制約があり、教育心理領域の本研究は対象外と判明（2026-04 確認）。代替として **OSF Registries** (https://osf.io/registries) を pre-registration venue として採用する。
+**登録先変更の経緯**: 当初 PROSPERO への登録を検討したが、PROSPERO は **health-related outcome** を必須とする scope 制約があり、教育心理領域の本研究は対象外と判明（2026-04 確認）。代替として **OSF Registries** (https://osf.io/registries) を pre-registration venue として採用した。
 
-**実施予定**: 本計画を OSF Registries に登録する。登録形式:
+**登録完了** (2026-04-23):
 
-- **テンプレート**: OSF Preregistration (汎用、PRISMA-P 2015 準拠本文で記述)
-- **代替**: Open-Ended Registration (本 markdown を PDF 化して添付)
-- **登録本文**: `osf_registration_draft.md` を参照（PRISMA-P 17 項目準拠、コピペ投稿可能）
-- **OSF Project**: `Big Five Online Learning Meta-Analysis` を作成し、プロトコル・検索式・抽出 CSV・解析コード等を supplementary materials として公開
+| 項目 | 値 |
+|------|------|
+| Registration GUID | `e5w47` |
+| Registration URL | https://osf.io/e5w47/ |
+| Registration DOI | `10.17605/OSF.IO/E5W47` |
+| Registration date | 2026-04-23 |
+| Registration type | OSF Preregistration (PRISMA-P 2015 compliant) |
+| Associated OSF project | https://osf.io/79m5j/ |
+
+**登録形式**:
+
+- **テンプレート**: OSF Preregistration（汎用フォーム、PRISMA-P 2015 準拠本文で記述）
+- **登録本文**: `osf_registration_draft.md` を参照
+- **OSF Project**: `Big Five Online Learning Meta-Analysis` に 7 Components（`01_protocol` 〜 `07_pdf_index`）を配置。プロトコル・検索式・抽出 CSV・解析コード等を supplementary materials として公開予定
 
 **OSF を採用する利点**:
 - 時刻付き不変スナップショット（time-stamped, immutable registration）
