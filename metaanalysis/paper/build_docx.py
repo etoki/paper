@@ -300,6 +300,136 @@ def build_intro_part1(doc):
     add_para(doc, p3, indent_first=True)
 
 
+def build_intro_part2(doc):
+    """Online Shift + Fragmented Evidence subsections."""
+    add_h2(doc, "The Shift to Online Learning Environments")
+
+    p1 = (
+        "Online learning environments differ from face-to-face instruction along at "
+        "least four dimensions that have theoretical implications for the personality-"
+        "achievement relationship. First, online environments impose heightened self-"
+        "regulation demands on learners, who must manage their own time, attention, "
+        "and task sequencing without the physical and social scaffolding provided by "
+        "a traditional classroom (Broadbent & Poon, 2015). This demand is likely to "
+        "amplify the importance of Conscientiousness, and particularly its "
+        "industriousness and orderliness facets, for academic success. Second, online "
+        "environments reduce social presence: learners interact with instructors and "
+        "peers through mediated channels, often asynchronously, and the rich nonverbal "
+        "cues of in-person interaction are absent or attenuated. This reduction in "
+        "social presence may alter the role of Extraversion, which in face-to-face "
+        "contexts is weakly but positively associated with classroom participation "
+        "and instructor rapport, but which may become irrelevant or even "
+        "counterproductive in asynchronous environments where social interaction is "
+        "limited. Third, online environments afford greater temporal flexibility, "
+        "which can either support self-directed learning or, conversely, facilitate "
+        "procrastination (Cheng, Chang, Quilantan-Garza, & Gutierrez, 2023). Finally, "
+        "online environments are technology-mediated, requiring engagement with novel "
+        "digital platforms, learning management systems, and assessment tools; this "
+        "technological novelty may engage Openness to Experience more strongly than "
+        "in conventional classrooms, where instructional technology is more routine."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    p2 = (
+        "These four dimensions—self-regulation demands, reduced social presence, "
+        "temporal flexibility, and technology mediation—motivate specific predictions "
+        "about how the personality-achievement relationship should differ in online "
+        "as compared with face-to-face contexts. In particular, if the meta-analytic "
+        "Conscientiousness effect of approximately ρ = .22–.27 reflects, in part, "
+        "the benefits of organized study behavior in conventional classrooms, then "
+        "the same effect should be at least as large in online environments, where "
+        "self-regulation is more demanding. Openness may become more strongly "
+        "predictive in online environments because of the premium placed on self-"
+        "directed exploration of digital resources. Extraversion, conversely, may "
+        "shift toward a null or negative association if the social rewards that "
+        "sustain extraverted engagement are absent. Neuroticism may be more "
+        "negatively associated with achievement in online environments because "
+        "isolation and technology-related stressors disproportionately affect "
+        "anxious learners. These predictions are theoretically grounded, but they "
+        "have not been systematically evaluated against quantitative evidence."
+    )
+    add_para(doc, p2, indent_first=True)
+
+    add_h2(doc, "Big Five Personality Traits in Online Learning: Fragmented Evidence")
+
+    p3 = (
+        "Individual primary studies of the Big Five and academic achievement in "
+        "online learning have accumulated in substantial numbers since approximately "
+        "2018, with a marked acceleration during the COVID-19 pandemic (2020–2022). "
+        "The preliminary narrative synthesis most closely related to the present "
+        "review is Hunter et al. (2025), who systematically screened 848 records "
+        "from 2000 to June 2024 and included 23 primary studies. Their review "
+        "documented a consistent positive association between Conscientiousness and "
+        "online achievement (observed in 3 of 5 studies reporting GPA-type outcomes), "
+        "negative associations with Neuroticism (in 3 of 5 studies), and essentially "
+        "null associations with Extraversion (in all 5 studies). However, Hunter et "
+        "al. (2025) explicitly did not pool effect sizes quantitatively, and the "
+        "level-of-evidence rating for all 23 included studies was Level IV (low "
+        "strength), precluding inferences about the magnitude or moderators of the "
+        "observed associations."
+    )
+    add_para(doc, p3, indent_first=True)
+
+    p4 = (
+        "Examining the primary literature directly reveals considerable heterogeneity "
+        "in reported effect sizes. In fully online asynchronous contexts, Abe (2020) "
+        "reported strong correlations between Conscientiousness and both quiz "
+        "performance (r = .48) and paper grades (r = .37), with Openness also "
+        "predicting paper grades (r = .35). Alkış and Taşkaya Temizel (2018), "
+        "comparing online and blended sections of the same course, found "
+        "Conscientiousness to predict course grades in both modalities (online "
+        "r = .205; blended r = .244), with other traits exhibiting only null "
+        "effects. In the COVID-era German higher education context, Rodrigues, "
+        "Rose, and Hewig (2024) reported a moderate negative correlation between "
+        "Conscientiousness and self-reported GPA (r = −.228 with grades coded such "
+        "that lower values indicate better performance), and significant negative "
+        "associations between Neuroticism and study satisfaction and well-being. "
+        "Rivers (2021), studying Japanese undergraduates in an asynchronous Moodle "
+        "course (N = 149), reported a direct negative effect of Extraversion on "
+        "course achievement (β = −.168, p < .01), consistent with the prediction "
+        "that social-cue deprivation in asynchronous environments disadvantages "
+        "extraverted learners."
+    )
+    add_para(doc, p4, indent_first=True)
+
+    p5 = (
+        "Other primary studies reveal patterns that diverge from conventional face-"
+        "to-face findings. In a large Chinese K-12 sample studied by Wang, Wang, "
+        "and Li (2023; N = 1,625), Big Five traits were associated with academic "
+        "achievement only indirectly through online learning engagement, with "
+        "Conscientiousness (β = .322) and Openness (β = .253) serving as the "
+        "strongest predictors of engagement. Yu (2021), in a Chinese MOOC platform "
+        "sample (N = 1,152), reported that Agreeableness (β = .442) and Openness "
+        "(β = .305) were stronger predictors of objective MOOC composite scores "
+        "than Conscientiousness (β = .057), suggesting that cooperative behaviors "
+        "and novelty orientation may be especially salient in Chinese collectivistic "
+        "contexts (cf. Mammadov, 2022; Chen et al., 2025). Bahçekapılı and Karaman "
+        "(2020), in a Turkish distance-education context (N = 525), found that all "
+        "five Big Five traits exhibited non-significant direct correlations with "
+        "GPA, with their effects fully mediated through self-efficacy and external "
+        "locus of control."
+    )
+    add_para(doc, p5, indent_first=True)
+
+    p6 = (
+        "In aggregate, this primary literature suggests that the Conscientiousness-"
+        "achievement link observed in face-to-face contexts is generally preserved "
+        "in online settings, but that (a) the magnitude of the effect varies widely "
+        "across samples, (b) the role of Extraversion may shift in theoretically "
+        "predictable directions when social cues are attenuated, and (c) Openness "
+        "and Agreeableness effects may be amplified in specific cultural or "
+        "disciplinary contexts. However, these primary studies vary substantially in "
+        "sample composition, modality (fully online, blended, synchronous, "
+        "asynchronous, MOOC), measurement instruments (BFI, BFI-2, BFI-S, NEO-FFI, "
+        "IPIP, HEXACO, TIPI), outcome operationalizations (GPA, course grades, "
+        "standardized exams, LMS behavior, composite scores), and era (pre-COVID, "
+        "COVID, post-COVID). Without a quantitative synthesis, it is not possible "
+        "to determine whether these apparent heterogeneities reflect true moderator "
+        "effects, sampling noise, or methodological artifacts."
+    )
+    add_para(doc, p6, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -310,6 +440,7 @@ def main():
     doc.add_page_break()
     build_abstract(doc)
     build_intro_part1(doc)
+    build_intro_part2(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
