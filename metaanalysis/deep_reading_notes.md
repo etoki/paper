@@ -396,15 +396,100 @@ Trim-and-fill 調整後の Conscientiousness r+ = .24***（微減、堅牢）
 
 ## C-05. McAbee & Oswald (2013)
 
-**TBD**: Phase 2 で精読
+**Citation**: McAbee, S. T., & Oswald, F. L. (2013). The criterion-related validity of personality measures for predicting GPA: A meta-analytic validity competition. *Psychological Assessment, 25*(2), 532–544. https://doi.org/10.1037/a0031748
+
+**Institution**: Rice University
+
+### Study characteristics
+| 項目 | 値 |
+|------|------|
+| k (samples) | 57 (C); 49–51 (他特性) |
+| Total N | 26,382 (C) |
+| Coverage | 1992–2012 literature |
+| Analysis model | Hunter-Schmidt psychometric meta-analysis (random-effects) |
+| Effect size metric | r, r+ (operational validity), ρ (true-score) |
+
+### Overall pooled effect sizes（Tables 2–6）
+
+| Trait | N | k | r | r+ (operational) | 95% CI | ρ |
+|-------|---|---|---|------------------|--------|---|
+| **Conscientiousness** | 26,382 | 57 | .22 | **.23** | [.20, .24] | **.26** |
+| Openness | 24,996 | 51 | .07 | .07 | [.05, .09] | .08 |
+| Agreeableness | 24,615 | 49 | .06 | .06 | [.04, .07] | .07 |
+| Neuroticism | 24,968 | 51 | -.00 | -.00 | [-.02, .02] | -.00 |
+| Extraversion | 24,740 | 50 | -.02 | -.02 | [-.04, -.00] | -.03 |
+
+### Measure-specific operational validities for Conscientiousness
+
+- **NEO-PI-R** r+ = **.26**
+- NEO-FFI r+ = .24
+- BFI r+ = .24
+- IPIP r+ = .21
+- **Markers r+ = .15** (significantly lower; diff from NEO by .09–.10, CI excluding 0)
+
+### Moderator findings
+- 測定尺度は C-GPA 以外で有意な moderator（O の NEO-FFI r+ = .12 > BFI r+ = .02; A の NEO-FFI r+ = .11 highest）
+- Outlier 除外後 (Noftle & Robins 2007, McKenzie & Gow 2004) も結果は堅牢
+
+### Key findings
+- C が GPA の最強 validity (r+ = .23; ρ = .26) — 5 measures で堅牢
+- Markers は C 予測で弱め (r+ = .15) — performance-striving facet 少なめのため
+- E と N は全 measure で r+ < .05（実質ゼロ）
+- O と A の validity は measure 依存 — NEO-FFI で最高
+
+### 🔴 含意（本メタ分析への）
+- **Benchmark value**: C-GPA の FtF ceiling (ρ = .26, r+ = .23) = 1992–2012 pooled estimate
+- **Gap**: McAbee & Oswald は instrument comparison が焦点で、delivery mode (online vs. FtF) は未検討 → 本研究が online-specific benchmark を提供
+- **Moderator implication**: 本研究でも **measure** を moderator として扱うべき（BFI/NEO/IPIP で online studies の効果が異なる可能性）
+
+### RoB（JBI 8-item）: **6/8**
 
 ---
 
 # Part B: Existing Systematic Reviews（online-specific）
 
-## D-01. Gray & DiLoreto (2024 推定) ⚠
+## D-01. Hunter et al. (2025) ⚠ 著者名訂正
 
-**TBD**: Phase 2 で精読
+**重要訂正**: lit review では "Gray & DiLoreto (2024)" とされていたが、実際は **Hunter et al. (2025)** (Journal of Occupational Therapy Education)。
+
+**Citation**: Hunter, E. G., Niblock, J., Barefoot, S., Miller, J., Hughes, J., Kite, L., & Scarletto, E. (2025). The Influence of Student Personality Traits on Satisfaction and Success in Online Education in Higher Education: A Systematic Review. *Journal of Occupational Therapy Education, 9*(2), Article 9. https://doi.org/10.26681/jote.2025.090209
+
+**Institution**: Bowling Green State University, USA
+
+### Study characteristics
+| 項目 | 値 |
+|------|------|
+| k (included) | 23 (from 848 de-dup, 99 full-text) |
+| Coverage | Jan 2000 – June 2024 |
+| Analysis model | **Qualitative thematic synthesis**（narrative/vote-counting） |
+| Effect size metric | **None pooled** — narrative only |
+| 全研究 Level | **IV (low strength)** — RCT なし |
+| Critical appraisal | MMAT used |
+
+### 3 themes identified
+
+1. **Interaction between personality & online education**: GPA / satisfaction / assignment / engagement
+2. **Comparing personality on multiple class formats**: satisfaction / grades
+3. **Personality × student choice of class format**
+
+### Key narrative findings（効果量の pooling なし）
+
+- **GPA (fully online, 5 studies, N=1,542)**: C, O, A, ES が 3/5 studies で正相関; N が 3/5 で負相関; **E は全ての study で GPA と無関連**
+- **Satisfaction (4 studies, N=862)**: C は consistent に higher satisfaction を予測; A と O も正; E は無関連
+- **Engagement (Wu & Yu 2023, N=1,004)**: E, A, O, C 正 / N 負; adaptability が媒介
+- **Class format × personality**: 外向性は FtF を好み、内向性は online を好む; 神経症傾向が高い学生は online で苦戦
+- **Choice of format**: High C, A, O → online を選択; high N → online 回避
+
+### 🔴 含意（本メタ分析への）
+- **Benchmark value**: Hunter et al. は **qualitative direction** のみで pooled effect sizes なし → 本メタ分析が **初の quantitative online-specific pooling** となる
+- **Gap filled by our study**: (1) 量的 pooled effect sizes, (2) moderator analyses, (3) RoB-weighted synthesis — 全て Hunter et al. が提供していない
+- **Specific hypothesis support**:
+  - H1 (C → online GPA positive): 支持（3/5 studies）
+  - H2 (N → online GPA negative): 概ね支持、contradicting evidence あり
+  - H3 (E is null online): 強く支持（"None of the 5 studies found extraversion influenced GPA"）
+  - H4 (satisfaction vs GPA は異なる pattern): Myers-Briggs が satisfaction-only effects を示したことで支持
+
+### RoB（JBI 8-item）: **7/8**（最高品質 review、但し量的 synthesis 欠落）
 
 ---
 
