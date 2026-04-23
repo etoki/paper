@@ -569,13 +569,88 @@ BSEM: Online — Grade ← C (b=6.19, 95%CI [0.54, 11.94]); Blended — Grade �
 ---
 
 ## A-03. Ashouri et al. (2025)
-**TBD**: Phase 2 で精読
 
-## A-04. Audet et al. (2021)
-**TBD**: Phase 2 で精読
+**Citation**: Ashouri, A., Taheri, M., Rasouli, M., & Rouhalamin, S. (2025). Personality traits and e-learning course satisfaction: A study of health science students. *Cureus, 17*(7), e89131.
+**Modality**: Fully online (Navid LMS) | **Country**: Iran | **Era**: COVID 2022 collection
 
-## A-05. Audet et al. (2023)
-**TBD**: Phase 2 で精読
+### Sample
+- N=183, undergraduate health science, 75% female, M age ~23
+- BFI-44 Persian (Nosratabadi)
+
+### Effect sizes（hierarchical regression β only — no zero-order r）
+
+| Trait | β × Satisfaction subscales |
+|-------|---------------------------|
+| N | -.17 〜 -.23 (有意, 全 subscale で負) |
+| A | +.19 (Tech subscale only) |
+| C/E/O | ns |
+
+### Status: **Exclude** for primary (achievement なし、satisfaction のみ); 副次プールに include 可
+### RoB: **5/8**
+
+---
+
+## A-04. Audet, Levine, Metin, Koestner & Barcan (2021)
+
+**Citation**: Audet, É. C., et al. (2021). Zooming their way through university: Which Big 5 traits facilitated students' adjustment to online courses during the COVID-19 pandemic. *Personality and Individual Differences, 180*, 110969.
+**Modality**: Fully online (synchronous Zoom) | **Country**: Canada (McGill) | **Era**: COVID Fall 2020
+
+### Sample
+- N=350 T1 → N=167 T2 (48% retention), undergraduate
+- 87.8% female, M age 19.75
+
+### Measures
+- BFI-44 (α > .80 全特性)
+- Outcomes: self-efficacy, motivation, engagement, SWB（**No GPA — explicitly noted limitation**）
+
+### Effect sizes（regression b, Table 2）
+
+| Trait | b × Self-efficacy | b × Engagement (T2) |
+|-------|------------------|--------------------|
+| C | .22 (p<.01) | ns |
+| O | .14 (p<.01) | **.27** (p<.001) ⭐ |
+| N | -.13 (p<.05) | ns |
+| E/A | ns | ns |
+
+### Key findings
+- O が longitudinal engagement の単独予測（COVID 期 isolated 環境）
+- C と O が self-efficacy で優位
+- N → controlled motivation 上昇
+
+### Status: **Exclude** for achievement（GPA 測定なし）; engagement secondary プール候補
+### ⚠ **Sample overlap warning**: A-05 と Fall 2020 cohort 共有
+### RoB: **6/8**（longitudinal だが retention 48%）
+
+---
+
+## A-05. Audet et al. (2023) ⚠ A-04 と sample overlap
+
+**Citation**: Audet, É., Levine, S., Dubois, P., Koestner, S., & Koestner, R. (2023). The unanticipated virtual year: How the Big 5 personality traits of Openness to Experience and Conscientiousness impacted engagement in online classes during the COVID-19 crisis. *Journal of College Reading and Learning, 53*(4), 298–315.
+**Modality**: Fully online | **Country**: Canada (McGill) | **Era**: COVID Fall 2020 + Winter 2021
+
+### Sample
+- Fall 350 + Winter 323（Fall は A-04 と同 cohort）
+- BFI-44
+
+### Effect sizes（Table 2 correlations combined, engagement のみ）
+
+| | C | O | SE | IM |
+|---|---|---|----|-----|
+| Engagement | .14* | .15** | .33** | .19** |
+
+Subgroup regression:
+- O × engagement Fall b=.29 (p<.001), Winter b=.03 (ns)
+- C × engagement Fall b=-.05 (ns), Winter b=.28 (p<.001) ← **temporal interaction**
+
+### Key findings
+- O drove Fall engagement（"training period"）
+- C drove Winter engagement（"work period"）
+- Mediation: O→IM→engagement (partial); C→SE→engagement (full)
+
+### Status: **Exclude** for achievement; **重大な double-counting risk**（Fall=A-04 cohort）→ A-04 か A-05 のどちらか一方のみ採用
+### RoB: **6/8**
+
+---
 
 ## A-06. Baruth & Cohen (2021)
 **TBD**: Phase 2 で精読
