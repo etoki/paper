@@ -521,6 +521,82 @@ def build_intro_part3(doc):
     add_para(doc, p4, indent_first=True)
 
 
+def build_methods_part1(doc):
+    """Methods heading + Pre-registration statement + Eligibility criteria."""
+    p = doc.add_paragraph("Methods", style="Heading 1")
+    set_double_space(p)
+
+    add_h2(doc, "Pre-registration and Reporting Standards")
+
+    p1 = (
+        "The protocol for this systematic review and meta-analysis was pre-registered "
+        "on OSF Registries (https://osf.io/e5w47/; DOI: 10.17605/OSF.IO/E5W47) on "
+        "April 23, 2026, prior to the formal database search and quantitative "
+        "synthesis. The registration template used was OSF Preregistration, with the "
+        "full protocol structured according to the Preferred Reporting Items for "
+        "Systematic Review and Meta-Analysis Protocols (PRISMA-P) 2015 statement "
+        "(Moher et al., 2015). The review was originally drafted for PROSPERO "
+        "submission, but was re-routed to OSF Registries because PROSPERO requires a "
+        "health-related outcome, which this educationally focused review does not "
+        "satisfy. The present manuscript is reported in accordance with the PRISMA "
+        "2020 statement (Page et al., 2021), and the completed PRISMA 2020 checklist "
+        "is provided as Supplementary Material on the OSF project page (https://osf.io"
+        "/79m5j/). Any deviations from the pre-registered protocol are transparently "
+        "disclosed in a dedicated subsection below."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    add_h2(doc, "Eligibility Criteria")
+
+    p2 = (
+        "Eligibility was defined using the PICOS (Population, Intervention/Exposure, "
+        "Comparator, Outcome, Study design) framework. Studies were included if they "
+        "satisfied all of the following criteria. Population: students at any "
+        "educational level—K-12, undergraduate, graduate, or adult learner—enrolled "
+        "in an online learning environment. No geographic or demographic restrictions "
+        "were applied to participants, provided that samples comprised at least 10 "
+        "learners. Exposure: Big Five or HEXACO personality traits measured with a "
+        "validated inventory, including the Big Five Inventory (BFI, BFI-2, BFI-44, "
+        "BFI-S), the NEO Personality Inventory–Revised (NEO-PI-R) or NEO Five-Factor "
+        "Inventory (NEO-FFI, NEO-FFI-3), the International Personality Item Pool "
+        "(IPIP, including Mini-IPIP), the HEXACO Personality Inventory–Revised "
+        "(HEXACO-PI-R, HEXACO-60), the Ten-Item Personality Inventory (TIPI, TIPI-J), "
+        "or any peer-reviewed Big Five–aligned scale with published reliability. "
+        "Measures based on typological frameworks (e.g., Myers-Briggs Type Indicator) "
+        "or on single-trait constructs (e.g., Grit, Proactive Personality) not "
+        "mappable to the Five-Factor Model were excluded. Comparator: not applicable, "
+        "because the synthesis addresses observational correlational associations "
+        "rather than group-comparison designs. Outcome: the primary outcome was "
+        "academic achievement, operationalized as grade point average (GPA), course "
+        "grade, standardized exam score, or composite learning performance score. "
+        "Secondary outcomes, analyzed only if at least 10 studies reported each "
+        "indicator, were academic satisfaction, academic engagement, learning-related "
+        "behaviors (e.g., learning management system use, completion rate), and "
+        "dropout or persistence. Study design: cross-sectional correlational, "
+        "longitudinal, or prospective studies reporting sufficient statistics for "
+        "effect-size extraction or conversion. Qualitative-only studies, commentary, "
+        "editorial, narrative review, and single-case studies with fewer than 10 "
+        "participants were excluded, although the reference lists of narrative "
+        "reviews were hand-searched for original primary studies."
+    )
+    add_para(doc, p2, indent_first=True)
+
+    p3 = (
+        "Studies were restricted to those published in English, in peer-reviewed "
+        "journals, peer-reviewed conference proceedings, or doctoral dissertations. "
+        "Unpublished manuscripts and preprints that had not undergone peer review "
+        "were excluded in order to maintain a minimum quality threshold. No "
+        "restriction was placed on publication year. Studies in which learners were "
+        "non-human (e.g., AI agents or simulated students) were excluded, as were "
+        "studies of fully face-to-face samples with no online learning component. "
+        "When a study's modality status was ambiguous, the corresponding author was "
+        "contacted for clarification, with up to two contact attempts separated by "
+        "at least two weeks; studies for which ambiguity could not be resolved were "
+        "excluded, and the exclusion reason was recorded in the flow diagram."
+    )
+    add_para(doc, p3, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -533,6 +609,7 @@ def main():
     build_intro_part1(doc)
     build_intro_part2(doc)
     build_intro_part3(doc)
+    build_methods_part1(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
