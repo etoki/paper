@@ -496,10 +496,77 @@ Trim-and-fill 調整後の Conscientiousness r+ = .24***（微減、堅牢）
 # Part C: Primary Studies（本メタ分析対象）
 
 ## A-01. Abe (2020)
-**TBD**: Phase 2 で精読
 
-## A-02. Alkış & Temizel (2018)
-**TBD**: Phase 2 で精読
+**Citation**: Abe, J. A. A. (2020). Big Five, linguistic styles, and successful online learning. *The Internet and Higher Education, 45*, 100724. https://doi.org/10.1016/j.iheduc.2019.100724
+**Modality**: Fully online / asynchronous | **Country**: USA (Southern Connecticut State Univ.) | **Era**: pre-COVID
+
+### Sample
+- N=92 (1 outlier excluded), undergraduate Psychology, response 77%
+- Personality course context
+
+### Measures
+- BFI-44; α range .74–.84
+- Outcome 1: Quiz avg (8 quizzes); Outcome 2: Final paper grade (13-pt scale)
+
+### Effect sizes（Table 2 correlations）🔴 **本研究の primary achievement 数値**
+
+| Trait | r × Quiz | r × Paper |
+|-------|---------|-----------|
+| **C** | **.48** (p<.01) | **.37** (p<.01) |
+| O | .13 (ns) | **.35** (p<.01) |
+| E | -.07 (ns) | .03 (ns) |
+| A | .13 (ns) | .16 (trend) |
+| N | -.10 (ns) | -.02 (ns) |
+
+Regression: Quiz avg — C β=.46 (R²=.28); Paper — C β=.35, O β=.26 (R²=.31)
+
+### Key findings
+- C は quiz/paper 両方で最強予測 → cognitive task と essay 両方で safety net
+- O は essay grade のみ予測（深い処理を要する課題で発現）
+- E/A/N は achievement と直交
+- Word count（LIWC）が最 robust な linguistic predictor
+
+### Status: **Include** ✅（primary outcome × full Big Five 揃う、稀少）
+### RoB: **5/8**（demographics 報告なし）
+
+---
+
+## A-02. Alkış & Taşkaya Temizel (2018)
+
+**Citation**: Alkış, N., & Taşkaya Temizel, T. (2018). The impact of motivation and personality on academic performance in online and blended learning environments. *Educational Technology & Society, 21*(3), 35–47.
+**Modality**: Mixed (online N=189 + blended N=127, 別計算) | **Country**: Turkey (METU) | **Era**: pre-COVID
+
+### Sample
+- N=316 total, undergraduate, mixed disciplines
+- Online: 58% female, M age 22.27; Blended: 60% female, M age 22.03
+- Response 59% (381/658)
+
+### Measures
+- BFI-44 Turkish; α: E=.84, A=.60, C=.76, N=.81, O=.81
+- Outcome: Course grade (0–100, midterm + final + assignments) + LMS access count
+
+### Effect sizes（Tables 3 & 4）🔴 **online setting で primary achievement**
+
+| Trait | r × Grade (Online N=189) | r × Grade (Blended N=127) |
+|-------|------------------------|---------------------------|
+| **C** | **.205** (p<.01) | **.244** (p<.01) |
+| O | -.092 (ns) | .082 (ns) |
+| E | .051 (ns) | .004 (ns) |
+| A | .094 (ns) | .024 (ns) |
+| N | .03 (ns) | -.005 (ns) |
+
+BSEM: Online — Grade ← C (b=6.19, 95%CI [0.54, 11.94]); Blended — Grade ← C (b=8.63, 95%CI [2.43, 15.06])
+
+### Key findings
+- C のみ両モダリティで grade 予測（online .205, blended .244）
+- 他 4 特性は orthogonal
+- LMS use mediates C → grade in online (not blended)
+- Self-efficacy predicts grade in online only
+
+### Status: **Include** ✅（online subset N=189 を primary, blended は moderator として別扱い推奨）
+### RoB: **6/8**
+
+---
 
 ## A-03. Ashouri et al. (2025)
 **TBD**: Phase 2 で精読
