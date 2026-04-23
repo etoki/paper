@@ -708,6 +708,88 @@ def build_methods_part2(doc):
     add_para(doc, p5, indent_first=True)
 
 
+def build_methods_part3(doc):
+    """Risk of bias + Effect size metric + Transformations."""
+    add_h2(doc, "Risk of Bias Assessment")
+
+    p1 = (
+        "Risk of bias for each included study was assessed using the Joanna Briggs "
+        "Institute (JBI) Critical Appraisal Checklist for Analytical Cross-Sectional "
+        "Studies (Moola et al., 2017), which comprises eight items: (1) clearly "
+        "defined inclusion criteria for the sample, (2) detailed description of "
+        "study subjects and setting, (3) valid and reliable measurement of exposure "
+        "(the personality inventory), (4) objective and standardized measurement of "
+        "the outcome, (5) identification of confounding factors, (6) strategies to "
+        "address confounding, (7) valid and reliable measurement of the outcome, "
+        "and (8) appropriate statistical analysis. Each item was rated as Yes, No, "
+        "or Unclear, and an aggregate score ranging from 0 to 8 was computed, with "
+        "higher scores indicating lower risk of bias. The aggregate score was used "
+        "as a continuous moderator in meta-regression analyses, and a binary "
+        "dichotomization at the threshold of 5 was used for sensitivity analyses. "
+        "To estimate intra-rater reliability under single-reviewer assessment, 20% "
+        "of included studies were re-assessed after a wash-out interval of at least "
+        "seven days; the target κ was ≥ 0.80."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    add_h2(doc, "Effect Size Metric and Transformations")
+
+    p2 = (
+        "The primary effect-size metric was the Pearson product-moment correlation "
+        "coefficient (r) between each Big Five trait score and the academic "
+        "achievement outcome. Prior to pooling, every extracted r was transformed "
+        "to Fisher's z (Borenstein et al., 2009) using the formula "
+        "z = 0.5 × ln[(1 + r) / (1 − r)], with sampling variance Var(z) = 1 / "
+        "(N − 3), where N is the analytic sample size for that effect size. "
+        "Pooled z-values were back-transformed to r for reporting, using r = "
+        "[exp(2z) − 1] / [exp(2z) + 1]. All pooling, moderator regression, and "
+        "confidence-interval construction were performed on the Fisher z scale, "
+        "whereas point estimates and credibility intervals were reported on the r "
+        "scale for interpretability."
+    )
+    add_para(doc, p2, indent_first=True)
+
+    p3 = (
+        "When a primary study reported an effect-size statistic other than Pearson "
+        "r, the statistic was converted to r using pre-specified rules, and every "
+        "converted effect size was flagged for a pre-specified sensitivity analysis "
+        "in which pooled estimates were recomputed with and without converted "
+        "effect sizes. Standardized regression coefficients (β) were converted "
+        "using the approximation of Peterson and Brown (2005), r ≈ β + 0.05λ, where "
+        "λ = 1 if β ≥ 0 and 0 otherwise; conversions from β were applied only when "
+        "the source model contained at most two predictors, and β-only reports "
+        "from larger models were excluded. Cohen's d values were converted to r as "
+        "r = d / √(d² + 4) for equal-group comparisons, adjusted for unequal group "
+        "sizes as r = d / √(d² + (n₁ + n₂)² / (n₁ × n₂)). Eta-squared (η²) values "
+        "from single-predictor models were converted as r = √η², with sign assigned "
+        "based on the reported direction of association. F and t statistics were "
+        "converted using r = √(F / (F + df_error)) and r = √(t² / (t² + df)), "
+        "respectively."
+    )
+    add_para(doc, p3, indent_first=True)
+
+    p4 = (
+        "Two measurement-specific pre-processing steps were applied before pooling. "
+        "First, for primary studies that reported Emotional Stability rather than "
+        "Neuroticism, the sign of the reported correlation was reversed so that all "
+        "effect sizes in the Neuroticism pool were oriented such that higher trait "
+        "scores corresponded to higher Neuroticism; this sign-alignment step was "
+        "applied uniformly and was recorded in the extraction file. Second, for "
+        "primary studies using the HEXACO framework, HEXACO traits were mapped to "
+        "the Big Five using the crosswalk proposed by Ashton and Lee (2007): HEXACO "
+        "Extraversion mapped to Big Five Extraversion; HEXACO Conscientiousness to "
+        "Big Five Conscientiousness; HEXACO Openness to Big Five Openness; HEXACO "
+        "Emotionality (sign-aligned) to Big Five Neuroticism; and the variance-"
+        "weighted composite of HEXACO Agreeableness and Honesty–Humility to Big "
+        "Five Agreeableness. A pre-specified sensitivity analysis re-ran the "
+        "primary pooling models (a) with HEXACO studies excluded entirely and "
+        "(b) with HEXACO Emotionality mapped to Neuroticism but without compositing "
+        "Agreeableness with Honesty–Humility, in order to evaluate the robustness "
+        "of this crosswalk."
+    )
+    add_para(doc, p4, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -722,6 +804,7 @@ def main():
     build_intro_part3(doc)
     build_methods_part1(doc)
     build_methods_part2(doc)
+    build_methods_part3(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
