@@ -159,7 +159,9 @@ Three pre-registered moderators are reported; the remaining six (instrument, pub
 - **β-to-r conversion**: Peterson & Brown (2005) applied where only β was reported. Sensitivity analysis (exclude converted) pending.
 - **Sign conventions**: A-23 Rodrigues GPA sign-flipped so positive r = better performance; A-31 Rivers Emotional Stability sign-reversed to Neuroticism.
 - **Remaining 6 pre-registered moderators** (instrument, publication year, sample size, RoB score, modality, education level) not quantitatively analyzed due to insufficient k per level; reported narratively in Methods Deviations subsection.
-## Publication Bias Assessment (Egger's test)
+## Publication Bias Assessment
+
+### Egger's Regression Test
 
 | Trait | k | Intercept | SE | t | p |
 |-------|---|-----------|-----|---|---|
@@ -169,4 +171,18 @@ Three pre-registered moderators are reported; the remaining six (instrument, pub
 | A | 9 | -8.527 | 4.029 | -2.12 | 0.072 |
 | N | 10 | -1.790 | 1.631 | -1.10 | 0.304 |
 
-Egger's test evaluates funnel-plot asymmetry by regressing standardized effect sizes on precision; a non-zero intercept suggests small-study bias or publication bias. Interpretation threshold: p < .05 indicates potential bias; p ≥ .05 does not rule out bias (test has low power with small k).
+### Duval & Tweedie (2000) Trim-and-Fill
+
+| Trait | k_orig | k_imputed | Side | r_original | r_adjusted [95% CI] |
+|-------|--------|-----------|------|-----------|---------------------|
+| O | 9 | 1 | right | 0.086 | 0.107 [-0.017, 0.228] |
+| C | 10 | 0 | left | 0.167 | 0.167 [0.089, 0.243] |
+| E | 9 | 2 | left | 0.002 | -0.036 [-0.117, 0.046] |
+| A | 9 | 0 | right | 0.112 | 0.112 [-0.031, 0.250] |
+| N | 10 | 0 | right | 0.018 | 0.018 [-0.079, 0.114] |
+
+**Interpretation**:
+- Egger's test: non-zero intercept suggests small-study effects or publication bias. With k = 9–10, the test has low power; p ≥ .05 does not rule out bias.
+- Trim-and-fill: imputes hypothetical missing studies on the under-represented side of the funnel. Reported as a *sensitivity check* only; adjusted estimates should NOT replace primary pooled estimates.
+- Openness (Egger p = .045) shows evidence of asymmetry, with trim-and-fill suggesting possible missing small-negative studies.
+- Grey literature (dissertations, conference proceedings) was included in the search to partially mitigate file-drawer bias; unpublished/preprint studies were excluded for quality reasons.

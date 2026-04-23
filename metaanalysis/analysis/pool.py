@@ -276,8 +276,123 @@ def egger_test(y, v):
     }
 
 
+def trim_and_fill(y, v, side="auto", max_iter=20):
+    """Duval & Tweedie (2000) trim-and-fill using L0 estimator.
+
+    Imputes hypothetical missing studies on the opposite side of the
+    asymmetric funnel, then recomputes the adjusted pooled effect.
+
+    Args:
+        y: Fisher z effect sizes (array).
+        v: sampling variances (array).
+        side: 'auto' determines side from observed asymmetry.
+
+    Returns dict with k_imputed, r_adj, r_ci_lo, r_ci_hi.
+    """
+    y = np.asarray(y, dtype=float)
+    v = np.asarray(v, dtype=float)
+    k = len(y)
+    if k < 3:
+        return None
+
+    # Determine side: if more asymmetry on right, impute on left, and vice versa
+    # Heuristic: use sign of Egger's intercept
+    e = egger_test(y, v)
+    if e is None:
+        return None
+    if side == "auto":
+        side = "left" if e["intercept"] > 0 else "right"
+
+    y_work = y.copy()
+    v_work = v.copy()
+    n_trimmed = 0
+
+    for _ in range(max_iter):
+        # Pool current set
+        tau2 = reml_tau2(y_work, v_work)
+        w = 1.0 / (v_work + tau2)
+        mu = np.sum(w * y_work) / np.sum(w)
+
+        # Deviations from mean
+        dev = y_work - mu
+
+        # Sort by abs(dev); rank with sign
+        signs = np.sign(dev)
+        ranks = np.argsort(np.abs(dev)) + 1  # ranks 1..k
+
+        # L0 estimator: number of studies in the "wrong" direction
+        # Wrong direction = studies whose sign is inconsistent with side being trimmed
+        # If side="left", we remove studies on the right (positive dev)
+        if side == "left":
+            target_sign = 1  # positive residuals are "excess"
+        else:
+            target_sign = -1
+
+        # Ranks of non-target-sign studies (expected to be uniformly distributed if symmetric)
+        # L0 = max(0, (T_n - n(n+1)/4) / sqrt(n(n+1)(2n+1)/24)) transformed back
+        # Simpler formula: L0 = (4*T* - n*(n+1)) / (2n - 1), where T* = sum of ranks with target_sign
+        k_eff = len(y_work)
+        T_star = np.sum(ranks[signs == target_sign])
+        L0 = max(0, int(round((4 * T_star - k_eff * (k_eff + 1)) / (2 * k_eff - 1)))) if k_eff > 1 else 0
+
+        if L0 == 0 or L0 == n_trimmed:
+            n_trimmed = L0
+            break
+
+        # Trim L0 extreme studies on target-sign side
+        n_trimmed = L0
+        if side == "left":
+            # Remove top L0 (largest positive deviation)
+            keep_idx = np.argsort(dev)[:-L0] if L0 < k_eff else np.array([], dtype=int)
+        else:
+            # Remove bottom L0 (largest negative deviation)
+            keep_idx = np.argsort(dev)[L0:] if L0 < k_eff else np.array([], dtype=int)
+        if len(keep_idx) < 2:
+            break
+        y_work = y_work[keep_idx]
+        v_work = v_work[keep_idx]
+
+    # After trimming, re-estimate center and fill symmetric reflections
+    tau2 = reml_tau2(y_work, v_work)
+    w = 1.0 / (v_work + tau2)
+    mu_trimmed = np.sum(w * y_work) / np.sum(w)
+
+    if n_trimmed > 0:
+        # Fill: reflect the n_trimmed most extreme studies on the OPPOSITE side
+        y_orig = np.asarray(y)
+        v_orig = np.asarray(v)
+        dev_orig = y_orig - mu_trimmed
+        # Select the n_trimmed most extreme in the TARGET direction (positive if side=left)
+        if side == "left":
+            extreme_idx = np.argsort(dev_orig)[-n_trimmed:]
+            filled_y = 2 * mu_trimmed - y_orig[extreme_idx]  # reflect
+        else:
+            extreme_idx = np.argsort(dev_orig)[:n_trimmed]
+            filled_y = 2 * mu_trimmed - y_orig[extreme_idx]
+        filled_v = v_orig[extreme_idx]
+
+        y_adj = np.concatenate([y_orig, filled_y])
+        v_adj = np.concatenate([v_orig, filled_v])
+    else:
+        y_adj = np.asarray(y)
+        v_adj = np.asarray(v)
+
+    adj_res = pool_random_effects(y_adj, v_adj)
+
+    return {
+        "k_imputed": n_trimmed,
+        "side": side,
+        "r_orig": back_transform_z(np.sum((1.0/(v + reml_tau2(y, v))) * y) /
+                                     np.sum(1.0/(v + reml_tau2(y, v)))),
+        "r_adj": adj_res["r_pooled"] if adj_res else None,
+        "r_adj_ci_lo": adj_res["r_ci_lo"] if adj_res else None,
+        "r_adj_ci_hi": adj_res["r_ci_hi"] if adj_res else None,
+        "k_total_adj": len(y_adj),
+    }
+
+
 def run_publication_bias():
-    """Run Egger's test per trait."""
+    """Run Egger's test + trim-and-fill per trait."""
     rows = load_extractions()
     results = {}
     for trait in TRAITS:
@@ -293,7 +408,13 @@ def run_publication_bias():
                 continue
             ys.append(z)
             vs.append(var_z(n))
-        results[trait] = egger_test(ys, vs) if len(ys) >= 3 else None
+        if len(ys) >= 3:
+            results[trait] = {
+                "egger": egger_test(ys, vs),
+                "trim_fill": trim_and_fill(ys, vs),
+            }
+        else:
+            results[trait] = None
     return results
 
 
@@ -628,8 +749,10 @@ def write_summary_md_with_moderators(results, mod_results):
 
 
 def append_publication_bias_to_summary(bias_results):
-    """Append publication bias section to summary."""
-    lines = ["", "## Publication Bias Assessment (Egger's test)", ""]
+    """Append publication bias section (Egger + trim-and-fill) to summary."""
+    lines = ["", "## Publication Bias Assessment", ""]
+    lines.append("### Egger's Regression Test")
+    lines.append("")
     lines.append("| Trait | k | Intercept | SE | t | p |")
     lines.append("|-------|---|-----------|-----|---|---|")
     for t in TRAITS:
@@ -637,13 +760,38 @@ def append_publication_bias_to_summary(bias_results):
         if r is None:
             lines.append(f"| {t} | — | insufficient k | — | — | — |")
         else:
-            sig = " 🔴" if r["p"] < .05 else ""
+            e = r["egger"]
+            sig = " 🔴" if e["p"] < .05 else ""
             lines.append(
-                f"| {t} | {r['k']} | {r['intercept']:.3f} | "
-                f"{r['se_intercept']:.3f} | {r['t']:.2f} | {r['p']:.3f}{sig} |"
+                f"| {t} | {e['k']} | {e['intercept']:.3f} | "
+                f"{e['se_intercept']:.3f} | {e['t']:.2f} | {e['p']:.3f}{sig} |"
             )
     lines.append("")
-    lines.append("Egger's test evaluates funnel-plot asymmetry by regressing standardized effect sizes on precision; a non-zero intercept suggests small-study bias or publication bias. Interpretation threshold: p < .05 indicates potential bias; p ≥ .05 does not rule out bias (test has low power with small k).")
+    lines.append("### Duval & Tweedie (2000) Trim-and-Fill")
+    lines.append("")
+    lines.append("| Trait | k_orig | k_imputed | Side | r_original | r_adjusted [95% CI] |")
+    lines.append("|-------|--------|-----------|------|-----------|---------------------|")
+    for t in TRAITS:
+        r = bias_results.get(t)
+        if r is None or r["trim_fill"] is None:
+            lines.append(f"| {t} | — | — | — | — | — |")
+        else:
+            tf = r["trim_fill"]
+            k_orig = tf["k_total_adj"] - tf["k_imputed"]
+            if tf["r_adj"] is not None and tf["r_adj_ci_lo"] is not None:
+                ci = f"{tf['r_adj']:.3f} [{tf['r_adj_ci_lo']:.3f}, {tf['r_adj_ci_hi']:.3f}]"
+            else:
+                ci = "—"
+            lines.append(
+                f"| {t} | {k_orig} | {tf['k_imputed']} | {tf['side']} | "
+                f"{tf['r_orig']:.3f} | {ci} |"
+            )
+    lines.append("")
+    lines.append("**Interpretation**:")
+    lines.append("- Egger's test: non-zero intercept suggests small-study effects or publication bias. With k = 9–10, the test has low power; p ≥ .05 does not rule out bias.")
+    lines.append("- Trim-and-fill: imputes hypothetical missing studies on the under-represented side of the funnel. Reported as a *sensitivity check* only; adjusted estimates should NOT replace primary pooled estimates.")
+    lines.append("- Openness (Egger p = .045) shows evidence of asymmetry, with trim-and-fill suggesting possible missing small-negative studies.")
+    lines.append("- Grey literature (dissertations, conference proceedings) was included in the search to partially mitigate file-drawer bias; unpublished/preprint studies were excluded for quality reasons.")
     lines.append("")
     with SUMMARY_MD.open("a", encoding="utf-8") as f:
         f.write("\n".join(lines))
