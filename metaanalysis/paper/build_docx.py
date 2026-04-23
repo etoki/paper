@@ -597,6 +597,117 @@ def build_methods_part1(doc):
     add_para(doc, p3, indent_first=True)
 
 
+def build_methods_part2(doc):
+    """Information sources + Search strategy + Screening + Data extraction."""
+    add_h2(doc, "Information Sources and Search Strategy")
+
+    p1 = (
+        "The pre-registered search plan specified six electronic databases—PubMed/"
+        "MEDLINE, PsycINFO, the Education Resources Information Center (ERIC), Web "
+        "of Science (Core Collection), Scopus, and ProQuest Dissertations & Theses "
+        "Global—supplemented by Google Scholar (first 200 hits per query) and "
+        "forward/backward citation snowballing. Because the review was executed in a "
+        "computing environment that did not have institutional access to the "
+        "subscription-gated databases (Scopus, Web of Science, PsycINFO), and "
+        "because the direct E-utilities and OpenAlex APIs were unavailable due to "
+        "network allowlist restrictions, the final search was executed through a "
+        "web-based search interface equivalent in coverage to Google Scholar, "
+        "combined with targeted retrieval from open-access repositories (PubMed "
+        "Central, Frontiers, MDPI, Open Praxis). This constitutes a deviation from "
+        "the pre-registered protocol and is discussed transparently under "
+        "“Deviations from the Pre-registered Protocol.” The deviation was mitigated "
+        "by applying the same pre-specified three-concept Boolean search strategy "
+        "across all executed queries and by retaining the original retrieval logs "
+        "on the OSF project."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    p2 = (
+        "The search strategy combined three concept blocks with the Boolean operator "
+        "AND. Concept 1 (personality) comprised the terms \"Big Five,\" \"Five-Factor "
+        "Model,\" \"FFM,\" \"HEXACO,\" \"BFI,\" \"NEO-PI-R,\" \"NEO-FFI,\" \"IPIP,\" "
+        "\"conscientiousness,\" \"openness to experience,\" \"extraversion,\" "
+        "\"agreeableness,\" \"neuroticism,\" \"emotional stability,\" and \"personality "
+        "traits,\" connected by OR. Concept 2 (online learning) comprised \"online "
+        "learning,\" \"e-learning,\" \"distance learning,\" \"remote learning,\" \"virtual "
+        "learning,\" \"blended learning,\" \"hybrid learning,\" \"MOOC,\" \"massive open "
+        "online course,\" \"web-based learning,\" \"computer-mediated learning,\" "
+        "\"learning management system,\" \"LMS,\" \"online course,\" \"synchronous "
+        "online,\" and \"asynchronous online.\" Concept 3 (academic outcome) comprised "
+        "\"academic performance,\" \"academic achievement,\" \"GPA,\" \"grade point "
+        "average,\" \"test score,\" \"course grade,\" \"learning outcome,\" \"learning "
+        "performance,\" and \"academic success.\" Language and publication-type filters "
+        "were applied post hoc during screening rather than at the database level. "
+        "The complete search log, including the exact query syntax for each "
+        "executed search, the date of execution, and the hit count, is deposited as "
+        "a supplementary file (search_log.md) on the OSF project."
+    )
+    add_para(doc, p2, indent_first=True)
+
+    p3 = (
+        "In addition to the database searches, forward citation tracking (cited-by) "
+        "and backward citation tracking (reference list scanning) were performed for "
+        "all studies identified as eligible, and for the eight benchmark meta-"
+        "analyses that constitute the face-to-face comparison corpus (Poropat, 2009; "
+        "McAbee & Oswald, 2013; Vedel, 2014; Stajkovic et al., 2018; Mammadov, 2022; "
+        "Zell & Lesick, 2021; Meyer et al., 2023; Chen et al., 2025). Reference "
+        "lists of the most directly relevant narrative review (Hunter et al., 2025) "
+        "were also hand-searched."
+    )
+    add_para(doc, p3, indent_first=True)
+
+    add_h2(doc, "Study Selection")
+
+    p4 = (
+        "All retrieved records were imported into a reference manager (Zotero) and "
+        "de-duplicated both automatically and by manual verification of near-"
+        "duplicates. The remaining records were screened in two stages. At Stage 1, "
+        "one reviewer (ET) screened titles and abstracts against the eligibility "
+        "criteria. To estimate intra-rater reliability under a single-reviewer "
+        "workflow, 10% of the title/abstract records were randomly re-screened "
+        "after a wash-out interval of at least seven days, without reference to the "
+        "initial decisions; the intra-rater reliability target was Cohen's κ ≥ 0.80. "
+        "When the observed κ fell below this threshold, the eligibility criteria "
+        "were refined and the full set was re-screened. At Stage 2, full-text "
+        "reports of the records that passed title/abstract screening were retrieved "
+        "and assessed against the detailed eligibility criteria; 20% of full-text "
+        "assessments were randomly re-performed after a wash-out interval of at "
+        "least seven days, with the same κ ≥ 0.80 target. All exclusions at the "
+        "full-text stage were recorded with a specific reason (wrong population, "
+        "wrong exposure, wrong outcome, wrong modality, non-Big-Five personality "
+        "framework, insufficient statistics, duplicate sample) for reporting in the "
+        "PRISMA 2020 flow diagram."
+    )
+    add_para(doc, p4, indent_first=True)
+
+    add_h2(doc, "Data Extraction")
+
+    p5 = (
+        "A pre-specified data extraction form was developed prior to registration "
+        "and is available on the OSF project (data_extraction.csv; "
+        "data_extraction_README.md). Extracted fields included study identification "
+        "(author, year, DOI, journal, country of data collection), sample "
+        "characteristics (analytic N, age mean and SD, gender composition, "
+        "education level, discipline, recruitment method), learning context "
+        "(modality, platform or learning management system, course duration, era), "
+        "personality measurement (instrument, version, item count, Cronbach's alpha "
+        "or McDonald's omega per trait), outcome measurement (instrument, timing, "
+        "reliability), and effect-size statistics (Pearson r, standardized β, "
+        "Cohen's d, η², t, or F, with associated sample size and confidence "
+        "interval). Data extraction was performed by one reviewer (ET); a randomly "
+        "selected 10% of included studies was re-extracted after a wash-out interval "
+        "of at least seven days, with target intra-rater reliability of Cohen's "
+        "κ ≥ 0.80 for categorical fields and intraclass correlation ICC(2,1) ≥ 0.90 "
+        "for continuous fields. When effect-size statistics required to populate "
+        "the extraction form were not reported, the corresponding author of the "
+        "primary study was contacted by email, with up to two attempts separated by "
+        "at least two weeks; unanswered requests were recorded and the relevant "
+        "effect size was either converted from an alternative statistic (see below) "
+        "or excluded from the trait-specific pool with the reason logged."
+    )
+    add_para(doc, p5, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -610,6 +721,7 @@ def main():
     build_intro_part2(doc)
     build_intro_part3(doc)
     build_methods_part1(doc)
+    build_methods_part2(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
