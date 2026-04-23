@@ -888,6 +888,80 @@ def build_methods_part4(doc):
     add_para(doc, p5, indent_first=True)
 
 
+def build_methods_part5(doc):
+    """GRADE confidence + Deviations from pre-registration + Software."""
+    add_h2(doc, "Confidence in Cumulative Evidence (GRADE)")
+
+    p1 = (
+        "The confidence in the cumulative evidence per Big Five trait was assessed "
+        "using an adaptation of the GRADE framework for observational correlational "
+        "syntheses (Schünemann et al., 2019). Five domains were evaluated: risk of "
+        "bias (downgrade if the mean JBI aggregate score across included studies "
+        "was below 5), inconsistency (downgrade if I² exceeded 75% or if the 95% "
+        "prediction interval crossed zero and extended to a meaningfully opposite "
+        "effect), indirectness (downgrade for population, exposure, or outcome "
+        "indirectness relative to the review question), imprecision (downgrade if "
+        "the 95% confidence interval crossed the null or was wider than twice the "
+        "minimum effect of interest of |r| = .10), and publication bias (downgrade "
+        "if Egger's test was significant at p < .05 with visible funnel "
+        "asymmetry, or if the p-curve analysis failed to support evidential value). "
+        "Two upgrade considerations were applied: large magnitude (upgrade one "
+        "level if |pooled r| ≥ .30) and evidence of a dose-response gradient (e.g., "
+        "facet-level gradient), if data permitted. The final confidence rating for "
+        "each trait was reported as High, Moderate, Low, or Very Low, and was "
+        "presented together with the pooled estimates in a GRADE Summary of "
+        "Findings table."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    add_h2(doc, "Deviations from the Pre-registered Protocol")
+
+    p2 = (
+        "Three deviations from the pre-registered protocol (OSF Registration DOI "
+        "10.17605/OSF.IO/E5W47) are disclosed. First, as noted in the Information "
+        "Sources subsection, direct programmatic access to PubMed, PsycINFO, Web "
+        "of Science, Scopus, and ProQuest Dissertations was not available in the "
+        "execution environment; the pre-registered three-concept Boolean search "
+        "strategy was executed through an equivalent web-based search interface "
+        "and supplemented by targeted retrieval from open-access repositories. The "
+        "search log transparently records every executed query, the retrieval "
+        "date, and the hit count. Second, the original pre-registration listed "
+        "nine moderators to be tested per trait, yielding 45 moderator tests "
+        "across the five Big Five pools; given the smaller-than-anticipated number "
+        "of eligible primary studies providing direct trait-by-achievement "
+        "correlations (k ≈ 9–10 for the core achievement pool), meta-regression "
+        "was restricted to a subset of moderators for which the minimum k ≥ 10 "
+        "per predictor-level requirement was satisfied (learning modality, era, "
+        "region). The remaining moderators were reported descriptively. Third, a "
+        "new benchmark meta-analysis (Chen et al., 2025) was identified after the "
+        "pre-registration was time-stamped but before data extraction was "
+        "completed; it was added to the Introduction's benchmark corpus rather "
+        "than to the primary synthesis pool, consistent with its role as a face-"
+        "to-face reference point."
+    )
+    add_para(doc, p2, indent_first=True)
+
+    add_h2(doc, "Software and Reproducibility")
+
+    p3 = (
+        "All quantitative analyses were performed in R (version ≥ 4.3.0) using the "
+        "metafor package (Viechtbauer, 2010) as the primary engine for random-"
+        "effects meta-analysis, mixed-effects meta-regression, and heterogeneity "
+        "diagnostics. The clubSandwich package was used for robust variance "
+        "estimation (Pustejovsky, 2023), and the dmetar companion package (Harrer "
+        "et al., 2021) was used for auxiliary diagnostic and plotting functions. "
+        "Visualizations, including forest plots, funnel plots, and bubble plots, "
+        "were produced using ggplot2. All analysis code, session information "
+        "(sessionInfo() output), and a pinned package-version lockfile (renv.lock) "
+        "are deposited on the accompanying OSF project (https://osf.io/79m5j/) "
+        "and GitHub repository (https://github.com/etoki/paper, directory "
+        "metaanalysis/). Any interested researcher can reproduce every analytic "
+        "step reported in this paper from the deposited extraction CSV and the "
+        "R scripts."
+    )
+    add_para(doc, p3, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -904,6 +978,7 @@ def main():
     build_methods_part2(doc)
     build_methods_part3(doc)
     build_methods_part4(doc)
+    build_methods_part5(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
