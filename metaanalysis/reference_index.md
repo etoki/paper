@@ -120,4 +120,65 @@ Mustafa, S., Qiao, Y., Yan, X., Anwar, A., Hao, T., & Rana, S. (2022). Digital s
 **ID**: A-20 | **Modality**: Fully online (4 中国大学) | **Country**: **China** | **Era**: COVID 2022 | **N**: 718 | **Inclusion**: ⚠ Exclude from primary (satisfaction/intention only)
 **⚠ 訂正**: lit review の「Pakistan/international」は誤り、実際は China（4 中国大学）
 
+### A-21. Nakayama, Mutsuura, & Yamamoto (2014) ✅
+Nakayama, M., Mutsuura, K., & Yamamoto, H. (2014). Impact of learner's characteristics and learning behaviour on learning performance during a fully online course. *Electronic Journal of e-Learning, 12*(4), 394–408.
+
+**ID**: A-21 | **Modality**: Fully online (15 週 LMS) | **Country**: Japan | **Era**: pre-COVID | **N**: 53 | **Inclusion**: ⚠ Exclude from primary (direct r 未抽出、indirect via note-taking のみ)
+
+### A-22. Quigley, Bradley, Playfoot, & Harrad (2022) ✅ 🔴 **著者訂正**
+Quigley, M., Bradley, A., Playfoot, D., & Harrad, R. (2022). Personality traits and stress perception as predictors of students' online engagement during the COVID-19 pandemic. *Personality and Individual Differences, 194*, 111645. https://doi.org/10.1016/j.paid.2022.111645
+
+**ID**: A-22 | **Modality**: Fully online (UK lockdown, sync + async) | **Country**: UK (Swansea U.) | **Era**: COVID Jan-Mar 2021 | **N**: 301 | **Inclusion**: ⚠ Include with caveat (Performance subscale = 2-item self-rated)
+**Note**: 一時的に lit review で Mustafa et al. と混同されていたが、実際は Quigley et al.
+
+### A-23. Rodrigues, Rose, & Hewig (2024) ✅
+Rodrigues, J., Rose, R., & Hewig, J. (2024). The relation of Big Five personality traits on academic performance, well-being and home study satisfaction in Corona times. *European Journal of Investigation in Health, Psychology and Education, 14*(2), 368–384. https://doi.org/10.3390/ejihpe14020025
+
+**ID**: A-23 | **Modality**: Fully online (home study) | **Country**: Germany | **Era**: COVID 2021-2022 | **N**: 260 (GPA analysis) | **Inclusion**: ✅ **Include (primary pool, strongest COVID GPA study)**, preregistered
+
+### A-24. Tlili, Sun, Denden, Kinshuk, Graf, Fei, & Wang (2023) ✅ ❌
+Tlili, A., Sun, T., Denden, M., Kinshuk, Graf, S., Fei, C., & Wang, H. (2023). Impact of personality traits on learners' navigational behavior patterns in an online course: A lag sequential analysis approach. *Frontiers in Psychology, 14*, 1071985. https://doi.org/10.3389/fpsyg.2023.1071985
+
+**ID**: A-24 | **Modality**: Fully online Moodle | **Country**: Tunisia | **Era**: COVID 2022 | **N**: 65 | **Inclusion**: ❌ Exclude — 効果量抽出不能（LSA process data only）
+
+### A-25. Tokiwa (2025) ⚠ **COI**
+Tokiwa, E. (2025). *Big Five personality traits and online learning outcomes in Japanese high school students* [Manuscript in preparation]. SUNBLAZE Co., Ltd.
+
+**ID**: A-25 | **Modality**: Online async | **Country**: Japan | **Era**: post-COVID | **N**: 103 | **Inclusion**: ⚠ Include with COI flag（著者自身の先行研究、感度分析で除外）
+
+### A-26. Wang, Wang, & Li (2023) ✅
+Wang, P., Wang, F., & Li, Z. (2023). Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era. *Frontiers in Psychology, 14*, 1241477. https://doi.org/10.3389/fpsyg.2023.1241477
+
+**ID**: A-26 | **Modality**: Fully online K-12 | **Country**: China (Shenzhen) | **Era**: post-COVID 2023 | **N**: 1,625 | **Inclusion**: ⚠ Include with caveat (K-12、achievement 自己報告、per-trait direct r 未報告)
+
+### A-27. Wu & Yu (2024) ⚠ PDF 非所持
+Wu, R., & Yu, Z. (2024). Relationship between university students' personalities and e-learning engagement mediated by achievement emotions and adaptability. *Education and Information Technologies, 29*(8), 10821–10850. https://doi.org/10.1007/s10639-023-12222-5
+
+**ID**: A-27 | **Modality**: Fully online | **Country**: China (Guizhou U.) | **Era**: post-COVID 2022 collection | **N**: 1,004 | **Inclusion**: ⚠ PDF unavailable (本コーパス内で物理的に存在せず、A-13 PDF と混同されていた)
+
+### A-28. Yu (2021) ✅
+Yu, Z. (2021). The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic. *International Journal of Educational Technology in Higher Education, 18*(1), Article 14. https://doi.org/10.1186/s41239-021-00252-3
+
+**ID**: A-28 | **Modality**: Fully online (BLCU MOOCs) | **Country**: China | **Era**: COVID 2020-2021 | **N**: 1,152 | **Inclusion**: ✅ **Include (primary pool)**、β→r 変換
+
+### A-29. Bahçekapılı & Karaman (2020) ✅ **新規追加**
+Bahçekapılı, E., & Karaman, S. (2020). A path analysis of five-factor personality traits, self-efficacy, academic locus of control and academic achievement among online students. *Knowledge Management & E-Learning, 12*(2), 191–208. https://doi.org/10.34105/j.kmel.2020.12.010
+
+**ID**: A-29 | **Modality**: Fully online synchronous | **Country**: Turkey | **Era**: pre-COVID (2014-2015 data) | **N**: 525 | **Inclusion**: ✅ **Include (primary pool, 5-trait direct r 完備、pre-COVID 最大 N)**
+
+### A-30. Kaspar, Burtniak, & Rüth (2023) ✅ **新規追加**
+Kaspar, K., Burtniak, K., & Rüth, M. (2023). Online learning during the Covid-19 pandemic: How university students' perceptions, engagement, and performance are related to their personal characteristics. *Current Psychology, 42*(30), 26571–26586. https://doi.org/10.1007/s12144-023-04403-9
+
+**ID**: A-30 | **Modality**: Fully online (emergency) | **Country**: Germany | **Era**: COVID 2021 | **N**: 413 | **Inclusion**: ⚠ Include with caveat (β only from multiple regression, self-rated performance)
+
+### A-31. Rivers (2021) ✅ **新規追加**
+Rivers, D. J. (2021). The role of personality traits and online academic self-efficacy in acceptance, actual use and achievement in Moodle. *Education and Information Technologies, 26*(4), 4353–4378. https://doi.org/10.1007/s10639-021-10478-3
+
+**ID**: A-31 | **Modality**: Fully online async (Moodle 15 週) | **Country**: Japan (Future U. Hakodate) | **Era**: COVID | **N**: 149 | **Inclusion**: ✅ **Include (primary pool, TIPI-J + objective grade + log data)**
+
+### A-37. Zheng & Zheng (2023) ✅ **新規追加**
+Zheng, Y., & Zheng, S. (2023). Exploring educational impacts among pre, during and post COVID-19 lockdowns from students with different personality traits. *International Journal of Educational Technology in Higher Education, 20*(1), Article 21. https://doi.org/10.1186/s41239-023-00388-4
+
+**ID**: A-37 | **Modality**: Mixed (F2F pre / online during / F2F post) | **Country**: USA (IIT Chicago) | **Era**: Pre + During + Post COVID (2018-2022) | **N**: 282 | **Inclusion**: ⚠ Include with caveat (TIPI 10 items、\|r\|<.10 all、cluster-based analysis)
+
 
