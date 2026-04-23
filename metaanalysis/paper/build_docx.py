@@ -1210,6 +1210,131 @@ def build_results_part2(doc):
     add_para(doc, p_het, indent_first=True)
 
 
+def build_results_part3(doc):
+    """Moderator + Sensitivity + Publication bias + GRADE."""
+    add_h2(doc, "Moderator Analyses")
+
+    p1 = (
+        "Mixed-effects meta-regression was used to test pre-specified categorical "
+        "and continuous moderators within each trait pool. Full results are "
+        "presented in Table 3 [placeholder]. As indicated by the k-per-level "
+        "requirement specified in the pre-registration, moderator analyses were "
+        "restricted to those moderators with at least 10 contributing effect "
+        "sizes per level; moderators failing this criterion are reported "
+        "narratively."
+    )
+    add_para(doc, p1, indent_first=True)
+
+    p2 = (
+        "Learning modality. Modality significantly moderated the Conscientiousness "
+        "effect (QM([df_mod_C]) = [QM_mod_C], p = [p_mod_C]), with [pattern "
+        "summary—e.g., \"fully online asynchronous contexts showing a "
+        "stronger C effect than blended contexts\"]. Modality moderation was "
+        "[significant / non-significant] for Openness, Extraversion, "
+        "Agreeableness, and Neuroticism. The pattern [was / was not] consistent "
+        "with the theoretical prediction that asynchronous, low-social-presence "
+        "modalities would amplify Conscientiousness and attenuate Extraversion "
+        "effects."
+    )
+    add_para(doc, p2, indent_first=True)
+
+    p3 = (
+        "Education level. Education level moderated [trait(s)] (QM = [value]). "
+        "Consistent with Mammadov (2022) and Meyer et al. (2023), the Openness "
+        "effect [declined / did not decline] significantly from lower to higher "
+        "education levels. The Conscientiousness effect [remained stable / "
+        "varied] across education levels. The limited number of K-12 studies in "
+        "the online corpus ([n_K12]) restricts inference at the lowest "
+        "education level; this is acknowledged in the Discussion."
+    )
+    add_para(doc, p3, indent_first=True)
+
+    p4 = (
+        "Region and era. Regional moderation [showed / did not show] the "
+        "amplified Asian-sample pattern reported by Mammadov (2022) and Chen "
+        "et al. (2025): pooled C in Asian samples was r = [r_C_Asia] versus "
+        "r = [r_C_NonAsia] elsewhere. Era moderation (pre-COVID vs. COVID-era "
+        "vs. post-COVID) [was / was not] significant for [trait(s)], with "
+        "[pattern summary—e.g., \"C effects larger in COVID-era studies, "
+        "potentially reflecting the heightened self-regulation demands of "
+        "emergency remote teaching\"]. Personality instrument, publication "
+        "year (continuous), log-transformed sample size, and risk-of-bias "
+        "score contributed [effect summary] (see Table 3)."
+    )
+    add_para(doc, p4, indent_first=True)
+
+    add_h2(doc, "Sensitivity Analyses")
+
+    p5 = (
+        "The seven pre-specified sensitivity analyses are summarized in Table 4 "
+        "[placeholder]. (a) Excluding studies with risk-of-bias aggregate score "
+        "below 5 [changed / did not substantially change] the pooled estimates "
+        "(e.g., pooled C shifted from [r_C] to [r_C_highquality]). (b) Excluding "
+        "the present author's own prior primary study (Tokiwa, 2025) [changed / "
+        "did not change] the pattern of findings. (c) Excluding converted "
+        "effect sizes (β-to-r, d-to-r) [had / had no] substantive effect. (d) "
+        "Excluding studies with N < 50 [affected / did not affect] pooled "
+        "estimates. (e) The two alternative HEXACO-to-Big-Five mappings "
+        "produced [consistent / inconsistent] results, [supporting / not "
+        "supporting] the primary mapping protocol. (f) Leave-one-out analysis "
+        "identified [n_influential] potentially influential studies with "
+        "Cook's distance > 1 or |DFFITS| > 3√(p/k); exclusion of these [did / "
+        "did not] alter the pooled estimates beyond the 95% confidence "
+        "interval. (g) Substituting the DerSimonian-Laird estimator for REML "
+        "produced [nearly identical / slightly different] pooled effects, "
+        "confirming [robustness / partial dependence on] estimator choice."
+    )
+    add_para(doc, p5, indent_first=True)
+
+    add_h2(doc, "Publication Bias Assessment")
+
+    p6 = (
+        "Funnel plots for each trait are presented in Figure 7 [placeholder]. "
+        "Egger's regression asymmetry test yielded [results summary per trait]: "
+        "Conscientiousness intercept = [intercept_C], p = [p_Egger_C]; "
+        "Openness intercept = [intercept_O], p = [p_Egger_O]; Extraversion "
+        "intercept = [intercept_E], p = [p_Egger_E]; Agreeableness intercept = "
+        "[intercept_A], p = [p_Egger_A]; Neuroticism intercept = "
+        "[intercept_N], p = [p_Egger_N]. Peters' regression, an alternative "
+        "specification for correlation effect sizes, yielded [convergent / "
+        "divergent] conclusions."
+    )
+    add_para(doc, p6, indent_first=True)
+
+    p7 = (
+        "Duval and Tweedie's (2000) trim-and-fill procedure imputed [n_imputed] "
+        "additional studies across the five trait pools, producing back-"
+        "adjusted pooled effects that [did / did not] differ meaningfully "
+        "from the primary estimates. P-curve analysis (Simonsohn et al., 2014) "
+        "indicated [evidential value / flat curve / right-skew suggestive of "
+        "no effect] for significant findings in the literature, [supporting "
+        "/ weakening] confidence in the non-null pooled effects. Overall, the "
+        "evidence for publication bias was [substantial / moderate / minimal], "
+        "consistent with partial grey-literature inclusion in the primary "
+        "search and with the pattern documented by Mammadov (2022) in the "
+        "broader Big Five–achievement literature."
+    )
+    add_para(doc, p7, indent_first=True)
+
+    add_h2(doc, "GRADE Summary of Findings")
+
+    p8 = (
+        "The GRADE confidence rating for each Big Five trait was derived from "
+        "the five pre-specified domains and is presented in Table 5 "
+        "[placeholder: Summary of Findings]. Confidence in the pooled "
+        "Conscientiousness–achievement association was rated as [High / "
+        "Moderate / Low / Very Low], based on [risk of bias / inconsistency "
+        "/ indirectness / imprecision / publication bias] considerations. "
+        "Openness confidence: [rating]. Extraversion: [rating]. Agreeableness: "
+        "[rating]. Neuroticism: [rating]. The trait pool with the largest "
+        "magnitude pooled effect (Conscientiousness, |r| ≥ .30) [did / did not] "
+        "warrant an upgrade under the large-magnitude criterion, and no "
+        "dose-response (facet-level) gradient analysis was possible given the "
+        "limited facet-level reporting in the primary corpus."
+    )
+    add_para(doc, p8, indent_first=True)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -1229,6 +1354,7 @@ def main():
     build_methods_part5(doc)
     build_results_part1(doc)
     build_results_part2(doc)
+    build_results_part3(doc)
     build_references(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
