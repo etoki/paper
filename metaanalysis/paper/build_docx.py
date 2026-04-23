@@ -962,6 +962,60 @@ def build_methods_part5(doc):
     add_para(doc, p3, indent_first=True)
 
 
+import re as _re
+
+
+def _set_run_font(run, font_name="Times New Roman", size_pt=12):
+    run.font.name = font_name
+    run.font.size = Pt(size_pt)
+    rPr = run._element.get_or_add_rPr()
+    rFonts = rPr.find(qn("w:rFonts"))
+    if rFonts is None:
+        rFonts = OxmlElement("w:rFonts")
+        rPr.append(rFonts)
+    rFonts.set(qn("w:eastAsia"), font_name)
+
+
+def _add_ref_paragraph(doc, ref_text):
+    """Render a single APA reference with <i>...</i> segments italicized and
+    hanging indent (first line flush, subsequent lines indented 0.5 inch)."""
+    p = doc.add_paragraph()
+    pf = p.paragraph_format
+    pf.line_spacing = 2.0
+    pf.space_before = Pt(0)
+    pf.space_after = Pt(0)
+    pf.left_indent = Inches(0.5)
+    pf.first_line_indent = Inches(-0.5)  # hanging indent
+
+    # Split on <i>...</i> tags
+    pattern = _re.compile(r"(<i>.*?</i>)", _re.DOTALL)
+    parts = pattern.split(ref_text)
+    for part in parts:
+        if not part:
+            continue
+        if part.startswith("<i>") and part.endswith("</i>"):
+            run = p.add_run(part[3:-4])
+            run.italic = True
+            _set_run_font(run)
+        else:
+            run = p.add_run(part)
+            _set_run_font(run)
+
+
+def build_references(doc):
+    """Render the References section in APA 7th format."""
+    from references_data import REFERENCES
+
+    doc.add_page_break()
+    p = doc.add_paragraph("References", style="Heading 1")
+    set_double_space(p)
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER  # APA 7: References heading centered
+    set_cell_font(p, bold=True)
+
+    for ref in REFERENCES:
+        _add_ref_paragraph(doc, ref)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -979,6 +1033,7 @@ def main():
     build_methods_part3(doc)
     build_methods_part4(doc)
     build_methods_part5(doc)
+    build_references(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
