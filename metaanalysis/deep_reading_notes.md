@@ -1052,20 +1052,159 @@ R²adj=.058
 
 ---
 
-## A-20. Mustafa et al. (2022)
-**TBD**: Phase 2 で精読
+## A-20. Mustafa, Qiao, Yan, Anwar, Hao & Rana (2022) ⚠ **lit review 国名要訂正**
 
-## A-21. Nakayama et al. (2014)
-**TBD**: Phase 2 で精読（Japanese context）
+**Citation**: Mustafa, S., Qiao, Y., Yan, X., Anwar, A., Hao, T., & Rana, S. (2022). Digital students' satisfaction with and intention to use online teaching modes, role of Big Five personality traits. *Frontiers in Psychology, 13*, 956281.
+**Modality**: Online teaching modes (COVID 4 中国大学) | **Country**: **China**（lit review 「Pakistan/international」は **誤り**） | **Era**: COVID 2022
 
-## A-22. Quigley et al. (2022)
-**TBD**: Phase 2 で精読
+### Sample
+- N=718 (response 90%), 50% UG + 50% Grad, 46% female
+- Discipline: Economics 30%, CS 25%, Math 27%, Education 19%
+- Big Five 5–7 items per trait, Chinese; α: .84–.91, AVE>.5
 
-## A-23. Rodrigues et al. (2024)
-**TBD**: Phase 2 で精読
+### Effect sizes (PLS-SEM β, Table 4)
 
-## A-24. Tlili et al. (2023)
-**TBD**: Phase 2 で精読
+| Trait | β × Satisfaction | β × Adoption Intention |
+|-------|-----------------|----------------------|
+| **A** | **.383** | **.711** ⭐ 最強 |
+| O | .215 | -.090 |
+| C | .173 | .006 (ns) |
+| N | .163 | .218 |
+| E | -.114 | .177 |
+
+R²: SAT=.49, AI=.70
+
+### Key findings
+- A が SAT/AI 両方で最強（中国 cooperative learning 文化と整合）
+- C は SAT 正だが AI に効果なし
+- E は SAT 負 / AI 正（パラドキシカル）
+- N は両方で正（中国 sample で典型）
+
+### Status: **Include for satisfaction pool only** — achievement なし
+### ⚠ **国名訂正必要**（Pakistan/international → China）
+### RoB: **6/8**
+
+---
+
+## A-21. Nakayama, Mutsuura & Yamamoto (2014) 🔴 **Japan**
+
+**Citation**: Nakayama, M., Mutsuura, K., & Yamamoto, H. (2014). Impact of learner's characteristics and learning behaviour on learning performance during a fully online course. *Electronic Journal of e-Learning, 12*(4), 394–408.
+**Modality**: **Fully online** (LMS 15週、weekly 対面 test のみ) | **Country**: Japan | **Era**: pre-COVID
+
+### Sample
+- **N=53**（lit review 「?」→ 確定）, undergraduate Economics, single course
+- Gender 未報告, age 未報告（学部 3-4 年生想定）
+- IPIP Big Five; α 未明示
+
+### Effect sizes
+- 本文 Table 3 で各特性 × note-taking factor の相関のみ（"strongly correlate" 等の表現）
+- **Big Five → test scores 直接効果は n.s.**（SEM で indirect via note-taking のみ）
+- 抽出可能数値: Note assessment × Online tests r=.31, × Weekly r=.58, × Final r=.46
+- A, C, O が note-taking factor と相関（数値画像 OCR 必要）
+
+### Key findings
+- Personality は note-taking 経由で間接的に test score に影響
+- direct trait → test 効果は消失
+
+### Status: **Ambiguous** — 効果量直接抽出困難、N small
+### RoB: **4/8**
+
+---
+
+## A-22. Quigley, Bradley, Playfoot & Harrad (2022)
+
+**Citation**: Quigley, M., Bradley, A., Playfoot, D., & Harrad, R. (2022). Personality traits and stress perception as predictors of students' online engagement during the COVID-19 pandemic. *Personality and Individual Differences, 194*, 111645.
+**Modality**: Fully online (UK lockdown, mix synchronous + async pre-recorded) | **Country**: UK (Swansea U.) | **Era**: COVID Jan-Mar 2021
+
+### Sample
+- N=301 (lit review 「N=301 confirmed」), 1st-year Psychology, 76% female, M age 19.79
+- BFI 44; α: O=.71, C=.82, E=.88, A=.76, N=.85
+
+### Effect sizes (Table 1 r × OSES subscales)
+
+| Trait | r × Skills | r × Emotional | r × Participation | r × **Performance** (proxy) |
+|-------|-----------|---------------|-------------------|---------------------------|
+| **C** | **.61*** ⭐ | .32*** | .18** | **.26*** |
+| O | -.02 | .33*** | .07 | .00 |
+| E | .03 | .13* | **.36*** | .14* |
+| A | .27*** | .15** | .20*** | .15** |
+| N | .08 | -.02 | -.14* | -.02 |
+
+Performance subscale (2 items, 自己評価): C OR=1.07, E OR=1.04, N OR=1.04 (有意)
+
+### Key findings
+- C が全 engagement form で正
+- E が participation/performance で予測（通常と逆方向）
+- N が skills/emotional/performance で予測（suppressor 警告）
+
+### Status: **Include with caveat** — Performance は self-rated 2 items 弱 proxy
+### RoB: **6/8**
+
+---
+
+## A-23. Rodrigues, Rose & Hewig (2024) 🔴 **strongest GPA outcome**
+
+**Citation**: Rodrigues, J., Rose, R., & Hewig, J. (2024). The relation of Big Five personality traits on academic performance, well-being and home study satisfaction in Corona times. *European Journal of Investigation in Health, Psychology and Education, 14*(2), 368–384.
+**Modality**: Fully online (home study, COVID 3rd semester) | **Country**: Germany (multi-institutional) | **Era**: COVID 2021-2022
+
+### Sample
+- **N=287 main, N=260 for GPA** (after exclusion)
+- 77% female, M age 22.68
+- BFI-S 15 items, 7-pt Likert
+- **Preregistered on OSF** ⭐
+
+### Effect sizes（Pearson r × GPA, Holm correction）
+
+**注**: GPA は German system（**1=最高, 6=最低**）→ 負相関 = better performance
+
+| Trait | r × GPA | p (Holm) | 解釈 |
+|-------|---------|----------|------|
+| **C** | **-.228** (p<.01) ⭐ | better GPA |
+| E | .025 (=1, ns) | no effect |
+| A/O | n.s. | — |
+| N (via hopelessness) | r=.142 (p=.022) | indirect negative |
+
+Well-being / satisfaction:
+- N × negative affect: r=+.522
+- N × general satisfaction: r=-.388
+- C × positive affect: r=.309
+- C × satisfaction: r=.206
+
+### Key findings
+- C が COVID home study で GPA 予測 (r=-.228, sign convention 注意)
+- E は予期に反し GPA に効果なし
+- N は well-being/satisfaction で強い負影響
+- Effect of C on GPA は non-pandemic norm (Kappe & Van Der Flier 2012 r=.47) より **dampened** (z=2.609, p=.005)
+
+### Status: ✅ **Include — strong GPA candidate**, preregistered
+### RoB: **7/8**（最高品質の online achievement study）
+
+---
+
+## A-24. Tlili et al. (2023) ❌ 効果量抽出不能
+
+**Citation**: Tlili, A., Sun, T., Denden, M., Kinshuk, Graf, S., Fei, C., & Wang, H. (2023). Impact of personality traits on learners' navigational behavior patterns in an online course: A lag sequential analysis approach. *Frontiers in Psychology, 14*, 1071985.
+**Modality**: Fully online (Moodle, 3-month BS course) | **Country**: Tunisia | **Era**: COVID 2022
+
+### Sample
+- N=65 (drop 27 from 92), undergraduate CS, 66% male
+- BFI 44, dichotomized at z=0
+- **Outcome**: Navigational behavior patterns（NOT achievement）, 15,869 log events, lag sequential analysis
+
+### Effect sizes
+- **No Pearson r or β extractable** — only behavior-transition z-scores via Yule's Q
+- Agreeableness EXCLUDED from analysis（unbalanced split）
+
+### Key findings (narrative)
+- High-E learners: course→achievement→peer comparison transitions
+- High-C learners: avoid public forum posts
+- High-N learners: anxiety-driven achievement checking
+- High-O learners: heavy discussion engagement
+
+### Status: ❌ **EXCLUDE from primary** — 効果量抽出不能（process data only）
+### RoB: **4/8**
+
+---
 
 ## A-25. Tokiwa (2025)
 **TBD**: Phase 2 で精読（COI 研究）
