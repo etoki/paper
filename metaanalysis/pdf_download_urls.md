@@ -85,7 +85,18 @@
 
 ## 全 PDF 確保済み — 次の作業
 
-1. `data_extraction.csv` の記入（`data_extraction_README.md` 参照）
-2. OSF Registries 登録（`osf_registration_draft.md` コピペ）
-   - ※ PROSPERO は health-related scope 外のため不採用。`prospero_draft.md` はアーカイブ済み
-3. R `metafor` による pooling
+**Pre-registration 完了** (2026-04-23): OSF Registries に登録済み
+- Registration URL: https://osf.io/e5w47/
+- Registration DOI: `10.17605/OSF.IO/E5W47`
+- Associated project: https://osf.io/79m5j/
+
+1. 形式的 systematic search 実施（PubMed, PsycINFO, ERIC, Web of Science, Scopus, ProQuest）
+2. Rayyan で重複除去・title/abstract スクリーニング
+3. Full-text eligibility 評価（intra-rater 再判定 20%）
+4. `data_extraction.csv` の記入（`data_extraction_README.md` 参照、intra-rater 再抽出 10%）
+5. JBI checklist による risk of bias 評価
+6. R `metafor` による random-effects REML + HKSJ pooling
+7. Moderator meta-regression（9 moderators, Holm-Bonferroni 補正）
+8. Publication bias 検定（funnel, Egger, trim-and-fill, p-curve）
+9. GRADE Summary of Findings 作成
+10. 論文執筆 → 投稿（target: Educational Psychology Review 等）
