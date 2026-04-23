@@ -2333,6 +2333,155 @@ def build_table5_grade(doc):
     run2.font.size = Pt(11)
 
 
+def _load_studies_for_table1():
+    """Read data_extraction_populated.csv and return compact summary rows."""
+    import csv
+    from pathlib import Path as _Path
+    csv_path = (_Path(__file__).parent.parent / "analysis"
+                / "data_extraction_populated.csv")
+    with csv_path.open(encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        rows = list(reader)
+
+    short_modality = {
+        "fully_online": "Online",
+        "fully_online (emergency remote)": "Online",
+        "face-to-face": "FtF",
+        "mixed": "Mixed",
+        "not_online_specific": "Online*",
+    }
+    short_edu = {
+        "Undergraduate": "UG",
+        "Graduate": "Grad",
+        "K-12": "K-12",
+        "Mixed_UG_Grad": "UG/Grad",
+        "Mixed_secondary_postsecondary": "Sec/Post",
+    }
+    short_incl = {
+        "include": "Inc",
+        "include_COI": "Inc (COI)",
+        "include_with_caveat": "Inc*",
+        "exclude": "Exc",
+        "exclude_from_primary": "Exc-pri",
+        "exclude_overlap": "Exc-dup",
+        "PDF_unavailable": "—",
+    }
+
+    out = []
+    for r in rows:
+        sid = r.get("study_id", "")
+        author = r.get("first_author", "")
+        year = r.get("year", "")
+        n_analyzed = r.get("n_analyzed", "") or r.get("n_total", "") or "—"
+        country = r.get("country", "") or "—"
+        modality = short_modality.get(r.get("modality", ""), r.get("modality", "") or "—")
+        edu = short_edu.get(r.get("education_level", ""), r.get("education_level", "") or "—")
+        era = r.get("era", "") or "—"
+        region = r.get("region", "") or "—"
+        instrument = r.get("personality_instrument", "") or "—"
+        outcome = r.get("outcome_type", "") or "—"
+        incl = short_incl.get(r.get("inclusion_status", ""), r.get("inclusion_status", ""))
+        rob = r.get("risk_of_bias_score", "") or "—"
+        out.append([
+            sid,
+            f"{author} ({year})",
+            str(n_analyzed),
+            country,
+            modality,
+            edu,
+            era,
+            region,
+            instrument,
+            outcome,
+            incl,
+            str(rob),
+        ])
+    return out
+
+
+def build_table1_characteristics(doc):
+    """Table 1: Study characteristics of all included studies."""
+    doc.add_page_break()
+    _add_table_title(
+        doc, 1,
+        "Characteristics of the 31 Included Primary Studies and Their "
+        "Contributions to the Quantitative Synthesis",
+    )
+
+    # Use landscape-oriented section for this table? Keep portrait for simplicity.
+    header = [
+        "ID", "Author (Year)", "N", "Country", "Mode", "Level",
+        "Era", "Region", "Instrument", "Outcome", "Inclusion", "RoB",
+    ]
+    data_rows = _load_studies_for_table1()
+
+    all_rows = [header] + data_rows
+    table = doc.add_table(rows=len(all_rows), cols=len(header))
+    table.style = "Light Grid Accent 1"
+    for i, row in enumerate(all_rows):
+        for j, val in enumerate(row):
+            cell = table.rows[i].cells[j]
+            cell.text = val
+            if i == 0:
+                for para in cell.paragraphs:
+                    for run in para.runs:
+                        run.bold = True
+
+    # Use smaller font for this wide table
+    for row in table.rows:
+        for cell in row.cells:
+            for para in cell.paragraphs:
+                para.paragraph_format.space_before = Pt(0)
+                para.paragraph_format.space_after = Pt(0)
+                para.paragraph_format.line_spacing = 1.0
+                for run in para.runs:
+                    run.font.name = "Times New Roman"
+                    run.font.size = Pt(8)
+                    rPr = run._element.get_or_add_rPr()
+                    rFonts = rPr.find(qn("w:rFonts"))
+                    if rFonts is None:
+                        rFonts = OxmlElement("w:rFonts")
+                        rPr.append(rFonts)
+                    rFonts.set(qn("w:eastAsia"), "Times New Roman")
+
+    p_note = doc.add_paragraph()
+    set_double_space(p_note)
+    run = p_note.add_run("Note. ")
+    run.italic = True
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(10)
+    run2 = p_note.add_run(
+        "ID = study identifier in the deep-reading-notes ledger (A-XX "
+        "sequence). N = analytic sample size. Mode (modality): Online = "
+        "fully online; FtF = face-to-face (excluded at modality screening); "
+        "Mixed = blended or mode-comparing design; Online* = mode not "
+        "explicitly specified in the source. Level (education level): "
+        "UG = undergraduate; Grad = graduate; UG/Grad = mixed "
+        "undergraduate-graduate; K-12 = elementary through high school; "
+        "Sec/Post = mixed secondary-postsecondary. Era: pre-COVID ≤ 2019; "
+        "COVID = 2020–2022; post-COVID ≥ 2023. Region: classified per "
+        "country of data collection. Instrument: abbreviated personality "
+        "inventory label. Outcome: abbreviated outcome construct. "
+        "Inclusion: Inc = included in primary achievement pool; Inc "
+        "(COI) = included with conflict-of-interest flag; Inc* = included "
+        "with caveat; Exc-pri = excluded from primary but retained for "
+        "secondary pool or narrative; Exc-dup = excluded due to sample "
+        "overlap with another included study; Exc = excluded at "
+        "eligibility. RoB = aggregate score on the Joanna Briggs Institute "
+        "8-item critical appraisal checklist (0–8; higher = lower risk). "
+        "A-14 Eilam (2009) and A-27 Wu & Yu (2024) are omitted because "
+        "the former was excluded at the modality screening stage and the "
+        "latter was not available as a retrievable PDF; both are "
+        "disclosed in the PRISMA flow. Author-correction notes for "
+        "studies whose original bibliographic metadata differed from the "
+        "verified author, year, or country (A-06, A-07, A-08, A-12, "
+        "A-13, A-16, A-18, A-20) are provided in the OSF project "
+        "(Supplementary Material)."
+    )
+    run2.font.name = "Times New Roman"
+    run2.font.size = Pt(10)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -2357,6 +2506,7 @@ def main():
     build_discussion_part2(doc)
     build_discussion_part3(doc)
     build_references(doc)
+    build_table1_characteristics(doc)
     build_table2_pooled(doc)
     build_table3_moderators(doc)
     build_table4_sensitivity(doc)
