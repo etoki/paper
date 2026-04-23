@@ -1206,17 +1206,104 @@ Well-being / satisfaction:
 
 ---
 
-## A-25. Tokiwa (2025)
-**TBD**: Phase 2 で精読（COI 研究）
+## A-25. Tokiwa (2025) ⚠ COI 研究
 
-## A-26. Wang et al. (2023)
-**TBD**: Phase 2 で精読
+**Citation**: Tokiwa, E. (2025). [Big Five and online learning outcomes in Japanese high school students]. （著者の先行研究、本メタ分析の COI 対象）
+**Modality**: Online async | **Country**: Japan | **Era**: post-COVID
 
-## A-27. Wu & Yu (2024)
-**TBD**: Phase 2 で精読
+### Sample
+- N=103, Japanese high school
+- BFI-2-J
+- 相関行列既知（COI 公開済み）
 
-## A-28. Yu (2021)
-**TBD**: Phase 2 で精読
+### Status: **Include with COI sensitivity analysis** — 自著論文として透明開示
+### RoB: **6/8**（推定）
+
+---
+
+## A-26. Wang, Wang & Li (2023) 🔴 K-12
+
+**Citation**: Wang, P., Wang, F., & Li, Z. (2023). Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era. *Frontiers in Psychology, 14*, 1241477.
+**Modality**: Fully online K-12 | **Country**: China (Shenzhen) | **Era**: post-COVID 2023
+
+### Sample
+- N=1,625（132 classes; 791 elementary 49% + 445 middle 27% + 389 high 24%）
+- 55% female; public 32%, private 55%, international 14%
+- Big Five Scale (Meng et al. 2021), 7-pt Likert; α total = .901
+- Outcome: 自己報告 academic achievement (7-pt Likert), α=.866
+
+### Effect sizes（SEM standardized path coefficients）
+
+| Path | β | p | Notes |
+|------|---|---|-------|
+| Big Five total ↔ Achievement (r) | **+.250** | <.001 | bivariate |
+| Big Five → Achievement (direct) | **-.173** | .089 | **n.s.** — full mediation via Engagement |
+| Big Five → Engagement | **+.779** | <.001 | very strong |
+| Engagement → Achievement | +.478 | <.001 | |
+| **C → Engagement** | **+.322** ⭐ | <.001 | 最大 |
+| O → Engagement | +.253 | <.001 | |
+| ES → Engagement | +.169 | <.001 | |
+| A → Engagement | +.112 | <.001 | |
+| **E → Engagement** | **-.058** | <.05 | 仮説と逆 |
+
+Indirect effects (e.g., FI→C→OLE→AA = .048***, FI→O→OLE→AA = .041***)
+
+### Key findings
+- Big Five → Achievement は full mediation via engagement
+- **C が engagement の最強予測 (β=.322)**, O 次点
+- ES の重要性が online K-12 で相対的に高い
+- E が **負** (仮説と逆) — online で外向者は不利
+
+### Status: ✅ **Include**（K-12 online 稀少、効果量抽出可）
+### RoB: **6/8**（self-report achievement, cross-sectional）
+
+---
+
+## A-27. Wu & Yu (2024) ⚠ **PDF 未確認 — A-13 と異なる別論文**
+
+**Note**: lit review にある A-27 (Wu & Yu 2024 N=1,004) は本 PDF コレクション内に物理的存在せず（A-13 の PDF が当初混同された）。本論文は A-13 Dang et al. 2025 の本文中で引用されている別の論文。**Wu & Yu 2024 PDF を別途取得すべき**。
+
+**Citation (lit review より)**: Wu, R., & Yu, Z. (2024). Relationship between university students' personalities and e-learning engagement mediated by achievement emotions and adaptability. *Education and Information Technologies, 29*, 10821–10850.
+
+### Status: ⚠ **PDF 未取得 — Phase 2 検索で再入手必要**
+
+---
+
+## A-28. Yu (2021) 🔴 objective MOOC outcome
+
+**Citation**: Yu, Z. (2021). The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic. *International Journal of Educational Technology in Higher Education, 18*, 14.
+**Modality**: Fully online (BLCU MOOCs + Superstar Learning System, 4 ヶ月以上) | **Country**: China | **Era**: COVID 2020-2021
+
+### Sample
+- N=1,152（553 UG + 599 Grad）
+- 52% female, age 18–25
+- Discipline: Linguistics 系（English Reading/Writing/Translation/Lit, 20 courses）
+- Big Five Scale (McCrae & Costa 1995), α: E=.75, A=.76, C=.80, N=.78, O=.81
+- **Outcome: MOOC platform composite (100 点)**: assignments 20% + sign-in 5% + video 20% + chapter 10% + discussion 10% + tests 35% — **objective**
+
+### Effect sizes（Table 3 linear regression standardized β, N=1,152）
+
+| Trait | β | p | 解釈 |
+|-------|---|---|------|
+| **A** | **+.442** ⭐ 最強 | <.01 | cooperative learning（言語専攻） |
+| **O** | **+.305** | <.01 | 新技術受容 |
+| **E** | **-.076** | <.01 | 対面志向の外向者は online 不利 |
+| C | +.057 | .007 | 小さいが有意 |
+| N | +.037 | .090 | n.s. (marginal +) |
+
+R²=.565, Adj. R²=.563
+
+### Key findings
+- A 最強（言語系 cooperative learning と親和）
+- O も強い正効果（新技術受容）
+- E は **負** (objective outcome で確認)
+- C は小（言語系では C プレミアム小、他研究と異なる）
+- Gender 差なし、Grad > UG
+
+### Status: ✅ **Include — strong objective outcome candidate**
+### RoB: **7/8**（objective MOOC composite が強み）
+
+---
 
 ---
 
