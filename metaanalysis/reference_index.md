@@ -411,4 +411,78 @@ Bateman, T. S., & Crant, J. M. (1993). The proactive component of organizational
 
 ---
 
+## II-D. 先行メタ分析・Review（Part I 非収録だが頻出引用）📖
+
+### Richardson, Abraham, & Bond (2012) — GPA correlates meta-analysis
+Richardson, M., Abraham, C., & Bond, R. (2012). Psychological correlates of university students' academic performance: A systematic review and meta-analysis. *Psychological Bulletin, 138*(2), 353–387. https://doi.org/10.1037/a0026838
+
+### O'Connor & Paunonen (2007) — Big Five × tertiary
+O'Connor, M. C., & Paunonen, S. V. (2007). Big Five personality predictors of post-secondary academic performance. *Personality and Individual Differences, 43*(5), 971–990. https://doi.org/10.1016/j.paid.2007.03.017
+
+### Trapmann, Hell, Hirn, & Schuler (2007) — Big Five × university
+Trapmann, S., Hell, B., Hirn, J. O. W., & Schuler, H. (2007). Meta-analysis of the relationship between the Big Five and academic success at university. *Zeitschrift für Psychologie, 215*(2), 132–151. https://doi.org/10.1027/0044-3409.215.2.132
+
+### Kuncel, Credé, & Thomas (2005) — Self-reported GPA
+Kuncel, N. R., Credé, M., & Thomas, L. L. (2005). The validity of self-reported grade point averages, class ranks, and test scores: A meta-analysis and review of the literature. *Review of Educational Research, 75*(1), 63–82. https://doi.org/10.3102/00346543075001063
+
+### Barrick & Mount (1991) — Big Five × job performance
+Barrick, M. R., & Mount, M. K. (1991). The big five personality dimensions and job performance: A meta-analysis. *Personnel Psychology, 44*(1), 1–26. https://doi.org/10.1111/j.1744-6570.1991.tb00688.x
+
+### Barrick, Mount, & Judge (2001) — 20 years of personality × job
+Barrick, M. R., Mount, M. K., & Judge, T. A. (2001). Personality and performance at the beginning of the new millennium: What do we know and where do we go next? *International Journal of Selection and Assessment, 9*(1-2), 9–30. https://doi.org/10.1111/1468-2389.00160
+
+### Hough, Eaton, Dunnette, Kamp, & McCloy (1990) — Big Six
+Hough, L. M., Eaton, N. K., Dunnette, M. D., Kamp, J. D., & McCloy, R. A. (1990). Criterion-related validities of personality constructs and the effect of response distortion on those validities. *Journal of Applied Psychology, 75*(5), 581–595. https://doi.org/10.1037/0021-9010.75.5.581
+
+### Wilmot & Ones (2019) — Conscientiousness umbrella
+Wilmot, M. P., & Ones, D. S. (2019). A century of research on conscientiousness at work. *Proceedings of the National Academy of Sciences, 116*(46), 23004–23010. https://doi.org/10.1073/pnas.1908430116
+
+### Wilmot, Wanberg, Kammeyer-Mueller, & Ones (2019) — Extraversion umbrella
+Wilmot, M. P., Wanberg, C. R., Kammeyer-Mueller, J. D., & Ones, D. S. (2019). Extraversion advantages at work: A quantitative review and synthesis of the meta-analytic evidence. *Journal of Applied Psychology, 104*(12), 1447–1470. https://doi.org/10.1037/apl0000415
+
+### Noftle & Robins (2007) — Big Five × GPA + SAT
+Noftle, E. E., & Robins, R. W. (2007). Personality predictors of academic outcomes: Big five correlates of GPA and SAT scores. *Journal of Personality and Social Psychology, 93*(1), 116–130. https://doi.org/10.1037/0022-3514.93.1.116
+
+### Komarraju, Karau, Schmeck, & Avdic (2011) — Big Five × learning styles × GPA
+Komarraju, M., Karau, S. J., Schmeck, R. R., & Avdic, A. (2011). The Big Five personality traits, learning styles, and academic achievement. *Personality and Individual Differences, 51*(4), 472–477. https://doi.org/10.1016/j.paid.2011.04.019
+
+---
+
+## 📝 使用方法
+
+### 執筆時の引用パターン
+1. **Primary study を引用** → Part I-A から該当 ID を参照（A-01 〜 A-37）
+2. **Benchmark meta を引用** → Part I-B から C-01 〜 C-08 を参照
+3. **Big Five 測定尺度を言及** → Part II-A
+4. **メタ分析手法を言及** → Part II-B（HKSJ, REML, RVE 等）
+5. **Online learning theory を言及** → Part II-C（PASH, SRL, TAM 等）
+6. **先行メタ分析を比較引用** → Part II-D
+
+### Citation 誤認のチェック方法
+1. 本 index から検索 → 一致を確認
+2. PDF (prior_research/) の first page を `pdftotext -l 1` で再確認
+3. 未収録の外部 ref は DOI で独立検証
+
+### Part II の範囲
+- Part II 収録の 39 refs は標準的な知識に基づく（PDF 非所持）
+- 論文執筆時に引用する場合、DOI を crossref.org で再確認推奨
+- ジャーナル名・巻号・頁等の見過ごしは避ける
+
+---
+
+## サマリ
+
+| Part | カテゴリ | 件数 | 検証状況 |
+|------|---------|------|---------|
+| I-A | Primary studies (A-01 to A-37) | 31 | ✅ PDF 確認済（A-14, A-27 を除く） |
+| I-B | Benchmark meta-analyses | 8 | ✅ PDF 確認済 |
+| I-C | Narrative review (Hunter 2025) | 1 | ✅ PDF 確認済 |
+| I-D | Excluded PDFs (non-Big Five) | 5 | ✅ PDF 確認済 |
+| **Part I 小計** | — | **45** | **PDF 検証済** |
+| II-A | Big Five/HEXACO measurement | 13 | 📖 標準知識 |
+| II-B | Meta-analytic methods | 13 | 📖 標準知識 |
+| II-C | Online learning theory | 13 | 📖 標準知識 |
+| II-D | Prior meta-analyses | 11 | 📖 標準知識 |
+| **Part II 小計** | — | **50** | **DOI 再確認推奨** |
+| **総計** | — | **95** | — |
 
