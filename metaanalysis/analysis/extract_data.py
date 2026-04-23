@@ -551,6 +551,100 @@ STUDIES = {
         inclusion_status="include", primary_achievement="yes",
         notes="MOOC composite score objective; β only (Peterson-Brown conversion needed); Linguistics majors",
     ),
+    # ---- New studies added from formal search ----
+    "A-29": dict(
+        first_author="Bahcekapili", year=2020, country="Turkey",
+        journal="Knowledge Management & E-Learning", volume="12", issue="2",
+        pages="191-208", doi="10.34105/j.kmel.2020.12.010",
+        n_total=525, n_analyzed=525,
+        age_mean=30.9, age_range="19-59",
+        pct_female=38.1,
+        education_level="Undergraduate",
+        sampling_method="convenience", design="cross-sectional",
+        modality="fully_online", modality_subtype="synchronous",
+        personality_instrument="BFI-44 Turkish", personality_item_count=44,
+        outcome_type="GPA",
+        r_O_outcome=0.070, r_C_outcome=0.068,
+        r_E_outcome=0.027, r_A_outcome=-0.013, r_N_outcome=-0.072,
+        n_for_correlations=525,
+        p_value_O="ns", p_value_C="ns", p_value_E="ns",
+        p_value_A="ns", p_value_N="ns",
+        effect_size_type="r",
+        era="pre-COVID", region="Europe",  # Turkey
+        risk_of_bias_score=6,
+        inclusion_status="include", primary_achievement="yes",
+        notes="Largest pre-COVID N; all 5 direct r with GPA ns; indirect via SE + ELoC",
+    ),
+    "A-30": dict(
+        first_author="Kaspar", year=2023, country="Germany",
+        journal="Current Psychology",
+        doi="10.1007/s12144-023-04403-9",
+        n_total=439, n_analyzed=413,
+        age_mean=25.47, age_sd=7.18,
+        pct_female=85.7,
+        education_level="Mixed_UG_Grad",
+        sampling_method="snowball", design="cross-sectional",
+        modality="fully_online",
+        personality_instrument="BFI-S German", personality_item_count=21,
+        alpha_O=0.71, alpha_C=0.70, alpha_E=0.84, alpha_A=0.65, alpha_N=0.81,
+        outcome_type="performance_self_rated",
+        # β values from Table 3 multiple regression (other covariates controlled)
+        beta_O=0.08, beta_C=0.15, beta_E=0.05, beta_A=-0.01, beta_N=0.20,
+        n_for_correlations=413,
+        p_value_C="=.016", p_value_N="=.003",
+        effect_size_type="beta",
+        era="COVID", region="Europe",
+        risk_of_bias_score=5,
+        inclusion_status="include_with_caveat", primary_achievement="yes",
+        notes="Self-rated performance composite; β only; N suppressor effect (bivariate negative→MR positive)",
+    ),
+    "A-31": dict(
+        first_author="Rivers", year=2021, country="Japan",
+        journal="Education and Information Technologies", volume="26",
+        issue="4", pages="4353-4378",
+        doi="10.1007/s10639-021-10478-3",
+        n_total=149, n_analyzed=149,
+        age_mean=19.4, age_sd=0.76,
+        pct_female=20.2,
+        education_level="Undergraduate",
+        sampling_method="single_course", design="cross-sectional",
+        modality="fully_online", modality_subtype="asynchronous",
+        platform_name="Moodle",
+        personality_instrument="TIPI-J", personality_item_count=10,
+        outcome_type="course_grade",
+        # Table 3 zero-order r with CA
+        # ES reported; convert to N with sign reversal
+        r_O_outcome=-0.066, r_C_outcome=0.144,
+        r_E_outcome=-0.173, r_A_outcome=0.118, r_N_outcome=0.107,  # ES=-0.107 → N=+0.107
+        n_for_correlations=149,
+        effect_size_type="r",
+        era="COVID", region="Asia",
+        risk_of_bias_score=6,
+        inclusion_status="include", primary_achievement="yes",
+        notes="Japanese async Moodle; TIPI-J; objective grade + LMS log; E direct β=-.168**",
+    ),
+    "A-37": dict(
+        first_author="Zheng", year=2023, country="US",
+        journal="International Journal of Educational Technology in Higher Education",
+        volume="20", issue="1", pages="21",
+        doi="10.1186/s41239-023-00388-4",
+        n_total=282, n_analyzed=282,
+        pct_female=41, education_level="Graduate",
+        sampling_method="single_institution", design="cross-sectional_pooled_3wave",
+        modality="fully_online", modality_subtype="mixed",
+        personality_instrument="TIPI", personality_item_count=10,
+        outcome_type="course_grade",
+        # Authors state |r| < .10 for all traits; code as 0 with N=282
+        r_O_outcome=0.00, r_C_outcome=0.00,
+        r_E_outcome=0.00, r_A_outcome=0.00, r_N_outcome=0.00,
+        n_for_correlations=282,
+        p_value_O="ns", p_value_C="ns", p_value_E="ns", p_value_A="ns", p_value_N="ns",
+        effect_size_type="r_bounded",
+        era="Mixed_3era", region="North_America",
+        risk_of_bias_score=4,
+        inclusion_status="include_with_caveat", primary_achievement="yes",
+        notes="3-era pre/during/post COVID; TIPI; |r|<.10 all; cluster-based analysis primary; era × cluster interaction p=.001",
+    ),
 }
 
 
@@ -591,16 +685,20 @@ def main():
         base = dict(zip(header[:len(row_list)], row_list + [""] * (len(header) - len(row_list))))
         if sid in STUDIES:
             updated = render_row(sid, STUDIES[sid], header)
-            # Keep original values for fields not overridden
             for k in header:
                 if updated[k]:
                     base[k] = updated[k]
-            # Mark author correction flag
             new_author = STUDIES[sid].get("first_author", "")
             orig_author = row_list[1] if len(row_list) > 1 else ""
             if new_author and orig_author and new_author.lower() != orig_author.lower():
                 base["author_correction"] = f"corrected from {orig_author} to {new_author}"
         out_rows.append(base)
+
+    # Append NEW studies (not in original CSV)
+    extra_sids = [sid for sid in STUDIES if sid not in original_rows]
+    for sid in extra_sids:
+        new_row = render_row(sid, STUDIES[sid], header)
+        out_rows.append(new_row)
 
     with OUTPUT_CSV.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=header)
@@ -609,6 +707,7 @@ def main():
 
     print(f"Wrote {OUTPUT_CSV} with {len(out_rows)} rows and {len(header)} columns")
     print(f"Populated studies: {len(STUDIES)}")
+    print(f"New studies appended: {extra_sids}")
 
 
 if __name__ == "__main__":
