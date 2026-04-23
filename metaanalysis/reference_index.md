@@ -227,6 +227,36 @@ Zell, E., & Lesick, T. L. (2022). Big five personality traits and performance: A
 
 ---
 
+## I-D. PDF は所持するが包含判定で除外 / 新規 online 研究で Big Five 未測定 (5 件)
+
+### X-01. Engel, Zimmer, Lörz, & Mayweg-Paus (2023) ❌ (no Big Five)
+Engel, O., Zimmer, L. M., Lörz, M., & Mayweg-Paus, E. (2023). Digital studying in times of COVID-19: Teacher- and student-related aspects of learning success in German higher education. *International Journal of Educational Technology in Higher Education, 20*(1), 12. https://doi.org/10.1186/s41239-023-00382-w
+
+**N**: 18,262 | **Modality**: Fully online (COVID) | **Excluded**: Big Five 未測定（digital competencies + interaction のみ）
+
+### X-02. Wang, Yu, Wu, Chen, & Huang (2025) ❌ (MBTI)
+Wang, Y., Yu, R., Wu, X., Chen, Z., & Huang, Y. (2025). The impact of personality type on online learning performance among high school students. *Education and Information Technologies, 30*(6), 8733–8764. https://doi.org/10.1007/s10639-024-13161-5
+
+**N**: 4,340 K-12 | **Modality**: Fully online COVID | **Excluded**: **MBTI** 使用（Big Five ではない）
+**Note**: K-12 online の貴重な MBTI 実証、narrative comparator として価値あり
+
+### X-03. Chai, Hu, & Niu (2023) ❌ (Proactive Personality)
+Chai, H., Hu, T., & Niu, G. (2023). How proactive personality promotes online learning performance? Mediating role of multidimensional learning engagement. *Education and Information Technologies, 28*(4), 4795–4817. https://doi.org/10.1007/s10639-022-11319-7
+
+**N**: 322 UG | **Excluded**: Proactive Personality のみ（Big Five 未測定）
+
+### X-04. Ma & Lee (2025) ❌ (no Big Five, no achievement)
+Ma, L., & Lee, C. S. (2025). A longitudinal study on the lasting impact of Pandemic-induced online learning. *Education and Information Technologies, 30*(18), 25829–25852. https://doi.org/10.1007/s10639-025-13783-3
+
+**N**: 2,250 (3-wave pooled) | **Excluded**: TUE framework のみ、outcome = intention to use（achievement なし）
+
+### X-05. Salem, AL-Alawi, Moosa, El-Maghraby, Alkathiri, & Elbaz (2024) ❌ (no Big Five)
+Salem, I. E., AL-Alawi, A., Moosa, S., El-Maghraby, L., Alkathiri, N. A., & Elbaz, A. M. (2024). Examining different learning modes: A longitudinal study of business administration students' performance. *The International Journal of Management Education, 22*(1), 100927. https://doi.org/10.1016/j.ijme.2023.100927
+
+**N**: 160 within-subject 3-wave | **Excluded**: TAM constructs のみ（Big Five 未測定）
+
+---
+
 ## I-C. Systematic Reviews on Online Learning (1 件)
 
 ### D-01. Hunter, Niblock, Barefoot, Miller, Hughes, Kite, & Scarletto (2025) ✅ 🔴 **著者訂正**
