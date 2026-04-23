@@ -926,17 +926,131 @@ Procrastination × Exam total: Online r=.58 (p=.01); Lecture r=.14 (ns)
 
 ---
 
-## A-16. Garzón-Umerenkova et al. (2024) ⚠
-**TBD**: Phase 2 で精読
+## A-16. Hidalgo-Fuentes et al. (2024) ❌ **EXCLUDE — lit review 著者誤認 + face-to-face**
 
-## A-17. Kara et al. (2024)
-**TBD**: Phase 2 で精読
+**重要**: lit review では "Garzón-Umerenkova et al. 2024" だが、実 PDF は **Hidalgo-Fuentes, Martínez-Álvarez, Llamas-Salguero, Pineda-Zelaya, Merino-Soto, & Chans (2024)**。
 
-## A-18. Keller & Karau (2013)
-**TBD**: Phase 2 で精読
+**Citation**: Hidalgo-Fuentes, S., et al. (2024). The role of big five traits and self-esteem on academic procrastination in Honduran and Spanish university students: A cross-cultural study. *Heliyon, 10*, e36172.
+**Modality**: **Face-to-face** (in-class Google Forms; not online learning context) | **Country**: Honduras + Spain | **Era**: post-COVID
 
-## A-19. MacLean (2022) ⚠
-**TBD**: Phase 2 で精読
+### Sample
+- N=457 (237 Honduran + 220 Spanish), 70% female, M age 22.01
+- BFI-2-S Spanish; ω: A=.65, C=.76, ES=.64, X=.64, O=.56（O/A 低）
+
+### Effect sizes（rb percentage bend correlations × procrastination）
+
+| Trait | rb (Honduran) | rb (Spanish) |
+|-------|--------------|-------------|
+| C | -.58 | -.63 ⭐ 最強 |
+| O | -.24 | -.17 |
+| E | -.30 | -.25 |
+| A | -.34 | -.24 |
+| N | +.32 | -.02 (ns, **cross-cultural diff**) |
+
+### Status: ❌ **EXCLUDE** — オンライン学習文脈なし、procrastination outcome
+### ⚠ **Authorship correction needed in literature_review.md**
+### RoB: **5/8**
+
+---
+
+## A-17. Kara, Ergulec & Eren (2024)
+
+**Citation**: Kara, A., Ergulec, F., & Eren, E. (2024). The mediating role of self-regulated online learning behaviors: Exploring the impact of personality traits on student engagement. *Education and Information Technologies, 29*, 23517–23546.
+**Modality**: Mixed (synchronous + async, 14週 IT course) | **Country**: Turkey | **Era**: post-COVID
+
+### Sample
+- N=437, undergraduate (mixed years), 76% female
+- Discipline: education sciences, nursing, social sciences
+- BFI 44 Turkish; α: A=.63, C=.73, E=.76, N=.66, O=.78（A/N 低）
+
+### Effect sizes (Table 2 r × engagement subscales)
+
+| Trait | r × Behavioral | r × Cognitive | r × Affective |
+|-------|---------------|---------------|---------------|
+| **C** | **.49** | **.41** | .21 |
+| O | .21 | .34 | .09 (ns) |
+| A | .31 | .23 | .13 |
+| E | .18 | .17 | .11 |
+| N | -.20 | -.08 (ns) | -.19 |
+
+(全て p<.01 を除き示記)
+SEM: Personality → Engagement direct β=.45 (p<.001); indirect via SRL β=.23; total 67% variance explained
+
+### Key findings
+- C と A が engagement を最広範に予測
+- SRL が部分媒介（personality → SRL → engagement）
+
+### Status: **Conditional include** — engagement プールで含める
+### RoB: **6/8**
+
+---
+
+## A-18. Bhagat, Wu & Chang (2019) 🔴 **lit review 著者誤認 — 訂正必要**
+
+**重要**: lit review では "Keller & Karau 2013" だが、実 PDF は **Bhagat, Wu & Chang (2019)**（Keller & Karau は A-08 別 PDF）。
+
+**Citation**: Bhagat, K. K., Wu, L. Y., & Chang, C. Y. (2019). The impact of personality on students' perceptions towards online learning. *Australasian Journal of Educational Technology, 35*(4), 98–108.
+**Modality**: Fully online (retrospective perception) | **Country**: Taiwan | **Era**: pre-COVID
+
+### Sample
+- N=208, mixed (46% UG, 46% MA, 8% PhD), 54% female, M age 25
+- Mini-IPIP 20 items; α .75–.80
+
+### Effect sizes（Table 4 hierarchical regression β）
+
+| Trait | β (Instr.Char) | β (Social) | β (Design) | β (Trust) |
+|-------|--------------|-----------|-----------|-----------|
+| O/Intellect | .265 | **.383** | .253 | .169 |
+| **A** | **.387** ⭐ | .351 | .176 | .056 |
+| C | .304 | .192 | .255 | .052 |
+| N | .165 | -.042 | .095 | -.175 |
+| E | -.07 | -.166 | .148 | -.134 |
+
+R² range: .061–.291
+
+### Key findings
+- C と O/Intellect が最 stable な正予測
+- A が instructor characteristics 最強
+- N は trust と負（複雑 pattern）
+
+### Status: **Exclude for primary** — perception/preference outcome only
+### ⚠ **Authorship correction needed in literature_review.md**（A-18 = Bhagat, NOT Keller）
+### RoB: **5/8**
+
+---
+
+## A-19. MacLean (2022) ⚠ HEXACO 確認
+
+**Citation**: MacLean, K. A. (2022). *Endorsed, or just enforced? Personality and preferences for online learning during COVID-19* [Master's thesis, University of Calgary].
+**Modality**: COVID オンライン経験者の preference survey | **Country**: Canada | **Era**: COVID 2022
+
+### Sample
+- N=465 (delete 21 low-quality), undergraduate, 79% women, M age 20
+- Discipline: heavily Psychology
+- **HEXACO-PI-R 60 items** (Ashton & Lee 2009) — 6 因子（H 含む）
+
+### Effect sizes（r × online learning preference）
+
+| Trait | r × pref | β |
+|-------|---------|----|
+| H (Honesty-Humility) | -.15 (p<.001) | -.16 |
+| **X (Extraversion)** | -.17 (p<.001) ⭐ | -.19 |
+| C | -.13 (p=.003) | -.06 (ns in regression) |
+| E (Emotionality) | -.08 (p=.069) | -.09 |
+| A | ns | .06 |
+| O | ns | .06 |
+
+R²adj=.058
+
+### Key findings
+- H と X 高い学生 → 対面 prefer
+- 全体として student は対面 > online prefer
+- 自己報告 academic performance も収集だが personality との直接関連未報告
+
+### Status: **Include for HEXACO sub-analysis** — preference outcome、achievement なし
+### RoB: **5/8**（unpublished thesis）
+
+---
 
 ## A-20. Mustafa et al. (2022)
 **TBD**: Phase 2 で精読
