@@ -263,18 +263,21 @@ def classify_era(raw):
 
 
 def classify_outcome_type(raw):
-    """Collapse outcome to two groups: achievement-like vs engagement-like."""
+    """Classify achievement outcomes into objective vs self-report.
+
+    Objective: official grade records, MOOC platform composites, test scores.
+    Self-report: self-rated performance, achievement self-report.
+    (Engagement-like outcomes are excluded from the primary pool altogether.)
+    """
     if not raw:
         return None
     r = raw.strip().lower()
-    # Achievement-like: GPA, course_grade, test_score, MOOC_composite,
-    # achievement_self_report, course_grade (anything with grade/GPA/score)
-    if any(k in r for k in ("gpa", "grade", "test", "mooc", "achievement",
-                              "composite", "procrastination_exam")):
-        return "achievement-like"
-    if any(k in r for k in ("engagement", "satisfaction", "perception",
-                              "preference")):
-        return "engagement-like"
+    if any(k in r for k in ("gpa", "course_grade", "test_score",
+                              "mooc_composite", "procrastination_exam",
+                              "test_completion")):
+        return "objective"
+    if any(k in r for k in ("self_rated", "self_report", "engagement_performance")):
+        return "self-report"
     return None
 
 
