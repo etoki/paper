@@ -1309,21 +1309,227 @@ R²=.565, Adj. R²=.563
 
 # Part D: Cross-cutting Synthesis（Introduction 執筆用）
 
-## D1. 性格 × 学業のベンチマーク効果量（一般的学業）
-**TBD**: Phase 1 後に Part A から抽出して構築
+## D1. 性格 × 学業のベンチマーク効果量（一般学業）
 
-## D2. オンライン学習環境の特殊性（理論的根拠）
-**TBD**: Phase 2 後に Part C から抽出
+| Meta-analysis | k | N | C ρ | O ρ | A ρ | E ρ | N ρ |
+|---------------|---|---|-----|-----|-----|-----|-----|
+| Poropat (2009) | 138 | 70,926 | **.22** | .12 | .07 | -.01 | .02 |
+| McAbee & Oswald (2013) | 57 | 26,382 | **.26** | .08 | .07 | -.03 | -.00 |
+| Vedel (2014) | 21 | 17,717 | **.26** | .07 | .08 | -.00 | -.01 |
+| Stajkovic et al. (2018) | 5 samples | 875 | **.21** | -.01 | .05 | -.02 | .00 |
+| Mammadov (2022) | 267 | 413,074 | **.27** | .16 | .09 | .01 | -.02 |
+| **Convergent ベンチマーク** | — | — | **.22–.27** | **.07–.16** | **.05–.09** | **~.00** | **~.00** |
 
-## D3. 本メタ分析の novel contribution
-**TBD**: 全精読完了後に構築
+### Mammadov 2022 の region moderator（Asia 強い）
+- Asia: C ρ = **.35**（H1 の重要根拠）, O ρ=.29, E ρ=.16, A ρ=.23, N ρ=-.19
+- N. America: C ρ=.23, others ~ベンチマーク
 
-## D4. 仮説 H1–H5 の文献的根拠
-**TBD**: 全精読完了後に構築
+### Mammadov 2022 の education level moderator（年齢で減衰）
+- Elementary/Middle: O ρ=.40 (大効果), C ρ=.31, E ρ=.15
+- Postsecondary: O ρ=.10, C ρ=.26, E ρ=-.01
 
-## D5. Methodological heterogeneity（抽出時の注意点）
-**TBD**: 全精読完了後に構築
+### Stajkovic 2018 の mediator
+- Self-efficacy が C → performance を完全媒介（intrapersonal model）
+- SE → Performance β = .24–.33
 
 ---
 
-**最終更新**: Phase 1 開始時点（Introduction 執筆前）
+## D2. オンライン学習環境の特殊性（理論的根拠）
+
+オンライン学習が face-to-face と異なる 4 次元（Hunter et al. 2025 narrative review より体系化）:
+
+1. **Self-regulation demands**: Asynchronous 環境で自律的 time/effort 管理が必須 → C プレミアム期待
+2. **Social presence**: 対面の社会的合図（教員・peer）欠如 → E の意味が変質（仮説的に negative shift）
+3. **Temporal flexibility**: 学習時間の自己決定 → procrastination 風土 → C 重要性増
+4. **Technology mediation**: LMS, Zoom, MOOC platform → O（新技術受容）の重要性増
+
+### Hunter et al. (2025) narrative review からの主な発見
+
+- **GPA × 5 traits (5 studies, N=1,542)**:
+  - C, O, A, ES が 3/5 で正; N が 3/5 で負; **E は全 5 で GPA に無関連**（H3 強支持）
+- **Class format choice**: 外向者は対面 prefer、内向者は online prefer
+- **Neurotic students**: online で苦戦、対面で良好
+
+### 本メタ分析の primary studies からの実証的 effect size パターン
+
+| Source | Modality | C × Achievement | O | E | A | N |
+|--------|---------|----------------|---|---|---|---|
+| A-01 Abe 2020 (US, async) | Quiz | **.48** | .13 | -.07 | .13 | -.10 |
+| A-01 Abe 2020 | Paper | .37 | **.35** | .03 | .16 | -.02 |
+| A-02 Alkış 2018 (Turkey, online) | Grade | **.205** | -.09 | .05 | .09 | .03 |
+| A-02 Alkış 2018 (Turkey, blended) | Grade | **.244** | .08 | .00 | .02 | -.01 |
+| A-15 Elvers 2003 (US online) | Procrast | .41† | — | — | — | -.38† |
+| A-23 Rodrigues 2024 (Germany) | GPA | **-.228**¶ | ns | ns | ns | ns |
+| A-26 Wang 2023 (China K-12) | Achievement (β) | **.322***§ | .253 | -.058 | .112 | .169 |
+| A-28 Yu 2021 (China) | MOOC composite β | .057 | **.305** | -.076 | **.442** | .037 |
+
+¶ German GPA: 1=高, 6=低 → 負相関 = better。 †trend (p<.10)。 §β to engagement, indirect to achievement.
+
+### オンライン学習で観察される pattern の特徴
+
+- **C はオンラインでも consistent positive**（traditional benchmark と一致）。ただし magnitude が研究で大きく振れる（.057 〜 .48）→ **moderator 必須**
+- **A の重要性がアジアサンプルで顕著**（A-28 Yu β=.442, Mammadov Asia ρ=.23）— 言語系 / cooperative learning と整合
+- **E が常に弱負 or null**（Hunter 2025 narrative + A-28 β=-.076 + A-26 β=-.058）→ **対面志向の外向者は online で不利**仮説支持
+- **O の効果はタスク依存**（essay/MOOC で正、quiz/grade で null）— task complexity moderator
+
+---
+
+## D3. 本メタ分析の novel contribution
+
+| Gap | 既存研究 | 本研究 |
+|-----|---------|--------|
+| Online-specific pooled ρ | **存在せず** | 初の quantitative pooling |
+| Modality moderator | 未検証（既存は全モード混合） | 5 modality の subgroup |
+| Era moderator (pre/COVID/post) | 未検証 | 3 era subgroup |
+| Region moderator (Asia 特化) | Mammadov 2022 で示唆 | Asia subset で再検証 |
+| Risk of bias-weighted synthesis | Hunter et al. のみ qualitative | JBI 8-item で量的 |
+| Self-efficacy / SRL mediator | Stajkovic 2018 (FtF) | online で再検証 |
+
+### Hunter et al. (2025) との位置関係
+
+Hunter et al. は narrative synthesis のみ（vote-counting + thematic analysis）で **pooled effect sizes は未提供**。本メタ分析が以下を追加:
+
+1. **量的 pooled effect size** per trait
+2. **9 moderator** の meta-regression（modality, era, region, education level, outcome type, instrument, year, sample size, RoB）
+3. **GRADE 評価**（per trait の confidence rating）
+4. **publication bias 検定**（Egger, Peters, p-curve）
+
+---
+
+## D4. 仮説 H1–H5 の文献的根拠
+
+### H1: C is the strongest predictor (online, ρ = .20–.35)
+- **Direct evidence**: A-01 (.48), A-02 (.205–.244), A-22 (.61 with skills engagement), A-23 (-.228 GPA), A-26 (.322 to engagement)
+- **Benchmark**: Poropat .22, Mammadov .27, McAbee .26, Vedel .26
+- **Asian premium**: Mammadov Asia .35 → 日本サンプル予測高め
+
+### H2: O is second-strongest, potentially stronger than FtF
+- **Direct evidence**: A-28 Yu .305 (very strong, MOOC composite), A-04 Audet .27 (engagement T2), A-01 Abe paper .35
+- **Benchmark**: Poropat .12, Mammadov .16
+- **Online specific**: novel technology acceptance + self-directed learning premium が予測根拠
+- ⚠ k 不足の可能性（後検出のみ可能）
+
+### H3: A small positive, weaker than FtF
+- **Direct evidence**: A-26 .112 (engagement), A-28 .442 (言語系 outlier?), A-08 .25 (career value)
+- **Benchmark**: ρ=.07–.09 (FtF)
+- ⚠ Asian + cooperative discipline で過大推定リスク
+
+### H4: N negative, stronger in fully online than blended
+- **Direct evidence**: A-12 -.542 (satisfaction), A-22 -.14 (participation), A-26 +.169 (engagement, 不一致), Hunter 3/5 in GPA
+- **Benchmark**: ρ=-.00–.02 (essentially null in FtF)
+- **Online specific**: anxiety + isolation で online で悪化予測
+
+### H5: E null or weak negative (online)
+- **Strongest support pattern**:
+  - Hunter 2025: 5/5 GPA studies で E ns
+  - A-28 Yu β=-.076 (objective)
+  - A-26 Wang β=-.058
+  - A-22 Quigley E×performance .14 (mixed)
+  - Mammadov FtF: ρ=.01 (already null), online でも持続
+- **Novel hypothesis**: E が online で **negative direction shift**（対面志向の外向者は不利）
+
+---
+
+## D5. Methodological heterogeneity（抽出時の注意点）
+
+### 効果量抽出の困難さ
+
+- **Direct r で報告**: A-01, A-02, A-08, A-11, A-12, A-13, A-15, A-17, A-22 (~10 studies)
+- **β only (要 Peterson-Brown 変換)**: A-03, A-06, A-18, A-20, A-26, A-28
+- **Group means / OR only**: A-09, A-10
+- **抽出不能**: A-24 (process data), A-21 (indirect via note-taking)
+
+### Modality 異質性
+
+- Fully online async: A-01, A-04, A-05, A-07, A-08, A-11, A-12, A-22, A-23, A-26, A-28
+- Synchronous: A-06
+- Blended: A-02 (separate analysis)
+- MOOC: A-28
+- Mixed sync+async: A-17
+
+### Era 分布
+
+- Pre-COVID: A-01, A-02, A-07, A-08, A-15, A-18, A-21
+- COVID: A-04, A-05, A-06, A-11, A-22, A-23, A-28
+- Post-COVID: A-13, A-17, A-26
+
+### Education level
+
+- K-12: A-26 only
+- Undergraduate: 大半
+- Graduate: A-12, A-08 (mixed UG+Grad), A-20 (mixed)
+- Adult: A-08 (mixed)
+
+### Region
+
+- North America: A-01, A-04, A-05, A-15, A-19
+- Europe: A-22 (UK), A-23 (Germany), A-06 (Greece)
+- Asia (East): A-11 (Taiwan), A-21 (Japan), A-25 (Japan), A-26 (China), A-27 (China), A-28 (China)
+- Asia (South + SE): A-09 (India ❌), A-10 (Thailand ❌), A-08 (mixed Western)
+- Middle East: A-03 (Iran), A-12 (Israel), A-07 (Israel), A-17 (Turkey), A-02 (Turkey)
+- Africa: A-24 (Tunisia)
+
+### Sample overlap risks
+
+- **A-04 / A-05**: Fall 2020 McGill cohort 重複 — 一方のみ採用
+- **A-27 / A-28**: 著者 Yu 共通だが site 異なる（Guizhou vs BLCU）→ 重複なし
+
+### Outcome type 分布
+
+- **Direct GPA / objective grade**: A-01 (quiz/paper), A-02 (course grade), A-23 (GPA), A-28 (MOOC composite) — **only 4 studies**
+- **Self-rated achievement**: A-22 (Performance subscale), A-26 (self-report)
+- **Procrastination (proxy)**: A-11, A-15, A-16
+- **Engagement only**: A-04, A-05, A-13, A-17, A-26 (mediated)
+- **Satisfaction only**: A-03, A-06, A-07, A-12, A-20
+
+---
+
+## D6. 著者誤認サマリ（literature_review.md 訂正項目）
+
+| ID | lit review 記載 | 実際 | 訂正区分 |
+|----|----------------|------|---------|
+| A-06 | Baruth & Cohen (2021) | **Sahinidis & Tsaknis (2021)** | 完全別論文 |
+| A-07 | Baruth & Cohen (2023) | **Cohen & Baruth (2017)** | 著者順 + 年次 |
+| A-08 | Bhagat et al. (2019) | **Keller & Karau (2013)** | 完全別論文 |
+| A-12 | Cohen & Baruth (2017) | **Baruth & Cohen (2022/2023)** | 著者順 + 年次 |
+| A-13 | Dang et al. (2024) | **Dang, Du, Niu, Xu (2025)** | 年次 + co-author 詳細 |
+| A-16 | Garzón-Umerenkova et al. (2024) | **Hidalgo-Fuentes et al. (2024)** | 完全別論文 |
+| A-18 | Keller & Karau (2013) | **Bhagat, Wu & Chang (2019)** | 完全別論文 |
+| A-20 | Mustafa et al. (2022) Pakistan | **Mustafa et al. (2022) China** | 国名のみ訂正 |
+| A-21 | Nakayama et al. (2014) N=? | **N=53** 確定 | N 値追加 |
+
+---
+
+## D7. Introduction 骨子（執筆用 5 段落構造）
+
+### §1. Problem statement
+- 教育の online shift（COVID 触媒、post-COVID 持続）
+- Big Five × academic performance は最重要 non-cognitive predictor として確立
+- しかし online-specific quantitative synthesis 不在
+
+### §2. What is known (FtF benchmarks)
+- C consistently strongest (Poropat .22, Mammadov .27, Vedel .26, McAbee .26)
+- O second (.07–.16), declines with age
+- A small positive (.05–.09)
+- E and N essentially null overall
+- Asian samples show C amplification (Mammadov .35)
+
+### §3. Why online may differ (theoretical mechanism)
+- Self-regulation demands → C premium
+- Social presence loss → E sign shift
+- Tech mediation → O premium
+- Asynchronous → procrastination → C importance
+
+### §4. Existing online evidence (gap)
+- Hunter et al. (2025) narrative only
+- Primary studies fragmented (k≈25-30, no pooled effect)
+- Hypotheses derivable but not confirmed quantitatively
+
+### §5. Present study
+- First quantitative meta-analysis of online-specific Big Five × achievement
+- 9 pre-registered moderators
+- 5 hypotheses (H1-H5) with directional predictions
+
+---
+
+**最終更新**: Phase 2 完了時点（Introduction 執筆 ready）。Part C の各 A-XX entries に詳細な effect size、RoB、author corrections 反映済み。次工程: literature_review.md の著者訂正コミット（D6 表に基づく）→ Introduction draft 開始。
