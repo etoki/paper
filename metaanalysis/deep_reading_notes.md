@@ -1448,6 +1448,126 @@ Indirect effects (e.g., FI→C→OLE→AA = .048***, FI→O→OLE→AA = .041***
 
 ---
 
+## A-29. Bahçekapılı & Karaman (2020) 🔴 GPA 完備 — 本研究で最も投入しやすい新規
+
+**Citation**: Bahçekapılı, E., & Karaman, S. (2020). A path analysis of five-factor personality traits, self-efficacy, academic locus of control and academic achievement among online students. *Knowledge Management & E-Learning, 12*(2), 191–208. https://doi.org/10.34105/j.kmel.2020.12.010
+**Modality**: Fully online (synchronous live + online midterm + paper final) | **Country**: Turkey (2 universities distance-ed) | **Era**: pre-COVID (2014-2015)
+
+### Sample
+- N=525, UG distance-ed, M age 30.9 (range 19-59), 38% female
+- Discipline: mixed distance-ed programs
+- BFI-44 Turkish (Sümer 2005); α range .56-.75（A 低め）
+
+### Effect sizes（Table 3 bivariate r × GPA）🔴 全 Big Five 完備
+
+| Trait | r × GPA | p | N |
+|-------|---------|---|---|
+| **C** | **.068** | ns | 525 |
+| **O** | **.070** | ns | 525 |
+| E | .027 | ns | 525 |
+| A | -.013 | ns | 525 |
+| **N** | **-.072** | ns | 525 |
+| Self-efficacy | .136 | <.01 | 525 |
+| External LoC | -.160 | <.01 | 525 |
+
+### SEM indirect effects (Table 5)
+- C → GPA: **β = 0.075 (p<.05)** via SE + External LoC
+- O → GPA: β = 0.044 (p<.05) via SE
+- N → GPA: β = -0.035 (p<.05) via SE + External LoC
+- E, A: ns
+
+### Key findings
+- Big Five の direct 効果すべて ns → すべて **mediated（self-efficacy + external LoC 経由）**
+- Online では trait 直接効果が弱く、self-regulatory mediator 経由が主要
+- R² GPA = 4.4% のみ（personality 説明力小）
+
+### Status: ✅ **INCLUDE** — ゼロ次 r 全 Big Five × GPA 完備、Peterson-Brown 変換不要
+### RoB: **6/8**
+
+---
+
+## A-30. Kaspar, Burtniak & Rüth (2023) Germany BFI-S
+
+**Citation**: Kaspar, K., Burtniak, K., & Rüth, M. (2023). Online learning during the Covid-19 pandemic: How university students' perceptions, engagement, and performance are related to their personal characteristics. *Current Psychology*. https://doi.org/10.1007/s12144-023-04403-9
+**Modality**: Fully online (emergency) | **Country**: Germany | **Era**: COVID 2021
+
+### Sample
+- N=413 (from 439), UG+Grad, M age 25.47, **86% female**
+- Discipline: mostly psychology, community health, medicine
+- BFI-S (Rammstedt 2005 / Kovaleva 2013) 21 items; α: E=.84, N=.81, **A=.65 low**, C=.70, O=.71
+
+### Effect sizes（Table 3 multiple regression β × self-rated performance）
+
+| Trait | β | p | N | 備考 |
+|-------|---|---|---|------|
+| **N** | **.20** | **.003** | 413 | 正方向（suppressor effect — bivariate では負） |
+| **C** | **.15** | **.016** | 413 | |
+| O | .08 | .106 | 413 | ns |
+| E | .05 | .273 | 413 | ns |
+| A | -.01 | .755 | 413 | ns |
+
+R² = .29
+
+### Bivariate r（Table 4、PDF レイアウト破損 — 要原論文確認）
+- C × performance: 正・有意
+- N × performance: 負・有意
+- O × performance: 正・有意
+- E × performance: 正・弱め
+- A × performance: ns
+
+### Key findings
+- C と N のみが multivariable predictor（SE, anxiety 統制後）
+- Neuroticism が bivariate → multivariable で sign flip（suppressor）
+- Personality の role は self-efficacy と self-regulation 統制後に minor
+- Age が demographic predictor 最強
+
+### Status: **Include with caveat** — β 抽出可、r は Table 4 要再確認
+- **注**: Outcome は self-report composite（objective GPA ではない）
+### RoB: **5/8**（self-report outcome、gender 偏り、A α 低め）
+
+---
+
+## A-31. Rivers (2021) Japan objective grade 🔴 Japanese sample
+
+**Citation**: Rivers, D. J. (2021). The role of personality traits and online academic self-efficacy in acceptance, actual use and achievement in Moodle. *Education and Information Technologies, 26*(4), 4353–4378. https://doi.org/10.1007/s10639-021-10478-3
+**Modality**: Fully online **asynchronous** (Moodle 15 週) | **Country**: Japan (Future University Hakodate) | **Era**: COVID
+
+### Sample
+- N=149 (response 62%), UG sophomore, M age 19.4, **80% male**
+- Discipline: information science（単一 discipline）
+- **TIPI-J 10 items**（Oshio et al. 2012, 7-point）— α 未報告（TIPI 慣例）
+
+### Effect sizes（Table 3 zero-order r × Course Achievement, objective grade）🔴
+
+| Trait | r × CA | Notes |
+|-------|--------|-------|
+| **C** | **.144** | ns but positive |
+| **E** | **-.173** | **負** — asynchronous で外向性不利 |
+| A | .118 | ns |
+| ES (→ N × -1) | -.107 | → **N ≈ +.107** |
+| O | -.066 | ns |
+| OAS | **.211*** | |
+| AMU (log data) | **.345*** | 最強予測因 |
+
+### SEM respecified model（Table 5, R² CA = .146）
+- **E → CA direct β = -.168 (p<.01)** 🔴 online async で外向性負の direct effect
+- C → OAS direct β = .315***（最強）
+- A → OAS β = .184*
+- C indirect on CA β = .096***（C → OAS → AMU → CA）
+- AMU → CA β = **.342***
+
+### Key findings
+- **E が online async で direct 負効果**（social cue 欠如）— H5 仮説と整合
+- C と A のみが OAS 経由で indirect effect
+- Actual Moodle usage (log) が最強 direct predictor — attitude/intent より実使用
+- R² CA = 14.6% — personality 説明力中程度
+
+### Status: ✅ **INCLUDE** — ゼロ次 r 全特性 × grade 完備（要 ES→N 符号反転）
+- 稀少 Japanese サンプル + objective grade + log data 三重計測
+### RoB: **6/8**（objective grade + log data 強、TIPI α なし・N 小・gender 80% male 偏り）
+
+---
+
 ## A-37. Zheng & Zheng (2023) ⚠ **AMBIGUOUS/INCLUDE** — 3-era TIPI Big Five
 
 **Citation**: Zheng, Y., & Zheng, S. (2023). Exploring educational impacts among pre, during and post COVID-19 lockdowns from students with different personality traits. *International Journal of Educational Technology in Higher Education, 20*(1), 21. https://doi.org/10.1186/s41239-023-00388-4
