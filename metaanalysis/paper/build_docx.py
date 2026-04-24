@@ -133,7 +133,7 @@ def configure_page(doc):
 
 
 def build_title_page(doc):
-    """APA-style title page (centered title, author block)."""
+    """APA 7 title page: centered title, author, affiliation + Author Note."""
     # A few blank lines before title (APA top spacing)
     for _ in range(4):
         add_para(doc, "", align=WD_ALIGN_PARAGRAPH.CENTER)
@@ -147,17 +147,54 @@ def build_title_page(doc):
         align=WD_ALIGN_PARAGRAPH.CENTER,
     )
     add_para(doc, "", align=WD_ALIGN_PARAGRAPH.CENTER)
-    add_para(doc, "", align=WD_ALIGN_PARAGRAPH.CENTER)
 
-    # Author block
-    for line in [
-        "Eisuke Tokiwa",
-        "Founder of SUNBLAZE Co., Ltd.",
-        "Tokyo, Japan",
+    # Author name (bold is not standard in APA 7; plain centered)
+    add_para(doc, "Eisuke Tokiwa", align=WD_ALIGN_PARAGRAPH.CENTER)
+    # Affiliation line (APA 7: affiliation below author, no department prefix needed for
+    # industry-affiliated authors; city/country is conventional)
+    add_para(
+        doc,
+        "SUNBLAZE Co., Ltd., Tokyo, Japan",
+        align=WD_ALIGN_PARAGRAPH.CENTER,
+    )
+
+    # --- Author Note (APA 7 formal heading on title page) ---
+    add_para(doc, "", align=WD_ALIGN_PARAGRAPH.CENTER)
+    add_para(doc, "", align=WD_ALIGN_PARAGRAPH.CENTER)
+    add_para(doc, "Author Note", bold=True, align=WD_ALIGN_PARAGRAPH.CENTER)
+
+    # Paragraph 1: ORCID
+    add_para(
+        doc,
+        "Eisuke Tokiwa https://orcid.org/0009-0009-7124-6669",
+        indent_first=True,
+    )
+
+    # Paragraph 2: disclosures (conflicts already in Declarations; here we
+    # provide brief APA-standard author-note content pointing to the full
+    # Declarations section, which is APA 7 best practice).
+    add_para(
+        doc,
+        "The author has no known conflict of interest to disclose beyond that "
+        "stated in the Declarations section, where a pre-specified sensitivity "
+        "analysis addresses the author's own potentially eligible primary study. "
+        "This research received no external funding. The systematic review and "
+        "meta-analysis was pre-registered on OSF Registries "
+        "(https://doi.org/10.17605/OSF.IO/E5W47) prior to data extraction, and "
+        "all data, analysis code, and supplementary materials are publicly "
+        "available in the associated OSF project "
+        "(https://doi.org/10.17605/OSF.IO/79M5J).",
+        indent_first=True,
+    )
+
+    # Paragraph 3: correspondence
+    add_para(
+        doc,
+        "Correspondence concerning this article should be addressed to Eisuke "
+        "Tokiwa, SUNBLAZE Co., Ltd., Tokyo, Japan. Email: "
         "eisuke.tokiwa@sunblaze.jp",
-        "ORCID: 0009-0009-7124-6669",
-    ]:
-        add_para(doc, line, align=WD_ALIGN_PARAGRAPH.CENTER)
+        indent_first=True,
+    )
 
 
 def build_declarations(doc, for_journal=False):
@@ -215,6 +252,16 @@ def build_declarations(doc, for_journal=False):
          "and eligibility criteria, performed the database searches, conducted screening, "
          "extracted data, performed the statistical analyses, and drafted and revised the "
          "manuscript. The author approves the final version."),
+        ("Acknowledgments",
+         "The author thanks the investigators of the included primary studies for making "
+         "their correlation matrices and sample characteristics available in the published "
+         "record, and the maintainers of the open-access repositories (OSF, Research Square, "
+         "PsyArXiv, arXiv, and institutional repositories) that enabled retrieval of full-"
+         "text articles. The author also acknowledges the developers of the open-source "
+         "scientific Python stack (NumPy, SciPy, pandas, Matplotlib, statsmodels, and "
+         "python-docx) on which the analyses and manuscript preparation depended. No "
+         "funding bodies, research assistants, or third-party organizations contributed "
+         "to the design, conduct, or reporting of this review."),
     ]
 
     # Insert Preprint Statement only for journal submission version
@@ -241,53 +288,42 @@ def build_abstract(doc):
     set_double_space(p)
 
     abstract_body = (
-        "Academic achievement in online learning environments has become a "
-        "central concern for post-secondary education following the global "
-        "shift toward digital instruction, yet existing meta-analyses of Big "
-        "Five personality traits and academic performance have pooled samples "
-        "across face-to-face, blended, and online modalities without testing "
-        "delivery mode as a substantive moderator. The present systematic "
-        "review and meta-analysis is the first quantitative synthesis dedicated "
-        "to online learning environments. The review was pre-registered prior "
-        "to data extraction. Following PRISMA 2020 reporting standards, 31 "
-        "primary studies reporting associations between Big Five (or HEXACO) "
-        "personality "
-        "traits and academic achievement in online, blended, or MOOC "
-        "environments were synthesized. Effect sizes were pooled using random-"
-        "effects meta-analysis with Restricted Maximum Likelihood estimation "
-        "and Hartung-Knapp-Sidik-Jonkman confidence-interval adjustment on "
-        "the Fisher z scale. Ten studies (pooled N = 3,384) contributed "
-        "direct Pearson correlations to the primary achievement pool. "
-        "Conscientiousness emerged as the strongest positive predictor "
-        "(pooled r = .167, 95% CI [.089, .243]; I² = 65.1%), followed by "
-        "Agreeableness (r = .112 [−.031, .250]), Openness (r = .086 [−.044, "
-        ".214]), Neuroticism (r = .018 [−.079, .114]), and Extraversion "
-        "(r = .002 [−.076, .080]). Two pre-registered moderator effects "
-        "were highly significant: Extraversion × Region (Asian samples "
-        "r = −.131 vs. non-Asian r = .050; Q_between = 46.43, p < .001) and "
-        "Extraversion × Outcome Type (objective r = −.038 vs. self-rated "
-        "r = .117; Q_between = 17.30, p < .001). The findings provide "
+        "Existing meta-analyses of Big Five personality traits and academic "
+        "achievement have pooled face-to-face, blended, and online samples "
+        "without testing delivery mode as a moderator. This pre-registered "
+        "systematic review and meta-analysis is the first quantitative "
+        "synthesis dedicated to online learning environments. Following PRISMA "
+        "2020 standards, 31 primary studies reporting Big Five (or HEXACO) "
+        "personality and academic achievement in online, blended, or MOOC "
+        "environments were synthesized. Ten studies (pooled N = 3,384) "
+        "contributed direct Pearson correlations to the primary achievement "
+        "pool, analysed with random-effects meta-analysis using Hartung-"
+        "Knapp-Sidik-Jonkman adjustment on the Fisher z scale. "
+        "Conscientiousness was the strongest predictor (pooled r = .167, 95% "
+        "CI [.089, .243]; I² = 65.1%), followed by Agreeableness (r = .112 "
+        "[−.031, .250]), Openness (r = .086 [−.044, .214]), Neuroticism "
+        "(r = .018), and Extraversion (r = .002). Two pre-registered "
+        "moderator effects were highly significant: Extraversion × Region "
+        "(Asian samples r = −.131 vs. non-Asian r = .050; Q_between = 46.43, "
+        "p < .001) and Extraversion × Outcome Type (objective r = −.038 vs. "
+        "self-rated r = .117; Q_between = 17.30, p < .001). Findings provide "
         "preliminary support for the Personality-Achievement Saturation "
-        "Hypothesis (PASH) extended to technology-mediated learning and "
-        "document novel cultural- and outcome-type-dependent shifts in the "
-        "Extraversion-achievement association. Confidence in pooled "
-        "estimates (GRADE) ranged from Moderate (Conscientiousness, "
-        "Extraversion) to Low (Openness, Agreeableness, Neuroticism). "
-        "Limitations include the modest k (9–10 studies per trait) and the "
-        "use of web-based rather than institutionally-licensed database "
-        "searches. Online learning environments modify, but do not "
-        "fundamentally transform, the well-established personality-"
-        "achievement pattern; the most theoretically important divergences "
-        "concern Extraversion and are structured by cultural context and "
-        "outcome methodology."
+        "Hypothesis extended to technology-mediated learning and document "
+        "novel cultural- and outcome-type-dependent shifts in the "
+        "Extraversion-achievement link. GRADE confidence ranged from Moderate "
+        "(Conscientiousness, Extraversion) to Low (Openness, Agreeableness, "
+        "Neuroticism). Online learning modifies, but does not fundamentally "
+        "transform, the established personality-achievement pattern; the most "
+        "theoretically important divergences concern Extraversion and are "
+        "structured by cultural context and outcome methodology."
     )
     add_para(doc, abstract_body)
     add_para(doc, "")
 
     p_kw = add_para(
         doc,
-        "Keywords: Big Five; Five-Factor Model; HEXACO; online learning; e-learning; "
-        "MOOC; academic achievement; meta-analysis; systematic review; PRISMA",
+        "Keywords: Big Five, Five-Factor Model, HEXACO, online learning, e-learning, "
+        "MOOC, academic achievement, meta-analysis, systematic review, PRISMA",
     )
     # APA keywords use italicized "Keywords:" label; for simplicity we keep plain.
 
