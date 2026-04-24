@@ -151,6 +151,13 @@ def build_declarations(doc):
          "publicly available on the OSF project page (https://osf.io/79m5j/) and the "
          "accompanying GitHub repository (https://github.com/etoki/paper, directory "
          "metaanalysis/)."),
+        ("Preprint Statement",
+         "A preprint version of this manuscript will be deposited on an open-access "
+         "preprint repository (e.g., PsyArXiv or OSF Preprints) upon submission. The "
+         "preprint DOI will be recorded here once assigned. This preprint has not been "
+         "peer-reviewed by a journal, and readers should interpret findings accordingly. "
+         "Any substantive revisions introduced during peer review will be reflected in "
+         "a versioned preprint update."),
         ("Authors' contributions",
          "The author (ET) conceived and designed the review, developed the search strategy "
          "and eligibility criteria, performed the database searches, conducted screening, "
