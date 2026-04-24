@@ -189,12 +189,13 @@ def build_declarations(doc, for_journal=False):
          "(https://osf.io/e5w47/; DOI: 10.17605/OSF.IO/E5W47) on April 23, 2026, prior to "
          "formal data extraction and quantitative synthesis. The full protocol (PRISMA-P "
          "2015 compliant) and supplementary materials are publicly available in the "
-         "associated OSF project (https://osf.io/79m5j/)."),
+         "associated OSF project (https://doi.org/10.17605/OSF.IO/79M5J)."),
         ("Availability of data and material",
          "All extracted data, analysis code, search logs, risk-of-bias "
          "ratings, figures, and supplementary materials are publicly "
-         "available on the associated OSF project (https://osf.io/79m5j/). "
-         "Each component has been assigned a DOI for direct citation: "
+         "available on the associated OSF project "
+         "(https://doi.org/10.17605/OSF.IO/79M5J). Each component has been "
+         "assigned a DOI for direct citation: "
          "01_protocol (https://doi.org/10.17605/OSF.IO/7FRGH) — protocol, "
          "literature review, deep reading notes, and manuscript drafts; "
          "02_search (https://doi.org/10.17605/OSF.IO/UVJDY) — search log "
@@ -1076,8 +1077,10 @@ def build_methods_part5(doc):
         "Visualizations, including forest plots, funnel plots, and bubble plots, "
         "were produced using ggplot2. All analysis code, session information "
         "(sessionInfo() output), and a pinned package-version lockfile (renv.lock) "
-        "are deposited on the associated OSF project (https://osf.io/79m5j/), "
-        "in the 06_analysis component. Any interested researcher can reproduce "
+        "are deposited on the associated OSF project "
+        "(https://doi.org/10.17605/OSF.IO/79M5J), specifically in the "
+        "06_analysis component (https://doi.org/10.17605/OSF.IO/Q4XKB). "
+        "Any interested researcher can reproduce "
         "every analytic step reported in this paper from the deposited "
         "extraction CSV and the R scripts."
     )
