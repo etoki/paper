@@ -191,13 +191,24 @@ def build_declarations(doc, for_journal=False):
          "2015 compliant) and supplementary materials are publicly available in the "
          "associated OSF project (https://osf.io/79m5j/)."),
         ("Availability of data and material",
-         "All extracted data, analysis code, search logs, risk-of-bias ratings, "
-         "figures, and supplementary materials are publicly available on the "
-         "associated OSF project (https://osf.io/79m5j/). The complete data "
-         "extraction CSV, R and Python analysis scripts, pooled results, "
-         "moderator analyses, sensitivity analyses, and the generating code "
-         "for all tables and figures are deposited in the corresponding OSF "
-         "components (01_protocol, 02_search, 04_extraction, 06_analysis)."),
+         "All extracted data, analysis code, search logs, risk-of-bias "
+         "ratings, figures, and supplementary materials are publicly "
+         "available on the associated OSF project (https://osf.io/79m5j/). "
+         "Each component has been assigned a DOI for direct citation: "
+         "01_protocol (https://doi.org/10.17605/OSF.IO/7FRGH) — protocol, "
+         "literature review, deep reading notes, and manuscript drafts; "
+         "02_search (https://doi.org/10.17605/OSF.IO/UVJDY) — search log "
+         "and candidate studies; 03_screening "
+         "(https://doi.org/10.17605/OSF.IO/YH28G) — PRISMA flow counts "
+         "(forthcoming); 04_extraction (https://doi.org/10.17605/OSF.IO/5UW98) "
+         "— data extraction CSV and coding manual; 05_risk_of_bias "
+         "(https://doi.org/10.17605/OSF.IO/3XYNE) — JBI risk-of-bias "
+         "ratings (forthcoming); 06_analysis "
+         "(https://doi.org/10.17605/OSF.IO/Q4XKB) — Python analysis "
+         "scripts, pooled results, moderator analyses, sensitivity "
+         "analyses, and generating code for all tables and figures; and "
+         "07_pdf_index (https://doi.org/10.17605/OSF.IO/XZ6PT) — DOI "
+         "index of included studies."),
         ("Authors' contributions",
          "The author (ET) conceived and designed the review, developed the search strategy "
          "and eligibility criteria, performed the database searches, conducted screening, "
