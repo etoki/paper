@@ -4,7 +4,21 @@
 
 **検証状況**: ✅ = PDF 直接確認済 / ⚠ = 一部情報 LLM 由来（要最終確認） / 📖 = 標準知識（PDF 非所持）
 
-**最終更新**: 2026-04-23
+**最終更新**: 2026-04-24
+
+## OSF DOI Registry
+
+| Entity | DOI |
+|--------|-----|
+| **Project（親）** | https://doi.org/10.17605/OSF.IO/79M5J |
+| Registration（pre-registration） | https://doi.org/10.17605/OSF.IO/E5W47 |
+| 01_protocol | https://doi.org/10.17605/OSF.IO/7FRGH |
+| 02_search | https://doi.org/10.17605/OSF.IO/UVJDY |
+| 03_screening | https://doi.org/10.17605/OSF.IO/YH28G |
+| 04_extraction | https://doi.org/10.17605/OSF.IO/5UW98 |
+| 05_risk_of_bias | https://doi.org/10.17605/OSF.IO/3XYNE |
+| 06_analysis | https://doi.org/10.17605/OSF.IO/Q4XKB |
+| 07_pdf_index | https://doi.org/10.17605/OSF.IO/XZ6PT |
 
 ---
 

@@ -56,7 +56,16 @@ Registration GUID:       e5w47
 Registration URL:        https://osf.io/e5w47/
 Registration DOI:        10.17605/OSF.IO/E5W47
 Registration date:       2026-04-23
-Associated OSF project:  https://osf.io/79m5j/
+Associated OSF project:  https://doi.org/10.17605/OSF.IO/79M5J
+
+Component DOIs (public since 2026-04-24):
+  01_protocol       https://doi.org/10.17605/OSF.IO/7FRGH
+  02_search         https://doi.org/10.17605/OSF.IO/UVJDY
+  03_screening      https://doi.org/10.17605/OSF.IO/YH28G
+  04_extraction     https://doi.org/10.17605/OSF.IO/5UW98
+  05_risk_of_bias   https://doi.org/10.17605/OSF.IO/3XYNE
+  06_analysis       https://doi.org/10.17605/OSF.IO/Q4XKB
+  07_pdf_index      https://doi.org/10.17605/OSF.IO/XZ6PT
 
 Note: PROSPERO was initially considered but excluded because the review
 does not address a health-related outcome (scope restriction of PROSPERO).

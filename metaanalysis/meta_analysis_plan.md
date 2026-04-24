@@ -54,7 +54,14 @@ COVID-19 期（2020–2023）に primary study が急増し、現在は **初の
 | Registration DOI | `10.17605/OSF.IO/E5W47` |
 | Registration date | 2026-04-23 |
 | Registration type | OSF Preregistration (PRISMA-P 2015 compliant) |
-| Associated OSF project | https://osf.io/79m5j/ |
+| Associated OSF project | https://doi.org/10.17605/OSF.IO/79M5J |
+| Component DOI: 01_protocol | https://doi.org/10.17605/OSF.IO/7FRGH |
+| Component DOI: 02_search | https://doi.org/10.17605/OSF.IO/UVJDY |
+| Component DOI: 03_screening | https://doi.org/10.17605/OSF.IO/YH28G |
+| Component DOI: 04_extraction | https://doi.org/10.17605/OSF.IO/5UW98 |
+| Component DOI: 05_risk_of_bias | https://doi.org/10.17605/OSF.IO/3XYNE |
+| Component DOI: 06_analysis | https://doi.org/10.17605/OSF.IO/Q4XKB |
+| Component DOI: 07_pdf_index | https://doi.org/10.17605/OSF.IO/XZ6PT |
 
 **登録形式**:
 
