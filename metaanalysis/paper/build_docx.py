@@ -90,6 +90,46 @@ def configure_page(doc):
     s.left_margin = Inches(1.0)
     s.right_margin = Inches(1.0)
 
+    # APA 7 running head: left-aligned uppercase short title + right-aligned page number
+    # Max 50 chars for running head
+    RUNNING_HEAD = "BIG FIVE AND ONLINE LEARNING"  # 30 chars, uppercase per APA 7
+    header = s.header
+    # Use default paragraph and add tab-separated running head + page number
+    p = header.paragraphs[0]
+    # Clear existing runs
+    for r in list(p.runs):
+        r._element.getparent().remove(r._element)
+    run = p.add_run(RUNNING_HEAD + "\t\t")
+    run.font.name = "Times New Roman"
+    run.font.size = Pt(12)
+    rPr = run._element.get_or_add_rPr()
+    rFonts = rPr.find(qn("w:rFonts"))
+    if rFonts is None:
+        rFonts = OxmlElement("w:rFonts")
+        rPr.append(rFonts)
+    rFonts.set(qn("w:eastAsia"), "Times New Roman")
+
+    # Add page number field via XML (right-aligned)
+    fldChar_begin = OxmlElement("w:fldChar")
+    fldChar_begin.set(qn("w:fldCharType"), "begin")
+    instrText = OxmlElement("w:instrText")
+    instrText.set(qn("xml:space"), "preserve")
+    instrText.text = "PAGE"
+    fldChar_end = OxmlElement("w:fldChar")
+    fldChar_end.set(qn("w:fldCharType"), "end")
+
+    pn_run = p.add_run()
+    pn_run.font.name = "Times New Roman"
+    pn_run.font.size = Pt(12)
+    pn_run._element.append(fldChar_begin)
+    pn_run._element.append(instrText)
+    pn_run._element.append(fldChar_end)
+
+    # Set tab stops: center tab + right tab at right margin (~6.5" usable page width)
+    from docx.enum.text import WD_TAB_ALIGNMENT
+    tab_stops = p.paragraph_format.tab_stops
+    tab_stops.add_tab_stop(Inches(6.5), WD_TAB_ALIGNMENT.RIGHT)
+
 
 def build_title_page(doc):
     """APA-style title page (centered title, author block)."""
