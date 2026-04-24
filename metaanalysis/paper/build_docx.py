@@ -12,7 +12,10 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
 
-OUTPUT = "/home/user/paper/metaanalysis/paper/introduction.docx"
+OUTPUT_PREPRINT = "/home/user/paper/metaanalysis/paper/manuscript_preprint.docx"
+OUTPUT_JOURNAL = "/home/user/paper/metaanalysis/paper/manuscript_journal.docx"
+# Legacy path kept for backwards compat during transition; will be removed
+OUTPUT = OUTPUT_PREPRINT
 
 
 def set_cell_font(paragraph, font_name="Times New Roman", size_pt=12, bold=None):
@@ -116,7 +119,7 @@ def build_title_page(doc):
         add_para(doc, line, align=WD_ALIGN_PARAGRAPH.CENTER)
 
 
-def build_declarations(doc):
+def build_declarations(doc, for_journal=False):
     add_para(doc, "")  # blank line
     add_para(doc, "Declarations", bold=True)
 
@@ -151,19 +154,24 @@ def build_declarations(doc):
          "publicly available on the OSF project page (https://osf.io/79m5j/) and the "
          "accompanying GitHub repository (https://github.com/etoki/paper, directory "
          "metaanalysis/)."),
-        ("Preprint Statement",
-         "A preprint version of this manuscript will be deposited on an open-access "
-         "preprint repository (e.g., PsyArXiv or OSF Preprints) upon submission. The "
-         "preprint DOI will be recorded here once assigned. This preprint has not been "
-         "peer-reviewed by a journal, and readers should interpret findings accordingly. "
-         "Any substantive revisions introduced during peer review will be reflected in "
-         "a versioned preprint update."),
         ("Authors' contributions",
          "The author (ET) conceived and designed the review, developed the search strategy "
          "and eligibility criteria, performed the database searches, conducted screening, "
          "extracted data, performed the statistical analyses, and drafted and revised the "
          "manuscript. The author approves the final version."),
     ]
+
+    # Insert Preprint Statement only for journal submission version
+    if for_journal:
+        # Insert after "Availability of data and material" (second-to-last in sections)
+        sections.insert(len(sections) - 1, (
+            "Preprint Statement",
+            "A preprint version of this manuscript has been deposited on Research "
+            "Square (https://doi.org/[TO BE FILLED AFTER PREPRINT DOI IS ASSIGNED]). "
+            "This preprint has not been peer-reviewed by a journal. Any substantive "
+            "revisions introduced during peer review are reflected in the present "
+            "journal version and in a versioned preprint update."
+        ))
 
     for heading, body in sections:
         add_para(doc, heading, bold=True)
@@ -2734,13 +2742,14 @@ def italicize_stats_in_doc(doc):
                     process_paragraph(para)
 
 
-def main():
+def build_manuscript(for_journal: bool, output_path: str):
+    """Build full manuscript. When for_journal=True, Preprint Statement is added."""
     doc = Document()
     configure_page(doc)
     configure_styles(doc)
     build_title_page(doc)
     doc.add_page_break()
-    build_declarations(doc)
+    build_declarations(doc, for_journal=for_journal)
     doc.add_page_break()
     build_abstract(doc)
     build_intro_part1(doc)
@@ -2770,8 +2779,14 @@ def main():
     build_funnel_plots(doc)
     # APA 7th: italicize statistical variables (r, p, N, k, etc.) auto-post-process
     italicize_stats_in_doc(doc)
-    doc.save(OUTPUT)
-    print(f"Wrote {OUTPUT}")
+    doc.save(output_path)
+    print(f"Wrote {output_path}")
+
+
+def main():
+    # Generate both variants from the same source
+    build_manuscript(for_journal=False, output_path=OUTPUT_PREPRINT)
+    build_manuscript(for_journal=True, output_path=OUTPUT_JOURNAL)
 
 
 if __name__ == "__main__":
