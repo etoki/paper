@@ -2826,10 +2826,87 @@ def build_manuscript(for_journal: bool, output_path: str):
     print(f"Wrote {output_path}")
 
 
+def build_split_titledecl(output_path: str, for_journal: bool = True):
+    """Split 1/4: Title page + Declarations only."""
+    doc = Document()
+    configure_page(doc)
+    configure_styles(doc)
+    build_title_page(doc)
+    doc.add_page_break()
+    build_declarations(doc, for_journal=for_journal)
+    italicize_stats_in_doc(doc)
+    doc.save(output_path)
+    print(f"Wrote {output_path}")
+
+
+def build_split_body(output_path: str):
+    """Split 2/4: Main text only (Abstract through References, no Tables/Figures)."""
+    doc = Document()
+    configure_page(doc)
+    configure_styles(doc)
+    build_abstract(doc)
+    build_intro_part1(doc)
+    build_intro_part2(doc)
+    build_intro_part3(doc)
+    build_methods_part1(doc)
+    build_methods_part2(doc)
+    build_methods_part3(doc)
+    build_methods_part4(doc)
+    build_methods_part5(doc)
+    build_results_part1(doc)
+    build_results_part2(doc)
+    build_results_part3(doc)
+    build_discussion_part1(doc)
+    build_discussion_part2(doc)
+    build_discussion_part3(doc)
+    build_conclusion(doc)
+    build_references(doc)
+    italicize_stats_in_doc(doc)
+    doc.save(output_path)
+    print(f"Wrote {output_path}")
+
+
+def build_split_tables(output_path: str):
+    """Split 3/4: Tables 1–5 only."""
+    doc = Document()
+    configure_page(doc)
+    configure_styles(doc)
+    build_table1_characteristics(doc)
+    build_table2_pooled(doc)
+    build_table3_moderators(doc)
+    build_table4_sensitivity(doc)
+    build_table5_grade(doc)
+    italicize_stats_in_doc(doc)
+    doc.save(output_path)
+    print(f"Wrote {output_path}")
+
+
+def build_split_figures(output_path: str):
+    """Split 4/4: Figures 1–11 only (PRISMA + 5 forest + 5 funnel)."""
+    doc = Document()
+    configure_page(doc)
+    configure_styles(doc)
+    build_figure1_prisma(doc)
+    build_forest_plots(doc)
+    build_funnel_plots(doc)
+    italicize_stats_in_doc(doc)
+    doc.save(output_path)
+    print(f"Wrote {output_path}")
+
+
 def main():
-    # Generate both variants from the same source
+    import os as _os
+    # Combined versions (preprint + journal)
     build_manuscript(for_journal=False, output_path=OUTPUT_PREPRINT)
     build_manuscript(for_journal=True, output_path=OUTPUT_JOURNAL)
+
+    # Split versions (journal version only — preprint typically submitted as combined)
+    split_dir = "/home/user/paper/metaanalysis/paper/split"
+    _os.makedirs(split_dir, exist_ok=True)
+    build_split_titledecl(f"{split_dir}/01_title_declarations.docx", for_journal=True)
+    build_split_body(f"{split_dir}/02_body.docx")
+    build_split_tables(f"{split_dir}/03_tables.docx")
+    build_split_figures(f"{split_dir}/04_figures.docx")
 
 
 if __name__ == "__main__":
