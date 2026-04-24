@@ -1892,7 +1892,12 @@ def build_discussion_part3(doc):
     )
     add_para(doc, p6, indent_first=True)
 
-    add_h2(doc, "Conclusions")
+
+
+def build_conclusion(doc):
+    """Conclusion as separate Heading 1 section (APA sample convention)."""
+    p_h = doc.add_paragraph("Conclusion", style="Heading 1")
+    set_double_space(p_h)
 
     p7 = (
         "The present meta-analysis provides the first quantitative "
@@ -2672,6 +2677,7 @@ def main():
     build_discussion_part1(doc)
     build_discussion_part2(doc)
     build_discussion_part3(doc)
+    build_conclusion(doc)
     build_references(doc)
     build_figure1_prisma(doc)
     build_forest_plots(doc)
