@@ -2686,14 +2686,15 @@ def main():
     build_discussion_part3(doc)
     build_conclusion(doc)
     build_references(doc)
-    build_figure1_prisma(doc)
-    build_forest_plots(doc)
-    build_funnel_plots(doc)
+    # APA 7th back-matter order: Tables first, then Figures
     build_table1_characteristics(doc)
     build_table2_pooled(doc)
     build_table3_moderators(doc)
     build_table4_sensitivity(doc)
     build_table5_grade(doc)
+    build_figure1_prisma(doc)
+    build_forest_plots(doc)
+    build_funnel_plots(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
