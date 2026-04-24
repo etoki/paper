@@ -64,7 +64,7 @@ def configure_styles(doc):
         rPr.append(rFonts)
     rFonts.set(qn("w:eastAsia"), "Times New Roman")
 
-    # Heading 1
+    # Heading 1 — APA 7 Level 1: centered, bold
     h1 = doc.styles["Heading 1"]
     h1.font.name = "Times New Roman"
     h1.font.size = Pt(12)
@@ -72,6 +72,7 @@ def configure_styles(doc):
     h1.font.color.rgb = RGBColor(0, 0, 0)
     h1.paragraph_format.space_before = Pt(0)
     h1.paragraph_format.space_after = Pt(0)
+    h1.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
     # Heading 2
     h2 = doc.styles["Heading 2"]
