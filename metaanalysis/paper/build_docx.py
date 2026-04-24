@@ -2661,6 +2661,79 @@ def build_table1_characteristics(doc):
     run2.font.size = Pt(10)
 
 
+def italicize_stats_in_doc(doc):
+    """Auto-italicize APA statistical variables in all paragraphs.
+
+    Pattern: match standalone r, p, k, N, M, SD, t, F, df, β, ρ, R², I²,
+    τ², Q, z, n when followed by =, <, >, or (.  Does not touch text in
+    table cells, headings, or already-italicized runs.
+    """
+    import re as _re
+    # Stat tokens to italicize (most common APA 7th)
+    STATS = r"(?:r|p|k|N|n|M|SD|df|F|t|z|β|ρ|R²|I²|τ²|τ|Q|QM|Q_between|Q_b)"
+    # Match: whitespace/paren/start + STATS + space/operator/paren/comma/end
+    pattern = _re.compile(
+        r"(?<=[\s(\[])" + STATS + r"(?=[\s=<>≤≥,.\])]|$)"
+    )
+
+    def process_paragraph(para):
+        # Skip headings and empty
+        if "Heading" in para.style.name:
+            return
+        if not para.text:
+            return
+
+        # Reconstruct full text with italic flags from runs
+        # Then rebuild runs based on pattern
+        segments = []  # list of (text, italic)
+        for run in para.runs:
+            segments.append((run.text, run.italic))
+
+        # Concatenate all text for pattern matching
+        full_text = "".join(t for t, _ in segments)
+        existing_italic = set()  # offsets already italic
+        offset = 0
+        for t, it in segments:
+            if it:
+                existing_italic.update(range(offset, offset + len(t)))
+            offset += len(t)
+
+        # Find all matches, but skip if overlap with existing italic
+        matches = list(pattern.finditer(full_text))
+        if not matches:
+            return
+
+        # Clear runs
+        for run in list(para.runs):
+            run._element.getparent().remove(run._element)
+
+        # Rebuild
+        cursor = 0
+        for m in matches:
+            start, end = m.start(), m.end()
+            if any(i in existing_italic for i in range(start, end)):
+                continue
+            if start > cursor:
+                r = para.add_run(full_text[cursor:start])
+                _set_run_font(r)
+            r_italic = para.add_run(full_text[start:end])
+            r_italic.italic = True
+            _set_run_font(r_italic)
+            cursor = end
+        if cursor < len(full_text):
+            r = para.add_run(full_text[cursor:])
+            _set_run_font(r)
+
+    for para in doc.paragraphs:
+        process_paragraph(para)
+    # Also process table cell paragraphs
+    for table in doc.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                for para in cell.paragraphs:
+                    process_paragraph(para)
+
+
 def main():
     doc = Document()
     configure_page(doc)
@@ -2695,6 +2768,8 @@ def main():
     build_figure1_prisma(doc)
     build_forest_plots(doc)
     build_funnel_plots(doc)
+    # APA 7th: italicize statistical variables (r, p, N, k, etc.) auto-post-process
+    italicize_stats_in_doc(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
 
