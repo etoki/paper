@@ -150,10 +150,13 @@ def build_declarations(doc, for_journal=False):
          "2015 compliant) and supplementary materials are publicly available in the "
          "associated OSF project (https://osf.io/79m5j/)."),
         ("Availability of data and material",
-         "All extracted data, analysis code, search logs, and supplementary materials are "
-         "publicly available on the OSF project page (https://osf.io/79m5j/) and the "
-         "accompanying GitHub repository (https://github.com/etoki/paper, directory "
-         "metaanalysis/)."),
+         "All extracted data, analysis code, search logs, risk-of-bias ratings, "
+         "figures, and supplementary materials are publicly available on the "
+         "associated OSF project (https://osf.io/79m5j/). The complete data "
+         "extraction CSV, R and Python analysis scripts, pooled results, "
+         "moderator analyses, sensitivity analyses, and the generating code "
+         "for all tables and figures are deposited in the corresponding OSF "
+         "components (01_protocol, 02_search, 04_extraction, 06_analysis)."),
         ("Authors' contributions",
          "The author (ET) conceived and designed the review, developed the search strategy "
          "and eligibility criteria, performed the database searches, conducted screening, "
@@ -1021,11 +1024,10 @@ def build_methods_part5(doc):
         "Visualizations, including forest plots, funnel plots, and bubble plots, "
         "were produced using ggplot2. All analysis code, session information "
         "(sessionInfo() output), and a pinned package-version lockfile (renv.lock) "
-        "are deposited on the accompanying OSF project (https://osf.io/79m5j/) "
-        "and GitHub repository (https://github.com/etoki/paper, directory "
-        "metaanalysis/). Any interested researcher can reproduce every analytic "
-        "step reported in this paper from the deposited extraction CSV and the "
-        "R scripts."
+        "are deposited on the associated OSF project (https://osf.io/79m5j/), "
+        "in the 06_analysis component. Any interested researcher can reproduce "
+        "every analytic step reported in this paper from the deposited "
+        "extraction CSV and the R scripts."
     )
     add_para(doc, p3, indent_first=True)
 
