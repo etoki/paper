@@ -1,0 +1,40 @@
+[
+  {
+    "name": "random_from_empirical",
+    "pearson_r": -0.0173,
+    "rmse": 11.969,
+    "mae": 9.462,
+    "pred_mean": 52.181,
+    "pred_sd": 8.432
+  },
+  {
+    "name": "ols_conscientiousness_only",
+    "pearson_r": 0.1479,
+    "rmse": 8.298,
+    "mae": 6.81,
+    "pred_mean": 52.181,
+    "pred_sd": 1.247,
+    "r2_insample": 0.0219,
+    "coefficients": {
+      "intercept": 47.2001,
+      "Conscientiousness": 1.7966
+    }
+  },
+  {
+    "name": "ols_bigfive_full",
+    "pearson_r": 0.1717,
+    "rmse": 8.266,
+    "mae": 6.806,
+    "pred_mean": 52.181,
+    "pred_sd": 1.448,
+    "r2_insample": 0.0295,
+    "coefficients": {
+      "intercept": 46.0549,
+      "Openness": -0.5523,
+      "Conscientiousness": 2.0466,
+      "Extraversion": 0.0775,
+      "Agreeableness": -0.067,
+      "Neuroticism": 0.764
+    }
+  }
+]

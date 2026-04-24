@@ -17,3 +17,8 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# Secrets / API keys (never commit)
+.env
+.env.*
+!.env.example
