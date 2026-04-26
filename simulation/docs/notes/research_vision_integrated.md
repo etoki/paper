@@ -59,9 +59,9 @@
 
 性格特性は単なる表層的な記述ではなく、**遺伝・環境・経験の合成シグナル**として機能する。
 
-- **開放性が高い** → IQ が高い可能性（特に結晶性知能。Anglim et al. 2022 メタ分析で r ≈ 0.20–0.30）
+- **開放性が高い** → IQ が高い可能性（特に結晶性知能。Anglim et al. 2022 メタ分析で Big Five Openness × intelligence ρ ≈ .20）
 - **HH が低い** → Dark Triad 的な問題行動傾向（Lee & Ashton 2005）
-- **Conscientiousness が高い** → 健康行動、長寿（Friedman 系列、Bogg & Roberts 2004）
+- **Conscientiousness が高い** → 健康行動、長寿（Friedman 系列、Bogg & Roberts 2004 で 8 種類の主要健康行動を予測）
 - **Neuroticism が高い** → 精神・身体疾患リスク（Lahey 2009、Kotov et al. 2010）
 
 性格特性を測ることは、その人の遺伝 × 環境の構成を**部分的に逆推定**することに近い。これが性格を介入の入り口として使う方法論的根拠である。
@@ -218,7 +218,7 @@
 
 #### (d) Adverse Childhood Experiences（ACE）
 - Felitti et al. (1998) 以降の蓄積
-- 4+ ACE で多くの健康問題のオッズ比が 2–10 倍
+- 4+ ACE で多くの健康問題のオッズ比が 2–12 倍（suicide attempts で最大 12.2）
 - 性格を経由しない直接効果が大きい
 - 日本でも J-ACE で測定可能
 
@@ -276,7 +276,9 @@
 
 #### Openness × IQ の相関
 - 当初想定：r ≈ 0.1–0.2
-- **修正後：r ≈ 0.20–0.30**（特に結晶性知能とは r ≈ 0.33、Ackerman & Heggestad 1997）
+- **修正後：ρ ≈ .20**（Anglim et al. 2022 メタ分析、Big Five Openness × intelligence、N = 162,636）
+- 結晶性知能との相関はより強い（Ackerman & Heggestad 1997 で r ≈ .33）
+- DeYoung et al. (2014) は "Intellect" 側面が g と独立に関連、"Openness" 側面は verbal intelligence のみと関連と分離
 - 含意：性格は IQ をある程度反映している（氷山の一角の比喩を補強）
 
 #### SES → 子の personality の経路
@@ -381,17 +383,18 @@
 ### 4.3 性格特性は介入可能か
 
 #### 実証的事実
-- Roberts et al. (2017) "A systematic review of personality trait change through intervention"：心理療法・教育介入で性格は変わる
-  - Neuroticism 低下：CBT 系で d ≈ 0.6
-  - Conscientiousness 上昇：d ≈ 0.4
-  - Extraversion / Agreeableness：d ≈ 0.3
+- Roberts et al. (2017) "A systematic review of personality trait change through intervention"（Psychological Bulletin, 143(2), 117–141）：207 件の介入研究のメタ分析
+  - **平均 d ≈ 0.37**（24 週平均の介入効果）
+  - **emotional stability（低 Neuroticism）が最も変化した trait**、次に extraversion
+  - 効果は実験デザイン・非実験デザイン・非臨床介入・縦断追跡でも replicate
+  - trait ごとの細かい d 値は報告される研究設計により異なる
 - Roberts & Mroczek (2008)：personality は加齢を通じて自然に変化（maturity principle）
 - 文化的伝達・教育・養育・職業環境が population mean をゆっくりシフトさせる
 
 #### 介入の現実的なレバー
 | レベル | 介入手段 | 期待効果 |
 |---|---|---|
-| 個人 | CBT、心理療法、コーチング | d ≈ 0.3–0.6 |
+| 個人 | CBT、心理療法、コーチング | d ≈ 0.3–0.5（Roberts 2017 平均値周辺） |
 | 家族 | 養育介入（Parenting programs） | 中長期的 |
 | 学校 | SEL（Social Emotional Learning）、character education | 累積的 |
 | 職場 | リーダーシップ訓練、組織文化 | 中期的 |
@@ -402,7 +405,7 @@
 - 大幅な変化には時間とコストがかかる
 - 全員の性格を均一化することはできない（個人差は残る）
 
-→ 「平均を緩やかにシフトさせる」が現実的目標。Roberts (2017) の d ≈ 0.4 を population scale で達成できれば、集団 wellbeing への効果は substantial。
+→ 「平均を緩やかにシフトさせる」が現実的目標。Roberts (2017) の平均 d ≈ 0.37 を population scale で達成できれば、集団 wellbeing への効果は substantial。
 
 ### 4.4 介入志向の caveats（重要）
 
@@ -710,7 +713,7 @@ Part 0 で「自由意志論争に深入りしない」と宣言した理由：
 
 > **H0**: 個人 wellbeing の決定因として、性格特性（特に低 Neuroticism、高 HH、高 Agreeableness、高 Conscientiousness）の効果量は収入・教育を上回る。
 >
-> **H1**: 性格特性は介入によって集団平均でシフト可能である（d ≈ 0.3–0.6）。
+> **H1**: 性格特性は介入によって集団平均でシフト可能である（Roberts et al. 2017 で平均 d ≈ 0.37、24 週時点）。
 >
 > **H2**: 性格介入を物質再分配と並行して実装することで、社会全体の wellbeing は単独介入より大きく上昇する。
 >
@@ -872,8 +875,8 @@ H3 の探索：HEXACO 7 類型ごとに異なる介入の counterfactual 推定
 #### 強く推奨（○）
 - Plomin, R. (2018). *Blueprint: How DNA Makes Us Who We Are*. MIT Press.
 - Sapolsky, R. (2017). *Behave: The Biology of Humans at Our Best and Worst*. Penguin Press.
-- Wilkinson, R., & Pickett, K. (2009). *The Spirit Level: Why More Equal Societies Almost Always Do Better*. Penguin.
-- Wilkinson, R., & Pickett, K. (2018). *The Inner Level: How More Equal Societies Reduce Stress, Restore Sanity and Improve Everyone's Well-being*. Penguin.
+- Wilkinson, R., & Pickett, K. (2009). *The Spirit Level: Why More Equal Societies Almost Always Do Better*. Allen Lane（UK）/ Bloomsbury Press（US, 2010, sub-title: "Why Greater Equality Makes Societies Stronger"）.
+- Wilkinson, R., & Pickett, K. (2018). *The Inner Level: How More Equal Societies Reduce Stress, Restore Sanity and Improve Everyone's Well-being*. Allen Lane.
 
 #### 補助（△）
 - Pereboom, D. (2001). *Living Without Free Will*. Cambridge University Press.
