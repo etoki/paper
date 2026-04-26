@@ -553,4 +553,153 @@ Part 0 で「自由意志論争に深入りしない」と宣言した理由：
 
 ---
 
-（Part 6 以降、続く）
+## Part 6：既存研究との位置関係
+
+本ビジョンは未踏領域ではなく、**既に半分以上は議論されている領域の統合と日本文脈への展開**である。各先行系譜と本研究プログラムの関係を整理する。
+
+### 6.1 行動遺伝学の系譜
+
+#### 中核文献
+- **Plomin, R. (2018)** *Blueprint: How DNA Makes Us Who We Are* — 遺伝影響の一般向け総括
+- **Polderman, T. J. C., et al. (2015)** "Meta-analysis of the heritability of human traits based on fifty years of twin studies" *Nature Genetics, 47*(7), 702–709 — 50 年の twin study メタ分析
+- **Turkheimer, E. (2000)** "Three laws of behavior genetics and what they mean" *Current Directions in Psychological Science, 9*(5)
+- **Knopik, V. S., Neiderhiser, J. M., DeFries, J. C., & Plomin, R. (2017)** *Behavioral Genetics* (textbook, 7th ed.)
+
+#### 本ビジョンとの関係
+- 行動遺伝学の経験的事実（heritability ≈ 50%、shared environment ≈ ゼロ等）を**前提**として採用
+- これらの事実から介入論を導く点が新規性
+- 行動遺伝学の文献は「事実の集積」、本ビジョンは「事実から政策への橋渡し」
+
+### 6.2 個人予測の限界の系譜
+
+#### 中核文献
+- **Salganik, M. J., et al. (2020)** "Measuring the predictability of life outcomes with a scientific mass collaboration" *PNAS, 117*(15), 8398–8403 — Fragile Families Challenge、160 ML モデルでも個人予測は限定的
+- **Lundberg, I., Brand, J. E., & Jeon, N. (2024)** "The origins of unpredictability in life outcome prediction tasks" *PNAS, 121*(24), e2322973121 — 情報理論的上限の理論
+
+#### 本ビジョンとの関係
+- 「個人予測は困難」という結論を**前提**として採用
+- そこから「集団予測なら可能」「個人診断ではなく集団政策」という戦略的転換を導く
+- 既存研究は「予測の限界」を示すが、本ビジョンは「限界の中で何ができるか」を示す
+
+### 6.3 性格 → 人生 outcome の系譜
+
+#### 中核文献
+- **Roberts, B. W., Kuncel, N. R., Shiner, R., Caspi, A., & Goldberg, L. R. (2007)** "The power of personality: The comparative validity of personality traits, socioeconomic status, and cognitive ability for predicting important life outcomes" *Perspectives on Psychological Science, 2*(4) — 性格・SES・IQ の予測力比較
+- **Soto, C. J. (2019)** "How replicable are links between personality traits and consequential life outcomes? The Life Outcomes of Personality Replication Project" *Psychological Science, 30*(5)
+- **Ozer, D. J., & Benet-Martínez, V. (2006)** "Personality and the prediction of consequential outcomes" *Annual Review of Psychology, 57*
+
+#### 本ビジョンとの関係
+- 性格 → outcome の effect size の蓄積を**直接利用**
+- 特に Roberts (2007) は「性格 vs IQ vs SES」比較の reference
+- 本ビジョンの「性格は氷山の一角」はこの系譜の延長
+
+### 6.4 IQ・認知能力の系譜
+
+#### 中核文献
+- **Strenze, T. (2007)** "Intelligence and socioeconomic success: A meta-analytic review" *Intelligence, 35*(5)
+- **Schmidt, F. L., & Hunter, J. E. (1998)** "The validity and utility of selection methods in personnel psychology" *Psychological Bulletin, 124*(2)
+- **Belsky, D. W., et al. (2016)** "The genetics of success" *Psychological Science, 27*(7)
+
+#### 本ビジョンとの関係
+- IQ の重要性を認めた上で、「IQ は介入困難、性格は介入可能」という比較戦略を採用
+- 性格に focus する empirical 根拠の一つ
+
+### 6.5 幸福度の系譜
+
+#### 中核文献
+- **Steel, P., Schmidt, J., & Shultz, J. (2008)** "Refining the relationship between personality and subjective well-being" *Psychological Bulletin, 134*(1) — 性格 → SWB のメタ分析
+- **DeNeve, K. M., & Cooper, H. (1998)** "The happy personality: A meta-analytic review of 137 personality traits and subjective well-being" *Psychological Bulletin, 124*(2)
+- **Kahneman, D., & Deaton, A. (2010)** "High income improves evaluation of life but not emotional well-being" *PNAS, 107*(38) — Easterlin paradox の現代版
+- **Diener, E., Lucas, R. E., & Scollon, C. N. (2006)** "Beyond the hedonic treadmill" *American Psychologist, 61*(4)
+
+#### 本ビジョンとの関係
+- 「幸福度は性格 > 収入」という empirical 根拠の中核
+- 本ビジョンが性格介入を**幸福設計の中核**に据える根拠
+
+### 6.6 不平等と社会健康の系譜
+
+#### 中核文献
+- **Wilkinson, R., & Pickett, K. (2009)** *The Spirit Level: Why More Equal Societies Almost Always Do Better* — 不平等が全員の outcome を悪化させる
+- **Wilkinson, R., & Pickett, K. (2018)** *The Inner Level: How More Equal Societies Reduce Stress, Restore Sanity and Improve Everyone's Well-being* — 不平等が個人心理に与える影響
+- **Putnam, R. D. (2000)** *Bowling Alone: The Collapse and Revival of American Community*
+
+#### 本ビジョンとの関係
+- 「物質的不平等は健康・幸福度を悪化させる」という前提を共有
+- 本ビジョンは Wilkinson & Pickett に**性格次元**を追加する立場
+- material justice + personality cultivation の両輪戦略
+
+### 6.7 自由意志・決定論の系譜
+
+#### 中核文献
+- **Sapolsky, R. (2023)** *Determined: A Science of Life Without Free Will* — 神経生物学から自由意志否定
+- **Sapolsky, R. (2017)** *Behave: The Biology of Humans at Our Best and Worst*
+- **Pereboom, D. (2001)** *Living Without Free Will* — 哲学側の hard determinism
+
+#### 本ビジョンとの関係
+- Sapolsky とは**目標領域が一部重なる**が、戦略が異なる
+  - Sapolsky：哲学的議論が中心
+  - 本ビジョン：実装可能性・介入論が中心
+- L3（哲学）には深入りせず、L4（政策）にレバレッジする
+- **「Sapolsky を読んだ後の実装論」**として位置づけられる
+
+### 6.8 反優生主義平等論の系譜
+
+#### 中核文献
+- **Harden, K. P. (2021)** *The Genetic Lottery: Why DNA Matters for Social Equality* — anti-eugenic egalitarianism
+- **Conley, D., & Fletcher, J. (2017)** *The Genome Factor*
+- **Harden, K. P., & Koellinger, P. D. (2020)** "Using genetics for social science" *Nature Human Behaviour, 4*(6)
+
+#### 本ビジョンとの関係
+- **最も近い立場**。Harden の枠組みを明示的に採用
+- Harden の主張：遺伝の影響を認めることは、結果の平等化に向けた介入を正当化する
+- 本ビジョン：これを personality 次元に拡張し、日本文脈で具体化
+
+### 6.9 capability approach（哲学）
+
+#### 中核文献
+- **Sen, A. (1999)** *Development as Freedom*
+- **Sen, A. (2009)** *The Idea of Justice*
+- **Nussbaum, M. (2011)** *Creating Capabilities: The Human Development Approach*
+
+#### 本ビジョンとの関係
+- 「能力差を認めて equity 志向で介入」の哲学的根拠
+- Part 5 の「区別 vs 差別」議論の基盤
+
+### 6.10 介入可能性の系譜
+
+#### 中核文献
+- **Roberts, B. W., et al. (2017)** "A systematic review of personality trait change through intervention" *Psychological Bulletin, 143*(2) — 性格は介入で変えられる
+- **Roberts, B. W., & Mroczek, D. (2008)** "Personality trait change in adulthood" *Current Directions in Psychological Science, 17*(1)
+- **Heckman の Perry Preschool 系列研究** — 早期介入の長期効果
+
+#### 本ビジョンとの関係
+- 「性格は介入可能」という empirical 根拠
+- 本ビジョンの介入論を実装可能なものにする
+
+### 6.11 倫理・公正性（差別への悪用予防）
+
+#### 中核文献
+- **O'Neil, C. (2016)** *Weapons of Math Destruction* — 集団予測の悪用パターン
+- **Angwin, J., et al. (2016)** "Machine bias" *ProPublica* — COMPAS 論争の原典
+- **Eubanks, V. (2018)** *Automating Inequality*
+
+#### 本ビジョンとの関係
+- 「予測モデルが差別ツールに転用されるパターン」の予防接種
+- Part 5 の倫理論の補強材料
+
+### 6.12 本ビジョンの新規性の所在
+
+既存研究との比較から、本研究プログラムの新規性は以下の組み合わせに収束する：
+
+1. **日本（非 WEIRD）データ**での実証 — 既存は欧米中心
+2. **HEXACO 7 類型**を介入単位として採用 — 既存は Big Five が多い
+3. **性格 → 幸福度の集団効果量**の定量化 — Steel et al. (2008) の日本版アップデート
+4. **介入可能性の type-conditional 分析** — どの類型にどの介入が効くか
+5. **LLM simulation による反実仮想政策探索** — Doc 1 の候補 B/C
+6. **Harden + Sapolsky + Wilkinson の統合的実装論** — 哲学・倫理・実装の橋渡し
+
+→ **「未踏」ではなく「統合と日本適用」が貢献**。これを謙虚に positioning することが学術的にも倫理的にも安全。
+
+---
+
+（Part 7 以降、続く）
