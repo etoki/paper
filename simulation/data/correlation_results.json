@@ -1,0 +1,226 @@
+{
+  "N": 103,
+  "univariate": {
+    "Openness": {
+      "pearson_r": -0.014690062646127973,
+      "pearson_p": 0.8829139510395158,
+      "spearman_rho": -0.046045448546216554,
+      "spearman_p": 0.6441873142423595
+    },
+    "Conscientiousness": {
+      "pearson_r": 0.1479248582611077,
+      "pearson_p": 0.13591736723862635,
+      "spearman_rho": 0.12841672738429077,
+      "spearman_p": 0.19610045885124502
+    },
+    "Extraversion": {
+      "pearson_r": 0.014770026827008953,
+      "pearson_p": 0.8822811658071885,
+      "spearman_rho": 0.003404786584217885,
+      "spearman_p": 0.9727709424412145
+    },
+    "Agreeableness": {
+      "pearson_r": 0.021885347522460175,
+      "pearson_p": 0.8263169842914004,
+      "spearman_rho": 0.02063116984190788,
+      "spearman_p": 0.8361268917263398
+    },
+    "Neuroticism": {
+      "pearson_r": 0.04917470540909136,
+      "pearson_p": 0.6218171589359496,
+      "spearman_rho": 0.05987721498698918,
+      "spearman_p": 0.5479662380099547
+    },
+    "NumberOfLecturesWatched": {
+      "pearson_r": 0.20430644119652996,
+      "pearson_p": 0.03844604742785947,
+      "spearman_rho": 0.10320310527139441,
+      "spearman_p": 0.2995552947477326
+    },
+    "ViewingTime": {
+      "pearson_r": 0.09565045639344492,
+      "pearson_p": 0.3364994824621525,
+      "spearman_rho": 0.05191643732336048,
+      "spearman_p": 0.6024953780342005
+    },
+    "NumberOfConfirmationTestsCompleted": {
+      "pearson_r": 0.47890529730690207,
+      "pearson_p": 3.101355916924988e-07,
+      "spearman_rho": 0.4226549137819487,
+      "spearman_p": 8.691954670778403e-06
+    },
+    "NumberOfConfirmationTestsMastered": {
+      "pearson_r": 0.4780005270735799,
+      "pearson_p": 3.2880444009376903e-07,
+      "spearman_rho": 0.4429262504136774,
+      "spearman_p": 2.7986189721852952e-06
+    },
+    "AverageFirstAttemptCorrectAnswerRate": {
+      "pearson_r": 0.12013527558952708,
+      "pearson_p": 0.22676149305931267,
+      "spearman_rho": 0.09586406422362181,
+      "spearman_p": 0.33541652197221117
+    }
+  },
+  "models": {
+    "BigFive_full": {
+      "predictors": [
+        "Openness",
+        "Conscientiousness",
+        "Extraversion",
+        "Agreeableness",
+        "Neuroticism"
+      ],
+      "in_sample": {
+        "r2": 0.029476561441612814,
+        "r2_adj": -0.020550419927376273,
+        "intercept": 46.05493380068863,
+        "coefs": {
+          "Openness": -0.5523041024844451,
+          "Conscientiousness": 2.0465571000659946,
+          "Extraversion": 0.07752781652765042,
+          "Agreeableness": -0.06701380491105345,
+          "Neuroticism": 0.7639638236777013
+        }
+      },
+      "cv10": {
+        "pearson_r": -0.1104641116679923,
+        "rmse": 8.794033061376092,
+        "mae": 7.215385966287748,
+        "r2_oof": -0.09845405970011978
+      },
+      "loo": {
+        "pearson_r": -0.1500499588336332,
+        "rmse": 8.75558059367804,
+        "mae": 7.215263419959888,
+        "r2_oof": -0.08886894120039712
+      }
+    },
+    "BigFive_C_only": {
+      "predictors": [
+        "Conscientiousness"
+      ],
+      "in_sample": {
+        "r2": 0.0218817636915688,
+        "r2_adj": 0.012197424718217942,
+        "intercept": 47.20008327559769,
+        "coefs": {
+          "Conscientiousness": 1.7966288047260812
+        }
+      },
+      "cv10": {
+        "pearson_r": 0.05865297990893308,
+        "rmse": 8.42183002054496,
+        "mae": 6.901991955637291,
+        "r2_oof": -0.007438755035472644
+      },
+      "loo": {
+        "pearson_r": 0.02034674792557706,
+        "rmse": 8.457110087943958,
+        "mae": 6.941213349395926,
+        "r2_oof": -0.015897000577784093
+      }
+    },
+    "Behavior_full": {
+      "predictors": [
+        "NumberOfLecturesWatched",
+        "ViewingTime",
+        "NumberOfConfirmationTestsCompleted",
+        "NumberOfConfirmationTestsMastered",
+        "AverageFirstAttemptCorrectAnswerRate"
+      ],
+      "in_sample": {
+        "r2": 0.24736324837851253,
+        "r2_adj": 0.2085675395320441,
+        "intercept": 44.458814373073494,
+        "coefs": {
+          "NumberOfLecturesWatched": 0.05585734501557449,
+          "ViewingTime": -1.9288332084457734e-05,
+          "NumberOfConfirmationTestsCompleted": 0.03848811416740942,
+          "NumberOfConfirmationTestsMastered": 0.0028078135402458486,
+          "AverageFirstAttemptCorrectAnswerRate": 6.130228001509125
+        }
+      },
+      "cv10": {
+        "pearson_r": 0.41879203214738026,
+        "rmse": 7.6701323248837605,
+        "mae": 6.4467143717636475,
+        "r2_oof": 0.1643750028652221
+      },
+      "loo": {
+        "pearson_r": 0.4184352404820153,
+        "rmse": 7.650372155401625,
+        "mae": 6.431716250412307,
+        "r2_oof": 0.16867501262777695
+      }
+    },
+    "Behavior_TestsMastered_only": {
+      "predictors": [
+        "NumberOfConfirmationTestsMastered"
+      ],
+      "in_sample": {
+        "r2": 0.22848450388262032,
+        "r2_adj": 0.2208457365943295,
+        "intercept": 48.635845673108534,
+        "coefs": {
+          "NumberOfConfirmationTestsMastered": 0.044234055690552616
+        }
+      },
+      "cv10": {
+        "pearson_r": 0.4397517202462295,
+        "rmse": 7.568756532841599,
+        "mae": 6.381658478895532,
+        "r2_oof": 0.18631786488364588
+      },
+      "loo": {
+        "pearson_r": 0.4467952603510503,
+        "rmse": 7.518662580849937,
+        "mae": 6.3239716246054005,
+        "r2_oof": 0.19705296156840113
+      }
+    },
+    "Combined_BigFive_plus_Behavior": {
+      "predictors": [
+        "Openness",
+        "Conscientiousness",
+        "Extraversion",
+        "Agreeableness",
+        "Neuroticism",
+        "NumberOfLecturesWatched",
+        "ViewingTime",
+        "NumberOfConfirmationTestsCompleted",
+        "NumberOfConfirmationTestsMastered",
+        "AverageFirstAttemptCorrectAnswerRate"
+      ],
+      "in_sample": {
+        "r2": 0.25696062067647096,
+        "r2_adj": 0.17619547075000042,
+        "intercept": 43.30650325426588,
+        "coefs": {
+          "Openness": -0.7300426211436647,
+          "Conscientiousness": 0.9470674070132618,
+          "Extraversion": 0.28091808534607354,
+          "Agreeableness": -0.42755250580588566,
+          "Neuroticism": 0.5266587230345534,
+          "NumberOfLecturesWatched": 0.06539368733212814,
+          "ViewingTime": -2.276739027180383e-05,
+          "NumberOfConfirmationTestsCompleted": 0.022230882184029976,
+          "NumberOfConfirmationTestsMastered": 0.016947676455405958,
+          "AverageFirstAttemptCorrectAnswerRate": 6.429507076530055
+        }
+      },
+      "cv10": {
+        "pearson_r": 0.31891319716453304,
+        "rmse": 8.204225607117703,
+        "mae": 6.784235741579265,
+        "r2_oof": 0.04394935422989943
+      },
+      "loo": {
+        "pearson_r": 0.3359281719888204,
+        "rmse": 8.03730057949636,
+        "mae": 6.669657128957906,
+        "r2_oof": 0.08245762382834021
+      }
+    }
+  }
+}
