@@ -1,0 +1,984 @@
+ The threat of analytic flexibility in using large language models to simulate
+                                   human data
+
+                                                    Jamie Cummins
+                                           University of Bern, Switzerland
+                                        University of Oxford, United Kingdom
+
+         Social scientists are now using large language models to create “silicon samples”: synthetic
+         datasets intended to stand in for human respondents. However, producing these samples
+         requires many analytic choices, including model selection, sampling parameters, prompt format,
+         and the amount of demographic or contextual information provided. Across two studies, I
+         examine whether these choices materially affect correspondence between silicon samples and
+         human data. In Study 1, I generated 252 silicon-sample configurations for a controlled case study
+         using two social-psychological scales, evaluating whether configurations recovered participant
+         rankings, response distributions, and between-scale correlations. Configurations varied
+         substantially across all three criteria, and configurations that performed well on one dimension
+         often performed poorly on another. In Study 2, I extended this analysis to a published silicon-
+         sample use case by re-examining Argyle et al.’s (2023) Study 3 using 66 alternative
+         configurations. Correlations between human and silicon association structures differed
+         substantially across configurations, from r = .23 to r = .84. Taken together, the results from these
+         studies demonstrate that different defensible configuration choices can materially alter
+         conclusions about the fidelity of silicon samples. I call for greater attention to the threat of
+         analytic flexibility in using silicon samples and outline strategies that researchers may adopt to
+         reduce this threat.
+
+      Generative large language models (LLMs) have                   human respondents (Henriques, 2026; Ipsos, 2025;
+ushered in a sea change within the social sciences. The              Toluna, 2026).
+capacity of these models to produce coherent natural                 Silicon samples: Promises and early applications
+language output to queries, as well as their flexibility,                 Though only a recent phenomenon, researchers have
+efficiency, and generalisability, has led researchers to             already extensively used these silicon samples to
+explore their use in tasks across the research process. One          simulate participants across the social sciences, including
+of the most ambitious proposed uses of LLMs in this                  in psychology, economics, sociology, marketing, consumer
+respect has been to use them as simulated research                   behavior, and beyond. Indeed, results from some of these
+participants to determine how human participants might               studies appear rather promising. Mei et al. (2024) for
+respond to a particular context, set of survey questions, or         instance, found that both ChatGPT-3.5-Turbo and GPT-4
+intervention (Z. Cui et al., 2025). This is based on the tacit       reproduced human-like behavior across six canonical
+assumption that, on some level, the corpuses of data                 games from economics, often aligning with average
+which LLMs are trained on may enable them to                         human choices. Further to this, Park et al. (2024) found
+approximate similar data-generating processes to those               that LLMs seemed to replicate results from a range of
+which underpin human responses (Lin, 2025b). If                      studies from the ManyLabs 2 project (although the models
+achievable, this could have a transformative impact on the           showed less response diversity than human samples).
+social sciences. It would enable researchers to predict the          Similarly Marjieh et al. (2024) explored whether LLMs
+responses of vulnerable and/or hard-to-reach                         could be used to generate large-scale datasets of sensory
+populations of participants without the need for time- and           judgments, finding that the similarity structures derived
+resource-intensive research studies, improving the                   from these synthetic datasets aligned closely with human
+representativeness and diversity of research (Cui et al.,            perceptual organization. On a larger scale, Cao et al.
+2025). Researchers could iteratively pilot and improve               (2025) explicitly trained language models to approximate
+their planned studies using LLMs prior to deploying them             the distribution of responses from international survey
+in human samples, improving the robustness of the                    datasets, showing that distribution-aware fine-tuning led
+research literature (Anthis et al., 2025; Säuberli et al.,           to alignment between silicon samples and real survey
+2025).                                                               responses. Further still, Dillion et al. (2023) highlighted
+      More generally, having access to LLMs which can act            strong correspondence between LLMs and humans on
+as valid surrogates for human participants could enable              moral judgement tasks (r > .90), as well as LLM-human
+swifter comparison of multiple competing hypotheses                  alignment in domains including voting behavior, problem-
+(Zabaleta & Lehman, 2024). Indeed, it is difficult to                solving, and economic games.
+overstate how revolutionary an effective “participant                     The studies above generally looked at the capacity for
+simulator” could be for the social sciences. The potential           LLMs to act as research participants without providing
+for such methods has not gone unnoticed: major                       them with additional information about the type of
+companies such as Toluna, Ipsos, and Qualtrics are                   participant they should act as. Other silicon sample
+already marketing synthetic personas, synthetic                      research has additionally provided the model with
+participants, or synthetic panels as practical research              specific demographic information (e.g., age, gender,
+tools which can be used as supplements to, or in place of,           income level) that it should account for when responding,
+
+
+                                                                 1
+varying the provided information across calls. For                  Analytic flexibility in silicon samples
+example, Hewitt et al. (2025) evaluated whether GPT-4                     Beyond general limitations in their implementation,
+could simulate the results of social science experiments by         there is one specific issue with the use of silicon samples
+creating a silicon sample of individual participants with           that represents a critical threat: the substantial degree of
+specific demographic profiles. Using materials from 70              analytic flexibility associated with their use. The ground
+nationally representative survey experiments (476                   of this garden of forking paths is well-trodden by social
+treatment effects), they found that GPT-4-derived                   scientists; researchers have noted for years now that
+estimates of treatment effects were strongly correlated             analytic flexibility can lead to variation in the results
+with the actual experimental outcomes (r = 0.85), and on            which are reported in scientific research (Gelman & Loken,
+average performed at least as well as human forecasters.            2013). In the context of p-value and null hypothesis
+In a similar vein, Saynova et al. (2025) tested whether             significance testing, Simmons et al. (2011) demonstrated
+LLMs could predict the replicability of behavioral social           that undisclosed methodological and analytic flexibility
+science studies, simulating participant responses with              can inflate false-positive rates to unexpectedly high values,
+several LLMs based on 14 studies from the Many Labs 2               which can in turn lead to subsequent issues with the
+project. The authors concluded that LLMs could                      replicability of associated inferences made based on these
+potentially be suitable for this purpose, with models               results (see also Stefan & Schönbrodt, 2023; Wicherts et
+achieving accuracies as high as 77%. Complementary to               al., 2016). These issues have been highlighted in existing
+this, others have constructed large silicon samples using           fields of social science, including in fMRI methodologies
+GPT-3 and GPT-4 by systematically varying                           (Carp, 2012) and large-scale survey research (Masur,
+sociodemographic variables included within prompts,                 2023).
+showing that model outputs could approximate the                          Research using large language models is equally, if
+distributions of human survey data across numerous                  not more, susceptible to these issues. There is necessarily
+psychological and political domains (Argyle et al., 2023).          a very wide range of analytic decisions that researchers
+Qu & Wang (2024) used sociodemographic conditioning                 must make when simulating human responses using LLMs,
+to simulate public opinion across World Values Survey               and these analytic decisions may have a major impact on
+items, reporting both promising aggregate alignments and            output. Some of these issues have already reared their
+systematic biases. Beyond academic contexts, Brand et al.           head in existing research. For example, different models
+(2023) demonstrated how LLM-generated silicon                       can produce dramatically different results (Aher et al.,
+samples can be applied in marketing research, using                 2022; D. Li et al., 2025; Xie et al., 2024). Other research has
+sociodemographic prompts to model consumer                          observed that model output is influenced by the specific
+preferences and thereby substituting for traditional                demographic characteristics included in prompts (Sun et
+survey samples.                                                     al., 2024), the presence or absence of fine-tuning models
+Limitations and emerging concerns                                   (Binz et al., 2025; Lu et al., 2025), and even the specific
+      The studies described above represent a small                 formatting of prompts (Sclar et al., 2024). At a more
+number of examples of work which seems to suggest                   technical level, previous work has demonstrated that
+silicon samples are feasible, useful, and accurate. However,        variations in the ‘temperature’ parameter when using
+not all work on the matter has been so positive in its              LLMs produces substantial variation in silicon sample
+assessment. Schröder et al. (2025) for instance, tested             output (L. Li et al., 2025; Milička et al., 2024). Given the
+whether LLMs could reproduce human moral judgments                  variability in output due to these researcher choices, this
+when scenarios were subjected to subtle rewordings that             may contribute to the mixed conclusions in the literature
+preserved surface similarity but shifted semantic meaning           on whether or not LLMs are good simulators of human
+(see also Baumann et al., 2025). While human participants           responses.
+adjusted their evaluations to reflect the altered meaning,                There are further aspects of flexibility in silicon
+LLMs tended to ignore these differences and produced                sample workflows that are, as yet, relatively unexamined.
+nearly identical ratings for both the original and reworded         For instance, if having an LLM complete a series of
+items. Lutz et al. (2025) reported a slightly more                  different measures, should the items of these measures be
+optimistic picture, showing that with careful prompt                presented (i) all-at-once in a single prompt, (ii) scale-by-
+design and demographic alignment, some LLMs were able               scale, where separate calls are made for each scale, or (iii)
+to approximate distributions of human responses across a            item-by-item, where every item receives its own call per
+range of social science tasks. However, they also                   simulated participant? Separately, though temperature
+demonstrated that even minor variations in prompt                   has received some degree of attention, other LLM
+formatting could dramatically affect these outcomes.                hyperparameters such as top-k (which limits sampling to
+Indeed, LLMs’ sensitivity to prompt features has been               the k most likely tokens) or top-p (which samples from
+reported in other cases, with authors noting that even              the smallest set of tokens whose cumulative probability
+seemingly-irrelevant prompt features such as formatting             exceeds p) have not. Further still, impact of changes in the
+specifications can have a dramatic effect on output (Sclar          “reasoning effort” parameter associated with several
+et al., 2024). Even among those studies which concluded             reasoning LLMs (such as OpenAI’s ChatGPT-5 and the o-
+that LLMs could accurately simulate human responses,                series of models) has also not yet been examined, nor has
+these are often accompanied with caveats (e.g., Hewitt et           whether there is a difference between reasoning versus
+al. found that native predictions needed to be adjusted             non-reasoning models generally. There are also
+downwards as they tended to overestimate effects; Park              unexamined questions relating to the degree of
+et al. found less diversity among response distributions            information provided to the model. For instance, whether
+than in humans) or inconsistencies in results between               the wording of items is provided identically to how they
+studies (e.g., contrary to Park et al.’s findings, Suh et al.       would be presented to participants, or whether
+(2025) found fine-tuned LLMs could simulate response                supplementary information is also given (e.g.,
+distributions accurately).                                          distributions of scores in the population, precise technical
+
+
+                                                                2
+definitions of constructs). This can also be extended to            Table 1. A list of some dimensions of analytic decisions
+how model output is treated; for instance, the scores               that be made during the process of generating silicon
+returned by the model may be accepted as the to-be-                 samples, as well as some of the specific choices possible
+analysed data as they are, or processed/rescaled in some            associated with these decisions.
+manner to improve accuracy (Kambhatla et al., 2025). It is
+important to note, too, that many other degrees of                           Dimension                 Possible Analytic
+freedom that are not mentioned here could plausibly be                                                    Decisions
+present in these workflows. Researchers have begun to                                                  (non-exhaustive)
+make efforts to taxonomise the potential range of these
+                                                                     Model choice                 - Chat assistant vs. reasoning
+decisions in different research contexts (Abdurahman et                                           model
+al., 2025; Lin, 2025a, 2025c), yet it is difficult to                                             - Specific model family (e.g.,
+exhaustively document them, particularly when features                                            ChatGPT, Llama, Deepseek)
+of prompts can have a near infinite number of dimensions                                          - Open-source vs.
+to vary. A nonexhaustive list of these examined and                                               proprietary
+unexamined possibilities is provided in Table 1.                                                  - Fine-tuned vs. general
+Sleepwalking into the garden of forking paths                                                     purpose
+      Two things are now clear. First, the use of LLMs for
+                                                                     Model hyperparameter         - Temperature specification
+the purpose of creating silicon samples is rapidly
+                                                                     settings                     - Reasoning effort
+increasing across the social sciences. There is a clear hope                                      specification
+and a growing belief that LLMs could be used to accurately                                        - Top-k constraint
+simulate human responses to stimulus materials. If this is                                        - Top-p constraint
+achievable, it would have profound implications for how
+research with human subjects is conducted. This is                   Scale prompting strategy     - All-in-one
+facilitated by the highly accessible nature of these models:                                      - Scale-by-scale
+commercial LLMs are general-purpose, low-cost, and                                                - Item-by-item
+highly intuitive (at least on the surface). Clearly, LLMs are
+already being used for this purpose, and will be used by             Demographics provided        - Age
+more and more researchers for these purposes.                                                     - Gender
+      Second, silicon sampling is not a singular method:                                          - Country of residence
+there are many decisions that need to be made in the                                              - Country of origin
+                                                                                                  - Ethnicity
+process of generating a silicon sample and all of these
+                                                                                                  - Income level
+analytic decisions, both individually and cumulatively,                                           - Political affiliation
+will influence the content of silicon samples - often                                             - Performance on other tasks
+substantially, and in ways that are not well-understood.
+This is a major threat to their utility and validity. Most           Scale information and        - Items only
+critically, it means that if researchers have no good basis          context provided             - Definitions of scale
+upon which to inform these methodological choices, then                                           constructs
+this analytic flexibility could potentially allow researchers                                     - Psychometric norms of
+to arrive at essentially any result using silicon samples,                                        items
+analogous to Simmons et al.’s (2011) warning that                    LLM calling approach         - Single call
+analytic flexibility in human subjects research “allows                                           - Multiple-calls-across-same-
+presenting anything as significant”. Without identifying                                          parameters
+which parameters and decisions (if any) are most likely to                                        - Multiple-calls-across-
+render results consistent with human responses for a                                              different-parameters
+                                                                                                  - Multiple-calls-across-
+particular research question, the use of silicon samples is
+                                                                                                  different-models
+as likely to lead researchers astray as it is to guide them.                                      - Multiple-calls-across-
+      The combination of these two facts - the growing use                                        different-parameters-and-
+of LLMs and the lack of good empirical justification for                                          models
+analytic decisions which affect output - means that the
+social sciences are currently sleepwalking into a literature         Output handling and score    - Native scores used
+filled with results grounded in arbitrary methodological             postprocessing               - Rescaled based on
+decisions rather than principled and informed analytic                                            normative population
+choices. We already know the consequences of creating                                             distributions
+such a literature: unrobust and poorly-replicable findings,
+misled generations of researchers, and swathes of papers            This Research
+which ultimately provide little information about the                     The first step in developing more principled
+domain they intended to explore. But given that silicon             standards for the use of silicon samples is to directly
+samples are still a relatively nascent tool, the social             investigate the variation in silicon samples which can
+sciences have a rare opportunity to get ahead of this               come about due to specific analytic decisions, and to
+problem and set standards ahead of time for this literature.        determine whether there appears to be particular settings,
+We can use the tools created, and lessons learned, from             parameters, or decisions that generally produce better
+past mistakes to develop more principled standards and              silicon samples. To date, there has been no dedicated
+recommendations for when and how silicon samples are                investigation into this question; studies which have seen
+created, used, and evaluated within research.                       effects of particular analytic decisions tend to only
+                                                                    examine a single feature, while studies which have
+
+
+
+                                                                3
+considered multiple features have tended to be                            Measures
+conceptual, rather than empirical, in nature.                             Belief In A Just World Scale. The BJW scale is a 6-item
+      In this work, I conduct a direct and focused analysis         measure which measures the belief that, in general,
+of the impact of analytic flexibility on silicon sample             people get what they deserve. For each of the six items,
+output, with the aim of assessing whether even a small              participants respond on a Likert scale from 1 (strongly
+number of analytic decisions can affect consistency with            disagree) to 6 (strongly agree). The sum score from these
+ground-truth human data. In Study 1, I use data consisting          items represents a global BJW score (Lipkus, 1991).
+of 85 participants taken from a large-scale social and                    Gut Feelings Scale. The Gut Feelings scale consisted of
+personality psychology dataset containing responses to              a two-item scale which asked participants to separately
+psychological scales and extensive demographic                      rate gut feelings towards African-Americans and
+information. I focus in particular on four analytic decision        European-Americans on a scale from 1 (strongly
+points mapped out in Table 1: (i) the model used, (ii) the          negative) to 10 (strongly positive). A preference score is
+temperature or reasoning effort selected, (iii) the degree          then calculated based on the difference in ratings towards
+of demographic information provided, and (iv) the scale             the two groups. This scale, as well as similar such scales,
+sampling strategy. I evaluate LLM consistency with                  are frequently used in social psychology to investigate
+human data based on three different data features:                  preferences towards social groups (e.g., Ranganath et al.,
+accurately ranking participants, accurately estimating              2008).
+scale response distributions, and accurately estimating                   Demographic Questions. The demographic questions
+the correlation between two variables. These features in            asked of participants consisted of their age, gender,
+particular were chosen because they align with                      country of residence, education level, ethnicity, income
+dimensions of Argyle et al.’s (2023) position on assessing          level, and political identity. The specific wording of these
+algorithmic fidelity of silicon samples (specifically in            items can be found in the codebook for the AIID dataset
+terms of the Pattern Correspondence criterion) In Study             (https://osf.io/mxabf/).
+2, I extend this work further, and re-examine whether this                Analytic Features and Silicon Samples
+analytic flexibility can have a material impact on the                    I selected four of the features mapped out in Table 1
+conclusions derived from an existing study using silicon            to investigate the variation in silicon samples based on
+samples (namely, Argyle et al., 2023, Study 3).                     differing analytic decisions: the model used (ChatGPT 5-
+                           Study 1                                  mini, ChatGPT 5-nano, ChatGPT 4o, ChatGPT 4o-mini,
+      For Study 1, I examined how a small number of                 ChatGPT 3.5-turbo, o4-mini, o3-mini, Llama 3.3 70b
+analytic choices may affect the output of silicon samples           versatile, and Deepseek-R1-distill-Llama-70b), the
+in terms of their performance relative to two commonly              temperature or reasoning effort used (reasoning efforts of
+used social psychology scales. To do this, I used data from         “high” and “low” applicable to 5-mini, 5-nano, o3-mini,
+the Attitudes, Identity, and Individual Differences dataset         and o4-mini; temperatures of 0, 0.5, 1, and 1.5 applicable
+(AIID; Hussey et al., 2022): a very large scale dataset of          to all other models), the degree of demographic
+approximately 200,000 participants in total, each of                information provided (none, age-and-gender only, or
+whom completed a small subset of a wide array of                    extensive information), and scale sampling strategy (all-
+measures from social and personality psychology, as well            in-one, scale-by-scale, or item-by-item). This led to a total
+as a detailed set of demographic information questions.             of 252 possible combinations. For all of these 252
+Measures were included in this dataset by the original              combinations, the LLM was required to generate
+researchers because they were topically relevant to social          predictions for each of 8 items (2 Gut Feelings items, 6
+psychological research and are frequently used within               BJW items) for each of the 85 participants. After
+such settings. I arbitrarily selected two scales from this          simulating all combinations, this led to a final silicon
+dataset for examination: specifically, a preference                 sample dataset of 21,420 simulated participants; after
+measure of “gut feelings” towards African-Americans vs.             exclusions for refusals or other incomplete output, this
+European-Americans (“Gut Feelings Scale”; Ranganath et              left a total of 21,153 simulated participants with complete
+al., 2008) and the Belief In A Just World scale (“BJW Scale”;       data. The Python code used to produce these samples is
+Lipkus, 1991). The constructs behind both of these scales           available at https://osf.io/skbqm/.
+receive substantial attention in social psychology; for                   Analytic Strategy
+instance, the paper which originally conceived of the                     Processing and analysis of the human and LLM data
+“belief in a just world” concept has been cited more than           was conducted using R (R Core Team, 2025). All data,
+1,800 times (Rubin & Peplau, 1975), while the assessment            processing code, and analysis code is available at
+of gut feeling/”automatic” (racial) evaluations holds its           https://osf.io/skbqm/. Although there are many potential
+own subfield within social psychology (e.g., Dovidio et al.,        ways that we might analyse the accuracy of silicon
+1997). Several studies in social psychology have also               samples relative to ground-truth human data, here I focus
+previously examined links between racial bias more                  on three specific data features for evaluation: ranking
+generally and belief in a just world (e.g., da Costa Silva et       participants, estimating response distributions, and
+al., 2018; Litam et al., 2022) As such, investigating the           estimating the relationship between two scales. I also
+relationship between these two scales very much                     examine whether there is consistency among
+represents a plausible question that a social psychologist          performance on each of these features.
+may have, and one they may wish to address using silicon                  In some cases, requests to the language models
+samples.                                                            returned refusals to provide ratings, nonsense output (i.e.,
+Method                                                              when temperature was set to 1.5), or text which was not
+      Sample                                                        in the prespecified format. In cases where valid ratings
+      In the AIID dataset, there were a total of 85                 were given but text was not in the prespecified format,
+participants who provided complete data on both of these            additional parsing was used to get the output into
+scales, as well as the demographic questionnaires.                  appropriate format for analysis. In cases where models
+
+
+                                                                4
+refused to provide ratings or gave nonsensical output, all         scale. However, before estimating these distance values, I
+responses on the other scales for that participant                 firstly scaled scores for each scale relative to their
+generated within that LLM configuration were excluded;             minimum and maximum bounds (i.e., -9 to 9 for the Gut
+in other words, participants were only included for a given        Feelings scale; 6 to 36 for the BJW scale). This ensured
+configuration if all responses returned a valid rating. In         that Wasserstein distance values were normalised
+some cases, this led to a large quantity of incomplete data.       between scales, allowing for a more interpretable
+Therefore, analyses were conducted only on                         comparison. I also estimated the “human” range of
+configurations that returned complete data for at least            Wasserstein distances for each scale by (i) randomly
+50% of all participants. Additionally, there were some             splitting the human data into two halves, (ii) estimating
+cases where models gave identical numeric output for the           Wasserstein distance between these two datasets, and
+entire sample (primarily when temperature was set to               (iii) repeating this process 2000 times. This provided a
+zero and no demographic information was provided).                 point estimate and confidence intervals for what the
+Consequently, correlations involving these scales could            Wasserstein distance between two human samples for
+not be calculated (since the associated variance was zero)         each scale may look like, thereby providing a baseline
+and therefore these observations were also excluded.               against which to compare the silicon samples’ distances.
+      Data Feature 1: Ranking Participants. If a silicon           After exclusions, Wasserstein distances were calculated
+sample has validly simulated participant responses, then           for 251 configurations for the BJW scale, and 252
+the ordinal ranking for a given participant between the            configurations for the Gut Feelings scale.
+ground-truth human data and the silicon sample should                    Data Feature 3: Estimating The Relationship Between
+be roughly the same. In other words: if a participant’s            Scales. Beyond individual scale qualities, another
+observed score is low, then the LLM should predict a               dimension to evaluate the performance of silicon samples
+relatively low score; if a participant’s observed score is         relates to how well they recover the relationship between
+high, then the LLM should predict a relatively high score.         two scales. After all, researchers are not only interested in
+The simplest way to examine this is to estimate the                the characteristics of individually-created variables, but
+correlation between human scores and their                         also the relationships between them. If silicon samples
+corresponding LLM estimates for each configuration (and            provide accurate information about human responses,
+do this separately for each scale). The closer the                 then the estimated correlation between two scales from
+correlation value to 1, the closer the ordinal ranking of          the silicon sample should approximate that found in the
+participants is to the true ranking. Therefore, for each           corresponding human data. I therefore estimated the
+silicon sample configuration for both scales separately, I         correlation between the BJW scale and Gut Feelings scale
+estimated the correlation between participants’ predicted          from each silicon sample configuration, and compared it
+scores in a given silicon sample and their corresponding           to the ground-truth correlation between scales in the
+scores in the human ground-truth data. After exclusions,           human data. After exclusions, this correlation was
+these correlations were conducted on 246 configurations            conducted on 232 pairs of BJW/Gut Feelings scale scores.
+for the BJW scale, and 233 configurations for the Gut              Consistency Across Data Features. In addition to
+Feelings scale. Importantly, readers should note that this         examining the three above data features separately, I also
+is a test of pattern correspondence (Argyle et al., 2023),         sought to examine whether there was consistency in the
+specifically in relation to the preservation of ordinal            performance of silicon sample configurations across these
+ranking among participants, and not individual-level               data features. In other words, if a silicon sample produced
+prediction.                                                        using a particular configuration performs well when
+      Data Feature 2: Estimating Response Distributions.           evaluated based on one data feature (say, ranking
+Beyond the ordinal ranking of participants’ responses to a         participants), does this mean this sample is likely to be
+particular scale, there remains an additional question:            accurate for other data features too (say, estimating the
+whether silicon samples accurately model the distribution          relationship between scales)? To do this, I estimated the
+of responses to that scale. Recall that the use of silicon         correlation between configurations’ performances on the
+samples comes with the assumption (and hope) that the              three features above, including the estimates for both
+data-generating process for the sample approximates that           scales focusing just on participants’ rank-order and the
+of the human sample. This does not, of course, mean that           sample distribution separately (leading to a total of five
+the same psychological processes are involved in the               variables to be correlated: participant ranking for the BJW
+production of these data, but rather that the data                 scale, participant ranking for the Gut Feelings scale,
+themselves reflect how humans will behave or respond,              distribution approximation for the BJW scale, distribution
+irrespective of the data-generating processes at play (Lin,        approximation for the Gut Feelings scale, and the
+2025c). By extension, if silicon samples are accurate, they        estimated relationship between variables). For the
+ideally should yield response distributions which are              “participant ranking” scores, I used the same correlation
+similar to the human data.                                         value estimated in the Data Feature 1 analysis. For the
+      To compare the correspondence of response                    “distributional approximation” scores, I used the
+distributions in silicon samples with human data, I used           Wasserstein distance estimates used in the Data Feature
+Wasserstein distance estimates (Kantorovich, 1960; Lutz            2 analysis. For the “relationship between variables” scores,
+et al., 2025). This metric quantifies the minimum effort           I used the absolute error between the predicted
+required to transform one distribution into another by             correlation for a given silicon sample and the ground-
+moving probability mass. In this sense, it provides a              truth human correlation. For example, if the estimated
+continuous measure of similarity between two                       correlation from a silicon sample was 0.4, and the
+distributions. I estimated Wasserstein distances between           correlation from the ground-truth human data was 0.65,
+ground-truth human data and data generated from each               then the absolute error score would be 0.25.
+of the separate silicon sample configurations, doing this                If a configuration’s accuracy regarding one feature
+separately for both the BJW scale and the Gut Feelings             predicts its accuracy in terms of another, then we would
+
+
+                                                               5
+expect that correlations between scores based on the first
+feature (ranking participants) and the score for the
+second feature (estimating the distribution of responses)
+to be negatively correlated (i.e., better ranking of
+participants should be associated with lower Wasserstein
+distance scores). Scores from ranking participants should
+additionally be negatively correlated with scores from the
+third feature (estimating correlation between scales;
+better ranking should be associated with lower absolute
+error in predicting scale correlations). Scores from the
+second and third features, by contrast, should be
+positively correlated, with lower scores in both implying
+better modelling of the data. Notably, since there are two
+scores for ranking participants (i.e., one for each scale),
+we would expect these to correlate highly with one
+another if configurations perform consistently between
+different scales. This can also be said for distributional
+approximation, given that we similarly have scores for            Figure 1. Specification curve for estimating human-LLM
+each scale on this feature. For this comparison,                  correlations between predicted participant scores,
+configurations were only included if they produced                separately for the Belief in a Just World and Gut Feelings
+complete data on all five scores from the three data              scales towards European-Americans vs. African-
+features (i.e., ranking participants for BJW and Gut              Americans items.
+Feelings, response distributions for BJW and Gut Feelings,
+and the relationship between the scales). After exclusions,
+these correlations were estimated based on a total of 232
+observations.
+Results
+     Success completion rates from the configurations
+ranged from 0.21 to 1.00 but were generally very high (M
+= 0.99, median = 1.00). Only one configuration fell below
+the 50% threshold for the main analyses (o3-mini with
+low reasoning effort, scale-by-scale prompting, and
+minimal demographics). Several high-temperature
+DeepSeek-R1-distill-Llama-70b         configurations   also
+showed non-trivial attrition, primarily due to failures to
+conform to the required response output structure (not
+unexpected, given the high temperature setting). The
+specification-curve results reported below are only
+reported in reference to the usable outputs produced by
+the configurations.
+     Data Feature 1: Ranking participants                         Figure 2. Specification curve for the observed Wasserstein
+     Figure 1 shows the specification curves for the              distances for each configuration in both scales. The blue-
+correlation between participants scores in silicon samples        coloured region in each upper panel represents the range
+and participant scores in ground-truth human data for             between the upper and lower bound of the 95%
+both the BJW scale and the Gut Feelings scale. The                confidence intervals of Wasserstein distances observed in
+observed range of correlations was -0.27 < r < 0.36 for           the human-human distance comparisons for that scale.
+the BJW scale and -0.25 < r < 0.32 for the Gut Feelings
+scale, indicating that there was both substantial variation       Data Feature 3: Estimating the correlation between
+in estimated correlations, but none rising beyond a               variables
+relatively low value. Although there did not appear to be a       Figure 3 presents these estimated correlations between
+clear pattern for configurations in the data, correlations        the BJW and Gut Feelings scales based on each of the
+generally were greater (although still rather small) when         silicon sample configurations. The observed empirical
+extensive demographics were used (vs. minimal or none).           correlation between the BJW scale and the Gut Feelings
+     Data Feature 2: Estimating Response Distributions            scale in the ground-truth human data was r = 0.26, 95%
+     The observed Wasserstein distances for the data              CI [0.05, 0.45]. This estimated correlation in the data from
+from the LLM configurations for both scales can be seen in        the different silicon sample configurations varied
+Figure 2. The estimated Wasserstein distances values              dramatically (range: -0.40 < r̂ < 0.78), though notably the
+between halves of the human data were W = 0.05, 95% CI            overall average point estimate across all configurations (r̂
+[0.02, 0.09] for the BJW scale, and W = 0.03, 95% CI [0.01,       = 0.21) was a close approximation of the true point
+0.05] for the Gut Feelings scale. By comparison, equivalent       estimate. Notably, although some configurations
+Wasserstein distance means and 95% CIs across LLM                 estimated the correlation very closely, minor changes
+samples were measurably larger; BJW scale mean W =                affected predictions dramatically. For instance, the most
+0.19, 95% CI [0.04, 0.36]; Gut Feelings scale mean W =            accurate prediction (r̂ = 0.24) was produced using
+0.07, 95% CI [0.03, 0.12].                                        ChatGPT-3.5 with a temperature set to 1, extensive
+                                                                  demographic information provided, and presentation of
+
+
+
+                                                              6
+scale items item-by-item. However, taking those same             responses was associated with greater error in predicting
+settings but increasing temperature to 1.5 made the              the relationship between scales.
+model underestimate the correlation by 0.44 (r̂ = -0.18);
+decreasing temperature to 0.5 also made the model                Table   2. Correlations      between configurations’
+drastically underestimate the correlation by 0.26 (r̂ =          performances on each of the data features and each of the
+0.00), while decreasing temperature to 0 led the model to        scales.
+only slightly underestimate the correlation (r̂ = 0.17).
+                                                                  Variable    1             2             3              4
+                                                                  1. Data
+                                                                  Feature
+                                                                  1: BJW
+
+                                                                  2. Data     .40**
+                                                                  Feature     [.29, .50]
+                                                                  1: Gut
+                                                                  Feelings
+
+                                                                  3. Data     -.38**        -.24**
+                                                                  Feature     [-.49,        [-.35,
+                                                                  2: BJW      -.27]         -.11]
+
+
+                                                                  4. Data     .12           .00           .12
+                                                                  Feature     [-.01, .24]   [-.13, .13]   [-.01, .24]
+                                                                  2: Gut
+                                                                  Feelings
+
+                                                                  5. Data     .27**         .14*          -.13*          .07
+                                                                  Feature 3   [.14, .38]    [.02, .27]    [-.25, -.00]   [-.06, .19]
+
+                                                                  Note. M and SD are used to represent mean and standard
+                                                                  deviation, respectively. Values in square brackets indicate
+                                                                  the 95% confidence interval for each correlation. The
+                                                                  confidence interval is a plausible range of population
+                                                                  correlations that could have caused the sample correlation
+                                                                  (Cumming, 2014). * indicates p < .05. ** indicates p < .01.
+
+                                                                      Exploratory Additions
+                                                                      Configuration Features Predictive of Performance. I
+                                                                 ran a set of exploratory univariate regressions to
+                                                                 determine whether any of (i) model type (reasoning vs.
+                                                                 non-reasoning), (ii) demographics detail, and (iii) prompt
+Figure 3. Specification curve for the estimate of the            content tended on average to predict better performance
+correlation between the BJW scale and the Gut Feelings           on any of the evaluation dimensions. For these
+scale. The blue line represents the point estimate for the       regressions, all outcomes were recoded so that higher
+empirical correlation between the BJW scale and the Gut          scores = superior predictive performance. Additionally,
+Feelings scale observed in the human data.                       because multiple comparisons for each predictor were
+                                                                 made (i.e., five different evaluation feature elements), a
+     Consistency Across Data Features                            Bonferroni-corrected alpha was used (i.e., 0.01). Results
+     The correlations between the data features are              are presented in Table 3. In general, model family
+presented below in Table 2. Notably, the correlations            predicted the two distributional-fit outcomes, while
+were varied, with most being rather small in magnitude.          demographic information predicted between-scale
+Even if a configuration for a silicon sample workflow was        relationship accuracy, BJW distributional fit, and both
+found to be highly similar to human data in terms of one         ranking outcomes. No prompt-content omnibus effects
+data feature, this does not mean that it also possessed          significantly predicted any outcomes.
+similar levels of quality for other data features.                    Accounting for Sampling Error. A fair criticism of the
+Interestingly, for distributional approximation, there           above would be that the observed variability may not
+appeared to be no significant correlation between the two        exceed that which would be expected from human
+scales: in other words, there was no significant                 samples themselves. I explored this question in the
+relationship between how well the same silicon sample            context of recovering the human BJW-Gut Feelings
+configuration modelled the distribution of one scale vs.         between-scale correlation. Specifically, I repeatedly split
+another. On the other hand, the performance of a                 the human data into two halves and examined the
+configuration in predicting participant ranking in one           correlation in each half. Across 1,000 repeated non-
+scale was significantly correlated with its predictions of       overlapping human splits, the independent-human
+participant ranking in the other scale. Perhaps most             benchmark error had a median of |Δr| = .24, with a 95%
+surprisingly, performance in ranking participants (for           interval from .01 to .70. Across all silicon configuration-
+both scales) was significantly positively correlated with        split combinations, the corresponding silicon error had a
+absolute error in predicting the relationship between            median of |Δr| = .26, with a 95% interval from .01 to .73.
+scales; this implies that better modelling of scale
+
+
+
+                                                             7
+Table 3. Omnibus tests of whether configuration features          runs contra to the idea of a silicon sample, which
+predict Study 1 performance across evaluation outcomes.           conditions its participants on specific demographic
+For these exploratory models only, all outcomes are               information. The 7 best-performing silicon samples (vs.
+oriented such that higher values indicate better                  the human data) contained at most minimal demographic
+performance. Bonferroni-adjusted significance is                  information.
+evaluated within each predictor family across the five                  I also examined whether the observed specification
+outcome comparisons.                                              spread could plausibly be attributed mainly to stochastic
+ Predictor       Outcome       F(df1, df2)         p              variability within a fixed configuration (cf. J. Cui &
+ Model family    Between-scale   F(1, 230) = 1.542    .216        Alexander, 2026). To do so, I examined only those
+                 relationship                                     configurations which involved a temperature setting at
+                 accuracy                                         zero, which would minimise the degree of variability
+ Model family    Distribution    F(1, 249) = 43.830   < .001*     observed across calls. Of the 31 analysable configurations
+                 fit (BJW)                                        with this temperature setting, the observed range of
+ Model family    Distribution    F(1, 249) = 28.890   < .001*     correlations was -.40 to .78 (SD = .37). This suggests that
+                 fit (Gut                                         the Study 1 specification spread is unlikely to be explained
+                 Feelings)                                        solely by within-configuration variability.
+ Model family    Ranking         F(1, 244) = 2.653    .105        Discussion
+                 accuracy                                               The results of the above study suggest that there is
+                 (BJW)
+ Model family    Ranking         F(1, 231) = 0.178    .673
+                                                                  substantial variability to be found in silicon samples as a
+                 accuracy (Gut                                    function of only a small number of analytic decisions that
+                 Feelings)                                        can be made. There is no apparent orderliness to these
+ Demographics    Between-scale   F(2, 229) = 9.790    < .001*     analytic decisions, in the sense that performance of
+ used            relationship                                     configurations is not uniform nor consistent across
+                 accuracy                                         different data features: a configuration may excel in
+ Demographics    Distribution    F(2, 248) = 84.510   < .001*     modelling one feature while failing entirely in another.
+ used            fit (BJW)                                        The variation observed here can also be seen when using
+                                                                  one half of the human data to predict correlations in the
+ Demographics    Distribution    F(2, 248) = 3.237    .041
+ used            fit (Gut                                         other half, and silicon samples often performed similarly
+                 Feelings)                                        to (or even exceeded) the human splits. In cases where
+ Demographics    Ranking         F(2, 243) = 76.590   < .001*     specific configurations most frequently beat the human
+ used            accuracy                                         data across these splits, these largely consisted of
+                 (BJW)                                            configurations that used little (if any) demographic
+ Demographics    Ranking         F(2, 230) = 48.750   < .001*     information – running contra to the premise of silicon
+ used            accuracy (Gut
+                                                                  samples in the first place.
+                 Feelings)
+                                                                                             Study 2
+ Prompt          Between-scale   F(2, 229) = 1.455    .236              Although Study 1’s results are striking, it is not clear
+ content         relationship
+                                                                  the extent to which they may represent an isolated
+                 accuracy
+                                                                  observation specific to the two social-psychological scales
+ Prompt          Distribution    F(2, 248) = 3.235    .041        chosen, or whether the observed flexibility may influence
+ content         fit (BJW)
+                                                                  the outcome of existing research findings which used
+ Prompt          Distribution    F(2, 248) = 3.747    .025        silicon samples. Study 2 aimed to examine exactly this:
+ content         fit (Gut                                         whether applying the flexibility quantification used in
+                 Feelings)
+                                                                  Study 1 may reveal hidden effects of flexibility in already-
+ Prompt          Ranking         F(2, 243) = 0.129    .879
+ content         accuracy                                         published work. One of the most highly cited papers using
+                 (BJW)                                            silicon samples is Argyle et al.’s flagship 2023 paper,
+ Prompt          Ranking         F(2, 230) = 1.682    .188        which has been cited more than 1300 times since its
+ content         accuracy (Gut                                    publication in 2023. In this work, the authors not only
+                 Feelings)                                        proposed an agenda for evaluating the algorithmic fidelity
+                                                                  of silicon samples (which inspired the evaluation
+     On the one hand, this implies that silicon samples           approach used in Study 1) but also demonstrated the
+performed relatively well. Indeed, because the                    apparent utility of silicon samples across three studies.
+configuration space is large, at least one silicon                Their third study examined whether silicon samples could
+configuration beat the independent-human benchmark in             replicate patterns of association among multiple
+99.7% of splits, even though the mean share of                    demographic, attitudinal, and political variables,
+configurations doing so within a split was only 45.4%.            conditioned on other observed variables from the same
+Importantly, however, variability across splits in terms of       respondents. More specifically, using human data from
+specific configuration performance was substantial. The           the 2016 ANES survey (American National Election
+independent-human benchmark beat the median                       Studies et al., 2017), the authors used twelve interview
+configuration in 55% of evaluable splits. The best-               variables (with a vote choice variable conditional on a
+performing silicon sample configuration, interestingly,           reported turnout variable), to produce eleven analysed
+beat the human sample in 89% of its evaluable splits. On          items. Across calls to an LLM, they used an interview-style
+the surface, this may imply that this configuration may be        response template to solicit a predicted response for a
+useful. However, this configuration consisted of the              held-out target item conditioned on the respondent’s
+ChatGPT-nano model on high reasoning effort, scale-by-            observed values for the remaining available variables, and
+scale prompting, and no demographic information. This             observed relatively high agreement between the silicon
+                                                                  sample predictions and the observations in the human
+
+
+                                                              8
+data. In Study 2, I repeated this procedure using the same                Analytic Strategy
+general data structure, while examining whether different                 For each configuration, I evaluated whether the
+silicon sample configurations would lead to different                resulting silicon sample reproduced the pattern-
+estimated silicon-human agreement.                                   correspondence result reported by Argyle et al. (2023).
+Method                                                               Following their analytic approach, I computed Cramer’s V
+      Sample                                                         for each pairwise association among the analysed ANES
+      The human reference data came from the 2016 ANES               items in the human data. I then computed the
+Time Series Study (American National Election Studies et             corresponding Cramer’s V values in the silicon data,
+al., 2017), following the setup used in Argyle et al.’s Study        pairing the model-generated response for a held-out
+3 with one key change: to reduce costs, I randomly                   target variable with the observed human values on the
+sampled 500 respondents, rather than using the full set of           conditioning variables. This produced, for each
+approximately 2,400 respondents. The full sample                     configuration, a vector of silicon-sample associations that
+consisted of respondent data for whom the twelve                     could be compared directly against the corresponding
+interview variables used in the replication task could be            vector of human-sample associations. This is, in essence,
+represented in the prompting and evaluation data.                    the same analytic approach originally used by Argyle et al.
+Because vote choice was conditional on having voted,                      The primary variable of interest was the correlation
+these twelve interview variables corresponded to eleven              between the vector of human Cramer’s V values and the
+unique analysed items. Each respondent therefore served              corresponding vector of silicon Cramer’s V values. Higher
+as a target case for the silicon-sample procedure: for a             values would indicate closer recovery of the rank-order
+given analysed target item, the model was prompted with              pattern of associations in the human data, and therefore
+that respondent’s observed values on the remaining                   provide a direct test of the pattern-correspondence
+available variables and asked to generate the held-out               criterion emphasized by Argyle et al. (2023). As a
+response. The same 500 human respondents were used                   secondary summary, I also computed the mean absolute
+across all silicon-sampling configurations.                          difference between the human and silicon Cramer’s V
+      Measures                                                       values across these pairwise associations, with smaller
+      Following Argyle et al. (2023), Study 2 used the               values indicating closer recovery of the absolute
+twelve 2016 ANES variables included in their Study 3                 magnitude of the human association structure. I then
+interview-style task: gender, race/ethnicity, age,                   examined the range of configuration-level performance
+education, church attendance, feelings of patriotism when            across the 66 silicon-sampling specifications. This
+seeing the American flag, whether the respondent                     allowed me to ask not only whether the general pattern
+discusses politics with family or friends, political interest,       reported by Argyle et al. could be recovered, but the extent
+2016 vote turnout, 2016 presidential vote choice, 7-point            to which this recovery depended on specific silicon
+ideological      self-placement,      and     7-point    party       sample configurations.
+identification. These variables span demographic,                    Results
+religious, attitudinal, political, and behavioral information.
+As in Argyle et al.’s original analysis, vote turnout and vote
+choice are linked because vote choice is conditional on
+having voted; consequently, the twelve interview
+variables correspond to eleven unique analysed items.
+Full question wording, coding details, and template text
+are provided in Argyle et al. (2023).
+      Analytic Features of Silicon Samples
+      Similar to Study 1, I examined four potential sources
+of       analytic        flexibility:      model       choice,
+temperature/reasoning effort, prompt content, and
+demographic information provided. For model choice, I
+examined gpt-5-mini, gpt-4o-mini, gpt-3.5-turbo, and
+llama-3.3. For temperature/reasoning effort, I examined
+low and high reasoning effort, and temperature values of
+0, 0.7 (the main temperature used in Argyle et al.) and 1.5.
+For prompt content, I used one of three approaches:
+Argyle et al.’s original “interview-style” prompt, or an
+alternative “narrative profile” style prompt (similar to
+that used in other research, such as Park et al., 2024), or a
+“bullet point” approach which simply listed
+characteristics as bullet points before eliciting a response.
+For conditioning information, I provided either the full set
+of remaining available variables for each target item, or a
+reduced “demographics plus engagement” profile. The
+reduced profile included gender, race/ethnicity, age,
+education, church attendance, whether respondents
+discuss politics with family and friends, and political              Figure 4. Specification curve for Study 2. Points show
+interest, while omitting the remaining attitudinal and               configuration-level correlations between the human
+explicitly political variables. This resulted in a total of 66       Cramer's V association matrix and the corresponding
+configurations for comparison.                                       silicon-sample Cramer's V association matrix across all
+                                                                     analysable all-item configurations.
+
+
+                                                                 9
+      Across the 66 silicon-sampling configurations, the       absolute differences ranged from .05 to .17, with a median
+estimated association structure among items varied             of .12
+substantially. The original analysis conducted by Argyle et    Discussion
+al. required valid generated responses across all eleven             Study 2 extended the Study 1 results to a direct
+analysed items. Not every attempted configuration              reanalysis of a highly cited published silicon-sample
+produced an analysable matrix-level estimate, because          demonstration (namely, Study 3 of Argyle et al., 2023).
+some configurations led to refusals to produce gender, age,    The consistency of the silicon samples in predicting
+or race predictions. In total, 53 of the 66 configurations     human       responses     varied     substantially    across
+produced sufficient usable output for the all-item             configurations. The best-performing configurations
+specification     curve.     Among      these   analyzable     suggested relatively good recovery of the human
+configurations, the correlation between the vector of          association matrix, but other plausible configurations
+human Cramer’s V values and the corresponding vector of        produced much weaker correspondence (or failed to
+silicon Cramer’s V values ranged from r = .23 to r = .84,      produce analysable all-item matrices at all). A researcher
+with a median of r = .58 (correlation observed in original     using only one configuration could thus reach a much
+data: r = .72). In other words: the same human dataset         more optimistic or pessimistic conclusion about silicon
+using the same general Argyle-style prediction task could      sample fidelity than a researcher using another, even in
+imply either relatively strong or weak pattern                 the context of existing published work.
+correspondence depending on the configuration used. For                             General Discussion
+reference, I also recomputed the performance of Argyle et            Across two studies, I found that silicon-sample
+al.’s original generated silicon sample. The GPT-3 matrix      outputs were highly sensitive to analytic choices made
+correlated r = .72 with the human matrix, with a mean          during sample generation. Study 1 demonstrated this
+absolute difference of .05. The results of the flexibility     using two commonly used social-psychological scales.
+analysis are displayed in Figure 4, with a reference line      Decisions on just four choice criteria (model,
+added for Argyle et al.’s original findings.                   temperature/reasoning effort, prompt format, and
+      The mean absolute difference between human and           demographic information provided) led to substantial
+silicon Cramer’s V values showed a similar pattern. Across     variation in the quality of silicon samples’ recovery of
+analysable all-item configurations, the mean absolute          participant rankings, response distributions, and
+difference ranged from .08 to .19, with a median of .12        between-scale correlations. Critically, there did not
+(error observed in original data: mean absolute difference     appear to be a discrete one-size-fits-all set of decisions:
+= .05).                                                        the performance of configurations was generally not
+      The all-item analysis also revealed substantial          correlated across different data features.
+variation in usable output. Across all 66 attempted                  Study 2 extended this line of reasoning and examined
+configurations, the number of respondents with complete        the extent to which flexibility impacts results of a
+generated data across the eleven analysed items ranged         published, highly-cited use of silicon samples. Re-
+from 0 to 500, with a median of 338. Among                     examining Argyle et al.’s (2023) Study 3, I found that the
+configurations that were analysable, the complete-case         apparent recovery of the human association structure
+sample size ranged from 6 to 500, with a median of 424.        depended substantially on the silicon-sampling
+This means that the specification curve is itself              configuration used: correlations between human and
+conditioned on configurations producing usable output, a       silicon Cramer’s V association structures ranged from r
+point that reinforces rather than weakens the concern          = .23 to r = .84, while mean absolute differences ranged
+about flexibility in silicon-sample workflows.                 from .08 to .19. Several configurations were not
+      The identity of the best-performing configurations       analysable due to blanket refusals to produce gender, age,
+also depended on the analytic choices varied in the            or race predictions: when excluding these three variables
+specification grid. In the all-item analysis, the highest-     from analysis and analysing all configurations,
+performing configuration used gpt-3.5-turbo at                 correlations ranged from r = .01 to r = .86. These results
+temperature = 1.5 with a narrative-profile prompt and          highlight that Study 1’s findings extend beyond a specific
+full conditioning information, producing r = .84 and mean      demonstration in social-psychological scales; analytic
+absolute difference = .09. By contrast, the lowest-            flexibility can undermine even existing published silicon
+performing analyzable configuration used llama-3.3 at          sample research findings.
+temperature = 0 with the original interview-style prompt       Implications for Silicon Samples
+and the reduced demographics-plus-engagement profile,                The analytic choices made in creating silicon samples
+producing r = .23 and mean absolute difference = .15.          can produce dramatically different estimates for even
+More generally, the ten best-performing all-item               simple effects of interest – both in a case study (Study 1)
+configurations were not simply the original Argyle-style       and in data used in published silicon sampling studies
+prompt or the richest-information condition: two used the      (Study 2). Moreover, the idea that we could simply find
+original interview-style prompt, six used the narrative-       the “best” configuration for creating silicon samples, even
+profile prompt, and two used the bullet-point prompt; five     when considering only a small subset of the total range of
+used full conditioning information and five used the           decisions, does not appear to be feasible - the correlation
+reduced demographics-plus-engagement profile.                  in the accuracy of configurations across different data
+      To check whether the all-item result was driven by       features appears quite small at best (cf. Study 1).
+failures on age, gender, or race, I also repeated the                Notably, most (if not all) of the analytic choices
+analysis but excluding those three target variables. This      deployed in both studies are in principle defensible. Study
+constrained analysis retained all 66 configurations and        2 in particular demonstrates that such choices can
+again showed substantial flexibility. Correlations between     dramatically affect conclusions of silicon sample fidelity
+the human and silicon association structures ranged from       even in the case of published work. This has strong
+r = .01 to r = .86, with a median of r = .64, while mean       implications for claims relating to silicon samples as a
+
+
+                                                          10
+method in general: findings of the fidelity of a silicon             product of a well-defined development workflow focused
+sampling approach in a given assessment context, with a              on the specific domain(s) and data feature(s) of interest.
+given configuration, cannot readily be generalised beyond            Before generating a silicon sample, researchers should
+those contexts and configurations.                                   define (and, ideally, preregister) the intended use of the
+      Silicon samples are increasingly being discussed and           sample, the human benchmark against which
+explored for their potential as practical tools for study            performance will be evaluated, and a criterion against
+planning, pilot testing, sample replacement, or conducting           which to evaluate performance (i.e., a specific data feature
+research with hard-to-reach populations. If researchers              to be modelled). Without specifying the target criterion in
+are to use silicon samples to make these decisions, they             advance, researchers risk selecting configurations that
+might reasonably expect that the decisions they arrive at            appear successful only after seeing the result.
+are based on true signals from data, rather than                           Second, researchers should consider and map
+artefactual effects of analytic choices. If not, the                 plausible analytic decisions and configurations before
+downstream scientific decisions or conclusions that                  generating and analysing silicon samples. Ideally,
+researchers make will be largely driven by configuration-            researchers should further use specification curves (or
+induced variation (likely without the awareness of the               equivalent multiverse summaries) to document how their
+decision-maker) rather than by the substantive effects of            conclusions vary across them. This should be done to
+interest.                                                            make plausible researcher degrees of freedom visible to
+      One important condition of these results is that both          readers, which can help readers both evaluate the
+studies concern survey-style persona prompting: models               robustness of results, and potentially provide valuable
+were asked to generate responses to structured survey                information for future researchers. Where possible, this
+items conditional on demographic information. These                  specification set should also be preregistered before
+results should therefore not be assumed to generalise                examining the focal outcome. The Study 2 results make
+automatically to synthetic data settings writ large,                 this recommendation concrete. If the analysis had
+particularly in the context of agent-based behavioural               considered only the best-performing configurations, one
+simulations. Configuration choices may matter in those               could conclude that the Argyle-style association-recovery
+settings as well, but the relevant degrees of freedom are            task was largely successful. If it had considered only
+likely to differ from those examined here.                           weaker nearby configurations, the conclusion would be
+      Notably, it appears that researchers cannot simply             much more skeptical. A specification curve makes the
+look to pre-existing work to determine the best                      ambiguity visible.
+configuration of interest. As demonstrated in Study 1, the                 Third, researchers should explicitly separate steps of
+performance of different configurations showed                       calibration and confirmation in the development of silicon
+nonuniform patterns of correlation between data                      samples, in a manner analogous to norms within machine
+features; in some cases, better performance on one data              learning research (i.e., train-test splitting). If a human
+feature was associated with worse performance on                     benchmark dataset is available, one such workflow may
+another data feature. It appears, further, that                      involve splitting this benchmark data into calibration and
+configurations may vary in performance across the                    confirmation subsets. The calibration subset may be used
+substantive domains in which they are tested. For                    to compare plausible silicon-sampling configurations and
+example, in Study 1, GPT-3.5 Turbo with full demographic             to select a best-performing configuration using the
+information and temperature at 1.5 performed relatively              prespecified quality criterion of interest (e.g., modelling
+poorly when evaluated on recovery of the BJW-Gut                     response distributions). The selected configuration may
+Feelings association, with a median absolute relationship            then be used to generate a new silicon sample based on
+error of .406 across prompt formats, placing it at the 27th          the confirmation subset, and its performance in this held
+percentile of configuration performers. In Study 2, by               out subset may then give insight into the potential validity
+contrast, this configuration was highest performer for               of this configuration to data more generally.
+recovery of the Cramer’s V association matrix, with a                      I briefly explored the plausibility and limitations of
+median matrix correlation of .814 across prompt formats.             such a calibration-confirmation approach using the data
+Put simply, this implies that the performance of a given             from both studies reported here, focusing on estimating
+configuration cannot be used to generalise beyond (i) the            between-scale correlation in Study 1, and overall Cramer’s
+specific domain, and (ii) the specific data feature                  V correlation in Study 2. In both cases, I randomly split the
+examined.                                                            human participants into two sets of equal size: a
+      If specific analytic choices can dramatically alter            calibration set and a confirmation set. In the calibration
+silicon sample performance, and observed silicon sample              set, I identified the silicon-sampling configuration whose
+performance cannot generalise beyond the domain and                  estimated outcome (Study 1: BJW-Gut Feelings
+data feature they are observed in, then this is a substantial        correlation; Study 2: Cramer’s V matrix) most closely
+threat to the use of silicon samples in research. If                 matched the corresponding human values. For Study 1,
+researchers wish to continue using these methods, then               the best performing configuration (o4-mini, low
+they must employ more rigorous methods of development                reasoning effort, scale-by-scale prompting, no
+to ensure that the analytic decisions they have opted for            demographics) exhibited a calibration-set correlation of r
+are sufficiently performant in the specific context of               = 0.169 compared with the human calibration-set
+interest. In the next section, I attempt to offer some               correlation of r = 0.165 (absolute error = 0.003). I then
+practical guidance on how such development might be                  evaluated that same configuration using the confirmation
+undertaken.                                                          set. The estimated silicon correlation for this set was r = -
+Practical Guidance for Silicon-Sample Workflows                      0.02, compared to the true observed correlation of r =
+      To reiterate the foregoing point: the most immediate           0.357 (absolute error = 0.381). For Study 2, the best
+recommendation arising from the results of this work is              performing configuration in the calibration set (GPT-3.5
+that researchers should treat a silicon sample as the                Turbo, temperature 1.5, narrative profile prompting, full
+
+
+                                                                11
+demographic profile) exhibited an estimated correlation             accuracy across even simple data features in typical
+with the human Cramer’s V matrix of r = 0.877. When                 respondents who are likely very well-represented in these
+applying this configuration in the confirmation set, the            models’ training data. The idea that these workflows could
+estimated correlation for this set was r = 0.804.                   faithfully generalise to those individuals who are not well-
+      The discrepancy between the quality of this                   represented in the training data is even less plausible
+calibration-confirmation approach between the studies               (Lutz et al., 2025). There is a stark risk that the use of
+can likely be attributed to differences in sample sizes:            LLMs for this purpose, without careful consideration of
+given the relatively lower sample size of Study 1, there is         these analytic decisions, may create an illusion of
+necessarily greater noise and uncertainty in the estimated          representation while in fact speaking over those very
+correlations. However, this further emphasises the core             same populations (cf. Wang et al., 2025). Unless a more
+point that the rationale behind specific silicon sample             systematic approach to the problem of analytic flexibility
+configuration decisions must be given extensive attention,          is adopted, silicon samples come with the very real risk of
+including the acquisition of a sufficiently large calibration       hindering the inclusion of these populations in social
+sample to ensure robust estimates of the criterion of               science, rather than facilitating it.
+interest.                                                                                     Conclusion
+Practical Questions to Consider Before Using Silicon                     If large language models could be used as valid stand-
+Samples                                                             ins for human participants, this would have a
+      Given the current findings, the final recommendation          transformative impact on how research in the social
+for researchers is to consider in the first place whether           sciences is conducted. Silicon samples have the potential
+silicon samples are a useful, viable, or appropriate                to be a major methodological innovation for science,
+approach for their use case. For instance, consider the             improving        the       efficiency,   accuracy,      and
+question of estimating correlations between two or                  representativeness of human research. However, silicon
+several scales. One could, in principle, use silicon samples        samples could also be yet another tool which produces
+to approach this question. However, other methods may               unreplicable results and leads researchers astray. As
+in fact be more appropriate. Specifically, researchers              things stand, the social sciences have not paid sufficient
+could instead use the relative semantic similarity of the           attention to the many analytic decisions that require
+scale items (based on the cosine similarity of their                careful consideration in the process of generating silicon
+embeddings) to estimate the empirical correlation                   samples. We face a unique opportunity to get out in front
+between these scales (Hommel & Arslan, 2025; Wulff &                of this issue, and must learn from the lessons of analytic
+Mata, 2023). As such, the first question one should ask             flexibility in the past to prevent yet another unreliable
+when considering the use of silicon samples is whether or           literature. This starts with a recognition that silicon
+not viable and more robust alternative approaches may be            samples should be the outcome of a careful and thoughtful
+viable instead.                                                     development process which takes nothing for granted.
+      Further, researchers should consider why they                                          Author Note
+would specifically wish to use silicon samples. As                       Thank you to Malte Elson, Ian Hussey, and Beth
+described earlier, one of the main reasons for their                Clarke for providing extremely helpful comments on
+proposed use is to improve the efficiency and speed of              earlier drafts of this manuscript which lead to substantial
+research. However, if (as the work here implies) silicon            improvements. All code and data associated with this
+samples require careful, detailed, and principled decision-         paper can be found at the Open Science Framework
+making on analytic decisions before they can be used                (https://osf.io/skbqm/). Correspondence concerning this
+effectively, this begs the question why a researcher would          manuscript can be sent to Jamie Cummins
+not instead expend their time and effort to simply collect          (jamie.cummins@unibe.ch).
+the hard-to-acquire human data. This is particularly
+salient given that, in all likelihood, the acquisition of at                                    References
+least some human data is required to ensure the silicon             Abdurahman, S., Salkhordeh Ziabari, A., Moore, A. K.,
+sample is performing sufficiently well in the first place (i.e.,        Bartels, D. M., & Dehghani, M. (2025). A Primer for
+to conduct the calibration-confirmation approach                        Evaluating Large Language Models in Social-Science
+outlined above). It is, of course, possible that there may be           Research. Advances in Methods and Practices in
+approaches to the development of valid, accurate, and                   Psychological Science, 8(2), 25152459251325174.
+generalisable silicon samples that do not require such                  https://doi.org/10.1177/25152459251325174
+data acquisition. However, no such approach currently               Aher, G., Arriaga, R. I., & Kalai, A. T. (2022, August 18).
+exists to my knowledge. Researchers should not simply                   Using Large Language Models to Simulate Multiple
+hope that the quality of these samples will improve as new              Humans and Replicate Human Subject Studies.
+and larger LLMs are developed, given that the observed                  arXiv.Org. https://arxiv.org/abs/2208.10264v5
+results across the two studies here did not show any such           American National Election Studies, University of
+superiority of newer vs. older LLMs.                                    Michigan, & Stanford University. (2017). ANES 2016
+      Finally, the use of silicon samples merits particular             Time Series Study [Dataset]. Inter-university
+scrutiny and consideration in the context of simulating                 Consortium for Political and Social Research.
+responses from vulnerable or hard-to-reach populations.                 https://doi.org/10.3886/ICPSR36824.v2
+If there is not a reliable configuration for accurately             Anthis, J. R., Liu, R., Richardson, S. M., Kozlowski, A. C.,
+simulating data features of the typical research subjects,              Koch, B., Evans, J., Brynjolfsson, E., & Bernstein, M.
+then it is even less likely that LLMs will be capable of                (2025). LLM Social Simulations Are a Promising
+providing accurate insights into the potential responses of             Research Method (arXiv:2504.02234). arXiv.
+individuals from non-WEIRD, vulnerable, and/or hard-to-                 https://doi.org/10.48550/arXiv.2504.02234
+reach populations. Indeed, the results here show that               Argyle, L. P., Busby, E. C., Fulda, N., Gubler, J., Rytting, C., &
+silicon sample configurations do not generalise in                      Wingate, D. (2023). Out of One, Many: Using
+
+
+                                                               12
+      Language Models to Simulate Human Samples.                            Henriques, A. (2026). Synthetic Panels in Market
+      Political Analysis, 31(3), 337–351.                                         Research: What You Need to Know - Qualtrics.
+      https://doi.org/10.1017/pan.2023.2                                          https://www.qualtrics.com/articles/strategy-
+Baumann, J., Röttger, P., Urman, A., Wendsjö, A., Plaza-                          research/synthetic-panels-in-market-research-
+      del-Arco, F. M., Gruber, J. B., & Hovy, D. (2025). Large                    what-you-need-to-know/
+      Language Model Hacking: Quantifying the Hidden                        Hewitt, L., Ashokkumar, A., Ghezae, I., & Willer, R. (2025).
+      Risks of Using LLMs for Text Annotation                                     Predicting Results of Social Science Experiments
+      (arXiv:2509.08825). arXiv.                                                  Using Large Language Models.
+      https://doi.org/10.48550/arXiv.2509.08825                             Hommel, B. E., & Arslan, R. C. (2025). Language models
+Binz, M., Akata, E., Bethge, M., Brändle, F., Callaway, F.,                       accurately infer correlations between psychological
+      Coda-Forno, J., Dayan, P., Demircan, C., Eckstein, M.                       items and scales from text alone. PsyArXiv.
+      K., Éltető, N., Griffiths, T. L., Haridi, S., Jagadish, A. K.,              https://doi.org/10.31234/osf.io/kjuce_v4
+      Ji-An, L., Kipnis, A., Kumar, S., Ludwig, T., Mathony,                Hussey, I., Hughes, S., Lai, C., Ebersole, C., Axt, J., & Nosek,
+      M., Mattar, M., … Schulz, E. (2025). A foundation                           B. (2022, August 30). The Attitudes, Identities, and
+      model to predict and capture human cognition.                               Individual Differences (AIID) Study and Dataset.
+      Nature, 644(8078), 1002–1009.                                               https://doi.org/10.17605/OSF.IO/PCJWF
+      https://doi.org/10.1038/s41586-025-09215-4                            Ipsos. (2025, June 26). Personas in the Age of AI | Ipsos.
+Brand, J., Israeli, A., & Ngwe, D. (2023). Using LLMs for                         https://www.ipsos.com/en-ch/personas-in-the-age-
+      Market Research (SSRN Scholarly Paper No.                                   of-ai
+      4395751). Social Science Research Network.                            Kambhatla, G., Gautam, S., Zhang, A., Liu, A., Srinivasan, R.,
+      https://doi.org/10.2139/ssrn.4395751                                        Li, J. J., & Lease, M. (2025). Beyond
+Cao, Y., Liu, H., Arora, A., Augenstein, I., Röttger, P., &                       Sociodemographic Prompting: Using Supervision to
+      Hershcovich, D. (2025). Specializing Large Language                         Align LLMs with Human Response Distributions
+      Models to Simulate Survey Response Distributions                            (arXiv:2507.00439). arXiv.
+      for Global Populations. In L. Chiruzzo, A. Ritter, & L.                     https://doi.org/10.48550/arXiv.2507.00439
+      Wang (Eds.), Proceedings of the 2025 Conference of                    Kantorovich, L. V. (1960). Mathematical Methods of
+      the Nations of the Americas Chapter of the                                  Organizing and Planning Production. Management
+      Association for Computational Linguistics: Human                            Science, 6(4), 366–422.
+      Language Technologies (Volume 1: Long Papers)                               https://doi.org/10.1287/mnsc.6.4.366
+      (pp. 3141–3154). Association for Computational                        Li, D., Li, L., & Qiu, H. S. (2025, June 25). ChatGPT is not A
+      Linguistics.                                                                Man but Das Man: Representativeness and
+      https://doi.org/10.18653/v1/2025.naacl-long.162                             Structural Consistency of Silicon Samples Generated
+Carp, J. (2012). On the Plurality of (Methodological)                             by Large Language Models. arXiv.Org.
+      Worlds: Estimating the Analytic Flexibility of fMRI                         https://arxiv.org/abs/2507.02919v1
+      Experiments. Frontiers in Neuroscience, 6, 149.                       Li, L., Sleem, L., Gentile, N., Nichil, G., & State, R. (2025).
+      https://doi.org/10.3389/fnins.2012.00149                                    Exploring the Impact of Temperature on Large
+Cui, J., & Alexander, R. (2026). Same Prompt, Different                           Language Models:Hot or Cold? (arXiv:2506.07295).
+      Outcomes: Evaluating the Reproducibility of Data                            arXiv. https://doi.org/10.48550/arXiv.2506.07295
+      Analysis by LLMs (Version 1). arXiv.                                  Lin, Z. (2025a). A validity-guided workflow for robust
+      https://doi.org/10.48550/ARXIV.2602.14349                                   large language model research in psychology
+Cui, Z., Li, N., & Zhou, H. (2025). Can Large Language                            (arXiv:2507.04491). arXiv.
+      Models Replace Human Subjects? A Large-Scale                                https://doi.org/10.48550/arXiv.2507.04491
+      Replication of Scenario-Based Experiments in                          Lin, Z. (2025b). From Prompts to Constructs: A Dual-
+      Psychology and Management (arXiv:2409.00128).                               Validity Framework for LLM Research in Psychology
+      arXiv. https://doi.org/10.48550/arXiv.2409.00128                            (arXiv:2506.16697). arXiv.
+da Costa Silva, K., Torres, A. R. R., Estramiana, J. L. Á.,                       https://doi.org/10.48550/arXiv.2506.16697
+      Luque, A. G., & Linhares, L. V. (2018). Racial                        Lin, Z. (2025c). Large Language Models as Psychological
+      discrimination and belief in a just world: Police                           Simulators: A Methodological Guide
+      violence against teenagers in Brazil. Journal of                            (arXiv:2506.16702). arXiv.
+      Experimental Social Psychology, 74, 317–327.                                https://doi.org/10.48550/arXiv.2506.16702
+      https://doi.org/10.1016/j.jesp.2017.10.009                            Lipkus, I. (1991). The construction and preliminary
+Dillion, D., Tandon, N., Gu, Y., & Gray, K. (2023). Can AI                        validation of a global belief in a just world scale and
+      language models replace human participants?                                 the exploratory analysis of the multidimensional
+      Trends in Cognitive Sciences, 27(7), 597–600.                               belief in a just world scale. Personality and
+      https://doi.org/10.1016/j.tics.2023.04.008                                  Individual Differences, 12(11), 1171–1178.
+Dovidio, J. F., Kawakami, K., Johnson, C., Johnson, B., &                         https://doi.org/10.1016/0191-8869(91)90081-L
+      Howard, A. (1997). On the Nature of Prejudice:                        Litam, S. D. A., Balkin, R., & Hendricks, L. (2022).
+      Automatic and Controlled Processes. Journal of                              Assessing worry, racism, and belief in a just world.
+      Experimental Social Psychology, 33(5), 510–540.                             Journal of Counseling & Development, 100(1), 75–
+      https://doi.org/10.1006/jesp.1997.1331                                      83. https://doi.org/10.1002/jcad.12404
+Gelman, A., & Loken, E. (2013). The garden of forking                       Lu, Y., Huang, J., Han, Y., Yao, B., Bei, S., Gesi, J., Xie, Y.,
+      paths: Why multiple comparisons can be a problem,                           Zheshen, Wang, He, Q., & Wang, D. (2025).
+      even when there is no “ﬁshing expedition” or “p-                            Prompting is Not All You Need! Evaluating LLM
+      hacking” and the research hypothesis was posited                            Agent Simulation Methodologies with Real-World
+      ahead of time.                                                              Online Customer Behavior Data (arXiv:2503.20749).
+                                                                                  arXiv. https://doi.org/10.48550/arXiv.2503.20749
+
+
+                                                                       13
+Lutz, M., Sen, I., Ahnert, G., Rogers, E., & Strohmaier, M.              Spurious Features in Prompt Design or: How I
+     (2025). The Prompt Makes the Person(a): A                           learned to start worrying about prompt formatting
+     Systematic Evaluation of Sociodemographic Persona                   (arXiv:2310.11324). arXiv.
+     Prompting for Large Language Models                                 https://doi.org/10.48550/arXiv.2310.11324
+     (arXiv:2507.16076). arXiv.                                     Simmons, J. P., Nelson, L. D., & Simonsohn, U. (2011).
+     https://doi.org/10.48550/arXiv.2507.16076                           False-positive psychology: Undisclosed flexibility in
+Marjieh, R., Sucholutsky, I., van Rijn, P., Jacoby, N., &                data collection and analysis allows presenting
+     Griffiths, T. L. (2024). Large language models predict              anything as significant. Psychological Science,
+     human sensory judgments across six modalities.                      22(11), 1359–1366.
+     Scientific Reports, 14(1), 21445.                                   https://doi.org/10.1177/0956797611417632
+     https://doi.org/10.1038/s41598-024-72071-1                     Stefan, A. M., & Schönbrodt, F. D. (2023). Big little lies: A
+Masur, P. K. (2023). Understanding the effects of                        compendium and simulation of p-hacking strategies.
+     conceptual and analytical choices on ‘finding’ the                  Royal Society Open Science, 10(2), 220346.
+     privacy paradox: A specification curve analysis of                  https://doi.org/10.1098/rsos.220346
+     large-scale survey data. Information,                          Suh, J., Jahanparast, E., Moon, S., Kang, M., & Chang, S.
+     Communication & Society, 26(3), 584–602.                            (2025). Language Model Fine-Tuning on Scaled
+     https://doi.org/10.1080/1369118X.2021.1963460                       Survey Data for Predicting Distributions of Public
+Mei, Q., Xie, Y., Yuan, W., & Jackson, M. O. (2024). A                   Opinions (arXiv:2502.16761). arXiv.
+     Turing test of whether AI chatbots are behaviorally                 https://doi.org/10.48550/arXiv.2502.16761
+     similar to humans. Proceedings of the National                 Sun, S., Lee, E., Nan, D., Zhao, X., Lee, W., Jansen, B. J., &
+     Academy of Sciences, 121(9), e2313925121.                           Kim, J. H. (2024). Random Silicon Sampling:
+     https://doi.org/10.1073/pnas.2313925121                             Simulating Human Sub-Population Opinion Using a
+Milička, J., Marklová, A., VanSlambrouck, K., Pospíšilová,               Large Language Model Based on Group-Level
+     E., Šimsová, J., Harvan, S., & Drobil, O. (2024). Large             Demographic Information (arXiv:2402.18144).
+     language models are able to downplay their                          arXiv. https://doi.org/10.48550/arXiv.2402.18144
+     cognitive abilities to fit the persona they simulate.          Toluna. (2026). Toluna’s ACT Instant AI: Ad testing
+     PLOS ONE, 19(3), e0298522.                                          beyond limits. Toluna.
+     https://doi.org/10.1371/journal.pone.0298522                        https://tolunacorporate.com/our-solutions/brand-
+Park, P. S., Schoenegger, P., & Zhu, C. (2024). Diminished               and-campaign/advertising-testing/act-instant-ai/
+     diversity-of-thought in a standard large language              Wang, A., Morgenstern, J., & Dickerson, J. P. (2025). Large
+     model. Behavior Research Methods, 56(6), 5754–                      language models that replace human participants
+     5770. https://doi.org/10.3758/s13428-023-02307-                     can harmfully misportray and flatten identity
+     x                                                                   groups. Nature Machine Intelligence, 7(3), 400–411.
+Qu, Y., & Wang, J. (2024). Performance and biases of                     https://doi.org/10.1038/s42256-025-00986-z
+     Large Language Models in public opinion simulation.            Wicherts, J. M., Veldkamp, C. L. S., Augusteijn, H. E. M.,
+     Humanities and Social Sciences Communications,                      Bakker, M., van Aert, R. C. M., & van Assen, M. A. L. M.
+     11(1), 1095. https://doi.org/10.1057/s41599-024-                    (2016). Degrees of Freedom in Planning, Running,
+     03609-x                                                             Analyzing, and Reporting Psychological Studies: A
+R Core Team. (2025). R: A Language and Environment                       Checklist to Avoid p-Hacking. Frontiers in
+     for Statistical Computing [Computer software]. R                    Psychology, 7.
+     Foundation for Statistical Computing.                               https://doi.org/10.3389/fpsyg.2016.01832
+Ranganath, K. A., Smith, C. T., & Nosek, B. A. (2008).              Wulff, D. U., & Mata, R. (2023). Automated jingle–jangle
+     Distinguishing automatic and controlled                             detection: Using embeddings to tackle taxonomic
+     components of attitudes from direct and indirect                    incommensurability. PsyArXiv.
+     measurement methods. Journal of Experimental                        https://doi.org/10.31234/osf.io/9h7aw
+     Social Psychology, 44(2), 386–396.                             Xie, C., Chen, C., Jia, F., Ye, Z., Lai, S., Shu, K., Gu, J., Bibi, A.,
+     https://doi.org/10.1016/j.jesp.2006.12.008                          Hu, Z., Jurgens, D., Evans, J., Torr, P., Ghanem, B., & Li,
+Rubin, Z., & Peplau, L. A. (1975). Who Believes in a Just                G. (2024, November 6). Can Large Language Model
+     World? Journal of Social Issues, 31(3), 65–89.                      Agents Simulate Human Trust Behavior? The Thirty-
+     https://doi.org/10.1111/j.1540-                                     eighth Annual Conference on Neural Information
+     4560.1975.tb00997.x                                                 Processing Systems.
+Säuberli, A., Frassinelli, D., & Plank, B. (2025). Do LLMs               https://openreview.net/forum?id=CeOwahuQic&re
+     Give Psychometrically Plausible Responses in                        ferrer=%5Bthe%20profile%20of%20Ziniu%20Hu
+     Educational Assessments? (arXiv:2506.09796).                        %5D(%2Fprofile%3Fid%3D~Ziniu_Hu1)
+     arXiv. https://doi.org/10.48550/arXiv.2506.09796               Zabaleta, M., & Lehman, J. (2024). Simulating Tabular
+Saynova, D., Hansson, K., Bruinsma, B., Fredén, A., &                    Datasets through LLMs to Rapidly Explore
+     Johansson, M. (2025). Identifying Non-Replicable                    Hypotheses about Real-World Entities
+     Social Science Studies with Language Models                         (arXiv:2411.18071; Version 1). arXiv.
+     (arXiv:2503.10671). arXiv.                                          https://doi.org/10.48550/arXiv.2411.18071
+     https://doi.org/10.48550/arXiv.2503.10671
+Schröder, S., Morgenroth, T., Kuhl, U., Vaquet, V., &
+     Paaßen, B. (2025). Large Language Models Do Not
+     Simulate Human Psychology (arXiv:2508.06950).
+     arXiv. https://doi.org/10.48550/arXiv.2508.06950
+Sclar, M., Choi, Y., Tsvetkov, Y., & Suhr, A. (2024).
+     Quantifying Language Models’ Sensitivity to
+
+
+                                                               14
+
