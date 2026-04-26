@@ -702,4 +702,163 @@ Part 0 で「自由意志論争に深入りしない」と宣言した理由：
 
 ---
 
-（Part 7 以降、続く）
+## Part 7：統合研究プログラム
+
+### 7.1 中核仮説（統合版）
+
+本ビジョンを操作可能な仮説にまとめると：
+
+> **H0**: 個人 wellbeing の決定因として、性格特性（特に低 Neuroticism、高 HH、高 Agreeableness、高 Conscientiousness）の効果量は収入・教育を上回る。
+>
+> **H1**: 性格特性は介入によって集団平均でシフト可能である（d ≈ 0.3–0.6）。
+>
+> **H2**: 性格介入を物質再分配と並行して実装することで、社会全体の wellbeing は単独介入より大きく上昇する。
+>
+> **H3 (探索的)**: HEXACO 7 類型ごとに最適な介入プロファイルが異なる。
+
+H0 は実証可能、H1 は既存研究で部分的に確立、H2 は理論的予測、H3 は LLM simulation で探索可能。
+
+### 7.2 論文 1：実証コア（最優先）
+
+#### タイトル候補
+*"Personality clusters as predictors of subjective well-being beyond material resources: A type-conditional analysis of N = X Japanese adults"*
+
+#### 目的
+H0 の検証：性格 vs 収入 vs 教育の幸福度予測力比較
+
+#### 設計
+- **データ**：13,668 サンプルの HEXACO データ + wellbeing 尺度（既存 or 追加収集）
+- **分析**：
+  - Multi-level Bayesian regression
+  - 7 類型ごとの wellbeing プロファイル比較
+  - Effect size の信頼区間明示
+  - 性格 × 収入の交互作用（Easterlin paradox の検証）
+- **方法論**：classical statistics（LLM 不要）
+- **target journal**：*Personality and Individual Differences* / *Journal of Happiness Studies* / *Frontiers in Psychology*
+
+#### 達成すべき結果
+- 性格 → SWB の効果量が収入・教育を上回ることを日本データで確認
+- 7 類型の wellbeing 差を可視化
+- HH と Agreeableness の中心軸性を実証
+
+#### Caveats（論文に必ず書く）
+- 集団政策の根拠であって個人診断ではない
+- 因果ではなく association
+- material justice との並行が必要
+
+### 7.3 論文 2：介入可能性レビュー
+
+#### タイトル候補
+*"Cultivating Honesty–Humility and Agreeableness for population well-being: A scoping review of personality interventions in Japanese contexts"*
+
+#### 目的
+H1 の検証と日本文脈での実装可能性
+
+#### 設計
+- **方法**：scoping review（PRISMA-ScR 準拠）
+- **対象**：
+  - 既存の personality intervention 研究（Roberts 2017 後の更新）
+  - 教育・職場・公共政策での実装事例
+  - 日本国内の関連介入（道徳教育、SEL、職場研修）
+- **整理軸**：
+  - 介入レベル（個人 / 家族 / 学校 / 職場 / 社会）
+  - 対象 trait（HH, A, C, N 各々）
+  - 効果サイズ
+  - 持続性
+  - スケーラビリティ
+- **target journal**：*Annual Review of Psychology* / *Psychological Bulletin* / *Frontiers in Psychology*
+
+#### 達成すべき結果
+- 性格介入の効果量を outcome 別・介入レベル別にマップ化
+- 日本での実装ギャップを特定
+- 後続実証研究の優先順位提示
+
+### 7.4 論文 3：LLM simulation 拡張
+
+#### タイトル候補
+*"Type-conditional simulation of personality intervention effects on aggregate well-being: A multi-LLM exploration"*
+
+#### 目的
+H3 の探索：HEXACO 7 類型ごとに異なる介入の counterfactual 推定
+
+#### 設計
+- Doc 1 で評価した**候補 B/C** がここに位置づく
+- **Stage 1**：Partial-information type inference（structural validation）
+- **Stage 2**：類型ごとに counterfactual 介入（HH +1SD、N −1SD 等）下の wellbeing 推定
+- **Triangulation**：Claude / GPT / Gemini の multi-LLM
+- **方法論的貢献**：
+  - 6 戦略 + 12 評価ポイントすべてを実装
+  - Pre-registration
+  - Failure mode の透明な報告
+- **target journal**：*Behavior Research Methods* / *IEEE Access* / *Computers in Human Behavior*
+
+#### 達成すべき結果
+- HEXACO 7 類型ごとの介入感受性プロファイル
+- 「どの類型にどの介入が効くか」の探索的マップ
+- LLM simulation の方法論的貢献
+
+### 7.5 著作（一般書 / エッセイ）
+
+#### タイトル候補
+**『資源で測る豊かさから、性格で測る豊かさへ — 介入可能な幸福の科学』**
+
+#### 内容構成
+- 第1部：人間は遺伝と環境で確率的に予測される（行動遺伝学の現代的総括）
+- 第2部：個人予測の限界と集団予測の可能性（Lundberg、Salganik の解説）
+- 第3部：物質的豊かさの zero-sum 性と性格的豊かさの positive-sum 性
+- 第4部：性格介入の科学と実装（Roberts 2017 を一般読者向けに）
+- 第5部：日本での実装プラン（HEXACO 7 類型と社会制度）
+- 第6部：自由意志・自己責任・社会制度（Compatibilism への配慮を保ちつつ）
+
+#### 想定読者
+- 政策決定者
+- 教育関係者
+- 公衆衛生・福祉実務者
+- 関心ある一般読者
+
+#### Differentiation
+- **Harden (2021)** とは「日本実装」「性格次元（遺伝だけでない）」で差別化
+- **Sapolsky (2023)** とは「具体的政策」「実装可能性」で差別化
+- **Wilkinson & Pickett (2009)** とは「性格次元の追加」で差別化
+- 三者を**統合**して日本文脈に適用するのが核心貢献
+
+### 7.6 Harden / Sapolsky / Wilkinson との差別化マトリクス
+
+| 軸 | Harden 2021 | Sapolsky 2023 | Wilkinson & Pickett 2009 | 本ビジョン |
+|---|---|---|---|---|
+| 焦点 | 遺伝の影響 | 自由意志 | 不平等 | 性格 + 介入 |
+| 主張 | anti-eugenic egalitarianism | hard determinism | より平等な社会 | 性格介入で wellbeing 底上げ |
+| 文化 | 米国中心 | 米国中心 | OECD 横断 | **日本** |
+| 介入論 | 弱（理念中心） | 弱（哲学中心） | 中（再分配） | **強（性格 + 制度）** |
+| 実装具体性 | 中 | 弱 | 中 | **強（HEXACO 7 類型）** |
+| 目的変数 | 教育・収入 | 道徳判断 | 健康・社会指標 | **wellbeing 全般** |
+
+→ 本ビジョンは **「Harden の anti-eugenic 枠組み + Sapolsky の生物学的決定論的視座 + Wilkinson の social justice 志向」を、日本の HEXACO データを使って実装可能な研究プログラムに翻訳する**ポジション。
+
+### 7.7 実行順序とタイムライン（推奨）
+
+| Phase | 期間 | タスク |
+|---|---|---|
+| Phase 0 | 1–2 ヶ月 | Harden (2021), Sapolsky (2023), Wilkinson & Pickett (2009) を読了 |
+| Phase 1 | 3–6 ヶ月 | 論文 1 の設計・データ取得・分析・執筆 |
+| Phase 2 | 6–9 ヶ月 | 論文 2 のレビュー実施 |
+| Phase 3 | 9–18 ヶ月 | 論文 3 の simulation 実装（pre-registration → pilot → 本番） |
+| Phase 4 | 18–36 ヶ月 | 著作の執筆 |
+
+並行して：
+- 論文 1 と 2 は Phase 1–2 に重ねて進められる
+- 論文 3 は論文 1 の結果を seed とする
+- 著作は論文 1–3 の結果を統合
+
+### 7.8 直近の意思決定
+
+1. ✅ **Phase 0 から始める** — Harden + Sapolsky + Wilkinson の読了
+2. ✅ **論文 1 の data availability 調査** — 既存 13,668 サンプルに wellbeing 尺度を追加するか、新規収集するか
+3. ⏸ **論文 3（LLM simulation）は論文 1 の結果待ち**
+4. ⏸ **著作は最後**
+
+→ 最重要メッセージ：**ビジョンは正当で実装可能。L1 から堅実に進めれば、3 本の査読論文 + 1 冊の著作という研究プログラムが構築できる。**
+
+---
+
+（Part 8 / References は次節）
