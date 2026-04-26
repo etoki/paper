@@ -48,10 +48,10 @@
 
 性格特性に関する標準的な行動遺伝学的事実：
 
-- 性格特性の heritability は概ね **40–50%**（Polderman et al. 2015, Nature Genetics）
-- 残りは shared environment（成人期にはほぼゼロ）と non-shared environment + 測定誤差
-- IQ の heritability は加齢とともに上昇し、成人期には 60–80%（Wilson effect）
-- 教育達成、収入、犯罪行動などの複雑形質も substantial な遺伝要因を持つ
+- 性格特性の heritability は概ね **40–50%**（Polderman et al. 2015, Nature Genetics, 全形質平均で 49%）
+- 残りは shared environment（成人期にはほぼゼロ、Polderman et al. 2015 で全形質平均 17%、年齢上昇とともに減少）と non-shared environment + 測定誤差
+- IQ の heritability は加齢とともに上昇し、成人期には **70–80%**（Wilson effect、Bouchard 2013, Twin Research and Human Genetics, 16(5), 923–930）
+- 教育達成、収入、犯罪行動などの複雑形質も substantial な遺伝要因を持つ（Polderman et al. 2015）
 
 つまり「同じ遺伝・似た環境を持つ集団」は、outcome 分布も類似する傾向を持つ。これが**集団予測の理論的根拠**である。
 
@@ -69,8 +69,8 @@
 ### 1.4 個人予測の限界 vs 集団予測の可能性
 
 #### 個人レベル予測は情報的に困難
-- Salganik et al. (2020) PNAS：Fragile Families Challenge で 160 個の機械学習モデルが、数千変数を使っても life outcome 予測の R² は 0.1–0.2 で天井
-- Lundberg, Brand, & Jeon (2024) PNAS：これは情報理論的な上限であり、データを増やしても消えない
+- Salganik et al. (2020) PNAS, 117(15), 8398–8403：Fragile Families Challenge で 160 teams（4,000 以上の予測モデル）が、4,242 変数を使っても life outcome 予測は限定的。**最良モデルでも R² ≈ 0.2（material hardship, GPA）、他の outcome は 0 に近い**
+- Lundberg, Brand, & Jeon (2024) PNAS, 121(24), e2322973121：irreducible error と learning error の理論的分解。**情報理論的な上限は本質的に消せない**
 - Park (2024) CS222 lecture でも "individual prediction problem" として明示
 
 #### しかし集団レベル予測は可能
@@ -102,7 +102,7 @@
 - Hedonic adaptation：物質報酬への適応は速く、性格起源の幸福は持続的
 
 #### しかも性格は介入可能
-- Roberts et al. (2017) systematic review：心理療法・教育介入で性格は変えられる（Conscientiousness 介入で d ≈ 0.4）
+- Roberts et al. (2017) systematic review（Psychological Bulletin, 143(2), 117–141）：207 件の介入研究のメタ分析、**平均 d ≈ 0.37**（24 週時点）。emotional stability（低 N）が最大変化、次に extraversion
 - 文化的伝達、教育、家族環境が population mean をシフトさせる
 
 ### 1.6 ビジョンの統合
@@ -201,10 +201,10 @@
 人生 outcome を予測する変数は性格特性だけではない。性格を中心に置く本ビジョンも、他の因子の独立した寄与を認識した上で構築される必要がある。
 
 #### (a) 認知能力（IQ）— 性格と部分的に独立
-- IQ × 性格の相関は限定的（特に Openness × IQ で r ≈ 0.20–0.30、Anglim et al. 2022 メタ分析）
+- IQ × 性格の相関は限定的（Big Five Openness × intelligence で **ρ ≈ .20**、Anglim et al. 2022 メタ分析、N = 162,636、k = 272 studies, Psychological Bulletin, 148, 301–336）
 - 経済・認知系 outcome では性格より IQ の方が予測力が大きい
-- Strenze (2007) メタ分析：IQ × 学歴 r ≈ 0.56、IQ × 職業 r ≈ 0.43、IQ × 収入 r ≈ 0.20
-- Schmidt & Hunter (1998)：IQ は職業 performance の最強予測因子（r ≈ 0.50）
+- Strenze (2007) メタ分析（Intelligence, 35(5), 401–426）：IQ × 学歴 r = .56（N = 84,828, k = 59）、IQ × 職業 r = .43（N = 72,290, k = 45）、IQ × 収入 r ≈ .20
+- Schmidt & Hunter (1998, Psychological Bulletin, 124, 262–274)：85 年の研究蓄積メタ分析、GMA は職業 performance の最強単独予測因子
 
 #### (b) 家族の社会経済的地位（SES）
 - 親の収入・学歴・職業が子の outcome を強力に予測
@@ -276,9 +276,9 @@
 
 #### Openness × IQ の相関
 - 当初想定：r ≈ 0.1–0.2
-- **修正後：ρ ≈ .20**（Anglim et al. 2022 メタ分析、Big Five Openness × intelligence、N = 162,636）
-- 結晶性知能との相関はより強い（Ackerman & Heggestad 1997 で r ≈ .33）
-- DeYoung et al. (2014) は "Intellect" 側面が g と独立に関連、"Openness" 側面は verbal intelligence のみと関連と分離
+- **修正後：ρ ≈ .20**（Anglim et al. 2022, Psychological Bulletin, 148, 301–336、Big Five Openness × intelligence、N = 162,636、k = 272 studies）
+- 結晶性知能との相関はより強い：**Openness × 結晶性 r = .30、Openness × 流動性 r = .08**（Ackerman & Heggestad 1997, Psychological Bulletin, 121(2), 219–245、k = 135 studies）
+- DeYoung et al. (2014, Journal of Personality Assessment, 96(1), 46–52) は "Intellect" 側面が g と独立に関連、"Openness" 側面は verbal intelligence のみと関連と分離
 - 含意：性格は IQ をある程度反映している（氷山の一角の比喩を補強）
 
 #### SES → 子の personality の経路
@@ -297,22 +297,32 @@
 
 ### 3.4 outcome × 予測因子の効果量マップ
 
-代表的なメタ分析・大規模研究から導いた典型値（参照値、N が大きい研究の中央値）：
+代表的なメタ分析・大規模研究から導いた**典型値の参照表**。本表は順位付けと相対比較のために整理したもので、各セルの正確な数値は文献によって 0.05–0.10 程度ばらつく。**論文執筆時には各セルを最新メタ分析で再確認する必要がある**。
 
 | Outcome | IQ | 親 SES | 教育年数 | 性格(BF合成) | ACE | PRS |
 |---|---|---|---|---|---|---|
-| 学歴達成 | **r≈.56** | r≈.40 | — | r≈.25 | r≈.20 | r≈.15 |
-| 職業地位 | **r≈.43** | r≈.30 | r≈.45 | r≈.20 | r≈.15 | r≈.10 |
-| 収入 | r≈.20 | r≈.30 | **r≈.40** | r≈.15 | r≈.20 | r≈.10 |
-| 仕事 performance | **r≈.50** | r≈.10 | r≈.20 | r≈.30 (C) | — | — |
-| 婚姻安定 | r≈.10 | r≈.15 | r≈.20 | **r≈.25** | r≈.30 | — |
-| 精神健康 | r≈.15 | r≈.20 | r≈.15 | **r≈.40** (低 N) | **r≈.40** | r≈.15 |
-| 身体健康 | r≈.20 | r≈.30 | r≈.30 | **r≈.20** (C) | **r≈.35** | r≈.10 |
-| 犯罪 | r≈.20 | r≈.30 | r≈.25 | r≈.25 (低 C/低 HH) | **r≈.40** | r≈.10 |
-| 寿命 | r≈.15 | r≈.30 | r≈.30 | r≈.15 (C) | r≈.25 | r≈.10 |
-| **幸福度（SWB）** | r≈.10 | r≈.15 | r≈.10 | **r≈.40–.50** (低 N) | r≈.20 | — |
+| 学歴達成 | **r≈.56**¹ | r≈.40¹ | — | r≈.25² | r≈.20⁵ | r≈.15⁶ |
+| 職業地位 | **r≈.43**¹ | r≈.30¹ | r≈.45¹ | r≈.20² | r≈.15⁵ | r≈.10⁶ |
+| 収入 | r≈.20¹ | r≈.30¹ | **r≈.40**¹ | r≈.15² | r≈.20⁵ | r≈.10⁶ |
+| 仕事 performance | **r≈.50**³ | r≈.10 | r≈.20 | r≈.30 (C)² | — | — |
+| 婚姻安定 | r≈.10 | r≈.15 | r≈.20 | **r≈.25**² | r≈.30⁵ | — |
+| 精神健康 | r≈.15 | r≈.20 | r≈.15 | **r≈.40** (低 N)⁴ | **r≈.40**⁵ | r≈.15 |
+| 身体健康 | r≈.20 | r≈.30 | r≈.30 | **r≈.20** (C)⁷ | **r≈.35**⁵ | r≈.10 |
+| 犯罪 | r≈.20 | r≈.30 | r≈.25 | r≈.25 (低 C/低 HH)² | **r≈.40**⁵ | r≈.10 |
+| 寿命 | r≈.15 | r≈.30 | r≈.30 | r≈.15 (C)⁷ | r≈.25⁵ | r≈.10 |
+| **幸福度（SWB）** | r≈.10 | r≈.15 | r≈.10 | **r≈.40–.50** (低 N)⁸ | r≈.20 | — |
 
-注：効果量はメタ分析間でばらつきがある。**正確な数値は研究プログラム実装時に最新メタ分析を再確認する必要がある**。本表は順位付けの参考。
+**典拠**：
+¹ Strenze (2007) Intelligence 35(5)
+² Roberts et al. (2007) Perspectives on Psychological Science 2(4)
+³ Schmidt & Hunter (1998) Psychological Bulletin 124, 262-274
+⁴ Kotov et al. (2010) Psychological Bulletin 136(5)
+⁵ Felitti et al. (1998) AJPM 14(4)、Hughes et al. (2017) Lancet Public Health メタ分析
+⁶ Belsky et al. (2016) Psychological Science 27(7)、Belsky & Harden (2019) Current Directions
+⁷ Bogg & Roberts (2004) Psychological Bulletin 130(6)、Friedman et al. 系列
+⁸ Steel et al. (2008) Psychological Bulletin 134(1)、DeNeve & Cooper (1998) Psychological Bulletin 124(2)
+
+注：典拠が「—」のセルは個別メタ分析が乏しく、関連する meta-meta-analysis の典型値を参考にしている。論文化時はそれぞれ独立に検証すること。
 
 ### 3.5 単一予測因子のチャンピオン分析
 
@@ -326,10 +336,11 @@
 
 #### しかし重要な点：**幸福度では性格が最強**
 - 上記表で唯一、性格が IQ・SES・教育を**明確に上回る**領域が幸福度（SWB）
+- 典拠：Steel et al. (2008) で Big Five composite の SWB に対する影響が demographic 変数を上回ることが確立
 - これが本研究プログラムが性格に focus する empirical な根拠
 
 #### 最強戦略は単一ではなく組み合わせ
-- 性格 + IQ + SES + ACE + PRS の組み合わせで R² = 0.30–0.50 まで到達可能
+- 性格 + IQ + SES + ACE + PRS の組み合わせで R² 増加が期待できる（具体的な達成可能 R² は outcome 依存。Salganik et al. 2020 では多変数を使っても R² ≈ 0.2 が天井だった outcome もある）
 - ただし**介入対象として現実的なのは性格のみ**（IQ・SES・ACE・PRS は介入困難）
 - → **予測には組み合わせ、介入には性格** という戦略
 
@@ -358,17 +369,19 @@
 ### 4.2 幸福度の実証的予測因子
 
 #### 主要メタ分析の典型値
-- **Neuroticism（負）**：r ≈ 0.40–0.50（Steel et al. 2008 Psychological Bulletin、DeNeve & Cooper 1998）
-- **Extraversion**：r ≈ 0.20–0.30
-- **Agreeableness / HH**：r ≈ 0.15–0.25
-- **Conscientiousness**：r ≈ 0.20
-- **収入（subsistence 以上）**：r ≈ 0.13–0.20、逓減的
-- **教育年数**：r ≈ 0.10
-- **婚姻**：r ≈ 0.15
-- **健康**：r ≈ 0.30
-- **社会関係**：r ≈ 0.30
+- **Neuroticism（負）**：r ≈ 0.40–0.50（Steel et al. 2008 Psychological Bulletin 134(1), DeNeve & Cooper 1998 Psychological Bulletin 124(2)）
+- **Extraversion**：r ≈ 0.20–0.30（Steel et al. 2008、DeNeve & Cooper 1998）
+- **Agreeableness / HH**：r ≈ 0.15–0.25（Steel et al. 2008）
+- **Conscientiousness**：r ≈ 0.20（Steel et al. 2008）
+- **収入（subsistence 以上）**：r ≈ 0.13–0.20、逓減的（Howell & Howell 2008 Psychological Bulletin 134(4) 系列のメタ分析、Kahneman & Deaton 2010 PNAS 107(38)）
+- **教育年数**：r ≈ 0.10（Witter et al. 1984 系列、Pinquart & Sörensen 2000 Psychology and Aging）
+- **婚姻**：r ≈ 0.15（Diener et al. 2000 Social Indicators Research メタ分析）
+- **健康**：r ≈ 0.30（Okun et al. 1984 J Aging and Health、Pinquart & Sörensen 2000）
+- **社会関係**：r ≈ 0.30（Pinquart & Sörensen 2000、Diener & Seligman 2002）
 
-→ **収入・教育より性格の方が幸福度予測力が強い**
+注：上記の非性格変数の数値は古典的な SWB 研究から取られた**順位付け参照値**で、論文化時には最新メタ分析（特に subsistence 閾値研究）で再確認が必要。
+
+→ **収入・教育より性格の方が幸福度予測力が強い**（Steel et al. 2008 で実証）
 
 #### Easterlin paradox の含意
 - Kahneman & Deaton (2010)：年収約 $75K を超えると追加収入の幸福度効果がほぼゼロ
@@ -499,7 +512,7 @@
   - 機能評価との関係を明示（予測 vs 観察の区別）
 
 #### (b) 性格測定の信頼性
-- **問題**：HEXACO の test-retest 信頼性は 5 年で r ≈ 0.6 程度。個人レベル判定の根拠としては不安定
+- **問題**：HEXACO の test-retest 信頼性は短期（13 日）で domain median r = .88、facets r = .81、items r = .65（N = 416、Henry, Thielmann, Booth, & Mõttus 2022 PLoS ONE 17(1), e0262465）。長期間隔（5–10 年）の縦断データは現状限定的だが、性格特性は加齢・経験で漸進的に変化するため、個人レベル判定の根拠としては経時的不安定性が懸念
 - **対応**：
   - 集団統計には十分でも、個人ラベリングには使わない
   - 反復測定・複数測定による信頼性向上
@@ -898,6 +911,7 @@ H3 の探索：HEXACO 7 類型ごとに異なる介入の counterfactual 推定
 - Polderman, T. J. C., Benyamin, B., de Leeuw, C. A., Sullivan, P. F., van Bochoven, A., Visscher, P. M., & Posthuma, D. (2015). Meta-analysis of the heritability of human traits based on fifty years of twin studies. *Nature Genetics, 47*(7), 702–709.
 - Turkheimer, E. (2000). Three laws of behavior genetics and what they mean. *Current Directions in Psychological Science, 9*(5), 160–164.
 - Bouchard, T. J., & Loehlin, J. C. (2001). Genes, evolution, and personality. *Behavior Genetics, 31*(3), 243–273.
+- Bouchard, T. J. (2013). The Wilson Effect: The increase in heritability of IQ with age. *Twin Research and Human Genetics, 16*(5), 923–930.
 - Plomin, R., & Daniels, D. (1987). Why are children in the same family so different from one another? *Behavioral and Brain Sciences, 10*(1), 1–16.
 
 ### 8.4 Polygenic scores / Sociogenomics
@@ -925,13 +939,16 @@ H3 の探索：HEXACO 7 類型ごとに異なる介入の counterfactual 推定
 - Schmidt, F. L., & Hunter, J. E. (1998). The validity and utility of selection methods in personnel psychology. *Psychological Bulletin, 124*(2), 262–274.
 - DeYoung, C. G., Quilty, L. C., Peterson, J. B., & Gray, J. R. (2014). Openness to experience, intellect, and cognitive ability. *Journal of Personality Assessment, 96*(1), 46–52.
 - Ackerman, P. L., & Heggestad, E. D. (1997). Intelligence, personality, and interests: Evidence for overlapping traits. *Psychological Bulletin, 121*(2), 219–245.
-- Anglim, J., et al. (2022). Personality and intelligence: A meta-analysis. *[最新メタ分析、書誌情報を再確認のこと]*
+- Anglim, J., Dunlop, P. D., Wee, S., Horwood, S., Wood, J. K., & Marty, A. (2022). Personality and intelligence: A meta-analysis. *Psychological Bulletin, 148*(5–6), 301–336.
 
 ### 8.9 幸福度（SWB）
 - Steel, P., Schmidt, J., & Shultz, J. (2008). Refining the relationship between personality and subjective well-being. *Psychological Bulletin, 134*(1), 138–161.
 - DeNeve, K. M., & Cooper, H. (1998). The happy personality: A meta-analytic review of 137 personality traits and subjective well-being. *Psychological Bulletin, 124*(2), 197–229.
 - Kahneman, D., & Deaton, A. (2010). High income improves evaluation of life but not emotional well-being. *PNAS, 107*(38), 16489–16493.
 - Diener, E., Lucas, R. E., & Scollon, C. N. (2006). Beyond the hedonic treadmill: Revising the adaptation theory of well-being. *American Psychologist, 61*(4), 305–314.
+- Howell, R. T., & Howell, C. J. (2008). The relation of economic status to subjective well-being in developing countries: A meta-analysis. *Psychological Bulletin, 134*(4), 536–560.
+- Pinquart, M., & Sörensen, S. (2000). Influences of socioeconomic status, social network, and competence on subjective well-being in later life: A meta-analysis. *Psychology and Aging, 15*(2), 187–224.
+- Diener, E., & Seligman, M. E. P. (2002). Very happy people. *Psychological Science, 13*(1), 81–84.
 
 ### 8.10 性格の介入可能性
 - Roberts, B. W., Luo, J., Briley, D. A., Chow, P. I., Su, R., & Hill, P. L. (2017). A systematic review of personality trait change through intervention. *Psychological Bulletin, 143*(2), 117–141.
@@ -944,6 +961,7 @@ H3 の探索：HEXACO 7 類型ごとに異なる介入の counterfactual 推定
 
 ### 8.12 ACE（Adverse Childhood Experiences）
 - Felitti, V. J., Anda, R. F., Nordenberg, D., et al. (1998). Relationship of childhood abuse and household dysfunction to many of the leading causes of death in adults: The Adverse Childhood Experiences (ACE) Study. *American Journal of Preventive Medicine, 14*(4), 245–258.
+- Hughes, K., Bellis, M. A., Hardcastle, K. A., et al. (2017). The effect of multiple adverse childhood experiences on health: A systematic review and meta-analysis. *Lancet Public Health, 2*(8), e356–e366.
 
 ### 8.13 マクロ経済 × 出生コホート
 - Oreopoulos, P., von Wachter, T., & Heisz, A. (2012). The short- and long-term career effects of graduating in a recession. *American Economic Journal: Applied Economics, 4*(1), 1–29.
@@ -953,6 +971,9 @@ H3 の探索：HEXACO 7 類型ごとに異なる介入の counterfactual 推定
 
 ### 8.15 stigma・stereotype threat
 - Steele, C. M., & Aronson, J. (1995). Stereotype threat and the intellectual test performance of African Americans. *Journal of Personality and Social Psychology, 69*(5), 797–811.
+
+### 8.15a HEXACO test-retest 信頼性
+- Henry, S., Thielmann, I., Booth, T., & Mõttus, R. (2022). Test-retest reliability of the HEXACO-100—And the value of multiple measurements for assessing reliability. *PLoS ONE, 17*(1), e0262465.
 
 ### 8.16 倫理・公正性（補助）
 - Angwin, J., Larson, J., Mattu, S., & Kirchner, L. (2016). Machine bias. *ProPublica*. https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
