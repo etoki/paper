@@ -861,4 +861,151 @@ H3 の探索：HEXACO 7 類型ごとに異なる介入の counterfactual 推定
 
 ---
 
-（Part 8 / References は次節）
+## Part 8：参考文献
+
+### 8.1 必読書籍（優先順）
+
+#### 最優先（◎）
+- Harden, K. P. (2021). *The Genetic Lottery: Why DNA Matters for Social Equality*. Princeton University Press.
+- Sapolsky, R. (2023). *Determined: A Science of Life Without Free Will*. Penguin Press.
+
+#### 強く推奨（○）
+- Plomin, R. (2018). *Blueprint: How DNA Makes Us Who We Are*. MIT Press.
+- Sapolsky, R. (2017). *Behave: The Biology of Humans at Our Best and Worst*. Penguin Press.
+- Wilkinson, R., & Pickett, K. (2009). *The Spirit Level: Why More Equal Societies Almost Always Do Better*. Penguin.
+- Wilkinson, R., & Pickett, K. (2018). *The Inner Level: How More Equal Societies Reduce Stress, Restore Sanity and Improve Everyone's Well-being*. Penguin.
+
+#### 補助（△）
+- Pereboom, D. (2001). *Living Without Free Will*. Cambridge University Press.
+- Dennett, D. C. (2003). *Freedom Evolves*. Viking.
+- Putnam, R. D. (2000). *Bowling Alone: The Collapse and Revival of American Community*. Simon & Schuster.
+- Conley, D., & Fletcher, J. (2017). *The Genome Factor*. Princeton University Press.
+- O'Neil, C. (2016). *Weapons of Math Destruction*. Crown.
+- Eubanks, V. (2018). *Automating Inequality*. St. Martin's Press.
+- Caplan, B. (2018). *The Case Against Education*. Princeton University Press.
+- Knopik, V. S., Neiderhiser, J. M., DeFries, J. C., & Plomin, R. (2017). *Behavioral Genetics* (7th ed.). Worth Publishers.
+
+### 8.2 哲学（capability approach、自由意志）
+- Sen, A. (1999). *Development as Freedom*. Oxford University Press.
+- Sen, A. (2009). *The Idea of Justice*. Harvard University Press.
+- Nussbaum, M. (2011). *Creating Capabilities: The Human Development Approach*. Harvard University Press.
+- Frankfurt, H. G. (1971). Freedom of the will and the concept of a person. *Journal of Philosophy, 68*, 5–20.
+
+### 8.3 行動遺伝学（メタ分析・概観）
+- Polderman, T. J. C., Benyamin, B., de Leeuw, C. A., Sullivan, P. F., van Bochoven, A., Visscher, P. M., & Posthuma, D. (2015). Meta-analysis of the heritability of human traits based on fifty years of twin studies. *Nature Genetics, 47*(7), 702–709.
+- Turkheimer, E. (2000). Three laws of behavior genetics and what they mean. *Current Directions in Psychological Science, 9*(5), 160–164.
+- Bouchard, T. J., & Loehlin, J. C. (2001). Genes, evolution, and personality. *Behavior Genetics, 31*(3), 243–273.
+- Plomin, R., & Daniels, D. (1987). Why are children in the same family so different from one another? *Behavioral and Brain Sciences, 10*(1), 1–16.
+
+### 8.4 Polygenic scores / Sociogenomics
+- Belsky, D. W., Moffitt, T. E., Corcoran, D. L., et al. (2016). The genetics of success: How single-nucleotide polymorphisms associated with educational attainment relate to life-course development. *Psychological Science, 27*(7), 957–972.
+- Belsky, D. W., & Harden, K. P. (2019). Phenotypic annotation: Using polygenic scores to translate discoveries from genome-wide association studies from the top down. *Current Directions in Psychological Science, 28*(1), 82–90.
+- Harden, K. P., & Koellinger, P. D. (2020). Using genetics for social science. *Nature Human Behaviour, 4*(6), 567–576.
+
+### 8.5 反社会的行動・犯罪の遺伝学
+- Caspi, A., McClay, J., Moffitt, T. E., et al. (2002). Role of genotype in the cycle of violence in maltreated children. *Science, 297*(5582), 851–854.
+- Tielbeek, J. J., Johansson, A., Polderman, T. J. C., et al. (2017). Genome-wide association studies of a broad spectrum of antisocial behavior. *JAMA Psychiatry, 74*(12), 1242–1250.
+- Tuvblad, C., & Beaver, K. M. (2013). Genetic and environmental influences on antisocial behavior. *Journal of Criminal Justice, 41*(5), 273–276.
+
+### 8.6 個人予測の限界
+- Salganik, M. J., Lundberg, I., Kindel, A. T., et al. (2020). Measuring the predictability of life outcomes with a scientific mass collaboration. *PNAS, 117*(15), 8398–8403.
+- Lundberg, I., Brand, J. E., & Jeon, N. (2024). The origins of unpredictability in life outcome prediction tasks. *PNAS, 121*(24), e2322973121.
+
+### 8.7 性格 → 人生 outcome
+- Roberts, B. W., Kuncel, N. R., Shiner, R., Caspi, A., & Goldberg, L. R. (2007). The power of personality: The comparative validity of personality traits, socioeconomic status, and cognitive ability for predicting important life outcomes. *Perspectives on Psychological Science, 2*(4), 313–345.
+- Soto, C. J. (2019). How replicable are links between personality traits and consequential life outcomes? The Life Outcomes of Personality Replication Project. *Psychological Science, 30*(5), 711–727.
+- Ozer, D. J., & Benet-Martínez, V. (2006). Personality and the prediction of consequential outcomes. *Annual Review of Psychology, 57*, 401–421.
+- Lee, K., & Ashton, M. C. (2005). Psychopathy, Machiavellianism, and narcissism in the Five-Factor Model and the HEXACO model of personality structure. *Personality and Individual Differences, 38*(7), 1571–1582.
+
+### 8.8 IQ × outcome
+- Strenze, T. (2007). Intelligence and socioeconomic success: A meta-analytic review. *Intelligence, 35*(5), 401–426.
+- Schmidt, F. L., & Hunter, J. E. (1998). The validity and utility of selection methods in personnel psychology. *Psychological Bulletin, 124*(2), 262–274.
+- DeYoung, C. G., Quilty, L. C., Peterson, J. B., & Gray, J. R. (2014). Openness to experience, intellect, and cognitive ability. *Journal of Personality Assessment, 96*(1), 46–52.
+- Ackerman, P. L., & Heggestad, E. D. (1997). Intelligence, personality, and interests: Evidence for overlapping traits. *Psychological Bulletin, 121*(2), 219–245.
+- Anglim, J., et al. (2022). Personality and intelligence: A meta-analysis. *[最新メタ分析、書誌情報を再確認のこと]*
+
+### 8.9 幸福度（SWB）
+- Steel, P., Schmidt, J., & Shultz, J. (2008). Refining the relationship between personality and subjective well-being. *Psychological Bulletin, 134*(1), 138–161.
+- DeNeve, K. M., & Cooper, H. (1998). The happy personality: A meta-analytic review of 137 personality traits and subjective well-being. *Psychological Bulletin, 124*(2), 197–229.
+- Kahneman, D., & Deaton, A. (2010). High income improves evaluation of life but not emotional well-being. *PNAS, 107*(38), 16489–16493.
+- Diener, E., Lucas, R. E., & Scollon, C. N. (2006). Beyond the hedonic treadmill: Revising the adaptation theory of well-being. *American Psychologist, 61*(4), 305–314.
+
+### 8.10 性格の介入可能性
+- Roberts, B. W., Luo, J., Briley, D. A., Chow, P. I., Su, R., & Hill, P. L. (2017). A systematic review of personality trait change through intervention. *Psychological Bulletin, 143*(2), 117–141.
+- Roberts, B. W., & Mroczek, D. (2008). Personality trait change in adulthood. *Current Directions in Psychological Science, 17*(1), 31–35.
+- Bogg, T., & Roberts, B. W. (2004). Conscientiousness and health-related behaviors: A meta-analysis of the leading behavioral contributors to mortality. *Psychological Bulletin, 130*(6), 887–919.
+
+### 8.11 健康・精神疾患
+- Lahey, B. B. (2009). Public health significance of neuroticism. *American Psychologist, 64*(4), 241–256.
+- Kotov, R., Gamez, W., Schmidt, F., & Watson, D. (2010). Linking "big" personality traits to anxiety, depressive, and substance use disorders: A meta-analysis. *Psychological Bulletin, 136*(5), 768–821.
+
+### 8.12 ACE（Adverse Childhood Experiences）
+- Felitti, V. J., Anda, R. F., Nordenberg, D., et al. (1998). Relationship of childhood abuse and household dysfunction to many of the leading causes of death in adults: The Adverse Childhood Experiences (ACE) Study. *American Journal of Preventive Medicine, 14*(4), 245–258.
+
+### 8.13 マクロ経済 × 出生コホート
+- Oreopoulos, P., von Wachter, T., & Heisz, A. (2012). The short- and long-term career effects of graduating in a recession. *American Economic Journal: Applied Economics, 4*(1), 1–29.
+
+### 8.14 教育シグナリング
+- Spence, M. (1973). Job market signaling. *Quarterly Journal of Economics, 87*(3), 355–374.
+
+### 8.15 stigma・stereotype threat
+- Steele, C. M., & Aronson, J. (1995). Stereotype threat and the intellectual test performance of African Americans. *Journal of Personality and Social Psychology, 69*(5), 797–811.
+
+### 8.16 倫理・公正性（補助）
+- Angwin, J., Larson, J., Mattu, S., & Kirchner, L. (2016). Machine bias. *ProPublica*. https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+
+### 8.17 早期介入（Heckman 系列）
+- Heckman, J. J., Moon, S. H., Pinto, R., Savelyev, P. A., & Yavitz, A. (2010). The rate of return to the HighScope Perry Preschool Program. *Journal of Public Economics, 94*(1–2), 114–128.
+
+### 8.18 著者の関連自己引用
+- Tokiwa, E. (2025). Who excels in online learning in Japan? *Frontiers in Psychology, 16*, 1420996.
+- Tokiwa, E. (2026). *Big Five personality traits and academic achievement in online learning environments: A systematic review and meta-analysis* [Preprint]. OSF. https://doi.org/10.17605/OSF.IO/E5W47
+
+### 8.19 日本の利用可能データセット（論文 1 候補）
+
+これは「論文」ではなく、論文 1 で利用を検討すべき**データソース**：
+
+- **JLPS（日本版総合的社会調査）** — 慶應義塾大学パネル調査
+- **JPSC（消費生活に関するパネル調査）** — 家計経済研究所
+- **JHPS（日本家計パネル調査）** — 慶應パネルデータ研究センター
+- **NFRJ（全国家族調査）** — 日本家族社会学会
+- **国民生活基礎調査** — 厚生労働省
+- **犯罪白書** — 法務省（都道府県別犯罪率）
+- **国勢調査** — 総務省（都道府県別人口・家族構成）
+- **既存 N = 13,668 HEXACO サンプル**（Clustering 論文データ）
+
+### 8.20 推奨される読書順序
+
+| 週 | 文献 | 目的 |
+|---|---|---|
+| 1 | Harden (2021) | 自分の立場のキャリブレーション |
+| 2 | Sapolsky (2023) | L3 の現状把握 |
+| 3 | Polderman (2015) + Roberts (2007) | 数値感覚 |
+| 4 | Salganik (2020) + Lundberg (2024) | 予測の限界 |
+| 5 | Wilkinson & Pickett (2009) | 不平等 × 健康 |
+| 6 | Steel et al. (2008) + Kahneman & Deaton (2010) | 幸福度の予測因子 |
+| 7 | Roberts et al. (2017) | 介入可能性 |
+| 8 | O'Neil (2016) | 倫理的予防接種 |
+| 9 以降 | 論文 1 の設計開始 | 実装フェーズ |
+
+---
+
+## 関連既存資産（このリポジトリ内）
+
+- `simulation/docs/notes/simulation_paper_evaluation_integrated.md` — 方法論的評価（Doc 1）
+- `simulation/agent/` — Opus 4.7 + Extended Thinking + Tool Use pipeline
+- `simulation/HANDOFF.md` — 既存 Big Five simulation 論文の状態
+- `simulation/prior_research/_text/` — LLM simulation 関連 PDF + テキスト抽出
+- `clustering/` — N=13,668 HEXACO データと clustering スクリプト
+- `harassment/` — N=354 データと analysis.py
+- `metaanalysis/` — Big Five × academic achievement メタ分析（OSF E5W47）
+- `online_learning/` — Tokiwa (2025) Frontiers 論文関連
+
+---
+
+**本ドキュメントは「研究目的そのもの」の記述です。**  
+**方法論的評価（候補 A/B/C、LLM 評価フレームワーク）は** `simulation_paper_evaluation_integrated.md` **を参照してください。**
+
+**最重要メッセージ**：
+> ビジョンは正当で実装可能。Phase 0（Harden + Sapolsky + Wilkinson の読了）から始め、L1 から堅実に進めれば、3 本の査読論文 + 1 冊の著作という研究プログラムが構築できる。Harden + Sapolsky + Wilkinson の統合を日本文脈に翻訳することが核心貢献。
+
