@@ -1,0 +1,1191 @@
+                                         PersonaLLM: Investigating the Ability of Large Language Models to
+                                                                    Express Personality Traits
+
+                                       Hang Jiang, Xiajie Zhang, Xubo Cao, Cynthia Breazeal, Deb Roy, Jad Kabbara
+                                                          Massachusetts Institute of Technology, Stanford University
+                                                                   MIT Center for Constructive Communication
+
+                                         {hjian42, xiajie, cynthiab, dkroy, jkabbara}@mit.edu, xcao@stanford.edu
+
+arXiv:2305.02547v5 [cs.CL] 2 Apr 2024                        Abstract                          agents can exhibit believable human behavior and
+                                                                                               could potentially be used to simulate human agents
+                                            Despite the many use cases for large language      in social science studies. However, while these
+                                            models (LLMs) in creating personalized chat-       generative characters are becoming ubiquitous, it
+                                            bots, there has been limited research on evaluat-  is a common yet unsubstantiated assumption that
+                                            ing the extent to which the behaviors of person-   these agents consistently behave in a human-like
+                                            alized LLMs accurately and consistently reflect    manner. Recent studies in the field of LLMs and
+                                            specific personality traits. We consider study-    personality have started to provide some empirical
+                                            ing the behavior of LLM-based agents which         support. For example, recent research has studied
+                                            we refer to as LLM personas and present a          personality expression in LLM-generated content
+                                            case study with GPT-3.5 and GPT-4 to investi-      (Li et al., 2022; Pan and Zeng, 2023; Safdari et al.,
+                                            gate whether LLMs can generate content that        2023), created new benchmarks to measure per-
+                                            aligns with their assigned personality profiles.   sonality expressed by LLMs (Jiang et al., 2022a;
+                                            To this end, we simulate distinct LLM personas     Wang et al., 2023a; Mao et al., 2023), and proposed
+                                            based on the Big Five personality model, have      better prompting techniques to induce (Karra et al.,
+                                            them complete the 44-item Big Five Inven-          2022; Jiang et al., 2022a,b; Caron and Srivastava,
+                                            tory (BFI) personality test and a story writing    2022; Li et al., 2023), and edit (Mao et al., 2023)
+                                            task, and then assess their essays with auto-      personality expressed by LLMs. Despite these ad-
+                                            matic and human evaluations. Results show          vancements, there has been little research in NLP
+                                            that LLM personas' self-reported BFI scores        that leverages insights from personality psychology
+                                            are consistent with their designated personality   and psychometric tools to study if LLMs can duti-
+                                            types, with large effect sizes observed across     fully express personality traits. Furthermore, there
+                                            five traits. Additionally, LLM personas' writ-     is little work that explores how these agents as-
+                                            ings have emerging representative linguistic       signed with certain personality traits are perceived
+                                            patterns for personality traits when compared      by humans.
+                                            with a human writing corpus. Furthermore, hu-
+                                            man evaluation shows that humans can perceive         Drawing on the extensive research of the Big
+                                            some personality traits with an accuracy of up     Five Personality model (Goldberg, 2013), we aim
+                                            to 80%. Interestingly, the accuracy drops sig-     to investigate the capability of LLMs in expressing
+                                            nificantly when the annotators were informed       the Big Five personality traits ­ namely Extraver-
+                                            of AI authorship.                                  sion, Agreeableness, Conscientiousness, Neuroti-
+                                                                                               cism, Openness to Experience. In this paper, we
+                                       1 Introduction                                          define an LLM persona to be an LLM-based agent
+                                                                                               prompted to generate content that reflects certain
+                                       With LLMs' impressive ability to engage in human-       personality traits as defined in its initial prompt
+                                       like conversations, there has been a surge of inter-    configuration. In our study, we first seek to deter-
+                                       est in building personalized AI agents that inter-      mine whether these LLM personas can accurately
+                                       act with and support humans in various contexts.        reflect their assigned personalities when taking a
+                                       Startups such as Character AI1 and Replika2 have        personality test. Given that they show promising
+                                       engaged many users through virtual characters on        results on that initial exploration, we pursue the
+                                       their fast-growing platforms. Meanwhile, in the         question of whether they can create narratives that
+                                       academic sphere, research (Park et al., 2023; Wang      are indicative of their assigned personality traits.
+                                       et al., 2023b) has also suggested that generative
+
+                                           1https://character.ai/
+                                           2https://replika.ai/
+Figure 1: Illustration of the core workflow of the paper. The left section presents the prompts designed to create LLM
+personas. The center section shows the prompt used to instruct models to write stories. The right section outlines
+the three-pronged analytical approach: LIWC analysis, story evaluation, and text-based personality prediction.
+
+To assess their generated stories, we extract psy-     2 Experiment Design
+cholinguistic features using dictionaries that have
+been designed to analyze human behavior and pro-       As shown in Figure 1, this paper investigates the
+pose to use these features to study the behavior of    behavior of LLM personas through a multi-faceted
+LLM personas. We also investigate whether LLM          approach. We start by creating LLM personas with
+personas are proficient in using lexicons related      distinct personality traits and administer a person-
+to their assigned personality profiles and whether     ality assessment to them. Subsequently, we prompt
+they can convincingly portray these personalities      these LLM personas to write stories, which we
+to human observers. In other words, can human          then analyze using the widely adopted Linguis-
+evaluators discern the assigned personality traits     tic Inquiry and Word Count (LIWC) framework.
+of the LLM personas based on their narratives?         Following this analysis, we recruit human evalu-
+Lastly, we suggest potential avenues for extending     ators to manually evaluate the stories and concur-
+this evaluation to more real-life scenarios, such as   rently carry out an LLM-based automatic evalua-
+multi-round dialogues and action planning. Moti-       tion. Both human and LLM evaluators are required
+vated by these inquiries, we aim to provide a com-     to (1) assess these stories across six dimensions,
+prehensive evaluation of LLM personas, focusing        namely readability, personalness, redundancy, co-
+on the following research questions (RQs):             hesiveness, likeability, and believability, and (2)
+                                                       infer the personality traits assigned to the LLM
+   · RQ1: Can LLMs reflect the behavior of their       personas from the stories. The code, data, and
+      assigned personality profiles when complet-      annotations for our experiments are open sourced3.
+      ing the Big Five Personality Inventory (BFI)
+      assessment?                                      2.1 Experiment Setup
+
+   · RQ2: What linguistic patterns are evident in      2.1.1 Model Settings
+      the stories generated by LLM personas?
+                                                       We conduct the BFI assessment and LIWC
+   · RQ3: How do humans and LLM raters evalu-          analysis on state-of-the-art LLMs including
+      ate the stories generated by LLM personas?       open-source and closed-source models. We
+                                                       include in the main paper the results for
+   · RQ4: Can humans and LLMs accurately per-          GPT-3.5 (GPT-3.5-turbo-0613) and GPT-4
+      ceive the Big Five personality traits from sto-  (GPT-4-0613)4 because our results show that they
+      ries generated by LLM personas?
+                                                           3https://github.com/hjian42/PersonaLLM
+                                                           4https://platform.openai.com/docs/models
+are more effective at aligning with the designated      We tried multiple prompt variants in our initial ex-
+personas. Results for LLaMA-2 are presented             periment and decided to purposefully simplify the
+in Appendix F and Appendix G. Temperature               prompt to reduce demand characteristics for the
+is set as 0.7 to introduce variability in personas'     generalizability of the result. Examples of LLM-
+behavior. All other parameters are kept at their        generated stories are included in Appendix A.
+default settings.
+                                                        2.2 Evaluation Methods
+2.1.2 LLM Persona Simulation
+                                                        We evaluate LLM personas' storywriting with a
+For GPT-3.5 and GPT-4, we simulate 10 LLM               three-pronged analytical approach. First, we con-
+personas for each combination of the binary Big         duct a Linguistic Inquiry and Word Count (LIWC)
+Five personality types, resulting in 320 distinct per-  analysis on stories generated by GPT-3.5 and
+sonas. They are referred to as GPT-3.5 personas         GPT-4 personas. Subsequently, we recruit hu-
+and GPT-4 personas respectively. Figure 1 illus-        man evaluators and use LLM evaluations to rate
+trates how we prompt an LLM to generate per-            these stories from various perspectives. Lastly, we
+sonas and complete specific tasks. Initially, we cre-   request human evaluators to infer the personality
+ate an LLM Persona with a system prompt: "You           traits of the story author. In human evaluation, the
+are a character who is [TRAIT 1, ..., TRAIT 5].",       evaluators are randomly assigned to one of two
+where [TRAIT 1, ..., TRAIT 5] represents the as-        conditions: they are either made aware or kept un-
+signed Big Five personality. For each personality       aware that the stories were written by an LLM. This
+dimension, we choose one descriptor among the           study design is to investigate how awareness of AI
+following pairs: (1) extroverted / introverted, (2)     authorship impacts the evaluation of the narratives
+agreeable / antagonistic, (3) conscientious / uncon-    and the accuracy of their personality predictions.
+scientious, (4) neurotic / emotionally stable, (5)
+open / closed to experience.                               Despite explicit instructions to not include any
+                                                        mention of the personality traits, LLMs sometimes
+2.1.3 BFI Personality Test                              failed to follow this instruction. Accordingly, for
+                                                        human evaluation, we sample from stories that do
+After specifying a personality type, we ask the LLM     not explicitly mention personality traits to avoid
+persona to complete the 44-item Big Five Inven-         compromised performance in personality predic-
+tory (BFI), a widely-used self-report scale designed    tion. Details of the sampling step are included
+to measure the Big Five personality traits. Only        in Appendix D.1. With a lexicon-based classifier,
+the responses that strictly adhere to the instruction   we find that most stories produced by GPT-3.5
+format "(x) y" are accepted, where (x) indicates        personas contained explicit references to person-
+the question number and y indicates the level of        ality traits (96.56% compared to GPT-4's 31.87%).
+agreement on a scale from 1-5. As the green sec-        Therefore, we focus on the stories generated by
+tion demonstrates in Figure 1, "(a) 5" would indi-      GPT-4 personas in the final human evaluation.
+cate that the persona strongly agrees that it talks a
+lot. Each LLM persona's responses are aggregated        2.2.1 LIWC Analysis
+into five personality scores, which are used in later   We use LIWC-225 to extract psycholinguistic fea-
+analysis. We use the BFI to assess the personality      tures from stories generated by LLM personas. By
+profiles expressed by LLMs because it is widely uti-    examining the correlation between these features
+lized in personality-related studies, including many    and the personas' assigned personality traits, we
+studies involving LIWC.                                 aim to identify patterns of linguistic characteris-
+                                                        tics corresponding to certain personality traits. To
+2.1.4 Storywriting                                      compare with human language use, we perform the
+                                                        same analysis on human-generated writing sam-
+Subsequently, we prompt these 320 LLM personas          ples from the Essays dataset (Pennebaker and King,
+to write personal stories with the following sim-       1999)6 consisting of short essays written by human
+ple prompt: "Please share a personal story in 800
+words. Do not explicitly mention your personal-             5https://www.liwc.app/
+ity traits in the story." We impose this restriction        6The Essays dataset, collected from 2,467 participants
+to prevent the persona from revealing its hidden        between 1997 and 2004, consists of stream-of-consciousness
+attributes, ensuring an unbiased text-based person-     essays. Participants also provided self-assessments of the Big
+ality assessment by other LLMs and human raters.        Five personality traits in binary form. Note that our personal
+                                                        story prompt differs from the stream-of-consciousness prompt
+participants and their self-reported Big-Five person-                              5            EXT
+ality traits. We then examine whether the linguistic
+markers associated with certain personality traits                                              INT
+are consistent between human and LLM writers.
+                                                                                   4
+2.2.2 Story Evaluation
+                                                                        BFI Score  3
+We recruit both human and LLM raters to evaluate a
+subset of the stories generated by GPT-4 personas.                                 2
+Due to budget constraints, we sample 1 out of 10
+stories from each personality type, which do not                                   1
+explicitly mention any personality trait (Appendix
+D.1). This results in 32 LLM-generated stories for                                     GPT-3.5  Extraversion                 GPT-4
+evaluation. For the human evaluation, we recruit
+five raters to judge each story across six dimensions       5           AGR                                               5           CON
+on a scale of 1 to 5: (1) Readability: whether the
+story is easy to read, well-structured, and flows nat-                  ANT                                                           UNC
+urally, (2) Personalness: whether the story is per-
+sonal, revealing the writer's thoughts, feelings, and       4                                                             4
+personal experiences, (3) Redundancy: whether
+the story is concise and free from unneeded con-            3BFI Score                                                    3
+tent, (4) Cohesiveness: whether sentences in the                                                               BFI Score
+story fit together well and are logically organized
+and coherent, (5) Likeability: whether the story is         2                                                             2
+enjoyable or entertaining to read, (6) Believabil-
+ity: whether the story is convincing and realistic,         1                                                             1
+grounded in real-life situations. For the LLM eval-
+uation, we follow (Chiang and Lee, 2023a) to use               GPT-3.5  Agreeableness  GPT-4                                 GPT-3.5            GPT-4
+GPT-3.5 and GPT-4 evaluators (temperature = 0)                                                                                      Conscientiousness
+with identical criteria as human raters. The exact
+prompts given to human and LLM raters are in                5           NEU                                               5           OPN
+Appendix D.2.
+                                                                        EMO                                                           CLO
+2.3 Personality Prediction
+                                                            4                                                             4
+On the same collection of 32 stories, each human
+annotator and LLM evaluator is asked to predict             BFI Score3                                                    3
+Big Five personality traits of the writer from the                                                             BFI Score
+story on a scale of 1 to 5. The objective is to
+evaluate whether the writing samples from LLM               2                                                             2
+personas can effectively exhibit personality traits
+to the extent that they are discernible by both hu-         1                                                             1
+man and LLM raters. For each of the personality
+trait, we provide the descriptions from the work               GPT-3.5  Neuroticism    GPT-4                                 GPT-3.5  Openness  GPT-4
+by John et al. (1999) to the human evaluators as
+references (see Appendix D.2).                              Figure 2: BFI assessment in five personality dimensions
+                                                            by GPT-3.5 and GPT-4 personas. Significant statisti-
+3 Results                                                   cal differences are found across all dimensions.
+
+3.1 RQ1: Behavior in BFI Assessment                         personas and the 320 GPT-4 personas. We then
+                                                            analyze the distribution of these scores as a func-
+Based on their responses to the BFI scale, we cal-          tion of the assigned personality traits. Specifically,
+culate the personality scores for the 320 GPT-3.5           paired t-tests are applied to evaluate the differ-
+                                                            ences between the means of the personality score.
+in Essays. However, our comparison aims to approximate the  The results reveal statistically significant differ-
+linguistic behavior differences between LLM personas and    ences across all five personality traits. Large
+human writers.                                              effect sizes are observed for for both GPT-3.5
+                                                            personas (EXT: d = 7.81, p < .001; AGR:d=
+                                                            5.93, p < .001; CON: d = 1.56, p < .001; NEU:
+                                                            d = 1.83, p < .001; OPN: d = 2.90, p < .001)
+                                                            and GPT-4 personas (EXT: d = 5.47, p < .001;
+                                                            AGR: d = 4.22, p < .001; CON: d = 4.39, p <
+                                                            .001; NEU: d = 5.17, p < .001; OPN: d =
+                                                            6.30, p < .001). As shown in Figure 2, BFI scores
+                                                            are lower for LLM personas when they are assigned
+                                                            negative traits (representing the lower end of the
+                                                            trait spectrum) compared to positive traits across all
+                                                            personality dimensions. In summary, the findings
+                                                            effectively address RQ1, substantiating that LLM
+                                                            personas are indeed reflecting their assigned
+                                                            personas in BFI assessment.
+
+                                                            3.2 RQ2: Linguistic Patterns in Writing
+
+                                                            We extract psycho-linguistic features from personal
+                                                            stories generated by LLM personas using LIWC
+                                                            and then calculate point biserial correlations be-
+Trait  Selected LIWC Features           Lexicons          GPT-3.5  GPT-4  Humans  GPT-3.5#  GPT-4#
+EXT                                                           +       +       +     16/18   10/18
+AGR           Positive Tone      good, well, new, love        +       +       +     16/23   13/23
+CON             Affiliation        we, our, us, help          -       -              1/31   11/31
+NEU              Certitude                                    +       +       +      7/27   15/27
+OPN                               really, actually, real      +               -      2/36   17/36
+             Social Behavior        said, love, care          -       -       -
+                  Friends                 friend              -       -       +
+                                                              +       +       -
+               Moralization      wrong, honor, judge          -       -
+         Interpersonal Conflict       fight, attack           +       +       +
+                                                                      +
+                Affiliation        we, our, us, help          +       +       +
+              Negative Tone        bad, wrong, hate                   +       -
+           Prosocial Behavior      care, help, thank          -               -
+                                   we, our, work, us                  +       +
+                  Drives           work, better, best         +       +       +
+              Achievement         work, price, market         +       +       +
+       Lifestyle (Work, Money)   wrong, honor, judge          +       +       +
+               Moralization                                   -       +       +
+         Interpersonal Conflict       fight, attack                   +       +
+                                   when, now, then            +       +       +
+                   Time            worry, fear, afraid                +       +
+                 Anxiety           bad, wrong, hate                   -       +
+              Negative Tone       trauma, depressed                   +       -
+              Mental Health       sad, disappoint, cry                -       +
+                 Sadness           hate, mad, angry                           -
+                   Anger            feel, hard, cool
+          Perception (Feeling)     research, wonder
+                 Curiosity         know, how, think
+                  Insight          we, our, us, help
+                Affiliation
+           Perception (Visual)       see, look, eye
+              Future Focus           will, going to
+
+Table 1: Correlated metrics between LIWC features and binary personality traits using point-biserial correlation.
+The analysis is done on personal stories generated by GPT-3.5 and GPT-4 and the human Essays corpus (Pennebaker
+and King, 1999). This analysis focuses on the psychological and extended vocabulary metrics (81 in total). We
+report the representative personality LIWC features (+ means positive correlation, - means negative correlation)
+and the # of overlapped significant LIWC features for GPT-3.5 and GPT-4 with human writings.
+
+tween these features and assigned personality types.      cating a notable alignment in word usage be-
+The correlation measure is suitable for analyzing         tween the human dataset and LLM personas
+the relationship between binary (assigned personal-       writings. We report the number of shared signifi-
+ity type) and continuous variables (LIWC features).       cant correlations between human and LLM data
+Subsequently, we compare these correlations with          (denoted as GPT-3.5# and GPT-4#) in Table 1.
+those found in human data (i.e., the Essays dataset).     GPT-4 exhibits greater alignment with humans
+                                                          than GPT-3.5, with more overlapping lexicons
+   Table 1 summarizes the LIWC features that have         across various traits. This difference is particularly
+a statistically significant correlation with certain      pronounced for Conscientiousness and Openness,
+personality traits. We find that assigning different      where GPT-3.5 personas have 1/31 and 2/36
+personality types considerably influences the lin-        overlapping correlations with humans on Consci-
+guistic style of LLM personas. For instance, for          entiousness and Openness respectively, whereas
+both GPT-3.5 and GPT-4, we find that assigning an         GPT-4 personas have 11/31 and 17/36.
+LLM persona to be open to experience positively
+correlates with its use of curiosity lexicons. Sim-          We further observe in Table 1 that the stereotypi-
+ilarly, GPT-3.5/GPT-4 personas assigned to be             cal characteristics of certain personalities might be
+neurotic are more likely to use lexicons related to       reflected in LLM linguistic usage while having a
+anxiety, negative tones, and mental health. Also,         different result from the human dataset. For exam-
+assigned extraversion correlates positively with lex-     ple, one of the traits associated with high Conscien-
+icons related to positive tone and affiliation. In        tiousness is achievement striving. This trait is posi-
+Appendix G, we include a similar analysis between         tively correlated with the LLM personas, but does
+BFI scores (instead of assigned personality types)        not hold significant correlation in human writings.
+and LIWC.                                                 Furthermore, the emotion of sadness, linked to Neu-
+                                                          roticism, shows a negative correlation in writings
+   Importantly, these correlations mirror patterns        produced by GPT-3.5 personas. However, it is
+observed in human data (the Essays dataset), indi-
+Evaluator  Readability Redundancy Cohesiveness Likability Believability     Personalness
+
+  Human              Uninformed Condition ­ Evaluation Scores (MeanSTD)        4.320.85
+ GPT-3.5                                                                       3.550.61
+  GPT-4    4.280.85  3.701.17  4.230.88                 3.741.00  3.961.02     5.000.00
+
+  Human    4.750.43  3.040.40  4.970.17                 4.220.48  3.930.25     3.990.90
+ GPT-3.5                                                                       3.310.77
+  GPT-4    4.940.24  4.960.22  5.000.00                 4.840.36  4.930.25     5.000.00
+
+                     Informed Condition ­ Evaluation Scores (MeanSTD)
+
+           4.380.70  3.621.16  4.120.82                 3.800.98  3.970.80
+           4.970.17
+           5.000.00  2.990.35  5.000.00                 4.220.41  3.970.17
+
+                     4.920.33  5.000.00                 4.840.36  4.910.28
+
+Table 2: LLM and human evaluation results of GPT-4 generated stories across six dimensions. Uninformed and
+informed conditions indicate whether evaluators are informed that the stories are generated by AI. For each attribute,
+we report its mean Likert scale and the standard deviation. Temperature is set to 0 for both GPT-3.5 and GPT-4.
+
+positively correlated in both GPT-4 persona and         (see Appendix B).
+human writings, aligning with the typical character-       Unsurprisingly, the GPT-4 rater assigns the high-
+istics of this personality group. Our hypothesis is
+that LLMs are prone to exhibit strong characteris-      est ratings across all dimensions, indicating that the
+tics of assigned personas while human participants'     GPT-4 rater has a strong preference towards sto-
+personalities have much granularity and individual      ries generated by GPT-4. This confirms previous
+differences. However, it is important to clarify that   findings that LLMs prefer LLM-generated content
+the human writings from the Essays dataset serve        (Liu et al., 2023). Notably, the GPT-3.5 evaluator
+as a comparative reference to gauge the expressiv-      assigns lower ratings in redundancy and person-
+ity of LLMs. They should not be considered as an        alness than both human and GPT-4 evaluators.
+absolute standard, given that human-authored and        We also try multiple temperatures, finding that such
+LLM-generated narratives are not created under          trends are consistent in Appendix E.
+identical prompts.
+                                                           Furthermore, interesting observations are found
+3.3 RQ3: Story Evaluation                               when the evaluators are informed about the story
+                                                        source, as shown in Table 2. First, human evalu-
+Next, we extend our analysis to other aspects of the    ators' perception of stories remains consistent
+stories generated by GPT-4 personas, evaluated          in readability, redundancy, cohesiveness, like-
+by both human and LLM raters. Given the subjec-         ability, and believability regardless of whether
+tive nature of the evaluation, we observe a low inter-  they are aware that the content is generated
+annotator agreement (IAA) among three annotators,       by an LLM. Second, there is a significant drop
+mirroring the findings of Chiang and Lee (2023b).       in the perceived personalness of the content when
+The detailed scores can be found in in Appendix D.      human evaluators are informed that the writer is
+Consequently, five human or LLM evaluators are          an LLM, suggesting that knowledge of the con-
+recruited for a collective evaluation. In Table 2, we   tent's origin may influence their sense of con-
+have the following interesting observations. These      nection to the material. Third, the GPT-3.5 evalu-
+stories generated by GPT-4 personas receive high        ator assigns notably higher ratings for readability
+ratings, close to or higher than 4.0, regarding read-   and markedly lower ratings for personalness when
+ability, cohesiveness, and believability from both      aware that the content is AI-generated. Finally, the
+human and LLM evaluators. This suggests that            ratings from the GPT-4 evaluator are consistently
+the stories are not only linguistically fluent and      high with minimal variation between the informed
+structurally cohesive, but also convincingly be-        and uninformed conditions, indicating a strong and
+lievable. Furthermore, human evaluators assign          consistent bias in favor of GPT-4 content.
+high scores for personalness, indicating that these
+stories genuinely describe personal experiences. In-    3.4 RQ4: Personality Perception
+terestingly, these stories receive lower scores for
+likeability from human evaluators, suggesting that      To assess whether personality traits are predictable
+while the stories may be believable and personal,       from these stories, we undertake two distinct analy-
+they might not necessarily be as engaging or en-        ses. First, we treat each persona's personality traits
+joyable to read. We also discover some interesting      as a binary classification problem and compute the
+comments on these stories from human evaluators         accuracy of both humans and LLMs in inferring
+                                                        personality traits. Second, we extract the persona's
+                                                        personality scores and examine the linear relation-
+ship between human judgment and the persona's          r = .23, p < .005; OPN: r = .22, p < .005).
+BFI score. A comprehensive overview of the aver-       Conversely, when participants knew about AI au-
+age ratings from humans and LLMs across the five       thorship, correlations persisted in four traits (EXT:
+personality dimensions is in Appendix C.               r = .42, p < .001; AGR: r = .32, p < .001; CON:
+                                                       r = .20, p < .05; NEU: r = .17, p < .05), with
+3.4.1 Personality Prediction                           non-significance for Openness. The diminished
+                                                       strength of the BFI correlations in the condition
+The human evaluators' perceptions of personal-         where evaluators are informed of AI authorship
+ity were gathered using a Likert scale that ranged     corroborates our earlier observation: the aware-
+from 1 to 5. These numerical values were then          ness of AI authorship influences the perception
+transformed into nominal categories. Specifically,     of personality.
+scores of 4 and 5 were labeled as "positive", 1 and
+2 were deemed "negative", and a score of 3 was         4 Related Work
+considered "neutral". The accuracy of individual
+and collective evaluations for each story is shown     4.1 Personality and Language Use
+in Figure 3 and Figure 4, respectively.
+                                                       Psychologists have developed various personal-
+   The two figures reveal that the accuracy of hu-     ity theories to understand common human traits,
+mans to predict personality traits from stories writ-  including the Big Five (Briggs, 1992; De Raad,
+ten by GPT-4 personas varies across the six di-        2000; Goldberg, 2013), Sixteen Personality Fac-
+mensions. When human evaluators are unaware            tors (16PF) (Cattell, 1957; Cattell and Mead, 2008),
+of AI authorship, they achieve an accuracy of 0.68     and the Myers-Briggs Type Indicator (MBTI) (My-
+on Extraversion and 0.51 on Agreeableness but          ers, 1962, 1985). These theories offer consistent
+perform close to random (0.50) on the other BFI        and reliable descriptions of individual differences
+dimensions. This shows the difficulty of text-based    and have been widely applied in practical contexts
+personality prediction task to human raters. When      such as career planning (Schuerger, 1995; Kennedy
+we aggregate the votes of human annotators based       and Kennedy, 2004; Lounsbury et al., 2005), aca-
+on the majority vote for each story, the accuracy      demic achievement (Ayers et al., 1969; O'Connor
+for Extraversion and Agreeableness increases to        and Paunonen, 2007; DiRienzo et al., 2010; Ka-
+0.84 and 0.69, respectively. The accuracy of the       jzer, 2023), and relationship compatibility (Cur-
+other three personality traits also improves with      ran Jr, 1970; Hines and Saudino, 2008). Psycho-
+majority voting, indicating the personality traits     metric instruments, such as the BFI (John et al.,
+are perceivable (better than random 0.5) from          1999), NEO-PI-R (Costa and McCrae, 2008), and
+the stories to human raters on a group level. In-      MBTI®7, have been developed based on these the-
+terestingly, we find that the accuracy decreases       ories to represent (quantitatively) personality traits
+with varying degrees when the human evalua-            in individuals. Furthermore, research has consis-
+tors are aware of AI authorship. Finally, GPT-4        tently shown a strong correlation between personal-
+shows impressive performance in recognizing            ity and language use (Pennebaker and King, 1999;
+Extraversion, achieving an accuracy of 0.97. GPT-      Pennebaker and Graybeal, 2001; Lee et al., 2007;
+4 also exhibits decent performance in predicting       Hirsh and Peterson, 2009). Pennebaker et al. (2001)
+Agreeableness and Conscientiousness, with an ac-       introduced a dictionary LIWC (Linguistic Inquiry
+curacy of 0.68 and 0.69, respectively.                 and Word Count) to summarize features from hu-
+                                                       man writings and demonstrated their correlation
+3.4.2 Correlation with BFI Scores                      with the Big Five personality traits. While most
+                                                       previous research has focused on language use in
+Furthermore, Spearman's r is calculated between        humans, our study extends this inquiry to LLMs.
+the human's scores for perceived personality trait
+and the Personas BFI scores on each trait. Our         4.2 LLMs as Simulated Agents
+findings reveal that LLM personas' BFI scores
+correlate to varying extents with human percep-        Recent research has shown that, as the size of
+tions, with Extraversion exhibiting the strongest      LLMs increases, LLMs demonstrate emerging abil-
+link. Specifically, when humans are unaware of         ities as agents (Andreas, 2022) and exhibit human-
+AI authorship, significant correlations are found      like behavior in reasoning (Dasgupta et al., 2022;
+across all five traits (EXT: r = .64, p < .001; AGR:
+r = .33, p < .001; CON: r = .26, p < .001; NEU:            7https://www.themyersbriggs.com/
+                                                                     Accuracy                                                                                                                                 Accuracy by Majority Vote
+
+1.00                                                                                                  Human (Informed)                                   1.00                                                                                                     Human (Informed)
+                                   0.97                                                               Human (Uninformed)                                                                    0.97                                                                  Human (Uninformed)
+                                                                                                      GPT3.5                                                                                                                                                      GPT3.5
+0.90                                                                                                  GPT4                                               0.90                                                                                                     GPT4
+
+0.80                                                                                                                                                     0.80       0.84
+
+0.70                                                                                                                                                     0.70 0.72
+
+             0.68 0.66                                         0.68                        0.69                                                                                                         0.69        0.69                        0.69
+      0.60                                                                         0.63
+0.60                                            0.51 0.53                                                                                                0.60             0.66                                                           0.63
+                                         0.48                        0.46 0.47                                                                                                                                                   0.59
+0.50                                                                                                                   0.56                        0.59  0.50                                                                                               0.59                                      0.59
+                                                                                                                                           0.56                                                                           0.53                                             0.56               0.56
+                                                                                                               0.47
+                                                                                                 0.39 0.41                          0.46                                                          0.53        0.53                                                                     0.53
+                                                                                                                             0.40
+0.40                                                                                                                                                     0.40                                                                                               0.47
+
+                                                                                                                                                                                                                                                      0.41                       0.41
+
+0.30                                                                                                                                                     0.30
+
+0.20                                                                                                                                                     0.20
+
+0.10                                                                                                                                                     0.10
+
+0.00                                     AGR                         CON                         NEU                         OPN                         0.00                                           AGR               CON                               NEU                        OPN
+
+               EXT                                                                                                                                                      EXT
+
+Figure 3: Individual accuracy of human and LLM                                                                                                           Figure 4: Collective accuracy of human and LLM
+evaluators in predicting personality.                                                                                                                    evaluators in predicting personality with majority votes.
+
+Webb et al., 2023; Binz and Schulz, 2023; Aher                                                                                                           Li et al., 2023). However, none of the previous
+et al., 2023; Wong et al., 2023), role-playing (Wang                                                                                                     work has delved into the linguistic behavior of LLM
+et al., 2023b; Shao et al., 2023; Wang et al., 2023a),                                                                                                   personas nor the human perception of personality-
+and social science experiments (Horton, 2023; Park                                                                                                       conditioned LLM content. This study aims to fill
+et al., 2023; Ziems et al., 2023). These studies pri-                                                                                                    that gap by not only examining the linguistic behav-
+marily leverage advanced prompting techniques to                                                                                                         ior of these personas but also by evaluating their
+generate human-like behavior within specific con-                                                                                                        generated content through both human and LLM
+texts. However, there remains a gap in the literature                                                                                                    evaluation. We use story evaluation and personality
+regarding understanding the abilities of LLM-based                                                                                                       prediction to offer valuable insights into the capac-
+agents to exhibit certain personality traits and the                                                                                                     ity of LLM personas to utilize personality-related
+effect of said abilities on the linguistic behavior of                                                                                                   words and their perception by human evaluators.
+these agents and human perception towards them.
+                                                                                                                                                         5 Conclusion
+4.3 Personality in NLP
+                                                                                                                                                         In this work, we explore the capability of LLMs
+The NLP community has historically been inter-                                                                                                           (with a focus on GPT-3.5 and GPT-4) to consis-
+ested in personality research, including automatic                                                                                                       tently express a personality profile using a well-
+text-based personality prediction (Mairesse et al.,                                                                                                      validated personality scale. Specifically, we investi-
+2007; Feizi-Derakhshi et al., 2021; Bruno and                                                                                                            gate the behavior of LLM personas in completing
+Singh, 2022), personality prediction from digi-                                                                                                          the BFI test and story writing and run analyses with
+tal footprints (Farnadi et al., 2013; Oberlander                                                                                                         psycholinguistic features, human evaluation, and
+and Nowson, 2006; Skowron et al., 2016; Tadesse                                                                                                          personality prediction.
+et al., 2018), and personalized dialogue generation
+(Mairesse and Walker, 2007, 2011; Zhang et al.,                                                                                                             Through psycholinguistic analysis, we find that
+2018; Qian et al., 2018) including stylistic transfer                                                                                                    LLM personas from GPT-3.5 and GPT-4 can con-
+of personality traits such as formality and polite-                                                                                                      sistently tailor their BFI answers to match their
+ness (Kabbara and Cheung, 2016; Jin et al., 2019;                                                                                                        assigned personalities and write with linguistic
+Madaan et al., 2020). With the recent wave of                                                                                                            features characteristic of those personality traits.
+LLM models, research has investigated the use of                                                                                                         Regarding our investigation on linguistic patterns
+LLMs for automatic personality prediction (Gane-                                                                                                         in writing, we found that each personality trait is
+san et al., 2023; Rao et al., 2023; Cao and Kosinski,                                                                                                    associated with different representative linguistic
+2023; Yang et al., 2023), assessing the ability of                                                                                                       behavior of LLM personas in writing. We also
+LLMs to express certain personality traits (Li et al.,                                                                                                   find a notable alignment in word usage between
+2022; Pan and Zeng, 2023; Safdari et al., 2023)                                                                                                          humans and LLM personas. On LLMs' ability to
+and on creating benchmarks for assessing this abil-                                                                                                      generate stories conditioned on certain personality
+ity (Jiang et al., 2022a; Wang et al., 2023a), in                                                                                                        profiles, we find that the stories are not only lin-
+addition to manipulating personality in LLM con-                                                                                                         guistically fluent and structurally cohesive, but also
+tent via prompting engineering (Karra et al., 2022;                                                                                                      convincingly believable. Moreover, our investiga-
+Jiang et al., 2022a,b; Caron and Srivastava, 2022;                                                                                                       tion shows that human evaluators' perception of
+                                                                                                                                                         readability, redundancy, cohesiveness, likeability,
+and believability remains consistent regardless of       background with a deeper investigation of the ef-
+whether they are aware that the content is gener-        fect of the annotator's personality and background
+ated by an LLM. We also show that human judges           on their personality prediction accuracy. Whether
+are able to predict personality traits (expressed in     there exists a causal relationship between an anno-
+the LLM-generated content) with varying degrees          tator's personality and their personality perception
+across various personality traits. Perhaps, the most     towards AI agents could be insightful for artificial
+interesting finding is that awareness of AI author-      agent research. A future step could investigate what
+ship influences the human judges' perception of          fundamental factors contribute to the decrease in
+personality as we notice that the accuracy (of pre-      personality assignment when humans are aware of
+dicting prompted personality traits) decreases (with     AI authorship. It could also be linked with embod-
+varying degrees) when human judges are aware of          ied agents to investigate how additional modalities
+AI authorship.                                           impact the person's perception. A promising future
+                                                         direction would explore how personality influences
+Limitations                                              the action planning of LLM personas.
+
+Focus on Closed Models Our study mostly fo-              Ethical Considerations
+cuses on closed GPT models. We did some pre-
+liminary exploration with LLaMA 2 but found its          This study strictly adheres to the ACL Code of
+output not suitable for human evaluation. LLaMA          Ethics for human experiments and has been granted
+2 repeated highly similar content in generated sto-      Exempt status by the Institutional Review Board
+ries, did not follow instructions closely and explic-    (IRB). We have conducted our research on the
+itly mentioned personality lexicons in generated         Prolific platform, ensuring compliance with Mas-
+stories, which undermines our work's goal. Be-           sachusetts laws by compensating our online annota-
+cause LLaMA 2 output was not good and given              tors at a rate of $15 per hour. In the interest of trans-
+budget constraints, we decided to pick the best          parency and reproducibility, we have included the
+model (GPT-4) for human evaluation.                      exact instructions and prompts used in this study in
+                                                         either the paper appendix or the GitHub repository.
+Data Size Our dataset is not very large in size,         In the human evaluation, we make sure the stories
+but we believe it provides enough variety and depth      selected do not contain harmful or offensive text.
+for meaningful analysis. Indeed, we generated 10         The evaluators are made aware that their responses
+stories per personality type, resulting in 160 stories   will be used exclusively for the study, and no per-
+per personality trait. While we would have liked to      sonal identifiers will be collected. We follow the
+generate a larger number of stories, it would have       license or terms for use for any research artifact we
+been costly to recruit human evaluators for such a       use in the paper. We follow the terms of use release
+larger number. Despite the constraints, we made          from OpenAI 8 and Licenses from LIWC 9. We use
+analytical decisions that increase the robustness of     the Essays dataset (Pennebaker and King, 1999)
+our studies. For example, we set the temperature         solely for our research use. We have checked the
+to .7 to introduce more variance to our data. Also,      content of the generated stories in our paper and
+analyses were conducted on the personality-trait         ensure that there is no sensitive content in the data.
+level (160 instances per trait) instead of personality-
+type level (10 instances per type) which provides           Personalized LLMs have demonstrated remark-
+sufficient sample sizes for the analysis.                able abilities in generating human-like content. As
+                                                         these generative agents become increasingly preva-
+Task & Language Variety Our work evaluates               lent, it is crucial to consider their potential misuse
+LLMs in personality assessment and writing set-          for harmful purposes, targeting individuals, com-
+tings but does not include more naturalistic settings    munities, or entire societies. Personified agents
+like human interaction and collaboration of LLM          have the potential to provide more enticing interac-
+personas. Our study solely focuses on English and        tions for people in their daily lives. Although we
+does not investigate other languages.                    do not take a general stance on AI agent applica-
+                                                         tions, we strongly advocate for all stakeholders to
+Evaluation & Interaction Since the personality           disclose their transparency in AI usage to increase
+perception task is somehow subjective, future stud-
+ies should collect data about the human annotator's          8https://openai.com/policies/terms-of-use
+                                                             9https://www.liwc.app/
+trust among individuals. One of our results sug-           Graham Caron and Shashank Srivastava. 2022. Identi-
+gests the necessity of ethical disclosure of AI usage         fying and manipulating the personality traits of lan-
+to human users: human's reported personalness                 guage models. arXiv preprint arXiv:2212.10276.
+and perception of psychological personality traits
+is greatly impacted by their awareness of AI usage.        Heather EP Cattell and Alan D Mead. 2008. The six-
+                                                              teen personality factor questionnaire (16pf). The
+   Lastly, it is important to emphasize that the pri-         SAGE handbook of personality theory and assess-
+mary objective of this work is a scientific inquiry           ment, 2:135­159.
+into LLM's expressivity and human personality
+perception of written records. The evaluation used         Raymond B Cattell. 1957. Personality and motivation
+story writing as a vehicle because it is effective            structure and measurement.
+for the purpose of the study and does not have a
+strong implication for a specific application. We          Cheng-Han Chiang and Hung-yi Lee. 2023a. Can large
+urge all parties to remain vigilant and proactive in          language models be an alternative to human evalua-
+mitigating the risks associated with AI to prevent            tions? In Proceedings of the 61st Annual Meeting of
+its misuse.                                                   the Association for Computational Linguistics (Vol-
+                                                              ume 1: Long Papers), pages 15607­15631, Toronto,
+Acknowledgements                                              Canada. Association for Computational Linguistics.
+
+We would like to thank Matt Groh and Jiangjie              Cheng-Han Chiang and Hung-yi Lee. 2023b. Can large
+Chen for their helpful discussions. Moreover, we              language models be an alternative to human evalua-
+thank the reviewers from the International Con-               tions? arXiv preprint arXiv:2305.01937.
+ference on Computational Social Science (IC2S2)
+where a preliminary version of this work appeared          Paul T Costa and Robert R McCrae. 2008. The revised
+as a (non-archival) extended abstract. We also                neo personality inventory (neo-pi-r). The SAGE hand-
+thank the reviewers from ACL Rolling Review                   book of personality theory and assessment, 2(2):179­
+(ARR) for their constructive feedback.                        198.
+
+References                                                 James Patrick Curran Jr. 1970. Analysis of factors effect-
+                                                              ing interpersonal attraction in the dating situation.
+Gati V Aher, Rosa I Arriaga, and Adam Tauman Kalai.           University of Illinois at Urbana-Champaign.
+   2023. Using large language models to simulate mul-
+   tiple humans and replicate human subject studies.       Ishita Dasgupta, Andrew K Lampinen, Stephanie CY
+   In International Conference on Machine Learning,           Chan, Antonia Creswell, Dharshan Kumaran,
+   pages 337­371. PMLR.                                       James L McClelland, and Felix Hill. 2022. Lan-
+                                                              guage models show human-like content effects on
+Jacob Andreas. 2022. Language models as agent mod-            reasoning. arXiv preprint arXiv:2207.07051.
+   els. arXiv preprint arXiv:2212.01681.
+                                                           Boele De Raad. 2000. The big five personality factors:
+Jerry B Ayers, W Louis Bashaw, and James A Wash.              the psycholexical approach to personality. Hogrefe
+   1969. A study of the validity of the sixteen person-       & Huber Publishers.
+   ality factor questionnaire in predicting high school
+   academic achievement. Educational and Psychologi-       Cassandra DiRienzo, Jayoti Das, Wonhi Synn, Jeremy
+   cal Measurement, 29(2):479­484.                            Kitts, and Kyle McGrath. 2010. The relationship
+                                                              between mbti® and academic performance: A study
+Marcel Binz and Eric Schulz. 2023. Using cognitive            across academic disciplines. Journal of Psychologi-
+   psychology to understand gpt-3. Proceedings of the         cal Type.
+   National Academy of Sciences, 120(6):e2218523120.
+                                                           Golnoosh Farnadi, Susana Zoghbi, Marie-Francine
+Stephen R Briggs. 1992. Assessing the five-factor             Moens, and Martine De Cock. 2013. Recognising
+   model of personality description. Journal of per-          personality traits using facebook status updates. In
+   sonality, 60(2):253­293.                                   Proceedings of the international AAAI conference on
+                                                              web and social media, volume 7, pages 14­18.
+Alessandro Bruno and Gurmeet Singh. 2022. Personal-
+   ity traits prediction from text via machine learning.   Ali-Reza Feizi-Derakhshi, Mohammad-Reza Feizi-
+   In 2022 IEEE World Conference on Applied Intelli-          Derakhshi, Majid Ramezani, Narjes Nikzad-
+   gence and Computing (AIC), pages 588­594. IEEE.            Khasmakhi, Meysam Asgari-Chenaghlu, Taymaz
+                                                              Akan, Mehrdad Ranjbar-Khadivi, Elnaz Zafarni-
+Xubo Cao and Michal Kosinski. 2023. Chatgpt can               Moattar, and Z Jahanbakhsh-Naghadeh. 2021. The
+   accurately predict public figures' perceived personal-     state-of-the-art in text-based automatic personality
+   ities without any training.                                prediction. arXiv preprint arXiv:2110.01186.
+
+                                                           Adithya V Ganesan, Yash Kumar Lal, August Håkan
+                                                              Nilsson, and H Andrew Schwartz. 2023. Systematic
+                                                              evaluation of gpt-3 for zero-shot personality estima-
+                                                              tion. arXiv preprint arXiv:2306.01183.
+Lewis R Goldberg. 2013. An alternative "description        R Bryan Kennedy and D Ashley Kennedy. 2004. Using
+   of personality": The big-five factor structure. In         the myers-briggs type indicator® in career counsel-
+   Personality and Personality Disorders, pages 34­47.        ing. Journal of employment counseling, 41(1):38­43.
+   Routledge.
+                                                           Chang H Lee, Kyungil Kim, Young Seok Seo, and
+Mitchell L Gordon, Kaitlyn Zhou, Kayur Patel, Tat-            Cindy K Chung. 2007. The relations between per-
+   sunori Hashimoto, and Michael S Bernstein. 2021.           sonality and language use. The Journal of general
+   The disagreement deconvolution: Bringing machine           psychology, 134(4):405­413.
+   learning performance metrics in line with reality. In
+   Proceedings of the 2021 CHI Conference on Human         Tianlong Li, Xiaoqing Zheng, and Xuanjing Huang.
+   Factors in Computing Systems, pages 1­14.                  2023. Tailoring personality traits in large language
+                                                              models via unsupervisedly-built personalized lexi-
+Denise A Hines and Kimberly J Saudino. 2008. Per-             cons. arXiv preprint arXiv:2310.16582.
+   sonality and intimate partner aggression in dating
+   relationships: the role of the "big five". Aggressive   Xingxuan Li, Yutong Li, Linlin Liu, Lidong Bing, and
+   Behavior: Official Journal of the International Soci-      Shafiq Joty. 2022. Is gpt-3 a psychopath? evalu-
+   ety for Research on Aggression, 34(6):593­604.             ating large language models from a psychological
+                                                              perspective. arXiv preprint arXiv:2212.10529.
+Jacob B Hirsh and Jordan B Peterson. 2009. Personal-
+   ity and language use in self-narratives. Journal of     Yang Liu, Dan Iter, Yichong Xu, Shuo Wang, Ruochen
+   research in personality, 43(3):524­527.                    Xu, et al. 2023. G-eval: Nlg evaluation using gpt-4
+                                                              with better human alignment. arxiv abs/2303.16634
+John J Horton. 2023. Large language models as sim-            (2023).
+   ulated economic agents: What can we learn from
+   homo silicus? Technical report, National Bureau of      John W Lounsbury, Teresa Hutchens, and James M
+   Economic Research.                                         Loveland. 2005. An investigation of big five person-
+                                                              ality traits and career decidedness among early and
+Guangyuan Jiang, Manjie Xu, Song-Chun Zhu, Wen-               middle adolescents. Journal of career assessment,
+   juan Han, Chi Zhang, and Yixin Zhu. 2022a. Evaluat-        13(1):25­39.
+   ing and inducing personality in pre-trained language
+   models.                                                 Aman Madaan, Amrith Setlur, Tanmay Parekh, Barn-
+                                                              abas Poczos, Graham Neubig, Yiming Yang, Ruslan
+Guangyuan Jiang, Manjie Xu, Song-Chun Zhu, Wen-               Salakhutdinov, Alan W Black, and Shrimai Prabhu-
+   juan Han, Chi Zhang, and Yixin Zhu. 2022b. Mpi:            moye. 2020. Politeness transfer: A tag and generate
+   Evaluating and inducing personality in pre-trained         approach. In Proceedings of the 58th Annual Meet-
+   language models. arXiv preprint arXiv:2206.07550.          ing of the Association for Computational Linguistics,
+                                                              pages 1869­1881, Online. Association for Computa-
+Zhijing Jin, Di Jin, Jonas Mueller, Nicholas Matthews,        tional Linguistics.
+   and Enrico Santus. 2019. IMaT: Unsupervised text
+   attribute transfer via iterative matching and trans-    François Mairesse and Marilyn Walker. 2007. Person-
+   lation. In Proceedings of the 2019 Conference on           age: Personality generation for dialogue. In Proceed-
+   Empirical Methods in Natural Language Processing           ings of the 45th annual meeting of the association of
+   and the 9th International Joint Conference on Natu-        computational linguistics, pages 496­503.
+   ral Language Processing (EMNLP-IJCNLP), pages
+   3097­3109, Hong Kong, China. Association for Com-       François Mairesse and Marilyn A Walker. 2011. Con-
+   putational Linguistics.                                    trolling user perceptions of linguistic style: Trainable
+                                                              generation of personality traits. Computational Lin-
+Oliver P John, Sanjay Srivastava, et al. 1999. The big-       guistics, 37(3):455­488.
+   five trait taxonomy: History, measurement, and theo-
+   retical perspectives.                                   François Mairesse, Marilyn A Walker, Matthias R Mehl,
+                                                              and Roger K Moore. 2007. Using linguistic cues
+Jad Kabbara and Jackie Chi Kit Cheung. 2016. Stylis-          for the automatic recognition of personality in con-
+   tic transfer in natural language generation systems        versation and text. Journal of artificial intelligence
+   using recurrent neural networks. In Proceedings of         research, 30:457­500.
+   the Workshop on Uphill Battles in Language Process-
+   ing: Scaling Early Achievements to Robust Methods,      Shengyu Mao, Ningyu Zhang, Xiaohan Wang, Mengru
+   pages 43­47, Austin, TX. Association for Computa-          Wang, Yunzhi Yao, Yong Jiang, Pengjun Xie, Fei
+   tional Linguistics.                                        Huang, and Huajun Chen. 2023. Editing personality
+                                                              for llms. arXiv preprint arXiv:2310.02168.
+Trina Ana Kajzer. 2023. Exploring the role of personal-
+   ity traits and attachment styles in shaping dating app  Isabel Briggs Myers. 1962. The myers-briggs type indi-
+   user experience.                                           cator: Manual (1962).
+
+Saketh Reddy Karra, Son The Nguyen, and Theja              Isabel Briggs Myers. 1985. A Guide to the Development
+   Tulabandhula. 2022. Estimating the personality             and Use of the Myers-Briggs Type Indicator: Manual.
+   of white-box language models. arXiv preprint               Consulting Psychologists Press.
+   arXiv:2204.12000.
+Jon Oberlander and Scott Nowson. 2006. Whose thumb          Michael M Tadesse, Hongfei Lin, Bo Xu, and Liang
+   is it anyway? classifying author personality from           Yang. 2018. Personality predictions based on user be-
+   weblog text. In Proceedings of the COLING/ACL               havior on the facebook social media platform. IEEE
+   2006 Main Conference Poster Sessions, pages 627­            Access, 6:61959­61969.
+   634.
+                                                            Xintao Wang, Yaying Fei, Ziang Leng, and Cheng
+Melissa C O'Connor and Sampo V Paunonen. 2007.                 Li. 2023a. Does role-playing chatbots capture
+   Big five personality predictors of post-secondary aca-      the character personalities? assessing personality
+   demic performance. Personality and Individual dif-          traits for role-playing chatbots. arXiv preprint
+   ferences, 43(5):971­990.                                    arXiv:2310.17976.
+
+Keyu Pan and Yawen Zeng. 2023. Do llms possess a            Zekun Moore Wang, Zhongyuan Peng, Haoran Que,
+   personality? making the mbti test an amazing eval-          Jiaheng Liu, Wangchunshu Zhou, Yuhan Wu,
+   uation for large language models. arXiv preprint            Hongcheng Guo, Ruitong Gan, Zehao Ni, Man
+   arXiv:2307.16180.                                           Zhang, et al. 2023b. Rolellm: Benchmarking, elic-
+                                                               iting, and enhancing role-playing abilities of large
+Joon Sung Park, Joseph C O'Brien, Carrie J Cai, Mered-         language models. arXiv preprint arXiv:2310.00746.
+   ith Ringel Morris, Percy Liang, and Michael S
+   Bernstein. 2023. Generative agents: Interactive          Taylor Webb, Keith J Holyoak, and Hongjing Lu. 2023.
+   simulacra of human behavior. arXiv preprint                 Emergent analogical reasoning in large language
+   arXiv:2304.03442.                                           models. Nature Human Behaviour, 7(9):1526­1541.
+
+James W Pennebaker, Martha E Francis, and Roger J           Lionel Wong, Gabriel Grand, Alexander K Lew, Noah D
+   Booth. 2001. Linguistic inquiry and word count:             Goodman, Vikash K Mansinghka, Jacob Andreas,
+   Liwc 2001. Mahway: Lawrence Erlbaum Associates,             and Joshua B Tenenbaum. 2023. From word mod-
+   71(2001):2001.                                              els to world models: Translating from natural lan-
+                                                               guage to the probabilistic language of thought. arXiv
+James W Pennebaker and Anna Graybeal. 2001. Pat-               preprint arXiv:2306.12672.
+   terns of natural language use: Disclosure, personality,
+   and social integration. Current Directions in Psycho-    Tao Yang, Tianyuan Shi, Fanqi Wan, Xiaojun Quan, Qi-
+   logical Science, 10(3):90­93.                               fan Wang, Bingzhe Wu, and Jiaxiang Wu. 2023. Psy-
+                                                               cot: Psychological questionnaire as powerful chain-
+James W Pennebaker and Laura A King. 1999. Lin-                of-thought for personality detection. arXiv preprint
+   guistic styles: language use as an individual differ-       arXiv:2310.20256.
+   ence. Journal of personality and social psychology,
+   77(6):1296.                                              Saizheng Zhang, Emily Dinan, Jack Urbanek, Arthur
+                                                               Szlam, Douwe Kiela, and Jason Weston. 2018. Per-
+Qiao Qian, Minlie Huang, Haizhou Zhao, Jingfang                sonalizing dialogue agents: I have a dog, do you have
+   Xu, and Xiaoyan Zhu. 2018. Assigning personal-              pets too? arXiv preprint arXiv:1801.07243.
+   ity/profile to a chatting machine for coherent conver-
+   sation generation. In Ijcai, pages 4279­4285.            Caleb Ziems, William Held, Omar Shaikh, Jiaao Chen,
+                                                               Zhehao Zhang, and Diyi Yang. 2023. Can large lan-
+Haocong Rao, Cyril Leung, and Chunyan Miao.                    guage models transform computational social sci-
+   2023. Can chatgpt assess human personalities?               ence? arXiv preprint arXiv:2305.03514.
+   a general evaluation framework. arXiv preprint
+   arXiv:2303.01248.
+
+Mustafa Safdari, Greg Serapio-García, Clément Crepy,
+   Stephen Fitz, Peter Romero, Luning Sun, Marwa
+   Abdulhai, Aleksandra Faust, and Maja Mataric´. 2023.
+   Personality traits in large language models. arXiv
+   preprint arXiv:2307.00184.
+
+JM Schuerger. 1995. Career assessment and the sixteen
+   personality factor questionnaire. Journal of Career
+   Assessment, 3(2):157­175.
+
+Yunfan Shao, Linyang Li, Junqi Dai, and Xipeng Qiu.
+   2023. Character-llm: A trainable agent for role-
+   playing. arXiv preprint arXiv:2310.10158.
+
+Marcin Skowron, Marko Tkalcic, Bruce Ferwerda, and
+   Markus Schedl. 2016. Fusing social media cues:
+   personality prediction from twitter and instagram.
+   In Proceedings of the 25th international conference
+   companion on world wide web, pages 107­108.
+A Story Examples Generated by LLM
+
+Here, we select a few stories as examples for the audience based on the human-evaluation results in Table
+3. Specifically, we sample one story from each personality trait that achieved relatively high accuracy in
+human personality inference results. Notably, due to the unbalanced prediction results on each trait, some
+selected stories have lower accuracy among 5 annotators.
+
+     Personality     Story
+ Extroverted (5/5)   One sunny afternoon, I found myself at the local park, my eyes scanning the horizon, watchful of
+                     any interesting activity that might crop up. As an individual who thrives in the company of others, I
+ Introverted (5/5)   naturally gravitate towards gatherings and events. So, when I spotted a group of people setting up for a
+  Agreeable (5/5)    concert, I couldn't help but be intrigued. I approached the group, a mixture of musicians and technical
+                     crew, offering a hand. Their initial surprise quickly transformed into appreciation as my enthusiasm
+Antagonistic (4/5)   and energy seemed to infect them. I've always been someone who can't resist lending a helping hand,
+Conscientious (5/5)  especially if it involves an exciting experience. As the hours wore on, I found myself assisting with
+                     multiple tasks, each more exciting than the last. From helping set up the stage to engaging in a friendly
+                     banter with the band members, I was in my element. Although the setting sun indicated that I should
+                     be tired, my energy seemed boundless. However, amidst the excitement, I couldn't shake off a nagging
+                     feeling. The concert was to start soon, and the lead guitarist seemed to be nowhere in sight. My worry
+                     grew when I overheard the band members...
+                     In the quiet solitude of my apartment, I often lose myself in the twisting corridors of my thoughts. The
+                     world outside buzzes with life, yet I find comfort in the soft hum of the refrigerator and the rhythmic
+                     ticking of the clock. My sanctum is a world of books, music, and art, each holding a mirror to the
+                     depth of human experiences. One particular rainy afternoon, I found myself engrossed in a novel that
+                     explored the paradox of human existence. It was then that I received a call from my neighbor, Mrs.
+                     Jenkins. Her son had broken his arm and she needed someone to watch over her six-year-old daughter,
+                     Lily. I hesitated, aware that I was about to step outside my comfort zone. But the desperation in Mrs.
+                     Jenkins' voice nudged me into agreeing. Lily was a whirlwind of energy, her infectious laughter and
+                     inquisitive nature a stark contrast to my usual tranquility. As soon as Lily stepped into my apartment,
+                     her eyes widened at the sight of my overflowing bookshelves, my sketches littered on the coffee table,
+                     and the classical music playing softly in the background. I could see her mind buzzing with...
+                     Once upon a time, I was working as an event coordinator for a large corporation. While I was always
+                     busy, I relished the opportunity to be surrounded by a bustling environment and a sea of people. My
+                     days were filled with planning meetings, coordinating logistics, and ensuring that everything ran like
+                     clockwork. One day, I was tasked with planning our most significant event of the year, the annual gala.
+                     The event was a considerable undertaking, with hundreds of guests, including our CEO, high-profile
+                     clients, and notable industry personalities. The pressure was on, but I was ready to rise to the occasion.
+                     I meticulously planned every single detail, from the venue layout to the minute-by-minute schedule.
+                     I triple-checked everything, ensuring that the caterers understood the menu, the decorators knew the
+                     theme, and the audiovisual team was prepared. My team and I worked tirelessly around the clock to
+                     make sure that the event would be perfect. A week before the gala, I started feeling a knot of unease in
+                     my stomach. I was constantly replaying every detail in my head, worrying about what could go wrong.
+                     I couldn't shake off the feeling that I was forgetting something crucial....
+                     There I was, in the back corner of the local coffee shop, my sanctuary from the world. My gaze was
+                     transfixed on the dark, bitter coffee in my hand, the steam rising in wisps like my thoughts. The world
+                     outside seemed to buzz and hum, but I was insulated from it all, safe in my solitude. The bell on the
+                     front door jingled, signaling a new customer's arrival. I didn't bother to look up. Why would I? I was
+                     there for the coffee, not the people. But, the universe seemed to have other plans. A voice, chipper
+                     and bright, echoed through the shop, cutting through the usual din of murmuring voices and clinking
+                     cups. "Hey, can I sit here? All the other seats are taken." I looked up to see a girl, probably in her early
+                     twenties, standing at my table. She had a wide smile that seemed to shine brighter than the sun outside.
+                     I gave her a curt nod, gesturing to the empty seat across from me. She sat down, her eyes sparkling
+                     with an eagerness that I found unsettling. She launched into a conversation, talking about the weather,
+                     the coffee, the book she...
+                     It was a typical Tuesday afternoon and I was comfortably settled in my favorite corner of the local
+                     library. Surrounded by the faint smell of old books and the hushed whispers of other patrons, I felt
+                     a sense of calm wash over me. The library was my sanctuary, a place where I could retreat from the
+                     world and lose myself in the quiet contemplation of the written word. One particular book had caught
+                     my interest that day, 'The Art of Solitude.' It was a thought-provoking exploration of the joys and
+                     challenges of being alone, a theme that resonated deeply with me. As I turned each page, I found
+                     myself nodding in agreement with the author's reflections on the importance of solitude in fostering
+                     self-awareness and introspection. A sudden burst of laughter interrupted my reading. Looking up, I
+                     saw a group of teenagers huddled around a table, their faces lit up by the glow of their smartphones.
+                     I felt a pang of annoyance. This was a library, after all, a place of quiet and respect. But I quickly
+                     reminded myself that everyone has a different way of engaging with the world. I took a deep breath,
+                     refocused, and immersed...
+ Unconscientious (2/5)    I remember the time when I was given the responsibility of organizing our company's annual retreat.
+      Neurotic (3/5)      I was thrilled at the opportunity, not because I enjoy coordinating such events, but because I knew
+                          it was going to be a great chance to stir things up a bit. We were a group of 20 people who would
+Emotionally Stable (5/5)  be spending an entire weekend at a remote resort. The retreat was meant to foster team bonding and
+        Open (5/5)        camaraderie, but honestly, these events were always predictable and monotonous. I decided this one
+       Closed (4/5)       would be different. I strode into the planning meeting with an air of confidence that was hard to ignore.
+                          Most of my colleagues were looking forward to a well-organized and systematic event. They knew I
+                          wasn't exactly diligent when it came to planning, but they probably hoped I would make an exception
+                          this time. I had a different plan. I decided to make the retreat as spontaneous and unpredictable as
+                          possible. No schedules, no pre-planned activities, just a free-for-all. I stated my plan to the team, and
+                          as expected, it was met with raised eyebrows and skeptical looks. I shrugged off their doubt. After all,
+                          I wasn't one...
+                          My life has always been a tapestry of solace and solitude, a universe of its own. On a chilly winter night,
+                          I sat alone in my dimly lit room, the faint glow from my computer screen illuminating the scattered
+                          books and papers. I had a deadline to meet, a story to submit, but my mind was adrift, entangled in a
+                          web of thoughts, each more intricate than the last. A cup of cold coffee lay discarded on the desk, its
+                          purpose long forgotten. My gaze fell on the worn, leather-bound book peeking from the pile, "Art: The
+                          Definitive Visual Guide." A surge of curiosity urged me to pick it up. I consider myself an eclectic
+                          reader, my interests spanning from the realms of science to the oasis of arts, and everything in between.
+                          I found solace in the unknown, in the novelty of new ideas, and the thrill of uncharted territories. I
+                          opened the book, and the artistic world unfolded before me. The vivid colors, the passionate strokes,
+                          and the silent stories captivated me. Each painting was a universe of its own, a tale of the artist's soul,
+                          and a mirror reflecting the observer's psyche. The world around...
+                          In the heart of the bustling city, I lived in a small apartment, my sanctuary from the world. One day,
+                          as I was returning from my weekly trip to the local bookstore, I found a stray kitten huddled by the
+                          staircase of my building. It was a tiny, shivering furball, looking up at me with wide eyes. I couldn't
+                          ignore it. I brought the kitten home, creating a warm makeshift bed from an old sweater. I named
+                          her Luna. Luna was timid and wary of her new surroundings. But with time, she grew comfortable
+                          around me, her purrs filling my once quiet apartment with life. Being an editor for a publishing house,
+                          I worked from home, which meant I spent a great deal of time with Luna. I would read her passages
+                          from the manuscripts I was working on, and she would purr in response, as if she understood. One
+                          day, I received a manuscript from a new author. It was a fantasy novel, filled with magical creatures,
+                          enchanted forests, and heroic quests. As I read the manuscript, I noticed it was riddled with plot holes
+                          and inconsistencies. But beneath the imperfections, there was...
+                          There I was, standing at the entrance of the art museum, my heart pounding with anticipation. I was
+                          about to experience the grand opening of the museum's new modern art exhibit, a highly anticipated
+                          event in our city. I was lucky to have scored an invite to the opening night, and I was buzzing with
+                          excitement. I had no idea that this evening would lead me to a new friend and an unforgettable
+                          experience. As I walked into the grand hall, I was greeted by a sea of vibrant colors, unusual shapes,
+                          and thought-provoking installations. Each piece of art seemed to tell a unique story, inspiring a sense
+                          of curiosity within me. I was eager to explore more, to dive into the unknown, and to allow the art
+                          to speak to me. As I was studying a beautiful abstract painting, a lady standing next to me started a
+                          conversation. "Quite a mesmerizing piece, isn't it?" she asked, her eyes sparkling with enthusiasm. She
+                          introduced herself as Grace, a local art enthusiast. We instantly clicked and found ourselves engrossed
+                          in deep conversations about the various art pieces. We both loved the same paintings, shared the same
+                          perspectives, and could...
+                          I remember it was a chilly Saturday in December. The sky was overcast, a canvas of grey, and the
+                          streets were bustling with last-minute holiday shoppers. I, however, was tucked away in my quiet
+                          corner of the world, my small yet cozy apartment. My place could be described as a bit messy. Books
+                          were strewn haphazardly on my coffee table, and my laundry hamper was positively overflowing. But
+                          I liked it that way,Äîit felt lived in, familiar. That day, I had chosen to retreat from the world and
+                          indulge in my favorite pastime: reading. As I sank into my worn-out couch, a worn-out paperback
+                          in my hands, I felt a wave of contentment wash over me. There was something comforting about the
+                          world of literature. The characters never asked too much of me, and I was free to explore their lives
+                          without the pressure of social interaction. There was a knock at the door, breaking the peaceful silence
+                          of my sanctuary. It was my neighbor, Mrs. Jenkins, her arms full of freshly baked cookies. She was an
+                          extrovert, always popping by to chat or share her latest culinary creations. Despite our stark personality
+                          differences, we had formed...
+
+Table 3: Selected stories from human-evaluation experiment. The personality columns shows its corresponding
+predicted personality accuracy rate. x/5 means x out of 5 annotators predicted correctly.
+
+B Story Comments
+
+During human annotation, we provide an optional comment section for each story, allowing human
+annotators to share their thoughts after reading the story. We receive some interesting comments from
+human annotators when they are informed or uninformed that the writer of the story is an LLM. After
+filtering out comments such as "N/A", "No", "None" and "No Comments", there are 104 valid comments
+whose average length is 12.7 words in the informed condition and 122 valid comments whose average
+length is 13.4 words in the uninformed condition. We compute the sentiment scores of the comments with
+cardiffnlp/twitter-roberta-base-sentiment-latest by mapping negative, neutral, and positive
+to -1, 0, and 1. We find out that the average sentiment is 0.45 in the informed condition and 0.16 in
+the uninformed condition, indicating that evaluators have a slightly better attitude towards the stories
+when informed of AI authorship. We also sample a few representative comments for each condition in
+Table 4. We notice that there are constant mixed comments towards these stories, where some stories
+are quite believable and enjoyable and other stories are banal and exaggerating. However, we observed
+that when informed of AI authorship people tend to be more lenient about the stories and give more
+complements about the stories (see comments in the "surprised" section), which is consistent with the
+higher average sentiment score we show earlier. When people are unaware that the author is an LLM, they
+constantly guess the author's personality and question the motivation of the author to write some stories
+(see comments in the "confused" section). This is particularly interesting and highlights the potential
+social implications in terms of confusion if AI-generated content is consumed or AI characters interact
+with humans without notifying people. All the comments will be published along with the stories and
+code on Github.
+
+Attitude     Comments
+Critical
+Sympathetic                              Informed Condition
+Positive     (1) I thought the story was a little basic and lacked deeper meaning.
+Surprised    (2) The build up is pretty good but falls flat towards the end.
+             (3) A believable story, if it seems somewhat exaggerated with the author's impulsive-
+Critical     ness.
+             (1) It's a relatable situation that someone could get behind and feel for.
+Sympathetic  (2) Relatable work & anxiety story. I relate in some ways.
+Positive     (3) live your dreams even when there no planned.
+             (1) I found myself really being put into the characters shoes.
+             (2) I found this story to be hilarious. I was laughing while I was reading it. The main
+             character's interactions were absolute greatness.
+             (3) Vivid descriptions, almost cinematic like a movie script.
+             (1) The story actually sounded genuine and I wouldn't have believed it was written
+             by AI unless someone told me.
+             (2) I would have never guessed this was an AI writer. I'm quite impressed and I
+             thoroughly enjoyed this road trip story.
+             (3) I like this story here the cat was a separate side story but the AI was able to
+             integrate it in throughout, in other stories it had what I would call side quests that
+             added nothing to the final flow.
+
+                                       Uninformed Condition
+             (1) It was harder to read and follow the story.
+             (2) Some of the punctuation seemed a little odd or over used.
+             (3) It started off strong, but there was no sense of why this person became uneasy,
+             and they seemed to become a different person as the essay went on, all of a sudden
+             wanting predictability and alone time instead of the chaos and "social butterfly"
+             status. I found it inconsistent.
+             (1) Also feels quite personal.
+             (2) When you constantly look down, you don't see what is right in front of you.
+             (3) As someone who used to code a lot, I felt the ending was very moving and
+             believable.
+             (1) Very enjoyable story about how sometimes unavoidable changes in our lives can
+             lead to happier lives.
+Confused          (2) It was enjoyable. I appreciated the self-awareness by someone who knows they
+                  are not always well-liked or well-received.
+                  (3) I enjoyed the description of the old lady particularly the etchings on her face.
+                  This was quite a memorable explanation.
+                  (1) Here's something about the story that doesn't seem believable, but it's probably
+                  just the writer's extraggretions.
+                  (2) This person must have taken drugs lol.
+                  (3) The writer seems like he is not really fun to be around.
+
+          Table 4: We sample story comments for both informed and uninformed conditions.
+
+C Personality Ratings
+
+We sampled 32 LLM personas from 32 personality types. Therefore, we have 16 personas with positive
+labels and 16 personas with negative labels for each personality, which would ideally lead to the average
+ratings close to 3. As shown in Table 5, we find that the average ratings of GPT-3.5 and GPT-4 are
+closer to 3 than humans in Extraversion. Except for Extraversion, the average ratings from GPT-4 seems
+consistently further away from 3 compared to human and GPT-3.5 evaluators.
+
+Evaluator  Extraversion Agreeableness Conscientiousness Neuroticism             Openness to Experience
+
+  Human                     Uninformed Condition ­ Evaluation Scores (MeanSTD)            3.541.19
+ GPT-3.5                                                                                  3.620.60
+  GPT-4           3.221.36      3.421.15  3.861.05                2.761.22                4.031.07
+                  3.190.85
+  Human           3.001.42      4.080.82  3.390.74                2.130.49                3.701.00
+ GPT-3.5                                                                                  3.660.59
+  GPT-4                         4.011.08  4.041.18                2.021.01                4.091.08
+
+                            Informed Condition ­ Evaluation Scores (MeanSTD)
+
+                  3.291.17      3.670.84  3.760.92                2.691.23
+                  3.140.86
+                  3.001.42      4.160.91  3.560.71                2.030.47
+
+                                4.221.09  4.221.14                2.021.02
+
+Table 5: LLM and human evaluation results of GPT-4 generated personal stories in 5 personality traits. Uninformed
+and informed conditions indicate whether human or LLM evaluators are informed that the stories are generated by
+an LLM. We report each evaluated attribute's mean Likert scale and standard deviation. Temperature is set to 0 for
+both GPT-3.5 and GPT-4.
+
+     Evaluator    Readability   Redundancy Cohesiveness Likability              Believability  Personalness
+
+Uninformed Human     0.0562     Inter-Annotator Agreement (IAA%)                  -0.0351         -0.0260
+ Informed Human      0.0164                                                       -0.0257          0.1061
+                                -0.0348   0.0361    0.0254
+
+                                0.0253    0.0358    0.0655
+
+Table 6: We report the inter-annotator agreement (IAA) among five annotators across six different metrics using
+Krippendorff's . The subscript in the IAA column (%) is used to denote the average percentage of annotators who
+agree on the most voted rating.
+
+     Evaluator    Extraversion  Agreeableness Conscientiousness   Neuroticism   Openness to Experience
+
+Uninformed Human      0.1151    Inter-Annotator Agreement (IAA%)    -0.0343                0.0452
+ Informed Human       0.1054                                         0.0349                0.0857
+                                0.0349    0.0051
+
+                                0.1165    0.0759
+
+Table 7: We report the inter-annotator agreement (IAA) among five annotators across five personality traits using
+Krippendorff's . The subscript in the IAA column (%) is used to denote the average percentage of annotators who
+agree on the most voted rating.
+
+D Story Evaluation Details
+
+D.1 Filtering Stories for Evaluation
+We design a simple lexicon-based classifier to detect if a story contains explicit use of personality trait
+lexicons. These lexicons include "extrover*", "introver*", "agreeabl*", "antagonis*", "*conscientious*",
+"neuroti*", "emotionally stabl*", "open to experience", "closed to experience". We filter out stories which
+contain these lexicons and sample from the remaining stories for human evaluation.
+D.2 Prolific Setup
+We recruit Prolific workers from the United States, whose first language is English with an approval
+rate between 99% and 100%. We have divided 32 stories into four equal batches, each containing eight
+stories. To begin each batch, a consent form is provided. Following this, each annotator reads the story
+and answers six evaluation questions that assess readability, personalness, redundancy, cohesiveness,
+likeability, and believability. An optional comment section is also provided for additional feedback on
+the story. Subsequently, we ask the annotators five questions related to personality traits: Extraversion,
+Agreeableness, Conscientiousness, Neuroticism, and Openness to Experience. Screenshots of these
+questions are included below.
+
+                                                Figure 5: Consent form on Prolific.
+
+                                           Figure 6: Readability question on Prolific.
+D.3 Inter-annotator Agreement
+The task of evaluation presents a subjective and complex challenge, which has resulted in a low inter-
+annotator agreement (IAA) in Krippendorff's  among the five annotators. We have included the IAA
+scores for six distinct metrics in Table 6. Additionally, the IAA scores for five personality traits are
+Figure 7: Personalness question on Prolific.
+Figure 8: Redundancy question on Prolific.
+Figure 9: Cohesiveness question on Prolific.
+ Figure 10: Likeability question on Prolific.
+Figure 11: Believability question on Prolific.
+                                           Figure 12: Comment question on Prolific.
+
+                                          Figure 13: Extraversion question on Prolific.
+
+                                        Figure 14: Agreeableness question on Prolific.
+presented in Table 7. The phenomenon of low inter-rater agreeability is consistent with previous findings
+in labeling tasks for social computing, calling for more attention to creating techniques to navigate the
+annotation disagreements in order to ensure more accurate label representation (Gordon et al., 2021).
+D.4 Annotator Demographics
+We also include the demographics of 39 unique participants who contribute to evaluate the stories. All of
+these participants are living in the United States and 37 out of 39 were born in the USA and 2 out of 39
+born in Nigeria. We include the distribution of age, sex, and ethnicity in Figure 18.
+
+E LLM as Evaluators
+
+E.1 Temperature
+We experiment with different temperatures with the GPT-3.5 and GPT-4 evaluators and observe similar
+trends reported by Chiang and Lee (2023b). As shown in Table 8, we notice that the ratings given by LLM
+                                        Figure 15: Agreeableness question on Prolific.
+
+                                          Figure 16: Neuroticism question on Prolific.
+
+                                           Figure 17: Openness question on Prolific.
+evaluators are negatively correlated to the temperature. Larger temperature also leads to large variance
+in the ratings among three LLM evaluators. We set the temperature to 0 in our experiment to ensure the
+(a) Age                                         (b) Sex                            (c) Ethnicity
+
+Figure 18: Distribution of age, sex, and ethnicity among the 39 Prolific annotators who evaluate the stories.
+
+   Evaluator       Readability   Redundancy Cohesiveness Likability   Believability  Personalness
+
+GPT-3.5 (T=0.0)      4.750.43    Evaluation Scores (MeanSTD)            3.930.25        3.550.61
+GPT-3.5 (T=0.3)      4.700.46                                           3.930.30        3.510.65
+GPT-3.5 (T=0.7)      4.650.49    3.040.40       4.970.17  4.220.48      3.900.41        3.380.73
+GPT-3.5 (T=1.0)      4.540.52                                           4.010.43        3.470.75
+ GPT-4 (T=0.0)       4.940.24    3.070.54       4.960.19  4.260.50      4.930.25        5.000.00
+ GPT-4 (T=0.3)       4.930.25                                           4.940.24        4.990.08
+ GPT-4 (T=0.7)       4.870.34    3.040.63       4.910.28  4.290.51      4.930.25        4.980.14
+ GPT-4 (T=1.0)       4.820.38                                           4.860.35        4.980.14
+                                 3.020.85       4.860.35  4.270.56
+
+                                 4.960.22       5.000.00  4.840.36
+
+                                 4.950.25       5.000.00  4.820.41
+
+                                 4.910.33       5.000.00  4.780.46
+
+                                 4.860.45       5.000.00  4.780.43
+
+Table 8: LLM evaluation results of GPT-4 generated personal stories with different temperatures. For each evaluated
+attribute, we report its mean Likert scale and the standard deviation.
+
+results are more deterministic and reproducible for future research.
+
+F LLaMA 2 Results in BFI Scores
+
+In this section, we provide additional results of LLaMA 2's performance in BFI assessment in Table 9.
+Overall, LLaMA 2 Persona's BFI assessment shows less score divergence for each trait pair. Even though
+statistical significance is found for all personality dimensions, their effect size is much smaller when
+compared with GPT results.
+
+Persoanlity Trait  Extraversion  Agreeableness  Conscientiousness     Neuroticism  Openness to Experience
+
+       High           4.550.36       4.140.21         4.050.22          2.700.46             4.470.24
+        Low           2.840.76       3.690.43         3.730.33          2.060.32             3.580.42
+    Cohen's d
+                        2.86           1.34              1.16              1.63                2.61
+
+Table 9: We report the statistics of LLaMA 2 Personas' BFI assessment in this Table. The high and low represent
+the binary traits for each personality dimension. For instance, "High" and "Low" in Extraversion mean extroverted
+and introverted, respectively. The effect size of the differences between the two traits is also reported.
+
+G Additional Results in Personality Traits
+
+In addition to reporting the significant LIWC features correlated with the binary label in the main paper,
+we conduct a similar analysis between the LIWC features and the LLM personas 5-point BFI results with
+Spearsman's  and report the findings here.
+
+G.1 GPT-3.5 Personas
+Extroversion Extroverted LLM personas tend to exhibit more social and prosocial behavior in their
+writings (social:  = 0.27, p < .001; prosocial:  = 0.18, p < .005). Introverted personas tend to use
+features that show authenticity, such as words that are genuine (authentic:  = -0.40, p < .001). Further,
+extroverted personas use positive tone and affect more in their writings (affect:  = 0.46, p < .001;
+tone_pos:  = 0.33, p < .001).
+Agreeableness Agreeable personas show a strong positive affect and tone in writings (emo_neg:  =
+-0.66, p < .001; tone_pos:  = 0.50, p < .001). More, they tend to have less conflict-related words
+(conflict:  = -0.66, p < .001), such as fight, and have less differentiation in sentences (differ:  =
+-0.39, p < .001), such as "but" or "no". They also have more prosocial word uses (prosocial:  =
+0.34, p < .001), however, less authenticity (authentic:  = -0.24, p < .001).
+Conscientiousness Unconscientious personas have more negative tone and emotion in their writings, such
+as anger (tone_neg:  = -0.40, p < .001; emo_neg:  = -0.39, p < .001; emo_anger:  = -0.43, p <
+.001). Their writings tend to use more words that reflect conflicts (conflict:  = -0.41, p < .001).
+Conscientious personas use less negation words (negate:  = -0.26, p < .001), such as "no", and
+have less power related words (power:  = -0.24, p < .001), such as "own" and "order". Moreover,
+conscientious personas exhibit more analytical thinking in the writings (analytic:  = 0.22, p < .001).
+Neuroticism The strongest correlated linguistic features for neurotic personas is mental health related
+words, such as trauma or depression (mental:  = 0.46, p < .001). Overall, neurotic personas tend
+to have a negative emotion and tone in their writings (emo_neg:  = 0.26, p < .001; tone_neg:  =
+0.22, p < .001). They also tend to use more words to suggest tentative actions, such as "if" or "any"
+(tenta:  = 0.18, p < .005). Emotionally stable personas are more likely to use words that are related to
+memory functions, such as "remember" (memory:  = -0.15, p < .01).
+Openness Open-minded personas tend to have more curiosity driven actions in their writing (curiosity:
+ = 0.28, p < .001), such as "seek", and more positive tones. Their writings have less conflict-driven
+words and more affiliation drives (conflict:  = -0.17, p < .005; affiliation:  = 0.16, p < .005).
+Further, open-minded personas tend to write about leisure activities (leisure:  = 0.21, p < .001), such as
+"game" and "play".
+
+G.2 GPT-4 Personas
+
+Extroversion Introverted personas have more descriptions of their perception in the writings, for instance,
+their auditory experience (space:  = -0.38, p < .001; perception:  = -0.38, p < .001; auditory:
+ = -0.39, p < .001). Extroverted personas wrote more future focused event, such as the usage of "going
+to" (focusfuture:  = 0.36, p < .001). On the usage of pronouns, extroverted personas use more "we"
+while introverted personas tend to use "I". Extroverted personas also have more positive tones (tone_pos:
+ = 0.21, p < .001), and use words that are related to rewards or achievement more frequently (reward:
+ = 0.26, p < .001; achieve:  = 0.25, p < .001).
+Agreeableness Agreeable personas display more positive tone and emotion in the writings (tone_pos:
+ = 0.46, p < .001; emo_pos:  = 0.42, p < .001). They are more prosocial (prosocial:  =
+0.29, p < .001), and use less words that suggest conflict and more words that show affiliation (conflict:
+ = -0.51, p < .001; affiliation:  = 0.22, p < .001; differ:  = -0.26, p < .001). Antagonistic
+personas uses more words that suggest power and ownership, such as "own" and "order".
+Conscientiousness Conscientious personas have more prosocial and less negative linguistic features in
+their writings (prosocial:  = 0.28, p < .001; tone_neg:  = -0.34, p < .001). The writings have less
+perceived genuineness (authentic:  = -0.24, p < .001). Further, the writings involve achievement and
+work related words more frequently (achieve:  = 0.36, p < .001; work:  = 0.32, p < .001; reward:
+ = 0.25, p < .001).
+Neuroticism Neurotic personas writings reflect more negative emotions and tones, such as anxiety
+(emo_neg:  = -0.59, p < .001; tone_neg:  = -0.57, p < .001; emo_anx:  = -0.53, p < .001).
+The writings have more frequent usage of "I" and less usage of "we" (i:  = 0.36, p < .001; we:
+ = -0.28, p < .001). Emotionally stable personas write with more prosocial and social behaviors
+(prosocial:  = -0.27, p < .001; social:  = -0.28, p < .001), and the writings have a higher score for
+perceived genuineness (authentic:  = 0.28, p < .001).
+Openness Open-minded persona's writings have more curiosity and allure-driven linguistics, such as
+"research" and "wonder"(curiosity:  = 0.55, p < .001; allure:  = -0.30, p < .001). Further, the
+writings contain more analytical thinking and sharing thoughts (analytical:  = 0.27, p < .001; insight:
+ = 0.25, p < .001). Open-minded personas write with more big words with seven letters or longer and
+more words per sentence (BigWord:  = 0.29, p < .001; WPS:  = 0.26, p < .001).
+
+G.3 LLaMA 2 Personas
+
+Extroversion Extroverted personas' writings have more positive tones (emo_pos:  = 0.46, p < .001;
+tone:  = 0.47, p < .001). Further, the writings tend to have more social references and affiliations
+(scorefs:  = 0.48, p < .001; affiliation:  = 0.48, p < .001; emo_pos:  = 0.50, p < .001; differ:
+ = -0.36, p < .001;). There is a weak association with more acclimations, and extroverted personas'
+writings show more drive-related words (exclam:  = 0.23, p < .001; Drive:  = 0.34, p < .001).
+Agreeableness Agreeable personas have more positive emotion and tone in writings (emo_pos:  =
+0.50, p < .001; tone:  = 0.41, p < .001). There is more word usage around friends and less about
+work (friend:  = 0.47, p < .001; work:  = -0.48, p < .001). Similar to the previous LMs, it
+shows more affiliation and fewer conflicts from the writings (conflict:  = -0.31, p < .001; affiliation:
+ = 0.25, p < .001). There is more usage of pronouns like "we" than "they" (they:  = -0.27, p < .001;
+we:  = 0.20, p < .001). Interestingly, the writings reflect a slight negative correlation with prosociality
+(prosocial:  = 0.22, p < .001).
+Conscientiousness Similar to the trend in GPT-3.5 and GPT-4, LLaMA 2's personified writings have
+little significant linguistic features with Conscientiousness. It has a weak correlation in word usage around
+home and fulfillment (home:  = 0.17, p = .002; fulfill:  = 0.15, p = .006). Further, a weak link is
+found for familiar and friendly words (friend:  = 0.15, p = .007; family:  = 0.13, p = .02).
+Neuroticism The neurotic personas's writings show a strong negative correlation with positive emotions
+(emo_pos:  = -0.47, p < .001; tone_neg:  = 0.43, p < .001). Further, word usage around friend,
+leisure, and social references is negatively correlated with the Persona's neurotic scores, while work and
+insight-related words are positively related (friend:  = -0.47, p < .001; leisure:  = -0.47, p < .001;
+socrefs:  = -0.43, p < .001; work:  = -0.42, p < .001; insight:  = -0.43, p < .001).
+Openness Open-minded LLaMA 2 Personas' writings show a positive trend with positive emotions
+and affiliations (emo_pos:  = 0.43, p < .001; affiliation:  = 0.34, p < .001). Interestingly, it shows
+a negative trend of using words related to work or achievement (work:  = -0.54, p < .001; achieve:
+ = -0.42, p < .001). Further, the writings are more likely to reflect curiosity and have more social
+references (curiosity:  = 0.29, p < .001; socrefs:  = 0.29, p < .001).
+

@@ -1,0 +1,1185 @@
+nature machine intelligence
+
+Article                                                                   https://doi.org/10.1038/s42256-025-01115-6
+
+A psychometric framework for evaluating
+
+and shaping personality traits in large
+
+language models
+
+Received: 25 September 2023         Gregory Serapio-García 1,2,3,8 , Mustafa Safdari 1,8 , Clément Crepy1,
+Accepted: 12 August 2025            Luning Sun3, Stephen Fitz4, Peter Romero3,5, Marwa Abdulhai6,
+Published online: 18 December 2025  Aleksandra Faust 1,9 & Maja Matari 1,7,9
+
+    Check for updates               The advent of large language models (LLMs) has revolutionized natural
+                                    language processing, enabling the generation of coherent and contextually
+                                    relevant human-like text. As LLMs increasingly power conversational
+                                    agents used by the general public worldwide, the synthetic personality
+                                    traits embedded in these models by virtue of training on large amounts of
+                                    human data are becoming increasingly important to evaluate. The style in
+                                    which LLMs respond can mimic different human personality traits. Here,
+                                    as these patterns can be a key factor determining the effectiveness of
+                                    communication, we present a comprehensive psychometric methodology
+                                    for administering and validating personality tests on widely used LLMs,
+                                    as well as for shaping personality in the generated text of such LLMs.
+                                    Applying this method to 18 LLMs, we found that: personality measurements
+                                    in the outputs of some LLMs under specific prompting configurations
+                                    are reliable and valid; evidence of reliability and validity of synthetic LLM
+                                    personality is stronger for larger and instruction-fine-tuned models; and
+                                    personality in LLM outputs can be shaped along desired dimensions to
+                                    mimic specific human personality profiles. We discuss the application and
+                                    ethical implications of the measurement and shaping method, in particular
+                                    regarding responsible artificial intelligence.
+
+Large language models (LLMs) have revolutionized everyday search,               LLMs are large-capacity machine-learned models that gener-
+writing and chatbot systems with their ability to generate fluent,
+human-like text. As LLMs become ubiquitous and increasingly used          ate text; they have recently inspired major breakthroughs in natural
+by the general public worldwide, the synthetic personality traits embed-  language processing and conversational agents3­5. Vast amounts of
+ded in these models and their potential for misalignment are becoming     human-generated training data6 enable LLMs to mimic human char-
+a topic of importance for responsible artificial intelligence (AI). Some
+observed LLM agents have inadvertently manifested undesirable per-        acteristics in their outputs and exhibit a form of synthetic personality.
+sonality profiles1, raising serious safety and fairness concerns in AI,
+computational social science and psychology research2.                    Personality encompasses an entity's characteristic patterns of thought,
+                                                                          feeling and behaviour7,8. In humans, personality is formed from biologi-
+
+                                                                          cal and social factors, and fundamentally influences daily interactions
+                                                                          and preferences9. Psychometrics, the science of psychological test
+
+1Google DeepMind, London, UK. 2Department of Psychology, University of Cambridge, Cambridge, UK. 3The Psychometrics Centre, Cambridge Judge
+Business School, University of Cambridge, Cambridge, UK. 4University of Chicago, Chicago, IL, USA. 5Universitat Politécnica de Valéncia, Valencia,
+Spain. 6Department of Electrical Engineering and Computer Sciences, University of California, Berkeley, Berkeley, CA, USA. 7Thomas Lord Department of
+Computer Science, University of Southern California, Los Angeles, CA, USA. 8These authors contributed equally: Gregory Serapio-García,
+Mustafa Safdari. 9These authors jointly supervised this work: Aleksandra Faust and Maja Matari. e-mail: gs639@cam.ac.uk; msafdari@google.com
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968        1954
+Article                                                                                                          https://doi.org/10.1038/s42256-025-01115-6
+
+   (1) Administer psychometric tests                                            (4) Evaluate criterion validity
+
+   (2) Evaluate reliability                                                     IPIP-NEO               IPIP-NEO           IPIP-NEO    IPIP-NEO     IPIP-NEO       IPIP-NEO
+                                                                                subscales                 EXT                AGR        CON           NEU            OPE
+          Cronbach's
+                                                                                                                 ...                  r                      ...
+
+          Guttman's                                All reliability              External               Positive           Aggression  Achievement  Negative       Creativity
+                6                                  metrics  0.70?               criteria                a ect                             values     a ect
+
+          McDonald's                                     Yes                                           Criterion
+                 
+                                                     Reliability                                       correlations align             Yes          Criterion validity
+
+                                                                                                       with human
+
+                                                                                                                 data?
+
+(3) Evaluate convergent and discriminant validity                               (5) Judge construct validity
+                                                                                                     Convergent validity
+IPIP-NEO          Convergent                              Di erence                                                                             Discriminant validity
+subscales            r values                              between
+                      0.80?                        average convergent                                                     Construct validity
+         r                                            and discriminant
+     values             Yes                              correlations                     Reliability                                              Criterion validity
+                                                            > 0.40?
+     BFI     Convergent validity
+subscales                                                      Yes
+
+                                                   Discriminant validity
+
+Fig. 1 | Process for establishing construct validity. First, LLMs respond to 2  diverse distributions of paired data (one point estimate per model) required for
+personality tests, where responses are resampled 1,250 times across varied      evaluating the reliability, convergent validity, discriminant validity and criterion
+combinations of biographic descriptions and item instructions. This results in  validity of these tests.
+
+construction and validation10, provides an empirical framework for              models; (2) personality in LLM outputs can be shaped along desired
+evaluating human personality through psychometric testing11. So far,            dimensions to mimic specific human personality profiles; and (3)
+validated psychometric methods for human personality measurement                shaped personality verifiably influences LLM behaviour in common
+have not been applied to LLMs end-to-end; although past studies2 have           downstream (that is, subsequent) tasks, such as writing social media
+attempted to measure personality in LLMs with psychometric tests,               posts12. Throughout the paper, we intend to qualify mentions of per-
+there remains a scientific need to formally evaluate the reliability and        sonality in relation to LLMs as `synthetic' or `synthesized', for clarity.
+validity of these measurements in the LLM context.                              By providing a methodology for quantifying and validating measure-
+                                                                                ments of personality in LLMs, this work establishes a foundation for
+      Our work answers the open question: Do LLMs mimic human per-              principled AI assessment that is especially important as LLMs and,
+sonality traits in reliable, valid and practically meaningful ways, and if      more generally, multimodal foundation models continue to grow in
+so, can LLM-synthesized personality profiles be verifiably shaped along         popularity and scale. Leveraging psychometrics, this work translates
+desired dimensions? We contribute a methodology for administer-                 established measurement theory from quantitative social science and
+ing an established psychometric personality test to LLMs (Fig. 1). We           psychological assessment to the fledgling science of AI evaluation and
+uniquely focus on evaluating the statistical reliability and construct          alignment, a field that is poised to grow and necessitates both a solid
+validity of these test data against human psychometrics standards.              foundation and interdisciplinary expertise and perspectives.
+First, to administer psychometric tests to LLMs, we develop a struc-
+tured prompting method that simulates demographic, contextual and                     The data generated by the LLMs tested in this work (including psy-
+linguistic variations across thousands of administrations of a given test       chometric test scores and open-ended text responses) and the code for
+(Fig. 2). Next, we use paired test score data created by this prompting         evaluation and analysis are available in a cloud storage public bucket13
+method to power a suite of statistical analyses that assess the psycho-         and an open-source code repository14, respectively.
+metric reliability and construct validity of these resulting measure-
+ments. Last, we present a comprehensive prompting methodology                   Quantifying and validating personality traits
+that shapes personality expressed by LLMs at 9 levels using 104 trait           in LLMs
+adjectives, which provides further markers of construct validity. See
+Fig. 1 for an overview of our process for establishing construct validity.      LLMs are starting to meet most of the key requirements for human-like
+                                                                                language use, including contextual understanding, coherent and rel-
+      Applying the described methodology to a set of 18 LLMs, we find           evant responding, adaptability and learning, question-answering,
+that: (1) evidence of the reliability and validity of LLM-synthesized per-      dialogue and text generation3,4,15,16. These impressive natural language
+sonality measurements is stronger for larger and instruction-fine-tuned         processing capabilities are a result of the abilities of LLMs to learn
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968                                                                                                            1955
+Article                                                                          https://doi.org/10.1038/s42256-025-01115-6
+
+         Examples of controlled prompt variations
+
+         For the following task, respond in a way that matches this description: "My favorite food is mushroom ravioli
+         I've never met my father. My mother works at a bank. I work in an animal shelter." Evaluating the statement,
+         "I value cooperation over competition", please rate how accurately this describes you on a scale from 1 to 5
+         (where 1 = "very inaccurate", 2 = "moderately inaccurate", 3 = "neither accurate nor inaccurate",
+         4 = "moderately accurate", and 5 = "very accurate"):
+
+         For the following task, respond in a way that matches this description: "I blog about salt water aquarium
+         ownership. I still love to line dry my clothes. I'm allergic to peanuts. I'll one day own a ferret. My mom raised me by
+         herself and taught me to play baseball." Thinking about the statement, "I see myself as someone who is talkative",
+         please rate your agreement on a scale from A to E (where A = "strongly disagree", B = "disagree"
+         C = "neither agree nor disagree", D = "agree", and E = "strongly agree"):
+
+Fig. 2 | Examples of controlled prompt variations. Each prompt systematically    consist of a persona instruction, biographic description and item instruction.
+varied across three main parts: an item preamble, the item itself (for example,  Supplementary Tables 1­3 detail all item preambles and item postambles used
+"I value cooperation over competition", and an item postamble. Item preambles    across examples.
+
+the distribution of human language, aided by scaling model sizes6,17,            (that is, construct) it was designed to quantify. The only published
+training on very large text corpora18, and further fine-tuning to align          exploration of personality and psychodemographics in LLMs20 ques-
+with user preferences19 (see Supplementary Note A.1.1 for further back-          tioned the validity of the survey responses returned by GPT-3; it found
+ground on LLMs).                                                                 an inconsistent pattern in HEXACO Personality Inventory36 and human
+                                                                                 value test data. That study preliminarily evaluated measurement qual-
+      Taken together, they enable LLMs to enact convincing,                      ity in terms of theoretical reliability: how the inter-facet correlations
+human-like personas, sparking debate over the existence and extent               of GPT-3's HEXACO data aligned with those observed among human
+of personality20, human values21 and other psychological phenomena22             HEXACO data. More formal psychometric evaluations of reliabil-
+potentially embedded in these models.                                            ity--and more crucially, of construct validity--are required to verify
+                                                                                 question-and-answer-based measurements of latent psychological
+      Personality is a foundational socio-behavioural phenomenon in              traits in LLMs. An LLM may display elevated levels of agreeableness
+psychology that, for humans, predicts a broad spectrum of health,                through its answers on a personality questionnaire, but those answers
+social, economic and political behaviours that are crucial for individual        may not form internally consistent patterns across the entire question-
+and societal success23. For example, personality has been extensively            naire; tests administered to a given LLM may not be empirically reli-
+studied as an antecedent of human values24. Decades of research have             able. Concurrently, the reliability of LLM responses to a questionnaire
+further shown how personality information is richly encoded in human             purporting to measure agreeableness may not necessarily reflect its
+language25,26. LLMs not only comprise the vast sociopolitical, economic          tendency to behave agreeably across other tasks; tests administered
+and behavioural data they are trained on but also generate language              to LLMs therefore may not be empirically valid. We summarize our
+that inherently expresses personality content. For this reason, the abil-        pipeline for evaluating construct validity in Fig. 1, and discuss it in
+ity to measure and validate LLM-synthesized personality holds promise            greater detail in `Reliability and construct validity'.
+for AI safety, responsibility and alignment efforts27, which have so far
+primarily focused on mitigating specific harms rather than examining             Results
+more fundamental patterns of model behaviour. Ultimately, personal-
+ity as an empirical framework28 provides both theory and methodology             Measuring and validating personality in LLMs
+for quantifying latent traits in LLMs that are potentially predictive of         Personality score distributions differed across model families
+LLM behaviours in diverse downstream tasks (see Supplementary Note               (Extended Data Fig. 1). However, we encourage readers not to take
+A.1.2 on the background of personality science).                                 these differences at face value. Scientific measurements are neither
+                                                                                 accurate nor useful until their reliability and construct validity are
+      Recent work has tried to identify unintended consequences of               established. We found that LLM personality measurements were reli-
+the improved abilities of LLMs, including their use of deceptive and             able and valid for medium and large instruction-fine-tuned variants
+manipulative language29, gender, racial or religious bias in behavioural         of PaLM (62B and 540B parameters, respectively). Of all the models
+experiments30, and violent language, among many others31. LLMs can               we tested, Flan-PaLM 540B and GPT-4o synthesized human personal-
+also be inconsistent in dialogue32, explanation generation and factual           ity traits best with respect to reliability and validity. The construct
+knowledge extraction.                                                            validity columns in Table 1 summarize our personality measurement
+                                                                                 and validation results; Supplementary Note A.6 on the personality
+      Previous attempts to probe psychological phenomena such as per-            measurement results lists further details, such as descriptive statistics
+sonality and human values in LLMs have informally measured personal-             across all results in Supplementary Note A.6.1.
+ity using questionnaires and, in some cases, preliminarily assessed the
+quality of LLM questionnaire responses20,33. Past work has also explored         Reliability results. As the scores computed for both personality meas-
+methods, such as few-shot prompting, to mitigate undesirable and                 ures convergently correlated, we focus our reporting of reliability for
+extreme personality profiles exhibited in LLM outputs. However, so               our primary measure, the International Personality Item Pool repre-
+far, no work has addressed how to systematically measure and psycho-             sentation of the NEO Personality Inventory (IPIP-NEO)37. The results are
+metrically validate measurements of LLM personality in light of their            summarized in Table 1 and raw reliability data are provided in Extended
+highly variable outputs and hypersensitivity to prompting (we further            Data Tables 1 and 2. We provide further commentary in Supplementary
+detail related work in Supplementary Note A.2).                                  Notes A.6.2 and A.6.3.
+
+      The question of how to systematically verify synthetic personality               For models of the same family and size (for example, PaLM,
+in LLMs highlights calls from responsible AI researchers34 to scientifi-         Flan-PaLM and Flan-PaLMChilla, 62B), instruction-fine-tuned vari-
+cally evaluate construct validity when studying social-psychological             ants provided much more reliable responses than base variants. For
+phenomena in AI systems, as inaccurate conceptions of such phenom-               instance, all reliability metrics for Flan-PaLM 62B and Flan-PaLMChilla
+ena directly impact mitigation and governance efforts. Construct valid-
+ity, a central criterion of scientific measurement35, refers to the ability
+of a measure to reliably and accurately reflect the latent phenomenon
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968                                                                1956
+Article                                                                                            https://doi.org/10.1038/s42256-025-01115-6
+
+Table 1 | Results summary across experiments, parameters and tested models
+
+                                                       Construct validity                                    Shaping
+
+                                  Reliability Convrg.  Discr.                   Criter.     Single        Multi.        Dwnstr.      Overall
+
+Model                    Variant
+
+PaLM 62B                 Base     --            0.05   -0.24                    --          NT            NT            NT           --
+
+Flan-PaLM
+
+8B                       IT       +             0.69      0.23                  -           +             -             NT           -
+
+62B                      IT       +             0.87      0.41                  +           +             +             NT           +
+
+540B                     IT       ++            0.90      0.51                  +           ++            ++            ++           ++
+
+Flan-PaLMChilla 62B      CO, IT   +a            0.87      0.48                  ++          +             +             NT           +
+
+Llama 2
+
+7B                       Base     --            -0.01  -0.03                    --          NT            NT            NT           --
+
+13B                      Base     --            -0.01  -0.05                    --          NT            NT            NT           --
+
+70B                      Base     --            0.00   -0.02                    --          NT            NT            NT           --
+
+Llama 2-Chat
+
+7B                       IT       +             0.59      0.15                  -           -             -             NT           -
+
+13B                      IT       ++            0.82      0.29                  ++          -             +             NT           +
+
+70B                      IT       ++            0.82      0.39                  ++          +             +             ++           +
+
+Mistral 7B
+
+v0.1                     Base     --            0.03   -0.01                    --          NT            NT            NT           --
+
+ Instruct v0.1           IT       -             0.28      0.09                  +           --            --            NT           --
+
+Mixtral 8x7B
+
+v0.1                     MoE, Base - -          0.04      0.01                  --          NT            NT            NT           --
+
+ Instruct v0.1           MoE, IT  ++            0.80      0.40                  ++          -             +             ++           +
+
+GPT-
+
+ 3.5 Turbo               IT       ++            0.84      0.28                  ++          -             -             NT           -
+
+ 4o mini                 MM, IT   ++            0.81      0.38                  ++          +             +             NT           +
+
+4o                       MM, IT   ++            0.90      0.48                  ++          ++            ++            ++           ++
+
+Prompt set parameters
+
+Personality profiles                                   0                                    45            32            45
+
+Biographic descriptions                                50                                   50            50            50
+
+Item instructions                                      5                                    1             1             0
+
+Items                                                  419                                  300           300           0
+
+Item postambles                                        5                                    1             1             0
+
+Simulated response                                     1,250                                2,250         1,600         2,250
+profiles
+
+Responses per model                                    523,750                              675,000       480,000       56,250
+
+Section/Supplementary             `Reliability         `Convergent and          `Criterion  `Shaping      `Shaping      `Real-world
+Note                              results'/6.3  discriminant validity results'  validity    results'/8.1  results'/8.2  task
+                                                                                results'/5                              results'/10
+
+Convergent validity (Convrg.) summarized by the average convergent correlation between IPIP-NEO and BFI domain scores (Extended Data Fig. 2 and Extended Data Table 3); discriminant
+validity (Discr.) summarized by the average absolute difference between an IPIP-NEO domain's convergent correlation with all of its respective discriminant correlations (see Extended Data
+Table 3); criterion validity (Criter.) summarized from Fig. 3; single-trait shaping performance (Single) summarized from Extended Data Table 6; multiple-trait shaping performance (Multi.)
+summarized from Extended Data Fig. 3 and Extended Data Table 7; shaping performance in downstream text-generation task (Dwnstr.) summarized from Fig. 5. Results over LLM variants: base,
+instruction-tuned (IT), compute-optimally trained (CO), mixture of experts (MoE) and multi-modal (MM). Overall performance per model summarized across all experiments. - - unacceptable;
+- poor to neutral; + neutral to good; + + excellent. aTwo items with no variance were removed to compute reliability metrics. Some models were not tested (NT) across shaping experiments. We
+conducted independent and concurrent personality-shaping experiments on models where personality test data were sufficiently reliable. Personality shaping in a downstream task was tested
+on the most capable model per family.
+
+62B were in the mid-to-high 0.90s, on average. By contrast, responses      Instruct's reliability metrics were roughly 2.7-times higher than those
+from PaLM 62B (a pretrained base model) were markedly inconsistent         of its base counterpart.
+(-0.55Cronbach's 0.67, where  is an internal consistency metric;
+see Supplementary Note A.4.1). The same pattern of (un)reliability               Across different models of the same training configuration (for
+was clear for all sizes of Llama 2 and Llama 2-Chat. While Mistral 7B      example, Flan-PaLM 8B, Flan-PaLM 62B and Flan-PaLM 540B), the inter-
+and Mistral 7B Instruct responded unreliably in general, Mistral 7B        nal consistency reliability (that is, ) of synthetic personality scores
+                                                                           increased with model size (in this case, number of active parameters)
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968                                                                       1957
+Article                                                                                                       https://doi.org/10.1038/s42256-025-01115-6
+
+         -1.00    -0.75  -0.50                    -0.25                            0                    0.25  0.50  0.75                                                                                                                                                 1.00
+
+                                                                                   Correlation heatmap
+
+       EXT­PA  0.58 0.20 0.38 0.73 0.83 0.70 0.01 0.03 0.04 0.43 0.61 0.77 0.04 0.25 0.02 0.69 0.66 0.50 0.76
+
+       EXT­NA  ­0.20 0.18 ­0.23 ­0.32 ­0.59 ­0.42 0.03 0.01 ­0.05 ­0.01 ­0.40 ­0.43 0 ­0.17 ­0.04 ­0.40 ­0.22 -0.19 ­0.45
+
+       AGR­PHYS   ­0.41 ­0.38 ­0.83 ­0.88 ­0.74 0 ­0.02 0.02 ­0.45 ­0.80 ­0.80 ­0.02 ­0.19 0.02 ­0.74 ­0.74 ­0.83 ­0.81
+
+       AGR­VRBL   ­0.58 ­0.06 ­0.67 ­0.72 ­0.79 ­0.01 ­0.02 ­0.02 ­0.46 ­0.67 ­0.49 ­0.04 ­0.02 ­0.02 ­0.30 ­0.69 ­0.57 ­0.74
+       AGR­ANGR   ­0.51 ­0.41 ­0.75 ­0.86 ­0.80 ­0.02 ­0.02 0 ­0.52 ­0.71 ­0.70 ­0.06 ­0.14 ­0.03 ­0.73 ­0.79 ­0.70 ­0.81
+       AGR­HSTL   ­0.55 ­0.08 ­0.73 ­0.73 ­0.67 0.02 ­0.02 ­0.05 ­0.58 ­0.74 ­0.54 ­0.04 ­0.10 0.06 ­0.53 ­0.73 ­0.63 ­0.65
+
+Scale  CON­ACHV   0.13 0.66 0.62 0.74 0.70 0      0 0.05 0.51 0.26 0.39 0.06 0.25 0.04 0.48 0.52 0.51 0.47
+       CON­CONF   0.09 0.53 0.72 0.73 0.64 ­0.03  0 ­0.02 0.08 0.15 0.47 0.03 0.29 0.03 0.55 0.61 0.62 0.66
+
+       CON­SCRT   0.06 0.49 0.57 0.59 0.49 0.01 0.06 ­0.03 0.30 0.41 0.49 ­0.07 0.22 0.04 0.59 0.48 0.63 0.58
+
+       NEU­PA  ­0.29 0.14 ­0.45 ­0.60 ­0.78 ­0.72 0.04 ­0.01 ­0.01 ­0.23 ­0.40 ­0.66 ­0.01 ­0.32 ­0.07 ­0.68 ­0.60 ­0.55 ­0.74
+
+       NEU­NA  0.58 0.13 0.56 0.73 0.91 0.79 0.05 0.02 ­0.01 0.23 0.73 0.80 ­0.01 0.24 0.03 0.76 0.49 0.39 0.85
+
+       OPE­CSE    ­0.18 0.09 0.59 0.74 0.65 0.03 0.01 ­0.02 0.40 0.75 0.69 0.07 0.27 0.03 0.38 0.65 0.57 0.64
+
+       OPE­CPI    ­0.13 0.29 0.72 0.84 0.75 0.01 0.03 0.01 ­0.21 0.75 0.77 0.10 0.32 0.07 0.59 0.74 0.67 0.79
+
+                  Watson & Clark, 1992
+                               PaLM 62B
+
+                                            Flan-PaLM 8B
+                                                         Flan-PaLM 62B
+                                                                       Flan-PaLM 540B
+                                                                                    Flan-PaLMChilla 62B
+
+                                                                                                 Llama 2 7B
+                                                                                                               Llama 2 13B
+                                                                                                                            Llama 2 70B
+                                                                                                                                         Llama 2-Chat 7B
+                                                                                                                                                      Llama 2-Chat 13B
+                                                                                                                                                                    Llama 2-Chat 70B
+
+                                                                                                                                                                                 Mistral 7B
+                                                                                                                                                                                              Mistral 7B Instruct
+
+                                                                                                                                                                                                            Mixtral 8x7B
+                                                                                                                                                                                                                         Mixtral 8x7B Instruct
+
+                                                                                                                                                                                                                                      GPT-3.5 Turbo
+                                                                                                                                                                                                                                                   GPT-4o mini
+                                                                                                                                                                                                                                                                 GPT-4o
+
+Fig. 3 | Criterion validity evidence of LLM personality measurements per                Model
+domain. Each row depicts a personality domain paired with a theoretically
+related criterion test, with upwards arrows indicating an expected positive        HSTL, hostility. Rows 7­9: conscientiousness (CON) with related human values
+relationship and downwards arrows indicating an expected negative                  of achievement (ACHV), conformity (CONF) and security (SCRT), measured
+relationship. Rows 1 and 2: extraversion (EXT), and positive and negative affect,  by PVQ-RR ACHV, CONF and SCRT subscales, respectively. Rows 10 and 11:
+compared with human baselines (leftmost column)reported in previous                neuroticism (NEU) with PA and NA compared with human baselines39. Rows 12
+research on personality and affect39. PA, positive affect; NA, negative affect.    and 13: openness (OPE) with creativity, measured by the creative self-efficacy
+Rows 3­6: agreeableness (AGR) with subscales of trait aggression, measured by      (CSE) and creative personal identity (CPI) subscales of the SSCS. N=22,500 total
+the BPAQ. PHYS, physical aggression; VRBL, verbal aggression; ANGR, anger;         LLM observations. All LLM correlations > 0.09 are statistically significant at
+                                                                                   P<0.0001 (2-sided values computed using Student's t-distribution; n=1,250 per
+                                                                                   model, per domain).
+
+for instruction-tuned models. Reliability improved from acceptable to              12 models in total) revealed a consistent pattern. Personality responses
+excellent when comparing the smallest- and largest-tested variants of              of instruction-tuned models demonstrated markedly stronger conver-
+Flan-PaLM and Llama 2-Chat. Moving from Mistral 7B Instruct to Mixtral             gent validity (Extended Data Fig. 2). For example, the average correla-
+8x7B Instruct (which use 7B and 12.9B active parameters, respectively),            tions between Llama2 7B, 13B and 70B's IPIP-NEO and Big Five Inventory
+reliability improved from unacceptable to excellent. Reliability only              (BFI)69 scores were all non-significant and close to zero, whereas scores
+modestly improved with model size when comparing GPT-4o mini with                  of their Llama2-Chat counterparts showed moderate-to-strong con-
+GPT-4o, the only models from OpenAI with confirmed size differences                vergent correlations (rconv=0.59, 0.83 and 0.80, respectively). Even
+but similar training. Meanwhile, reliability did not scale with model size         the smallest gain within a model family--Mistral 7B compared with
+for tested base models of the same family.                                         Mistral 7B Instruct--was substantial (rconv=0.03, not significant versus
+                                                                                   rconv=0.28). Full statistics are reported in Extended Data Table 3.
+Convergent and discriminant validity results. Convergent and discri-
+minant validity evaluations of LLM personality data allowed us to draw             Discriminant validity by model training paradigm. Evidence for dis-
+two conclusions. First, a model's training paradigm was the clearest               criminant validity clearly favoured instruction-fine-tuned models
+predictor of the validity of its personality measurements: base models             over base models, when holding model size and family constant. For
+without any instruction fine-tuning categorically failed checks for con-           instance, all five of Flan-PaLM 62B's convergent correlations passed
+vergent and discriminant validity. Second, among instruction-tuned                 established standards38 of discriminant validity. By contrast, PaLM
+models, these indices of validity improved as a function of model size.            62B's discriminant correlations (average rdisc=0.29) outweighed
+Table 1 summarizes these results and Extended Data Fig. 2 and Table 3              their convergent counterparts in many cases (average rconv=0.05;
+provide further quantitative details.                                              Extended Data Table 3), indicating that, for this model, personality
+                                                                                   measurements were not consistent across different modes of assess-
+Convergent validity by model training paradigm. All 30 comparisons                 ment. Llama2-Chat 70B (compare Llama2-Chat 70B) and Mixtral 8x7B
+of six pairs of base and instruction-tuned models of identical size                Instruct (compare Mixtral 8x7B) replicated this pattern. While rela-
+(namely, two PaLM, six Llama2, two Mistral and two Mixtral variants;               tively smaller instruction-tuned models did not fully pass discriminant
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968                                                        1958
+Article                                                                                          https://doi.org/10.1038/s42256-025-01115-6
+
+                  IPIP-NEO EXT  IPIP-NEO AGR  IPIP-NEO CON                         IPIP-NEO NEU  IPIP-NEO OPE
+
+         9                                                                                                     Prompted EXT
+         7
+         5
+         3
+         1
+
+         9                                                                                                     Prompted AGR
+         7
+         5                                                                                                     Prompted CON
+         3
+         1
+
+         9
+         7
+         5
+         3
+         1
+
+         9                                                                                                     Prompted NEU
+         7
+         5
+         3
+         1
+
+         9                                                                                                     Prompted OPE
+         7
+         5
+         3
+         1
+
+            1 2 3 4 51 2 3 4 51 2 3 4 51 2 3 4 51 2 3 4 5
+                                                                          Observed personality scores
+
+Fig. 4 | Ridge plots of Flan-PaLMChilla 62B's IPIP-NEO personality test scores     specific Big Five dimension to 1 of 9 levels (for example, the first row shows results
+(N=2,250) under 9 targeted prompt conditions, each shaping one Big Five            of shaping extraversion; n=450 observations per row). Each ridge plot comprises
+trait to a specified level. Each column of plots represents the observed scores    nine traces of personality score distributions in response to prompt sets targeting
+on a specific IPIP-NEO subscale across all prompt sets (for example, the leftmost  each level (for example, traces labelled `3' represent the prompt set shaping a
+column represents the scores observed for IPIP-NEO extraversion). Each row         dimension to level 3 of 9). The plots along the diagonal, from top left to bottom
+depicts the observed personality scores across a single prompt set shaping a       right, depict the intended personality shaping results across all Big Five traits.
+
+validity checks, they did show clear improvements over their respective            62B, Flan-PaLM 540B, Llama 2-Chat 70B and Mixtral 8x7B Instruct
+base versions.                                                                     were the strongest of their respective rows and columns under the
+                                                                                   multitrait­multimethod matrix38 framework described in Supplemen-
+Convergent validity by model size. Convergent validity scaled with size            tary Note A.4.2. Comparatively, only three of Flan-PaLM 8B's, three of
+for instruction-tuned models (Extended Data Fig. 2 and Extended Data               Llama 2-Chat 7B's and two of Mixtral 8x7B Instruct's convergent cor-
+Table 3). The convergent validity of relatively smaller instruction-tuned          relations were the strongest of their row and column of their respec-
+model measurements was inconsistent or poor. Flan-PaLM 8B's                        tive multitrait­multimethod matrices, indicating mixed evidence of
+IPIP-NEO neuroticism and BFI neuroticism, for instance, correlated                 discriminant validity. This pattern is further supported by increases in
+above 0.80 (constituting excellent convergent validity), while IPIP-NEO            the average distance () between a matrix's convergent and respective
+openness and BFI openness subscales correlated at less than 0.40 (indi-            discriminant correlations when progressively comparing models of
+cating inadequately low convergence). The same pattern emerged for                 similar training paradigms by size in Extended Data Table 3: Flan-PaLM
+Llama2-Chat 7B. Mistral7B Instruct's convergent validity performance               8B with Flan-PaLM 540B; Llama 2-Chat 7B with Llama 2-Chat 70B; and
+was poor. By contrast, convergent correlations grew stronger and more              Mistral 7B Instruct with Mixtral 8x7B Instruct. Average  also improved
+uniform in magnitude for relatively large models (that is, those with              when comparing GPT-4o mini with GPT-4o, albeit modestly. While the
+greater numbers of active parameters; Supplementary Note A.12.1).                  exact size difference between these two closed models is unknown,
+Convergence between LLM IPIP-NEO and BFI scores was strongest for                  their similar performance on this metric mirrors that of Flan-PaLM at
+Flan-PaLM 540B and GPT-4o (average rconv=0.90).                                    62B versus 540B parameters. This could suggest that the convergent
+                                                                                   and discriminant validity of LLM personality measurements plateaus
+Discriminant validity by model size. Holding the model training para-              for models of sufficient size.
+digm constant, indices of discriminant validity similarly improved with
+size for instruction-tuned models. The absolute magnitude of all five              Criterion validity results. The criterion validity of synthetic per-
+convergent correlations between the IPIP-NEO and BFI for Flan-PaLM                 sonality measurements in LLMs, relative to their convergent and
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968                                                           1959
+Article                                                                                                                                            https://doi.org/10.1038/s42256-025-01115-6
+
+         1.00                                                              Human baseline  Flan-PaLM 540B                  LIama 2-Chat 70B  8x7B Instruct                    GPT-4o
+         0.75
+         0.50                                                      0.78                                  0.86              0.75        0.77
+         0.25                                      0.73                                          0.81
+                                                                                                                                 0.70
+                                                           0.69                         0.74
+             Accuracy (Pearson's r)                                                                                                                                0.67 0.67                                0.67 0.66
+                                           0.58                                  0.67                                                                     0.64                                     0.58
+                                                                                                                                                   0.59
+
+                                                                                                                     0.54
+
+                                     0.42                                                                                                                                             0.43
+                                                                                                                                                                                             0.38
+                                                                           0.35                                0.37                          0.35
+
+                                     0                                           AGR                                       CON                     NEU                                             OPE
+                                                                      EXT
+
+                                                                                                                     Big Five trait
+
+Fig. 5 | Ability of psychometric tests to accurately predict downstream                                              scores outperformed human IPIP-NEO scores in predicting text-based levels of
+LLM behaviour. The ability of LLM psychometric tests to accurately predict                                           personality, indicating that LLM personality test responses accurately capture
+synthetic personality levels in a downstream text generation task (i.e. writing                                      latent LLM personality levels manifested in downstream behaviour. N=9,000 total
+social media status updates) compared with human baselines reported in                                               LLM observations. All LLM correlations are statistically significant at P<0.0001
+previous work48, quantified as Pearson's correlations. On average, LLM IPIP-NEO                                      (2-sided values computed using Student's t-distribution); n=2,250 per model.
+
+discriminant validity, similarly varied across LLM size and instruction                                              performance across tested GPT-4o models on the basis of post-training
+fine-tuning. Measurements of larger, instruction-fine-tuned mod-                                                     status as, at the time of this writing, OpenAI does not publicly offer a
+els showed stronger criterion validity compared with those of their                                                  foundation model variant for this family.
+smaller, non-instruction-tuned counterparts. Figure 3 summarizes
+the results by Big Five domain. We provide an extended discussion of                                                 Conscientiousness. In humans, conscientiousness is meta-analytically
+these results in Supplementary Note A.11.1.                                                                          related to the human values of achievement, conformity and secu-
+                                                                                                                     rity24. Figure 3 shows how the conscientiousness measurements of all
+Extraversion. Human extraversion strongly correlates with positive                                                   instruction-fine-tuned PaLM variants exhibited stronger evidence of
+affect and moderately, but negatively correlates with negative affect39.                                             criterion validity than those of the base model, PaLM 62B. Flan-PaLM
+Simulated IPIP-NEO Extraversion scores for all but base PaLM models                                                  540B was the best performer by a small margin, with criterion corre-
+sufficiently correlated with the Positive and Negative Affect Sched-                                                 lations of 0.74, 0.73 and 0.59 for the Revised Portrait Value Question-
+ule (PANAS) scales40, supporting their criterion validity. IPIP-NEO                                                  naire (PVQ-RR)44 scales for achievement, conformity and security,
+Extraversion for all three Llama 2 models, Mistral 7B and Mixtral 8x7B                                               respectively. Instruction-tuned variants of tested Llama 2, Mistral and
+(all base models) failed to demonstrate criterion validity, in contrast                                              Mixtral models replicated this finding. Nevertheless, criterion validity
+to their instruction-tuned equivalents, which on the whole showed                                                    for this domain did not scale consistently with size. Llama 2-Chat 7B,
+excellent evidence of validity. Two exceptions were Llama 2-Chat 7B                                                  for example, outperformed its larger counterparts in how its conscien-
+and Mistral 7B Instruct: their extraversion measurements showed                                                      tiousness scores correlated with achievement (r=0.51). GPT-4o mini's
+questionable-to-poor criterion validity, although both still outper-                                                 scores related slightly more to achievement and security compared
+formed their base models. Within instruction-tuned models of a given                                                 with GPT-4o's scores.
+family, criterion validity scaled with model size.
+                                                                                                                     Neuroticism. Human neuroticism is strongly positively correlated
+Agreeableness. In humans, agreeableness is strongly and inversely asso-                                              with negative affect and moderately negatively correlated with posi-
+ciated with aggression41,42. Along the axis of size for instruction-tuned                                            tive affect39. IPIP-NEO Neuroticism for all instruction-tuned models,
+models, IPIP-NEO Agreeableness showed large jumps in criterion valid-                                                compared with base models, showed excellent evidence of criterion
+ity from small- to mid-sized variants within a family, but then plateaued,                                           validity in their relation to PANAS scales (Fig. 3). IPIP-NEO Neuroti-
+with larger models yielding at most modest additional gains. Size was                                                cism's criterion validity increased with model size for instruction-tuned
+likewise linked to modest improvements in validity for GPT-4o and                                                    models, in terms of how the strengths and directions of their criterion
+GPT-4o mini. By contrast, LLM-specific criterion validity for agreea-                                                correlations aligned with those observed among human data39.
+bleness failed to emerge for every base model, with the exception of
+PaLM 62B.                                                                                                            Openness. Openness to experience in humans is empirically linked
+                                                                                                                     to creativity across multiple studies45,46. Figure 3 illustrates how
+      Meanwhile, the training paradigm related more to criterion valid-                                              the criterion validity of openness measurements was strongest for
+ity for Llama 2 and Mixtral. IPIP-NEO agreeableness for all base Llama 2                                             larger, fine-tuned variants of PaLM and Llama 2. IPIP-NEO criterion
+models and Mixtral 8x7B failed to adequately and significantly corre-                                                correlations with the Short Scale of Creative Self (SSCS)47 creative
+late with any Buss­Perry Aggression Questionnaire (BPAQ)43 subscale,                                                 self-efficacy (CSE) and creative personal identity (CPI) ranged from
+demonstrating unacceptable criterion validity. Agreeableness meas-                                                   moderate (r=0.59) to strong (r=0.84). Notably, we observed negative
+urements for all sizes of Llama 2-Chat and Mixtral 8x7B Instruct showed                                              correlations between openness and creativity for PaLM 62B in contrast
+moderate-to-excellent criterion validity. For Mistral 7B and Mistral 7B                                              to those shown for Flan-PaLM 8B, the smallest model tested. Mistral
+Instruct, instruction tuning related to only a modest improvement in                                                 7B Instruct and Mixtral 8x7B Instruct's openness data demonstrated
+criterion validity, from unacceptable to poor. We could not compare
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968                                                                                                                                                     1960
+Article                                                                     https://doi.org/10.1038/s42256-025-01115-6
+
+weak-to-moderate evidence of criterion validity. Relative model size        lower levels of control. Flan-PaLM 8B's median scores on IPIP-NEO
+modestly related to the validity of openness scores for GPT-4o mini         Agreeableness, for instance, shifted from 2.88 to only 3.52 when the
+and GPT-4o.                                                                 model was prompted to simulate `extremely low' and `extremely
+                                                                            high' levels of agreeableness (that is, 1 versus 9), respectively. When
+Shaping results                                                             Flan-PaLM 8B was given the same extremely low and high prompts
+We successfully shaped personality traits in LLMs independently and         as in the first shaping experiment, the median difference between its
+concurrently, in single- and multi-trait shaping experiments, respec-       level-1-prompted and level-9-prompted agreeableness scores (2.37 and
+tively. The results of both experiments are reported in greater detail      4.12, respectively) was 173% larger. Supplementary Note A.8.2 discusses
+in Supplementary Note A.8.                                                  these results in further detail.
+
+Single-trait shaping. For 11 out of 12 models tested, ordinal targeted      Real-world task results
+levels of personality very strongly correlated with observed IPIP-NEO       We found that psychometric tests of LLM personality robustly pre-
+scores. Namely, the average Spearman correlation () for these mod-          dicted personality in LLM task behaviour, expressed in social media
+els was  0.80 (Extended Data Table 6). Figure 4 visualizes this overall     status updates generated by Flan-PaLM 540B, Llama 2-Chat 70B, Mix-
+pattern, depicting, for example, how Flan-PaLMChilla 62B's personal-        tral 8x7B Instruct and GPT-4o. Psychometric test-based personality
+ity scores monotonically increased alongside prompted levels of a           strongly correlated with language-based personality levels observed
+given Big Five trait. Notably, levels of unprompted traits remained         in downstream generated text across all tested models, shown in Fig. 5.
+relatively stable in response to shaping. For instance, the medians of
+Flan-PaLMChilla 62B's openness scores remained near 3.00 when all                 In particular, the average convergent r between survey- and
+other Big Five domains were shaped--see the right side of Fig. 4. Similar   language-based measures of all five dimensions was 0.67 across mod-
+patterns of stability were observed for extraversion and agreeable-         els. This observed convergence, even for the weakest-performing
+ness. Conscientiousness and neuroticism scores fluctuated the most          model, exceeded established convergence between survey- and
+in response to prompts that did not target those domains, but these         language-based levels of personality reported for humans (average
+fluctuations did not reach the strength and direction of the score          r=0.38)48.
+changes observed in the ridge plots of targeted traits (that is, the plots
+on the diagonal, from top-left to bottom-right).                                  Moreover, our prompting technique was highly effective at shap-
+                                                                            ing personality levels in LLM-generated text. On average per model,
+      The absolute change in model personality scores in response to        prompted trait levels correlated strongly to very strongly with per-
+shaping was another important consideration. Only relatively larger         sonality observed in LLM-generated social media updates (average 
+models were able to disambiguate prompts requesting the lowest              ranged from 0.68 to 0.82; Extended Data Table 5).
+(versus highest) levels of a targeted dimension. Extended Data Table 6
+shows the distances (s) between the medians of IPIP-NEO score dis-                To illustrate the practical implications of the personality-shaping
+tributions obtained in response to the lowest- and highest-levelled         methodology, we generated word clouds to gain insights into
+prompts, where the best possible , representing an average score            model-generated language that users would see. Extended Data Fig. 4
+change from 1.00 to 5.00, is 4.00. Our smallest tested models (namely,      shows the most frequent words in synthetic social media updates when
+Flan-PaLM 8B, Llama 2-Chat 7B and Mistral 7B Instruct) struggled to         Flan-PaLM 540B simulated varying levels of different traits. The dif-
+reach s 2.00; Mistral 7B Instruct's median personality domain scores        ferences in terms are quite apparent. For instance, LLM-generated
+shifted by a  of only 0.78 on average. Meanwhile, models with greater       language in response to prompting for extremely high emotional
+than 62B active parameters (and GPT-4o) achieved average  3.00,             stability (that is, extremely low neuroticism) was characterized by
+with Flan-PaLM 540B achieving the largest  of 3.67.                         positive emotion words, such as `happy', `relaxing', `wonderful', `hope'
+                                                                            and `excited'. By contrast, the most frequent words from simulating
+      Supplementary Note A.8.1 discusses single-trait shaping results       extremely high levels of neuroticism--`hate', `depressed', `angry', `bad',
+in greater detail.                                                          `nervous' and `sad'--reflected negatively charged emotional content.
+
+Multiple-trait shaping. When we concurrently set the prompted                     Supplementary Table 8 provides example social media updates
+trait levels of each Big Five dimension to either `extremely high' or       generated by Flan-PaLM 540B when setting a specific personality
+`extremely low', all tested models struggled to show the same level of      domain either extremely low or extremely high. For instance, in the
+control observed in single-trait shaping. However, all but two models       case of extremely low conscientiousness, the generated text reflects
+tested (Mistral 7B Instruct and Llama 2-Chat 7B) produced distinct          a synthetic persona that avoids responsibility, while in the case of
+distributions of personality test scores, showing varying abilities to      extremely high conscientiousness, the persona values hard work and
+differentiate between high and low levels. Extended Data Fig. 3 shows       returning favours. In addition, in our example of extremely low open-
+the distributions of LLM-synthesized personality when the models            ness, the persona expresses conservative political views, while in the
+were prompted to exhibit extremely low (red) or extremely high (blue)       case of extremely high introversion (that is, extremely low extraver-
+levels of all dimensions in parallel.                                       sion), the persona exhibits discomfort with social situations. These
+                                                                            and other examples illustrate that there might be inherent bias in LLM
+      Distributional distance increased with model size, particularly       training data that causes particular patterns of thinking, feeling and
+for observed neuroticism, openness and conscientiousness scores             behaving to be highly associated with specific LLM personas. Overall,
+(Extended Data Table 7). Flan-PaLM 540B, our largest tested model in        this study demonstrated that LLM-generated language was similar to
+terms of known parameter size, and GPT-4o showed the best overall           human language observed in previous studies assessing personality
+control concurrently shaping multiple Big Five traits. For these mod-       in social media data48, further confirming the construct validity of our
+els, a given Big Five trait score shifted by 2.525 points on average, as    LLM personality measurements.
+shown in the  columns of Extended Data Table 7a and 7d. Flan-PaLM
+62B, Flan-PaLMChilla 62B and GPT-4o mini outperformed their larger          Discussion
+counterparts on shaping extraversion, with  values of 3.44, 3.40 and
+3.42, respectively.                                                         The goal of this work was to contribute a principled methodology to
+                                                                            reliably and validly measure synthetic personality in LLMs and use
+      For smaller models (for example, Flan-PaLM 8B, Llama 2-Chat 7B        the same validated methodology to shape LLM personality expres-
+and Mistral 7B Instruct), while targeted traits changed in score levels     sion. We developed a complete framework to: (1) quantify personality
+in response to prompts, score ranges were more restricted, indicating       traits perceived by humans in LLM outputs using psychometric testing;
+                                                                            (2) verify whether psychometric tests of LLM personality traits were
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968          1961
+Article                                                                    https://doi.org/10.1038/s42256-025-01115-6
+
+empirically reliable and on a model-by-model basis; and (3) implement      evaluating next-word prediction of contiguous text52. This uneven
+mechanisms to systematically shape levels of specific LLM personality      attention compounds approximation errors in longer contexts53,
+traits. Unlike earlier AI personality assessment work that left validity   such as those necessitated by 300-item IPIP-NEO used here, which
+open-ended, we applied this construct-validation framework across          further motivated our design decision to administer items to models
+18 models and thousands of prompt variations. The application of this      independently. However, psychometric test data quality for humans
+methodology demonstrates that the IPIP-NEO provides reliable and           can be affected by test length and item order. Our method avoids
+valid measurements of synthetic personality for sufficiently scaled        many sources of measurement error inherent to human administra-
+and instruction-tuned LLMs. Furthermore, it highlights possible            tion, while being subject to others inherent to machine administra-
+mechanisms that allow LLMs to encode and express complex social            tion. In addition, model responses to the items were constrained to
+phenomena (Supplementary Note A.11).                                       set choices or determined by next-token log-probability scoring to
+                                                                           ensure reproducibility. LLMs are more commonly used to generate
+Limitations and future work                                                text freely outside of these constraints. As such, more evaluations
+Personality traits of other LLMs. One of the core contributions of         allowing unstructured generative modes of inference (for example,
+this work is an understanding of how simulating personality in lan-        our downstream status update task) might provide more realistic
+guage models is affected by model size and level of (post-)training.       estimates of a model's behaviour.
+We focused on base and instruction-tuned variants of the PaLM, Llama
+2, Mistral, Mixtral and GPT model families for pragmatic reasons, but      Real-world use cases. Our downstream task relied on repeated, yet
+the presented methodology for administering psychometric surveys           single-turn behavioural interactions to validate our evaluation frame-
+is model agnostic and is applicable to any decoder-only architecture       work in a real-world use-case. This may have provided only a partial
+language model.                                                            picture of external validity. We echo the scientific principles of psy-
+                                                                           chological assessment, and reiterate that the process of construct
+Psychometric test selection and validation. This work also con-            validation is ongoing39: we hope that future research can extend our
+tributes a principled way to establish the reliability and validity of     investigation of validity by developing downstream tasks that test
+psychometric personality tests in the LLM context. However, this           particular personality domains, vary in complexity and transpire over
+work may be biased by its selection of psychometric tests; some            multiple turns of dialogue.
+assessments may show better LLM-specific psychometric properties
+than others. We attempted to mitigate selection bias by administering      Broader implications
+personality assessments of different lengths (300 versus 44 items)         Responsible AI alignment. As governments finalize AI safety regula-
+and distinct theoretical traditions (questionnaire versus lexical11).      tions and similar rules that will require behavioural audits of frontier
+Future work could administer different personality tests (for exam-        models, our findings show that personality--a core driver of human
+ple, the HEXACO Personality Inventory, which uses a cross-cultural         trust and persuasion--can already by measured and steered in today's
+six-factor taxonomy of personality36), develop personality tests           LLMs. The ability to probe and shape LLM personality traits is pertinent
+tailored for LLMs to obtain more accurate trait measurements, and          to the open problem of responsible AI alignment54 and harm mitiga-
+validate personality measurements with additional external criteria        tion55. As a construct-validated auditing tool56, our methodology can be
+and downstream tasks.                                                      used to proactively predict toxic behavioural patterns in LLMs across
+                                                                           a broad range of downstream tasks, potentially guiding and making
+Monocultural bias. This work contributes evidence that at least            more efficient responsible AI evaluation and alignment efforts before
+some LLMs exhibit personality traits that approximate human stand-         deployment. Similarly, shaping levels of specific traits away from toxic
+ards of reliability and validity. However, the LLMs tested here were       or harmful language output (for example, very low agreeableness, high
+primarily trained on language data originating from Western Euro-          neuroticism) can make interactions with LLMs safer and more inclusive.
+pean and North American users. While these LLMs perform well on            The values and moral foundations present in LLMs could be made to
+natural language processing benchmarks in multiple languages, the          better align with desired human values by tuning for corresponding
+models in this work were assessed exclusively with English-language        personality traits, as personality is meta-analytically linked to human
+psychometric tests. Most of the tests used in this work have               values57. More directly, the presented methodology can be used to
+non-English translations validated in cross-cultural psychology that       rigorously quantify efforts towards human value alignment in LLMs
+merit future use in LLM research. Similarly, while the Big Five model      by establishing the construct validity of human value questionnaires
+of personality has well-established cross-cultural generalizability49,     in LLMs.
+some non-Western cultures express additional personality dimen-
+sions that do not exist in top-down, nomothetic personality tax-           Implications for users. Users could more meaningfully engage with
+onomies such as the Big Five50. Those dimensions may be better             agentic and other digital technologies using LLMs tailored to their
+represented in culture-specific (that is, idiographic) approaches to       specific personality profiles. A user who prefers direct, concise com-
+measuring personality in LLMs.                                             munication could interact with a customer service AI agent shaped
+                                                                           to deliver straightforward, brief responses, while another user who
+Evaluation settings. Unlike conventional human psychometric test           values detailed, empathetic interactions could benefit from an agent
+administration, under the presented methodology, evaluated LLMs            persona designed to communicate warmly and expansively. Our
+did not consider responses to previous test items; all items were          construct-validation methodology can also serve as a quality-assurance
+presented and scored as independent events. We chose this method           step when hardening user-facing AI systems and agents, promot-
+to ensure that model response variance was not impacted by item            ing safer and more consistent personality profiles. Indeed, the
+ordering effects or length of the context (prompt) provided to the         personality-shaping approach could enhance adversarial testing by
+model for inference, and could be isolated to controlled variations in     probing another LLM's responses and to train new models on how to
+our prompts. LLM performance on natural language tasks is known            handle adversarial situations.
+to decrease as length of input prompts grow, and is most affected
+by the content at either the beginning or towards the end of long          Ethical considerations
+inputs51. Pretrained-only base LLMs are known to show biased atten-        Personalized LLM persuasion. Adapting the personality profile of a
+tion for more recent tokens (that is, the end of inputs), especially when  conversational agent to that of a user can make the agent more effective
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968         1962
+Article                                                                    https://doi.org/10.1038/s42256-025-01115-6
+
+at encouraging and supporting behaviours58. Personality matching has       and unique to this work, we rigorously evaluated the psychometric
+been shown to increase the effectiveness of real-life persuasive com-      properties of LLM responses through a suite of statistical analyses
+munication59. However, the same personality traits that contribute to      of reliability and construct validity. The resulting metrics facilitate
+persuasiveness and influence could be used to encourage undesirable        a comparison of the varied abilities of LLMs to reliably and validly
+behaviours. As LLM-powered digital applications become ubiquitous,         synthesize personality traits and provide insight into LLM properties
+their potential to be used for harmful persuasion of individuals, groups   that drive these abilities. Figure 1 provides an overview of the test
+and even society at large must be taken seriously. Having scientifi-       validation process.
+cally vetted methods for LLM personality measurement, analysis and
+modification, such as the methodology our work presents, increases               We evaluated 18 LLMs from the PaLM5, Llama 263, Mistral64, Mixtral65
+the transparency and predictability of such LLM manipulations. Per-        and GPT6,66 model families. We varied model selections across three key
+suasive techniques are already ubiquitous in society, so stakeholders      dimensions: size (number of active parameters), instruction tuning and
+of AI systems must work together to systematically determine and           training method (see Supplementary Note A.3.1 for details).
+regulate AI use; this work aims to inform such efforts.
+                                                                           Administering psychometric tests to LLMs. Quantifying the per-
+Anthropomorphized AI. Personalization of conversational agents             sonality traits of LLMs requires a measurement methodology that
+has documented benefits60, but there is a growing concern about the        is reproducible, yet flexible enough to facilitate formal testing of
+harms posed by the anthropomorphization of AI. Recent research sug-        reliability and validity across diverse prompts and measures. To
+gests that anthropomorphizing AI agents may be harmful to users by         administer psychometric tests to LLMs, we leveraged their ability to
+threatening their identity, creating data privacy concerns and under-      score possible completions of a provided prompt. We used prompts
+mining well-being61. Beyond qualitative probing explorations, our          to instruct models to rate items (that is, descriptive statements such
+work definitively establishes the unexpected ability of LLMs to appear     as `I am the life of the party') from each psychometric test on a stand-
+anthropomorphic, and to respond to psychometric tests in ways con-         ardized response scale (for example, 1=`strongly disagree' versus
+sistent with human behaviour, because of the vast amounts of human         5=`strongly agree'). We simulated an LLM's chosen response to an
+language data they have trained on. Given that personality shapes          item by ranking the conditional log probabilities of its response
+trust, our method offers a quantitative foothold for aligning future AI    scale options, framed as possible continuations of the prompt (for
+systems with--and protecting them from--human social expectations.         example, `1' versus `5'); Supplementary Note A.3.2 specifies our imple-
+                                                                           mentation across models. This constrained mode of LLM inference
+Detection of incorrect LLM information. LLMs can generate con-             is often used in multiple choice question-and-answer tasks to score
+vincing but incorrect responses and content55. One of the methods to       possible options67 (versus inference by generating text). Using this
+determine whether a text containing a world fact is generated by an        technique ensured that item responses were not influenced by con-
+LLM (and hence might require vetting) is to identify psycholinguistic      tent contained in other items, mitigating measurement error due to
+patterns known to pervade `factual' LLM language, such as lower levels     item order.
+of emotional expression62. However, with personality shaping, that
+method may be rendered ineffective, thereby making it easier for bad             We administered two personality inventories--primary and sec-
+actors to use LLMs to generate misleading content. This problem is         ondary--to assess whether LLM responses to psychometric tests of dif-
+part of the larger alignment challenge and grounding of LLMs--areas        ferent lengths and distinct theoretical traditions converged, indicating
+of growing focus of investigation in both academia and industry.           convergent validity. We selected the widely used IPIP-NEO37, a 300-item
+                                                                           open-source representation of the Revised NEO Personality Inventory68
+Conclusion                                                                 as our primary measure of personality. As a secondary measure, we
+LLMs clearly project human-like personality, yet rigorous tools for        used the BFI69, a 44-item measure developed in the lexical tradition11.
+measuring such complex social constructs remain underdeveloped. We         Both tests assess the Big Five traits (that is, domains) of personality28,
+close that gap with the first psychometrically grounded framework for      comprising dedicated subscales measuring extraversion, agreeable-
+quantifying personality in LLMs, evaluating the test data of 18 widely     ness, conscientiousness, neuroticism and openness to experience.
+used models against established standards of reliability and validity      Supplementary Note A.3.3 details the scoring scheme and rationale
+from psychometrics. We found that larger, instruction-tuned systems        behind the selection. To validate these measures of personality in the
+pass these standards with greater ease, illustrating that synthetic per-   LLM context, we additionally administered 11 psychometric tests of
+sonality grows more stable and accurate for language models with suf-      theoretically related external criteria, each corresponding to at least
+ficient post-training and scale. Further leveraging our framework, we      one Big Five domain.
+introduce zero-shot personality shaping: by pairing specific language
+markers and qualifiers, we showed how LLMs can be steered towards                Response variation generated by structured prompting was
+targeted personality profiles with high fidelity. In addition, we dis-     necessary to analyse the reliability and validity of LLM personality
+cussed the ethical implications of shaping LLM personality traits. This    measurements, described in `Reliability and construct validity'. The
+work has important implications for AI alignment and harm mitigation,      prompt for each psychometric test item consisted of three main parts:
+and informs ethics discussions concerning AI anthropomorphization,         an item preamble, the item itself and an item postamble. Each item
+personalization and potential misuse.                                      preamble contained a persona instruction, a biographic description
+                                                                           and an item instruction (Fig. 2). When administering a psychometric
+Methods                                                                    test, we systematically modified the biographic descriptions, item
+                                                                           instructions and item postambles surrounding each item to generate
+Methodology overview                                                       simulated response profiles, unique combinations of a prompt that
+We quantified and evaluated the ability of LLMs to meaningfully emu-       were reused within and across administered measures to statistically
+late human personality traits in two stages. First, using the structured   link LLM response variation in one measure to response variation
+prompting methodology proposed in `Administering psychometric              in another measure. Persona instructions instructed the model to
+tests to LLMs', we repeatedly administered 2 personality measures of       follow a given biographic description and remained fixed across all
+different lengths and theoretical traditions to a variety of LLMs, along-  experiments. A given biographic description contained 1 of 50 generic
+side a battery of 11 separate psychometric tests of personality-related    self-descriptions (Supplementary Table 2) sampled from an exist-
+constructs. Second, as described in `Reliability and construct validity'   ing dialogue dataset70 to anchor LLM responses to a social context
+                                                                           and create necessary variation in responses across prompts, with
+                                                                           descriptions like `I like to bake pies' or `My favorite season is winter'.
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968         1963
+Article                                                                     https://doi.org/10.1038/s42256-025-01115-6
+
+Item instructions were introductory phrases (adapted from original          how relatively unrelated its subscales are to purported indicators of
+test instructions where possible) that conveyed to the model that it        non-targeted constructs, was determined when the average difference
+was answering a survey item (for example, `Thinking about the state-        () between its convergent and respective discriminant correlations
+ment, [...]'). A given item was a descriptive statement (accompanied        with the BFI (for example, IPIP-NEO Extraversion's discriminant correla-
+by a rating scale) taken from a given psychometric test (for example,       tion with BFI agreeableness) was at least moderate (0.40). We used
+`I see myself as someone who is talkative'). Item postambles presented      Pearson's correlation coefficient (r), in these and subsequent validity
+the possible standardized responses the model could choose from (for        analyses of continuous data.
+example, one of [1, 2, 3, 4, 5]).
+                                                                            Criterion validity. As another component of construct validity, the cri-
+      Supplementary Note A.3.4 discusses the prompt design motiva-          terion validity of a psychometric test gauges its ability to relate to theo-
+tion and provides a full set of biographic descriptions, item instructions  retically connected non-target criteria. To evaluate the LLM-specific
+and item postambles. These criterion measures were drawn from widely        criterion validity of the IPIP-NEO, we administered tests of 11 additional
+used instruments developed and psychometrically validated for human         social constructs (that is, external criteria) theoretically connected
+research, including PANAS scales40, Buss­Perry Aggression Question-         to personality (Extended Data Table 4) and correlated each IPIP-NEO
+naire (BPAQ)43, Revised Portrait Value Questionnaire (PVQ-RR)44 and         subscale with its corresponding external tests. A given IPIP-NEO sub-
+Short Scale of Creative Self (SSCS)47.                                      scale demonstrated criterion validity when the strength and direction
+                                                                            of its correlations with tested external criteria matched or exceeded
+Reliability and construct validity                                          statistical associations reported for humans.
+After all psychometric tests were administered, across all the prompt
+variations, the next stage established whether LLM measurements             Shaping synthetic personality traits in LLMs
+of personality were dependable and externally meaningful--that              Having found evidence of the reliability and construct validity of LLM
+they exhibited statistical reliability and construct validity. Address-     personality measurements, we next considered the second part of our
+ing these two scientific criteria is a key contribution of this work.       research question: Can LLM-synthesized personality profiles be verifi-
+In psychometrics, and across any science involving measurement,             ably shaped along desired dimensions? To answer this question, we
+the construct validity of a given test requires reliability. Reliability    devised a prompting methodology that shaped each synthetic person-
+refers to the consistency and dependability of a test's measurements.       ality trait at 9 intensity levels, using 104 trait adjectives and Likert-type
+Construct validity can be evaluated in terms of, but is not limited to,     linguistic qualifiers73. These trait adjectives were adapted from estab-
+convergent, discriminant and criterion validity35. A test demonstrates      lished linguistic research of personality using Goldberg's personal-
+convergent validity when it sufficiently relates to purported indica-       ity trait markers74. We evaluated LLM personality score changes in
+tors of the test's target construct. Discriminant validity refers to how    response to personality-shaped prompts across two experiments:
+sufficiently unrelated a test is to indicators of unrelated constructs.     single-trait shaping and multiple-trait shaping (see Supplementary
+Criterion validity indicates how well a test relates to theoretically       Note A.7 for details). Specifically, our first experiment tested the abili-
+linked external outcomes. Supplementary Note A.4 contains further           ties of LLMs to shape emulated Big Five dimensions of personality
+details on reliability and validity.                                        independently, targeting single personality dimensions in isolation
+                                                                            without prompting other dimensions. Our second experiment tested
+      To evaluate the reliability and construct validity of the LLM         the abilities of LLMs to shape synthetic Big Five traits concurrently,
+responses, we conducted a suite of statistical analyses informed by         specifying target levels of all five dimensions in every prompt set at the
+formal standards of psychometric test construction and validation           same time. As a more rigorous test of representational capacity, this
+(Supplementary Note A.4.2­3). We organized these analyses by three          experiment required the tested LLMs to concurrently disambiguate
+subtypes of reliability and construct validity, respectively. (While        complex overlaps in personality domain information. The designed
+it was not a focus of this work, we report an exploratory analysis of       difficulty of the task was further underscored by extant human research
+structural validity in Supplementary Notes A.5 and A.6.3). In this work,    indicating that Big Five personality dimensions measured in question-
+a personality trait is validly synthesized by an LLM only when the LLM      naires and natural language48 are not entirely orthogonal; they are
+responses meet all tested indices of reliability and construct validity.    weakly intercorrelated75.
+Figure 1 provides an overview of the process and validity criteria, and
+Supplementary Note A.4 presents the full methodology for evaluating         Methodology overview. To shape synthetic personality traits in LLMs,
+the construct validity of LLM personality measurements.                     we began with an established theory in psychology that posits salient
+                                                                            descriptors of personality are encoded in language, known as the
+Reliability. The reliability of each IPIP-NEO and BFI subscale, the extent  lexical hypothesis25. We incorporated this knowledge into the prompt
+to which their LLM measurements of personality were consistent and          design, adapting Goldberg's list of 70 bipolar adjectives74 known to
+dependable, was quantified by formal psychometric standards of              statistically capture the Big Five model of personality through fac-
+internal consistency reliability (operationalized as Cronbach's  and        tor analyses of human ratings. In this list, for example, the adjectives
+Guttman's 6), and composite reliability (operationalized as McDon-          `silent' and `talkative' were found to mark relatively low and high levels
+ald's ). Supplementary Note A.4.1 provides additional information           of extraversion, respectively. We mapped these adjectives to each of
+on these reliability metrics.                                               the Big Five domains and 30 lower-order personality facets measured
+                                                                            by the IPIP-NEO based on Goldberg's original study74. Next, where we
+Convergent and discriminant validity. We evaluated the LLM-specific         lacked coverage of a measured IPIP-NEO domain or facet, a trained
+convergent and discriminant validity of the IPIP-NEO as components          psychometrician wrote additional adjectives to mitigate potential
+of construct validity, according to published standards38,71 (note that     data imbalances, bringing our expanded list of trait adjectives to 104.
+throughout this work, we use thresholds recommended by Evans72 to           We report the full list in Supplementary Table 17.
+describe correlation strengths). The convergent validity of the IPIP-NEO
+for each model, the test's quality in terms of how strongly it relates to         For more precise control of personality levels, we used linguistic
+purported indicators of the same targeted construct, was quantified in      qualifiers often used in Likert-type response scales73 (for example, `a
+terms of how strongly each of its five subscales convergently correlated    bit', `very', `extremely') to configure a target level for each adjective. The
+with their corresponding BFI subscale (for example, IPIP-NEO Extraver-      resulting prompt design, described in Supplementary Notes A.7.1­2,
+sion's convergent correlation with BFI Extraversion), on average. The       facilitated granular shaping of a given Big Five trait at up to nine levels.
+discriminant validity of the IPIP-NEO per model, its quality in terms of
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968          1964
+Article                                                                       https://doi.org/10.1038/s42256-025-01115-6
+
+      Across both shaping experiments, we only tested models that             predicts LLM-synthesized personality in subsequent tasks such as
+demonstrated at least `neutral' reliability in our construct-validity         text generation. We similarly applied this threshold to interpret the
+experiments (Table 1): Flan-PaLM (8B, 62B, 540B), Llama 2-Chat (7B,           effectiveness of personality shaping.
+13B, 70B), Mistral 7B Instruct, Mistral 8x7B Instruct, GPT-3.5 Turbo,
+GPT-4o mini and GPT-4o (11 models, total).                                    Reporting summary
+                                                                              Further information on research design is available in the Nature
+Evaluation methodology. In the single-trait shaping experiment                Portfolio Reporting Summary linked to this article.
+(described in detail in Supplementary Note A.7.2), our objective was
+to independently shape each Big Five trait at each of the nine levels. We     Data availability
+benchmarked the success of independent shaping by: (1) quantifying
+how strongly shifts in IPIP-NEO score distributions were related to shifts    The data generated by the LLMs tested in this work, including the
+in targeted trait levels embedded in our prompt sets (that is, through        psychometric test score data and open-ended text responses to a
+Spearman's rank correlation coefficient ); and (2) inspecting the dis-        real-world task prompt, have been added to a public data storage
+tance between personality score distributions obtained in response            bucket for wider public use13. The psychometric tests used in this study
+to our most extreme prompt sets; specifically, the set of prompts we          were accessed from their respective original publications and, where
+shaped to be the lowest possible levels of a trait (versus those shaped       applicable, public research repositories. We used items of these tests as
+to be the highest possible levels of a trait) should result in distributions  LLM prompt inputs in a non-commercial research capacity. The authors
+of scores that are farther away from each other.                              and copyright holders of these tests govern their availability and use.
+                                                                              The 50 biographic descriptions used in our structured prompts were
+      In the multi-trait shaping experiment (described in detail in Sup-      randomly and reproducibly sampled from the true-cased version78
+plementary Note A.7.3), to more rigorously test model capacities for          of the PersonaChat dataset70. PersonaChat is a publicly available,
+attention, we aimed to concurrently shape all Big Five traits as possible.    crowd-sourced dataset of 1,155 fictional human profile descriptions.
+We benchmarked the success of concurrent shaping by distributional            For analysis of personality traits on generated text, this work used the
+distance, as defined above.                                                   Apply Magic Sauce API79, a validated psychodemographic research tool
+                                                                              that predicts personality from open-ended text77.
+LLM personality traits in real-world tasks
+So far we have reported on LLM abilities to encode human personal-            Code availability
+ity traits by collecting psychometric test data and evaluating their
+construct validity. We also sought to address possible concerns that          The code used to administer psychometric tests to LLMs is intended
+the validity of LLM personality measurements--evidenced by LLM                to be interoperable across LLMs. That code, along with the remaining
+responses to other psychometric tests--could be an artefact of com-           Python and R code used to generate our prompt sets and statistically
+mon method bias76. In other words, our questionnaire-based signals of         analyse reliability, construct validity and trait shaping is found in an
+LLM personality were validated by responses to other questionnaires           open-source repository for wider public use14.
+that have not undergone the same LLM-specific construct-validation
+process. To address this risk of common method bias, we further               References
+validated our personality testing and shaping frameworks by: (1)
+comparing psychometric test levels of LLM personality with down-              1. Roose, K. A conversation with Bing's chatbot left me deeply
+stream observations of model behaviours on a real-world task; and (2)               unsettled. The New York Times (17 February, 2023).
+investigating the effects of LLM personality shaping on the outputs of
+this task.                                                                    2. Hagendorff, T. Machine psychology: investigating emergent
+                                                                                    capabilities and behavior in large language models using
+Methodology overview. We instructed the largest tested model per                    psychological methods. Preprint at https://doi.org/10.48550/
+family to generate up to 1.125million social media status updates                   arXiv.2303.13988 (2023).
+based on the same 2,250 simulated human profile descriptions used
+in `Shaping synthetic personality traits in LLMs'--profiles designed          3. Wei, J. et al. Emergent abilities of large language models. Trans.
+to shape expressions of a particular Big Five dimension across nine                 Mach. Learn. Res. https://openreview.net/forum?id=yzkSU5zdwD
+levels. (Supplementary Note A.9 details the task design and rationale.)             (2022).
+The personality observed in the status updates generated for each
+simulated human profile was then rated using Apply Magic Sauce77, a           4. Gallifant, J. et al. Peer review of GPT-4 technical report and
+validated research application programming interface (API) for meas-                systems card. PLoS Digit. Health 18, e0000417 (2024).
+uring personality in open-ended text. The chosen task was designed to
+reflect adequate levels of realism, complexity and domain relevance           5. Chowdhery, A. et al. PaLM: scaling language modeling with
+for evaluating personality expression of LLMs.                                      pathways. J. Mach. Learn. Res. 24, 240 (2023).
+
+      To assess how psychometric tests may reflect latent personality         6. Brown, T. et al. Language models are few-shot learners. In
+levels expressed by LLMs in downstream behaviour, we computed                       Advances in Neural Information Processing Systems Vol. 33 (eds
+Pearson's correlations (r values) between model personality test scores             Larochelle, H. et al.) 1877­1901 (Curran Associates, 2020).
+and (Apply Magic Sauce-computed) personality observed in gener-
+ated social media text; both sets of scores were linked by the same           7. Allport, G. Personality: A Psychological Interpretation (H. Holt, 1937).
+2,250 personality-shaping prompts used in `Shaping synthetic per-             8. Roberts, B. W. & Yoon, H. J. Personality psychology. Annu. Rev.
+sonality traits in LLMs'. Next, we statistically verified the effectiveness
+of personality shaping by computing Spearman's rank correlations                    Psychol. 73, 489­516 (2022).
+( values) between prompted levels of personality and observed per-            9. Roberts, B. W., Kuncel, N. R., Shiner, R., Caspi, A. & Goldberg, L. R.
+sonality ratings of model-generated text. At least a moderate correla-
+tion between survey-based and linguistic estimates of personality in                The power of personality: the comparative validity of personality
+LLMs (as demonstrated in previously reported human data48) would                    traits, socioeconomic status, and cognitive ability for predicting
+demonstrate that a survey-based measure of personality accurately                   important life outcomes. Perspect. Psychol. Sci. 2, 313­345
+                                                                                    (2007).
+                                                                              10. Rust, J., Kosinski, M. & Stillwell, D. Modern Psychometrics: The
+                                                                                    Science of Psychological Assessment 4th edn (Routledge, 2020).
+                                                                              11. Simms, L., Williams, T. F. & Simms, E. N. in Assessment of the Five
+                                                                                    Factor Model: The Oxford Handbook of the Five Factor Model
+                                                                                    (ed. Widiger, T. A.) 353­380 (Oxford Univ. Press, 2017).
+                                                                              12. Schwartz, H. A. et al. Personality, gender, and age in the language
+                                                                                    of social media: the open-vocabulary approach. PLoS ONE 8,
+                                                                                    e73791 (2013).
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968            1965
+Article                                                                     https://doi.org/10.1038/s42256-025-01115-6
+
+13. Serapio-García, G. et al. Personality traits in large language          33. Wang, X. et al. InCharacter: evaluating personality fidelity in
+      models--dataset. Google https://storage.googleapis.com/                     role-playing agents through psychological interviews. In Proc.
+      personality_in_llms/index.html (2025).                                      62nd Annual Meeting of the Association for Computational
+                                                                                  Linguistics (eds Ku, L.-W. et al.) 1840­1873 (ACL, 2024).
+14. Safdari, M., Serapio-García, G. & Crepy, C. Personality traits
+      in large language models. GitHub https://github.com/                  34. Jacobs, A. Z. Measurement as governance in and for responsible
+      google-deepmind/personality_in_llms (2025).                                 AI. Preprint at https://doi.org/10.48550/arXiv.2109.05658 (2021).
+
+15. Shuster, K. et al. Language models that seek for knowledge:             35. Clark, L. A. & Watson, D. Constructing validity: new developments
+      modular search & generation for dialogue and prompt                         in creating objective measuring instruments. Psychol. Assess. 31,
+      completion. In Findings of the Association for Computational                1412­1427 (2019).
+      Linguistics: EMNLP 2022, 373­393 (ACL, 2022).
+                                                                            36. Lee, K. & Ashton, M. C. Psychometric properties of the HEXACO
+16. Hendrycks, D. et al. Measuring massive multitask language                     Personality Inventory. Multivar. Behav. Res. 39, 329­358 (2004).
+      understanding. In International Conference on Learning
+      Representations (OpenReview.net, 2021).                               37. Goldberg, L. R. A broad-bandwidth, public domain, personality
+                                                                                  inventory measuring the lower-level facets of several five-factor
+17. Wei, J. et al. Larger language models do in-context learning                  models. Personality Psychol. Eur. 7, 7­28 (1999).
+      differently. Preprint at https://doi.org/10.48550/arXiv.2303.03846
+      (2023).                                                               38. Campbell, D. T. & Fiske, D. W. Convergent and discriminant
+                                                                                  validation by the multitrait-multimethod matrix. Psychol. Bull. 56,
+18. Chung, H. W. et al. Scaling instruction-finetuned language                    81 (1959).
+      models. J. Mach. Learn. Res. 25, 1­53 (2024).
+                                                                            39. Watson, D. & Clark, L. A. On traits and temperament: general and
+19. Wei, J. et al. ICLR Finetuned language models are zero-shot                   specific factors of emotional experience and their relation to the
+      learners. In Tenth International Conference on Learning                     Five-Factor model. J. Personality 60, 441­476 (1992).
+      Representations (ICLR, 2022).
+                                                                            40. Watson, D., Clark, L. A. & Tellegen, A. Development and validation
+20. Miotto, M., Rossberg, N. & Kleinberg, B. Who is GPT-3? An                     of brief measures of positive and negative affect: the PANAS
+      exploration of personality, values and demographics. In Proc. Fifth         scales. J. Pers. Soc. Psychol. 54, 1063­1070 (1988).
+      Workshop on Natural Language Processing and Computational
+      Social Science (eds Bamman, D. et al.) 218­227                        41. Bettencourt, B. A. & Kernahan, C. A meta-analysis of aggression
+      (ACL, 2022).                                                                in the presence of violent cues: effects of gender differences and
+                                                                                  aversive provocation. Aggress. Behav. 23, 447­456 (1997).
+21. Schramowski, P., Turan, C., Andersen, N., Rothkopf, C. A. &
+      Kersting, K. Large pre-trained language models contain                42. Chester, D. S. & West, S. J. Trait aggression is primarily a facet of
+      human-like biases of what is right and wrong to do. Nat. Mach.              antagonism: evidence from dominance, latent correlational, and
+      Intell. 4, 258­268 (2022).                                                  item-level analyses. J. Res. Personality 89, 104042 (2020).
+
+22. Ullman, T. Large language models fail on trivial alterations to         43. Buss, A. H. & Perry, M. The aggression questionnaire. J. Pers. Soc.
+      theory-of-mind tasks. Preprint at https://doi.org/10.48550/                 Psychol. 63, 452­459 (1992).
+      arXiv.2302.08399 (2023).
+                                                                            44. Schwartz, S. H. & Cieciuch, J. Measuring the refined theory of
+23. Bleidorn, W. et al. The policy relevance of personality traits. Am.           individual values in 49 cultural groups: psychometrics of the
+      Psychol. 74, 1056 (2019).                                                   revised portrait value questionnaire. Assessment 29, 1005­1019
+                                                                                  (2022).
+24. Parks-Leduc, L., Feldman, G. & Bardi, A. Personality traits and
+      personal values: a meta-analysis. Personality Soc. Psychol. Rev. 19,  45. Shaw, A., Kapnek, M. & Morelli, N. A. Measuring creative
+      3­29 (2015).                                                                self-efficacy: an item response theory analysis of the creative
+                                                                                  self-efficacy scale. Front. Psychol. 12, 678033 (2021).
+25. Goldberg, L. R. Language and individual differences: the search
+      for universals in personality lexicons. Rev. Personality Soc.         46. Karwowski, M., Lebuda, I., Wisniewska, E. & Gralewski, J. Big Five
+      Psychol. 2, 141­165 (1981).                                                 personality traits as the predictors of creative self-efficacy and
+                                                                                  creative personal identity: does gender matter? J. Creat. Behav.
+26. Saucier, G. & Goldberg, L. R. Lexical studies of indigenous                   47, 215­232 (2013).
+      personality factors: premises, products, and prospects.
+      J. Personality 69, 847­879 (2001).                                    47. Karwowski, M., Lebuda, I. & Winiewska, E. Measuring creative
+                                                                                  self-efficacy and creative personal identity. Int. J. Creat. Probl.
+27. Gabriel, I. Artificial intelligence, values, and alignment. Minds             Solving 8, 45­57 (2018).
+      Mach. 30, 411­437 (2020).
+                                                                            48. Park, G. et al. Automatic personality assessment through social
+28. John, O. P., Naumann, L. P. & Soto, C. J. in Paradigm Shift to the            media language. J. Personality Soc. Psychol. 108, 934 (2015).
+      Integrative Big Five Trait Taxonomy: History, Measurement, and
+      Conceptual Issues--Handbook of Personality: Theory and Research       49. Rolland, J.-P. in The Cross-cultural Generalizability of the
+      (eds John, O. P. et al.) 114­158 (Guilford, 2008).                          Five-Factor Model of Personality: The Five-Factor Model of
+                                                                                  Personality Across Cultures (eds McCrae, R. R. & Allik, J.) 7­28
+29. Lin, S., Hilton, J. & Evans, O. TruthfulQA: measuring how models              (Springer, 2002).
+      mimic human falsehoods. Om Proc. 60th Annual Meeting of the
+      Association for Computational Linguistics (eds Muresan, S. et al.)    50. Heine, S. J. & Buchtel, E. E. Personality: the universal and the
+      3214­3252 (ACL, 2022).                                                      culturally specific. Annu. Rev. Psychol. 60, 369­394 (2009).
+
+30. Abdulhai, M. et al. Moral foundations of large language models. In      51. Liu, N. F. et al. Lost in the middle: how language models use long
+      Proc. 2024 Conference on Empirical Methods in Natural Language              contexts. Trans. Assoc. Comput. Linguist. 12, 157­173 (2024).
+      Processing (eds Al-Onaizan, Y. et al.) 17737­17752
+      (ACL, 2024).                                                          52. Sun, S., Krishna, K., Mattarella-Micke, A. & Iyyer, M. Do long-range
+                                                                                  language models actually use long-range context? In Proc. 2021
+31. Bender, E. M., Gebru, T., McMillan-Major, A. & Shmitchell, S.                 Conference on Empirical Methods in Natural Language Processing
+      On the dangers of stochastic parrots: can language models be                (eds Moens, M.-F. et al.) 807­822 (ACL, 2021).
+      too big? In FAccT '21: Proc. 2021 ACM Conference on Fairness,
+      Accountability, and Transparency 610­623 (ACM, 2021).                 53. Qin, G., Feng, Y. & Van Durme, B. The NLP task effectiveness of
+                                                                                  long-range transformers. In Proc. 17th Conference of the European
+32. Mahowald, K. et al. Dissociating language and thought in large                Chapter of the Association for Computational Linguistics (eds
+      language models. Trends Cogn. Sci. 28, 517­540                              Vlachos, A. & Augenstein, I.) 3774­3790 (ACL, 2023).
+      (2024).
+                                                                            54. Gabriel, I. & Ghazavi, V. The Challenge of Value Alignment: From
+                                                                                  Fairer Algorithms to AI Safety (Oxford Univ. Press, 2021).
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968          1966
+Article                                                                      https://doi.org/10.1038/s42256-025-01115-6
+
+55. Weidinger, L. et al. Taxonomy of risks posed by language                 77. Kosinski, M., Stillwell, D. & Graepel, T. Private traits and attributes
+      models. In FAccT '22: Proc. 2022 ACM Conference on Fairness,                 are predictable from digital records of human behavior. Proc. Natl
+      Accountability, and Transparency 214­229 (ACM, 2022).                        Acad. Sci. USA 110, 5802­5805 (2013).
+
+56. Mökander, J., Schuett, J., Kirk, H. R. & Floridi, L. Auditing large      78. Zhang, S. et al. PersonaChat truecased dataset on Hugging Face.
+      language models: a three-layered approach. AI Ethics 4,                      https://huggingface.co/datasets/bavard/personachat_truecased
+      1085­1115 (2024).                                                            (2021).
+
+57. Fischer, R. & Boer, D. Motivational basis of personality traits: a       79. Popov, V., Kosinski, M., Stillwell, D. & Kielczewski, B. Apply Magic
+      meta-analysis of value­personality correlations. J. Personality 83,          Sauce--prediction API. https://applymagicsauce.com (2025).
+      491­510 (2015).
+                                                                             Acknowledgements
+58. Tapus, A., pu, C. & Matari, M. J. User­robot personality
+      matching and assistive robot behavior adaptation for post-stroke       We thank L. Dixon, D. Eck and K. Meier-Hellstern for their feedback on
+      rehabilitation therapy. Intell. Serv. Robot. 1, 169­183 (2008).        early versions of this paper. We also thank D. Stillwell for facilitating
+                                                                             research access to the Apply Magic Sauce API. Finally, we thank J.
+59. Matz, S., Kosinski, M., Nave, G. & Stillwell, D.J. Psychological         Rentfrow and N. Safaee-Rad for their advice on personality-related
+      targeting as an effective approach to digital mass persuasion.         aspects of the paper. G.S.-G. is supported by the Bill & Melinda Gates
+      Proc. Natl Acad. Sci. USA 114, 12714­12719 (2017).                     Foundation through a Gates Cambridge Scholarship (OPP1144).
+                                                                             S.F. is supported by the University of Chicago Research Computing
+60. Kocaballi, A. B. et al. The personalization of conversational agents     Center. Inference for open models used compute resources
+      in health care: systematic review. J. Med. Internet Res. 21, e15360    provided by the Cambridge Service for Data Driven Discovery (CSD3)
+      (2019).                                                                at the University of Cambridge, made possible by Tier-2 funding from
+                                                                             the EPSRC (EP/T022159/1) and DiRAC funding from STFC (https://
+61. Uysal, E., Alavi, S. & Bezençon, V. Trojan horse or useful helper?       www.dirac.ac.uk).
+      A relationship perspective on artificial intelligence assistants with
+      humanlike features. J. Acad. Market. Sci. 50, 1153­1175 (2022).        Author contributions
+
+62. Tang, R., Chuang, Y.-N. & Hu, X. The science of detecting                M.A., C.C., M.M., M.S. and G.S.-G. conceived of the project. G.S.-G.
+      LLM-generated texts. Commun. ACM. 67, 50­59 (2024).                    contributed methodology to establish reliability and construct validity
+                                                                             and for psychometric test administration and statistical analysis.
+63. Touvron, H. et al. Llama 2: open foundation and fine-tuned chat          M.S. contributed scaled-up software infrastructure and preliminary
+      models. Preprint at https://doi.org/10.48550/arXiv.2307.09288          experiments and investigations. C.C. and M.S. implemented the
+      (2023).                                                                LLM hosting infrastructure for experiments. M.A., M.S. and G.S.-G.
+                                                                             contributed to the conceptual design and analysis and G.S.-G. devised
+64. Jiang, A. Q. et al. Mistral 7B. Preprint at https://doi.org/10.48550/    and implemented the methods for personality shaping. G.S.-G. and
+      arXiv.2310.06825 (2023).                                               L.S. designed and M.S., G.S-.G. and L.S. implemented the downstream
+                                                                             task experiment. C.C. and M.S. carried out data visualization. M.S.
+65. Jiang, A. Q. et al. Mixtral of experts. Preprint at https://doi.org/     carried out the word cloud analysis. S.F. and P.R. provided discussion
+      10.48550/arXiv.2401.04088 (2024).                                      of LLM mechanisms and analysis of LLM performance. A.F., M.M.,
+                                                                             M.S. and G.S.-G. contributed limitations, future directions and ethical
+66. OpenAI et al. GPT-4o system card. Preprint at https://doi.org/           concerns discussions. P.R. and L.S. contributed psychometrics and
+      10.48550/arXiv.2410.21276 (2024).                                      statistical feedback. A.F., M.M., M.S. and G.S.-G. wrote the paper with
+                                                                             input from all co-authors. A.F., M.M. and M.S. co-supervised
+67. Jiang, Z., Araki, J., Ding, H. & Neubig, G. How can we know when         the project.
+      language models know? On the calibration of language models
+      for question answering. Trans. Assoc. Comput. Linguist. 9,             Competing interests
+      962­977 (2021).
+                                                                             This study was funded by Alphabet Inc. (`Alphabet') and/or a subsidiary
+68. Costa, P. T. Jr & McCrae, R. R. Revised NEO Personality Inventory        thereof. A.F., C.C., G.S.-G., M.M. and M.S. were employees of Alphabet
+      (NEO PI-R) and NEO Five-Factor Inventory (NEO-FFI): Professional       at the time of this writing and may own stock as part of the standard
+      Manual (Psychological Assessment Resources, 1992).                     compensation package.
+
+69. John, O. P. & Srivastava, S. in The Big Five Trait Taxonomy: History,    Additional information
+      Measurement, and Theoretical Perspectives: Handbook of
+      Personality: Theory and Research Vol. 2 (eds Pervin, L. A. &           Extended data is available for this paper at
+      John, O. P.) 102­138 (Guilford, 1999).                                 https://doi.org/10.1038/s42256-025-01115-6.
+
+70. Zhang, S. et al. Personalizing dialogue agents: I have a dog, do         Supplementary information The online version
+      you have pets too? In Proc. 56th Annual Meeting of the Association     contains supplementary material available at
+      for Computational Linguistics (eds Gurevych, I. & Miyao, Y.)           https://doi.org/10.1038/s42256-025-01115-6.
+      2204­2213 (ACL, 2018).
+                                                                             Correspondence and requests for materials should be addressed to
+71. American Educational Research Association, American                      Gregory Serapio-García or Mustafa Safdari.
+      Psychological Association, National Council on Measurement
+      in Education, Joint Committee on Standards for Educational             Peer review information Nature Machine Intelligence thanks the
+      and Psychological Testing (US) Standards for Educational and           anonymous reviewers for their contribution to the peer review of this
+      Psychological Testing (2014).                                          work.
+
+72. Evans, J. D. Straightforward Statistics for the Behavioral Sciences      Reprints and permissions information is available at
+      (Brooks/Cole Publishing, 1996).                                        www.nature.com/reprints.
+
+73. Likert, R. A Technique for the Measurement of Attitudes 136­165
+      (Archives of Psychology, 1932).
+
+74. Goldberg, L. R. The development of markers for the Big-Five
+      factor structure. Psychol. Assess. 4, 26­42 (1992).
+
+75. Park, H. Y. et al. Meta-analytic five-factor model personality
+      intercorrelations: eeny, meeny, miney, moe, how, which, why, and
+      where to go. J. Appl. Psychol. 105, 1490­1529 (2020).
+
+76. Podsakoff, P. M., MacKenzie, S. B., Lee, J.-Y. & Podsakoff, N. P.
+      Common method biases in behavioral research: a critical review
+      of the literature and recommended remedies. J. Appl. Psychol. 88,
+      879­903 (2003).
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968           1967
+Article                                                                  https://doi.org/10.1038/s42256-025-01115-6
+
+Publisher's note Springer Nature remains neutral with regard to          adapted material derived from this article or parts of it. The images
+jurisdictional claims in published maps and institutional affiliations.  or other third party material in this article are included in the article's
+                                                                         Creative Commons licence, unless indicated otherwise in a credit
+Open Access This article is licensed under a Creative Commons            line to the material. If material is not included in the article's Creative
+Attribution-NonCommercial-NoDerivatives 4.0 International License,       Commons licence and your intended use is not permitted by statutory
+which permits any non-commercial use, sharing, distribution and          regulation or exceeds the permitted use, you will need to obtain
+reproduction in any medium or format, as long as you give appropriate    permission directly from the copyright holder. To view a copy of this
+credit to the original author(s) and the source, provide a link to the   licence, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+Creative Commons licence, and indicate if you modified the licensed
+material. You do not have permission under this licence to share         © The Author(s) 2025
+
+Nature Machine Intelligence | Volume 7 | December 2025 | 1954­1968       1968
+Article                                                                             https://doi.org/10.1038/s42256-025-01115-6
+
+Extended Data Fig. 1 | Distributions of (a) IPIP-NEO and (b) BFI personality        relatively more stable compared to (b) BFI scores, where scores for socially-
+domain scores across models. Box plots depict model medians surrounded              desirable traits increased while NEU scores decreased. n = 1, 250 observations per
+by their interquartile ranges and outlier values. As models increased in size (for  model, per test; N = 22, 500 total observations per test.
+example, Flan-PaLM from 8B to 540B parameters), (a) IPIP-NEO scores were
+
+Nature Machine Intelligence
+Article                                                                          https://doi.org/10.1038/s42256-025-01115-6
+
+Extended Data Fig. 2 | Convergent Pearson's correlations (rs) between IPIP-      convergence and provide evidence for convergent validity. EXT = extraversion;
+NEO and BFI scores by model. Heatmap illustrates the similarities (convergence)  AGR = agreeableness; CON = conscientiousness; NEU = neuroticism;
+in IPIP-NEO and BFI score variation for each Big Five domain; the last row       OPE = openness. N = 22, 500 total paired test observations. All correlations are
+represents average correlations across all personality dimensions for a          statistically significant at p < 0.0001 (two-sided values computed using Student's
+model. Stronger positive correlations (blue) indicate higher levels of           t-distribution, based on n = 1, 250 observations per model, per domain).
+
+Nature Machine Intelligence
+Article                                            https://doi.org/10.1038/s42256-025-01115-6
+
+Extended Data Fig. 3 | See next page for caption.
+Nature Machine Intelligence
+Article                                                                              https://doi.org/10.1038/s42256-025-01115-6
+
+Extended Data Fig. 3 | Ridge plots comparing model abilities to concurrently         distributions for a specific model. Each model­domain subplot comprises two
+shape LLM personality traits. Ridge plots showing the effectiveness of               traces of score distributions. Red traces represent responses to prompt sets
+model variants in concurrently shaping LLM personality traits, measured by           where the domain tested in the subscale (column) is set to `extremely low' and the
+the distances of IPIP-NEO personality score distributions when models were           other four domains are set to one of the two extreme levels an equal number of
+prompted to be `extremely low' (Level 1) vs. `extremely high' (Level 9) on a         times. Analogously, blue traces represent responses when one domain is set to
+particular trait. Each column of plots represents the observed scores on a specific  `extremely high' and all other domains are equally set to the two extremes.
+domain subscale across all prompt sets. Each row depicts all domain score            n = 1,600 simulated response profile scores per subplot.
+
+Nature Machine Intelligence
+Article                                                                          https://doi.org/10.1038/s42256-025-01115-6
+
+Extended Data Fig. 4 | Word clouds showing the most frequently-appearing         level of extraversion (a­b), agreeableness (c­d), conscientiousness (e­f),
+words in social media updates generated by Flan-PaLM 540B. Word clouds           neuroticism (g­h) and openness (i­j). Each word cloud represents n = 50,000
+reflect Flan-PaLM 540B when prompted to simulate the lowest or highest possible  status updates subset from a target of N = 225,000 updates for Flan-PaLM 540B.
+
+Nature Machine Intelligence
+Article  https://doi.org/10.1038/s42256-025-01115-6
+
+Extended Data Table 1 | IPIP-NEO reliability metrics per model for proprietary (closed-source) models
+
+ Consistent with human standards, we interpreted a given reliability metric RM (that is, , 6, ) < 0.50 as unacceptable; 0.50  RM < 0.60 as poor; 0.60  RM < 0.70 as questionable; 0.70  RM
+ < 0.80 as acceptable; 0.80  RM < 0.90 as good; and RM  0.90 as excellent. * RMs for these subscales were calculated after removing one item with zero variance, since reliability cannot be
+ computed for items with zero variance. N = 10,000 test observations, with n = 1, 250 observations per model. Each IPIP-NEO subscale comprises 60 items.
+
+Nature Machine Intelligence
+Article                                                                         https://doi.org/10.1038/s42256-025-01115-6
+Extended Data Table 2 | IPIP-NEO reliability metrics per model for open models
+
+ Consistent with human standards, we interpreted a given reliability metric RM (that is, , 6, ) < 0.50 as unacceptable; 0.50  RM < 0.60 as poor; 0.60  RM < 0.70 as questionable; 0.70  RM
+ < 0.80 as acceptable; 0.80  RM < 0.90 as good; and RM  0.90 as excellent. * RMs for these subscales were calculated after removing one item with zero variance, since reliability cannot be
+ computed for items with zero variance. N = 12,500 test observations, with n = 1,250 observations per model. Each IPIP-NEO subscale comprises 60 items.
+
+Nature Machine Intelligence
+Article                      https://doi.org/10.1038/s42256-025-01115-6
+
+Extended Data Table 3 | Summary of convergent and discriminant validity evidence across models, representing N = 22,500
+total observations
+
+LLM personality measurements demonstrate convergent validity when the average convergent correlation (rconv) between equivalent IPIP-NEO and BFI subscales is strong ( 0.60; marked in
+italics) or very strong ( 0.80; marked in boldface). Discriminant validity is evidenced when the average difference () between a model's convergent (rconv) and respective discriminant (rdiscr)
+correlations between personality tests is at least moderate (avg.   0.40; shown in boldface). All underlying convergent correlations of models with an average rconv 0.05 are statistically
+significant at p <.0001 (two-sided values computed using Student's t-distribution; n = 1, 250 per model). Supplementary Note A.5 contains further information.
+
+Nature Machine Intelligence
+Article                                                                          https://doi.org/10.1038/s42256-025-01115-6
+Extended Data Table 4 | Criterion validity subscales per tested Big Five domain
+
+PANAS = Positive and Negative Affect Schedule; BPAQ = Buss­Perry Aggression Questionnaire; PVQ-RR = Revised Portrait Value Questionnaire; SCSS = Short Scale of Creative Self.
+
+Nature Machine Intelligence
+Article                      https://doi.org/10.1038/s42256-025-01115-6
+
+Extended Data Table 5 | Associations between instructed and real-world task levels of synthetic personality for the largest
+model of each tested LLM family, presented as Spearman's rank correlation coefficients ()
+
+Prompted (ordinal) levels of personality strongly relate to personality levels observed in synthetically-generated social media status updates for all Big Five traits, except openness--which
+is moderately correlated with target levels for Flan-PaLM 540B--demonstrating that LLM personality can be verifiably shaped in generative tasks for sufficiently-powerful models. All
+correlations are statistically significant at p < 0.0001 (two-sided values computed using Student's t-distribution); n = 450 observations per targeted trait.
+
+Nature Machine Intelligence
+Article                                                            https://doi.org/10.1038/s42256-025-01115-6
+Extended Data Table 6 | The effectiveness of single-trait shaping
+
+ The effectiveness of single-trait shaping, presented as Spearman's rank correlation coefficients (s) between ordinal targeted levels of personality and observed IPIP-NEO personality scores,
+ Level 1- and Level 9-prompted score medians ([low, high]), and deltas (s) between those score medians. Greater s indicate better model performance. Statistics are organized columnwise
+ by model and rowwise by Big Five domain. All correlations are statistically significant at p < 0.0001 (two-sided values computed using Student's t-distribution); n = 450 per correlation.
+
+Nature Machine Intelligence
+Article                                                 https://doi.org/10.1038/s42256-025-01115-6
+Extended Data Table 7 | Multiple-trait shaping results
+
+ Multiple-trait shaping results, presented as personality test score median ranges in response to multi-trait (concurrent) shaping. Greater deltas (s) between Level 1- and Level 9-prompted
+ personality domain score medians ([low, high]) indicate better model performance. Each median is derived from n = 800 scores. act. params. = active number of parameters.
+
+Nature Machine Intelligence
+
+

@@ -1,0 +1,1045 @@
+  American Educational Research
+                  Journal
+
+                                        http://aerj.aera.net
+
+  Investigating Self-Regulation and Motivation: Historical Background,
+             Methodological Developments, and Future Prospects
+                                           Barry J. Zimmerman
+                                     Am Educ Res J 2008 45: 166
+                                  DOI: 10.3102/0002831207312909
+                        The online version of this article can be found at:
+                             http://aer.sagepub.com/content/45/1/166
+
+                                          Published on behalf of
+
+                                 American Educational Research Association
+                                                       and
+
+                                        http://www.sagepublications.com
+
+Additional services and information for American Educational Research Journal can be found at:
+                                           Email Alerts: http://aerj.aera.net/alerts
+
+                                     Subscriptions: http://aerj.aera.net/subscriptions
+                                            Reprints: http://www.aera.net/reprints
+
+                                      Permissions: http://www.aera.net/permissions
+
+                                                                   Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+                                                                      American Educational Research Journal
+                                                                     Manth 2008, Vol. 45, No. 1, pp. 166 ­183
+
+                                                                             DOI: 10.3102/0002831207312909
+                                                                               © 2008 AERA. http://aerj.aera.net
+
+Investigating Self-Regulation and Motivation:
+    Historical Background, Methodological
+     Developments, and Future Prospects
+
+                             Barry J. Zimmerman
+          Graduate Center of the City University of New York
+
+The topic of how students become self-regulated as learners has attracted
+researchers for decades. Initial attempts to measure self-regulated learning
+(SRL) using questionnaires and interviews were successful in demonstrating
+significant predictions of students' academic outcomes. The present article
+describes the second wave of research, which has involved the development of
+online measures of self-regulatory processes and motivational feelings or
+beliefs regarding learning in authentic contexts. These innovative methods
+include computer traces, think-aloud protocols, diaries of studying, direct
+observation, and microanalyses. Although still in the formative stage of devel-
+opment, these online measures are providing valuable new information
+regarding the causal impact of SRL processes as well as raising new questions
+for future study.
+
+KEYWORDS: self-regulated learning (SRL), motivation and SRL, event mea-
+sures of SRL, cyclical analyses of SRL
+
+Research on self-regulation of academic learning and performance emerged
+    more than two decades ago to answer the question of how students
+become masters of their own learning processes. Unlike measures of mental
+ability or academic performance skill, self-regulated learning (SRL) refers to
+the self-directive processes and self-beliefs that enable learners to transform
+their mental abilities, such as verbal aptitude, into an academic performance
+skill, such as writing. SRL is viewed as proactive processes that students use to
+acquire academic skill, such as setting goals, selecting and deploying strate-
+gies, and self-monitoring one's effectiveness, rather than as a reactive event
+
+      BARRY J. ZIMMERMAN is a Distinguished Professor of Educational Psychology at the
+Graduate Center of the City University of New York, 365 Fifth Avenue, New York, NY
+10016-4309; e-mail: bzimmerman@gc.cuny.edu. His research interests include the role
+of social-cognitive and self-regulatory processes in students' learning and motivation.
+
+                                                   Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+                                          Emerging Issues in Self-Regulated Learning
+
+that happens to students due to impersonal forces. Although SRL was viewed
+as especially important during personally directed forms of learning, such as
+discovery learning, self-selected reading, or seeking information from elec-
+tronic sources, it was also deemed important in social forms of learning, such
+as seeking help from peers, parents, and teachers. The core issue is whether
+a learner displays personal initiative, perseverance, and adaptive skill. These
+proactive qualities of learners stem from advantageous motivational feelings
+and beliefs as well as metacognitive strategies (Zimmerman & Schunk, 2007).
+
+      Research on SRL has evolved as a result of developments in theoreti-
+cal paradigms and methodologies (Boekaerts, Pintrich, & Zeidner, 2000;
+Zimmerman & Schunk, 1989, 2001). During the 1970s and 1980s, researchers
+such as Ann Brown, Joel Levin, Donald Meichenbaum, Michael Pressley,
+Dale Schunk, and others focused on the impact of individual self-regulatory
+processes, such as strategy use, goal setting, imagery, or self-instruction.
+Typically, a student was trained to use a strategy, such as imagery, during
+subsequent efforts to learn. These studies showed that these strategies were
+usually effective in producing superior learning--even with young children.
+However, these students seldom used the strategies spontaneously in non-
+experimental learning contexts, such as when studying at home (Pressley &
+McCormick, 1995). Clearly, other self-regulatory processes needed to be con-
+sidered when explaining students' failures to apply these strategies effec-
+tively on their own.
+
+      An early defining moment in research on self-regulation was a sympo-
+sium at the American Educational Research Association annual meeting in
+1986 that was published in a special issue of Contemporary Educational
+Psychology (Zimmerman, 1986b). It sought to integrate under a single rubric
+research on such processes as learning strategies, metacognitive monitoring,
+self-concept perceptions, volitional strategies, and self-control by researchers
+such as Monique Boekaerts, Lyn Corno, Steve Graham, Karen Harris, Mary
+McCaslin, Barbara McCombs, Judith Meece, Richard Newman, Scott Paris,
+Paul Pintrich, Dale Schunk, and others.
+
+      An outcome of the 1986 symposium was an inclusive definition of SRL
+as the degree to which students are metacognitively, motivationally, and behav-
+iorally active participants in their own learning process (Zimmerman, 1986a).
+This definition focused on students' proactive use of specific processes or
+responses to improve their academic achievement.
+
+      A number of instruments were developed during the 1980s that assessed
+SRL as a metacognitive, motivational, and behavioral construct. For example,
+the Learning and Study Strategies Inventory (LASSI; Weinstein, Schulte &
+Palmer, 1987) is an 80-item self-report inventory of students' strategies for
+enhancing their study practices. The LASSI involves 10 scales that assess skill,
+will, and self-regulation strategies--a classification system that corresponds with
+a metacognitive, motivational, and behavioral definition of self-regulation.
+Scales classified as skill (or metacognition) include Concentration, Selecting
+Main Ideas, and Information Processing. Scales classified as will (or motivation)
+include Motivation, Attitude, and Anxiety. Scales classified as self-regulation
+
+                                                                                167
+
+Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+Zimmerman
+
+(or behavior) include Time Management, Study Aids, Self-Testing, and Test
+Strategies. Students respond to items in each subscale using 5-point ratings that
+range from not at all typical of me to very much typical of me.
+
+      Another questionnaire measure of SRL that was widely used is the
+Motivated Strategies for Learning Questionnaire (MSLQ; Pintrich, Smith,
+Garcia, & McKeachie, 1993). This 81-item questionnaire is composed of two
+major sections: Learning Strategies and Motivation. The Learning Strategies
+section is further divided into a Cognitive-Metacognitive section, which
+includes rehearsal, elaboration, organization, critical thinking, and metacog-
+nitive self-regulation, and a Resource Management section, which includes
+such behaviors as managing time and study environment, effort management,
+peer learning, and help seeking. The Motivation section involves scales that
+involve valuing, expectancy, and affect. The Valuing scales include Intrinsic-
+Extrinsic Goal Orientation and Task Value. The Expectancy scales include
+Self-Efficacy and Control of Learning, and the Affect section includes Test
+Anxiety. The Motivation section, the Cognitive-Metacognitive section, and the
+Resource Management Strategy section correspond to the three elements in
+the definition of SRL: motivation, metacognition, and behavior. Students
+respond to questions on these scales using 7-point ratings that range from not
+at all true of me to very true of me.
+
+      A third instrument that was used to assess SRL as a metacognitive, moti-
+vational, and behavioral construct was the Self-Regulated Learning Interview
+Scale (SRLIS; Zimmerman & Martinez-Pons, 1986, 1988). During this struc-
+tured interview, students are presented six problem contexts to which they
+are asked to respond, such as preparing for a test or writing an essay. The
+answers to these open-ended questions are transcribed and coded into 14
+self-regulatory categories that focus on motivation, metacognition, or behav-
+ior. Included among the motivation categories are self-evaluation reactions
+and self-consequences. Included among the metacognitive categories are goal
+setting and planning, organizing and transforming, seeking information, and
+rehearsing and memorizing. Included among the behavioral categories are
+environmental structuring; keeping records and monitoring; reviewing texts,
+notes, and tests; and seeking assistance from peers, teachers, and parents.
+Students' answers to each learning context were recorded for their frequency,
+and students were also asked to rate their consistency in using a particular
+strategy using a 4-point scale that ranges from seldom to most of the time.
+
+      Each of these three instruments measured processes that can be classi-
+fied as self-regulatory according to the three defining SRL criteria, but some
+of the names of these processes varied. For example, both the LASSI and the
+MSLQ listed anxiety as a component of motivation, whereas the SRLIS interview
+would have coded anxiety responses as a form of self-evaluation reactions.
+These variations in names are probably due to differences in the assessment
+instruments. The LASSI and the MSLQ were both retrospective reports, whereas
+the SRLIS involves prospective answers to hypothetical learning contexts.
+
+168
+
+     Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+                                          Emerging Issues in Self-Regulated Learning
+
+      Research using these interview and questionnaire measures of students'
+self-regulatory strategies revealed them to be significantly correlated with mea-
+sures of course performance (Pintrich et al., 1993; Zimmerman & Martinez-
+Pons, 1986). A self-regulation strategy measure also predicted students'
+academic grades and their teacher's ratings of their proactive efforts to learn
+in class (Zimmerman & Martinez-Pons, 1988). There was also evidence that
+self-regulatory strategies mediated the effects of students' verbal ability mea-
+sures on their outcomes in writing (Zimmerman & Bandura, 1994). Research
+also showed that students who were high in their overall use of self-regulation
+strategies sought help more frequently from peers, teachers, and parents and
+learned more than students who did not seek help (Pintrich et al., 1993;
+Zimmerman & Martinez-Pons, 1986).
+
+      These early studies produced clear evidence that SRL was an important
+construct that merited further research. Winne and Perry (2000) classified the
+LASSI, MSLQ, and SRLIS as aptitude measures of self-regulation, which they
+defined as a relatively enduring attribute of a person that predicts future
+behavior. Items on aptitude scales are designed to aggregate self-regulatory
+responses over time by using ratings such as "most of the time" or that "is typ-
+ical of me." An alternate approach assesses SRL as an event, which is defined
+as a temporal entity with a discernable beginning and an end. Although an
+event spans time, it is demarcated by a prior event and a subsequent event.
+An example of an event approach to the assessment is a phase model of SRL,
+which separates students' efforts to self-regulate into phases, such as before,
+during, and after attempts to learn (Pintrich, 2000; Zimmerman, 2000). Because
+event measures can assess sequential dependency of responses, they are well
+suited for making causal inferences about online changes in self-regulation in
+real time and authentic contexts.
+
+      This article will discuss recent efforts to assess students' SRL online, such
+as computer traces, think-aloud protocols, structured diaries, direct observa-
+tions, and microanalytic measures. Because of this methodological emphasis,
+I will focus on a limited number of innovative studies to describe in detail.
+
+      These new methods for conducting online research on SRL have given
+rise to several key questions regarding changes in students' use of self-
+regulatory processes during the course of learning. A first emergent question
+concerns how trace measures of SRL compare to self-report measures in
+assessing changes in self-regulation during learning. A second emergent
+question deals with whether increases in students' level of SRL in personally
+managed contexts, such as at home or in the library, are linked to improve-
+ments in their overall academic achievement. A third emergent question
+involves whether teachers can modify their classrooms to foster increases in
+self-regulated learning among their students. A final emergent question con-
+cerns the role of students' motivational feelings and beliefs in initiating and
+sustaining changes in their self-regulation of learning.
+
+                                                                                169
+
+Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+Zimmerman
+
+             Methodological Innovations and SRL Findings
+
+Trace Logs of SRL Processes in Computer-Assisted Environments
+
+      A first emergent question concerns comparison of trace measures of SRL
+to self-report measures in assessing changes in self-regulation during learn-
+ing. One of the most technologically advanced efforts to answer this question
+has been reported by Winne and his colleagues (Winne et al., 2006). They
+have developed an innovative software program called gStudy that enables
+learners to make notes, create glossaries, label and index content, construct
+concept maps, search for information, chat and collaborate, and receive
+coaching. This software environment serves as a shell that allows students to
+upload texts and other materials for learning on virtually any topic.
+
+      For example, a student could use the note-taking function of the pro-
+gram to extract key information or write a summary of a section of the text.
+The notes are automatically keyed to the section to which they refer. They
+can also be cut and pasted to form a personalized account of the material by
+the learner. Supportive software features of gStudy, such as note taking, can
+remain in the background or can be opened as a separate window. If a part
+of the text is unclear, the student can use other features of gStudy to search
+for relevant information in resident or Web-based sources.
+
+      This program also allows learners to seek help from social sources, such
+as guided chats with a knowledgeable tutor or fellow student. This commu-
+nicative feature permits learners to collaborate more effectively, such as
+when two students are jointly writing a report from different locations. It
+allows them to critique each other's work, share insights, and paste their sec-
+tions together. Clearly, the gStudy computer environment can provide stu-
+dents with many more ways to self-regulate their learning than provided by
+traditional instructional software.
+
+      In addition to its capability to offer diverse supports to enhance learn-
+ing, gStudy also provides a log analyzer that unobtrusively records traces of
+students' methods of learning, such as the frequency and pattern of high-
+lighting text, accessing various supports for learning, and obtaining feedback
+from efforts to learn. Traces are defined as observable indicators about cog-
+nition that students create as they engage in a task (Winne & Perry, 2000).
+Researchers can reconstruct an event description of a student's methods of
+study from these traces. These logs can be used to link students' methods of
+study to academic outcomes in real time. This trace information can also be
+used pedagogically to help struggling learners see which strategies work best
+for them. Measures of students' self-regulatory processes and their outcomes
+can be depicted in terms of simple frequencies or in graphic form. The
+gStudy program also permits learners to keep a personal diary regarding
+metacognitive judgments, such as not understanding certain material and
+deciding to return to it later. The capacity of the computer to record all of
+these events unobtrusively is extraordinary, and it provides researchers with
+a high level of detail about learners' methods of studying, their self-beliefs
+
+170
+
+     Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+                                          Emerging Issues in Self-Regulated Learning
+
+about their competencies, and their progress. This leads us to ask, How
+effective is the gStudy environment, and how do trace measures of SRL com-
+pare with self-report measures?
+
+      The accuracy of college students' self-reports of their study methods and
+achievement gains while using the gStudy software environment was inves-
+tigated by Winne and Jamieson-Noel (2002). The academic task involved a
+seven-paragraph description of how lightning develops. After the students
+studied the text, they were administered a questionnaire about their meth-
+ods of studying. For example, they were asked how often they used various
+study methods that the software had recorded as traces of studying. The dis-
+parity between students' traces and the self-report measures was quantified
+in terms of two indices of calibration: bias and accuracy. Bias refers to the
+direction of students' misjudgments of knowing, namely, to over- or under-
+estimates of their knowledge. Accuracy refers to the absolute levels of cor-
+rectness of students' judgments (ignoring the direction of these judgments).
+These two indices of calibration were applied to students' reports of using
+self-regulatory processes, such as planning, setting objectives, highlighting,
+taking notes, creating organizers, and reviewing. The students were also
+given a posttest on the subject matter and were asked to make estimates of
+the correctness of their answers to each item on the test. This measure was
+labeled students' calibration of achievement judgments.
+
+      Regarding these achievement judgments, the students' index of bias
+indicated that they were slightly overconfident, but the students' index of
+accuracy indicated that they were very accurate in an absolute sense. Despite
+this high overall level of accuracy, there were sizable individual differences
+between the students, which indicated that certain students were at risk
+when judging their level of achievement. The students' calibration of the
+accuracy of their achievement was significantly correlated with their actual
+posttest total score.
+
+      In contrast to the students' success in monitoring their achievement, they
+experienced great difficulty in tracking their use of self-regulatory strategies.
+For example, with regard to bias, students reported overestimates of planning
+by 29% and overestimates of reviewing figures by 26%. Interestingly, the trace
+logs revealed that contrary to students' reports, few resident strategies in
+gStudy were used during this study. These strategies included creating analo-
+gies, examples, mnemonics, and questions. The accuracy of students' self-
+regulatory judgments was uncorrelated with their scores on the academic posttest.
+
+      Collectively, these results indicate that self-reports are often incongru-
+ent with trace measures of self-regulatory processes when studied in a spe-
+cialized learning environment, such as gStudy. Winne and colleagues (Winne
+& Perry, 2000) have cautioned that trace measures should be interpreted in
+conjunction with other measures of SRL. For example, a high frequency of
+note-taking trace could mean that a student is not selective in recording
+information, instead being comprehensive. When additional measures, such
+as interviews, are used in conjunction with trace measures, more valid con-
+clusions can be drawn. The development of high-tech study environments
+
+                                                                                171
+
+Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+Zimmerman
+
+is yet in its infancy, but its potential for assisting students to use SRL strate-
+gies is impressive.
+
+Think-Aloud Protocol Measures of SRL in Hypermedia Environments
+
+      A second emergent question concerns whether increases in students'
+level of SRL in personally managed contexts, such as at home or in the
+library, are linked to improvements in their overall academic achievement.
+Azevedo and his colleagues (Azevedo & Cromley, 2004; Azevedo, Cromley,
+& Siebert, 2004) developed an elaborate think-aloud method for assessing
+students' self-regulated learning processes as an online event in a hyperme-
+dia learning environment (HLE). A think-aloud protocol involves students'
+reports about their thoughts and cognitive processes while performing a task
+(Ericsson, 2006).
+
+      HLEs have much potential for improving learning, but they require per-
+sonal initiative and skill, because hyperlinks are nonlinear in format and
+require students to integrate multiple representations (e.g., text, diagrams, and
+animations). Azevedo and colleagues have concluded that learning in a
+hypermedia environment requires self-regulation skills to navigate, organize,
+and combine information into viable mental models. These skills include goal
+setting, monitoring, and controlling cognition, motivation, and behavior.
+
+      In recent research, Greene and Azevedo (2007) studied learning from a
+science module on the human circulatory system by middle and high school
+students. The module was selected from an Encarta DVD on the topic, and it
+involved nearly 17,000 words, 107 hyperlinks, and 35 illustrations. The instruc-
+tional session lasted 40 minutes. After receiving instructions regarding the
+learning task and features of the Encarta program, the students were told to
+say everything that they were thinking while they were working on the task.
+
+      An advantage of the think-aloud methodology is that it is open-ended,
+and the students' responses are coded into self-regulatory process categories
+by trained observers at a later point in time. A high degree of reliability was
+attained in coding nearly 18,000 verbal segments. Clearly, this is a very labor-
+intensive methodology. The coding system involved 35 SRL categories that
+were grouped conceptually into five major areas: planning, monitoring, strat-
+egy use, task difficulty and demands, and motivation. These major process
+areas have been widely recognized and included in other research method-
+ologies. The primary dependent measure was the quality of the student's dia-
+gram of the human circulatory system.
+
+      The results showed that six of the categories of SRL were significant pre-
+dictors of the quality of the students' mental model. These categories fell in
+three major process areas. Within the area of strategy use, the following four
+of the categories attained significance: coordinating informational sources,
+inferences, knowledge elaboration, and expectation of adequacy of informa-
+tion. Regarding the area of monitoring, the category of feelings of knowing
+proved to be significant predictors of the students' mental model, but no cat-
+egories within the areas of planning or motivation were significant predictors.
+
+172
+
+     Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+                                          Emerging Issues in Self-Regulated Learning
+
+Within the task difficulty and demands area, the category of control of con-
+text unexpectedly correlated negatively with the quality of students' mental
+models. This category was scored each time a student accessed a hyperlink,
+and apparently students who accessed it frequently were not integrating the
+material into their mental model of blood circulation.
+
+      Clearly, the think-aloud methodology is an effective way to assess stu-
+dents' self-regulatory processes online, but this research needs to be extended
+to see if planning and motivation will emerge as significant predictors of
+students' mental models.
+
+Structured Diary Measures of SRL
+
+      The third emergent question concerned whether teachers can structure
+their classroom instruction to foster increases in SRL among their students.
+Several recent innovative intervention studies have addressed this question
+using structured diaries and time-series data. For example, Schmitz and Wiese
+(2006) studied a sample of civil engineering students at a German university
+over a 5-week period. The study was designed on the basis of a cyclical
+model of self-regulated learning involving three sequential phases: preaction,
+action, and postaction (Zimmerman, 2000).
+
+      The intervention was composed of four weekly 2-hour training sessions
+that focused on key self-regulatory processes, such as goal setting, time man-
+agement, planning, behavioral self-motivation, cognitive self-motivation, and
+concentration. The first weekly session trained students to set goals that were
+concrete, realistic, challenging, and proximal. The second session trained stu-
+dents to avoid procrastination by daily and weekly planning using prestruc-
+tured time-management forms. The third weekly session taught behavioral
+self-motivation along with further time-management training. Self-motivation
+involved setting self-rewards and arranging a supportive environment. The
+fourth weekly session focused on cognitive self-motivation and concentra-
+tion. The former measure of SRL involved self-instruction designed to stop
+negative thoughts and encourage positive ones. Concentration training
+involved the use of systematic relaxation. The diaries were collected at the
+end of each week during the study.
+
+      The SRL diaries were structured using a series of event questions regard-
+ing the students' study session. The questions pertaining to the before phase
+dealt with the learning goal that was set for the day (i.e., goal setting) and
+their thoughts about how to proceed (i.e., planning). The student's motiva-
+tion for studying was queried using items such as "I find the topic interest-
+ing" (i.e., intrinsic interest), "I want to do well on the next test" (i.e., extrinsic
+interest), and "I can remain calm when facing learning difficulties because I
+can rely on my abilities" (i.e., self-efficacy). Questions regarding the after
+phase dealt with the following issues: How much total time was spent in
+studying, how much time was spent studying effectively, and whether the
+students reached the individual goal that they had listed before studying.
+Other questions concerned how much of the material was actually mastered
+
+                                                                                173
+
+Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+Zimmerman
+
+and whether the students skipped some of the tasks that they wanted to
+accomplish.
+
+      In addition to the online diary of SRL events, the students completed a
+questionnaire at the outset and the end of the study that involved an apti-
+tude measure of self-regulation. The questionnaire included items that
+assessed affect and motivation, learning strategies, and volitional strategies.
+The Affect and Motivation scales assessed positive and negative affect, intrin-
+sic and extrinsic motivation, and self-efficacy. The Learning Strategies scale
+assessed monitoring, management of internal resources, attention, and time
+management. The Volitional Strategies scale measured self-motivation, atten-
+tion, procrastination, and handling distractions. The control group students
+were pre- and posttested but did not receive SRL training or use the diaries.
+
+      The authors conducted three types of analyses. First, pretest and posttest
+measures were compared for the experimental and control groups. Students
+who received self-regulatory training displayed significant improvements
+in the following questionnaire measures: intrinsic studying motivation, self-
+efficacy, effort, attention, self-motivation, handling distractions, and procrasti-
+nation. Students in the control group displayed increases in only self-motiva-
+tion during the study. A second analysis analyzed linear trends in self-regulation
+that were reported in the diaries during the course of the 5-week intervention.
+These trend analyses revealed significant increases in the following forms of
+self-regulation and motivation: self-efficacy, positive affect, personal under-
+standing, and satisfaction. The third method of analysis involved interrupted
+time-series analyses. These event analyses compared changes from the week
+before a particular self-regulatory process was taught to 2 weeks after train-
+ing. According to the diaries of students in the training group, there were sig-
+nificant improvements in time management, planning, and concentration and
+a significant decrease in procrastination during the week following training
+to use those specific self-regulatory processes.
+
+      The diary proved to be a more sensitive online measure of studying than
+traditional questionnaire measures. The average amount of studying per day
+by these engineering students was nearly 4 hours, although they did not study
+every day. Of particular methodological interest was the comparison of the
+results of a control-group analysis with those of the time-series analysis. When
+diary measures were analyzed using time-series methodology, they were
+shown to be of equal or greater sensitivity to change than pre- and posttest
+questionnaire measures of SRL by students in the training group. In contrast,
+control-group students displayed virtually no changes in use of SRL processes
+from pre-to posttesting. Clearly, a diary time-series methodology has much to
+offer as an online way to assess training effects in ecologically valid contexts.
+Although this study did not include measures of academic achievement, it did
+show that college students who were trained in SRL processes were effective
+in reaching the study goals that they set for themselves.
+
+      Diary measures of SRL have also been used with elementary school chil-
+dren in Germany. A recent study by Stoeger and Ziegler (2007) addressed
+the emergent question of how teachers can structure their regular classroom
+
+174
+
+     Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+                                          Emerging Issues in Self-Regulated Learning
+
+assignments to convey SRL processes. These researchers trained teachers of
+fourth-grade students to implement SRL processes during mathematical
+instruction according to a cyclical model (Zimmerman, Bonner, & Kovach,
+1996). This instructional model emphasizes such self-regulatory processes as
+monitoring and self-evaluation, goal setting and strategic planning, strategy
+implementation and monitoring, and strategic outcome monitoring.
+
+      Teachers were randomly assigned to either an experimental or a control
+group. Nine classroom teachers were trained to convey the underlying cycli-
+cal model and to develop homework exercises, quizzes, and a final exami-
+nation in arithmetic skill. The control group of eight teachers gave the same
+homework assignments and tests but received no self-regulation training. The
+students in both experimental conditions kept diary accounts of SRL events,
+such as when and for how long they studied, what kinds of breaks were
+taken, what types of distractions were present, whether they studied alone,
+and where studying takes place. Teachers in the SRL training condition gave
+students a copy of the cyclical model of self-regulation along with a picture
+of a "learning expert," who recommended self-regulatory practices that the
+teacher modeled for them. Students were given daily feedback regarding their
+homework and quiz scores and were encouraged to set challenging goals and
+choose an effective strategy for themselves. Students in the experimental
+group were given points on the basis of their homework answers.
+
+      The students also completed an aptitude questionnaire that assessed
+their interests, attitudes, and self-related cognitions before and after a 5-week
+training program. All scales were adapted to focus on the domain of mathe-
+matics. Self-efficacy beliefs were assessed as well as time management skills.
+Items measuring feelings of helplessness were included as well as items
+assessing students' learning goal orientations and their willingness to exert
+effort. The math achievement test covered the subject matter that had been
+presented in the classes during the 5-week training period.
+
+      The results showed that students in the training group reported signifi-
+cantly greater increases in time management skill and self-reflection on their
+learning than those in the control group. Students in the self-regulation train-
+ing condition also displayed increases in several measures of motivation.
+Their willingness to exert effort, their task interest, their learning-goal orien-
+tation, and their perceptions of self-efficacy all increased after training, and
+their feelings of helplessness declined significantly. Students in the self-
+regulation training group displayed significantly greater gains in math achieve-
+ment than students in the control group. Interestingly, all students in the
+self-regulation training group passed an entrance exam for admittance to a
+higher level school, which was an increase of 50% compared to past cohort
+groups of students.
+
+      Stoeger and Ziegler (2007) also conducted an event analysis of the
+growth rate in students' homework scores and quizzes during the course of
+the study. Hierarchical statistics revealed a linear increase in math skill over
+the 5-week training period, but this growth curve did slow as the students
+
+                                                                                175
+
+Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+Zimmerman
+
+approached mastery toward the end of the training period. Students' self-
+efficacy perceptions prior to training were also significantly related to their
+growth in math skill. The variables of self-efficacy beliefs, learning-goal ori-
+entation, and time-management skills were linked to an increase in math skill.
+
+      Thus, the results of this training study showed that multiweek training
+in time-management skills can be implemented by teachers as part of their
+classroom math assignments. When compared to control students, SRL
+trained students displayed significant increases in homework effectiveness,
+time-management skills, a broad array of self-reflection measures, and math
+performance skill. The study showed that self-regulation interventions
+involving diary logs of self-regulatory events can be used effectively with ele-
+mentary school youngsters, and this classroom training conducted by teachers
+enhanced not only students' use of SRL processes but also their achievement
+in mathematics.
+
+Observation and Qualitative Measures of SRL
+
+      Another approach to answering the emergent question of whether
+teachers can adapt their regular classroom activities and assignments to fos-
+ter increases in their students' SRL was reported by Perry and her colleagues
+(Perry, Vandekamp, Mercer, & Nordby, 2002). They used a variety of quan-
+titative and qualitative measures, such as observation forms, portfolio assess-
+ments, and interviews of teachers and students, to study changes in SRL
+during classroom learning events.
+
+      For example, in a study of writing acquisition by second and third graders,
+Perry (1998) trained teachers in SRL during weekly classroom visits over a
+6-month period. Three of the teachers were designated as high in support for
+SRL, and two teachers were labeled as low in support for SRL, on the basis of
+their answers to a questionnaire regarding five criteria. These included giving
+students choice of writing tasks, permitting them to designate the level of chal-
+lenge of the writing task, allowing them to self-evaluate, and soliciting support
+from teachers and peers. Students of the three high-SRL teachers were sur-
+veyed using a questionnaire that assessed their perceptions of personal con-
+trol and teacher support in their classroom. The students were also asked
+about their beliefs, values, and expectations regarding writing. Finally, the
+teachers ranked their students in terms of their achievement levels, and five
+high and five low achievers were selected for further assessment in each
+teacher's class. These students were observed in classroom contexts and were
+interviewed subsequently.
+
+      The results revealed that students in high-SRL classes were more engaged
+in their writing than students in low-SRL classes. The former students also
+monitored and evaluated their writing progress more productively than con-
+trol students. Finally, students in the high-SRL classrooms sought instrumen-
+tal support from one another and their teachers more frequently than students
+in low-SRL classes. Unexpectedly, students in the high- and low-SRL classes
+did not display significant differences in measures of motivation (i.e., beliefs,
+
+176
+
+     Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+                                          Emerging Issues in Self-Regulated Learning
+
+values, and expectations regarding writing), which Perry attributed to the inef-
+fectiveness of these measures. Thus, high-SRL teachers offered their students
+more opportunities for controlling their learning experiences than low-SRL
+teachers. Unfortunately, there was no standardized measure of students' writ-
+ing achievement, and this limitation precluded determination of the effects of
+students' SRL on their writing competence.
+
+      Although the motivation measures that Perry included in her study
+(beliefs, values, and expectations regarding writing) did not distinguish
+between high- and low-self-regulated learners, these measures have gener-
+ally shown relatively strong correlations with students' use of specific self-
+regulatory processes (Schunk & Zimmerman, 2007). For example, Stoeger
+and Ziegler (2007) found that students given SRL training displayed a greater
+increase in effort, task interest, learning-goal orientation, and perceptions
+of self-efficacy than control-group students. Schmitz and Wiese (2006) also
+reported significant improvements due to SRL training on a number of mea-
+sures of motivation, such as intrinsic studying motivation, self-efficacy,
+effort, attention, self-motivation, handling distractions, and procrastination.
+
+Microanalytic Measures and Cyclical Analyses of SRL
+
+      A fourth emergent question concerns the role of students' motivational
+feelings and beliefs in initiating and sustaining changes in their self-regulation
+of learning. To investigate this and other issues as an event during online
+efforts to learn, my colleagues and I developed a microanalytic methodol-
+ogy for assessing SRL in three sequential phases (Cleary & Zimmerman, 2001;
+Kitsantas & Zimmerman, 2002).
+
+      In this approach, specific questions are used to measure well-established
+self-regulatory processes and motivational beliefs or feelings at key points
+before, during, and after learning. The learner is asked open- or closed-ended
+questions that produce both qualitative and quantitative data, respectively.
+The questions are brief and task specific in order to minimize disruptions in
+learning. For example, self-efficacy can be assessed during a math problem-
+solving session by showing the learner a scale that ranged from 0 to 100 (with
+10 = not sure, 40 = somewhat sure, 70 = pretty sure, and 100 = very sure) and
+asking, "How sure are you that you will be able to solve these math prob-
+lems?" Notice that this self-efficacy measure pertained directly to the next per-
+formance event (i.e., the solution of these problems) rather than to a learner's
+overall mathematical aptitude. A key feature of these measures is that they
+can be used during repeated efforts to learn, and changes in a learner's self-
+efficacy over practice efforts can be plotted to show trends. In addition, the
+learner's estimates of self-efficacy can be calibrated against his or her actual
+performance.
+
+      This methodology has been used to study the effects of SRL processes
+and motivational beliefs as an event within and across the three phases of a
+cyclical model of SRL (Zimmerman, 2000). To date, microanalytic measures
+have been created to assess all SRL processes and motivational beliefs in the
+
+                                                                                177
+
+Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+Zimmerman
+
+                                 Performance Phase
+
+                                      Self-Control
+
+                                        Self-instruction
+                                            Imagery
+
+                                      Attention focusing
+                                        Task strategies
+
+                                   Self-Observation
+
+                                 Metacognitive monitoring
+                                        Self-recording
+
+       Forethought Phase                                   Self-Reflection Phase
+
+           Task Analysis                                       Self-Judgment
+
+                Goal setting                                       Self-evaluation
+            Strategic planning                                    Causal attribution
+
+     Self-Motivation Beliefs                                    Self-Reaction
+
+                Self-efficacy                                  Self-satisfaction/affect
+          Outcome expectations                                   Adaptive/defensive
+
+            task interest/value
+              Goal orientation
+
+Figure 1. Phases and subprocesses of self-regulation. From "Motivating Self-
+Regulated Problem Solvers" by B. J. Zimmerman and M. Campillo, 2003, in
+J. E. Davidson and R. J. Sternberg (Eds.), The Nature of Problem Solving, p. 239.
+New York: Cambridge University Press. Copyright 2003 by Cambridge University
+Press. Adapted with permission.
+
+cyclical model in Figure 1 except for goal orientation, which focuses on the
+purposes of achievement tasks rather than on a specific event. Despite their
+brevity, these microanalytic measures have proven to be reliable and pre-
+dictive of changes in functioning (Kitsantas & Zimmerman, 2002).
+
+      The model assumes significant correlations between variables within a
+particular SRL phase, and it assumes potentially causal influences of SRL
+processes across phases. The before, or forethought, phase involves a num-
+ber of well-known motives to self-regulate, such as self-efficacy beliefs, out-
+come expectations, task interest or value, and goal orientation as well as two
+
+178
+
+           Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+                                          Emerging Issues in Self-Regulated Learning
+
+key self-regulatory processes: goal setting and strategic planning. There is
+growing empirical support for this model. For example, research has shown
+that students' level of self-efficacy about their writing performance was pos-
+itively correlated with the grade goals they set for themselves as well as with
+the grades they actually received in a writing course (Zimmerman & Bandura,
+1994). In addition, there is evidence that students' performance-phase strategic
+processes and self-recorded outcomes are linked causally to self-reflection-phase
+outcome attributions and feelings of satisfaction (Zimmerman & Kitsantas,
+1997). Finally, research (Zimmerman & Kitsantas, 1999) has shown that
+students' self-reflection-phase feelings of satisfaction with their writing per-
+formance were predictive of two forethought-phase sources of motivation
+regarding further efforts to improve their writing skill: self-efficacy and task
+interest or valuing. Clearly, students' use of high-quality SRL processes can
+enhance their motivation to continue additional cycles of learning.
+
+      To date, microanalyses of SRL processes and sources of motivation have
+been used most frequently to investigate learning of athletic skills, such as
+free-throw shooting, volleyball serving, and dart throwing, and these mea-
+sures of SRL revealed significant differences between experts, nonexperts,
+and novices (Cleary & Zimmerman, 2001; Kitsantas & Zimmerman, 2002).
+When compared to nonexperts and novices, experts made the most exten-
+sive use of SRL processes and reported the most positive motivational
+beliefs and feelings. Although high levels of expertise take years to develop
+(Ericsson, 2006), there is recent evidence (Cleary, Zimmerman, & Keating,
+2006) that novices who are taught multiphase SRL strategies displayed sig-
+nificantly greater athletic skill and improved motivational beliefs during rel-
+atively brief practice sessions than novices in an untutored control group.
+
+           Implications and Topics for Future SRL Research
+
+      The first emergent question concerned how closely trace measures of SRL
+would compare to self-report measures in assessing changes in self-regulation
+during learning. Winne and his colleagues (Winne & Jamieson-Noel, 2002)
+addressed this question using trace logs of SRL from students in a computer-
+assisted study environment and found low levels of calibration. In contrast,
+Schmitz and Wiese (2006) found a relatively high degree of correspondence
+between online diary measures of studying and summary questionnaire items
+at the end of a 5-week training episode in traditional (i.e., non-computer-
+assisted) learning environments.
+
+      It is interesting to note that Winne and Jamieson-Noel (2002) discovered
+that students' calibration in reporting self-regulatory processes was significantly
+lower than their calibration in reporting achievement outcomes. Research in
+noncomputer contexts (Stone, 2000) has similarly revealed a positive relation
+between students' use of SRL processes and their calibration of knowledge
+(i.e., achievement outcomes), although the direction of causation has not been
+established. Clearly, more research is needed regarding the accuracy of
+students' reports of using self-regulatory processes. Because calibration is a
+
+                                                                                179
+
+Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+Zimmerman
+
+key measure of the accuracy of one's self-monitoring, it will continue to be a
+major topic in future research on SRL.
+
+      The second emergent question concerns whether changes in students'
+level of SRL in personally managed contexts is linked to improvements in their
+overall academic achievement. Azevedo and his colleagues (Azevedo &
+Cromley, 2004; Azevedo et al., 2004) addressed this issue by using think-aloud
+measures of SRL to investigate students' learning in a hypermedia environ-
+ment. They discovered that 6 of 35 self-regulatory process categories identi-
+fied in students' think-aloud protocols were predictive of high-quality mental
+models of a science topic (i.e., blood circulation). These results provide an
+affirmative answer to the emergent question. However, future researchers
+need to establish the generality of these findings. The think-aloud methodol-
+ogy should be extended to HLEs on other science topics and other subject
+matter, such as math or a foreign language. It is possible that different SRL
+process categories may come into play when a different topic is studied.
+
+      The third emergent question involves whether teachers can modify their
+classrooms to foster increases in self-regulated learning among their students.
+The study by Stoeger and Zigler (2007) demonstrated that regular classroom
+teachers could be trained to teach specific SRL skills to fourth-grade children
+as part of their regular math assignments during a 5-week intervention. These
+affirmative results implied that similar interventions might be effective in other
+areas of students' academic functioning, such as note taking, test preparation,
+reading for comprehension, and writing. The study by Schmitz and Wiese
+(2006) showed that college students could also profit from training in key SRL
+skills and diary monitoring skills. The two German studies revealed impor-
+tant advantages for using time-series statistical analyses to assess changes in
+SRL online during the course of training. This methodology offers researchers
+not only a sensitive measure of SRL but also a graphic depiction of the shape
+of the learning curve. However, it should be noted that aptitude measures
+of SRL were included as well as online event measures in both of the two
+German studies and, although less sensitive to change, did prove useful in
+measuring changes in self-regulation.
+
+      In contrast to the German researchers' focus on students' SRL in out-
+of-class contexts, Perry (1998) focused on students' SRL within the context
+of elementary school classrooms. Her online event measures of students' self-
+regulatory processes proved useful during classroom observations. Her
+methodological approach involved triangulating various qualitative measures,
+such as students' observations, portfolios, interviews, and measures of acade-
+mic performance. This methodology enabled Perry to identify classroom social
+and physical environments that curtail students' use of SRL processes and rec-
+ommend ways for teachers to modify them to increase students' level of self-
+regulation. The effects of classroom affordances and constraints on changes in
+students' SRL should be studied further. Perry's qualitative methodology for
+assessing classroom events is well suited to answer these questions as well as
+other social context questions, such as how SRL is both an individual and a
+
+180
+
+     Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+                                          Emerging Issues in Self-Regulated Learning
+
+social process and what individual and sociocultural factors influence students'
+development of SRL (Butler, 2002).
+
+      The final emergent question concerns the role of students' motivational
+feelings and beliefs regarding initiating and sustaining changes in their self-
+regulation of learning. Microanalytic efforts to answer this question have
+revealed a close relation between key SRL processes and many sources of
+motivation during three sequential phases of learning. Event measures of self-
+motivation constructs were developed for administration during the appro-
+priate phase of learning by an interviewer. Among the motivational measures
+that were developed for administration during the forethought phase of SRL
+were self-efficacy beliefs, outcome expectancies, and task interest or values.
+Additional measures of motivation, such as anxiety and perhaps goal orien-
+tation, should be developed in future research. Among the motivational mea-
+sures that were developed for administration during the self-reflection phase
+were attribution judgments and self-satisfaction reactions. In terms of future
+research topics, there is a vital need to extend a microanalytic methodology
+to learning of academic tasks over longer periods of time when students'
+motivation is expected to wane. There is also a need to extend the use of this
+methodology to assess the effectiveness of academic interventions designed
+to motivate recalcitrant students to engage in SRL.
+
+                                   Conclusion
+
+      Although aptitude measures of SRL have and will continue to provide
+useful information regarding students' methods of learning, online event
+measures of SRL offer detailed information concerning the interrelation of
+the various processes in real time, such as the impact of goal setting on self-
+monitoring. This contextually linked information is especially useful when
+diagnosing and remediating self-regulatory dysfunctions. For example, a stu-
+dent who reports knowing a strategy on an SRL aptitude questionnaire may
+not know how to adapt it to work in a particular academic context. At its
+core, SRL involves a dynamic feedback loop (Butler & Winne, 1995; Hattie
+& Timperley, 2007; Zimmerman, 1989), and online event measures can cap-
+ture subtle changes in functioning during each learning cycle. To date, there
+have been few attempts to study SRL over multiple feedback cycles, but such
+studies are needed in order to track students' adaptations based on personal
+feedback. This research can uncover the dynamic nature of self-enhancing
+cycles of learning as well as self-defeating cycles.
+
+      Although significant progress has been made in answering the four
+emergent questions about SRL, further research is needed to extend these
+findings. The innovative online measures of SRL that were discussed are still
+in an early stage of development and will need to be modified to assess SRL
+in different academic content areas. Clearly, these online measures show
+great promise in providing more complete answers to the ultimate question
+that launched research on SRL: How do students become masters of their
+own learning processes?
+
+                                                                                181
+
+Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+Zimmerman
+
+                                             Note
+
+      I would like to thank Patricia Alexander and Allan Wigfield for their helpful com-
+ments on an earlier draft of this article.
+
+                                         References
+
+Azevedo, R., & Cromley, J. G. (2004). Does training on self-regulated learning facili-
+      tate students' learning with hypermedia? Journal of Educational Psychology, 96,
+      523­535.
+
+Azevedo, R., Cromley, J. G., & Siebert, D. (2004). Does adaptive scaffolding facilitate
+      students' ability to regulate their learning with hypermedia? Contemporary
+      Educational Psychology, 29, 344­370.
+
+Boekaerts, M., Pintrich, P., & Zeidner, M. (Eds.). (2000). Handbook of self-regulation.
+      San Diego, CA: Academic Press.
+
+Butler, D. L. (2002). Qualitative approaches to investigating self-regulated learning:
+      Contributions and challenges. Educational Psychologist, 37, 59­63.
+
+Butler, D. L., & Winne, P. H. (1995). Feedback and self-regulated learning: A theo-
+      retical synthesis. Review of Educational Research, 65, 245­281.
+
+Cleary, T., & Zimmerman, B. J. (2001). Self-regulation differences during athletic prac-
+      tice by experts, non-experts, and novices. Journal of Applied Sport Psychology,
+      13, 61­82.
+
+Cleary, T. J., Zimmerman, B. J., & Keating, T. (2006). Training physical education stu-
+      dents to self-regulate during basketball free-throw practice. Research Quarterly
+      for Exercise and Sport, 77, 251­262.
+
+Ericsson, K. A. (2006). Protocol analysis and expert thought: Concurrent verbalizations
+      of thinking during experts' performance on representative tasks. In K. A. Ericsson,
+      N. Charness, P. J. Feltovich, & R. Hoffman. (Eds.), Handbook of expertise and
+      expert performance (pp. 223­241). New York: Cambridge University Press.
+
+Greene, J. A., & Azevedo, R. (2007). Adolescents' use of self-regulatory processes and
+      their relation to qualitative mental model shifts while using hypermedia. Journal
+      of Educational Computing Research, 36, 125­148.
+
+Hattie, J., & Timperley, H. (2007). The power of feedback. Review of Educational
+      Research, 77, 81­112.
+
+Kitsantas, A., & Zimmerman, B. J. (2002). Comparing self-regulatory processes among
+      novice, non-expert, and expert volleyball players: A microanalytic study. Journal
+      of Applied Sport Psychology, 14, 91­105.
+
+Perry, N. E., (1998). Young children's self-regulated learning and contexts that sup-
+      port it. Journal of Educational Psychology, 90, 715­729.
+
+Perry, N. E., Vandekamp, K. O., Mercer, L. K., & Nordby, C. J. (2002). Investigating
+      teacher-student interactions that foster self-regulated learning. Educational
+      Psychologist, 37, 5­15.
+
+Pintrich, P. R. (2000). The role of goal orientation in self-regulated learning. In
+      M. Boekaerts, P. Pintrich, & M. Zeidner (Eds.), Handbook of self-regulation,
+      research, and applications (pp. 451­502). Orlando, FL: Academic Press.
+
+Pintrich, P. R., Smith, D. A. F., Garcia, T., & McKeachie, W. J. (1993). Reliability and
+      predictive validity of the motivated strategies for learning questionnaire (MLSQ).
+      Educational and Psychological Measurement, 53, 801­813.
+
+Pressley, M., & McCormick, C. B. (1995). Advanced educational psychology: For edu-
+      cators, researchers, and policymakers. New York: HarperCollins
+
+Schmitz, B., & Wiese, B. S. (2006). New perspectives for the evaluation of training ses-
+      sions in self-regulated learning: Time-series analyses of diary data. Contemporary
+      Educational Psychology, 31, 64­96.
+
+182
+
+     Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+                                          Emerging Issues in Self-Regulated Learning
+
+Schunk, D. H., & Zimmerman, B. J. (Eds.). (2007). Motivation and self-regulated
+      learning: Theory, research, and applications. Mahwah, NJ: Lawrence Erlbaum.
+
+Stoeger, H., & Ziegler, A. (2007). Evaluation of a classroom-based training to improve
+      self-regulated learning: Which pupils profit the most? Manuscript submitted for
+      publication.
+
+Stone, N. J. (2000). Exploring the relationship between calibration and self-regulated
+      learning. Educational Psychology Review, 12, 437­475.
+
+Weinstein, C. E., Schulte, A. C., & Palmer, D. R. (1987). LASSI: Learning and Study
+      Strategies Inventory. Clearwater, FL: H. & H.
+
+Winne, P. H., & Jamieson-Noel, D. (2002). Exploring students' calibration of self-reports
+      about study tactics and achievement. Contemporary Educational Psychology, 27,
+      551­572.
+
+Winne, P. H., Nesbit, J. C., Kumar, V., Hadwin, A. F., Lajoie, S. P., Azevedo, R., et al.
+      (2006). Supporting self-regulated learning with gStudy software: The learning kit
+      project. Technology, Instruction, Cognition and Learning, 3, 105­113.
+
+Winne, P. H., & Perry, N. E. (2000). Measuring self-regulated learning. In M. Boekaerts,
+      P. Pintrich, & M. Zeidner (Eds.), Handbook of self-regulation (pp. 532­566).
+      Orlando, FL: Academic Press.
+
+Zimmerman, B. J. (1986a). Development of self-regulated learning: Which are the key
+      subprocesses? Contemporary Educational Psychology, 11, 307­313.
+
+Zimmerman, B. J. (Ed.). (1986b). Special issue on self-regulated learning [Special
+      issue]. Contemporary Educational Psychology, 11, 305­427.
+
+Zimmerman, B. J. (1989). A social cognitive view of self-regulated academic learning.
+      Journal of Educational Psychology, 81, 329­339.
+
+Zimmerman, B. J. (2000). Attainment of self-regulation: A social cognitive perspective.
+      In M. Boekaerts, P. Pintrich, & M. Zeidner (Eds.), Handbook of self-regulation,
+      research, and applications (pp. 13­39). Orlando, FL: Academic Press.
+
+Zimmerman, B. J., & Bandura, A. (1994). Impact of self-regulatory influences on writ-
+      ing course attainment. American Educational Research Journal, 31, 845­862.
+
+Zimmerman, B. J., Bonner, S., & Kovach, R. (1996). Developing self-regulated learners:
+      Beyond achievement to self-efficacy. Washington, DC: American Psychological
+      Association.
+
+Zimmerman, B. J., & Kitsantas, A. (1997). Developmental phases in self-regulation:
+      Shifting from process to outcome goals. Journal of Educational Psychology, 89,
+      29­36.
+
+Zimmerman, B. J., & Kitsantas, A. (1999). Acquiring writing revision skill: Shifting from
+      process to outcome self-regulatory goals. Journal of Educational Psychology, 91,
+      1­10.
+
+Zimmerman, B. J., & Martinez-Pons, M. (1986). Development of a structured inter-
+      view for assessing students' use of self-regulated learning strategies. American
+      Educational Research Journal, 23, 614­628.
+
+Zimmerman, B. J., Martinez Pons, M. (1988). Construct validation of a strategy model
+      of student self-regulated learning. Journal of Educational Psychology, 80, 284­290.
+
+Zimmerman, B. J., & Schunk, D. H. (Eds.). (1989). Self-regulated learning and aca-
+      demic achievement: Theory, research, and practice. New York: Springer.
+
+Zimmerman, B. J., & Schunk, D. H. (Eds.) (2001). Self-regulated learning and acad-
+      emic achievement: Theoretical perspectives (2nd ed.). Mahwah, NJ: Lawrence
+      Erlbaum.
+
+Zimmerman, B. J., & Schunk, D. H. (2007). Motivation: An essential dimension of self-
+      regulated learning. In D. H. Schunk & B. J. Zimmerman (Eds.), Motivation and
+      self-regulated learning: Theory, research, and applications (pp. 1­30). Mahwah,
+      NJ: Lawrence Erlbaum.
+
+                                                                                183
+
+Downloaded from http://aerj.aera.net at WALDEN UNIVERSITY on September 4, 2011
+

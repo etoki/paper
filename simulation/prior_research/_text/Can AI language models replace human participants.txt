@@ -1,0 +1,203 @@
+Trends in
+
+Cognitive Sciences
+
+Science & Society
+
+Can AI language models                        Does GPT make human-like                          developed a framework (Box 2) that con-
+replace human                                 judgments?                                        nects LLM responses to human cognition.
+participants?                                 We initially doubted the ability of LLMs to       The model emphasizes that the `minds' of
+                                              capture human judgments but, as we detail         LLMs are grounded in naturalistic expres-
+Danica Dillion,1 Niket Tandon,2               in Box 1, the moral judgments of GPT-3.5          sion across a large but constrained group
+Yuling Gu,2 and Kurt Gray 1,*,@               were extremely well aligned with human            of people. Practically speaking, LLMs
+                                              moral judgments in our analysis (r = 0.95;        may be most useful as participants when
+Recent work suggests that lan-                full details at https://nikett.github.io/gpt-as-  studying specific topics, when using spe-
+guage models such as GPT can                  participant). Human morality is often argued      cific tasks, at specific research stages,
+make human-like judgments across              to be especially difficult for language models    and when simulating specific samples.
+a number of domains. We explore               to capture [4] and yet we found powerful
+whether and when language models              alignment between GPT-3.5 and human               Specific topics
+might replace human participants in           judgments.                                        Language model expressions may be
+psychological science. We review                                                                most correlated with human expressions
+nascent research, provide a theoret-          We emphasize that this finding is just one an-    when there are obvious explicit features
+ical model, and outline caveats of            ecdote and we do not make any strong              of situations that drive human judgments.
+using AI as a participant.                    claims about the extent to which LLMs             With morality, these might include whether
+                                              make human-like judgments, moral or               an action was intentional or not. With mind
+Main text                                     otherwise. Language models also might be          perception, these might include whether a
+Artificial intelligence (AI) is an `agent of  especially good at predicting moral judg-         target is described as human or a kind of
+replacement' [1], designed to take over       ments because moral judgments heavily             animal, and with economic behavior
+tasks once performed by humans. Gener-        hinge on the structural features of scenarios,    these might include a clear payoff matrix.
+ative large language models (LLMs) like       including the presence of an intentional
+GPT are replacing much human labor, in-       agent, the causation of damage, and a vul-        Divergence from human judgment may
+cluding in psychological science, where       nerable victim, features that language            occur in cases with competing intuitions.
+researchers use LLMs to help edit pa-         models may have an easy time detecting.           Within our set of moral scenarios, humans
+pers, conduct literature reviews, and cre-    However, the results are intriguing.              (but not GPT-3.5) condemned coaches
+ate scale items [2]. However, could                                                             who rooted for the opposing team, per-
+language models become a substitute           Other researchers have empirically dem-           haps because LLMs struggle to represent
+for the people ­ and minds ­ that we          onstrated GPT-3's ability to simulate             the subtle moral conflict between team
+study? Could AI replace human partici-        human participants in domains beyond              loyalty versus good sportsmanship. GPT-
+pants?                                        moral judgments, including predicting vot-        3.5 also passed harsher moral judgment
+                                              ing choices [11], replicating behavior in         on the act of killing enemies in war, per-
+To replace human participants, AI             economic games [12], and displaying               haps again because of thorny moral
+must give humanlike responses, and            human-like problem solving and heuristic          trade-offs, this time between causing
+the `humanness' of AI has long been           judgments on scenarios from cognitive             direct harm and protecting one's com-
+questioned. Modern language models            psychology [13]. LLM studies have also            rades and country.
+seem to have passed a crucial threshold       replicated classic social science findings
+of humanness: they communicate so             including the Ultimatum Game and the              Specific tasks
+fluently that they often seem indistinguish-  Milgram experiment [14]. One company              Some tasks are fun and some are boring.
+able from people [3]. Even so, researchers    (http://syntheticusers.com) is expanding          Long surveys risk losing people's atten-
+want to study the human mind, and al-         on these findings, building infrastructure        tion, but LLMs can rapidly answer
+though language models can communi-           to replace human participants and offering        hundreds of questions without fatigue.
+cate like humans, they may not make           `synthetic AI participants' for studies.          Machines need fewer incentives than
+humanlike judgments.                                                                            humans to give reliable responses, and
+                                              When might a language model be a                  there are methods to validate and improve
+                                              good participant?                                 them. For example, one recent method of
+                                              LLMs can replicate some human judg-               `self-refinement' (selfrefine.info) shows
+                                              ments, but it can be challenging to inter-        that LLMs can reflect on their answers
+                                              pret what these outputs mean. We have             and iteratively improve them.
+
+                                                                                                Trends in Cognitive Sciences, July 2023, Vol. 27, No. 7 597
+                                                                    Trends in Cognitive Sciences
+
+Box 1. GPT makes human-like moral judgments                                                                                                            they act as expected within a nomological
+We investigated the correspondence between average human judgments and GPT-3.5 (text-davinci-003)'s                                                    net (e.g., form a reliable scale). Third, lan-
+judgments on 464 moral scenarios from five published papers [5­9]. The results revealed a striking correlation                                         guage models may provide corroborating
+of 0.95, indicating GPT-3.5's remarkable ability to replicate human moral judgment (Figure I). The scenarios                                           evidence after human data are collected,
+varied in intensity and moral valence, including situations like yelling at a server [5], stealing a parking space                                     as an additional check for robustness
+[6], and saving someone from being hit by a car [7].                                                                                                   and replicability.
+
+Older LLMs have been able to somewhat predict binary (immoral or not) ratings of moral scenarios (r = 0.79                                             Specific samples
+[10]), but collapsing the continuum of (im)morality into binary judgments sacrifices nuance (e.g., most people                                         Language models are likely to be most ac-
+would rate murder and lying as immoral, but murder is more severe). We found that GPT-3.5 can model hu-                                                curate at giving general estimates about
+man moral judgments on a continuous scale.                                                                                                             Western English speakers because these
+                                                                                                                                                       are the people whose expressions are typ-
+We conditioned GPT-3.5 on 16 scenarios from the Mickelberg (2022) dataset before evaluating the remaining                                              ically used to train them. LLMs cannot
+464 scenarios. We performed leakage checks to insure that GPT had not merely `memorized' the scenarios                                                 model the judgments of people whose cul-
+(detailed in https://nikett.github.io/gpt-as-participant). Further analyses of subpopulations within the                                               tures are not represented in their training
+Mickelberg (2022) dataset revealed correlations between GPT-3.5 and human judgments of >0.93 across                                                    data, such as the Hadza society of
+genders and age groups. GPT-3.5 also outperformed Delphi, a state-of-the-art language model for moral                                                  Tanzania. Even within the USA, most
+judgment.                                                                                                                                              LLMs fail to capture people over 65 years
+                                                                                                                                                       old and the highly religious [15], and the
+                    very        4                                                                                                                      different models have additional biases.
+                       moral                                                                                                                           GPT models tend to overrepresent the
+                                                                                                                                                       views of liberal, higher-income, and highly
+GPT moral judgment              2                                   Clifford et al. (2015)                                                             educated people, whereas some base
+                                                                    Cook & Kuhn (2021)                                                                 LLMs (models that have not undergone
+                                0                                   Effron (2022)                                                                      human feedback-based fine-tuning) are
+                                                                    Grizzard et al. (2021)                                                             more aligned with moderate, lower-in-
+                                -2                                  Mickelberg et al. (2022)                                                           come, and Protestant or Roman Catholic
+                                                                                                                                                       people [15]. `Silicon sampling' allows re-
+                    very        -4                                                                                                                     searchers to simulate a diverse population
+                       immoral                                                                                                                         of participants [11], but disparities in align-
+                                                                                                                                                       ment with specific groups can persist [15].
+                                    -4   -2  0  2            4
+
+                                  very                       very
+                                immoral                      moral
+
+                                    Average human moral judgment
+
+                                                                                                                         Trends in Cognitive Sciences  Perhaps most important is that any given
+                                                                                                                                                       LLM can act as only a single participant.
+Figure I. Comparing the moral judgments of humans versus GPT. Refs used in figure [5­9]                                                                Language models are trained on many
+                                                                                                                                                       people, but then tend to collapse the di-
+An obvious but noteworthy limitation is                      Specific research stage                                                                   versity of judgments into a single modal
+that LLMs are likely to be ill-suited for be-                Language models are likely to never fully                                                 opinion [15]. LLMs are better at approxi-
+havioral tasks. Researchers need human                       replace human participants but may sup-                                                   mating average human judgments than
+participants when they observe behaviors                     plement them at various research stages.                                                  they are at capturing variation [15], and un-
+like littering, gestures, crowd dynamics,                    First, language models may be useful in                                                   derstanding variability and individual differ-
+and intimacy in relationships. Many impor-                   idea generation and refinement, where re-                                                 ences in human cognition is key to
+tant phenomena are better captured by                        searchers are seeking to develop and fine-                                                understanding the human mind.
+behavior and not language. That said, the                    tune hypotheses. Researchers can test
+results of one of social psychology's                        dozens of half-baked ideas with language                                                  Caveats and looking ahead
+most famous behavioral studies ­ the                         models. Second, language models may                                                       The rise of AI language models may re-
+Milgram experiment ­ was replicated with                     help with item piloting. Researchers can                                                  place many jobs, but human participants
+a LLM [14].                                                  give LLMs different questions and see if                                                  are safe for now. Psychological scientists
+                                                                                                                                                       still need to plumb the depths of messy
+                                                                                                                                                       fleshy minds, instead of merely querying
+
+598 Trends in Cognitive Sciences, July 2023, Vol. 27, No. 7
+Trends in Cognitive Sciences
+
+Box 2. A model for thinking about AI as a participant                                                           could help us learn about human judg-
+Figure I depicts the human-mind-expression and LLM-mind-expression (Human-ME, LLM-ME) model of re-              ments. We encourage scientists to com-
+search. The human mind is what researchers seek to understand, often by using human expressions, includ-        pare simulated language model data with
+ing language, behavior, and judgments. The `minds' of language models are trained on vast amounts of            human data to see how aligned they are
+human expression, so their expressions can indirectly capture millions of human minds. Language models `ex-     across different domains and populations.
+press themselves' with words elicited by human queries.                                                         Just as language models like GPT may
+                                                                                                                help to give insight into human judgments,
+Psychological scientists often study the human mind via expressions, either on specifically designed instru-    comparing LLMs with human judgments
+ments (e.g., scenarios/tasks; Route 1) or by exploring naturalistic data (e.g., Tweets on social media; Route   can teach us about the machine minds of
+2). Language model expressions can be prompted by researchers, as when we gave GPT-3.5 moral scenar-            LLMs; for example, shedding light on
+ios (Route 3), or `naturalistically' by amassing large corpora of AI text generated across contexts (Route 4).  their ethical decision making.
+
+Like human minds, the minds of language models are opaque. Computer scientists understand the general           Lurking under the specific concerns about
+steps needed to build LLMs, but GPT-3.5 has over 175 billion machine learning parameters, making its cog-       the usefulness of AI language models as
+nitive architecture too complex to easily explain. We cannot be certain what goes on under the hood of LLMs     participants is an age-old question: can
+as they simulate participants, but their expressions appear to model human expressions of moral judgments       AI ever be human enough to replace
+with high accuracy.                                                                                             humans? On the one hand, critics might
+                                                                                                                argue that AI participants lack the rational-
+                        3. Psychometric              4. "Naturalisc"                                            ity of humans, making judgments that are
+                         instrument or               text responses                                             odd, unreliable, or biased. On the other
+                                                                                                                hand, humans are odd, unreliable, and bi-
+                            scenario                                                                            ased ­ and other critics might argue that AI
+                                                                                                                is just too sensible, reliable, and impartial.
+                 Human                           LLM                                                            What is the right mix of rational and irratio-
+                  mind                       expression                                                         nal to best capture a human participant?
+                                                                                                                Perhaps we should ask a big sample of
+  Human                 Training              LLM                                                               human participants to answer that ques-
+expression                                   "mind"                                                             tion. We could also ask GPT.
+
+                                                                                                                Declaration of interests
+
+                                                                                                                No interests are declared.
+
+1. Psychometric         2. Naturalisc                                                                           1University of North Carolina, Department of Psychology and
+ instrument or               data                                                                               Neuroscience, Chapel Hill, NC 27599-3270, USA
+                                                                                                                2Allen Institute for AI, Seattle, WA 98103, USA
+    scenario
+                                                                                                                *Correspondence:
+                                             Trends in Cognitive Sciences                                       kurtgray@unc.edu (K. Gray).
+                                                                                                                @Twitter: @kurtjgray
+Figure I. The human-mind-expression and large-language-model-mind-expression (Human-ME,                         https://doi.org/10.1016/j.tics.2023.04.008
+LLM-ME) model of research.
+                                                                                                                © 2023 Elsevier Ltd. All rights reserved.
+
+the silicon circuits of AI. However, lan-    in the probability of priors. Not only are                         References
+guage models may serve as a proxy for        the expressions of language models diffi-
+human participants in a certain set of cir-  cult to interpret, but they can also produce                        1. K. Gray, et aland artificial intelligence. In The handbook of
+cumstances.                                  `hallucinations' ­ outputs that appear                                  social psychology (6th edn) (Gilbert, D. et al., eds), Situa-
+                                             sensical but are inaccurate.                                            tional Press (in press)
+When incorporating data from language
+models, we should take a broadly Bayes-      Language models may be far from human,                              2. Korinek, A. (2023) Language models and cognitive
+ian perspective, with data from language     but they are trained on a tremendous cor-                               automation for economic research, National Bureau of
+models providing only a small adjustment     pus of human expression and thus they                                   Economic Research Published online February, 2023.
+                                                                                                                     https://doi.org/10.3386/w30957
+
+                                                                                                                 3. OpenAI, GPT-4 technical report. arXiv Published online
+                                                                                                                     March 15, 2023 https://arxiv.org/abs/2303.08774
+
+                                                                                                                 4. Russell, S. (2019) Human compatible: artificial intelligence
+                                                                                                                     and the problem of control, Penguin
+
+                                                                                                                Trends in Cognitive Sciences, July 2023, Vol. 27, No. 7 599
+                                                                      Trends in Cognitive Sciences
+
+5. Cook, W. and Kuhn, K.M. (2021) Off-duty deviance in the             9. Clifford, S. et al. (2015) Moral foundations vignettes: a         arXiv Published online January 18, 2023. https://doi.org/
+   eye of the beholder: implications of moral foundations the-             standardized stimulus database of scenarios based on             10.48550/arxiv.2301.07543
+   ory in the age of social media. J. Bus. Ethics 172, 605­620             moral foundations theory. Behavior Res. Methods 47,         13. Binz, M. and Schulz, E. (2023) Using cognitive psychology
+                                                                           1178­1198                                                        to understand GPT-3. Proc. Natl Acad. Sci. U.S. A. 120,
+6. Effron, D.A. (2022) The moral repetition effect: bad deeds                                                                               e2218523120
+   seem less unethical when repeatedly encountered.                   10. Schramowski, P. et al. (2022) Large pre-trained language     14. Aher, G. et al. (2023) Using large language models to sim-
+   J. Exp. Psychol. Gen. 151, 2562                                         models contain human-like biases of what is right and            ulate multiple humans and replicate human subject studies.
+                                                                           wrong to do. Nat. Mach. Intell. 4, 258­268                       arXiv Published online August 18, 2022. https://doi.org/10.
+7. Mickelberg, A. et al. (2022) Impression formation stimuli: a cor-                                                                        48550/arxiv.2208.10264
+   pus of behavior statements rated on morality, competence, in-      11. Argyle, L.P. et al. (2023) Out of one, many: using language  15. Santurkar, S. et al. (2023) Whose opinions do language
+   formativeness, and believability. PLoS One 17, e0269393                 models to simulate human samples. Polit. Anal. Published         models reflect? arXiv Published online March 30, 2023.
+                                                                           online February 21, 2023. https://doi.org/10.1017/pan.           https://doi.org/10.48550/arxiv.2303.17548
+8. Grizzard, M. et al. (2021) Do audiences judge the morality              2023.2
+   of characters relativistically? How interdependence affects
+   perceptions of characters' temporal moral descent. Hum.            12. Horton, J.J. (2023) Large language models as simulated
+   Commun. Res. 47, 338­363                                                economic agents: what can we learn from Homo silicus?
+
+600 Trends in Cognitive Sciences, July 2023, Vol. 27, No. 7
+

@@ -1,0 +1,452 @@
+                                                                                                          SEE CORRECTION FOR THIS ARTICLE
+
+                                                                                                          Measuring the predictability of life outcomes with
+                                                                                                          a scientific mass collaboration
+
+                                                                                                          Matthew J. Salganika,1, Ian Lundberga , Alexander T. Kindela, Caitlin E. Ahearnb, Khaled Al-Ghoneimc,
+                                                                                                          Abdullah Almaatouqd,e , Drew M. Altschulf , Jennie E. Brandb,g, Nicole Bohme Carnegieh , Ryan James Comptoni,
+                                                                                                          Debanjan Dattaj, Thomas Davidsonk, Anna Filippoval, Connor Gilroym, Brian J. Gooden, Eaman Jahanio,
+                                                                                                          Ridhi Kashyapp,q,r , Antje Kirchners, Stephen McKayt , Allison C. Morganu , Alex Pentlande, Kivan Polimisv,
+                                                                                                          Louis Raesw , Daniel E. Rigobonx, Claudia V. Robertsy, Diana M. Stanescuz, Yoshihiko Suharae, Adaner Usmaniaa,
+                                                                                                          Erik H. Wangz, Muna Adembb, Abdulla Alhajricc, Bedoor AlSheblidd, Redwane Aminee, Ryan B. Amosy, Lisa P. Argyleff ,
+                                                                                                          Livia Baer-Bositisgg, Moritz Bu¨ chihh , Bo-Ryehn Chungii, William Eggertjj, Gregory Falettokk, Zhilin Fanll,
+                                                                                                          Jeremy Freesegg, Tejomay Gadgilmm, Josh Gagne´ gg, Yue Gaonn, Andrew Halpern-Mannersbb, Sonia P. Hashimy,
+                                                                                                          Sonia Hausengg, Guanhua Heoo, Kimberly Higueragg, Bernie Hoganpp, Ilana M. Horwitzqq, Lisa M. Hummelgg,
+                                                                                                          Naman Jainx, Kun Jinrr , David Jurgensss, Patrick Kaminskibb,tt, Areg Karapetyanuu,vv, E. H. Kimgg, Ben Leizmany,
+                                                                                                          Naijia Liuz, Malte Mo¨ sery, Andrew E. Mackz, Mayank Mahajany, Noah Mandellww, Helge Marahrensbb,
+                                                                                                          Diana Mercado-Garciaqq, Viola Moczxx, Katariina Mueller-Gastellgg, Ahmed Musseyy, Qiankun Niuee, William Nowakzz,
+                                                                                                          Hamidreza Omidvaraaa, Andrew Ory, Karen Ouyangy, Katy M. Pintobbb, Ethan Porterccc, Kristin E. Porterddd,
+                                                                                                          Crystal Qiany, Tamkinat Raufgg, Anahit Sargsyaneee, Thomas Schaffnery, Landon Schnabelgg, Bryan Schonfeldz,
+                                                                                                          Ben Senderfff, Jonathan D. Tangy, Emma Tsurkovgg, Austin van Loongg, Onur Varolggg,hhh , Xiafei Wangiii, Zhi Wanghhh,jjj,
+                                                                                                          Julia Wangy, Flora Wangfff, Samantha Weissmany, Kirstie Whitakerkkk,lll, Maria K. Woltersmmm, Wei Lee Woonnnn,
+                                                                                                          James Wuooo, Catherine Wuy, Kengran Yangaaa, Jingwen Yinll, Bingyu Zhaoppp, Chenyun Zhull, Jeanne Brooks-Gunnqqq,rrr,
+                                                                                                          Barbara E. Engelhardty,ii, Moritz Hardtsss, Dean Knoxz, Karen Levyttt, Arvind Narayanany, Brandon M. Stewarta,
+                                                                                                          Duncan J. Wattsuuu,vvv,www , and Sara McLanahana,1
+
+                                                                                                          Contributed by Sara McLanahan, January 24, 2020 (sent for review October 1, 2019; reviewed by Sendhil Mullainathan and Brian Uzzi)
+
+Downloaded from https://www.pnas.org by Eisuke Tokiwa on April 25, 2026 from IP address 210.157.193.185.  How predictable are life trajectories? We investigated this ques-       dictions are then evaluated with the exact same error metric that
+                                                                                                          tion with a scientific mass collaboration using the common task         exclusively assesses their ability to predict held-out data: data
+                                                                                                          method; 160 teams built predictive models for six life outcomes         that are held by the organizer and not available to participants.
+                                                                                                          using data from the Fragile Families and Child Wellbeing Study, a       Although the structure of the prediction task is completely stan-
+                                                                                                          high-quality birth cohort study. Despite using a rich dataset and       dardized, participants are free to use any technique to generate
+                                                                                                          applying machine-learning methods optimized for prediction, the         predictions.
+                                                                                                          best predictions were not very accurate and were only slightly
+                                                                                                          better than those from a simple benchmark model. Within each               The common task method produces credible estimates of
+                                                                                                          outcome, prediction error was strongly associated with the family       predictability because of its design. If predictability is higher
+                                                                                                          being predicted and weakly associated with the technique used           than expected, the results cannot be dismissed because of con-
+                                                                                                          to generate the prediction. Overall, these results suggest practical    cerns about overfitting (7) or researcher degrees of freedom (8).
+                                                                                                          limits to the predictability of life outcomes in some settings and      Alternatively, if predictability is lower than expected, the results
+                                                                                                          illustrate the value of mass collaborations in the social sciences.     cannot be dismissed because of concerns about the limitations
+
+                                                                                                          life course | prediction | machine learning | mass collaboration        Author contributions: M.J.S., I.L., A.T.K., J.B.-G., B.E.E., M.H., K.L., A.N., B.M.S., D.J.W., and
+                                                                                                                                                                                  S. McLanahan designed research; M.J.S., I.L., A.T.K., C.E.A., K.A.-G., A. Almaatouq, D.M.A.,
+                                                                                                          S ocial scientists studying the life course have described social       J.E.B., N.B.C., R.J.C., D.D., T.D., A.F., C.G., B.J.G., E.J., R.K., A. Kirchner, S. McKay, A.C.M.,
+                                                                                                              patterns, theorized factors that shape outcomes, and esti-          A.P., K.P., L.R., D.E.R., C.V.R., D.M.S., Y.S., A.U., E.H.W., M.A., A. Alhajri, B.A., R.A., R.B.A.,
+                                                                                                          mated causal effects. Although this research has advanced sci-          L.P.A., L.B.-B., M.B., B.-R.C., W.E., G.F., Z.F., J.F., T.G., J.G., Y.G., A.H.-M., S.P.H., S.H., G.H.,
+                                                                                                          entific understanding and informed policy interventions, it is          K.H., B.H., I.M.H., L.M.H., N.J., K.J., D.J., P.K., A. Karapetyan, E.H.K., B.L., N.L., M. Mo¨ ser,
+                                                                                                          unclear how much it translates into an ability to predict indi-         A.E.M., M. Mahajan, N.M., H.M., D.M.-G., V.M., K.M.-G., A.M., Q.N., W.N., H.O., A.O.,
+                                                                                                          vidual life outcomes. Assessing predictability is important for         K.O., K.M.P., E.P., K.E.P., C.Q., T.R., A.S., T.S., L.S., B. Schonfeld, B. Sender, J.D.T., E.T., A.v.L.,
+                                                                                                          three reasons. First, accurate predictions can be used to target        O.V., X.W., Z.W., J. Wang, F.W., S.W., K.W., M.K.W., W.L.W., J. Wu, C.W., K.Y., J.Y., B.Z.,
+                                                                                                          assistance to children and families at risk (1, 2). Second, pre-        and C.Z. analyzed data; and M.J.S., I.L., A.T.K., D.K., and S. McLanahan wrote the paper.y
+                                                                                                          dictability of a life outcome from a person's life trajectory can
+                                                                                                          indicate social rigidity (3), and efforts to understand differences     Reviewers: S.M., University of Chicago; and B.U., Northwestern University.y
+                                                                                                          in predictability across social contexts can stimulate scientific dis-
+                                                                                                          covery and improve policy-making (4). Finally, efforts to improve       Competing interest statement: B.E.E. is on the scientific advisory boards of Celsius Ther-
+                                                                                                          predictive performance can spark developments in theory and             apeutics and Freenome, is currently employed by Genomics plc and Freenome, and is on
+                                                                                                          methods (5).                                                            a year leave-of-absence from Princeton University.y
+
+                                                                                                             In order to measure the predictability of life outcomes for          This open access article is distributed under Creative Commons Attribution-NonCommercial-
+                                                                                                          children, parents, and households, we created a scientific mass         NoDerivatives License 4.0 (CC BY-NC-ND).y
+                                                                                                          collaboration. Our mass collaboration--the Fragile Families
+                                                                                                          Challenge--used a research design common in machine learn-              Data deposition: Predictions, code, and narrative explanations for valid submis-
+                                                                                                          ing but not yet common in the social sciences: the common task          sions to the Fragile Families Challenge and code to reproduce the results of this
+                                                                                                          method (6). To create a project using the common task method,           paper are available from Dataverse at https://doi.org/10.7910/DVN/CXSECU. Data used
+                                                                                                          an organizer designs a prediction task and then recruits a large,       in the Fragile Families Challenge are currently available to approved researchers
+                                                                                                          diverse group of researchers who complete the task by predicting        from the Princeton University Office of Population Research Data Archive at https://
+                                                                                                          the exact same outcomes using the exact same data. These pre-           opr.princeton.edu/archive/.y
+
+                                                                                                                                                                                  See online for related content such as Commentaries.y
+
+                                                                                                                                                                                  1 To whom correspondence may be addressed. Email: mjs3@princeton.edu or mclanaha@
+                                                                                                                                                                                   princeton.edu.y
+
+                                                                                                                                                                                  This article contains supporting information online at https://www.pnas.org/lookup/suppl/
+                                                                                                                                                                                  doi:10.1073/pnas.1915006117/-/DCSupplemental.y
+
+                                                                                                                                                                                  First published March 30, 2020.
+
+                                                                                                          8398­8403 | PNAS | April 14, 2020 | vol. 117 | no. 15                   www.pnas.org/cgi/doi/10.1073/pnas.1915006117
+Significance
+
+  Hundreds of researchers attempted to predict six life out-Downloaded from https://www.pnas.org by Eisuke Tokiwa on April 25, 2026 from IP address 210.157.193.185.                                                                                                              Fig. 1. Data collection modules in the Fragile Families study. Each module
+  comes, such as a child's grade point average and whether a                                                                                                                                                                                                                      is made up of 10 sections, where each section includes questions about
+  family would be evicted from their home. These researchers                                                                                                                                                                                                       SOCIAL SCIENCESa specific topic (e.g., marriage attitudes, family characteristics, demographic
+  used machine-learning methods optimized for prediction, and                                                                                                                                                                                                                     characteristics). Information about the topics included in each module is pre-
+  they drew on a vast dataset that was painstakingly collected                                                                                                                                                                                                                    sented in SI Appendix, section S1.1. During the Fragile Families Challenge,
+  by social scientists over 15 y. However, no one made very accu-                                                                                                                                                                                                                 data from waves 1 to 5 (birth to age 9 y) were used to predict outcomes in
+  rate predictions. For policymakers considering using predictive                                                                                                                                                                                                                 wave 6 (age 15 y).
+  models in settings such as criminal justice and child-protective
+  services, these results raise a number of concerns. Addition-                                                                                                                                                                                                                   makes it possible to release some cases for building predic-
+  ally, researchers must reconcile the idea that they understand                                                                                                                                                                                                                  tive models while withholding others for evaluating the resulting
+  life trajectories with the fact that none of the predictions were                                                                                                                                                                                                               predictions.
+  very accurate.
+                                                                                                                                                                                                                                                                                     Wave 6 (age 15 y) of the Fragile Families study includes 1,617
+of any particular researcher or method. An additional bene-                                                                                                                                                                                                                       variables. From these variables, we selected six outcomes to be
+fit of the common task method is that the standardization of                                                                                                                                                                                                                      the focus of the Fragile Families Challenge: 1) child grade point
+the prediction task facilitates comparisons between different                                                                                                                                                                                                                     average (GPA), 2) child grit, 3) household eviction, 4) household
+methodological and theoretical approaches.                                                                                                                                                                                                                                        material hardship, 5) primary caregiver layoff, and 6) primary
+                                                                                                                                                                                                                                                                                  caregiver participation in job training. We selected these out-
+   Our mass collaboration builds on a long-running, intensive                                                                                                                                                                                                                     comes for many reasons, three of which were to include different
+data collection: the Fragile Families and Child Wellbeing Study                                                                                                                                                                                                                   types of variables (e.g., binary and continuous), to include a vari-
+(hereafter the Fragile Families study). In contrast to government                                                                                                                                                                                                                 ety of substantive topics (e.g., academics, housing, employment),
+administrative records and digital trace data that are often used                                                                                                                                                                                                                 and to include a variety of units of analysis (e.g., child, household,
+for prediction, these data were created to enable social science                                                                                                                                                                                                                  primary caregiver). All outcomes are based on self-reported
+research. The ongoing study collects rich longitudinal data about                                                                                                                                                                                                                 data. SI Appendix, section S1.1 describes how each outcome was
+thousands of families, each of whom gave birth to a child in a                                                                                                                                                                                                                    measured in the Fragile Families study.
+large US city around the year 2000 (9). The study was designed
+to understand families formed by unmarried parents and the lives                                                                                                                                                                                                                     In order to predict these outcomes, participants had access
+of children born into these families.                                                                                                                                                                                                                                             to a background dataset, a version of the wave 1 to 5 (birth to
+                                                                                                                                                                                                                                                                                  age 9 y) data that we compiled for the Fragile Families Chal-
+   The Fragile Families data--which have been used in more                                                                                                                                                                                                                        lenge. For privacy reasons, the background data excluded genetic
+than 750 published journal articles (10)--were collected in six                                                                                                                                                                                                                   and geographic information (11). The background data included
+waves: child birth and ages 1, 3, 5, 9, and 15. Each wave includes                                                                                                                                                                                                                4,242 families and 12,942 variables about each family. The large
+a number of different data collection modules. For example, the                                                                                                                                                                                                                   number of predictor variables is the result of the intensive and
+first wave (birth) includes survey interviews with the mother and                                                                                                                                                                                                                 long-term data collection involved in the Fragile Families study.
+father. Over time, the scope of data collection increased, and the                                                                                                                                                                                                                In addition to the background data, participants in the Fragile
+fifth wave (age 9 y) includes survey interviews with the mother,                                                                                                                                                                                                                  Families Challenge also had access to training data that included
+the father, the child's primary caregiver (if not the mother or                                                                                                                                                                                                                   the six outcomes for half of the families (Fig. 2). Similar to other
+father), the child's teacher, and the child (Fig. 1).                                                                                                                                                                                                                             projects using the common task method, the task was to use data
+                                                                                                                                                                                                                                                                                  collected in waves 1 to 5 (birth to age 9 y) and some data from
+   Each data collection module is made up of 10 sections,                                                                                                                                                                                                                         wave 6 (age 15 y) to build a model that could then be used to
+where each section includes questions about a specific topic.                                                                                                                                                                                                                     predict the wave 6 (age 15 y) outcomes for other families. The
+For example, the interview with the mother in wave 1 (birth)                                                                                                                                                                                                                      prediction task was not to forecast outcomes in wave 6 (age 15 y)
+has sections about the following topics: child health and devel-                                                                                                                                                                                                                  using only data collected in waves 1 to 5 (birth to age 9 y), which
+opment, father­mother relationships, fatherhood, marriage atti-                                                                                                                                                                                                                   would be more difficult.
+tudes, relationship with extended kin, environmental factors
+and government programs, health and health behavior, demo-                                                                                                                                                                                                                           The half of the outcome data that was not available for train-
+graphic characteristics, education and employment, and income.                                                                                                                                                                                                                    ing was used for evaluation. These data were split into two
+The interview with the child in wave 5 (age 9 y) has questions                                                                                                                                                                                                                    sets: leaderboard and holdout. During the Fragile Families Chal-
+about the following topics: parental supervision and relation-                                                                                                                                                                                                                    lenge, participants could assess their predictive accuracy in the
+ship, parental discipline, sibling relationships, routines, school,                                                                                                                                                                                                               leaderboard set. However, predictive accuracy in the holdout
+early delinquency, task completion and behavior, and health                                                                                                                                                                                                                       set was unknown to participants--and organizers--until the end
+and safety.
+
+   In addition to the surveys, interviewers traveled to the child's
+home at waves 3, 4, and 5 (ages 3, 5, and 9 y) to conduct
+an in-home assessment that included psychometric testing (e.g.,
+Peabody Picture Vocabulary Test, Woodcock­Johnson Pas-
+sage Comprehension Test, etc.), biometric measurements (e.g.,
+height, weight, etc.), and observations of the neighborhood and
+home. More information about the Fragile Families data are
+included in SI Appendix, section S1.1.
+
+   When we began designing the Fragile Families Challenge,
+data from waves 1 to 5 (birth to age 9 y) were already avail-
+able to researchers. However, data from wave 6 (age 15 y)
+were not yet available to researchers outside of the Fragile Fam-
+ilies team. This moment where data have been collected but
+are not yet available to outside researchers--a moment that
+exists in all longitudinal surveys--creates an opportunity to run a
+mass collaboration using the common task method. This setting
+
+Salganik et al.                                                                                                                                                                                                                                                                   PNAS | April 14, 2020 | vol. 117 | no. 15 | 8399
+                                                                                                          Fig. 2. Datasets in the Fragile Families Challenge. During the Fragile Fam-                                                  submission was uploaded, participants could see their score on
+                                                                                                          ilies Challenge, participants used the background data (measured from                                                        a leaderboard, which ranked the accuracy of all uploaded pre-
+                                                                                                          child's birth to age 9 y) and the training data (measured at child age 15 y)                                                 dictions in the leaderboard data (14). In order to take part in the
+                                                                                                          to predict the holdout data as accurately as possible. While the Fragile                                                     mass collaboration, all participants provided informed consent
+                                                                                                          Families Challenge was underway, participants could assess the accuracy                                                      to the procedures of the Fragile Families Challenge, including
+                                                                                                          of their predictions in the leaderboard data. At the end of the Frag-                                                        agreeing to open-source their final submissions (SI Appendix,
+                                                                                                          ile Families Challenge, we assessed the accuracy of the predictions in the                                                   section S1.3). All procedures for the Fragile Families Challenge
+                                                                                                          holdout data.                                                                                                                were approved by the Princeton University Institutional Review
+                                                                                                                                                                                                                                       Board (no. 8061).
+                                                                                                          of the Fragile Families Challenge. All predictions were evalu-
+                                                                                                          ated based on a common error metric: mean squared error (SI                                                                     As noted above, participants in the Fragile Families Challenge
+                                                                                                          Appendix, section S1.2). SI Appendix, section S1.1 includes more                                                             attempted to minimize the mean squared error of their predic-
+                                                                                                          information about the background, training, leaderboard, and                                                                 tions on the holdout data. To aid interpretation and facilitate
+                                                                                                          holdout data.                                                                                                                comparison across the six outcomes, we present results in terms
+                                                                                                                                                                                                                                       of RH2 oldout, which rescales the mean squared error of a predic-
+                                                                                                             We recruited participants to the Fragile Families Challenge                                                               tion by the mean squared error when predicting the mean of the
+                                                                                                          through a variety of approaches including contacting colleagues,                                                             training data (SI Appendix, section S1.2).
+                                                                                                          working with faculty who wanted their students to participate,
+                                                                                                          and visiting universities, courses, and scientific conferences to                                                                                          RH2 oldout = 1 -                          iHoldout (yi                                         - y^i )2       .                [1]
+                                                                                                          host workshops to help participants get started. Ultimately, we                                                                                                                                    Holdout (yi -                                          y¯Training )2
+                                                                                                          received 457 applications to participate from researchers in a                                                                                                                                  i
+                                                                                                          variety of fields and career stages (SI Appendix, section S1.3).
+                                                                                                          Participants often worked in teams. We ultimately received                                                                   RH2 oldout is bounded above by 1 and has no lower bound. It
+                                                                                                          valid submissions from 160 teams. Many of these teams used                                                                   provides a measure of predictive performance relative to two ref-
+                                                                                                          machine-learning methods that are not typically used in social                                                               erence points. A submission with RH2 oldout = 0 is no more accurate
+                                                                                                          science research and that explicitly seek to maximize predictive                                                             than predicting the mean of the training data, and a submission
+                                                                                                          accuracy (12, 13).                                                                                                           with RH2 oldout = 1 is perfectly accurate.
+
+Downloaded from https://www.pnas.org by Eisuke Tokiwa on April 25, 2026 from IP address 210.157.193.185.     While the Fragile Families Challenge was underway (March 5,                                                               Results
+                                                                                                          2017 to August 1, 2017), participants could upload their submis-
+                                                                                                          sions to the Fragile Families Challenge website. Each submission                                                             Once the Fragile Families Challenge was complete, we scored all
+                                                                                                          included predictions, the code that generated those predic-                                                                  160 submissions using the holdout data. We discovered that even
+                                                                                                          tions, and a narrative explanation of the approach. After the                                                                the best predictions were not very accurate: RH2 oldout of about
+                                                                                                                                                                                                                                       0.2 for material hardship and GPA and about 0.05 for the other
+                                                                                                                                                                                                                                       four outcomes (Fig. 3). In other words, even though the Fragile
+                                                                                                                                                                                                                                       Families data included thousands of variables collected to help
+                                                                                                                                                                                                                                       scientists understand the lives of these families, participants were
+                                                                                                                                                                                                                                       not able to make accurate predictions for the holdout cases. Fur-
+                                                                                                                                                                                                                                       ther, the best submissions, which often used complex machine-
+                                                                                                                                                                                                                                       learning methods and had access to thousands of predictor vari-
+                                                                                                                                                                                                                                       ables, were only somewhat better than the results from a simple
+                                                                                                                                                                                                                                       benchmark model that used linear regression (continuous out-
+                                                                                                                                                                                                                                       comes) or logistic regression (binary outcomes) with four predic-
+                                                                                                                                                                                                                                       tor variables selected by a domain expert: three variables about
+                                                                                                                                                                                                                                       the mother measured at the child's birth (race/ethnicity, marital
+                                                                                                                                                                                                                                       status, and education level) and a measure of the outcome--or
+
+                                                                                                             A Best submission for each outcome                                           B Material hardship                                            C GPA                                                                D Grit
+
+                                                                                                                    1.00                                                                                                                                              Benchmark                                                           Benchmark
+                                                                                                                                                                                                                                                             4                                                                   4
+                                                                                                                                                                                                              Benchmark         Best submission                                                           Best submission                                                      Best submission
+                                                                                                                                                                                                      1
+
+                                                                                                                       0.75                                                               Prediction                                                     Prediction                                                           Prediction
+
+                                                                                                                                                                                                      0                                                              1                                                                    1
+
+                                                                                                                                                                                                         0                      10                    1                 1                      41                    4                       1                                 41         4
+
+                                                                                                             2         0.50                                                                                                     Truth                                                          Truth                                                                Truth
+                                                                                                              Holdout
+                                                                                                          R
+
+                                                                                                                                  0.23                                                    E Eviction                                          F                                             Job training                      G Layoff
+                                                                                                                       0.25
+                                                                                                                                         0.19                                                            Benchmark                  Best submission                                            Benchmark Best submission                                            Benchmark      Best submission
+
+                                                                                                                                 Line          0.06  0.05               0.05                          Event did Event                                                Event did Event                                                      Event did Event
+                                                                                                                              indicates                                                                  not occur occurred                                             not occur occurred                                                   not occur occurred
+                                                                                                                             benchmark                                            0.03
+
+                                                                                                                       0.00
+
+                                                                                                                             Material    GPA   Grit  Eviction           Job       Layoff
+                                                                                                                             hardship
+                                                                                                                                                                        training                                             0  10                    1                                     0  10                          1                                     0             10               1
+
+                                                                                                                                                                                                                                Density of predicted                                           Density of predicted                                                 Density of predicted
+
+                                                                                                                                               Outcome at child age 15                                                          probability of event                                           probability of event                                                 probability of event
+
+                                                                                                          Fig. 3. Performance in the holdout data of the best submissions and a four variable benchmark model (SI Appendix, section S2.2). A shows the best
+                                                                                                          performance (bars) and a benchmark model (lines). Error bars are 95% confidence intervals (SI Appendix, section S2.1). B­D compare the predictions and
+                                                                                                          the truth; perfect predictions would lie along the diagonal. E­G show the predicted probabilities for cases where the event happened and where the event
+                                                                                                          did not happen. In B­G, the dashed line is the mean of the training data for that outcome.
+
+                                                                                                          8400 | www.pnas.org/cgi/doi/10.1073/pnas.1915006117                                                                                                                                                                                                                         Salganik et al.
+                                                                                                                           A Material hardship                              Squared error
+                                                                                                                                                                                               0.0 0.1 0.2 0.3 0.4 0.5
+
+                                                                                                                           Team
+
+                                                                                                                           B GPA                                            Family
+
+                                                                                                                                                                                  Squared error
+                                                                                                                                                                                                       012345
+
+                                                                                                                           Team
+
+                                                                                                                           C GritTeam                                       Family                                                                                         SOCIAL SCIENCES
+                                                                                                                           D Eviction                                             Squared error
+                                                                                                                                                                                                       012345
+
+                                                                                                                                                                            Family
+                                                                                                                                                                                  Squared error
+                                                                                                                                                                                                     0.00 0.25 0.50 0.75 1.00
+
+Downloaded from https://www.pnas.org by Eisuke Tokiwa on April 25, 2026 from IP address 210.157.193.185.                   Team
+
+                                                                                                                           E Job training                                   Family
+
+                                                                                                                                                                                  Squared error
+                                                                                                                                                                                                     0.00 0.25 0.50 0.75 1.00
+
+                                                                                                                           Team
+
+                                                                                                                           F Layoff                                         Family
+                                                                                                                                                                                  Squared error
+
+                                                                                                                                                                                                 0.25 0.50 0.75
+
+                                                                                                                           Team
+
+                                                                                                                                                                                                           Family
+
+                                                                                                          Fig. 4. Heatmaps of the squared prediction error for each observation in the holdout data. Within each heatmap, each row represents a team that made
+                                                                                                          a qualifying submission (sorted by predictive accuracy), and each column represents a family (sorted by predictive difficulty). Darker colors indicate higher
+                                                                                                          squared error; scales are different across subfigures; order of rows and columns are different across subfigures. The hardest-to-predict observations tend to
+                                                                                                          be those that are very different from the mean of the training data, such as children with unusually high or low GPAs (SI Appendix, section S3). This pattern
+                                                                                                          is particularly clear for the three binary outcomes--eviction, job training, layoff--where the errors are large for families where the event occurred and small
+                                                                                                          for the families where it did not.
+
+                                                                                                          a closely related proxy--measured when the child was 9 y          mates of the performance of the selected submission in new
+                                                                                                          (Fig. 3) (SI Appendix, section S2.2). Finally, we note that our   holdout data, but this optimistic bias is likely small in our setting
+                                                                                                          procedure--using the holdout data to select the best of the 160   (SI Appendix, section S2.4).
+                                                                                                          submissions and then using the same holdout data to evaluate
+                                                                                                          that selected submission--will produce slightly optimistic esti-     Beyond identifying the best submissions, we observed three
+                                                                                                                                                                            important patterns in the set of submissions. First, teams used
+
+                                                                                                          Salganik et al.                                                                        PNAS | April 14, 2020 | vol. 117 | no. 15 | 8401
+Downloaded from https://www.pnas.org by Eisuke Tokiwa on April 25, 2026 from IP address 210.157.193.185.  a variety of different data processing and statistical learning       ficult to predict even with high-quality data. Insights for how to
+                                                                                                          techniques to generate predictions (SI Appendix, section S4).         construct such theories may come from research on the weather
+                                                                                                          Second, despite diversity in techniques, the resulting predictions    (17), the stock market (18), and other phenomena (19­22) where
+                                                                                                          were quite similar. For all outcomes, the distance between the        unpredictability is an object of study.
+                                                                                                          most divergent submissions was less than the distance between
+                                                                                                          the best submission and the truth (SI Appendix, section S3). In          Policymakers using predictive models in settings such as crim-
+                                                                                                          other words, the submissions were much better at predicting           inal justice (23) and child-protective services (24) should be
+                                                                                                          each other than at predicting the truth. The similarities across      concerned by these results. In addition to the many serious
+                                                                                                          submissions meant that our attempts to create an ensemble of          legal and ethical questions raised by using predictive models
+                                                                                                          predictions did not yield a substantial improvement in predictive     for decision-making (23­26), the results of the Fragile Families
+                                                                                                          accuracy (SI Appendix, section S2.5). Third, many observations        Challenge raise questions about the absolute level of predic-
+                                                                                                          (e.g., the GPA of a specific child) were accurately predicted by      tive performance that is possible for some life outcomes, even
+                                                                                                          all teams, whereas a few observations were poorly predicted by        with a rich dataset. Further, the results raise questions about
+                                                                                                          all teams (Fig. 4). Thus, within each outcome, squared predic-        the relative performance of complex machine-learning mod-
+                                                                                                          tion error was strongly associated with the family being predicted    els compared with simple benchmark models (26, 27). In the
+                                                                                                          and weakly associated with the technique used to generate the         Fragile Families Challenge, the simple benchmark model with
+                                                                                                          prediction (SI Appendix, section S3).                                 only a few predictors was only slightly worse than the most
+                                                                                                                                                                                accurate submission, and it actually outperformed many of the
+                                                                                                          Discussion                                                            submissions (SI Appendix, section S2.2). Therefore, before using
+                                                                                                                                                                                complex predictive models, we recommend that policymakers
+                                                                                                          The Fragile Families Challenge provides a credible estimate of        determine whether the achievable level of predictive accuracy is
+                                                                                                          the predictability of life outcomes in this setting. Because of the   appropriate for the setting where the predictions will be used,
+                                                                                                          design of the Fragile Families Challenge, low predictive accuracy     whether complex models are more accurate than simple mod-
+                                                                                                          cannot easily be attributed to the limitations of any particu-        els or domain experts in their setting (26­28), and whether
+                                                                                                          lar researcher or approach; hundreds of researchers attempted         possible improvement in predictive performance is worth the
+                                                                                                          the task, and none could predict accurately. However, the Frag-       additional costs to create, test, and understand the more com-
+                                                                                                          ile Families Challenge speaks directly to the predictability of       plex model (26). Ideally, these assessments would be carried
+                                                                                                          life outcomes in only one setting: six specific outcomes, as pre-     out with government administrative data used in policy set-
+                                                                                                          dicted by a particular set of variables measured by a single study    tings because the properties of these data likely differ from the
+                                                                                                          for a particular group of people. Predictability is likely to vary    properties of the Fragile Families data, but legal and privacy
+                                                                                                          across settings, such as for different outcomes, over different       issues make it difficult for researchers to access many types of
+                                                                                                          time gaps between the predictors and outcomes, using different        administrative data (29).
+                                                                                                          data sources, and for other social groups (SI Appendix, section
+                                                                                                          S5). Nonetheless, the results in this specific setting have implica-     In addition to providing estimates of predictability in a sin-
+                                                                                                          tions for scientists and policymakers, and they suggest directions    gle setting, the Fragile Families Challenge also provides the
+                                                                                                          for future research.                                                  building blocks for future research about the predictability of
+                                                                                                                                                                                life outcomes more generally. The predictions and open-sourced
+                                                                                                             Social scientists studying the life course must find a way         submissions from participants provide a data source for future
+                                                                                                          to reconcile a widespread belief that understanding has been          study with the Fragile Families sample (SI Appendix, section S6).
+                                                                                                          generated by these data--as demonstrated by more than 750             The Fragile Families Challenge also provides a template for one
+                                                                                                          published journal articles using the Fragile Families data (10)--     type of mass collaboration in the social sciences (30, 31). There
+                                                                                                          with the fact that the very same data could not yield accurate        are currently many longitudinal studies happening around the
+                                                                                                          predictions of these important outcomes. Reconciling this under-      world, all with different study populations, measurement charac-
+                                                                                                          standing/prediction paradox is possible in at least three ways.       teristics, and research goals. Each of these studies could serve as
+                                                                                                          First, if one measures our degree of understanding by our abil-       the basis for a mass collaboration similar to the Fragile Families
+                                                                                                          ity to predict (8, 15), then the results of the Fragile Families      Challenge. Progress made in these future mass collaborations
+                                                                                                          Challenge suggest that our understanding of child development         might also reveal other social research problems that we can
+                                                                                                          and the life course is actually quite poor. Second, one can argue     solve better collectively than individually.
+                                                                                                          that prediction is not a good measure of understanding and
+                                                                                                          that understanding can come from description or causal infer-         ACKNOWLEDGMENTS. We thank the Fragile Families Challenge Board of
+                                                                                                          ence. For example, in the study of racial disparities, researchers    Advisors for guidance and T. Hartshorne for research assistance. This study
+                                                                                                          may build understanding by carefully describing the black­white       was supported by the Russell Sage Foundation, NSF Grant 1760052, and
+                                                                                                          wealth gap (16), even if they are not able to accurately predict      Eunice Kennedy Shriver National Institute of Child Health and Human Devel-
+                                                                                                          the wealth of any individual. Third, one can conclude that the        opment (NICHD) Grant P2-CHD047879. Funding for the Fragile Families
+                                                                                                          prior understanding is correct but incomplete because it lacks        and Child Wellbeing Study was provided by NICHD Grants R01-HD36916,
+                                                                                                          theories that explain why we should expect outcomes to be dif-        R01-HD39135, and R01-HD40421; and a consortium of private foundations,
+                                                                                                                                                                                including the Robert Wood Johnson Foundation (see also SI Appendix,
+                                                                                                                                                                                section S8.2).
+
+                                                                                                          aDepartment of Sociology, Princeton University, Princeton, NJ 08544; bDepartment of Sociology, University of California, Los Angeles, CA 90095; cHawaz,
+                                                                                                          Riyadh 12363, Saudi Arabia; dSloan School of Management, Massachusetts Institute of Technology, Cambridge, MA 02142; eMedia Lab, Massachusetts
+                                                                                                          Institute of Technology, Cambridge, MA 02139; fMental Health Data Science Scotland, Department of Psychology, The University of Edinburgh, Edinburgh
+                                                                                                          EH8 9JZ, United Kingdom; gDepartment of Statistics, University of California, Los Angeles, CA 90095; hDepartment of Mathematical Sciences, Montana
+                                                                                                          State University, Bozeman, MT 59717; iHuman Computer Interaction Lab, University of California, Santa Cruz, CA 95064; jDiscovery Analytics Center, Virginia
+                                                                                                          Polytechnic Institute and State University, Arlington, VA 22203; kDepartment of Sociology, Cornell University, Ithaca, NY 14853; lGitHub, San Francisco,
+                                                                                                          CA 94107; mDepartment of Sociology, University of Washington, Seattle, WA 98105; nSocial and Decision Analytics Laboratory, Fralin Life Sciences Institute,
+                                                                                                          Virginia Polytechnic Institute and State University, Arlington, VA 22203; oInstitute for Data, Systems and Society, Massachusetts Institute of Technology,
+                                                                                                          Cambridge, MA 02139; pDepartment of Sociology, University of Oxford, Oxford OX1 1JD, United Kingdom; qNuffield College, University of Oxford, Oxford
+                                                                                                          OX1 1NF, United Kingdom; rSchool of Anthropology and Museum Ethnography, University of Oxford, Oxford OX2 6PE, United Kingdom; sProgram for
+                                                                                                          Research in Survey Methodology, Survey Research Division, RTI International, Research Triangle Park, NC 27709; tSchool of Social and Political Sciences,
+                                                                                                          University of Lincoln, Brayford Pool, Lincoln LN6 7TS, United Kingdom; uDepartment of Computer Science, University of Colorado, Boulder, CO 80309;
+                                                                                                          vCenter for the Study of Demography and Ecology, University of Washington, Seattle, WA 98105; wDepartment of Economics, Tilburg School of Economics
+                                                                                                          and Management, Tilburg University, 5037 AB Tilburg, The Netherlands; xDepartment of Operations Research and Financial Engineering, Princeton
+                                                                                                          University, Princeton, NJ 08544; yDepartment of Computer Science, Princeton University, Princeton, NJ 08544; zDepartment of Politics, Princeton University,
+
+                                                                                                          8402 | www.pnas.org/cgi/doi/10.1073/pnas.1915006117                   Salganik et al.
+Princeton, NJ, 08544; aaDepartment of Sociology, Harvard University, Cambridge, MA 02138; bbDepartment of Sociology, Indiana University, Bloomington,
+IN 47405; ccDepartment of Nuclear Science and Engineering, Massachusetts Institute of Technology, Cambridge, MA 02139; ddComputational Social Science
+Lab, Social Science Division, New York University Abu Dhabi, 129188 Abu Dhabi, United Arab Emirates; eeBendheim Center for Finance, Princeton
+University, Princeton, NJ 08544; ffDepartment of Political Science, Brigham Young University, Provo, UT 84602; ggDepartment of Sociology, Stanford
+University, Stanford, CA 94305; hhDepartment of Communication and Media Research, University of Zurich, Zurich, Switzerland, ZH-8050; iiCenter for
+Statistics & Machine Learning, Princeton University, Princeton, NJ 08544; jjDepartment of Mechanical and Aerospace Engineering, Princeton University,
+Princeton, NJ 08544; kkStatistics Group, Department of Data Sciences and Operations, Marshall School of Business, University of Southern California, Los
+Angeles, CA 90089; llDepartment of Statistics, Columbia University, New York, NY 10027; mmCenter for Data Science, New York University, New York, NY
+10011; nnDepartment of Industrial Engineering and Operations Research, Columbia University, New York, NY 10027; ooDepartment of Molecular Biology,
+Princeton University, Princeton, NJ 08544; ppOxford Internet Institute, University of Oxford, Oxford OX1 3JS, United Kingdom; qqGraduate School of
+Education, Stanford University, Stanford, CA, 94305; rrDepartment of Computer Science, Ohio State University, Columbus, OH 43210; ssSchool of
+Information, University of Michigan, Ann Arbor, MI 48104; ttCenter for Complex Networks and Systems Research, Indiana University, Bloomington,
+IN 47405; uuDepartment of Computer Science, Masdar Institute, Khalifa University, 127788 Abu Dhabi, United Arab Emirates; vvResearch Institute for
+Mathematical Sciences, Kyoto University, Kyoto 606-8502, Japan; wwDepartment of Astrophysical Sciences, Princeton University, Princeton, NJ 08544;
+xxDepartment of Neuroscience, Princeton University, Princeton, NJ 08544; yyDepartment of Electrical Engineering, Princeton University, Princeton, NJ,
+08544; zzDataiku, New York, NY 10010; aaaDepartment of Civil and Environmental Engineering, Princeton University, Princeton, NJ 08544; bbbDepartment of
+Sociology, California State University, Dominguez Hills, Carson, CA 90747; cccSchool of Media and Public Affairs, George Washington University,
+Washington, DC 20052; dddCenter for Data Insights, MDRC, Oakland, CA 94612; eeeSocial Science Division, New York University Abu Dhabi, 129188 Abu
+Dhabi, United Arab Emirates; fffDepartment of Economics, Princeton University, Princeton, NJ 08544; gggCenter for Complex Network Research,
+Northeastern University Networks Science Institute, Boston, MA 02115; hhhLuddy School of Informatics, Computing, & Engineering, Indiana University,
+Bloomington, IN 47408; iiiSchool of Social Work, David B. Falk College of Sport and Human Dynamics, Syracuse University, NY 13244; jjjSchool of Public
+Health, Indiana University, Bloomington, IN 47408; kkkThe Alan Turing Institute, London NW1 2DB, United Kingdom; lllDepartment of Psychiatry, University
+of Cambridge, Cambridge CB2 0SZ, United Kingdom; mmmSchool of Informatics, University of Edinburgh, Edinburgh EH8 9AB, United Kingdom;
+nnnDepartment of Marketplaces & Yield Data Science, Expedia Group, Seattle, WA 98119; oooDepartment of the Applied Statistics, Social Science, and
+Humanities, New York University, New York, NY 10003; pppDepartment of Engineering, University of Cambridge, Cambridge CB2 1PZ, United Kingdom;
+qqqDepartment of Human Development, Teachers College, Columbia University, New York, NY 10027; rrrDepartment of Pediatrics, Vagelos College of
+Physicians and Surgeons, Columbia University, New York, NY 10032; sssDepartment of Electrical Engineering and Computer Sciences, University of
+California, Berkeley, CA 94720; tttDepartment of Information Science, Cornell University, Ithaca, NY 14853; uuuDepartment of Computer and Information
+Science, University of Pennsylvania, Philadelphia, PA 19104; vvvAnnenberg School of Communication, University of Pennsylvania, Philadelphia, PA 19104;
+and wwwOperations, Information and Decisions Department, University of Pennsylvania, Philadelphia, PA 19104
+Downloaded from https://www.pnas.org by Eisuke Tokiwa on April 25, 2026 from IP address 210.157.193.185.
+ 1. J. Kleinberg, J. Ludwig, S. Mullainathan, Z. Obermeyer, Prediction policy problems.         17. R. B. Alley, K. A. Emanuel, F. Zhang, Advances in weather prediction. Science 363,
+                                                                                                                                                                                                                                                                   SOCIAL SCIENCESAm. Econ. Rev. 105, 491­495 (2015).342­344 (2019).
+
+ 2. S. Athey, Beyond prediction: Using big data for policy problems. Science 355, 483­485       18. B. G. Malkiel, The efficient market hypothesis and its critics. J. Econ. Perspect. 17,
+     (2017).                                                                                         59­82 (2003).
+
+ 3. P. M. Blau, O. D. Duncan, The American Occupational Structure (John Wiley and Sons,         19. M. J. Salganik, P. S. Dodds, D. J. Watts, Experimental study of inequality and
+     1967).                                                                                          unpredictability in an artificial cultural market. Science 311, 854­856 (2006).
+
+ 4. R. Chetty, N. Hendren, P. Kline, E. Saez, Where is the land of opportunity? The geog-       20. T. Martin, J. M. Hofman, A. Sharma, A. Anderson, D. J. Watts, "Exploring limits to
+     raphy of intergenerational mobility in the United States. Q. J. Econ. 129, 1553­1623            prediction in complex social systems" in Proceedings of the 25th International Con-
+     (2014).                                                                                         ference on World Wide Web (International World Wide Web Conferences Steering
+                                                                                                     Committee, 2016), pp. 683­694.
+ 5. A. Feuerverger, Y. He, S. Khatri, Statistical significance of the Netflix challenge. Stat.
+     Sci., 202­231 (2012).                                                                      21. L. E. Cederman, N. B. Weidmann, Predicting armed conflict: Time to adjust our
+                                                                                                     expectations? Science 355, 474­476 (2017).
+ 6. D. Donoho, 50 years of data science. J. Comput. Graph Stat. 26, 745­766 (2017).
+ 7. T. Hastie, R. Tibshirani, J. Friedman, The Elements of Statistical Learning: Data Mining,   22. J. Risi, A. Sharma, R. Shah, M. Connelly, D. J. Watts, Predicting history. Nat. Hum.
+                                                                                                     Behav. 3, 906­912 (2019).
+     Inference, and Prediction (Springer Science & Business Media, 2009).
+ 8. J. M. Hofman, A. Sharma, D. J. Watts, Prediction and explanation in social systems.         23. J. Kleinberg, H. Lakkaraju, J. Leskovec, J. Ludwig, S. Mullainathan, Human decisions
+                                                                                                     and machine predictions. Q. J. Econ. 133, 237­293 (2017).
+     Science 355, 486­488 (2017).
+ 9. N. E. Reichman, J. O. Teitler, I. Garfinkel, S. S. McLanahan, Fragile Families: Sample      24. A. Chouldechova, D. Benavides-Prado, O. Fialko, R. Vaithianathan, "A case study
+                                                                                                     of algorithm-assisted decision making in child maltreatment hotline screening deci-
+     and design. Child. Youth Serv. Rev. 23, 303­326 (2001).                                         sions" in Proceedings of the 1st Conference on Fairness, Accountability and Trans-
+10. Fragile Families & Child Wellbeing Study, Fragile Families publication search.                   parency, S. A. Friedler, C. Wilson, Eds. (Proceedings of Machine Learning Research,
+                                                                                                     2018), vol. 81, pp. 134­148.
+     https://ffpubs.princeton.edu/. Accessed 29 February 2020.
+11. I. Lundberg, A. Narayanan, K. Levy, M. J. Salganik, Privacy, ethics, and data access: A     25. S. Barocas, A. D. Selbst, Big data's disparate impact. Calif. Law Rev. 104, 671­732
+                                                                                                     (2016).
+     case study of the Fragile Families Challenge. arXiv:1809.00103 (1 September 2018).
+12. S. Mullainathan, J. Spiess, Machine learning: An applied econometric approach. J.           26. C. Rudin, Stop explaining black box machine learning models for high stakes decisions
+                                                                                                     and use interpretable models instead. Nat. Mach. Intell. 1, 206­215 (2019).
+     Econ. Perspect. 31, 87­106 (2017).
+13. M. Molina, F. Garip, Machine learning for sociology. Annu. Rev. Sociol. 45, 27­45           27. D. J. Hand, Classifier technology and the illusion of progress. Stat. Sci. 21, 1­14 (2006).
+                                                                                                28. R. M. Dawes, D. Faust, P. E. Meehl, Clinical versus actuarial judgment. Science 243,
+     (2019).
+14. A. Blum, M. Hardt, "The ladder: A reliable leaderboard for machine learning compe-               1668­1674 (1989).
+                                                                                                29. M. Salganik, Bit by Bit: Social Research in the Digital Age (Princeton University Press,
+     titions" in Proceedings of the 32nd International Conference on Machine Learning
+     F. Bach, D. Blei, Eds. (Proceedings of Machine Learning Research, 2015), Vol. 37,               2018).
+     pp. 1006­1014.                                                                             30. OS Collaboration, Estimating the reproducibility of psychological science. Science 349,
+15. D. J. Watts, Common sense and sociological explanations. Am. J. Sociol. 120, 313­351
+     (2014).                                                                                         aac4716 (2015).
+16. M. Oliver, T. Shapiro, Black Wealth/White Wealth: A New Perspective on Racial               31. P. E. Tetlock, B. A. Mellers, J. P. Scoblic, Bringing probability judgments into policy
+     Inequality (Routledge, 2013).
+                                                                                                     debates via forecasting tournaments. Science 355, 481­483 (2017).
+
+Salganik et al.                                                                                 PNAS | April 14, 2020 | vol. 117 | no. 15 | 8403
+

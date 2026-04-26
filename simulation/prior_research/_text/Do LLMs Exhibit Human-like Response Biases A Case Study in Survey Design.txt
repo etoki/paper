@@ -1,0 +1,899 @@
+               Do LLMs Exhibit Human-like Response Biases?
+                          A Case Study in Survey Design
+
+Lindia Tjuatja, Valerie Chen, Tongshuang Wu, Ameet Talwalkwar, Graham Neubig
+                                        Carnegie Mellon University, USA
+
+                              {vchen2, lindiat}@andrew.cmu.edu
+
+                      Abstract                                from human experiences, such as annotating hu-
+                                                              man preferences, social science and psycholog-
+     One widely cited barrier to the adoption of              ical studies, and opinion polling. The seeming
+     LLMs as proxies for humans in subjective                 success of these models suggests that LLMs may
+     tasks is their sensitivity to prompt wording--           be able to serve as viable participants in studies--
+     but interestingly, humans also display sensi-            such as surveys--in the same way as humans
+     tivities to instruction changes in the form of           (Dillion et al., 2023), allowing researchers to rap-
+     response biases. We investigate the extent to            idly prototype and explore many design decisions
+     which LLMs reflect human response biases,                (Horton, 2023; Chen et al., 2022). Despite these
+     if at all. We look to survey design, where hu-           potential benefits, the application of LLMs in
+     man response biases caused by changes in the             these settings, and many others, requires a more
+     wordings of ``prompts'' have been extensively            nuanced understanding of where and when LLMs
+     explored in social psychology literature. Draw-          and humans behave in similar ways.
+     ing from these works, we design a dataset and
+     framework to evaluate whether LLMs exhibit                  Separately, another widely noted concern is the
+     human-like response biases in survey question-           sensitivity of LLMs to minor changes in prompts
+     naires. Our comprehensive evaluation of nine             (Jiang et al., 2020; Gao et al., 2021; Sclar et al.,
+     models shows that popular open and commer-               2023). In the context of simulating human be-
+     cial LLMs generally fail to reflect human-like           havior though, sensitivity to small changes in a
+     behavior, particularly in models that have un-           prompt may not be a wholly negative thing; in
+     dergone RLHF. Furthermore, even if a model               fact, humans are also subconsciously sensitive to
+     shows a significant change in the same direc-            certain instruction changes (Kalton and Schuman,
+     tion as humans, we find that they are sensitive          1982). These sensitivities--which come in the
+     to perturbations that do not elicit significant          form of response biases--have been well studied
+     changes in humans. These results highlight the           in the literature on survey design (Weisberg et al.,
+     pitfalls of using LLMs as human proxies, and             1996) and can manifest as a result of changes
+     underscore the need for finer-grained charac-            to the specific wording (Brace, 2018), format
+     terizations of model behavior.1                          (Cox III, 1980), and placement (Schuman and
+                                                              Presser, 1996) of survey questions. Such changes
+1 Introduction                                                often cause respondents to deviate from their
+                                                              original or ``true'' responses in regular, predict-
+In what ways do large language models (LLMs)                  able ways. In this work, we investigate the par-
+display human-like behavior, and in what ways                 allels between LLMs' and humans' responses to
+do they differ? The answer to this question is not            these instruction changes.
+only of intellectual interest (Dasgupta et al., 2022;
+Michaelov and Bergen, 2022), but also has a wide              Our Contributions. Using biases identified
+variety of practical implications. Works such as              from prior work in survey design as a case study,
+To¨rnberg (2023), Aher et al. (2023), and Santurkar           we generate question pairs (i.e., questions that do
+et al. (2023) have demonstrated that LLMs can                 or do not reflect the bias), gather a distribution
+largely replicate results from humans on a vari-              of responses across different LLMs, and evalu-
+ety of tasks that involve subjective labels drawn             ate model behavior in comparison to trends from
+                                                              prior social science studies, as outlined in Figure 1.
+    Equal contribution.                                       As surveys are a primary method of choice for
+    1Our code, dataset, and collected samples are available:
+https://github.com/lindiatjuatja/BiasMonkey.
+
+1011
+
+Transactions of the Association for Computational Linguistics, vol. 12, pp. 1011­1026, 2024. https://doi.org/10.1162/tacl a 00685
+               Action Editor: Kristina Toutenova. Submission batch: 1/2024; Revision batch: 4/2024; Published 9/2024.
+                        c 2024 Association for Computational Linguistics. Distributed under a CC-BY 4.0 license.
+Figure 1: Our evaluation framework consists of three steps: (1) generating a dataset of original and modified
+questions given a response bias of interest, (2) collecting LLM responses, and (3) evaluating whether the change
+in the distribution of LLM responses aligns with known trends about human behavior. We directly apply the same
+workflow to evaluate LLM behavior on non-bias perturbations (i.e., question modifications that have been shown
+to not elicit a change in response in humans).
+
+obtaining the subjective opinions of large-scale    the Llama2 base and chat models, we find that
+populations (Weisberg et al., 1996) and are used    RLHF-ed chat models demonstrated less signif-
+across a diverse set of organizations and appli-    icant changes to question modifications as a re-
+cations (Hauser and Shugan, 1980; Morwitz and       sult of response biases but are more affected by
+Pluzinski, 1996; Al-Abri and Al-Balushi, 2014),     non-bias perturbations than their non-RLHF-ed
+we believe that our results would be of broad       counterparts, highlighting the potential undesir-
+interest to multiple research communities.          able effects of additional training schemes.
+
+   We evaluate LLM behavior across 5 differ-        (3) There is little correspondence between ex-
+ent response biases, as well as 3 non-bias pertur-  hibiting response biases and other desirable
+bations (e.g., typos) that are known to not affect  metrics for survey design: We find that a
+human responses. To understand whether aspects      model's ability to replicate human opinion dis-
+of model architecture (e.g., size) and training     tributions is not indicative of how well an LLM
+schemes (e.g., instruction fine-tuning and RLHF)    reflects human behavior.
+affect LLM responses to these question modifi-
+cations, we selected 9 models--including both          These results suggest the need for care and cau-
+open models from the Llama2 series and com-         tion when considering the use of LLMs as human
+mercial models from OpenAI--to span these con-      proxies, as well as the importance of building
+siderations. In summary, we find:                   more extensive evaluations that disentangle the
+                                                    nuances of how LLMs may or may not behave
+(1) LLMs do not generally reflect human-like        similarly to humans.
+behaviors as a result of question modifications:
+All models showed behavior notably unlike hu-       2 Methodology
+mans such as a significant change in the op-
+posite direction of known human biases and a        In this section, we overview our evaluation frame-
+significant change to non-bias perturbations. Fur-  work, which consists of three parts (Figure 1):
+thermore, unlike humans, models are unlikely to     (1) dataset generation, (2) collection of LLM re-
+show significant changes due to bias modifica-      sponses, and (3) analysis of LLM responses.
+tions if they are more uncertain with their origi-
+nal responses.                                      2.1 Dataset Generation
+
+(2) Behavioral trends of RLHF-ed models tend        When evaluating whether humans exhibit hy-
+to differ from those of vanilla LLMs: Among         pothesized response biases, prior social science
+
+1012
+studies typically design a set of control questions    tions is relatively straightforward, and the impact
+and a set of treatment questions, which are in-        of such biases on human decision outcomes has
+tended to elicit the hypothesized bias (McFarland,     been explicitly demonstrated in prior studies with
+1981; Gordon, 1987; Hippler and Schwarz, 1987;         humans. We generate a dataset with a total of
+Schwarz et al., 1992, inter alia). In line with this   2578 question pairs, covering 5 biases and 3 non-
+methodology, we similarly create sets of ques-         bias perturbations. The modified forms of the
+tions (q, q )  Q that contain both original (q) and    questions for each bias were generated by ei-
+modified (q ) forms of multiple-choice questions       ther modifying them manually ourselves (as was
+to study whether an LLM exhibits a response bias       the case for acquiescence and allow/forbid) or
+behavior given a change in the prompt.                 systematic modifications such as automatically
+                                                       appending an option, removing an option, or re-
+   The first set of question pairs Qbias is one where  versing the order of options (for odd/even, opinion
+q corresponds to questions that are modified in        float, and response order). The specific break-
+a way that is known to induce that particular bias     down of the number of questions by bias type is
+in humans. However, we may also want to know           as follows: 176 for acquiescence bias, 40 for
+whether a shift in LLM responses elicited by the       allow/forbid asymmetry, 271 for response or-
+change between (q, q ) in Qbias is largely unique      der bias, 126 for opinion floating, and 126 for
+to that change. One way to test this is by evaluat-    odd/even scale effects. For each perturbation, we
+ing models on non-bias perturbation , which are        generate a modified version based on each origi-
+changes in prompts that humans are known to be         nal question from Qbias. Specific implementation
+robust against, such as typos or certain random-       details are provided in Appendix A.2.
+ized letter changes (Rawlinson, 2007; Sakaguchi
+et al., 2017; Belinkov and Bisk, 2017; Pruthi et al.,  2.2 Collecting LLM Responses
+2019). Thus, we also generate Qperturb where q
+is an original question that is also contained in      To mimic data that would be collected from hu-
+Qbias, and q is a transformed version of q using       mans in real-world user studies, we assume that
+these perturbations. Examples of questions from        all LLM output should take the form of sam-
+Qbias and Qperturb are in Table 1.                     ples with a pre-determined sample size for each
+                                                       treatment condition. The collection process en-
+   We created Qbias and Qperturb by modifying          tailed sampling a sufficiently large number of
+a set of existing ``unbiased'' survey questions        LLM outputs for each question in every question
+that have been curated and administered by ex-         pair in Qbias and Qperturb. To understand baseline
+perts. The original forms q of these question          model behavior, the prompt provided to the LLMs
+pairs come from survey questions in Pew Re-            largely reflects the original presentation of the
+search's American Trends Panel (ATP), detailed         questions. The primary modifications are append-
+in Appendix A.1. We opted to use the ATP as            ing an alphabetical letter to each response option
+the topics of questions present in ATP are very        and adding explicit instruction to answer with one
+close to those used in prior social psychology         of the alphabetical options provided.2 We pro-
+studies that have investigated response biases,        vide the prompt template in Appendix B.2. We
+such as politics, technology, and family, among        then query each LLM with a temperature of 1
+others. Given the similarity in domain, we ex-         until we get a valid response3 (e.g., one of the
+pect that the trends in human behavior measured        letter options) to elicit answers from the original
+in prior studies also extend to these questions        probability distribution of the LLM. For each pair
+broadly. Concretely, we selected questions from        of questions, we sample 50 responses per form to
+the pool of ATP questions curated by Santurkar         create Dq and Dq .
+et al. (2023), who studied whether LLMs reflect
+human opinions; in contrast, we study whether              2We also explored prompt templates where models were
+changes in LLM opinions as a result of question        allowed to generate more tokens to explain the ``reason-
+modification match known human behavioral pat-         ing'' behind their answer, with chain of thought (Wei et al.,
+terns, and then investigate how well these differ-     2022b), but found minimal changes in model behavior.
+ent evaluation metrics align.
+                                                           3We report the average number of queries per model in
+   We looked to prior social psychology stud-          Appendix B.3.
+ies to identify well-studied response biases for
+which implementation in existing survey ques-
+
+1013
+Example q                                                          Example q
+
+Acquiescence : For questions where respondents are asked to agree or disagree with a given statement,
+respondents tend to agree with the statement (Choi and Pak, 2005).
+
+Thinking about the US as a whole, do you think this country is     Wouldn't you agree that the United States is more united
+now                                                                now than it was before the coronavirus outbreak?
+A. More united than before the coronavirus outbreak                A. Yes
+B. More divided than before the coronavirus outbreak               B. No
+
+Allow/forbid asymmetry : Certain word pairings may elicit different responses, despite entailing the same
+result. A well-studied example is asking whether an action should be ``not allowed'' or ``forbidden'' (Hippler
+and Schwarz, 1987).
+
+In your opinion, is voting a privilege that comes with respon-     In your opinion, is voting a fundamental right for every
+sibilities and can be limited if adult U.S. citizens don't meet    adult U.S. citizen and should not be forbidden in any way?
+some requirements?                                                 A. Yes
+A. Yes                                                             B. No
+B. No
+
+Response order : In written surveys, respondents have been shown to display primacy bias, i.e., preferring
+options at the top of a list (Ayidiya and McClendon, 1990).
+
+How important, if at all, is having children in order for a woman  How important, if at all, is having children in order for a
+to live a fulfilling life?                                         woman to live a fulfilling life?
+A. Essential                                                       A. Not important
+B. Important, but not essential                                    B. Important, but not essential
+C. Not important                                                   C. Essential
+
+Opinion floating : When both a middle option and ``don't know'' option are provided in a scale with an odd
+number of responses, respondents who do not have a stance are more likely to distribute their responses across
+both options than when only the middle option is provided (Schuman and Presser, 1996).
+
+As far as you know, how many of your neighbors have the same po-   As far as you know, how many of your neighbors have the
+litical views as you                                               same political views as you
+A. All of them                                                     A. All of them
+B. Most of them                                                    B. Most of them
+C. About half                                                      C. About half
+D. Only some of them                                               D. Only some of them
+E. None of them                                                    E. None of them
+                                                                   F. Don't know
+
+Odd/even scale effects : When omitting a middle alternative, transforming the scale from an odd to an even
+one, responses tend to stay near the scale midpoint more often than extreme points (e.g., Reduced somewhat vs
+Reduced a great deal) (O'Muircheartaigh et al., 2001).
+
+Thinking about the size of America's military, do you think it     Thinking about the size of America's military, do you think
+should be                                                          it should be
+A. Reduced a great deal                                            A. Reduced a great deal
+B. Reduced somewhat                                                B. Reduced somewhat
+C. Increased somewhat                                              C. Kept about as is
+D. Increased a great deal                                          D. Increased somewhat
+                                                                   E. Increased a great deal
+
+Key typo : With a low probability, we randomly change one letter in each word (Rawlinson, 2007).
+
+How likely do you think it is that the following will happen in    How likely do you think it is that the following will hap-
+the next 30 years? A woman will be elected U.S. president          pen in the next 30 yeans? A woman wilp we elected U.S.
+                                                                   president
+
+Letter swap : We perform one swap per word but do not alter the first or last letters. For this reason, this noise
+is only applied to words of length  4 (Rawlinson, 2007).
+
+Overall, do you think science has made life easier or more         Ovearll, do you tihnk sicence has made life eaiser or more
+difficult for most people?                                         diffiuclt for most poeple?
+
+Middle random : We randomize the order of all the letters in a word, except for the first and last (Rawlinson,
+2007). Again, this noise is only applied to words of length  4.
+
+Do you think that private citizens should be allowed to pilot      Do you thnik that pvarite citziens sluhod be aewolld to
+drones in the following areas? Near people's homes                 piolt derons in the flnowolig areas? Near people's heoms
+
+Table 1: To evaluate LLM behavior as a result of response bias modifications and non-bias
+
+perturbations , we create sets of questions (q, q )  Q that contain both original (q) and modified
+(q ) forms of multiple-choice questions. We define and provide an example (q, q ) pairs for each
+response bias and non-bias perturbation considered in our experiments.
+
+   We selected LLMs to evaluate based on mul-                      has undergone reinforcement learning with hu-
+tiple axes of consideration: open-weight versus                    man feedback (RLHF), and the number of model
+closed-weight models, whether the model has                        parameters. We evaluate a total of nine mod-
+been instruction fine-tuned, whether the model                     els, which include variants of Llama2 (Touvron
+
+                                                            1014
+Bias Type                            b                          To determine whether there is a consistent
+Acquiescence    count(q'[a]) - count(q[a])                   deviation across all questions, we compute the
+                                                             average change ¯ b across all questions and con-
+Allow/forbid    count(q[b]) - count(q'[a])                   duct a Student's t-test where the null hypothesis
+                                                             is that ¯ b for a given model and bias type is
+Response order count(q'[d]) - count(q[a])                    0. Together, the p-value and direction of ¯ b in-
+                                                             form us whether we observe a significant change
+Opinion floating count(q[c]) - count(q'[c])                  across questions that aligns with known human
+                                                             behavior.6 We then evaluate LLMs on Qperturb
+Odd/even scale  count(q'[b]) + count(q'[d])                  following the same process (i.e., selecting the
+                - count(q[b]) - count(q[d])                  subset of relevant response options for the bias)
+                                                             to compute p, with the expectation that across
+Table 2: We measure the change resulting from                questions ¯ p should be not statistically different
+bias modifications for a given question pair                 from 0.
+(q, q ) by looking at the change in the response
+distributions between Dq and Dq with respect                 3 Results
+to the relevant response options for each bias
+type. We summarize b calculation for each                    3.1 General Trends in LLM Behavior
+bias type based on the implementation of each
+response bias (as described in Appendix A.2),                As shown in Figure 2, we evaluate a set of 9
+where count(q'[d]) is the number of `d'                      models on 5 different response biases, summa-
+responses for question q'.                                   rized in the first column of each grid, and com-
+                                                             pare the behavior of each model on 3 non-bias
+et al., 2023) (7b, 13b, 70b), Solar4 (an instruction         perturbations, as presented in the second, third,
+fine-tuned version of Llama2 70b) and variants of            and fourth column of each grid. We ideally ex-
+the Llama2 chat family (7b, 13b, 70b), which has             pect to see significant positive changes across re-
+had both instruction fine-tuning as well as RLHF             sponse biases and non-significant changes across
+(Touvron et al., 2023), along with models from the           all non-bias perturbations.
+GPT series (Brown et al., 2020) (GPT 3.5 turbo,
+GPT 3.5 turbo instruct).5                                       Overall, we find that LLMs generally do not
+                                                             exhibit human-like behavior across the board.
+2.3 Analysis of LLM Responses                                Specifically, (1) no model aligns with known hu-
+                                                             man patterns across all biases, and (2) unlike
+Paralleling prior social psychology work, we                 humans, all models display statistically signifi-
+measure whether there is a deviation in the re-              cant changes to non-bias perturbations, regardless
+sponse distributions between Dq and Dq from                  of whether it responded to the bias modifica-
+Qbias, and, like these studies, if such deviations           tion itself. The model that demonstrated the most
+form an overall trend in behavior. Based on the              ``human-like'' response was Llama2 70b, but it
+implementation of each bias, we compute changes              nevertheless still exhibits a significant change as
+on a particular subset of relevant response op-              a result of non-bias perturbations on three of the
+tions, following Table 2. We refer to the degree             five bias types.
+of change as b. Here, there is no notion of a
+ground-truth label (e.g., whether the LLM is get-               Additionally, there is no monotonic trend be-
+ting the ``correct answer'' before and after some            tween model size and model behavior. When
+modification), which differs from most prior work            comparing results across both the base Llama2
+in this space (Dasgupta et al., 2022; Michaelov              models and Llama2 chat models, which vary in
+and Bergen, 2022; Sinclair et al., 2022; Zheng               size (7b, 13b, and 70b), we do not see a consistent
+et al., 2023; Pezeshkpour and Hruschka, 2023).               monotonic trend between the number of param-
+                                                             eters and size of ¯ b, which aligns with multiple
+    4https://huggingface.co/upstage/SOLAR-0                  prior works (McKenzie et al., 2023; Tjuatja et al.,
+-70b-16bit.                                                  2023). There are only a handful of biases where
+                                                             we find that increasing model parameters leads to
+    5We also attempted to evaluate GPT 4 (0613) in our
+experimental setup, but found it extremely difficult to get      6While we also report the magnitude of ¯ b to better
+valid responses, likely due to OpenAI's generation guard-    illustrate LLM behavior across biases, we note that prior user
+rails. We provide specific numbers in Appendix B.4.          studies generally do not focus on magnitudes.
+
+                                             1015
+Figure 2: We compare LLMs' behavior on bias types (¯ b) with their respective behavior on the set of pertur-
+bations (¯ p). We color cells that have statistically significant changes by the directionality of ¯ b ( blue indi-
+cates a positive effect and orange indicates a negative effect), using p = 0.05 cut-off, and use hatched cells to
+indicate non-significant changes. A full table with ¯ b and ¯ p values and p-values is in Table 4. While we would
+ideally observe that models are only responsive to the bias modifications and are not responsive to the other
+
+perturbations, as shown in the top-right the ``most human-like'' depiction, the results do not generally reflect
+
+the ideal setting.
+
+an increase or decrease in ¯ b (e.g., allow/forbid        cations, especially for those with changes in the
+and opinion float for the base Llama2 7b to 70b).         wording of the question like acquiescence and al-
+                                                          low/forbid. An interesting exception is odd/even,
+3.2 Comparing Base Models with Their                      where all but one of the RLHF-ed models (3.5
+      Modified Counterparts                               turbo instruct) have a larger positive effect size
+                                                          than the Llama2 base models. Insensitivity to bias
+Instruction fine-tuning and RLHF-ed models can            modifications may be more desirable if we want
+improve a model's abilities to better generalize to       an LLM to simulate a ``bias-resistant'' user, but
+unseen tasks (Wei et al., 2022a; Sanh et al., 2022)       not necessarily if we want it to be affected by the
+and be steered towards a user's intent (Ouyang            same changes as humans more broadly.
+et al., 2022); how do these training schemes affect
+other abilities, such as exhibiting human-like re-        RLHF-ed models tend to show more signif-
+sponse biases? To disentangle the effect of these         icant changes resulting from perturbations.
+additional training schemes, we focus our compar-         We also see that RLHF-ed models tend to show
+isons on base Llama2 models with their instruc-           a larger magnitude of effect sizes among the non-
+tion fine-tuned (Solar, chat) and RLHF-ed (chat)          bias perturbations. For every perturbation setting
+counterparts. As we do not observe a clear effect         that has a significant effect in both model pairs,
+from instruction fine-tuning,7 we center our anal-        the RLHF-ed chat models have a greater magni-
+ysis on the use of RLHF by comparing the base             tude of effect size in 21 out of 27 of these settings
+models with their chat counterparts:                      and have on average 68% larger effect size than
+                                                          the base model, a noticeably less human-like--
+RLHF-ed models are more insensitive to bias-              and arguably generally less desirable--behavior.
+inducing changes than their vanilla counter-
+parts. We find that the base models are more              4 Examining the Effect of Uncertainty
+likely to exhibit a change for the bias modifi-
+                                                          In addition to studying the presence of response
+    7We note that SOLAR and the Llama2 chat models use    biases, prior social psychology studies have also
+different fine-tuning datasets, which may mask potential
+common effects of instruction fine-tuning more broadly.
+
+1016
+found that when people are more confident about
+their opinions, they are less likely to be af-
+fected by these question modifications (Hippler
+and Schwarz, 1987). We measure whether LLMs
+exhibit similar behavior and capture LLM un-
+certainty using the normalized entropy of the an-
+swer distributions of each question,
+
+-  n    pilog2  pi  (1)
+   i=1
+
+   log2 n
+
+where n is the number of multiple-choice op-         Figure 3: Representativeness is a metric based on the
+tions, to allow for a fair comparison across the     Wasserstein distance which measures the extent to
+entire dataset where questions vary in the num-      which each model reflects the opinions of a population,
+ber of response options. A value of 0 means the      in this case Pew U.S. survey respondents (the higher
+model is maximally confident (e.g., all probability  the better) (Santurkar et al., 2023). Colors indicate
+on a single option), whereas 1 means the model       model groupings, with red for the Llama2 base mod-
+is maximally uncertain (e.g., probability evenly     els, green for Solar (instruction fine-tuned Llama2
+distributed across all options).                     70b), blue for Llama2 chat models, and purple for
+                                                     GPT 3.5.
+
+Out of the nine models tested, we did not ob-        (Santurkar et al., 2023; Durmus et al., 2023;
+serve consistent correspondence between the          Argyle et al., 2022). We first aggregate the LLM's
+uncertainty measure and the magnitude of ¯ b.        responses on each unmodified question q to
+Across all nine models, we do not observe a          construct Dmodel for the subset of questions used
+correspondence between the uncertainty measure       in our study. Then from the ATP dataset, which
+and the magnitude of ¯ b given a modified form       provides human responses, we construct Dhuman
+of the question, which provides further evidence     for each q. Finally, we compute a measure of
+of dissimilarities between human and LLM be-         similarity between Dmodel and Dhuman for each
+havior. However, the RLHF-ed models tended           question, which Santurkar et al. (2023) refer to
+to have more biases where there was a weak pos-      as representativeness. We use the repository pro-
+itive correlation (0.2  r  0.5) between the          vided by Santurkar et al. (2023) to calculate the
+uncertainty measure and the magnitude of ¯ b         representativeness of all nine models and find that
+than their non-RLHF-ed counterparts. Specific        they are in line with the range of values reported
+values for all models are provided in Table 4.       in their work.
+
+5 Comparison to Other Desiderata for                 The ability to replicate human opinion dis-
+    LLMs as Human Proxies                            tributions is not indicative of how well an
+                                                     LLM reflects human behavior. Figure 3 shows
+Beyond aspects of behavior like response biases,     the representativeness score between human and
+use cases where LLMs may be used as proxies          model response distributions. While Llama2 70b's
+for humans involve many other factors of model       performance, when compared to the ideal setting
+performance. In the case of completing surveys,      in Figure 3 (left), shows the most ``human-like''
+we may also be interested in whether LLMs can        behavior and also has the highest representative-
+replicate the opinions of a certain population.      ness score, the relative orderings of model perfor-
+Thus, we explore the relationship between how        mance are not consistent across both evaluations.
+well a model reflects human opinions and the         For example, Llama2 7b-chat and 13b-chat ex-
+extent to which it exhibits human-like response      hibit very similar changes from question modifi-
+biases.                                              cations as well as close representativeness scores,
+                                                     whereas with GPT 3.5 turbo and turbo instruct
+   To see how well LLMs can replicate                we observe very different behaviors but extremely
+population-level opinions, we compare the dis-       close representativeness scores.
+tribution of answers generated by the models in
+the original question to that of human responses
+
+                    1017
+6 Related Work                                         such as generating an answer to a free-response
+                                                       question, versus comparisons of closed-form out-
+LLM Sensitivity to Prompts. A growing set              comes, where LLMs generate a label based on
+of work aims to understand how LLMs may                a fixed set of response options. Since the open-
+be sensitive to prompt constructions. These            ended tasks typically rely on human judgments to
+works have studied a variety of permutations of        determine whether LLM behaviors are perceived
+prompts which include--but are not limited to--        to be sufficiently human-like (Park et al., 2022,
+adversarial prompts (Wallace et al., 2019; Perez       2023a), we focus on closed-form tasks, which al-
+and Ribeiro, 2022; Maus et al., 2023; Zou et al.,      lows us to more easily find broader quantitative
+2023), changes in the order of in-context exam-        trends and enables scalable evaluations.
+ples (Lu et al., 2022), changes in multiple-choice
+questions (Zheng et al., 2023; Pezeshkpour and            Prior works have conducted evaluations of
+Hruschka, 2023), and changes in formatting of          LLM and human outcomes on a number of real-
+few-shot examples (Sclar et al., 2023). While this     world tasks including social science studies (Park
+set of works helps to characterize LLM behavior,       et al., 2023b; Aher et al., 2023; Horton, 2023;
+we note the majority of work in this direction         Ha¨ma¨la¨inen et al., 2023), crowdsourcing annota-
+does not compare to how humans would behave            tion tasks (To¨rnberg, 2023; Gilardi et al., 2023),
+under similar permutations of instructions.            and replicating public opinion surveys (Santurkar
+                                                       et al., 2023; Durmus et al., 2023; Chu et al., 2023;
+   A smaller set of works has explored whether         Kim and Lee, 2023; Argyle et al., 2022). While
+changes in performance also reflect known pat-         these works highlight the potential areas where
+terns of human behavior, focusing on tasks re-         LLMs can replicate known human outcomes,
+lating to linguistic priming and cognitive biases      comparing directly to human outcomes limits ex-
+(Dasgupta et al., 2022; Michaelov and Bergen,          isting evaluations to the specific form of the ques-
+2022; Sinclair et al., 2022) in settings that are of-  tions that were used to collect human responses.
+ten removed from actual downstream use cases.          Instead, in this work, we create modified versions
+Thus, such studies may have limited guidance on        of survey questions informed by prior work in so-
+when and where it is appropriate to use LLMs as        cial psychology and survey design to understand
+human proxies. In contrast, Jones and Steinhardt       whether LLMs reflect known patterns, or general
+(2022) uses cognitive biases as motivation to          response biases, that humans exhibit. Relatedly,
+generate hypotheses for failure cases of language      Scherrer et al. (2023) analyzes LLM beliefs in am-
+models with code generation as a case study. Sim-      biguous moral scenarios using a procedure that
+ilarly, we conduct our analysis by making com-         also varies the formatting of the prompt, though
+parisons against known general trends of human         their work does not focus on the specific effects
+behavior to enable a much larger scale of evalu-       of these formatting changes.
+ation, but grounded in a more concrete use case
+of survey design.                                      7 Conclusion
+
+   When making claims about whether LLMs               We conduct a comprehensive evaluation of LLMs
+exhibit human-like behavior, we also highlight         on a set of desired behaviors that would poten-
+the importance of selecting stimuli that have been     tially make them more suitable human proxies,
+verified in prior human studies. Webson and            using survey design as a case study. However, of
+Pavlick (2022) initially showed that LLMs can          the 9 models that we evaluated, we found LLMs
+perform unexpectedly well to irrelevant and inten-     are generally not reflective of human-like be-
+tionally misleading examples, under the assump-        havior. We also observe distinct differences in
+tion that humans would not be able to do so.           behavior between the Llama2 base models and
+However, the authors later conducted a follow-up       their chat counterparts, which uncover the effects
+study on humans, disproving their initial assump-      of additional training schemes, namely RLHF.
+tions (Webson et al., 2023). Our study is based on     Thus, while the use of RLHF is useful for enhanc-
+long-standing literature from the social sciences.     ing the ``helpfulness'' and ``harmlessness'' of
+                                                       LLMs (Fernandes et al., 2023), it may lead to other
+Comparing LLMs and Humans. Comparisons                 potentially undesirable behaviors (e.g., greater
+of LLM and human behavior are broadly divided          sensitivity to specific types of perturbations).
+into comparisons of more open-ended behavior,
+
+1018
+Furthermore, we show that the ability of a lan-           the Association for Computational Linguistics
+guage model to replicate human opinion distribu-          (Volume 1: Long Papers), pages 819­862.
+tions generally does not correspond to its ability
+to show human-like response biases. Taken to-          Stephen A. Ayidiya and McKee J. McClendon.
+gether, we believe our results highlight the limi-        1990. Response effects in mail surveys. Public
+tations of using LLMs as human proxies in survey          Opinion Quarterly, 54(2):229­247. https://
+design and the need for more critical evaluations         doi.org/10.1086/269200
+to further understand the set of similarities or dis-
+similarities with humans.                              Yonatan Belinkov and Yonatan Bisk. 2017.
+                                                          Synthetic and natural noise both break
+8 Limitations                                             neural machine translation. arXiv preprint
+                                                          arXiv:1711.02173.
+In this work, the focus of our experiments was
+on English-based, and U.S.-centric survey ques-        Ian Brace. 2018. Questionnaire Design: How to
+tions. However, we believe that many of these             Plan, Structure and Write Survey Material
+evaluations can and should be replicated on cor-          for Effective Market Research. Kogan Page
+pora comprising more diverse languages and                Publishers.
+users. On the evaluation front, since we do not
+explicitly compare LLM responses to human re-          Tom Brown, Benjamin Mann, Nick Ryder,
+sponses on the extensive set of modified ques-            Melanie Subbiah, Jared D. Kaplan, Prafulla
+tions and perturbations, we focus on the trends           Dhariwal, Arvind Neelakantan, Pranav Shyam,
+of human behavior as a response to these modi-            Girish Sastry, Amanda Askell, Sandhini Agarwal,
+fications/perturbations that have been extensively        Ariel Herbert-Voss, Gretchen Krueger, Tom
+studied, rather than specific magnitudes of change.       Henighan, Rewon Child, Aditya Ramesh,
+Additionally, the response biases studied in this         Daniel Ziegler, Jeffrey Wu, Clemens Winter,
+work are neither representative nor comprehen-            Chris Hesse, Mark Chen, Eric Sigler, Mateusz
+sive of all biases. This work was not intended to         Litwin, Scott Gray, Benjamin Chess, Jack
+exhaustively test human biases but to highlight           Clark, Christopher Berner, Sam McCandlish,
+a new approach to understanding similarities be-          Alec Radford, Ilya Sutskever, and Dario
+tween human and LLM behavior. Finally, while              Amodei. 2020. Language models are few-shot
+we observed the potential effects of additional           learners. Advances in Neural Information Pro-
+training schemes, namely RLHF, our experiments            cessing Systems, 33:1877­1901.
+were limited to the 3 pairs of Llama2 models.
+                                                       Valerie Chen, Nari Johnson, Nicholay Topin,
+References                                                Gregory Plumb, and Ameet Talwalkar. 2022.
+                                                          Use-case-grounded simulations for explana-
+Gati V. Aher, Rosa I. Arriaga, and Adam Tauman            tion evaluation. In Advances in Neural In-
+   Kalai. 2023. Using large language models to            formation Processing Systems, volume 35,
+   simulate multiple humans and replicate human           pages 1764­1775. Curran Associates, Inc.
+   subject studies. In International Conference on
+   Machine Learning, pages 337­371. PMLR.              Bernard C. K. Choi and Anita W. P. Pak. 2005.
+                                                          Peer reviewed: A catalog of biases in question-
+Rashid Al-Abri and Amina Al-Balushi. 2014.                naires. Preventing Chronic Disease, 2(1).
+   Patient satisfaction survey as a tool towards
+   quality improvement. Oman Medical Journal,          Eric Chu, Jacob Andreas, Stephen Ansolabehere,
+   29(1):3­7. https://doi.org/10.5001/omj                 and Deb Roy. 2023. Language models trained
+   .2014.02, PubMed: 24501659                             on media diets can predict public opinion.
+                                                          arXiv preprint arXiv:2303.16779.
+Lisa P. Argyle, Ethan C. Busby, Nancy Fulda,
+   Joshua Gubler, Christopher Rytting, and David       Eli P. Cox III. 1980. The optimal num-
+   Wingate. 2022. Out of one, many: Using lan-            ber of response alternatives for a scale:
+   guage models to simulate human samples. In             A review. Journal of Marketing Research,
+   Proceedings of the 60th Annual Meeting of              17(4):407­422. https://doi.org/10.1177
+                                                          /002224378001700401
+
+                                                       Ishita Dasgupta, Andrew K. Lampinen, Stephanie
+                                                          C. Y. Chan, Antonia Creswell, Dharshan
+
+1019
+   Kumaran, James L. McClelland, and Felix         John R. Hauser and Steven M. Shugan. 1980.
+   Hill. 2022. Language models show human-like        Intensity measures of consumer preference. Op-
+   content effects on reasoning. arXiv preprint       erations Research, 28(2):278­320. https://
+   arXiv:2207.07051.                                  doi.org/10.1287/opre.28.2.278
+
+Danica Dillion, Niket Tandon, Yuling Gu, and       Hans-J. Hippler and Norbert Schwarz. 1987.
+   Kurt Gray. 2023. Can AI language models re-        Response effects in surveys. In Social infor-
+   place human participants? Trends in Cogni-         mation processing and survey methodology,
+   tive Sciences. https://doi.org/10.1016/j           pages 102­122. Springer. https://doi.org
+   .tics.2023.04.008, PubMed: 37173156                /10.1007/978-1-4612-4798-2 6
+
+Esin Durmus, Karina Nyugen, Thomas I. Liao,        John J. Horton. 2023. Large language mod-
+   Nicholas Schiefer, Amanda Askell, Anton            els as simulated economic agents: What can
+   Bakhtin, Carol Chen, Zac Hatfield-Dodds,           we learn from homo silicus? Working Paper
+   Danny Hernandez, Nicholas Joseph, Liane            31122, National Bureau of Economic Research.
+   Lovitt, Sam McCandlish, Orowa Sikder, Alex         https://doi.org/10.3386/w31122
+   Tamkin, Janel Thamkul, Jared Kaplan, Jack
+   Clark, and Deep Ganguli. 2023. Towards mea-     Perttu Ha¨ma¨la¨inen, Mikke Tavast, and Anton
+   suring the representation of subjective global     Kunnari. 2023. Evaluating large language mod-
+   opinions in language models. arXiv preprint        els in generating synthetic HCI research data:
+   arXiv:2306.16388.                                  A case study. In Proceedings of the 2023 CHI
+                                                      Conference on Human Factors in Computing
+Patrick Fernandes, Aman Madaan, Emmy Liu,             Systems, CHI '23, pages 1­19, New York, NY,
+   Anto´nio Farinhas, Pedro Henrique Martins,         USA. Association for Computing Machinery.
+   Amanda Bertsch, Jose´ G. C. de Souza, Shuyan       https://doi.org/10.1145/3544548.3580688
+   Zhou, Tongshuang Wu, Graham Neubig, and
+   Andre´ F. T. Martins. 2023. Bridging the gap:   Zhengbao Jiang, Frank F. Xu, Jun Araki, and
+   A survey on integrating (human) feedback for       Graham Neubig. 2020. How can we know
+   natural language generation. Transactions of       what language models know? Transactions of
+   the Association for Computational Linguistics,     the Association for Computational Linguistics,
+   11:1643­1668. https://doi.org/10.1162              8:423­438. https://doi.org/10.1162
+   /tacl a 00626                                      /tacl_a_00324
+
+Tianyu Gao, Adam Fisch, and Danqi Chen.            Erik Jones and Jacob Steinhardt. 2022. Cap-
+   2021. Making pre-trained language models           turing failures of large language models via
+   better few-shot learners. In Proceedings of        human cognitive biases. In Advances in Neural
+   the 59th Annual Meeting of the Association         Information Processing Systems, volume 35,
+   for Computational Linguistics and the 11th         pages 11785­11799. Curran Associates, Inc.
+   International Joint Conference on Natural Lan-
+   guage Processing (Volume 1: Long Papers),       Graham Kalton and Howard Schuman. 1982. The
+   pages 3816­3830.                                   effect of the question on survey responses: A
+                                                      review. Journal of the Royal Statistical Society
+Fabrizio Gilardi, Meysam Alizadeh, and Mae¨l          Series A: Statistics in Society, 145(1):42­73.
+   Kubli. 2023. ChatGPT outperforms crowd             https://doi.org/10.2307/2981421
+   workers for text-annotation tasks. Proceedings
+   of the National Academy of Sciences of the      Junsol Kim and Byungkyu Lee. 2023. AI-
+   United States of America, 120(30):e2305016120.     augmented surveys: Leveraging large language
+   https://doi.org/10.1073/pnas.2305016120,           models for opinion prediction in nationally
+   PubMed: 37463210                                   representative surveys. arXiv preprint arXiv:
+                                                      2305.09620.
+Randall A. Gordon. 1987. Social desirabil-
+   ity bias: A demonstration and technique         Yao Lu, Max Bartolo, Alastair Moore, Sebastian
+   for its reduction. Teaching of Psychology,         Riedel, and Pontus Stenetorp. 2022. Fantasti-
+   14(1):40­42. https://doi.org/10.1207               cally ordered prompts and where to find them:
+   /s15328023top1401 11                               Overcoming few-shot prompt order sensitivity.
+                                                      In Proceedings of the 60th Annual Meeting of
+                                                      the Association for Computational Linguistics
+
+1020
+   (Volume 1: Long Papers), pages 8086­8098,           https://doi.org/10.29115/SP-2014
+   Dublin, Ireland. Association for Computational      -0013
+   Linguistics. https://doi.org/10.18653
+   /v1/2022.acl-long.556                            Colm A. O'Muircheartaigh, Jon A. Krosnick, and
+                                                       Armin Helic. 2001. Middle Alternatives, Ac-
+Natalie Maus, Patrick Chao, Eric Wong, and             quiescence, and the Quality of Questionnaire
+   Jacob R. Gardner. 2023. Black box adversarial       Data. Irving B. Harris Graduate School of
+   prompting for foundation models. In The Sec-        Public Policy Studies, University of Chicago.
+   ond Workshop on New Frontiers in Adversarial
+   Machine Learning.                                Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo
+                                                       Almeida, Carroll Wainwright, Pamela Mishkin,
+McKee J. McClendon. 1991. Acquiescence and             Chong Zhang, Sandhini Agarwal, Katarina
+   recency response-order effects in interview         Slama, Alex Ray, John Schulman, Jacob Hilton,
+   surveys. Sociological Methods & Research,           Fraser Kelton, Luke Miller, Maddie Simens,
+   20(1):60­103. https://doi.org/10.1177               Amanda Askell, Peter Welinder, Paul F.
+   /0049124191020001003                                Christiano, Jan Leike, and Ryan Lowe. 2022.
+                                                       Training language models to follow instructions
+Sam G. McFarland. 1981. Effects of question or-        with human feedback. Advances in Neural Infor-
+   der on survey responses. Public Opinion Quar-       mation Processing Systems, 35:27730­27744.
+   terly, 45(2):208­215. https://doi.org/10
+   .1086/268651                                     Joon Sung Park, Joseph O'Brien, Carrie Jun
+                                                       Cai, Meredith Ringel Morris, Percy Liang,
+Ian R. McKenzie, Alexander Lyzhov, Michael             and Michael S. Bernstein. 2023a. Generative
+   Martin Pieler, Alicia Parrish, Aaron Mueller,       agents: Interactive simulacra of human behav-
+   Ameya Prabhu, Euan McLean, Xudong Shen,             ior. In Proceedings of the 36th Annual ACM
+   Joe Cavanagh, Andrew George Gritsevskiy,            Symposium on User Interface Software and
+   Derik Kauffman, Aaron T. Kirtland, Zhengping        Technology, pages 1­22.
+   Zhou, Yuhui Zhang, Sicong Huang, Daniel
+   Wurgaft, Max Weiss, Alexis Ross, Gabriel         Joon Sung Park, Lindsay Popowski, Carrie Cai,
+   Recchia, Alisa Liu, Jiacheng Liu, Tom Tseng,        Meredith Ringel Morris, Percy Liang, and
+   Tomasz Korbak, Najoung Kim, Samuel R.               Michael S. Bernstein. 2022. Social simulacra:
+   Bowman, and Ethan Perez. 2023. Inverse              Creating populated prototypes for social com-
+   scaling: When bigger isn't better. Transac-         puting systems. In Proceedings of the 35th
+   tions on Machine Learning Research. Featured        Annual ACM Symposium on User Interface
+   Certification.                                      Software and Technology, pages 1­18.
+
+James Michaelov and Benjamin Bergen. 2022.          Peter S. Park, Philipp Schoenegger, and
+   Collateral facilitation in humans and language      Chongyang Zhu. 2023b. Artificial intelligence
+   models. In Proceedings of the 26th Conference       in psychology research. arXiv preprint arXiv:
+   on Computational Natural Language Learning          2302.07267.
+   (CoNLL), pages 13­26. https://doi.org
+   /10.18653/v1/2022.conll-1.2                      Fa´bio Perez and Ian Ribeiro. 2022. Ignore pre-
+                                                       vious prompt: Attack techniques for language
+Vicki G. Morwitz and Carol Pluzinski. 1996. Do         models. arXiv preprint arXiv:2211.09527.
+   polls reflect opinions or do opinions reflect
+   polls? The impact of political polling on vot-   Pouya Pezeshkpour and Estevam Hruschka. 2023.
+   ers' expectations, preferences, and behavior.       Large language models sensitivity to the order
+   Journal of Consumer Research, 23(1):53­67.          of options in multiple-choice questions. arXiv
+   https://doi.org/10.1086/209466                      preprint arXiv:2308.11483.
+
+Alissa O'Halloran, S. Sean Hu, Ann Malarcher,       Danish Pruthi, Bhuwan Dhingra, and Zachary C.
+   Robert McMillen, Nell Valentine, Mary A.            Lipton. 2019. Combating adversarial misspell-
+   Moore, Jennifer J. Reid, Natalie Darling, and       ings with robust word recognition. arXiv pre-
+   Robert B. Gerzoff. 2014. Response order ef-         print arXiv:1905.11268.
+   fects in the youth tobacco survey: Results of a
+   split-ballot experiment. Survey Practice, 7(3).  Graham Rawlinson. 2007. The significance of
+                                                       letter position in word recognition. IEEE
+                                                       Aerospace and Electronic Systems Magazine,
+
+1021
+   22(1):26­27. https://doi.org/10.1109               els' sensitivity to spurious features in prompt
+   /MAES.2007.327521                                  design or: How I learned to start worrying about
+                                                      prompt formatting. arXiv preprint arXiv:2310
+Keisuke Sakaguchi, Kevin Duh, Matt Post, and          .11324.
+   Benjamin Van Durme. 2017. Robsut wrod re-
+   ocginiton via semi-character recurrent neural   Arabella Sinclair, Jaap Jumelet, Willem Zuidema,
+   network. In Proceedings of the AAAI Con-           and Raquel Ferna´ndez. 2022. Structural per-
+   ference on Artificial Intelligence, volume 31.     sistence in language models: Priming as a
+   https://doi.org/10.1609/aaai.v31i1                 window into abstract language representations.
+   .10970                                             Transactions of the Association for Computa-
+                                                      tional Linguistics, 10:1031­1050. https://
+Victor Sanh, Albert Webson, Colin Raffel,             doi.org/10.1162/tacl a 00504
+   Stephen Bach, Lintang Sutawika, Zaid
+   Alyafeai, Antoine Chaffin, Arnaud Stiegler,     Lindia Tjuatja, Emmy Liu, Lori Levin, and
+   Arun Raja, Manan Dey, M. Saiful Bari, Canwen       Graham Neubig. 2023. Syntax and semantics
+   Xu, Urmish Thakker, Shanya Sharma Sharma,          meet in the ``middle'': Probing the syntax-
+   Eliza Szczechla, Taewoon Kim, Gunjan               semantics interface of LMs through agentiv-
+   Chhablani, Nihal Nayak, Debajyoti Datta,           ity. In STARSEM. https://doi.org/10
+   Jonathan Chang, Mike Tian-Jian Jiang, Han          .18653/v1/2023.starsem-1.14
+   Wang, Matteo Manica, Sheng Shen, Zheng Xin
+   Yong, Harshit Pandey, Rachel Bawden,            Hugo Touvron, Louis Martin, Kevin Stone,
+   Thomas Wang, Trishala Neeraj, Jos Rozen,           Peter Albert, Amjad Almahairi, Yasmine
+   Abheesht Sharma, Andrea Santilli, Thibault         Babaei, Nikolay Bashlykov, Soumya Batra,
+   Fevry, Jason Alan Fries, Ryan Teehan, Teven        Prajjwal Bhargava, Shruti Bhosale, Dan Bikel,
+   Le Scao, Stella Biderman, Leo Gao, Thomas          Lukas Blecher, Cristian Canton Ferrer, Moya
+   Wolf, and Alexander M. Rush. 2022. Multi-          Chen, Guillem Cucurull, David Esiobu, Jude
+   task prompted training enables zero-shot task      Fernandes, Jeremy Fu, Wenyin Fu, Brian
+   generalization. In International Conference on     Fuller, Cynthia Gao, Vedanuj Goswami, Naman
+   Learning Representations.                          Goyal, Anthony Hartshorn, Saghar Hosseini,
+                                                      Rui Hou, Hakan Inan, Marcin Kardas, Viktor
+Shibani Santurkar, Esin Durmus, Faisal Ladhak,        Kerkez, Madian Khabsa, Isabel Kloumann,
+   Cinoo Lee, Percy Liang, and Tatsunori              Artem Korenev, Punit Singh Koura, Marie-
+   Hashimoto. 2023. Whose opinions do language        Anne Lachaux, Thibaut Lavril, Jenya Lee,
+   models reflect? In Proceedings of the 40th In-     Diana Liskovich, Yinghai Lu, Yuning Mao,
+   ternational Conference on Machine Learning,        Xavier Martinet, Todor Mihaylov, Pushkar
+   ICML'23. JMLR.org.                                 Mishra, Igor Molybog, Yixin Nie, Andrew
+                                                      Poulton, Jeremy Reizenstein, Rashi Rungta,
+Nino Scherrer, Claudia Shi, Amir Feder, and           Kalyan Saladi, Alan Schelten, Ruan Silva,
+   David Blei. 2023. Evaluating the moral beliefs     Eric Michael Smith, Ranjan Subramanian,
+   encoded in LLMs. In Thirty-seventh Conference      Xiaoqing Ellen Tan, Binh Tang, Ross Taylor,
+   on Neural Information Processing Systems.          Adina Williams, Jian Xiang Kuan, Puxin Xu,
+                                                      Zheng Yan, Iliyan Zarov, Yuchen Zhang,
+Howard Schuman and Stanley Presser. 1996.             Angela Fan, Melanie Kambadur, Sharan Narang,
+   Questions and Answers in Attitude Surveys:         Aurelien Rodriguez, Robert Stojnic, Sergey
+   Experiments on Question Form, Wording, and         Edunov, and Thomas Scialom. 2023. Llama 2:
+   Context. Sage.                                     Open foundation and fine-tuned chat models.
+
+Norbert Schwarz, Hans-J. Hippler, and Elisabeth    Petter To¨rnberg. 2023. ChatGPT-4 outperforms
+   Noelle-Neumann. 1992. A cognitive model of         experts and crowd workers in annotating polit-
+   response-order effects in survey measurement.      ical twitter messages with zero-shot learning.
+   In Context Effects in Social and Psychological     ArXiv:2304.06588 [cs].
+   Research, pages 187­201. Springer. https://
+   doi.org/10.1007/978-1-4612-2848-6 13            Eric Wallace, Shi Feng, Nikhil Kandpal, Matt
+                                                      Gardner, and Sameer Singh. 2019. Universal
+Melanie Sclar, Yejin Choi, Yulia Tsvetkov, and        adversarial triggers for attacking and analyzing
+   Alane Suhr. 2023. Quantifying language mod-
+
+1022
+   NLP. In Proceedings of the 2019 Confer-          A Stimuli Implementation
+   ence on Empirical Methods in Natural Lan-
+   guage Processing and the 9th International       A.1 American Trends Panel Details
+   Joint Conference on Natural Language Pro-
+   cessing (EMNLP-IJCNLP), pages 2153­2162,         The link to the full ATP dataset. We use a subset
+   Hong Kong, China. Association for Computa-       of the dataset that has been formatted into CSVs
+   tional Linguistics. https://doi.org/10           from (Santurkar et al., 2023). Since our study is
+   .18653/v1/D19-1221                               focused on subjective questions, we further fil-
+                                                    tered for opinion-based questions, so questions
+Albert Webson, Alyssa Loo, Qinan Yu, and            asking about people's daily habits (e.g., how often
+   Ellie Pavlick. 2023. Are language models         they smoke) or other ``factual'' information (e.g.,
+   worse than humans at following prompts? It's     if they are married) are out-of-scope. Note that
+   complicated. In Findings of the Association      the Pew Research Center bears no responsibility
+   for Computational Linguistics: EMNLP 2023,       for the analyses or interpretations of the data pre-
+   pages 7662­7686, Singapore. Association for      sented here. The opinions expressed herein, in-
+   Computational Linguistics. https://doi.org       cluding any implications for policy, are those of
+   /10.18653/v1/2023.findings-emnlp.514             the author and not of Pew Research Center.
+
+Albert Webson and Ellie Pavlick. 2022. Do           A.2 Qbias and Qperturb Details
+   prompt-based models really understand the
+   meaning of their prompts? In Proceedings of      We briefly describe how we implement each re-
+   the 2022 Conference of the North American        sponse bias and non-bias perturbation. We will
+   Chapter of the Association for Computational     release the entire dataset of Qbias and Qperturb
+   Linguistics: Human Language Technologies,        question pairs.
+   pages 2300­2344, Seattle, United States.
+   Association for Computational Linguistics.       Acquiescence (McClendon, 1991; Choi and Pak,
+   https://doi.org/10.18653/v1/2022                 2005). Since acquiescence bias manifests when
+   .naacl-main.167                                  respondents are asked to agree or disagree, we
+                                                    filtered for questions in the ATP that only had two
+Jason Wei, Maarten Bosma, Vincent Zhao,             options. For consistency, all q are reworded to
+   Kelvin Guu, Adams Wei Yu, Brian Lester, Nan      suggest the first of the original options, allowing
+   Du, Andrew M. Dai, and Quoc V. Le. 2022a.        us to compare the number of `a' responses.
+   Finetuned language models are zero-shot learn-
+   ers. In International Conference on Learning     Allow/Forbid Asymmetry (Hippler and Schwarz,
+   Representations.                                 1987). We identified candidate questions for
+                                                    this bias type using a keyword search of ATP
+Jason Wei, Xuezhi Wang, Dale Schuurmans,            questions that contain ``allow'' or close syn-
+   Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi,    onyms of the verb (e.g., asking if a behavior is
+   Quoc V. Le, and Denny Zhou. 2022b. Chain-        ``acceptable'').
+   of-thought prompting elicits reasoning in large
+   language models. In Advances in Neural In-       Response Order (Ayidiya and McClendon,
+   formation Processing Systems, volume 35,         1990; O'Halloran et al., 2014). Prior social sci-
+   pages 24824­24837. Curran Associates, Inc.       ence studies typically considered questions with
+                                                    at least three or four response options, a criterion
+Herbert Weisberg, Jon A. Krosnick, and Bruce D.     that we also used. We constructed q by flipping
+   Bowen. 1996. An Introduction to Survey Re-       the order of the responses. We post-processed the
+   search, Polling, and Data Analysis. Sage.        data by mapping the flipped version of responses
+                                                    back to the original order.
+Chujie Zheng, Hao Zhou, Fandong Meng, Jie
+   Zhou, and Minlie Huang. 2023. On large lan-      Odd/Even Scale Effects (O'Muircheartaigh
+   guage models' selection bias in multi-choice     et al., 2001). This bias type requires questions
+   questions. arXiv preprint arXiv:2309.03882.      with scale responses with a middle option; we fil-
+                                                    ter for scale questions with four or five responses.
+Andy Zou, Zifan Wang, J. Zico Kolter, and Matt
+   Fredrikson. 2023. Universal and transferable
+   adversarial attacks on aligned language models.
+
+1023
+To construct the modified questions, we manu-           Model                   Average # of queries
+ally added a middle option to questions with even-
+numbered scales (when there was a logical middle        Llama2-7b                        69.63
+addition) and removed the middle option for ques-       Llama2-13b                       56.93
+tions with odd-numbered scales.                         Llama2-70b                       22.36
+                                                        Llama2-7b-chat                   32.77
+Opinion Floating (Schuman and Presser, 1996).           Llama2-13b-chat                  12.99
+We used the same set of questions as with the           Llama2-70b-chat
+odd/even bias but instead of removing the middle        SOLAR                              2.05
+option, we added a ``don't know'' option.               GPT-3.5-turbo                      1.00
+                                                        GPT-3.5-turbo-instruct             1.00
+Middle Random (Rawlinson, 2007). We sam-                                                   1.20
+ple an index (excluding the first and last letters)
+from each question and swap the character at that       Table 3: Average number of queries (100 single-
+index with its neighboring character. This was          token responses per query) required to generate
+only applied to words of length  4.                     50 valid responses.
+
+Key Typo (Rawlinson, 2007). For a given ques-           GPT 3.5 turbo instruct. Specific model version
+tion, with a low probability (of 20%), we randomly      is gpt-3.5-turbo-0914. Accessed through
+replace one letter in each word of the question with    the OpenAI API.
+a random letter.
+                                                        B.2 Prompt template
+Letter Swap (Rawlinson, 2007). For a given
+question, we randomize the order of all the letters     This prompt is used for all models. We have the
+in a word, except for the first and last characters.    models generate only one token with a tempera-
+Again, this perturbation is only applied to words       ture of 1.
+of length  4.
+                                                              Please answer the following question with
+   We did not apply non-bias perturbations to                 one of the alphabetical options provided.
+any words that contain numeric values or punctu-
+ation to prevent completely non-sensical outputs.             Question: [question]
+
+A.3 Full Results                                              A. [option]
+
+The full set of results for all stimuli is in Table 4.        B. [option]
+
+B LLM Details                                                 ...
+
+B.1 Model Access                                              E. [option]
+
+We provide links to model weights (where                      Answer:
+applicable):
+                                                        B.3 Number of Queries Required per Model
+Base Llama2 (7b, 13b, 70b) and Llama2
+chat (7b, 13b, 70b). Accessed from https://             As mentioned in Section 2.2, we repeatedly que-
+huggingface.co/meta-llama.                              ried the models until we generated a total of
+                                                        50 valid responses. To better contextualize their
+Solar (Instruction fine-tuned Llama2 70b).              performance in this survey setting, we gathered
+Accessed from https://huggingface.co                    additional statistics on the number of queries re-
+/upstage/SOLAR-0-70b-16bit.                             quired. In each query, we generate 100 single-
+                                                        token responses. To estimate the average number
+GPT 3.5 turbo. Specific model version is                of queries needed, we randomly sampled 10 ran-
+gpt-3.5-turbo-0613. Accessed through the                dom pairs of questions (q, q ) per bias and gen-
+OpenAI API.                                             erated 50 valid responses for each form of the
+                                                        question, for a total of 100 questions. Table 3
+                                                        shows the average number of queries per model;
+                                                        we note that while Llama2-7b and 13b do require
+
+1024
+a relatively high number of queries, they were       per question, with nearly a quarter of the ques-
+free to query and thus did not present a prohibi-    tions having 0 valid responses. For these ques-
+tive cost for experimentation.                       tions, GPT-4 tended to generate ``As'' or ``This''
+                                                     (and when set to generate more tokens, GPT-4
+B.4 Initial Explorations with GPT-4                  generated ``As a language model'' or ``This is
+                                                     subjective'' as the start of its response).
+In addition to the models above, we also at-
+tempted to use GPT-4-0613 in our experimental           This is in stark contrast to GPT-3.5, which had
+setup, but found it difficult to generate valid re-  an average of 48 valid responses per question
+sponses for many questions, most likely due to       with none of the questions having 0 valid re-
+OpenAI's generation guardrails. As an initial ex-    sponses. Histograms for the ratio of valid re-
+periment, we tried generating 50 responses per       sponses are shown in Figure 4. Based on these
+question for all (q, q ) in Qbias (747 questions ×   observations, the number of repeated queries that
+2 conditions) and counting the number of valid       would be required for evaluating GPT-4 would
+responses that GPT-4 generated out of the 50. On     be prohibitively expensive and potentially infea-
+average, GPT-4 generated 21 valid responses          sible for certain questions in our dataset.
+
+Figure 4: Histograms of the response ratio of valid responses (out of 50) out of all 1494 question forms (q
+and q ). GPT-4 has 750/1494 question forms with less than 5 valid responses, whereas GPT-3.5-turbo only has 15.
+
+1025
+model     bias type          ¯ b    p value  ¯ p key typo  p value  ¯ p middle random  p value  ¯ p letter swap  p value  pearson r  p value
+
+Llama2    Acquiescence       1.921   0.021      -3.920      0.007          -4.480       0.000        -4.840       0.004      0.182   0.015
+7b        Response Order    24.915   0.000         1.680    0.382          -0.320       0.871          2.320      0.151    -0.503    0.000
+          Odd/even           1.095   0.206         0.720    0.625                       0.355          1.680     0.221     -0.102     0.255
+          Opinion Float      4.270   0.000         0.720    0.625            1.360      0.355          1.680     0.221     -0.252     0.004
+          Allow/forbid    -60.350    0.000                  0.007            1.360      0.000                     0.000    -0.739    0.000
+                                                -5.400                    -10.250                    -7.700
+Llama2    Acquiescence    -11.852    0.000                  0.001                       0.000                     0.000    -0.412    0.000
+13b       Response Order    45.757   0.000      -6.800      0.000          -5.760      0.000         -9.320      0.000     -0.664    0.000
+          Odd/even         -3.492    0.000       11.600     0.000           11.640      0.031         11.720      0.007              0.031
+          Opinion Float      4.127   0.000                  0.000                       0.031          4.000      0.007      0.192    0.799
+          Allow/forbid               0.000         5.840    0.000             3.600     0.000                     0.000    -0.023     0.000
+                          -55.100                  5.840                      3.600                    4.000               -0.739
+Llama2    Acquiescence               0.000      -9.100      0.218          -5.700       0.173        -7.600       0.146              0.809
+70b       Response Order     7.296   0.000                  0.597                       0.113                    0.306     -0.018    0.021
+          Odd/even           5.122   0.000      -2.440      0.540          -3.080      0.687         -3.320       0.618    -0.140     0.179
+          Opinion Float     12.191   0.000      -1.080      0.540             3.240    0.687           2.000      0.618              0.714
+          Allow/forbid       2.444   0.000                  0.004             0.600     0.332                    0.877       0.12     0.000
+                          -42.200                  0.920                      0.600                  -0.800                -0.033
+Llama2    Acquiescence               0.647         0.920    0.000             2.250     0.000        -0.800       0.000    -0.628    0.189
+7b-chat   Response Order     1.136   0.000      -6.200      0.000                      0.000                      0.253              0.000
+          Odd/even         -9.801    0.000                  0.000         -12.034      0.000           0.350     0.000     -0.099     0.000
+          Opinion Float     20.079   0.283      -7.807      0.000           12.679     0.000                      0.000    -0.315    0.339
+          Allow/forbid     -1.254    0.367         7.173    0.000           15.810      0.000        -5.546       0.002    -0.315     0.321
+                           -7.050                  8.460                    15.801                     1.594               -0.086
+Llama2    Acquiescence               0.434         8.460    0.000                       0.000          9.175      0.000    -0.161    0.209
+13b-chat  Response Order     1.909   0.000                  0.000         -24.600      0.000           9.175     0.719               0.000
+          Odd/even         -9.292    0.000     -18.700      0.000                      0.000                     0.000     -0.095    0.069
+          Opinion Float     21.254   0.870                  0.000         -11.534      0.000       -16.200       0.000     -0.324    0.238
+          Allow/forbid     -0.191    0.333      -9.239      0.000           10.753      0.000                     0.000    -0.163    0.422
+                           -7.300                  7.653                    14.460                   -5.284                -0.106
+Llama2    Acquiescence               0.000                  0.523           14.460      0.312          0.472      0.166    -0.131    0.000
+70b-chat  Response Order    11.114   0.745       10.159     0.904                      0.002           9.492     0.459               0.000
+          Odd/even         -0.495    0.000       10.159     0.210         -23.450       0.656          9.492      0.018      0.452   0.009
+          Opinion Float     26.476   0.039     -15.950      0.210                       0.656                     0.018      0.465   0.000
+          Allow/forbid               0.546                  0.258          -5.280       0.021      -16.200        0.811    -0.231     0.080
+                             1.556                 2.320                    15.040                                           0.440
+Solar     Acquiescence       4.000   0.000         0.200    0.970          -2.040       0.596          4.040     0.833       0.280   0.013
+          Response Order             0.000         3.280    0.336          -2.040       0.012          1.200     0.017               0.000
+          Odd/even          18.511   0.000         3.280    0.815         -16.000       0.223        -7.240       0.661      0.187   0.000
+          Opinion Float      9.683   0.017      -4.750      0.815                       0.223        -7.240       0.661      0.248   0.001
+          Allow/forbid               0.207                  0.343             2.560     0.131        -0.950       0.001    -0.385     0.373
+                            17.508                 0.120                      8.680                                          0.291
+GPT       Acquiescence       1.921   0.040         2.280    0.008             2.960     0.000          0.600      0.000      0.145   0.000
+3.5       Response Order     6.800   0.147         0.480    0.121          -2.960      0.002           4.360     0.011               0.001
+Turbo     Odd/even                   0.000         0.480    0.082          -8.500       0.001        -1.000       0.062      0.334   0.002
+          Opinion Float      5.523   0.000      -2.950      0.082                       0.001        -1.000       0.062      0.198   0.000
+          Allow/forbid     -2.709    0.000                  0.008         -28.680       0.001        -8.050       0.058    -0.273     0.202
+                            25.048             -11.720                      15.960                                           0.467
+GPT       Acquiescence    -11.905    0.024         4.960    0.445                       0.008      -19.120        0.326      0.206   0.000
+3.5       Response Order    25.300   0.000                  0.169         -14.800      0.001           8.000     0.147               0.000
+Turbo     Odd/even                   0.390      -5.480      0.433         -14.800       0.061                     0.711      0.334   0.416
+Instruct  Opinion Float      6.455   0.891      -5.480      0.433         -23.200       0.061        -5.800       0.711      0.275   0.000
+          Allow/forbid    -11.114    0.111     -12.000      0.216                       0.139        -5.800       0.261    -0.073     0.005
+                                                                          -11.800                    -6.950                  0.360
+                             2.032                 2.600                    11.920                                           0.437
+                             0.143                 3.880                   -7.120                    -2.800
+                             8.550                 1.560                   -7.120                      3.800
+                                                   1.560
+                                                -4.500                    -10.050                    -0.840
+                                                                                                     -0.840
+
+                                                                                                       4.100
+
+Table 4: ¯ b for each bias type and associated p-value from t-test as well as ¯ p for the three perturba-
+tions and associated p-value from t-test. We also report the Pearson r statistic between model uncer-
+tainty and the magnitude of b.
+
+                                                                    1026
+
