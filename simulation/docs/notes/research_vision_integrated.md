@@ -36,4 +36,100 @@
 
 ---
 
-（Part 1 以降、続く）
+## Part 1：中核ビジョンの詳述
+
+### 1.1 出発点となる人間観
+
+**人間はそれほど複雑な存在ではなく、遺伝と環境（特に非共有環境）の関数として確率的に予測可能である**。
+
+この立場は決定論ではない。**「完全に絶対に決定的に」ではなく、確率的に**である。確率があれば予測に使える。確率があれば介入の根拠になる。
+
+### 1.2 行動遺伝学からの基礎
+
+性格特性に関する標準的な行動遺伝学的事実：
+
+- 性格特性の heritability は概ね **40–50%**（Polderman et al. 2015, Nature Genetics）
+- 残りは shared environment（成人期にはほぼゼロ）と non-shared environment + 測定誤差
+- IQ の heritability は加齢とともに上昇し、成人期には 60–80%（Wilson effect）
+- 教育達成、収入、犯罪行動などの複雑形質も substantial な遺伝要因を持つ
+
+つまり「同じ遺伝・似た環境を持つ集団」は、outcome 分布も類似する傾向を持つ。これが**集団予測の理論的根拠**である。
+
+### 1.3 性格を「氷山の一角」として捉える視座
+
+性格特性は単なる表層的な記述ではなく、**遺伝・環境・経験の合成シグナル**として機能する。
+
+- **開放性が高い** → IQ が高い可能性（特に結晶性知能。Anglim et al. 2022 メタ分析で r ≈ 0.20–0.30）
+- **HH が低い** → Dark Triad 的な問題行動傾向（Lee & Ashton 2005）
+- **Conscientiousness が高い** → 健康行動、長寿（Friedman 系列、Bogg & Roberts 2004）
+- **Neuroticism が高い** → 精神・身体疾患リスク（Lahey 2009、Kotov et al. 2010）
+
+性格特性を測ることは、その人の遺伝 × 環境の構成を**部分的に逆推定**することに近い。これが性格を介入の入り口として使う方法論的根拠である。
+
+### 1.4 個人予測の限界 vs 集団予測の可能性
+
+#### 個人レベル予測は情報的に困難
+- Salganik et al. (2020) PNAS：Fragile Families Challenge で 160 個の機械学習モデルが、数千変数を使っても life outcome 予測の R² は 0.1–0.2 で天井
+- Lundberg, Brand, & Jeon (2024) PNAS：これは情報理論的な上限であり、データを増やしても消えない
+- Park (2024) CS222 lecture でも "individual prediction problem" として明示
+
+#### しかし集団レベル予測は可能
+- 同じ遺伝プロファイル + 似た環境を共有する集団は、outcome 分布が予測可能
+- 公衆衛生・疫学・保険業界では既に確立されたパラダイム
+- 性格 → outcome の効果量が r = 0.1–0.3 でも、N > 1000 の集団政策には十分
+- 喫煙 → 肺がんも初期の効果量はこのレンジで、政策介入を正当化した
+
+→ **個人スクリーニングではなく集団政策の根拠として位置づける**ことが、科学的にも倫理的にも正解。
+
+### 1.5 介入対象としての性格特性
+
+ここで研究の中心命題が立ち上がる：
+
+#### 物質資源は部分的に zero-sum
+- 収入・教育・職業地位は**ポジショナル財**を含む
+- 全員が上位 10% に入ることは原理的に不可能
+- 不平等を完全に解消するのも現実的でない
+
+#### しかし性格特性は positive-sum
+- 私の HH 上昇はあなたの HH 上昇を妨げない
+- 全員が高 Conscientiousness、全員が低 Neuroticism になることは原理的に可能
+- 性格特性は**非ポジショナル**
+
+#### そして性格は幸福度に対する強力な予測因子
+- 性格 → 幸福度の効果量は **収入・教育を上回る**
+- Steel et al. (2008) Psychological Bulletin：Neuroticism × SWB r ≈ 0.40–0.50、Extraversion r ≈ 0.20–0.30
+- Easterlin paradox：subsistence を超えると収入の幸福度効果は逓減
+- Hedonic adaptation：物質報酬への適応は速く、性格起源の幸福は持続的
+
+#### しかも性格は介入可能
+- Roberts et al. (2017) systematic review：心理療法・教育介入で性格は変えられる（Conscientiousness 介入で d ≈ 0.4）
+- 文化的伝達、教育、家族環境が population mean をシフトさせる
+
+### 1.6 ビジョンの統合
+
+以上を統合すると、本研究プログラムの中心命題は：
+
+> **「個人 wellbeing の決定因として、収入・教育より性格特性（特に低 Neuroticism、高 HH、高 Agreeableness）の方が大きい。性格は遺伝 × 環境の合成シグナルなので集団予測の入り口として使え、かつ非ポジショナル・介入可能なので、社会全体の wellbeing 上昇には性格介入が最もスケーラブルな戦略である。」**
+
+この命題は：
+- **経験的に検証可能**（性格 vs 収入 vs 教育の効果量比較）
+- **介入志向**（予測の代わりに支援設計）
+- **倫理的に防御可能**（capability の差を認めた対応の区別）
+- **既存の welfare 思想と整合**（Sen, Nussbaum の capability approach、equity vs equality）
+
+### 1.7 simulation の役割（限定的）
+
+このビジョン全体において、LLM simulation は**副次的なツール**である。
+
+- 主役は classical statistical method（multi-level Bayesian regression、PRS、actuarial prediction、cohort analysis）
+- LLM simulation が活きるのは：
+  - 反実仮想政策探索（実験不可能な介入の効果推定）
+  - 既存データがない領域の補助的探索
+  - HEXACO 類型ごとに異なる介入効果の counterfactual
+- 「LLM ありき」ではなく、「予測したいことに最適な手法」を選ぶ
+
+→ Doc 1 で評価した候補 B / C は、このビジョンの Phase 2 以降に位置づく**ツール論文**である。
+
+---
+
+（Part 2 以降、続く）
