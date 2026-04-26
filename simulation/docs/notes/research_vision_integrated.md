@@ -879,110 +879,112 @@ H3 の探索：HEXACO 7 類型ごとに異なる介入の counterfactual 推定
 
 ## Part 8：参考文献
 
+**注記**：DOI / ISBN は可能な限り併記。書籍は ISBN-13 を使用。論文は Crossref / 出版社 DOI を使用。一部の補助文献で DOI が確認できないものは出版社情報のみ。
+
 ### 8.1 必読書籍（優先順）
 
 #### 最優先（◎）
-- Harden, K. P. (2021). *The Genetic Lottery: Why DNA Matters for Social Equality*. Princeton University Press.
-- Sapolsky, R. (2023). *Determined: A Science of Life Without Free Will*. Penguin Press.
+- Harden, K. P. (2021). *The Genetic Lottery: Why DNA Matters for Social Equality*. Princeton University Press. ISBN: 978-0-691-19080-8.
+- Sapolsky, R. M. (2023). *Determined: A Science of Life Without Free Will*. Penguin Press. ISBN: 978-0-525-56097-5.
 
 #### 強く推奨（○）
-- Plomin, R. (2018). *Blueprint: How DNA Makes Us Who We Are*. MIT Press.
-- Sapolsky, R. (2017). *Behave: The Biology of Humans at Our Best and Worst*. Penguin Press.
-- Wilkinson, R., & Pickett, K. (2009). *The Spirit Level: Why More Equal Societies Almost Always Do Better*. Allen Lane（UK）/ Bloomsbury Press（US, 2010, sub-title: "Why Greater Equality Makes Societies Stronger"）.
-- Wilkinson, R., & Pickett, K. (2018). *The Inner Level: How More Equal Societies Reduce Stress, Restore Sanity and Improve Everyone's Well-being*. Allen Lane.
+- Plomin, R. (2018). *Blueprint: How DNA Makes Us Who We Are*. MIT Press. ISBN: 978-0-262-03916-3.
+- Sapolsky, R. M. (2017). *Behave: The Biology of Humans at Our Best and Worst*. Penguin Press. ISBN: 978-1-59420-507-1.
+- Wilkinson, R., & Pickett, K. (2009). *The Spirit Level: Why More Equal Societies Almost Always Do Better*. Allen Lane（UK）/ Bloomsbury Press（US, 2010, sub-title: "Why Greater Equality Makes Societies Stronger"）. ISBN: 978-1-84614-039-6 (UK).
+- Wilkinson, R., & Pickett, K. (2018). *The Inner Level: How More Equal Societies Reduce Stress, Restore Sanity and Improve Everyone's Well-being*. Allen Lane. ISBN: 978-1-84614-739-5.
 
 #### 補助（△）
-- Pereboom, D. (2001). *Living Without Free Will*. Cambridge University Press.
-- Dennett, D. C. (2003). *Freedom Evolves*. Viking.
-- Putnam, R. D. (2000). *Bowling Alone: The Collapse and Revival of American Community*. Simon & Schuster.
-- Conley, D., & Fletcher, J. (2017). *The Genome Factor*. Princeton University Press.
-- O'Neil, C. (2016). *Weapons of Math Destruction*. Crown.
-- Eubanks, V. (2018). *Automating Inequality*. St. Martin's Press.
-- Caplan, B. (2018). *The Case Against Education*. Princeton University Press.
-- Knopik, V. S., Neiderhiser, J. M., DeFries, J. C., & Plomin, R. (2017). *Behavioral Genetics* (7th ed.). Worth Publishers.
+- Pereboom, D. (2001). *Living Without Free Will*. Cambridge University Press. ISBN: 978-0-521-79198-7.
+- Dennett, D. C. (2003). *Freedom Evolves*. Viking. ISBN: 978-0-670-03186-4.
+- Putnam, R. D. (2000). *Bowling Alone: The Collapse and Revival of American Community*. Simon & Schuster. ISBN: 978-0-7432-0304-3.
+- Conley, D., & Fletcher, J. (2017). *The Genome Factor*. Princeton University Press. ISBN: 978-0-691-16474-8.
+- O'Neil, C. (2016). *Weapons of Math Destruction*. Crown. ISBN: 978-0-553-41881-1.
+- Eubanks, V. (2018). *Automating Inequality*. St. Martin's Press. ISBN: 978-1-250-07431-7.
+- Caplan, B. (2018). *The Case Against Education*. Princeton University Press. ISBN: 978-0-691-17465-5.
+- Knopik, V. S., Neiderhiser, J. M., DeFries, J. C., & Plomin, R. (2017). *Behavioral Genetics* (7th ed.). Worth Publishers. ISBN: 978-1-4641-7605-9.
 
 ### 8.2 哲学（capability approach、自由意志）
-- Sen, A. (1999). *Development as Freedom*. Oxford University Press.
-- Sen, A. (2009). *The Idea of Justice*. Harvard University Press.
-- Nussbaum, M. (2011). *Creating Capabilities: The Human Development Approach*. Harvard University Press.
-- Frankfurt, H. G. (1971). Freedom of the will and the concept of a person. *Journal of Philosophy, 68*, 5–20.
+- Sen, A. (1999). *Development as Freedom*. Oxford University Press. ISBN: 978-0-19-829758-1.
+- Sen, A. (2009). *The Idea of Justice*. Harvard University Press. ISBN: 978-0-674-03613-0.
+- Nussbaum, M. C. (2011). *Creating Capabilities: The Human Development Approach*. Harvard University Press. ISBN: 978-0-674-05054-9.
+- Frankfurt, H. G. (1971). Freedom of the will and the concept of a person. *Journal of Philosophy, 68*(1), 5–20. https://doi.org/10.2307/2024717
 
 ### 8.3 行動遺伝学（メタ分析・概観）
-- Polderman, T. J. C., Benyamin, B., de Leeuw, C. A., Sullivan, P. F., van Bochoven, A., Visscher, P. M., & Posthuma, D. (2015). Meta-analysis of the heritability of human traits based on fifty years of twin studies. *Nature Genetics, 47*(7), 702–709.
-- Turkheimer, E. (2000). Three laws of behavior genetics and what they mean. *Current Directions in Psychological Science, 9*(5), 160–164.
-- Bouchard, T. J., & Loehlin, J. C. (2001). Genes, evolution, and personality. *Behavior Genetics, 31*(3), 243–273.
-- Bouchard, T. J. (2013). The Wilson Effect: The increase in heritability of IQ with age. *Twin Research and Human Genetics, 16*(5), 923–930.
-- Plomin, R., & Daniels, D. (1987). Why are children in the same family so different from one another? *Behavioral and Brain Sciences, 10*(1), 1–16.
+- Polderman, T. J. C., Benyamin, B., de Leeuw, C. A., Sullivan, P. F., van Bochoven, A., Visscher, P. M., & Posthuma, D. (2015). Meta-analysis of the heritability of human traits based on fifty years of twin studies. *Nature Genetics, 47*(7), 702–709. https://doi.org/10.1038/ng.3285
+- Turkheimer, E. (2000). Three laws of behavior genetics and what they mean. *Current Directions in Psychological Science, 9*(5), 160–164. https://doi.org/10.1111/1467-8721.00084
+- Bouchard, T. J., & Loehlin, J. C. (2001). Genes, evolution, and personality. *Behavior Genetics, 31*(3), 243–273. https://doi.org/10.1023/A:1012294324713
+- Bouchard, T. J. (2013). The Wilson Effect: The increase in heritability of IQ with age. *Twin Research and Human Genetics, 16*(5), 923–930. https://doi.org/10.1017/thg.2013.54
+- Plomin, R., & Daniels, D. (1987). Why are children in the same family so different from one another? *Behavioral and Brain Sciences, 10*(1), 1–16. https://doi.org/10.1017/S0140525X00055941
 
 ### 8.4 Polygenic scores / Sociogenomics
-- Belsky, D. W., Moffitt, T. E., Corcoran, D. L., et al. (2016). The genetics of success: How single-nucleotide polymorphisms associated with educational attainment relate to life-course development. *Psychological Science, 27*(7), 957–972.
-- Belsky, D. W., & Harden, K. P. (2019). Phenotypic annotation: Using polygenic scores to translate discoveries from genome-wide association studies from the top down. *Current Directions in Psychological Science, 28*(1), 82–90.
-- Harden, K. P., & Koellinger, P. D. (2020). Using genetics for social science. *Nature Human Behaviour, 4*(6), 567–576.
+- Belsky, D. W., Moffitt, T. E., Corcoran, D. L., et al. (2016). The genetics of success: How single-nucleotide polymorphisms associated with educational attainment relate to life-course development. *Psychological Science, 27*(7), 957–972. https://doi.org/10.1177/0956797616643070
+- Belsky, D. W., & Harden, K. P. (2019). Phenotypic annotation: Using polygenic scores to translate discoveries from genome-wide association studies from the top down. *Current Directions in Psychological Science, 28*(1), 82–90. https://doi.org/10.1177/0963721418807729
+- Harden, K. P., & Koellinger, P. D. (2020). Using genetics for social science. *Nature Human Behaviour, 4*(6), 567–576. https://doi.org/10.1038/s41562-020-0862-5
 
 ### 8.5 反社会的行動・犯罪の遺伝学
-- Caspi, A., McClay, J., Moffitt, T. E., et al. (2002). Role of genotype in the cycle of violence in maltreated children. *Science, 297*(5582), 851–854.
-- Tielbeek, J. J., Johansson, A., Polderman, T. J. C., et al. (2017). Genome-wide association studies of a broad spectrum of antisocial behavior. *JAMA Psychiatry, 74*(12), 1242–1250.
-- Tuvblad, C., & Beaver, K. M. (2013). Genetic and environmental influences on antisocial behavior. *Journal of Criminal Justice, 41*(5), 273–276.
+- Caspi, A., McClay, J., Moffitt, T. E., et al. (2002). Role of genotype in the cycle of violence in maltreated children. *Science, 297*(5582), 851–854. https://doi.org/10.1126/science.1072290
+- Tielbeek, J. J., Johansson, A., Polderman, T. J. C., et al. (2017). Genome-wide association studies of a broad spectrum of antisocial behavior. *JAMA Psychiatry, 74*(12), 1242–1250. https://doi.org/10.1001/jamapsychiatry.2017.3069
+- Tuvblad, C., & Beaver, K. M. (2013). Genetic and environmental influences on antisocial behavior. *Journal of Criminal Justice, 41*(5), 273–276. https://doi.org/10.1016/j.jcrimjus.2013.07.007
 
 ### 8.6 個人予測の限界
-- Salganik, M. J., Lundberg, I., Kindel, A. T., et al. (2020). Measuring the predictability of life outcomes with a scientific mass collaboration. *PNAS, 117*(15), 8398–8403.
-- Lundberg, I., Brand, J. E., & Jeon, N. (2024). The origins of unpredictability in life outcome prediction tasks. *PNAS, 121*(24), e2322973121.
+- Salganik, M. J., Lundberg, I., Kindel, A. T., et al. (2020). Measuring the predictability of life outcomes with a scientific mass collaboration. *PNAS, 117*(15), 8398–8403. https://doi.org/10.1073/pnas.1915006117
+- Lundberg, I., Brand, J. E., & Jeon, N. (2024). The origins of unpredictability in life outcome prediction tasks. *PNAS, 121*(24), e2322973121. https://doi.org/10.1073/pnas.2322973121
 
 ### 8.7 性格 → 人生 outcome
-- Roberts, B. W., Kuncel, N. R., Shiner, R., Caspi, A., & Goldberg, L. R. (2007). The power of personality: The comparative validity of personality traits, socioeconomic status, and cognitive ability for predicting important life outcomes. *Perspectives on Psychological Science, 2*(4), 313–345.
-- Soto, C. J. (2019). How replicable are links between personality traits and consequential life outcomes? The Life Outcomes of Personality Replication Project. *Psychological Science, 30*(5), 711–727.
-- Ozer, D. J., & Benet-Martínez, V. (2006). Personality and the prediction of consequential outcomes. *Annual Review of Psychology, 57*, 401–421.
-- Lee, K., & Ashton, M. C. (2005). Psychopathy, Machiavellianism, and narcissism in the Five-Factor Model and the HEXACO model of personality structure. *Personality and Individual Differences, 38*(7), 1571–1582.
+- Roberts, B. W., Kuncel, N. R., Shiner, R., Caspi, A., & Goldberg, L. R. (2007). The power of personality: The comparative validity of personality traits, socioeconomic status, and cognitive ability for predicting important life outcomes. *Perspectives on Psychological Science, 2*(4), 313–345. https://doi.org/10.1111/j.1745-6916.2007.00047.x
+- Soto, C. J. (2019). How replicable are links between personality traits and consequential life outcomes? The Life Outcomes of Personality Replication Project. *Psychological Science, 30*(5), 711–727. https://doi.org/10.1177/0956797619831612
+- Ozer, D. J., & Benet-Martínez, V. (2006). Personality and the prediction of consequential outcomes. *Annual Review of Psychology, 57*, 401–421. https://doi.org/10.1146/annurev.psych.57.102904.190127
+- Lee, K., & Ashton, M. C. (2005). Psychopathy, Machiavellianism, and narcissism in the Five-Factor Model and the HEXACO model of personality structure. *Personality and Individual Differences, 38*(7), 1571–1582. https://doi.org/10.1016/j.paid.2004.09.016
 
 ### 8.8 IQ × outcome
-- Strenze, T. (2007). Intelligence and socioeconomic success: A meta-analytic review. *Intelligence, 35*(5), 401–426.
-- Schmidt, F. L., & Hunter, J. E. (1998). The validity and utility of selection methods in personnel psychology. *Psychological Bulletin, 124*(2), 262–274.
-- DeYoung, C. G., Quilty, L. C., Peterson, J. B., & Gray, J. R. (2014). Openness to experience, intellect, and cognitive ability. *Journal of Personality Assessment, 96*(1), 46–52.
-- Ackerman, P. L., & Heggestad, E. D. (1997). Intelligence, personality, and interests: Evidence for overlapping traits. *Psychological Bulletin, 121*(2), 219–245.
-- Anglim, J., Dunlop, P. D., Wee, S., Horwood, S., Wood, J. K., & Marty, A. (2022). Personality and intelligence: A meta-analysis. *Psychological Bulletin, 148*(5–6), 301–336.
+- Strenze, T. (2007). Intelligence and socioeconomic success: A meta-analytic review of longitudinal research. *Intelligence, 35*(5), 401–426. https://doi.org/10.1016/j.intell.2006.09.004
+- Schmidt, F. L., & Hunter, J. E. (1998). The validity and utility of selection methods in personnel psychology: Practical and theoretical implications of 85 years of research findings. *Psychological Bulletin, 124*(2), 262–274. https://doi.org/10.1037/0033-2909.124.2.262
+- DeYoung, C. G., Quilty, L. C., Peterson, J. B., & Gray, J. R. (2014). Openness to experience, intellect, and cognitive ability. *Journal of Personality Assessment, 96*(1), 46–52. https://doi.org/10.1080/00223891.2013.806327
+- Ackerman, P. L., & Heggestad, E. D. (1997). Intelligence, personality, and interests: Evidence for overlapping traits. *Psychological Bulletin, 121*(2), 219–245. https://doi.org/10.1037/0033-2909.121.2.219
+- Anglim, J., Dunlop, P. D., Wee, S., Horwood, S., Wood, J. K., & Marty, A. (2022). Personality and intelligence: A meta-analysis. *Psychological Bulletin, 148*(5–6), 301–336. https://doi.org/10.1037/bul0000373
 
 ### 8.9 幸福度（SWB）
-- Steel, P., Schmidt, J., & Shultz, J. (2008). Refining the relationship between personality and subjective well-being. *Psychological Bulletin, 134*(1), 138–161.
-- DeNeve, K. M., & Cooper, H. (1998). The happy personality: A meta-analytic review of 137 personality traits and subjective well-being. *Psychological Bulletin, 124*(2), 197–229.
-- Kahneman, D., & Deaton, A. (2010). High income improves evaluation of life but not emotional well-being. *PNAS, 107*(38), 16489–16493.
-- Diener, E., Lucas, R. E., & Scollon, C. N. (2006). Beyond the hedonic treadmill: Revising the adaptation theory of well-being. *American Psychologist, 61*(4), 305–314.
-- Howell, R. T., & Howell, C. J. (2008). The relation of economic status to subjective well-being in developing countries: A meta-analysis. *Psychological Bulletin, 134*(4), 536–560.
-- Pinquart, M., & Sörensen, S. (2000). Influences of socioeconomic status, social network, and competence on subjective well-being in later life: A meta-analysis. *Psychology and Aging, 15*(2), 187–224.
-- Diener, E., & Seligman, M. E. P. (2002). Very happy people. *Psychological Science, 13*(1), 81–84.
+- Steel, P., Schmidt, J., & Shultz, J. (2008). Refining the relationship between personality and subjective well-being. *Psychological Bulletin, 134*(1), 138–161. https://doi.org/10.1037/0033-2909.134.1.138
+- DeNeve, K. M., & Cooper, H. (1998). The happy personality: A meta-analysis of 137 personality traits and subjective well-being. *Psychological Bulletin, 124*(2), 197–229. https://doi.org/10.1037/0033-2909.124.2.197
+- Kahneman, D., & Deaton, A. (2010). High income improves evaluation of life but not emotional well-being. *PNAS, 107*(38), 16489–16493. https://doi.org/10.1073/pnas.1011492107
+- Diener, E., Lucas, R. E., & Scollon, C. N. (2006). Beyond the hedonic treadmill: Revising the adaptation theory of well-being. *American Psychologist, 61*(4), 305–314. https://doi.org/10.1037/0003-066X.61.4.305
+- Howell, R. T., & Howell, C. J. (2008). The relation of economic status to subjective well-being in developing countries: A meta-analysis. *Psychological Bulletin, 134*(4), 536–560. https://doi.org/10.1037/0033-2909.134.4.536
+- Pinquart, M., & Sörensen, S. (2000). Influences of socioeconomic status, social network, and competence on subjective well-being in later life: A meta-analysis. *Psychology and Aging, 15*(2), 187–224. https://doi.org/10.1037/0882-7974.15.2.187
+- Diener, E., & Seligman, M. E. P. (2002). Very happy people. *Psychological Science, 13*(1), 81–84. https://doi.org/10.1111/1467-9280.00415
 
 ### 8.10 性格の介入可能性
-- Roberts, B. W., Luo, J., Briley, D. A., Chow, P. I., Su, R., & Hill, P. L. (2017). A systematic review of personality trait change through intervention. *Psychological Bulletin, 143*(2), 117–141.
-- Roberts, B. W., & Mroczek, D. (2008). Personality trait change in adulthood. *Current Directions in Psychological Science, 17*(1), 31–35.
-- Bogg, T., & Roberts, B. W. (2004). Conscientiousness and health-related behaviors: A meta-analysis of the leading behavioral contributors to mortality. *Psychological Bulletin, 130*(6), 887–919.
+- Roberts, B. W., Luo, J., Briley, D. A., Chow, P. I., Su, R., & Hill, P. L. (2017). A systematic review of personality trait change through intervention. *Psychological Bulletin, 143*(2), 117–141. https://doi.org/10.1037/bul0000088
+- Roberts, B. W., & Mroczek, D. (2008). Personality trait change in adulthood. *Current Directions in Psychological Science, 17*(1), 31–35. https://doi.org/10.1111/j.1467-8721.2008.00543.x
+- Bogg, T., & Roberts, B. W. (2004). Conscientiousness and health-related behaviors: A meta-analysis of the leading behavioral contributors to mortality. *Psychological Bulletin, 130*(6), 887–919. https://doi.org/10.1037/0033-2909.130.6.887
 
 ### 8.11 健康・精神疾患
-- Lahey, B. B. (2009). Public health significance of neuroticism. *American Psychologist, 64*(4), 241–256.
-- Kotov, R., Gamez, W., Schmidt, F., & Watson, D. (2010). Linking "big" personality traits to anxiety, depressive, and substance use disorders: A meta-analysis. *Psychological Bulletin, 136*(5), 768–821.
+- Lahey, B. B. (2009). Public health significance of neuroticism. *American Psychologist, 64*(4), 241–256. https://doi.org/10.1037/a0015309
+- Kotov, R., Gamez, W., Schmidt, F., & Watson, D. (2010). Linking "big" personality traits to anxiety, depressive, and substance use disorders: A meta-analysis. *Psychological Bulletin, 136*(5), 768–821. https://doi.org/10.1037/a0020327
 
 ### 8.12 ACE（Adverse Childhood Experiences）
-- Felitti, V. J., Anda, R. F., Nordenberg, D., et al. (1998). Relationship of childhood abuse and household dysfunction to many of the leading causes of death in adults: The Adverse Childhood Experiences (ACE) Study. *American Journal of Preventive Medicine, 14*(4), 245–258.
-- Hughes, K., Bellis, M. A., Hardcastle, K. A., et al. (2017). The effect of multiple adverse childhood experiences on health: A systematic review and meta-analysis. *Lancet Public Health, 2*(8), e356–e366.
+- Felitti, V. J., Anda, R. F., Nordenberg, D., et al. (1998). Relationship of childhood abuse and household dysfunction to many of the leading causes of death in adults: The Adverse Childhood Experiences (ACE) Study. *American Journal of Preventive Medicine, 14*(4), 245–258. https://doi.org/10.1016/S0749-3797(98)00017-8
+- Hughes, K., Bellis, M. A., Hardcastle, K. A., et al. (2017). The effect of multiple adverse childhood experiences on health: A systematic review and meta-analysis. *Lancet Public Health, 2*(8), e356–e366. https://doi.org/10.1016/S2468-2667(17)30118-4
 
 ### 8.13 マクロ経済 × 出生コホート
-- Oreopoulos, P., von Wachter, T., & Heisz, A. (2012). The short- and long-term career effects of graduating in a recession. *American Economic Journal: Applied Economics, 4*(1), 1–29.
+- Oreopoulos, P., von Wachter, T., & Heisz, A. (2012). The short- and long-term career effects of graduating in a recession. *American Economic Journal: Applied Economics, 4*(1), 1–29. https://doi.org/10.1257/app.4.1.1
 
 ### 8.14 教育シグナリング
-- Spence, M. (1973). Job market signaling. *Quarterly Journal of Economics, 87*(3), 355–374.
+- Spence, M. (1973). Job market signaling. *Quarterly Journal of Economics, 87*(3), 355–374. https://doi.org/10.2307/1882010
 
 ### 8.15 stigma・stereotype threat
-- Steele, C. M., & Aronson, J. (1995). Stereotype threat and the intellectual test performance of African Americans. *Journal of Personality and Social Psychology, 69*(5), 797–811.
+- Steele, C. M., & Aronson, J. (1995). Stereotype threat and the intellectual test performance of African Americans. *Journal of Personality and Social Psychology, 69*(5), 797–811. https://doi.org/10.1037/0022-3514.69.5.797
 
 ### 8.15a HEXACO test-retest 信頼性
-- Henry, S., Thielmann, I., Booth, T., & Mõttus, R. (2022). Test-retest reliability of the HEXACO-100—And the value of multiple measurements for assessing reliability. *PLoS ONE, 17*(1), e0262465.
+- Henry, S., Thielmann, I., Booth, T., & Mõttus, R. (2022). Test-retest reliability of the HEXACO-100—And the value of multiple measurements for assessing reliability. *PLoS ONE, 17*(1), e0262465. https://doi.org/10.1371/journal.pone.0262465
 
 ### 8.16 倫理・公正性（補助）
-- Angwin, J., Larson, J., Mattu, S., & Kirchner, L. (2016). Machine bias. *ProPublica*. https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+- Angwin, J., Larson, J., Mattu, S., & Kirchner, L. (2016, May 23). Machine bias. *ProPublica*. https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
 
 ### 8.17 早期介入（Heckman 系列）
-- Heckman, J. J., Moon, S. H., Pinto, R., Savelyev, P. A., & Yavitz, A. (2010). The rate of return to the HighScope Perry Preschool Program. *Journal of Public Economics, 94*(1–2), 114–128.
+- Heckman, J. J., Moon, S. H., Pinto, R., Savelyev, P. A., & Yavitz, A. (2010). The rate of return to the HighScope Perry Preschool Program. *Journal of Public Economics, 94*(1–2), 114–128. https://doi.org/10.1016/j.jpubeco.2009.11.001
 
 ### 8.18 著者の関連自己引用
-- Tokiwa, E. (2025). Who excels in online learning in Japan? *Frontiers in Psychology, 16*, 1420996.
+- Tokiwa, E. (2025). Who excels in online learning in Japan? *Frontiers in Psychology, 16*, 1420996. https://doi.org/10.3389/fpsyg.2025.1420996（要確認）
 - Tokiwa, E. (2026). *Big Five personality traits and academic achievement in online learning environments: A systematic review and meta-analysis* [Preprint]. OSF. https://doi.org/10.17605/OSF.IO/E5W47
 
 ### 8.19 日本の利用可能データセット（論文 1 候補）
