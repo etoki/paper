@@ -529,4 +529,70 @@ LLM シミュレーションには「**結局 LLM は training data の相関を
 
 ---
 
-（References は次節）
+## Part 4：参考文献
+
+### 4.1 LLM シミュレーション方法論（戦略 1：集団・効果量予測の系譜）
+- Argyle, L. P., Busby, E. C., Fulda, N., Gubler, J. R., Rytting, C., & Wingate, D. (2023). Out of one, many: Using language models to simulate human samples. *Political Analysis, 31*(3), 337–351.
+- Hewitt, L., Ashokkumar, A., Ghezae, I., & Willer, R. (2024). *Predicting results of social science experiments using large language models*.
+- Park, J. S., O'Brien, J. C., Cai, C. J., Morris, M. R., Liang, P., & Bernstein, M. S. (2023). Generative agents: Interactive simulacra of human behavior. *UIST '23*.
+- Park, J. S., Zou, C. Q., Shaw, A., Hill, B. M., Cai, C., Morris, M. R., Willer, R., Liang, P., & Bernstein, M. S. (2024). *Generative agent simulations of 1,000 people*. arXiv:2411.10109.
+- Park, J. S. (2024). *CS 222: AI agents and simulations* [Lecture notes]. Stanford University.
+
+### 4.2 LLM シミュレーション批判（戦略 2：失敗の主題化の系譜）
+- Wang, A., Morgenstern, J., & Dickerson, J. P. (2024). *LLMs that replace human participants can harmfully misportray and flatten identity groups*. arXiv:2402.01908.
+- *The Personality Illusion: Revealing dissociation between self-reports and behavior in LLMs* (2024). [in `simulation/prior_research/_text/`]
+- *The threat of analytic flexibility in using large language models to simulate human data* (2024). [in `simulation/prior_research/_text/`]
+- *Digital Twins are Funhouse Mirrors: Five systematic distortions* (2024). [in `simulation/prior_research/_text/`]
+
+### 4.3 個人予測の情報的上限
+- Lundberg, I., Brand, J. E., & Jeon, N. (2024). The origins of unpredictability in life outcome prediction tasks. *PNAS, 121*(24), e2322973121.
+- Salganik, M. J. et al. (2020). Measuring the predictability of life outcomes with a scientific mass collaboration. *PNAS, 117*(15), 8398–8403.
+
+### 4.4 関連 LLM-agent 研究（既収集）
+- *A foundation model to predict and capture human cognition* (2024). [in `simulation/prior_research/_text/`]
+- *LLM Agent-Based Simulation of Student Activities and Mental Health Using Smartphone Sensing Data* (2024). [in `simulation/prior_research/_text/`]
+- *Personality-Driven Student Agent-Based Modeling in Mathematics Education: How well do student agents align with human learners?* (2024). [in `simulation/prior_research/_text/`]
+- *Predicting personality from patterns of behavior collected with smartphones* (2024). [in `simulation/prior_research/_text/`]
+
+### 4.5 HEXACO 測定・モデル
+- Ashton, M. C., & Lee, K. (2007). Empirical, theoretical, and practical advantages of the HEXACO model of personality structure. *Personality and Social Psychology Review, 11*(2), 150–166.
+- Wakabayashi, A. (2014). A sixth personality domain that is independent of the Big Five domains: The psychometric properties of the HEXACO Personality Inventory in a Japanese sample. *Japanese Psychological Research, 56*, 211–223.
+
+### 4.6 Harassment / Dark Triad 測定（候補 A 関連）
+- Shimotsukasa, T., & Oshio, A. (2017). Development and validation of the Japanese version of the Short Dark Triad (SD3-J). *[Japanese journal citation]*.
+- Tou, S. et al. (2017). Development of the Workplace Power Harassment Scale. *[Japanese journal citation]*.
+- Kobayashi, A., & Tanaka, K. (2010). Development of the Gender Harassment Scale. *[Japanese journal citation]*.
+
+### 4.7 Clustering 方法論先行研究（候補 B 関連）
+- Daljeet, K. N., Bremner, N. L., Giammarco, E. A., Meyer, J. P., & Paunonen, S. V. (2017). Taking a person-centered approach to personality: A latent-profile analysis of the HEXACO model of personality. *Journal of Research in Personality, 70*, 241–251.
+- Espinoza, J. A., Daljeet, K. N., & Meyer, J. P. (2020). Establishing the structure and replicability of personality profiles using the HEXACO-PI-R. *Nature Human Behaviour, 4*(7), 713–724.
+- Gerlach, M., Farb, B., Revelle, W., & Amaral, L. A. N. (2018). A robust data-driven approach identifies four personality types across four large data sets. *Nature Human Behaviour, 2*(10), 735–742.
+- Kerber, A., Roth, M., & Herzberg, P. Y. (2021). Personality types revisited—A literature-informed and data-driven approach to an integration of prototypical and dimensional constructs of personality description. *PLOS ONE, 16*(1), e0244849.
+- She, M. H. C., Ronay, R., & den Hartog, D. N. (2025). The Sociable and the Deviant: A Latent Profile Analysis of HEXACO and the Dark Triad. *Journal of Business Ethics, 199*, 529–547.
+
+### 4.8 Clustering validity 指標
+- Hubert, L., & Arabie, P. (1985). Comparing partitions. *Journal of Classification, 2*(1), 193–218.
+- Halkidi, M., & Vazirgiannis, M. (2001). Clustering validity assessment: Finding the optimal partitioning of a data set. *Proc. IEEE ICDM*, 187–194.
+- Rousseeuw, P. J. (1987). Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. *Journal of Computational and Applied Mathematics, 20*, 53–65.
+
+### 4.9 著者の関連自己引用
+- Tokiwa, E. (2025). Who excels in online learning in Japan? *Frontiers in Psychology, 16*, 1420996.
+- Tokiwa, E. (2026). *Big Five personality traits and academic achievement in online learning environments: A systematic review and meta-analysis* [Preprint]. OSF. https://doi.org/10.17605/OSF.IO/E5W47
+
+---
+
+## 関連既存資産（このリポジトリ内）
+
+- `simulation/agent/` — Opus 4.7 + Extended Thinking + Tool Use pipeline
+- `simulation/HANDOFF.md` — 既存 simulation 論文の状態
+- `simulation/prior_research/_text/` — 上記参考文献の PDF + テキスト抽出
+- `clustering/` — N=13,668 データと clustering スクリプト
+- `harassment/` — N=354 データと analysis.py
+- `clustering/paper_IEEE/Manuscript_IEEE_rivision.docx` — Clustering 論文 IEEE 投稿原稿
+- `harassment/paper/Manuscript_only.docx` — Harassment 論文原稿
+
+---
+
+**本ドキュメントは「方法論的評価」に閉じます。**  
+**研究目的そのもの（なぜ simulation するか）は** `research_vision_integrated.md` **を参照してください。**
+
