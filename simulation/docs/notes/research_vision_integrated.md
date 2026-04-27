@@ -49,7 +49,7 @@
 性格特性に関する標準的な行動遺伝学的事実：
 
 - 性格特性の heritability は概ね **40–50%**（Polderman et al. 2015, Nature Genetics, 全形質平均で 49%）
-- 残りは shared environment（成人期にはほぼゼロ、Polderman et al. 2015 で全形質平均 17%、年齢上昇とともに減少）と non-shared environment + 測定誤差
+- 残りは shared environment（成人期にはほぼゼロ、Polderman et al. 2015 で全形質平均 17%、年齢上昇とともに減少。Plomin & Daniels 1987 が "non-shared environment" の重要性を確立）と non-shared environment + 測定誤差
 - IQ の heritability は加齢とともに上昇し、成人期には **70–80%**（Wilson effect、Bouchard 2013, Twin Research and Human Genetics, 16(5), 923–930）
 - 教育達成、収入、犯罪行動などの複雑形質も substantial な遺伝要因を持つ（Polderman et al. 2015）
 
@@ -961,7 +961,6 @@ H3 の探索：HEXACO 7 類型ごとに異なる介入の counterfactual 推定
 - Diener, E., Lucas, R. E., & Scollon, C. N. (2006). Beyond the hedonic treadmill: Revising the adaptation theory of well-being. *American Psychologist, 61*(4), 305–314. https://doi.org/10.1037/0003-066X.61.4.305
 - Howell, R. T., & Howell, C. J. (2008). The relation of economic status to subjective well-being in developing countries: A meta-analysis. *Psychological Bulletin, 134*(4), 536–560. https://doi.org/10.1037/0033-2909.134.4.536
 - Pinquart, M., & Sörensen, S. (2000). Influences of socioeconomic status, social network, and competence on subjective well-being in later life: A meta-analysis. *Psychology and Aging, 15*(2), 187–224. https://doi.org/10.1037/0882-7974.15.2.187
-- Diener, E., & Seligman, M. E. P. (2002). Very happy people. *Psychological Science, 13*(1), 81–84. https://doi.org/10.1111/1467-9280.00415
 
 ### 8.10 性格の介入可能性
 - Roberts, B. W., Luo, J., Briley, D. A., Chow, P. I., Su, R., & Hill, P. L. (2017). A systematic review of personality trait change through intervention. *Psychological Bulletin, 143*(2), 117–141. https://doi.org/10.1037/bul0000088
