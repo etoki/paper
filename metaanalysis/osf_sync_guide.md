@@ -4,7 +4,9 @@
 
 **登録済み Registration**（`e5w47`）は不変。本ガイドは **Project 本体**（編集可能）への追加手順。
 
-**最終更新**: 2026-04-24
+**Preprint**: 本原稿は Research Square で公開済（2026-04-27, DOI 10.21203/rs.3.rs-9513298/v1）。詳細は `paper/preprint_info.md` を参照。
+
+**最終更新**: 2026-04-27
 
 ---
 
