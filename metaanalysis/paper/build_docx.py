@@ -293,7 +293,7 @@ def build_abstract(doc):
         "without testing delivery mode as a moderator. This pre-registered "
         "systematic review and meta-analysis is the first quantitative "
         "synthesis dedicated to online learning environments. Following PRISMA "
-        "2020 standards, 31 primary studies reporting Big Five (or HEXACO) "
+        "2020 standards, 31 primary studies reporting Big Five "
         "personality and academic achievement in online, blended, or MOOC "
         "environments were synthesized. Ten studies (pooled N = 3,384) "
         "contributed direct Pearson correlations to the primary achievement "
@@ -322,7 +322,7 @@ def build_abstract(doc):
 
     p_kw = add_para(
         doc,
-        "Keywords: Big Five, Five-Factor Model, HEXACO, online learning, e-learning, "
+        "Keywords: Big Five, Five-Factor Model, online learning, e-learning, "
         "MOOC, academic achievement, meta-analysis, systematic review, PRISMA",
     )
     # APA keywords use italicized "Keywords:" label; for simplicity we keep plain.
