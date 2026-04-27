@@ -25,6 +25,9 @@ Not applicable. All included studies obtained informed consent from their partic
 ### Pre-registration
 This systematic review and meta-analysis was pre-registered on OSF Registries (https://osf.io/e5w47/; DOI: 10.17605/OSF.IO/E5W47) on April 23, 2026, prior to formal data extraction and quantitative synthesis. The full protocol (PRISMA-P 2015 compliant) and supplementary materials are publicly available in the associated OSF project (https://osf.io/79m5j/).
 
+### Preprint
+A preprint of this manuscript has been posted on Research Square on April 27, 2026 (DOI: 10.21203/rs.3.rs-9513298/v1; https://doi.org/10.21203/rs.3.rs-9513298/v1). The preprint has not been peer reviewed. Any subsequent journal-version revisions will be posted as further versions under the same DOI stem.
+
 ### Availability of data and material
 All extracted data, analysis code, search logs, and supplementary materials are publicly available on the OSF project page (https://osf.io/79m5j/) and the accompanying GitHub repository (https://github.com/etoki/paper, directory `metaanalysis/`).
 
