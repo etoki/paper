@@ -41,6 +41,55 @@
 
 ---
 
+### 0.4 重要な区別：研究計画 vs 論文 vs 著作のメッセージ階層
+
+本ドキュメントは **研究計画（internal document）** であり、研究の動機・思想（capability approach、社会システムの責任、自己責任批判等の規範的主張）を明文化している。
+
+しかし、**実際の論文（peer-reviewed publication）には L3/L4 の規範主張を含めない**。これは Doc 2 Part 2 の **4 層分離原則**に基づく方法論的判断である。
+
+#### 各 format で許容されるメッセージ層
+
+| Format | 許容される層 | 例 |
+|---|---|---|
+| **本研究計画（internal）** | L1 + L2 + L3 + L4 すべて | 動機・思想含む包括的記述 |
+| **論文（Phase 1, 2）** | **L1（記述・予測）に純化** | 「類型 X の加害率は Y%」「介入 B で Z% 削減と予測」 |
+| **著作 / エッセイ** | L1 + L3 + L4 の統合 | 「自己責任 framing の限界と社会の責任」 |
+
+#### 論文で言えること / 言えないこと
+
+##### ✓ 論文で言えること（L1 empirical claim）
+- 「Type X の加害確率は他より Y% 高い」
+- 「Counterfactual B（targeted intervention）は加害率を Z% 削減と予測」
+- 「Structural-only intervention（Pruckner 2013 系）は extensive margin に効果が乏しい」
+- Discussion で「These findings may inform future research on intervention design」（modest implication）
+
+##### ✗ 論文で言えないこと（L3/L4 normative claim）
+- 「自己責任 framing は誤り」
+- 「社会には変化機会を提供する道徳的義務がある」
+- 「workplace harassment は本質的に加害者の責任ではない」
+- 「社会システムが責任を負うべき」
+
+#### この分離が必要な理由
+
+1. **査読耐性**：empirical claim と normative claim が混在すると "ideologically motivated" "outside scope" として却下されやすい
+2. **論理的厳密性**：シミュレーションは L1（記述・予測）まで支持。L3/L4 への飛躍は empirical 根拠を超える
+3. **長期的信頼性**：L3/L4 主張を論文に込めると、後の論文も "あの著者は論文を主張の道具にする" と見られる
+4. **影響力の最大化**：L1 を堅実に published → 著作で L3/L4 を展開、の方が**読者層が広がる**
+
+#### Discussion section での慎重な書き方（論文向け）
+
+論文の Discussion で触れていい limit：
+
+- ✓ 「Our findings are consistent with capability-based perspectives (Sen, 1999; Nussbaum, 2011)」 — 既存文献への positioning
+- ✓ 「These results may have implications for personality-based intervention design」 — modest
+- ✓ 「Future research could examine X」 — future direction
+- ✗ 「This proves that...」 — 強い断定はしない
+- ✗ 「Society should...」 — 規範を直接言わない
+
+→ **「示唆する」「整合的である」「将来研究を促す」レベルに留める**
+
+---
+
 ## Part 1：背景と動機
 
 ### 1.1 研究ビジョンからの逆算（Doc 2 より）
