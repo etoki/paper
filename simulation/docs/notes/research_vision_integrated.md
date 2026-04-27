@@ -277,8 +277,10 @@
 #### Openness × IQ の相関
 - 当初想定：r ≈ 0.1–0.2
 - **修正後：ρ ≈ .20**（Anglim et al. 2022, Psychological Bulletin, 148, 301–336、Big Five Openness × intelligence、N = 162,636、k = 272 studies）
-- 結晶性知能との相関はより強い：**Openness × 結晶性 r = .30、Openness × 流動性 r = .08**（Ackerman & Heggestad 1997, Psychological Bulletin, 121(2), 219–245、k = 135 studies）
-- DeYoung et al. (2014, Journal of Personality Assessment, 96(1), 46–52) は "Intellect" 側面が g と独立に関連、"Openness" 側面は verbal intelligence のみと関連と分離
+- 結晶性知能との相関はより強いが、推定値は大きくばらつく
+  - Ackerman & Heggestad (1997) は overall Openness × intelligence で reliability-corrected ρ = .33 を報告したが、**当時の Big Five 系尺度を使った研究はわずか 3 件のみ**（Anglim 2022 が明示的に caution）
+  - そのため A&H の .33 は過大推定の可能性が高く、Anglim 2022 の ρ = .20 がより信頼できる現代的推定
+- DeYoung et al. (2014, Journal of Personality Assessment, 96(1), 46–52) は "Intellect" 側面が g と独立に関連、"Openness" 側面は verbal intelligence のみと関連と分離（一次資料での独立分析）
 - 含意：性格は IQ をある程度反映している（氷山の一角の比喩を補強）
 
 #### SES → 子の personality の経路
@@ -368,20 +370,29 @@
 
 ### 4.2 幸福度の実証的予測因子
 
-#### 主要メタ分析の典型値
-- **Neuroticism（負）**：r ≈ 0.40–0.50（Steel et al. 2008 Psychological Bulletin 134(1), DeNeve & Cooper 1998 Psychological Bulletin 124(2)）
-- **Extraversion**：r ≈ 0.20–0.30（Steel et al. 2008、DeNeve & Cooper 1998）
-- **Agreeableness / HH**：r ≈ 0.15–0.25（Steel et al. 2008）
-- **Conscientiousness**：r ≈ 0.20（Steel et al. 2008）
-- **収入（subsistence 以上）**：r ≈ 0.13–0.20、逓減的（Howell & Howell 2008 Psychological Bulletin 134(4) 系列のメタ分析、Kahneman & Deaton 2010 PNAS 107(38)）
-- **教育年数**：r ≈ 0.10（Witter et al. 1984 系列、Pinquart & Sörensen 2000 Psychology and Aging）
-- **婚姻**：r ≈ 0.15（Diener et al. 2000 Social Indicators Research メタ分析）
-- **健康**：r ≈ 0.30（Okun et al. 1984 J Aging and Health、Pinquart & Sörensen 2000）
-- **社会関係**：r ≈ 0.30（Pinquart & Sörensen 2000、Diener & Seligman 2002）
+#### 主要メタ分析の典型値（性格）
+- **Neuroticism（負）**：Steel et al. 2008（Psychological Bulletin, 134(1), 138–161）の NEO 系列で
+  - 負感情：ρ = .64、k = 73
+  - 幸福感：ρ = −.51、k = 6
+  - 全体感情：ρ = −.59、k = 15
+  - QOL：ρ = −.72、k = 5
+  - → **r ≈ 0.40–0.70（SWB 指標と尺度により大きく異なる）**
+- **Extraversion**：Steel et al. 2008 NEO 系列で
+  - 正感情：ρ = .54、幸福感：ρ = .57、全体感情：ρ = .44、QOL：ρ = .54
+  - → **r ≈ 0.40–0.60**
+- **Conscientiousness × QOL**：ρ = .51（Steel et al. 2008）
+- **DeNeve & Cooper (1998)** は 137 traits を分析し、Big Five 系では Neuroticism が life satisfaction、happiness、negative affect の最強予測因子と確認
 
-注：上記の非性格変数の数値は古典的な SWB 研究から取られた**順位付け参照値**で、論文化時には最新メタ分析（特に subsistence 閾値研究）で再確認が必要。
+#### 物質・社会変数の典型値
+- **収入**：閾値構造あり
+  - Kahneman & Deaton (2010, PNAS, 107(38)) — **米国で年収 ≈ $75,000 を超えると emotional well-being への効果が頭打ち**（life evaluation は線形に上昇継続）
+  - Howell & Howell (2008, Psychological Bulletin, 134(4)) — 発展途上国 N=111 samples のメタ分析：低所得発展国 r=.28、高所得発展国 r=.10、教育低 r=.36、教育高 r=.13
+  - **Note**：Howell & Howell は発展途上国対象なので、日本のような OECD 高所得国への直接適用は注意が必要。Japan-relevant な閾値構造は Kahneman & Deaton の方が直接的
+- **教育・婚姻・健康・社会関係**：個別メタ分析が必要（Pinquart & Sörensen 2000 等が古典的だが、本ドキュメント執筆時点で著者が直接 verify していない数値）
 
-→ **収入・教育より性格の方が幸福度予測力が強い**（Steel et al. 2008 で実証）
+注：本ドキュメントは方向性整理のための **typical value** を示すが、論文 1 執筆時には各 outcome × predictor 組み合わせを最新メタ分析で再 verify すること。
+
+→ **少なくとも Neuroticism × SWB の効果量は、Kahneman & Deaton の subsistence 超過後の収入効果より明確に大きい**（Steel et al. 2008 で実証）
 
 #### Easterlin paradox の含意
 - Kahneman & Deaton (2010)：年収約 $75K を超えると追加収入の幸福度効果がほぼゼロ
