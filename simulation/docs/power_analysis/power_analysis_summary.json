@@ -1,0 +1,69 @@
+{
+  "alpha": 0.05,
+  "power_target": 0.8,
+  "z_alpha_two_sided": 1.959963984540054,
+  "z_beta": 0.8416212335729143,
+  "ncp_target": 2.8015852181129683,
+  "type_distribution": {
+    "0": 23,
+    "1": 42,
+    "2": 49,
+    "3": 49,
+    "4": 51,
+    "5": 26,
+    "6": 114
+  },
+  "manager_share_assumed": 0.15,
+  "outcome_full_sd": {
+    "power_harassment": 0.31676442866867804,
+    "gender_harassment": 0.7022901510648643
+  },
+  "cells_14": {
+    "n_cells": 14,
+    "min": 10,
+    "max": 70,
+    "median": 18.0,
+    "n_lt_10": 0,
+    "n_lt_20": 7
+  },
+  "cells_28": {
+    "n_cells": 28,
+    "min": 0,
+    "max": 67,
+    "median": 8.0,
+    "n_lt_10": 16,
+    "n_lt_20": 23
+  },
+  "mde_d_one_sample": {
+    "14_cells_median": 0.6673611042308906,
+    "14_cells_max": 0.8859390348296595,
+    "28_cells_median": 0.8267288579900138,
+    "28_cells_max": 1.6174959798351989
+  },
+  "pairwise_mde_d_two_sample": {
+    "median": 0.9245649307428465,
+    "max": 1.2529069984918344,
+    "n_lt_0p5": 0,
+    "n_total": 42
+  },
+  "binary_thresholds": {
+    "power_harassment": 1.421941536368237,
+    "gender_harassment": 2.046907787396839
+  },
+  "binary_rate_precision_14": {
+    "power_harassment_bin": {
+      "rate_median": 0.17857142857142858,
+      "rate_min": 0.0,
+      "rate_max": 0.4,
+      "ci_halfwidth_median": 0.13324923628140722,
+      "ci_halfwidth_max": 0.3036363148515984
+    },
+    "gender_harassment_bin": {
+      "rate_median": 0.256578947368421,
+      "rate_min": 0.0,
+      "rate_max": 0.4772727272727273,
+      "ci_halfwidth_median": 0.15037080464414215,
+      "ci_halfwidth_max": 0.3036363148515984
+    }
+  }
+}
