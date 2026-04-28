@@ -2403,3 +2403,347 @@ Notelaers et al. 2011 LCA × population-scale risk groups
 2. **Stage 0 コード実装**（D13 で確定した 14-cell 設計、N=354 → 7 類型 → 加害確率テーブル）
 3. **Tier 2 検索**（必要に応じて、論文執筆中に補完）
 
+---
+
+## Round 4：Tier 2 — 論理的 gap 補強用追加文献（9 件、PDF 取得後に追加）
+
+ユーザーが Tier 2 の 9 件 PDF を main にアップロード（commit `4343150`）。これに基づき、URL 検証段階から **原典 PDF deep reading** に格上げ。
+
+| Tier 2 ID | 論文 | 重要度 | Pillar |
+|---|---|---|---|
+| D-1 | Grijalva et al. (2015) Narcissism and Leadership | ★★★ Core | Personality upstream |
+| D-3 | Heckman et al. (2006) Cognitive/Noncognitive Abilities | ★★★ Core | Personality upstream |
+| B-1 | Roehling & Huang (2018) Sexual Harassment Training | ★★★ Core | Intervention review |
+| B-2 | Bezrukova et al. (2016) Diversity Training Meta | ★★★ Core | Intervention review |
+| B-3 | Dobbin & Kalev (2018) Why Doesn't Diversity Training Work | ★★★ Core | Intervention review |
+| C-1 | Hernán & Robins (2020) Causal Inference: What If | ★★★ Core | Causal framing |
+| C-2 | Pearl (2009) Causality | ★★ Strong | Causal framing |
+| A-1 | Berry, Carpenter, & Barratt (2012) Self vs Other CWB | ★★★ Core | Self-report validity |
+| A-2 | Anderson & Bushman (2002) Human Aggression | ★★ Strong | Self-report validity |
+
+**未取得**：D-2 Lee & Ashton (2005)、B-4 Roehling & Huang (2022)、B-5 Antecol & Cobb-Clark (2003) — 9 件で核は covered。
+
+---
+
+### [D-1] Grijalva, Harms, Newman, Gaddis, & Fraley (2015) — Narcissism and Leadership: A Meta-Analytic Review
+
+**Citation**：Grijalva, E., Harms, P. D., Newman, D. A., Gaddis, B. H., & Fraley, R. C. (2015). Narcissism and leadership: A meta-analytic review of linear and nonlinear relationships. *Personnel Psychology, 68*(1), 1–47. https://doi.org/10.1111/peps.12072
+
+**Verification**：✅✅ 原文 PDF 48p（Penn State Digital Commons OA 版）を本セッションで精読
+
+#### Research Question
+
+「Narcissism と leadership の **混合した先行知見** を meta-analysis で統合。4 contributions：
+1. **Leadership emergence** vs **effectiveness** を区別
+2. Extraversion による mediation を検証
+3. Self-report vs observer-report の差異
+4. **非線形（curvilinear）関係**の検証 — optimal mid-range narcissism」
+
+#### Method
+
+- **Design**：random-effects meta-analysis、psychometric correction（unreliability adjustment）
+- **Sample size**：複数の effect sizes、unpublished studies 含む
+- **Inventories included**：NPI（Narcissistic Personality Inventory）、HDS-Bold（Hogan Development Survey）、CPI、historiometric measures
+
+#### Key Findings（exact numbers from Tables 1, 2）
+
+##### 主効果（leadership emergence）
+
+- **Narcissism → Leadership emergence**：**ρ = +0.16** [95% CI: 0.08, 0.15]、Hypothesis 1 支持
+- 不採録 author 削除後：k=12、N=2,612、**ρ = +0.16** [0.09, 0.16] — robust
+- **Acquaintance moderator**：
+  - Minimal (< 1 week)：ρ = +0.18 [0.09, 0.18]
+  - Longer (≥ 1 week)：ρ = +0.09 [0.002, 0.14]
+  - → narcissism 効果は **時間とともに減衰** ("strong first impression but wears off")
+
+##### 主効果（leadership effectiveness）
+
+- **Narcissism → Leadership effectiveness**：**ρ = +0.03** [−0.01, 0.04] — **null**
+- 80% CV = [−0.15, 0.20] — moderator 存在示唆
+- → emergence と effectiveness は **異なる**（CI 非重複）
+
+##### Source moderator（observer vs self-report）
+
+- **Self-report effectiveness**：ρ = **+0.29** [0.17, 0.25]（自己評価では narcissist が leadership 高 self-rate）
+- **Supervisor**：ρ = +0.04 [−0.01, 0.06]
+- **Peer**：ρ = +0.02 [−0.04, 0.06]
+- **Subordinate**：ρ = +0.12 [0.03, 0.13]
+- → **Observer reports で narcissism × leadership effectiveness 効果なし** — narcissism 効果は self-enhancement bias
+
+##### Curvilinear relationship（H4）
+
+- Linear ρ = .03 だが、underlying curvilinear トレンド存在
+- **Optimal mid-range narcissism** が leadership effectiveness 最大化
+- → 「too little or too much narcissism は両方とも悪い」
+
+##### Extraversion による mediation（H2）
+
+- Narcissism と leadership emergence の関係は **extraversion で fully mediated**（H2 supports）
+- → 「Narcissism は extraversion を通じて leadership emergence を生む」
+
+#### Quotable Elements（原文逐語）
+
+> "narcissism displays a positive relationship with leadership emergence, but no relationship with leadership effectiveness" (Abstract)
+
+> "Whereas observer-reported leadership effectiveness ratings (e.g., supervisor-report, subordinate-report, and peer-report) are not related to narcissism, self-reported leadership effectiveness ratings are positively related to narcissism" (Abstract)
+
+> "the nil linear relationship between narcissism and leadership effectiveness masks an underlying curvilinear trend, advancing the idea that there exists an optimal, midrange level of leader narcissism" (Abstract)
+
+> "leadership emergence was positively related to narcissism (ρ = .16; 95% CI for = [.08, .15])" (p. 13)
+
+> "narcissism had no linear relationship with leadership effectiveness (ρ = .03; 95% CI = [–.01, .04])" (p. 14, paraphrased)
+
+#### 本研究での citation 用途
+
+1. **Personality 上流 chain の central anchor**：「Narcissism—a personality trait inversely correlated with HEXACO Honesty-Humility (Lee & Ashton, 2005)—predicts leadership emergence (ρ = +0.16; Grijalva et al., 2015), placing low-HH individuals disproportionately into positions of organizational power. This personality-driven sorting into leadership positions partially explains the apparent SSS effect on workplace harassment victimization (Tsuno et al., 2015) and supports modeling personality typology as upstream of position-mediated harassment risk」
+2. **「個人の性格と SSS は独立ではない」central reference**：narcissism → emergence の causal chain を defend
+3. **Phase 2 介入の含意**：Narcissism (= 低 HH) を介入で減らせば、emergence への systematic boost が減 → **権力濫用機会の structural reduction**
+4. **Mid-range narcissism optimum の議論**：本研究 Phase 2 で「HH を 0.5 SD 上げる」介入は **mid-range optimum を保ちつつ extreme を抑制**（curvilinear evidence と整合）
+5. **Self-report bias 警告**：Narcissist は self-report で leadership effectiveness を **過大評価**（ρ=0.29）→ 本研究の N=354 self-report harassment perpetrator も narcissist が **真の effect を underreport** している可能性 → Berry et al. 2012 と組み合わせて self-report 妥当性議論
+6. **Acquaintanceship moderator の延長**：「First-impression narcissism boost」は本研究の Discussion で「短期 selection vs 長期 outcome の divergence」議論に活用可
+7. **Observer-report の null effect**：Counterfactual C（structural intervention）で observer-rated harassment は personality 効果が小さい → personality 介入（B 主軸）でも observer-rated outcome は遅れて改善する predict
+8. **Big Five を超える HEXACO 主張**：Grijalva 2015 は narcissism × Big Five extraversion mediation。HEXACO は narcissism を **Honesty-Humility の inverse** として直接 capture（Lee & Ashton 2005）→ 本研究の HEXACO 7 typology は narcissism-related dynamics を **より parsimoniously** modeling
+
+---
+
+### [D-3] Heckman, Stixrud, & Urzua (2006) — Cognitive and Noncognitive Abilities on Labor Market Outcomes
+
+**Citation**：Heckman, J. J., Stixrud, J., & Urzua, S. (2006). The effects of cognitive and noncognitive abilities on labor market outcomes and social behavior. *Journal of Labor Economics, 24*(3), 411–482. https://doi.org/10.1086/504455
+
+**Verification**：✅✅ NBER Working Paper 12006（80 ページ）を本セッションで精読
+
+#### Research Question
+
+「Cognitive ability は労働市場 outcome の強い predictor として確立。**Noncognitive ability**（personality traits、persistence、motivation）は schooling、wages、occupation、risky behaviors にどう影響するか？ Cognitive と equally important か？」
+
+#### 中核的論証
+
+##### 主張：Low-dimensional vector of skills は多様な outcome を説明
+
+> "This paper established that a low dimensional vector of cognitive and noncognitive skills explains a variety of labor market and behavioral outcomes. For many dimensions of social performance cognitive and noncognitive skills are equally important." (Abstract)
+
+→ **Schooling、wages、employment、occupation、teenage pregnancy、smoking、marijuana use、illegal activities** すべて noncognitive skills が説明
+
+##### Method 概要
+
+- **Sample**：NLSY79（National Longitudinal Survey of Youth 1979、age 14–21 at start、longitudinal panel）
+- **Cognitive measure**：ASVAB 5 components（arithmetic reasoning, word knowledge, paragraph comprehension, mathematical knowledge, coding speed）
+- **Noncognitive measure**：Rotter Locus of Control + Rosenberg Self-Esteem の standardized average
+- **Methodological innovation**：
+  - Schooling を endogenous として扱う（IV / structural model）
+  - Latent skill model で measurement error 補正
+  - Reverse causality 問題 に対応
+
+##### Key Findings（structural results）
+
+###### Wages への直接効果
+
+- Cognitive と noncognitive skills **両方**が wages を直接予測
+- Conditioning on schooling すると effect 縮小（schooling は両 skill から決まる endogenous mediator）
+- **Schooling を removing すると noncognitive skill effect は cognitive と equally large**
+
+###### Schooling 決定への効果
+
+- **Noncognitive skills strongly influence schooling decisions**
+- Personality（perseverance, self-control）が「continue education」の "psychic cost" を低下させる
+- → "psychic cost" theory：高 noncognitive skill 者は schooling continuation の心理的負担が低い
+
+###### Occupation 選択
+
+- Noncognitive と cognitive が **independent に** occupation 選択を予測
+- → 高 noncognitive 者が prestige 高 occupation に sort される
+
+###### Risky behaviors（10s 年代の reverse outcomes）
+
+- Teenage pregnancy、smoking、marijuana use、illegal activities：noncognitive で全て予測
+- Cognitive と noncognitive **両方** required（独立効果）
+
+###### Causal evidence（Perry Preschool に言及）
+
+著者らは Perry Preschool program（介入対象児が控除群より高 noncognitive を獲得）を引用：
+- Perry treatment group：high school by age 18（**65% vs 45%** control）
+- 14 歳 California Achievement Test 10th percentile 以上：**49% vs 15%** control
+- Age 40 illegal activities：**有意に少ない**
+
+→ Noncognitive intervention が long-term outcomes に causal evidence
+
+##### 関連分野の文献継承
+
+- Bowles & Gintis (1976), Edwards (1976) Marxist 経済学：employer は低 skill 市場で **docility, dependability, persistence** を重視
+- → 「Personality は market signal として機能」する伝統的理解と整合
+
+#### Quotable Elements（原文逐語）
+
+> "This paper established that a low dimensional vector of cognitive and noncognitive skills explains a variety of labor market and behavioral outcomes. For many dimensions of social performance cognitive and noncognitive skills are equally important." (Abstract)
+
+> "Noncognitive skills strongly influence schooling decisions, and also affect wages given schooling decisions. Schooling, employment, work experience and choice of occupation are affected by latent noncognitive and cognitive skills." (Abstract)
+
+> "The same low dimensional vector of abilities that explains schooling choices, wages, employment, work experience and choice of occupation explains these behavioral outcomes [risky behaviors]." (Abstract)
+
+> "Common sense suggests that personality traits, persistence, motivation and charm matter for success in life. Marxist economists (Bowles and Gintis, 1976; Edwards, 1976) have produced a large body of evidence that employers in low skill labor markets value docility, dependability, and persistence more than cognitive ability or independent thought." (p. 1)
+
+> "We find that latent noncognitive skills, corrected for schooling and family background effects, raise wages through their direct effects on productivity as well as through their indirect effects on schooling and work experience. Our evidence is consistent with an emerging body of literature that finds that 'psychic costs' (which may be determined by noncognitive traits) explain why many adolescents who would appear to financially benefit from [more schooling do not pursue it]" (p. ?)
+
+#### 本研究での citation 用途
+
+1. **Personality 上流性の経済学的 anchor**：「Personality (noncognitive abilities) is upstream of educational attainment, employment, occupation, and wages (Heckman, Stixrud, & Urzua, 2006)」 — Pillar D の central reference
+2. **「Personality と SSS は独立ではない」反論**：「The 'social class effect' on harassment exposure (e.g., Tsuno et al., 2015 OR=4.21) reflects in part personality-driven sorting into positions, as established by Heckman et al. (2006)」
+3. **Phase 2 介入の社会経済的含意**：Personality intervention は **labor market outcomes も同時に改善する波及効果**を持つ（Heckman 2006 が複数 outcome の共通源泉として noncognitive を確立）
+4. **Causal evidence からの援用**：Perry Preschool の long-term outcome を引用し、「early personality intervention has causal long-term effects on outcomes」 — 本研究 Phase 2 universal HH intervention の plausibility 強化
+5. **方法論的注意**：Heckman は schooling endogeneity を IV で扱った。本研究は cross-sectional のみだが、**Heckman 系統の structural causal modeling tradition**（後の Hernán & Robins 2020 と integrate）に positioning
+6. **"Psychic cost" 概念の応用**：Personality intervention は **harassment perpetration cost を上げる**ことで behavior 変化を生む（HH 介入後に narcissist が harassment を行う心理的コストが上がる）
+7. **NLSY 系統の large-scale empirical 評価**：本研究の N=354 は Heckman の NLSY と比較して small だが、**本研究は新規データ収集なし、既存 N=13,668 + N=354 を組み合わせた modeling**で類似の breadth を実現
+8. **政策含意の整合**：Heckman は「noncognitive skill investment は cognitive investment と equally important」と政策提言。本研究は **harassment 領域への同 message**（personality intervention は environmental intervention と equally important）
+
+---
+
+### [B-1] Roehling & Huang (2018) — Sexual harassment training effectiveness: An interdisciplinary review
+
+**Citation**：Roehling, M. V., & Huang, J. (2018). Sexual harassment training effectiveness: An interdisciplinary review and call for research. *Journal of Organizational Behavior, 39*(2), 134–150. https://doi.org/10.1002/job.2257
+
+**Verification**：✅✅ 原文 PDF 17p（JOB Annual Review）を本セッションで精読
+
+#### Research Question
+
+「Sexual harassment (SH) training は **遍在的**だが、効果に関する **interdisciplinary な総合的 review がこれまで存在しない**。Legal context、effectiveness の多次元（reactions、learning、attitudes、behavior、transfer）、organizational moderators を整理し、research agenda を提示」
+
+#### 中核的論証
+
+##### Kirkpatrick 4-level framework での効果評価
+
+| Level | Outcome | SH training での evidence |
+|---|---|---|
+| 1 | **Reactions**（受講者の反応・満足度）| ✓ 多くの study が positive reactions |
+| 2 | **Learning**（知識・skill 獲得）| ✓ 知識増加 が比較的安定して観察 |
+| 3 | **Behavior**（実職場での行動変化）| △ 限定的、mixed evidence |
+| 4 | **Results**（組織 outcome、incidence 減少等）| ✗ ほぼ証拠なし、Phillips 1997 のみ turnover -4.3% |
+
+→ **Level 1 / 2 では効果あり、Level 3 / 4（distal）では弱い** — Bezrukova 2016 と整合
+
+##### 重要な individual finding
+
+- **Magley et al. 2013 Study 2**：3-hr training で **non-Hispanic trainees の知識増加、Hispanic trainees に効果なし** → 文化・demographic moderation
+- **Coping skills training**：Bell et al. が SH 直面時の coping を 1 年後も維持と報告
+- **Phillips 1997**：SH training 後 turnover **4.3% 減** — outcome レベルの数少ない証拠
+- **Severity moderation**（Blakely et al.）：training は **most severe forms** にのみ効果
+
+##### Key insights
+
+1. **Legal context が training 設計を歪める**：legally compliant とは behaviorally effective とは異なる
+2. **Organizational context が motivation/transfer を調整**：training の effective transfer は climate（accountability、support）次第
+3. **Individual 受講者特性**：高 LSH（Likelihood to Sexually Harass）受講者は **more negative attitudes** 表明（**逆効果可能性**）
+
+##### Research agenda（著者提示）
+
+- Long-term (transfer, behavior change) outcome の研究強化
+- Cross-cultural / cross-organizational 比較
+- Individual difference moderators（LSH、ethnicity）
+- Training の **iatrogenic effects**（高 risk 受講者で逆効果）
+
+#### Quotable Elements（原文逐語）
+
+> "Although sexual harassment (SH) training is widespread, has many important consequences for individuals and organizations, and is of demonstrated interest to researchers across a wide range of disciplines, there has never been a comprehensive, interdisciplinary attempt to identify and systematically evaluate relevant research findings." (Summary)
+
+> "It discusses the legal context of SH training and its relevance to research issues, provides an organizing framework for understanding the primary factors influencing SH training effectiveness, critically reviews empirical research providing evidence of the effectiveness of SH training, and sets forth a research agenda." (Summary)
+
+> "high LSH participants reported significantly more negative attitudes [after training]." (p. ?)— **iatrogenic effect** の重要証拠
+
+> "[For] one study found a training effect on only the most severe forms of sexually oriented work behaviors (Blakely et al., ...)" (p. ?)
+
+#### 本研究での citation 用途
+
+1. **Counterfactual C（structural intervention）の限界 anchor**：「Sexual harassment training shows reliable effects on reactions and knowledge (Roehling & Huang, 2018) but limited effects on actual harassment behavior or incidence」
+2. **Phase 2 介入の "proximal vs distal" framework**：Kirkpatrick 4-level を使って「本研究の Counterfactual A/B/C は **distal outcome（incidence）への効果**を予測する。Roehling & Huang のレビューが示すように distal evidence は弱い」 — 慎重 effect size assumption の根拠
+3. **Iatrogenic effect の警告**：高 LSH 受講者で逆効果可能性 → Phase 2 Counterfactual A（universal training）の potential downside を Discussion で言及
+4. **Cultural moderator の言及**：non-Hispanic vs Hispanic effect 差 → 日本での介入効果が西欧 anchor と異なる可能性 limitation
+5. **Bezrukova 2016 + Dobbin & Kalev 2018 + Roehling 2018 の triangulation**：Counterfactual C の限界を **3 系統 review で堅固に**主張
+6. **Legal compliance ≠ behavioral effectiveness**：Roehling 2018 の central insight は本研究の Phase 2 で「日本のパワハラ防止法（2019）は legal compliance 強化、行動変化 evidence は別」と framing する根拠
+7. **Severity moderation**：training が most severe forms にのみ効果 → 本研究の binary outcome（mean+0.5SD threshold）の sensitivity analysis で thread-conditional effect を検討する根拠
+8. **Organizational climate moderator**：training の effect は accountability climate に依存 → Phase 2 Counterfactual C 単独でなく、組織文化 intervention との combination が必要
+
+---
+
+### [B-2] Bezrukova, Spell, Perry, & Jehn (2016) — Diversity Training Meta-Analysis (260 samples)
+
+**Citation**：Bezrukova, K., Spell, C. S., Perry, J. L., & Jehn, K. A. (2016). A meta-analytical integration of over 40 years of research on diversity training evaluation. *Psychological Bulletin, 142*(11), 1227–1274. https://doi.org/10.1037/bul0000067
+
+**Verification**：✅✅ 原文 PDF 130p（large meta-analysis）を本セッションで精読
+
+#### Research Question
+
+「**40 年以上 / 260 independent samples** の diversity training 研究を meta-analyse。Kirkpatrick 4-level outcome（reactions、cognitive learning、behavioral learning、attitudinal/affective learning）に分けて、training context、design、participants の moderator 効果を同定」
+
+#### 中核的論証
+
+##### 全体効果サイズと outcome 別 breakdown（Hypothesis 1）
+
+| Outcome | g | サイズ評価 |
+|---|---|---|
+| **Reactions**（受講後評価） | **.61** | medium-large |
+| **Cognitive learning**（知識獲得） | **.57** | medium-large |
+| **Behavioral learning**（skill 開発） | **.48** | medium |
+| **Attitudinal/affective learning**（態度変化）| **.30** | small-medium |
+| **Overall** | **.38** | small-medium |
+
+→ Q_B(3) = 41.48, p < .001（outcome 間で effect size 異なる）
+→ **Reactions と cognitive learning に最大効果、attitudinal change に最小効果**
+
+##### 時間減衰（Hypothesis 2）
+
+> "Whereas the effects of diversity training on reactions and attitudinal/affective learning decayed over time, training effects on cognitive learning remained stable and even increased in some cases."
+
+→ **Attitude effect は時間とともに消失**、cognitive learning のみ持続
+
+##### Setting moderator（教育 vs 組織）
+
+- **Educational setting**：reactions g = **.80**
+- **Organizational setting**：reactions g = **.28**
+- Q_B(1) = 6.43, p = .02
+- → **学校環境 vs 職場の reactions 効果に 3 倍差** — 「**学校で楽しむ vs 職場では受け入れにくい**」
+
+##### Integrated vs standalone approach
+
+- **Integrated**（他 diversity initiative と組合せ）：attitudinal g = .47、behavioral g = **.86**
+- **Standalone**：attitudinal g = .27、behavioral g = .42
+- → **複合的アプローチで behavioral effect が 2 倍**
+
+##### Mandatory vs voluntary
+
+- Behavioral learning：mandatory g = .63 vs voluntary g = .42（mandatory 優位）
+- Reactions：mandatory g = .37 vs voluntary g = **.71**（**voluntary 優位**）
+- → 「強制的に受けると不機嫌だが behavior は変わる、自発的だと機嫌は良いが行動変化弱い」
+
+##### 介入「逆効果」事例（abstract で言及）
+
+> "diversity training has been shown to backfire in some cases by reinforcing stereotypes and prejudice among students (Robb & Doverspike, 2001) or creating new problems for the company (Kaplan, 2006), such as when air traffic controllers sued the Federal Aviation Administration because they had found diversity training traumatic"
+
+→ **Training の iatrogenic effect は実在**
+
+##### 効果を高める条件（Discussion）
+
+- **複合実装**（other diversity initiatives との組合せ）
+- **awareness + skills development の両方を target**
+- **長期間の実施**（短期では弱い）
+- Group composition：女性比率高で reactions favorable
+
+#### Quotable Elements（原文逐語）
+
+> "This meta-analysis of 260 independent samples assessed the effects of diversity training on 4 training outcomes over time and across characteristics of training context, design, and participants." (Abstract)
+
+> "The results revealed an overall effect size (Hedges g) of .38 with the largest effect being for reactions to training and cognitive learning; smaller effects were found for behavioral and attitudinal/affective learning. Whereas the effects of diversity training on reactions and attitudinal/affective learning decayed over time, training effects on cognitive learning remained stable and even increased in some cases." (Abstract)
+
+> "Diversity training had the largest effect on reactions (g = .61), followed by cognitive learning (g = .57), behavioral learning (g = .48), and attitudinal/affective learning (g = .30), QB(3) = 41.48, p = .00." (p. ~30)
+
+> "The positive effects of diversity training were greater when training was complemented by other diversity initiatives, targeted to both awareness and skills development, and conducted over a significant period of time." (Abstract)
+
+#### 本研究での citation 用途
+
+1. **Counterfactual C 限界の central anchor**：「Despite 40+ years of diversity training and 260 evaluated samples (Bezrukova et al., 2016), behavioral effects are modest (g = .48) and attitudinal effects are small (g = .30) and decay over time. This pattern—proximal effective, distal weak and time-decaying—supports our conservative effect size assumption for structural interventions」
+2. **Phase 2 effect size sensitivity 範囲**：g = .30–.48 を **structural intervention upper bound** として採用、Pruckner 2013 の 30% 削減（intensive margin only）と整合
+3. **Standalone vs integrated**：Counterfactual C を **standalone** training として modeling すると effect 弱め。Integrated approach（他 initiative 組合せ）が必要
+4. **Iatrogenic effect の警告**：Training は backfire 可能（stereotype reinforcement）→ Phase 2 で 「Counterfactual A（universal）の potential downside」を Discussion に
+5. **Time decay の含意**：Attitude effect は時間とともに消失 → Phase 2 の **24 週時点 effect**（Roberts 2017）が上限値である根拠
+6. **Mandatory vs voluntary trade-off**：強制 training は behavior に効くが reactions 悪化 → policy implication で「単純な mandatory 拡大は逆効果」
+7. **Cultural 一般化 limitation**：Bezrukova は西欧中心 sample → 日本での effect size は別途 calibration 必要
+8. **Outcome 階層の framework**：本研究の 14-cell aggregate prevalence prediction は **Kirkpatrick Level 4 (Results)** に相当 → Bezrukova で最も弱い outcome category。**保守的に解釈する**根拠
+
