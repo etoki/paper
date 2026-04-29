@@ -832,6 +832,186 @@ The following statement will be reproduced verbatim or substantively in the Meth
 
 ---
 
+## 12. Other (Conflicts, Funding, Data Sources)
+
+### 12.1 Conflicts of Interest
+
+- The author derives no commercial benefit from the findings of this study.
+- The author's affiliation (SUNBLAZE Co., Ltd.) has no commercial interest in the results.
+- This study is a secondary analysis of preexisting IRB-approved data; no new data collection is performed.
+- OSF preregistration is free; there is no author cost.
+
+### 12.2 Funding
+
+- **Simulation phase (this study)**: No external funding. The work is conducted within the author's regular working hours at SUNBLAZE Co., Ltd.
+- **Original data collection**:
+  - N = 354 (harassment data): inherits the IRB approval and funding documented in the Tokiwa harassment preprint.
+  - N = 13,668 (clustering data): inherits the IRB approval and funding documented in the Tokiwa clustering paper (IEEE-published).
+- **No new IRB**: This study performs simulation only; it does not involve any new research activity with human subjects, and is a secondary analysis of existing anonymized data.
+
+### 12.3 Data Sources Summary
+
+| Source | Type | Access |
+|---|---|---|
+| `harassment/raw.csv` (N = 354) | Primary | Author's prior IRB-approved collection (Tokiwa harassment preprint) |
+| `clustering/csv/clstr_kmeans_7c.csv` | Derived | Tokiwa clustering paper (IEEE-published; centroid table) |
+| MHLW 2016 R2 Survey on Workplace Harassment | Public | https://www.mhlw.go.jp/ |
+| MHLW 2020 R2 Survey on Workplace Harassment | Public | https://www.mhlw.go.jp/ |
+| MHLW 2024 R5 Survey on Workplace Harassment | Public | https://www.mhlw.go.jp/ |
+| MHLW Employment Trend Survey | Public | https://www.mhlw.go.jp/ |
+| MHLW Industrial Safety and Health Survey | Public | https://www.mhlw.go.jp/ |
+| MHLW Labor Force Survey | Public | https://www.stat.go.jp/data/roudou/ |
+| ILO 2022 Global survey | Public | https://www.ilo.org/ |
+| Tsuno et al. 2015 N = 1,546 | Published | *PLOS ONE* (Tsuno et al. 2015) |
+| Tsuno & Tabuchi 2022 | Published | (Tsuno & Tabuchi 2022) |
+
+---
+
+## 13. Citation Anchors (Tier 1+2+3+4 literature foundation)
+
+The commitments in this preregistration are anchored to the literature below. The full annotated list (40-paper deep reading) is in `simulation/docs/literature_audit/deep_reading_notes.md`.
+
+### 13.1 Tier 4 metascience anchors (★ core anchors of this preregistration)
+
+- **Nosek, Ebersole, DeHaven & Mellor (2018)**. The preregistration revolution. *PNAS, 115*(11), 2600–2606. https://doi.org/10.1073/pnas.1708274114 [→ Sections 0.2, 3.1, 7]
+- **Munafò et al. (2017)**. A manifesto for reproducible science. *Nature Human Behaviour, 1*, 0021. https://doi.org/10.1038/s41562-016-0021 [→ Section 8]
+- **Vazire (2010)**. Who knows what about a person? The Self–Other Knowledge Asymmetry (SOKA) Model. *JPSP, 98*, 281–300. [→ Section 10 L1, L11]
+- **Funder & Ozer (2019)**. Evaluating effect size in psychological research: Sense and nonsense. *AMPPS, 2*, 156–168. [→ Section 3.3]
+
+### 13.2 Causal inference framework
+
+- **Hernán & Robins (2020)**. *Causal Inference: What If*. Chapman & Hall/CRC. [→ Section 5.7.4]
+- **Pearl (2009)**. *Causality: Models, Reasoning, and Inference* (2nd ed.). Cambridge. [→ Section 5.7.2]
+
+### 13.3 Statistical methods anchors
+
+- **Efron (1987)**. Better bootstrap confidence intervals. *J Am Stat Assoc*. [→ BCa]
+- **DiCiccio & Efron (1996)**. Bootstrap confidence intervals. *Stat Sci*. [→ BCa]
+- **Casella (1985)**. An introduction to empirical Bayes data analysis. *Am Stat*. [→ EB]
+- **Clayton & Kaldor (1987)**. Empirical Bayes estimates of age-standardized relative risks. *Biometrics*. [→ EB epidemiology]
+- **Efron (2014)**. Two modeling strategies for empirical Bayes estimation. *Stat Sci*. [→ modern EB]
+- **Greenland (2000)**. Principles of multilevel modelling. *Int J Epidemiol*. [→ EB / multilevel]
+- **Podsakoff, MacKenzie, Lee & Podsakoff (2003)**. Common method biases in behavioral research. *J Appl Psychol*. [→ CMV]
+- **Lindell & Whitney (2001)**. Accounting for common method variance. *J Appl Psychol*. [→ marker variable]
+- **Schofield et al. (2018)**. Health-related microsimulation. *Eur J Health Econ*. [→ MAPE in microsimulation]
+
+### 13.4 Phase 2 intervention anchors
+
+- **Kruse, Chancellor, Ruberton & Lyubomirsky (2014)**. An upward spiral between gratitude and humility. *Soc Psychol Personal Sci, 5*(7), 805–814. [→ Counterfactual A]
+- **Hudson (2023)**. Lighten the darkness: Personality interventions targeting agreeableness. *J Personality, 91*(4). [→ Counterfactual B, primary]
+- **Pruckner & Sausgruber (2013)**. Honesty on the streets. *J Eur Econ Assoc, 11*(3), 661–679. [→ Counterfactual C]
+- **Bezrukova et al. (2016)**. Diversity training meta-analysis. [→ Counterfactual C triangulation]
+- **Roehling & Huang (2018)**. Sexual-harassment training meta-analysis. [→ Counterfactual C triangulation]
+- **Dobbin & Kalev (2018)**. 985-study meta-analysis. [→ Counterfactual C triangulation]
+- **Roberts et al. (2017)**. Personality trait change through intervention: a systematic review. *Psychol Bull, 143*(2), 117–141. [→ 24-week duration anchor]
+
+### 13.5 Personality and harassment anchors
+
+- **Pletzer et al. (2019)**. HEXACO meta-analysis. [→ HH × CWB ρ ≈ −.20 to −.35]
+- **Nielsen, Glasø & Einarsen (2017)**. FFM × harassment meta-analysis. [→ cultural moderator]
+- **Bowling & Beehr (2006)**. Harassment from the victim's perspective: a meta-analysis. [→ environmental ρ]
+- **Roberts & DelVecchio (2000)**. Rank-order consistency meta-analysis. [→ stability r = .74]
+- **Specht et al. (2011)**. SOEP N = 14,718 stability study. [→ mid-life stability]
+- **Ashton & Lee (2007)**. The HEXACO model. [→ trait taxonomy]
+- **Wakabayashi (2014)**. Japanese HEXACO-60. [→ Japanese measurement]
+- **Tou et al. (2017)**. Workplace Power Harassment Scale. [→ measurement]
+- **Kobayashi & Tanaka (2010)**. Gender Harassment Scale. [→ measurement]
+- **Shimotsukasa & Oshio (2017)**. SD3-J. [→ Dark Triad measurement]
+- **Lee & Ashton (2005)**. HEXACO ↔ Dark Triad correlations. [→ trait inter-correlation]
+- **Berry, Carpenter & Barratt (2012)**. CWB self-other meta-analysis. [→ self-report defense]
+- **Anderson & Bushman (2002)**. General Aggression Model. [→ self-report → real behavior]
+
+### 13.6 Personality upstream of socioeconomic status
+
+- **Heckman, Stixrud & Urzua (2006)**. Noncognitive skills predict outcomes. [→ Section 1.5]
+- **Grijalva et al. (2015)**. Narcissism → leadership emergence meta-analysis. [→ Section 1.5]
+- **Roberts et al. (2007)**. The power of personality. [→ Section 1.5]
+
+### 13.7 Japanese context
+
+- **MHLW (2021)**, R2 Survey on Workplace Harassment. [→ primary validation]
+- **MHLW (2024)**, R5 Survey on Workplace Harassment. [→ post-law validation]
+- **Tsuno et al. (2010)**, Japanese NAQ-R. [→ measurement]
+- **Tsuno et al. (2015)**, Socioeconomic determinants in a Japanese national-representative sample. [→ Sections 1.5, 4.2]
+- **Tsuno & Tabuchi (2022)**, Bullying → SPD PR = 3.20. [→ f2 anchor]
+
+### 13.8 Self-citation hub
+
+- **Tokiwa et al.** Clustering paper (IEEE-published). [→ N = 13,668, 7-type centroids]
+- **Tokiwa et al.** Harassment preprint. [→ N = 354 HEXACO + Dark Triad regression]
+
+---
+
+## 14. Version Log & Implementation Checklist
+
+### 14.1 Version log
+
+| Version | Date | Changes |
+|---|---|---|
+| **v1.0 draft** | 2026-04-29 | Initial draft based on research plan v6/v7 (1,458 lines), the D13 power analysis (209 lines), and the 40-paper deep reading. Pending OSF registration. |
+
+### 14.2 Pre-registration submission checklist
+
+#### 14.2.1 OSF preregistration submission (independent track)
+
+- [N/A] **Internal review**: co-author confirmation — **not applicable to a sole-authored study**
+- [ ] **Self-review against Nosek 2018's nine challenges**: complete Section 0.2
+- [ ] **Self-review against Munafò 2017's five themes**: complete Section 8
+- [x] **English translation**: this `D12_pre_registration_OSF.en.md` is the English version
+- [x] **OSF account**: existing (used for `metaanalysis/`); only new project creation is pending
+- [ ] **OSF Standard Pre-Registration template**: transcribe Sections 1–6 into the OSF web form
+- [ ] **PDF supplementary**: attach the Japanese master to OSF as a supplementary PDF
+- [ ] **DOI acquisition**: record the DOI in the Header of both the Japanese master and this English version after registration
+- [x] **GitHub mirror**: `simulation/docs/pre_registration/` is committed publicly (since commit `c5c591e`)
+- [x] **Funding & affiliation**: Section 12.2 is filled in (SUNBLAZE Co., Ltd. / no external funding for the simulation phase)
+- [ ] **Anti-screening triple-lock**: Section 9.1 prepared in all three locations
+- [ ] **Independent methodologist contact**: confirm review request per Section 8.1 (mode B: anonymous, mathematical biology)
+
+#### 14.2.2 Registered Report submission (track separate from OSF preregistration; after preregistration lock)
+
+- [ ] Confirm RSOS Registered Report **Author Guidelines** (latest version, scope and format requirements)
+- [ ] Prepare **Stage 1 manuscript** (an English manuscript integrating Introduction + Methods + this preregistration, within the Stage 1 word limit)
+  - Introduction: translated from research plan v6/v7 Part 10.3 (5-paragraph structure)
+  - Methods: translated from Sections 4–5 of this preregistration; includes computational reproducibility (D-NEW9)
+- [ ] Prepare a **cover letter** (citing the existing OSF preregistration DOI; requesting In-Principle Acceptance)
+- [ ] Submit via the **submission portal** (RSOS / Editorial Manager, etc.)
+- [ ] Respond to **IPA review** (typically 6–8 weeks; revise per reviewer comments)
+- [ ] **IPA acquired** → begin Stage 0 code implementation (Section 14.3)
+- [ ] Prepare **Stage 2 manuscript** (Results + Discussion based on the IPA); submit Stage 2
+- [ ] **Final acceptance** → publication
+
+#### 14.2.3 Fallback path (if IPA is refused; see Section 7.2 fallback table)
+
+- [ ] Resubmit to a Frontiers in Psychology RR specialty, OR
+- [ ] Switch to standard track (after Stages 0–8 are complete, submit to Sci Reports / PLOS ONE / etc.)
+- [ ] Always cite the OSF preregistration DOI; transparently document any deviations
+
+### 14.3 Final checks before Stage 0 implementation
+
+The preregistration is **locked** when all of the following are complete; only then may Stage 0 code execution begin:
+
+- [ ] OSF DOI acquired
+- [ ] DOI added to the Header of this document (and the Japanese master)
+- [N/A] Co-author sign-off — not applicable (sole-authored)
+- [ ] Section 5 (Analysis Plan) reviewed by an independent methodologist
+- [ ] Repository structure (Section 8.2) initialized
+- [ ] `make reproduce` skeleton in place
+- [ ] Random seed (20260429) hard-coded across all stages
+
+---
+
+## 15. End-of-Document Statement
+
+This English version is the OSF-submission-ready translation of the **internal master preregistration draft** (the Japanese `D12_pre_registration_OSF.md`). Upon successful OSF registration (DOI acquisition), this preregistration becomes **locked**, and Stage 0 code implementation may begin. Subsequent modifications follow the Section 6.5 Level 3 procedure (analysis-plan revision).
+
+**Lock status**: ⏳ DRAFT (pending self-review and OSF submission)
+**Next step**: proceed sequentially through the items in Section 14.2.
+
+---
+
+**End of D12 OSF Pre-Registration v1.0 (English version draft).**
+
+
 
 
 
