@@ -260,4 +260,80 @@ No physical randomization (observational + simulation). Bootstrap resamples and 
 
 ---
 
+## 3. Sampling Plan
+
+### 3.1 Existing Data Statement (Nosek 2018 PNAS Challenge 3 strict adherence)
+
+#### 3.1.1 Already collected and partially observed by the author
+
+- **N = 354 harassment data** (`harassment/raw.csv`):
+  - Aggregated in the Tokiwa harassment preprint via HC3-robust hierarchical regression of HEXACO + Dark Triad on harassment
+  - **Observed by the author at the individual level**: HEXACO 6 domain scores, Dark Triad 3 scores, power harassment scale, gender harassment scale, age, gender, area
+- **N = 13,668 clustering data**:
+  - 7-type centroids and proportions are fixed in the Tokiwa clustering paper (IEEE-published)
+  - **Observed by the author at the aggregate level**: 7 centroids (HEXACO 6 domains), cluster proportions, aggregate descriptive statistics
+
+#### 3.1.2 Unobserved at the time of preregistration
+
+- Distribution of 7-type memberships obtained by assigning N = 354 to the nearest of 7 centroids
+- 14-cell (7 type × 2 gender) crosstabulated harassment binary outcomes
+- Cell-conditional propensities with bootstrap BCa CIs
+- 28-cell EB-shrunken estimates
+- National-level aggregate latent prevalence
+- MAPE against MHLW national surveys
+- Counterfactual A/B/C ΔP estimates
+
+#### 3.1.3 Honest acknowledgment of preregistration "purity"
+
+The author has previously observed HEXACO ↔ harassment associations in the harassment preprint via HC3 regression. The **type-conditional, cell-level propensity table** and the **national-level aggregate predictions** fixed by this preregistration cannot be directly derived from that regression, but the author is **not fully blind to associations between HEXACO domains and harassment self-reports**.
+
+→ Therefore, while Nosek 2018 Challenge 3's "pure preregistration" is the theoretical ideal, this study is in a state of **partial blinding**. In the interpretation of findings, we will distinguish between (a) the 7-type cell-cross-tabulation, which is preregistered, and (b) HEXACO domain-level associations, which are exploratory replications of prior work.
+
+### 3.2 Sample Size
+
+#### 3.2.1 Cell-level (Phase 1 main analysis)
+
+From the D13 power analysis (`simulation/docs/power_analysis/D13_power_analysis.md`):
+
+| Item | Value |
+|---|---|
+| Number of cells (main) | 14 (7 type × 2 gender) |
+| Cell N: minimum / maximum / median | 10 / 70 / 18 |
+| Cells with N < 10 | 0 (0%) |
+| Cells with N < 20 | 7 (50%) |
+| One-sample MDE (Cohen's d): median / maximum | 0.67 / 0.89 |
+| Pairwise MDE (Cohen's d): median / maximum | 0.92 / 1.25 |
+| Binary rate CI half-width: median | ±13 percentage points (power harassment) |
+| Bootstrap iterations | 2,000 per cell |
+| Bootstrap CI method | BCa (Efron 1987) |
+
+#### 3.2.2 Cell-level (Phase 1 sensitivity)
+
+| Item | Value |
+|---|---|
+| Number of cells (sensitivity) | 28 (7 type × 2 gender × 2 role) |
+| Cells with N < 10 | 16 (57%) |
+| Cells with N = 0 | 4 |
+| Cells with N ≤ 3 | 9 |
+| Required treatment | Empirical Bayes shrinkage (Beta-Binomial conjugate; Casella 1985 + Clayton & Kaldor 1987 + Efron 2014 + Greenland 2000) |
+
+#### 3.2.3 National-level (Phase 1 + Phase 2)
+
+Population: ~68 million (MHLW Labor Force Survey base). Cell-conditional probabilities are weighted by population shares; bootstrap is used to propagate cell-level uncertainty to national-level CIs.
+
+### 3.3 Sample Size Rationale
+
+- D13 confirms **N ≥ 250** (Funder & Ozer 2019's recommendation for stable r estimation) at the aggregate analysis level (N = 354 ≥ 250).
+- The 14-cell main analysis satisfies **N ≥ 10 in every cell**, allowing bootstrap estimation without shrinkage.
+- The pairwise MDE Cohen's d ≥ 0.92 corresponds to a "very large effect" (Cohen 1988) or, under Funder & Ozer 2019, an effect "rarely found in replication." Accordingly, **cell-level pairwise inference is avoided as a preregistered limitation**, and aggregate-level inference is the primary inferential target.
+
+### 3.4 Stopping Rule
+
+Not applicable: no new data collection.
+
+**Sensitivity sweeps are restricted to the ranges fixed by this preregistration (Section 6.4).** Any post-registration extension of sensitivity ranges will be flagged as exploratory and excluded from confirmatory inference.
+
+---
+
+
 
