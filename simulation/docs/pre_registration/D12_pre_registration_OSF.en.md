@@ -670,6 +670,132 @@ The author commits to journal submission in all of the following cases:
 
 ---
 
+## 8. Reproducibility Infrastructure (D-NEW9)
+
+Anchor: **Munafò et al. 2017 *Nature Human Behaviour*** "A manifesto for reproducible science": five themes (Methods / Reporting / Reproducibility / Evaluation / Incentives) + TOP guidelines.
+
+### 8.1 Preregistered infrastructure commitments
+
+| Item | Implementation |
+|---|---|
+| **Random seed** | NumPy `default_rng(seed=20260429)`, Python `random.seed(20260429)`, Stan `seed = 20260429`. Seed value fixed and recorded in this preregistration. Bootstrap resample state persisted to HDF5. |
+| **Environment pinning** | Either (a) a `uv` lock file (Python 3.11+) or (b) a Dockerfile (`python:3.11-slim` base) for full pinning. |
+| **Make reproduce** | A `make reproduce` target regenerates all figures, tables, and supplementary outputs within 30 minutes (D-NEW9 README requirement). |
+| **Open data** | Aggregated cell-level statistics (14-cell, 28-cell EB) are released openly on OSF and GitHub. Cell-level raw data are restricted-access (Section 9.5 ethics). |
+| **Open code** | GitHub + OSF mirror under MIT license. |
+| **Reporting checklist** | OSF Pre-Registration template + STROBE (observational study) + STARD (where applicable), integrated into the Methods. |
+| **Independent statistical oversight** | Co-author / external methodologist review will be performed **after Stage 1 completion and before Stage 2 begins** (Munafò 2017 Box 1, CHDI Foundation example, lightweight variant). |
+
+### 8.2 Preregistered repository structure
+
+```
+simulation/
+├── docs/
+│   ├── pre_registration/
+│   │   ├── D12_pre_registration_OSF.md           (Japanese master, internal)
+│   │   ├── D12_pre_registration_OSF.en.md        (this English version, OSF submission)
+│   │   └── osf_registration_metadata.json        (registration timestamp, DOI, version log)
+│   ├── notes/
+│   ├── literature_audit/
+│   └── power_analysis/
+├── code/
+│   ├── stage0_type_assignment.py
+│   ├── stage0_cell_propensity.py
+│   ├── stage1_population_aggregation.py
+│   ├── stage2_validation.py
+│   ├── stage3_sensitivity.py
+│   ├── stage4_baselines.py
+│   ├── stage5_cmv_diagnostic.py
+│   ├── stage6_target_trial.py
+│   ├── stage7_counterfactual.py
+│   └── stage8_transportability.py
+├── tests/
+│   └── test_*.py (per stage)
+├── output/
+│   ├── tables/
+│   ├── figures/
+│   └── supplementary/
+├── Dockerfile
+├── pyproject.toml + uv.lock
+├── Makefile (with `reproduce` target)
+└── README.md (with "How to reproduce in 30 minutes" section)
+```
+
+### 8.3 Preregistered reporting items
+
+The Methods and supplementary materials of the eventual paper will include:
+
+- [ ] Random seed value (20260429)
+- [ ] Software versions: Python, NumPy, SciPy, scikit-learn, statsmodels, Stan / brms (where applicable), PyMC (where applicable)
+- [ ] Hardware: CPU model, RAM, OS (to the extent that they affect reproducibility)
+- [ ] Bootstrap iterations: 2,000 per cell
+- [ ] BCa CI parameters: numerical values of bias z₀ and acceleration a (jackknife-based)
+- [ ] EB shrinkage hyperparameters: point estimates of α̂, β̂ and values for each scale of the sensitivity sweep
+- [ ] MoM diagnostic: σ̂² as a fraction of μ̂(1 − μ̂)
+- [ ] CMV diagnostic: percentage variance of Harman's first factor, marker-variable correction adjustments
+
+---
+
+## 9. Ethical Commitments (D-NEW10; research plan v6 Part 7)
+
+### 9.1 Preregistered triple-locking structure
+
+Anchor: research plan v6 Part 7 (8 sections addressing the ethical sensitivity of harassment research).
+
+| Lock location | Content |
+|---|---|
+| **(a) Within the Methods** | The "Individual application disavowal" statement (Section 9.2 in full) is placed at the end of the Methods. |
+| **(b) Within the Discussion** | A dedicated "How this should NOT be used" paragraph; language choices that avoid labeling individuals in any cluster as perpetrators. |
+| **(c) Within this preregistration (this Section 9)** | All Part 7 items are listed here as ethical commitments; this preregistration is publicly archived on OSF. |
+
+### 9.2 Individual application disavowal (Anti-screening Statement)
+
+Reproduced verbatim or substantively in the Methods, Discussion, and any non-academic dissemination:
+
+> **Statement on individual application**: This study estimates **population-level statistical patterns**, not individual risk profiles. The cell-conditional probabilities reported here have **no validity for individual prediction, screening, hiring, promotion, or any other personnel decision**. Application of these findings to individual personnel decisions would constitute (a) statistical misuse, given the pairwise MDE of d ≥ 0.92 and the absence of individual-level predictive validation, and (b) ethically unacceptable discrimination based on personality profiles. The authors explicitly disavow such application.
+
+In addition, the following four points will be stated:
+
+- The harassment probability for Cluster 0 is < 100%.
+- Harassment occurs in Clusters 1–6 as well.
+- Personality is changeable (Roberts 2017) → cluster membership is not a fixed individual attribute.
+- Use in hiring or promotion decisions constitutes a violation of research ethics.
+
+### 9.3 Authorial framing guidelines (preregistered)
+
+| To avoid | Recommended phrasing |
+|---|---|
+| "perpetrator personality" | "personality profile associated with elevated risk in our model" |
+| "high-risk individuals" | "cells with elevated baseline rates (population-level patterns)" |
+| "Cluster X should be screened" | "Cluster X represents a target group for **opt-in voluntary intervention**" |
+| "predict perpetrators" | "predict population-level prevalence" |
+| "effective intervention reduces harassment" | "anchor literature suggests intervention can reduce harassment under specified transportability assumptions" |
+
+### 9.4 Voluntary, opt-in policy principle (mandatory conditions for the Counterfactual B primary intervention)
+
+- **Voluntary participation**: not coerced training or counseling; participants opt in.
+- **No employment consequence**: participation has no effect on employment, evaluation, or compensation.
+- **Anonymity / Confidentiality**: a participant's personality profile is not identifiable within their organization.
+- **Resource provision, not coercion**: society's role is to provide opportunities for change, not to impose them.
+
+### 9.5 Data availability ethics (D17)
+
+| Data tier | Public availability |
+|---|---|
+| **Aggregated statistics** (14-cell propensities, 28-cell EB, national prevalence, ΔP_x) | Fully open (OSF + GitHub) |
+| **Cell-level raw data** (per-cell individual records) | Restricted access (research-purpose review, IRB confirmation, re-identification risk assessment); 28-cell sensitivity has cells with N < 10 that pose re-identification risk |
+| **N = 354 / N = 13,668 individual data** | Released according to the original publications' policies (anonymized, request-based) |
+
+### 9.6 Long-term ethical monitoring (10-year commitment)
+
+- **Misuse-case monitoring**: if findings are misappropriated for discrimination or screening, the author commits to publishing corrections or commentary in response.
+- **Curation of secondary-analysis collaborations**: requests for secondary analysis are reviewed against the ethical principles in Part 7.
+- **Maintenance of author contact**: corresponding-author contact is maintained for at least 10 years.
+- **OSF maintenance**: this preregistration and supplementary materials are maintained as active on OSF for at least 10 years.
+
+---
+
+
 
 
 
