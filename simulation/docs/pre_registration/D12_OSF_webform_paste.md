@@ -507,6 +507,102 @@ Any analysis not enumerated in Sections 5, 6, or here is exploratory and will be
 
 ---
 
+## OSF Field 24 — Other (anything else relevant)
+
+```
+1. Sole-authored study. Author: Eisuke Tokiwa, ORCID 0009-0009-7124-6669, SUNBLAZE Co., Ltd., eisuke.tokiwa@sunblaze.jp.
+
+2. Independent methodologist consultation (Section 1.2 + Section 8.1): An external methodologist with a mathematical biology background will review Section 5 (Analysis Plan) prior to Stage 2 validation. Acknowledged in anonymous form per the methodologist's preference (Munafò et al. 2017 Box 1, lightweight variant).
+
+3. Funding: No external funding for the simulation phase. Original data collection (N = 354 / N = 13,668) inherits the IRB approvals and funding documented in the prior Tokiwa publications (harassment preprint and clustering paper IEEE-published). No new IRB is required (secondary analysis of anonymized data).
+
+4. Conflicts of interest: The author derives no commercial benefit from the findings. The author's affiliation has no commercial interest in the results.
+
+5. Negative-result publication commitment (D-NEW8, Section 7): The author commits to journal submission in all five enumerated cases (success / partial / failure / H7 reversal / B3 < B2 overfitting). Target submission: Royal Society Open Science (Registered Report track, primary), with seven fallback venues specified (Section 7.2). Choice of journal is not locked by this preregistration; a change of journal does not constitute a deviation under Section 6.5.
+
+6. Reproducibility commitments (D-NEW9, Section 8): Random seed 20260429 fixed; environment pinning via `uv` lock or Dockerfile; `make reproduce` 30-minute regeneration target; open code (MIT license) on GitHub and OSF mirror; aggregated open data; restricted-access raw data only where re-identification risk exists (Section 9.5). The study targets Tier 3 / "Verification" of the TOP guidelines and qualifies for OSF Open Practice Badges (Open Data, Open Materials, Preregistered).
+
+7. Ethics commitments (D-NEW10, Section 9): Triple-locking of the anti-screening statement (Methods + Discussion + this preregistration). Voluntary, opt-in policy principle for Counterfactual B (no employment consequence; anonymity / confidentiality; resource provision rather than coercion). Long-term ethical monitoring: this preregistration and supplementary materials remain active on OSF for at least 10 years; the author will publish corrections or commentary if findings are misappropriated for discrimination or screening.
+
+8. Limitations pre-acknowledged (Section 10): 11 limitations are enumerated in advance to prevent post-hoc rationalization (Nosek 2018 Challenge 9). Major items: cross-sectional design precludes causal inference (mitigated by Roberts & DelVecchio 2000 plateau r = .74); pairwise MDE Cohen's d ≥ 0.92 precludes individual-level inference (D13 power analysis); transportability of Western-anchor effects to Japan is sensitivity-tested at {0.3×, 0.5×, 0.7×, 1.0×}.
+
+9. Reflexivity statement (Section 11): The author has previously argued in non-peer-reviewed work for a systemic-causation framing of workplace harassment. This normative stance is acknowledged as a potential bias source. To mitigate: the empirical analysis is restricted to L1 descriptive/predictive claims; all causal language is constrained by target trial emulation with explicit identifying assumptions; anti-screening and anti-discrimination statements are included regardless of findings.
+
+10. Companion documents (attached as supplementary):
+- `D12_pre_registration_OSF.md` (Japanese master, 1,004 lines)
+- `D12_pre_registration_OSF.en.md` (English version, 1,021 lines)
+- `D12_pre_registration_OSF.pdf` (Japanese PDF, 21 pages)
+- `D12_pre_registration_OSF.en.pdf` (English PDF, 22 pages)
+- `D12_pre_registration_OSF` GitHub mirror: in the `claude/hexaco-harassment-simulation-69jZp` branch of the repository
+
+11. After registration: the OSF DOI is recorded in the Header of both the JP master and the EN version markdown documents, locking the preregistration. Subsequent modifications follow Section 6.5 deviation policy (Levels 0–3); Level 3 changes require a v2 registration on OSF with a public diff against v1.
+```
+
+(Source: EN Sections 1.2, 7, 8, 9, 10, 11, 12, 14)
+
+---
+
+## After-registration steps (post-form submission)
+
+1. **Issue OSF DOI**: After clicking "Register" in OSF, the DOI is issued (typically within minutes, but may take up to 48 hours for embargoed registrations).
+
+2. **Update Header in both markdown documents** (Section 14.3 lock procedure):
+   - Edit `simulation/docs/pre_registration/D12_pre_registration_OSF.md`: add `**OSF DOI**: 10.17605/OSF.IO/<your-id>` and `**Registered**: <date>` to the Header.
+   - Edit `simulation/docs/pre_registration/D12_pre_registration_OSF.en.md`: same.
+   - Set `**Status**: 🔒 LOCKED` (replacing `⏳ DRAFT`).
+
+3. **Regenerate PDFs** to reflect the locked Header:
+   ```
+   cd simulation/docs/pre_registration
+   make
+   ```
+
+4. **Commit and push**:
+   ```
+   git add simulation/docs/pre_registration/
+   git commit -m "D12 pre-reg: OSF registration locked, DOI <id>"
+   git push
+   ```
+
+5. **Send the methodologist contact request** (Section 1.2 / 8.1; mode B anonymous): include the OSF DOI in the request so the reviewer can verify the locked analysis plan.
+
+6. **Stage 0 implementation may begin** once Section 14.3 final checks are complete (DOI added, repository structure initialized, `make reproduce` skeleton in place, random seed hard-coded across all stages).
+
+---
+
+## Field-to-Section cross-reference quick view
+
+| OSF Field | EN doc Section | Content type |
+|---|---|---|
+| 1 Title | 1.1 | Single-line title |
+| 2 Description | 1.3 + 7 + 14 | Abstract |
+| 3 Hypotheses | 1.4 + 6.1 | H1–H7 |
+| 4 Study type | 2.1 | "Other" + clarification |
+| 5 Blinding | 2.2 + 3.1 | "No blinding" + preregistration-equivalent state |
+| 6 Additional blinding | 1.2 + 2.2 | None |
+| 7 Study design | 2.3 | 5-stage Phase 1 + 3-stage Phase 2 pipeline |
+| 8 Randomization | 2.4 | Fixed seed 20260429 |
+| 9 Existing data | 3.1 | "Registration prior to analysis" + partial blinding |
+| 10 Explanation of existing data | 3.1 | Two datasets + unobserved analyses |
+| 11 Data collection procedures | 12.3 | Not applicable + public sources |
+| 12 Sample size | 3.2 | 14-cell main + 28-cell sensitivity |
+| 13 Sample size rationale | 3.3 | D13 power analysis |
+| 14 Stopping rule | 3.4 | Not applicable |
+| 15 Manipulated variables | 4.1 | δ_A, δ_B, effect_C, transportability_factor |
+| 16 Measured variables | 4.2 | Individual + population-level |
+| 17 Indices | 4.3 | 7-type membership, MAPE, ΔP_x, etc. |
+| 18 Statistical models | 5.1–5.7 | Bootstrap, EB, baselines, counterfactuals |
+| 19 Transformations | 2.3, 5.1, 4.1 | Binarization + reweighting |
+| 20 Inference criteria | 6.1–6.6 | H1–H7 thresholds + Bonferroni–Holm |
+| 21 Data exclusion | 3.1, 5.7.4 | None at analytic level |
+| 22 Missing data | 6.5 | Listwise within cluster reassignment |
+| 23 Exploratory analysis | 5.2, 5.4–5.6, 3.1.3 | 6 enumerated exploratory items |
+| 24 Other | 1.2, 7, 8, 9, 10, 11, 12, 14 | 11-item summary |
+
+---
+
+**End of OSF Standard Pre-Registration paste sheet.**
+
 
 
 
