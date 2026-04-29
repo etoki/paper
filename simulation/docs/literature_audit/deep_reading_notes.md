@@ -884,7 +884,7 @@ R2 と同様の職場 risk factors が確認：
 #### 本研究での citation 用途
 
 1. **Phase 1 validation target の選択明確化**：本研究は **MHLW 2021（R2）の 31.4% を主 validation**。R5 の 19.3% は sensitivity reference として併用（同 sample 仕様、3 年差）
-2. **時系列 trend の議論**：「Power harassment prevalence has declined from 31.4% (MHLW, 2021) to 19.3% (MHLW, 2024) following the 2019 legal reform」 — Phase 2 介入効果の存在を国レベルで確認できる証拠（**Counterfactual A 普遍介入の partial natural experiment**）
+2. **時系列 trend の議論**：「Power harassment prevalence has declined from 31.4% (MHLW, 2021) to 19.3% (MHLW, 2024) following the 2019 legal reform」 — Phase 2 介入効果の存在を国レベルで示唆する **policy-coincident decline / 準自然実験的 evidence**（厳密な natural experiment ではない：sampling design 変更、用語定義拡張、回答者意識 shift 等の confounder 混在。詳細は research_plan Part 1.4 参照）
 3. **Phase 2 anchor の補強**：法改正介入で 12 pt 減少 → universal intervention（Counterfactual A）の plausible effect size の上限例として引用
 4. **企業対応の改善 trend**：相談率 +16.0 pt、該当判定 +3.0 pt → 組織レベル対策強化の存在 → Counterfactual C（structural intervention）の効果が現実に出ている根拠
 5. **「男性のみ職場」リスクの新発見**：Phase 1 の gender 変数を超えて、**workplace gender composition** が独立 risk factor → 本研究の 14-cell（gender × type）simulation の解釈強化
@@ -1063,13 +1063,14 @@ Tsuno 2015：
 
 → **Multi-reference triangulation で robust な validation が可能**
 
-### 6. Phase 2 介入の自然実験 evidence
+### 6. Phase 2 介入の準自然実験的 evidence（policy-coincident decline）
 
 MHLW 2021 (31.4%) → 2024 (19.3%) の **−12 pt** 減少は：
 - 2019 法改正（パワハラ防止法）の universal intervention
 - 2022 中小企業含む完全施行
-- = Counterfactual A（universal）の **partial natural experiment evidence**
-- → 本研究の Phase 2 で δ = +0.3 SD の介入予測値が −10 pt 程度であれば、**MHLW 自然実験と整合**することを示せる
+- = Counterfactual C（structural）系統の **policy-coincident decline / 準自然実験的 evidence**
+  - **caveat**：sampling design 変更、定義拡張、回答者意識 shift 等の confounder 混在のため厳密な natural experiment ではない（research_plan Part 1.4 参照）
+- → 本研究の Phase 2 で Counterfactual C の予測値（20% 削減 main、range 10–30%）が MHLW の policy-coincident decline と整合的なオーダーであれば **plausibility 補強** として参照可能（厳密な causal effect estimate としては扱わない）
 
 ### 7. 残存する gap（本研究で対応すべき）
 
@@ -2498,7 +2499,7 @@ Notelaers et al. 2011 LCA × population-scale risk groups
 1. **Personality 上流 chain の central anchor**：「Narcissism—a personality trait inversely correlated with HEXACO Honesty-Humility (Lee & Ashton, 2005)—predicts leadership emergence (ρ = +0.16; Grijalva et al., 2015), placing low-HH individuals disproportionately into positions of organizational power. This personality-driven sorting into leadership positions partially explains the apparent SSS effect on workplace harassment victimization (Tsuno et al., 2015) and supports modeling personality typology as upstream of position-mediated harassment risk」
 2. **「個人の性格と SSS は独立ではない」central reference**：narcissism → emergence の causal chain を defend
 3. **Phase 2 介入の含意**：Narcissism (= 低 HH) を介入で減らせば、emergence への systematic boost が減 → **権力濫用機会の structural reduction**
-4. **Mid-range narcissism optimum の議論**：本研究 Phase 2 で「HH を 0.5 SD 上げる」介入は **mid-range optimum を保ちつつ extreme を抑制**（curvilinear evidence と整合）
+4. **Mid-range narcissism optimum の議論**：本研究 Phase 2 で「HH を +0.4 SD（main、保守側再校正、range 0.2–0.6）上げる」介入は **mid-range optimum を保ちつつ extreme を抑制**（curvilinear evidence と整合）
 5. **Self-report bias 警告**：Narcissist は self-report で leadership effectiveness を **過大評価**（ρ=0.29）→ 本研究の N=354 self-report harassment perpetrator も narcissist が **真の effect を underreport** している可能性 → Berry et al. 2012 と組み合わせて self-report 妥当性議論
 6. **Acquaintanceship moderator の延長**：「First-impression narcissism boost」は本研究の Discussion で「短期 selection vs 長期 outcome の divergence」議論に活用可
 7. **Observer-report の null effect**：Counterfactual C（structural intervention）で observer-rated harassment は personality 効果が小さい → personality 介入（B 主軸）でも observer-rated outcome は遅れて改善する predict

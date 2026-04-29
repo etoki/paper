@@ -26,7 +26,7 @@
   - HEXACO 増分：ΔR² = .032 (power) / .096 (gender)
   - Model C は marginal improvement にとどまる
 
-### Clustering 論文（IEEE 投稿中）
+### Clustering 論文（IEEE 掲載済）
 - **N = 13,668** 日本人
 - HEXACO 7 類型を多手法クラスタリングで同定
   - Ward + k-means、LPA、spectral clustering で確認
