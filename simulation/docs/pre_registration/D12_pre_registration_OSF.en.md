@@ -335,5 +335,64 @@ Not applicable: no new data collection.
 
 ---
 
+## 4. Variables
+
+### 4.1 Manipulated Variables (counterfactual operators)
+
+| Variable | Definition | Scope | Main value | Sensitivity range | Anchor |
+|---|---|---|---|---|---|
+| **δ_A** (universal HH shift) | Add δ × SD(HH) to HH score for all individuals | All N = 354 → re-classify cluster | **+0.3 SD** | [0.1, 0.5] SD | Conservative discount of Kruse 2014 d = 0.71 |
+| **δ_B** (targeted HH shift) | Add δ × SD(HH) to HH score for individuals in Clusters 0/4/6 only | Primary: Cluster 0; secondary: Clusters 4, 6 | **+0.4 SD** | [0.2, 0.6] SD | Conservative discount of Hudson 2023 self-selected effect |
+| **effect_C** (structural reduction) | Multiply cell-conditional probability by (1 − effect_C) | All 14 cells | **0.20** | [0.10, 0.30] | Triangulation of Pruckner 2013 + Bezrukova 2016 + Roehling 2018 + Dobbin & Kalev 2018 |
+| **transportability_factor** | Phase 2 anchor effect × factor before applying to Japan | All counterfactuals | 1.0 (main) | [0.3, 0.5, 0.7, 1.0] | Sapouna 2010 / Nielsen 2017 cultural moderator evidence |
+
+### 4.2 Measured Variables (existing observed data)
+
+#### 4.2.1 Individual-level (N = 354 harassment data)
+
+| Variable | Type | Operationalization | Source |
+|---|---|---|---|
+| **HEXACO 6 domains** | Continuous (Likert 1–5 mean) | Wakabayashi 2014 Japanese HEXACO-60 | `harassment/raw.csv` |
+| **Dark Triad 3** | Continuous | Shimotsukasa & Oshio 2017 SD3-J | `harassment/raw.csv` |
+| **Power harassment** | Continuous (item mean) → binarized at mean + 0.5 SD | Tou et al. 2017 Workplace Power Harassment Scale | `harassment/raw.csv` |
+| **Gender harassment** | Continuous → binarized at mean + 0.5 SD | Kobayashi & Tanaka 2010 | `harassment/raw.csv` |
+| **Age** | Continuous (years) | Self-report | `harassment/raw.csv` |
+| **Gender** | Binary (0/1, n = 133/220) | Self-report | `harassment/raw.csv` |
+| **Area** | Categorical | Self-report | `harassment/raw.csv` |
+
+#### 4.2.2 Individual-level (N = 13,668 clustering data)
+
+| Variable | Type | Use |
+|---|---|---|
+| **HEXACO 6 domains** | Continuous | Centroid extraction (already aggregated; `clustering/csv/clstr_kmeans_7c.csv`) |
+| **Cluster proportion** | Categorical (7 types) | Population scaling weight |
+
+#### 4.2.3 Population-level (MHLW; external validation targets)
+
+| Variable | Source | Role |
+|---|---|---|
+| **Past-3-year harassment victimization rate** | MHLW 2016 R2 (32.5%, ★ primary), 2020 R2 (31.4%), 2024 R5 (19.3%) | National validation target |
+| **Industry-stratified prevalence** | MHLW 2020 R2 supplementary tables | Subgroup validation |
+| **30-day prevalence** | Tsuno et al. 2015 N = 1,546 (6.1%) | Marginal-distribution check |
+| **International baseline** | ILO 2022 Asia–Pacific lifetime 19.2% | Comparative reference |
+| **Turnover by reason "interpersonal relations"** | MHLW Employment Trend Survey | f1 anchor |
+| **Mental disorder incidence** | MHLW Industrial Safety and Health Survey + Tsuno & Tabuchi 2022 PR = 3.20 | f2 anchor |
+
+### 4.3 Indices (derived)
+
+| Index | Definition | Stage |
+|---|---|---|
+| **7-type membership** | Each individual in N = 354 assigned to nearest centroid (Euclidean, HEXACO 6 domains) | Stage 0 |
+| **Cell ID (14-cell)** | type ∈ {0..6} × gender ∈ {0, 1} | Stage 0 |
+| **Cell ID (28-cell)** | type × gender × role ∈ {0, 1} | Stage 0 (sensitivity) |
+| **Role probability** | Continuous, predicted from C + 0.5·X composite (top 15% → manager) | Stage 0; D1 sensitivity compares 3 alternative models |
+| **National latent prevalence** | Σ_cell (cell propensity × cell population weight) | Stage 1 |
+| **MAPE** | mean(|predicted − observed| / observed × 100) | Stage 2 (primary metric) |
+| **ΔP_x** (counterfactual reduction) | predicted_baseline − predicted_counterfactual_x | Stage 7 |
+| **Cost-effectiveness ratio** | ΔP_x / N_treated_x | Stage 7 (Phase 2) |
+
+---
+
+
 
 
