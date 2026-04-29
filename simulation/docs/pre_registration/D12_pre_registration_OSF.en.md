@@ -543,6 +543,134 @@ To be honestly assessed in the Discussion:
 
 ---
 
+## 6. Inference Criteria & Sensitivity Master Table
+
+### 6.1 Preregistered inference criteria summary
+
+| H# | Criterion | Threshold | Decision |
+|---|---|---|---|
+| **H1** | MAPE(P̂_2016, MHLW 2016 32.5%) | ≤ 30% | SUCCESS |
+| H1 | MAPE | 30 < x ≤ 60% | PARTIAL SUCCESS |
+| H1 | MAPE | > 60% | FAILURE (publish anyway) |
+| **H2** | MAPE_B0 ≥ MAPE_B1 ≥ MAPE_B2 ≥ MAPE_B3 ≥ MAPE_B4 | Strict monotonicity | Direction confirmed if ≥ 3 of the 4 pairwise inequalities hold |
+| H3 | gap(2016) < gap(2024) | Direction | Confirmed if MAPE_2016 < MAPE_2024 |
+| H4 | sign(ΔP_A) | Negative (reduction) | Confirmed if 95% CI excludes 0 in the negative direction |
+| H5 | sign(ΔP_B) and ΔP_B / N_treated > ΔP_A / N_total | Cost-effectiveness | Confirmed if both conditions hold |
+| H6 | sign(ΔP_C) | Negative | Confirmed if 95% CI excludes 0 |
+| **H7** | ΔP_B > ΔP_A AND ΔP_B > ΔP_C | Magnitude ranking | Confirmed if both inequalities hold at point estimates; uncertain if 95% CIs overlap |
+
+### 6.2 Failure-mode commitments
+
+- **H1 failure** (MAPE > 60%): publish as a failure-mode discovery (Doc 1 strategy 2 + Nosek 2018 Challenge 6)
+- **H2 reversal** (B3 < B2): publish as a critical finding (typology overfitting)
+- **H7 reversal** (ΔP_B ≤ ΔP_A or ΔP_B ≤ ΔP_C): publish; revise the main thesis claim
+
+### 6.3 Multiple-comparison correction
+
+- Phase 1 H1: single primary test; no correction needed
+- Phase 1 H2: 4 ordinal pairwise comparisons (B0–B1, B1–B2, B2–B3, B3–B4) → Bonferroni–Holm at family-wise α = .05
+- Phase 2 H4–H7: 3 counterfactuals × 1 main test each = 3 tests → Bonferroni–Holm at α = .05
+- H7 ranking: already a single composite test (no further correction)
+
+### 6.4 Preregistered sensitivity-sweep master table (★ Stages 3 & 8)
+
+**Phase 1 sensitivity** (all combinations to be reported in MAPE table):
+
+| Parameter | Main | Sweep range | Stage |
+|---|---|---|---|
+| **V** (victim multiplier) | 3 | {2, 3, 4, 5} | 3 |
+| **f1** (turnover rate) | 0.10 | {0.05, 0.10, 0.15, 0.20} | 3 |
+| **f2** (mental disorder rate) | 0.20 | {0.10, 0.20, 0.30} | 3 |
+| **EB shrinkage scale** | 1.0× | {0.5×, 1.0×, 2.0×} | 0 (28-cell) |
+| **Binarization threshold** | mean + 0.5 SD | {mean + 0.25 SD, +0.5 SD, +1.0 SD} | 0 |
+| **Cluster K** | 7 (IEEE published, main) | {4, 5, 6, 7, 8} | 0 |
+| **Role estimation** | C + 0.5X composite top 15% | {(a) linear, (b) tree-based, (c) literature-based} | 0 (28-cell) |
+| **Bootstrap iterations** | 2,000 | (fixed) | All |
+
+**Phase 2 sensitivity**:
+
+| Parameter | Main | Sweep range | Stage |
+|---|---|---|---|
+| **δ_A** (universal HH shift) | +0.3 SD | [0.1, 0.5] SD step 0.1 | 8 |
+| **δ_B** (targeted HH shift) | +0.4 SD | [0.2, 0.6] SD step 0.1 | 8 |
+| **effect_C** (structural reduction) | 0.20 | [0.10, 0.30] step 0.05 | 8 |
+| **transportability_factor** | 1.0× | {0.3×, 0.5×, 0.7×, 1.0×} | 8 |
+| **Target type set** (B) | {Cluster 0, 4, 6} | {Cluster 0 only}, {0+4}, {0+4+6 (main)}, {0+4+6+others} | 8 |
+
+**Reporting**: All sensitivity outputs will be published as a supplementary table with open data (Section 8 reproducibility). The main text will use only the main values for quantitative claims; sensitivity outputs will be used qualitatively to describe robustness.
+
+### 6.5 Deviation policy (Nosek 2018 Challenges 1 & 2)
+
+Deviations from this preregistration are classified and reported as follows:
+
+1. **Level 0 (no deviation)**: implementation matches the specification.
+2. **Level 1 (minor specification clarification)**: e.g., explicit lookup table for bootstrap seeds, locking of CI library version. Recorded in a single line in the Methods.
+3. **Level 2 (data-driven adjustment)**: e.g., method-of-moments produces divergent α̂, β̂ → switch to MLE / hierarchical Bayes. Justified in a one-paragraph Discussion subsection.
+4. **Level 3 (analysis-plan revision)**: e.g., introducing 14-cell pairwise inference or other substantive change → **register a v2 of this preregistration on OSF**; publish a diff against v1.
+
+→ All Level 2 and Level 3 deviations will be reported comprehensively in a dedicated Discussion subsection titled "Deviations from Pre-Registration."
+
+### 6.6 Inference data lock-in commitments
+
+- **Comparison against MHLW survey** is performed only after this preregistration is registered on OSF.
+- **MAPE is computed** with the binarization threshold (mean + 0.5 SD) and population weights fixed by this preregistration prior to comparison.
+- **Post-hoc revision of MAPE thresholds (30% / 60%) is prohibited.**
+
+---
+
+## 7. Negative-Result and Failure-Mode Publication Commitment (D-NEW8)
+
+Anchor: **Nosek et al. 2018 PNAS Challenge 6** (program-level null-result reporting) + Doc 1 strategy 2 (failure as discovery).
+
+### 7.1 Publication commitment
+
+The author commits to journal submission in all of the following cases:
+
+1. **H1 SUCCESS** (MAPE ≤ 30%): submit as a standard article.
+2. **H1 PARTIAL SUCCESS** (30 < MAPE ≤ 60%): submit as a "partial validation" article that thematizes failure modes.
+3. **H1 FAILURE** (MAPE > 60%): submit as a "negative result" article that characterizes the failure modes as discoveries.
+4. **H7 reversal** (ΔP_B ≤ ΔP_A or ΔP_C): submit as a "thesis revision" article that revises the original framing.
+5. **B3 < B2** (typology overfitting): submit as a "critical finding" article that documents the limits of the typology approach.
+
+### 7.2 Target journal path
+
+> **Note**: This preregistration locks the **analysis plan** (hypotheses, models, thresholds, sensitivity sweeps, ethical commitments). The choice of target journal is not locked and may change without invoking the Section 6.5 deviation policy. This section records the **submission roadmap** for transparency only.
+
+#### Primary target
+
+**Royal Society Open Science (Registered Report track)**
+
+- Rationale: (1) The RR track guarantees publication after In-Principle Acceptance (IPA), structurally fulfilling the D-NEW8 negative-result commitment regardless of outcome; (2) within budget (£1,800 ≈ JPY 350k); (3) Open Access by default, aligned with the D-NEW9 reproducibility commitment; (4) Stage 1 review typically ~6–8 weeks; (5) IF is not a constraint (per the author's explicit preference for low-IF venues if necessary).
+- Submission unit: **Stage 1 (Introduction + Methods + this preregistration)** is submitted first → IPA → **Stage 2 (Results + Discussion)** is submitted later.
+
+#### Fallback path (if IPA is refused or scope mismatches)
+
+| Order | Journal | Track | APC (JPY) | Acceptance certainty | Notes |
+|---|---|---|---|---|---|
+| 1 | **Royal Society Open Science** | RR | 350k | High after IPA | Primary |
+| 2 | **Frontiers in Psychology** (Personality and Social Psychology specialty) | RR (specialty-dependent) | 440k | Equivalent in RR specialty | Fallback 1 |
+| 3 | **Scientific Reports** (Nature) | Standard with preregistration DOI | 340k | ~50% | Fallback 2; broad scope |
+| 4 | **PLOS ONE** | Standard with preregistration DOI | 290k | ~50%; explicitly accepts negative results | Fallback 3 |
+| 5 | **PAID** (Personality and Individual Differences) | Standard | OA: 520k / subscription: 0 | ~40% | Fallback 4; personality fit |
+| 6 | **JBE** (Journal of Business Ethics) | Standard | OA: 580k / subscription: 0 | ~10–20% | Fallback 5; ethics scope is restrictive |
+| 7 | **RIO Journal** | "Pre-Registration" article type or Research Article | 70–130k | High | Fallback 6; low-APC option |
+| 8 | **PCI Registered Reports + PCI-friendly OA journal** | RR (decentralized) | 0 | Higher overhead in finding a recommender | Fallback 7; cost-zero option |
+
+#### This preregistration is journal-agnostic
+
+- The commitments fixed by this preregistration apply regardless of which journal is selected.
+- A change of journal is treated as Section 6.5 Level 0 (no deviation) and is not recorded in the deviation log.
+- Each fallback venue cites the OSF preregistration DOI as the authoritative record.
+
+### 7.3 Action if all venues refuse publication
+
+- If all fallbacks fail: publish as a preprint (OSF / SocArXiv / PsyArXiv).
+- A technical report of the failure modes will be published as an OSF supplementary, permanently archived.
+- This preregistration will be maintained as active on OSF for at least 10 years.
+
+---
+
+
 
 
 
