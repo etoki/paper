@@ -35,7 +35,7 @@
 - **既存自己引用 hub**：
   - Tokiwa et al. **Clustering 論文（IEEE 掲載済）**：N=13,668、HEXACO 7 類型
   - Tokiwa et al. **Harassment 論文（preprint）**：N=354、HEXACO + Dark Triad × 加害
-- **Tier 1+2+3 文献基盤**：**40 件 deep reading + 約 20 件 既存ライブラリ補完**（合計 60 paper foundation）
+- **Tier 1+2+3+4 文献基盤**：**44 件 deep reading + 約 20 件 既存ライブラリ補完**（合計 64 paper foundation）— Tier 4 = metascience anchor 4 件（Nosek 2018 / Munafò 2017 / Vazire 2010 / Funder & Ozer 2019）
 
 ### 0.3 Doc 1 のフレームでの評価サマリー（再掲）
 
@@ -512,6 +512,7 @@ Expressed harassment incidence（MHLW で観測）
     - 既存 N=354 データに depression / stress 測定があれば直接実施
     - なければ、HEXACO Emotionality（neuroticism analog）との correlation を proxy として使用
   - **Honest framing**：論文 Methods に「The harassment scales used here capture self-reported tendencies that combine past behavior and propensity ratings; we interpret them as **mixed indicators of latent propensity** rather than pure trait measures」と明記
+  - **★ Vazire 2010 SOKA model anchor（Tier 4）**：HEXACO HH と harassment 自己報告は両方 **HIGH evaluativeness** trait → SOKA model 上は **ego-protective bias で conservative（過小評価）方向**。Berry 2012（self が MORE 報告）+ Vazire 2010（high-evaluativeness で self は under-report 方向）+ Anderson & Bushman 2002（self-report と real behavior の相関）の **3 系統 triangulation** で「self-report 推定は lower bound」と framing
   - **Future work**：本研究の cell-conditional probability を、独立 sample（experimental vignette study 等）の behavioral measure と triangulate する後続研究を計画
 
 ### 4.3 Doc 1「良い論文がやらないこと」との照合
@@ -898,9 +899,10 @@ Doc 2 Part 3 の capability approach に従い：
 
 #### 7.6.2 Bias mitigation procedures
 
-- **Pre-registered analysis plan**（D12）で post-hoc 修正可能性を制限
-- **Co-author / external review**：Discussion 解釈に対して independent second reading を依頼
+- **Pre-registered analysis plan**（D12）で post-hoc 修正可能性を制限（**Anchor: Nosek et al. 2018 PNAS**）
+- **Co-author / external review**：Discussion 解釈に対して independent second reading を依頼（**Anchor: Munafò et al. 2017 Nature Human Behaviour**、independent statistical oversight、Box 1 CHDI Foundation 例）
 - **Failure mode の事前 commitment**：null / failure result でも publication（Part 8 D-NEW8 参照）
+- **Self-report direction-of-bias awareness**：harassment self-report は SOKA model（**Anchor: Vazire 2010 JPSP**）上 ego-protective bias で **conservative（lower bound）方向**。本研究 prevalence 推定は under-estimate の可能性として framing
 
 ### 7.7 IRB / 倫理委員会対応
 
@@ -953,22 +955,22 @@ Doc 2 Part 3 の capability approach に従い：
 
 | # | 項目 | 推奨 | 状態 |
 |---|---|---|---|
-| D12 | Pre-registration | **OSF Pre-registration を Stage 0 コード実装着手前に完了** ★ 修正：post-hoc 修正可能性を排除するため、執筆完了後ではなく**実装前に固定**。論文本体の執筆は Pre-registration 後に開始。 | ⏳ **Stage 0 着手前に必須**（修正） |
+| D12 | Pre-registration | **OSF Pre-registration を Stage 0 コード実装着手前に完了** ★ 修正：post-hoc 修正可能性を排除するため、執筆完了後ではなく**実装前に固定**。論文本体の執筆は Pre-registration 後に開始。**Anchor: Nosek et al. 2018 PNAS** "The preregistration revolution" Challenge 3（Data Are Preexisting）に厳密準拠：N=354/N=13,668 は observed だが 14-cell × harassment cross-tabulation、Stage 2 国レベル output、Counterfactual A/B/C output は **未観測** → "pure pre-registration" 達成可能 | ⏳ **Stage 0 着手前に必須**（修正） |
 | D13 | Power analysis | **D13 完了**：14-cell 主分析確定、28-cell は EB shrinkage | ✓ **完了** |
 | D14 | Target journal（Phase 1） | JBE 第一候補、PAID / J Comp Soc Sci / PLOS ONE 等候補。**Registered Report 受付誌（Cortex、PLOS ONE 等）**を補助候補に追加 | 未決定 |
 | D15 | Target journal（Phase 2） | Phase 1 の状況次第、Public Health 系も候補 | 未決定 |
 | D16 | コード公開先 | GitHub + OSF 両方 | ✓ **確定** |
 | D17 | データ公開ポリシー | 既存論文の公開方針に準拠、**aggregated statistics は完全公開、cell-level raw は restricted access**（Part 7.5.1 ethics 準拠） | ✓ **修正版確定** |
 | D18 | Phase 1 と Phase 2 を別論文か単一論文か | **別 2 本**（impact 分散、scope 適切） | ✓ **確定** |
-| **D-NEW8** | **Negative / null result publication commitment** | **MAPE > 60% でも投稿し、failure mode を発見化**（Doc 1 戦略 2 準拠）。Pre-registration に明文化。Target journal は negative result accepting 誌（PLOS ONE / RIO Journal / Cortex Registered Report）を含める。 | ✓ **確定**（D12 と同時固定） |
-| **D-NEW9** | **Reproducibility infrastructure** | (a) Random seed 固定 (NumPy/Python/Stan)、(b) Bootstrap resample state 保存、(c) `uv` lock file or Dockerfile で計算環境 pinning、(d) README に "How to reproduce in 30 minutes" セクション、(e) 全 figure / table 生成スクリプトを `make reproduce` で再現可能に | ✓ **確定** |
+| **D-NEW8** | **Negative / null result publication commitment** | **MAPE > 60% でも投稿し、failure mode を発見化**（Doc 1 戦略 2 準拠）。Pre-registration に明文化。Target journal は negative result accepting 誌（PLOS ONE / RIO Journal / Cortex Registered Report）を含める。**Anchor: Nosek 2018 Challenge 6**（program-level の null result も report、selective reporting 防止）| ✓ **確定**（D12 と同時固定） |
+| **D-NEW9** | **Reproducibility infrastructure** | (a) Random seed 固定 (NumPy/Python/Stan)、(b) Bootstrap resample state 保存、(c) `uv` lock file or Dockerfile で計算環境 pinning、(d) README に "How to reproduce in 30 minutes" セクション、(e) 全 figure / table 生成スクリプトを `make reproduce` で再現可能に。**Anchor: Munafò et al. 2017 Nature Human Behaviour** "A manifesto for reproducible science" 5 themes（Methods / Reporting / Reproducibility / Evaluation / Incentives）+ TOP guidelines 準拠 | ✓ **確定** |
 | **D-NEW10** | **Ethical disclaimer triple-locking** | (a) Methods に "individual application disavowal" 明記、(b) Discussion に "how this should NOT be used" 段落、(c) Pre-registration に Part 7 全項目を ethical commitment として記載 | ✓ **確定**（Part 7 準拠） |
 
 ### 8.4 直近の実装着手前に必要な確認（修正版：Pre-registration を最優先）
 
 - [x] **D13（Power analysis）の実施** — ✅ 完了（`simulation/docs/power_analysis/D13_power_analysis.md`）
 - [x] **D8（介入 anchor）の確定** — ✅ 完了（Tier 2 で更に triangulation 強化）
-- [x] **文献基盤確立** — ✅ 完了（Tier 1+2+3 で 40 paper deep reading）
+- [x] **文献基盤確立** — ✅ 完了（Tier 1+2+3+4 で 44 paper deep reading、metascience anchor 含む）
 - [x] **Part 7 倫理的配慮の整備** — ✅ 完了（v6 で新設）
 - [ ] **★ D12（Pre-registration）の作成と OSF 登録** — **次のマイルストーン**（実装前に必須、修正後）
   - Pre-registration には：(i) RQ、(ii) hypothesis、(iii) D13 power analysis、(iv) 14-cell main + 28-cell sensitivity 仕様、(v) MAPE ≤ 30% 成功基準と > 60% failure 公表 commitment、(vi) Part 7 ethical disclaimer、(vii) D-NEW9 reproducibility commitment を含む
@@ -1084,9 +1086,9 @@ research_plan_harassment_typology_simulation.md（本ドキュメント）
 
 ---
 
-## Part 10：文献基盤の最終構成（Tier 1/2/3 deep reading 後の総括）
+## Part 10：文献基盤の最終構成（Tier 1/2/3/4 deep reading 後の総括）
 
-本研究は **40 件 deep reading + 約 20 件 既存ライブラリ補完 = 約 60 paper foundation** で全主張を防御。
+本研究は **44 件 deep reading + 約 20 件 既存ライブラリ補完 = 約 64 paper foundation** で全主張を防御。
 
 ### 10.1 Tier 別概要
 
@@ -1095,9 +1097,10 @@ research_plan_harassment_typology_simulation.md（本ドキュメント）
 | **Tier 1** | 24 | Pillar 1 (epidemiology) + Pillar 3 (microsim 系譜 + LCA) | ✅ 全 deep reading 完了 |
 | **Tier 2** | 9 | Pillar D (personality upstream) + B (intervention reviews) + C (causal) + A (self-report validity) | ✅ 全 deep reading 完了 |
 | **Tier 3** | 7 | Personality stability + CMV + Bayesian shrinkage methodology | ✅ 全 deep reading 完了 |
+| **Tier 4** ★ | **4** | **Pre-registration (Nosek 2018) + Reproducibility (Munafò 2017) + Construct validity (Vazire 2010 SOKA) + Effect size (Funder & Ozer 2019)** | ✅ 全 deep reading 完了 |
 | 自己引用 | 2 | Tokiwa Clustering (IEEE 掲載済) + Harassment preprint | ✅ 確定 |
 | 既存ライブラリ補完 | ~20 | Pillar 2 (HEXACO/DT meta) + 性格介入 anchor 等 | ✅ 既所有 |
-| **合計** | **約 60 papers** | 8 pillars 全 cover | |
+| **合計** | **約 64 papers** | 8 pillars + metascience 完全 cover | |
 
 ### 10.2 致命的弱点 → 文献装備 mapping
 
@@ -1107,12 +1110,16 @@ research_plan_harassment_typology_simulation.md（本ドキュメント）
 | 2. ~~Self-citation hub fragility~~ | Clustering paper IEEE 掲載済で **解消** |
 | 3. GAM situational 欠落 | "Personality slice" framing（既存文献で対応） |
 | 4. Phase 2 transportability | Hernán & Robins 2020 + Pearl 2009 + sensitivity wide range |
-| 5. Reverse-direction self-report bias | Berry 2012 + Anderson & Bushman 2002 + Roberts & DelVecchio 2000 |
+| 5. Reverse-direction self-report bias | Berry 2012 + Anderson & Bushman 2002 + Roberts & DelVecchio 2000 + **Vazire 2010 SOKA**（direction = conservative）|
 | 6. Common Method Bias | Podsakoff 2003 standard reference + Harman / marker variable diagnostic |
 | 28-cell shrinkage 実装 | Casella 1985 + Clayton & Kaldor 1987 + Efron 2014 + Greenland 2000 |
 | Personality vs SSS independence | Heckman 2006 + Grijalva 2015 + Lee & Ashton 2005 + Roberts 2007 + Roberts & DelVecchio 2000 |
+| **★ Pre-registration discipline** | **Nosek et al. 2018 PNAS**（Challenge 3 既存データ対応、Stage 0 実装前 OSF 登録）|
+| **★ Reproducibility infrastructure** | **Munafò et al. 2017 Nature Human Behaviour**（5 themes manifesto、TOP guidelines）|
+| **★ Construct validity / self-report direction-of-bias** | **Vazire 2010 SOKA model**（high evaluativeness traits の self-rating は conservative 方向）|
+| **★ Effect size 解釈の現代基準** | **Funder & Ozer 2019 AMPPS**（Cohen 1988 旧基準 revise: r=.30 を large、N≥250 推奨、cell-level inference 警告）|
 
-### 10.3 Introduction 5 段落構成（Tier 1+2+3 完全引用）
+### 10.3 Introduction 5 段落構成（Tier 1+2+3+4 完全引用）
 
 | 段落 | 内容 | 主要引用 |
 |---|---|---|
@@ -1124,7 +1131,7 @@ research_plan_harassment_typology_simulation.md（本ドキュメント）
 
 ### 10.4 Discussion limitation framework（10 limitation × 文献 × 対応）
 
-Part 4.2 で詳述。Tier 1+2+3 evidence で全 limitation に **2–4 系統 defense** 装備。
+Part 4.2 で詳述。Tier 1+2+3+4 evidence で全 11 limitation に **2–4 系統 defense** 装備。Tier 4 追加で Limit 11（Construct validity）に Vazire 2010 SOKA、Limit 1（Self-report 循環性）に Vazire 2010 が新規追加。
 
 ### 10.5 ファイル参照
 
@@ -1147,7 +1154,7 @@ Part 4.2 で詳述。Tier 1+2+3 evidence で全 limitation に **2–4 系統 de
 | 1 | **Bootstrap CI** | 分布形を仮定せず CI を出せる、N=354 でも頑健 | Efron 1979/1987、Davison & Hinkley 1997 | Stage 1 cell prevalence、Stage 2 national prevalence の不確実性表示 |
 | 2 | **EB Beta-Binomial Shrinkage** | 小セル (N<10) でも安定推定、過学習回避 | Casella 1985、Clayton & Kaldor 1987、Efron 2014、Greenland 2000 | 28-cell sensitivity の小セル安定化 |
 | 3 | **MAPE** | 予測値 vs MHLW 実測の乖離をスケールフリーで評価 | Hyndman & Koehler 2006、Schofield et al. 2018 | Phase 2 validation 成功基準 (MAPE ≤ 30%) |
-| 4 | **Cohen's d / Power Analysis** | 検出可能効果量を事前確認しデザインを正当化 | Cohen 1988、Faul et al. 2007 | D13 feasibility (MDE d ≥ 0.92) |
+| 4 | **Cohen's d / Power Analysis** | 検出可能効果量を事前確認しデザインを正当化 | Cohen 1988、Faul et al. 2007、**Funder & Ozer 2019**（現代基準で再解釈） | D13 feasibility (MDE d ≥ 0.92) |
 | 5 | **Target Trial Emulation + do-operator** | 観察研究を仮想 RCT として記述、介入定義を明確化 | Hernán & Robins 2020、Pearl 2009 | Counterfactual A/B/C の因果モデル定式化 |
 | 6 | **Sensitivity Analysis** | 仮定の幅を明示し結論の頑健性を担保 | VanderWeele & Ding 2017、Greenland 2000 | EB strength sweep、効果量幅、24/26/28-cell 比較 |
 | 7 | **CMV Diagnostic (Harman / marker)** | 自己報告データの単一情報源バイアスを定量検査 | Podsakoff et al. 2003、Lindell & Whitney 2001 | クラスタリング論文 N=13,668 の方法分散点検 |
@@ -1233,14 +1240,20 @@ Part 4.2 で詳述。Tier 1+2+3 evidence で全 limitation に **2–4 系統 de
 3. **学際標準**: 心理学・疫学・経済学すべてで採用される第一選択
 
 **文献根拠**:
-- Cohen 1988 "Statistical Power Analysis for the Behavioral Sciences" (2nd ed., LEA) — 効果量定義の標準
+- Cohen 1988 "Statistical Power Analysis for the Behavioral Sciences" (2nd ed., LEA) — 効果量定義の標準（ただし下記 F&O 2019 で更新）
 - Faul, Erdfelder, Lang & Buchner 2007 "G*Power 3" (Behav Res Methods) — power analysis 実装標準
 - Lakens 2013 "Calculating and reporting effect sizes" (Front Psychol) — 実用ガイドライン
+- **★ Funder & Ozer 2019 (AMPPS) "Evaluating Effect Size in Psychological Research: Sense and Nonsense"** — Cohen 1988 旧基準を **revise**：r = .05 very small / .10 small / .20 medium / **.30 large** / .40+ very large（多くは over-estimate）。Squaring correlations（"variance explained"）を misleading として批判。N ≥ 250 を stable r estimation に推奨
 
 **本研究での具体実装**:
 - D13 結果: 14-cell pairwise MDE Cohen's d ≥ 0.92（α=.05, 1−β=.80, two-tailed）
-- 解釈: 「Cluster 0（HH=2.5）vs Cluster 6（HH=4.0）の prevalence 差を検出するには d ≥ 0.92 必要」 → 既知文献（Pletzer 2019: HH × CWB d ≈ 0.5–1.0）と整合
+- 解釈（Cohen 1988 基準）: very large effect、(Pletzer 2019: HH × CWB ρ ≈ -.20 to -.35) と整合
+- **解釈（Funder & Ozer 2019 新基準、★更新）**: 
+  - Pletzer 2019 HEXACO HH × CWB ρ ≈ -.20 to -.35 → 旧 Cohen 基準で "small-medium" だが、**F&O 2019 で "medium-to-large"** → personality contribution は dismissable ではない
+  - D13 MDE d ≥ 0.92（r 換算 ≈ .42）→ "very large" だが **F&O は "rarely found in large samples / replications, likely overestimate" と警告** → cell-level inference を避け、aggregate inference に focus する追加根拠
+  - Counterfactual B Hudson 2023 cumulative d ≈ 0.4–0.6（r ≈ .20–.29）→ F&O 基準で **medium-to-large**、population scale で意味ある
 - Power 不足セルは事前に sensitivity 扱いと宣言
+- **N=354 は F&O 推奨の N ≥ 250 を満たす**（aggregate analysis）が、cell N=10–30 では下回るため EB shrinkage と aggregate inference を採用（D13 14-cell 主分析の追加正当化）
 
 ### 11.5 Target Trial Emulation + do-operator（仮想 RCT 設計と因果介入記法）
 

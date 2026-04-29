@@ -3948,4 +3948,311 @@ for prior_scale in [0.5, 1.0, 2.0]:
 3. **Pre-registration draft**（D12、文献基盤を assumption として固定）
 4. **Discussion limitation 執筆**（13 limitation × 文献 × 対応 triple）
 
+---
+
+## Round 6: Tier 4 Methodology Anchor Papers（2026-04-29、4 件）
+
+### Tier 4 概要
+
+研究計画 v6 で追加された 3 領域（Pre-registration discipline、Reproducibility、Construct validity / Effect size）の核 anchor として 4 件を deep read：
+
+| # | 文献 | 領域 | 役割 |
+|---|---|---|---|
+| T4-1 | **Nosek et al. 2018** "The preregistration revolution" (PNAS 115:11) | Pre-registration | D12 / D-NEW8 の核 anchor |
+| T4-2 | **Munafò et al. 2017** "A manifesto for reproducible science" (Nat Hum Behav 1:0021) | Reproducibility | D-NEW9 の核 anchor |
+| T4-3 | **Vazire 2010** "Who knows what about a person? SOKA model" (JPSP 98:281) | Construct validity / Self-report bias | Limit 1, 11 の anchor |
+| T4-4 | **Funder & Ozer 2019** "Evaluating effect size in psychological research: Sense and nonsense" (AMPPS 2:156) | Effect size 解釈 | Part 11.4、Cohen's d 解釈の現代基準 |
+
+### T4-1: Nosek, Ebersole, DeHaven & Mellor (2018) "The preregistration revolution"
+
+**書誌**: PNAS 115(11), 2600–2606. DOI: 10.1073/pnas.1708274114
+
+**核心命題**:
+- **Postdiction（事後説明）を Prediction（事前予測）に偽装すると findings の credibility が失われる**
+- Hindsight bias、confirmation bias、HARKing（Hypothesizing After Results are Known）が研究者の善意の中でも発生
+- NHST（Null Hypothesis Significance Testing）は **prediction を前提に設計**されており、postdiction で使うと P value の diagnosticity が破綻
+- "Garden of forking paths"（Gelman & Loken）で観測データに依存した分析選択が False Positive を inflate
+- **Pre-registration は prediction と postdiction の bright line を引く唯一の手段**
+
+**9 つの実装 challenge と対処**:
+
+| Challenge | 内容 | 対処 |
+|---|---|---|
+| 1 | データ収集中の手順変更（infants の脱落等） | 偏差を transparent に報告、pre-reg からの逸脱を文書化 |
+| 2 | 分析時に分布仮定違反発見 | (a) 段階的 pre-reg、(b) blinded dataset、(c) decision tree、(d) SOPs |
+| 3 | **データが既存の場合（本研究の状況）** | "Pure" pre-reg 可能 if no one has observed data。誰が何を observed か明示。partial blinding でも no pre-reg よりは良い |
+| 4 | 縦断・大規模多変量データセット | 段階的 pre-reg、blinding が部分でも有効 |
+| 5 | 多数実験 | template 化、繰返しは exploratory → confirmatory replication path |
+| 6 | プログラム単位の研究（false positive 累積） | **すべての試行を report**（selective reporting 防止） |
+| 7 | 事前期待が薄い discovery 研究 | 事前 split half / cross-validation、postdiction を transparently 表記 |
+| 8 | 競合する predictions | pre-reg で問題なし、strong inference で利点に転化 |
+| 9 | Narrative inference の selectivity | Bonferroni 等の multiple-comparison correction、interpretation を quantitative evidence に bound |
+
+**実証 evidence**:
+- Kaplan & Irvin 2015：clinical trial pre-reg 義務化後、positive result rate が dramatic に低下
+- Franco et al. 2014：pre-registered studies の 96% positive、未公開の 65% null result（publication bias の量的証拠）
+- 対 NHLBI trials：pre-reg 義務化前後で primary outcome positive rate が大幅減
+
+**3 つの culture shift**:
+1. **Means**（手段）：オンライン教育（Coursera、OSF guides）、grant proposals、IRB submission 既存 practice の延長
+2. **Motive**（動機）：badges、Registered Reports（dozens of journals）、TOP Guidelines 8,000+ pre-registrations on OSF
+3. **Opportunity**（機会）：clinicaltrials.gov、AEA RCT Registry、AsPredicted、OSF など各分野の registry
+
+**本研究での citation 用途**:
+1. **D12 Pre-registration timing 修正の核根拠**：
+   - 「執筆完了後」に pre-reg は **本来の目的（postdiction → prediction の偽装防止）に反する**
+   - Stage 0 実装前に OSF 登録が必須（**Nosek 2018 Challenge 3 "Data Are Preexisting" の strict adherence**）
+   - 「N=354 / N=13,668 は既存データだが、harassment cell prevalence の cross-tabulation や Counterfactual A/B/C の simulation output は **未観測** → Stage 0 実装前 pre-reg で pure pre-registration 可能」
+2. **D-NEW8 Negative result publication commitment の理論根拠**：
+   - Challenge 6 で「program-level の null result も report」を要求
+   - MAPE > 60% でも "failure mode 発見" として publication する commitment を pre-reg に明記
+3. **HARKing 防止 / Garden of forking paths**：
+   - Stage 3 sensitivity sweep（V, f1, f2, EB strength, threshold, K）を **pre-reg で固定**、selective reporting 防止
+4. **Registered Reports candidacy**：
+   - Target journal に Cortex / PLOS ONE / Nature Human Behaviour 等 RR 受付誌を含める（D14 修正済）
+5. **Discussion 解釈の transparency**（Challenge 9）：
+   - 「narrative focus」が selective interpretation にならないよう、すべての pre-registered outcomes を等しく report
+
+**重要な caveat**:
+- Nosek 2018 自身が「**preregistration is theoretically strong** but **not yet sufficient experimental evidence** establishing its superiority」と honest acknowledge
+- 本研究で「preregistration が credibility を保証する」と claim しすぎないよう注意。"transparency provides means to detect bias" レベルに留める
+
+
+
+
+### T4-2: Munafò, Nosek, Bishop, Button et al. (2017) "A manifesto for reproducible science"
+
+**書誌**: Nature Human Behaviour 1, 0021. DOI: 10.1038/s41562-016-0021
+
+**核心命題**:
+- 公開された研究の相当割合（85% biomedical research wasted、Macleod 2014）は再現性に欠ける可能性
+- "Reproducibility crisis" の認識が拡大（90% of *Nature* survey respondents agree）
+- 5 つの threats：(a) low statistical power、(b) HARKing、(c) P-hacking、(d) publication bias、(e) lack of data sharing
+- 7,000 analytical pipelines を fMRI dataset に適用すると 90%+ の voxel が statistical activation を示す（Carp 2012）→ analytic flexibility だけで spurious finding 量産可能
+
+**5 themes × 主要措置**:
+
+| Theme | 措置 | Stakeholder |
+|---|---|---|
+| **Methods** | Cognitive bias 防止（blinding）、methodology training 改善、independent statistical oversight、team science | I, F, J |
+| **Reporting / Dissemination** | Pre-registration、reporting checklists（CONSORT, ARRIVE, PRISMA）、conflict of interest 開示 | J |
+| **Reproducibility** | Open data / materials / software、TOP guidelines、Registered Reports | J, F, R |
+| **Evaluation** | Diversifying peer review（preprints、post-pub review e.g., PubPeer、results-blind review） | J |
+| **Incentives** | Badges、Registered Reports、TOP guidelines、replication funding、open practices in hiring | J, I, F |
+
+**実証 evidence**:
+- Psychological Science の data-sharing badge 導入で open data 率 1% → 38%（Kidwell 2016）
+- Higginson & Munafò 2016：simulation で「研究者が fitness 最大化すると power 10–40% の study を多数生産」 → incentive 構造の数学的証明
+- CONSORT 採用 journal は non-CONSORT より reporting quality 高（Stevens 2014）
+- ARRIVE は journal 採用後も実装率低（Baker 2014）→ guidelines は necessary but not sufficient
+
+**3 つの Box（実装事例）**:
+- **Box 1**: CHDI Foundation の Independent Statistical Standing Committee（独立 methodologist による研究設計レビュー）
+- **Box 3**: Registered Reports（2-stage peer review、現 40+ journals 対応、results-blind acceptance）
+- **Box 5**: Data sharing（TOP guidelines、Wellcome Open Research、NIH/NSF data management plan 義務化）
+
+**本研究での citation 用途**:
+1. **D-NEW9 Reproducibility infrastructure の核根拠**：5 themes すべてを本研究 implementation に mapping
+2. **Independent statistical oversight**（Box 1）：Co-author / external methodologist による独立 review を D12 Pre-registration 段階で導入検討
+3. **Pre-registration を Methods theme（cognitive bias 防止 = blinding）に位置づけ**：「データは既存だが outcome は未観測」を pre-reg の blinding として説明
+4. **Registered Reports candidacy**：Target journal D14 で Nature Human Behaviour 等の RR 受付誌を候補化
+5. **Statistical power**（Theme 1）：「Power < 50% は false positive と false negative 両方を inflate」 → D13 power analysis の設計根拠
+6. **Discussion での framing**：「本研究は metascience の reproducibility 標準（Munafò et al. 2017）に従い、(a) pre-registration、(b) open data/code、(c) reporting checklist、(d) sensitivity analysis、(e) independent review を実装」と明示
+
+**caveat**:
+- Munafò et al. 自身が「これらは exhaustive ではない、broad practical recommendations」と honest
+- 本研究は "manifesto に従う" rather than "manifesto を完璧に遂行" の posture を取る
+
+### T4-3: Vazire (2010) "Who Knows What About a Person? The Self–Other Knowledge Asymmetry (SOKA) Model"
+
+**書誌**: Journal of Personality and Social Psychology 98(2), 281–300. DOI: 10.1037/a0017908
+
+**核心命題**:
+- 性格判定の正確性は **trait の (a) observability と (b) evaluativeness** の関数として self vs other で非対称
+- **2 つの postulate**:
+  - **P1**：Trait observability が self-other knowledge asymmetry と関連 → others が観察可能 traits については self より accurate、self は internal traits について others より accurate
+  - **P2**：Trait evaluativeness が self-other knowledge asymmetry と関連 → ego-protective bias で **highly evaluative traits は self の self-rating が less accurate** になる
+
+**SOKA Model の予測 vs 結果（N=165, 4 friends + ≤4 strangers, round-robin design）**:
+
+| Domain | Observability | Evaluativeness | SOKA prediction | Result |
+|---|---|---|---|---|
+| **Neuroticism**（self-esteem, anxiety） | Low | Low | Self > Other | ✅ Supported |
+| **Extraversion**（talkativeness, dominance, leadership） | High | Low | Self ≈ Other | ✅ Supported |
+| **Intellect**（creativity, intelligence） | Low | High | Other > Self | 🟡 Partially supported（intelligence で other > self、creativity 限定） |
+
+**理論的基盤**:
+1. **Informational asymmetry**: 
+   - Self の privileged access：thoughts, feelings, physiological states
+   - Other の advantage：observable behaviors（external visual perspective）
+2. **Motivational asymmetry**: 
+   - Self は ego-investment 高 → highly evaluative traits で **self-protection bias**（distortion of self-rating）
+   - Other は self-rating ほど positively biased ではない（if any、direction が elevation で rank-order を保つ）
+
+**HEXACO Honesty-Humility への含意（本研究の central question）**:
+- HH = **moderate observability + HIGH evaluativeness**（"honest, modest, fair-minded" は社会的に望ましい）
+- → SOKA model 上は **intellect quadrant に近い**：other-rating の方が self-rating より accurate な可能性
+- → **Self-rated low HH（Cluster 0）は ego-protective bias で過小評価されている可能性**：実際の集団内 low-HH 比率は self-report より高いかもしれない
+- ただし Vazire 2010 は HEXACO HH を直接測定していないため、これは **theoretical extrapolation**
+
+**Self-report harassment perpetration への含意**:
+- 加害行為自体 = HIGH evaluativeness（社会的に望ましくない）
+- self-rating で **self-protection** が働く可能性 → 本研究の harassment prevalence は **lower bound**（過小報告）の可能性
+- **Berry, Carpenter & Barratt 2012 との triangulation**：self-raters は CWB を MORE 報告（other よりも）→ social desirability suppression は支持されない empirical 観察
+- **SOKA 理論予測 vs Berry 経験的観察**：両者は矛盾するように見えるが、(a) Berry は CWB-Interpersonal で others が同僚関係に依存して見えにくい、(b) self は internal motivation を知っている、で説明可能
+
+**本研究での citation 用途**:
+
+1. **Limit 1（Self-report 循環性）の補強**：
+   - Berry 2012（self が MORE report）+ Vazire 2010（self は internal motivation を知る）の組合せ defense
+   - 「self-report で low HH を報告する個人は、ego-protection bias を超えて低 HH を実際に持つ強いシグナル」
+2. **Limit 11（Construct validity）の構造化**：
+   - SOKA model に従い、本研究の harassment self-report は (a) high observability behavior reporting + (b) high evaluativeness propensity reporting の混合
+   - Construct validity check の方向性：self vs hypothetical other-rated harassment の比較は本研究 scope 外だが、**「self-report は ego-protection bias で conservative 推定」**を limitation で明示
+3. **Cluster 0 の解釈**：
+   - 「low HH self-rating は SOKA model 上 underestimation 方向のバイアスを持つ → 真の low HH 率は本研究推定値より高い可能性」
+   - これは **Counterfactual B（targeted intervention）の population 効果が underestimate されている可能性** を示唆
+4. **"Self-other agreement" framework**:
+   - 本研究は self-report のみ → future work で peer-rated HEXACO + harassment（other-rating）との triangulation を提案
+
+**caveat**:
+- Vazire 2010 N=165 undergraduate sample → 集団 generalizability に limit
+- Trait categorization（Honesty-Humility が "intellect-like" か "extraversion-like" か）の経験的確証は本論文 scope 外
+- **本研究では Vazire を「self-report の direction of bias を予測する theoretical anchor」として cite**、確実な correction factor としては使わない
+
+### T4-4: Funder & Ozer (2019) "Evaluating Effect Size in Psychological Research: Sense and Nonsense"
+
+**書誌**: Advances in Methods and Practices in Psychological Science 2(2), 156–168. DOI: 10.1177/2515245919847202
+
+**核心命題**:
+- 心理学研究で effect size は (a) 無視される、(b) 浅い解釈、(c) 誤解釈されている
+- 2 つの common mistakes：
+  - **Cohen 1988 の small/medium/large（r = .10/.30/.50）は "decontextualized" で nonsense**（Cohen 自身が後年 regret した）
+  - **Squaring correlations**（"variance explained"）は misleading（r=.30 を "explains only 9% of variance" と矮小化する慣行）
+- **新基準（empirical benchmarks に基づく）**：
+
+| r | 旧 Cohen 1988 | **Funder & Ozer 2019** | 含意 |
+|---|---|---|---|
+| .05 | "small" 未満 | **very small** for single events、potentially consequential **in not-very-long run** | 5¢/transaction × 2,000,000 transactions = 大きな結果 |
+| .10 | small | **small** at single events、**ultimately consequential** | growth mindset r=.08 → school-level で 0.1 GPA 上昇 |
+| .20 | small-medium | **medium** | 「explanatory and practical use even in short run」 |
+| .30 | medium | **large**（potentially powerful in both short and long run） | BESD で intervention 倍化（65/100 vs 35/100） |
+| .40+ | large 未満 | **very large**（rarely found in large samples / replications；gross overestimate の可能性高） | Bargh 1996 elderly priming r=.48 等は replicate 失敗多数 |
+
+**核心 conceptual contributions**:
+
+1. **Squaring correlation の誤謬**:
+   - Coin-tossing 例（Darlington 1990）：nickel r=.4472 (variance 20%) vs dime r=.8944 (variance 80%) でも、効果は **2 倍ではない**（r 比 = .5）
+   - "Variance explained" は intuitive interpretation を歪める
+   - r itself は standardized regression slope（z-score）で interpretable
+2. **BESD（Binomial Effect-Size Display）**:
+   - r=.30 → intervention で success rate 50% → 65%（intervention の有無で **almost double 予測精度**）
+   - r=.05 → 50% → 52.5%（small だが累積で意味）
+3. **"小さな effect の累積" 議論**:
+   - Abelson 1985：MLB batting performance per single at-bat r=.056 → season（550 at-bats）で .200 vs .300 の決定的差
+   - 心理学的 process が repeatedly 適用される場合、tiny per-occasion effect でも life outcomes（health, success, relationships）に大きく寄与
+   - **"Small effects are not unimportant" — they are more believable**
+4. **Reliable estimation の sample size**:
+   - Schönbrodt & Perugini 2013：r の stable estimate に **N ≈ 250** 必要
+   - r=.10 で 95% CI が 0 を除外するには **N ≈ 400**
+   - r=.05 で 95% CI が 0 を除外するには **N ≈ 1,500**
+5. **Recommendations**:
+   - Effect size を always & prominently 報告（abstract も含む）
+   - Conduct studies with large samples（N ≥ 250 推奨）
+   - Small effects に dismissive にならない（small effects are believable）
+   - Large effects に skeptical（r > .40 は overestimate の可能性高）
+   - Empty terminology（small/medium/large without context）を止める
+   - Cohen 1988 guidelines を **revise**
+
+**本研究での citation 用途**:
+
+1. **Part 11.4 Cohen's d / Power analysis 解釈の更新**：
+   - 本研究 D13 power analysis で MDE Cohen's d ≥ 0.92 → これは Cohen 1988 で "very large" だが、Funder & Ozer 2019 の文脈では「**likely overestimate; expect smaller effects in replication**」と honest framing
+   - 既知文献（Pletzer 2019 HEXACO HH × CWB ρ ≈ -.20 to -.35）→ Funder & Ozer 基準で **medium to large**（小さくない）→ "personality has meaningful contribution" の defense 強化
+   - 「Pletzer 2019 の HH effect は **r=.30 オーダーで Funder & Ozer 2019 基準上 large**、Cohen 1988 の medium とは異なる」と明示
+2. **Counterfactual B / Hudson 2023 effect size の解釈**：
+   - Hudson 2023 b = .03/week, cumulative d ≈ 0.4–0.6 → r 換算で .20–.29
+   - Funder & Ozer 基準で **medium → large**、population scale で消費される small effect ではない
+3. **Counterfactual C / Pruckner 2013 transfer 警告の補強**：
+   - Pruckner 2013 の 2.4–2.5x effect → r 等価で大きいが、F&O 警告「r > .40 は replication で半分になる」 → C の 30% upper bound を 20% main に保守的調整した justification
+4. **N=354 と "stable r estimate" の関係**：
+   - F&O は N ≥ 250 推奨 → N=354 は "境界線上"、cell 単位（N=10–30）では不安定
+   - **D13 14-cell 主分析設計の根拠補強**：cell-level 推論を avoid、aggregate-level に focus する F&O 整合性
+5. **Discussion での framing**：
+   - 「本研究の cell-conditional probability の effect size は Funder & Ozer 2019 基準で medium-to-large、Cohen 1988 の small-medium とは異なる解釈」
+   - 「本研究 N=354 は Funder & Ozer 2019 推奨 N ≥ 250 を満たすが、cell 単位では下回るため EB shrinkage と aggregate inference を採用」
+6. **小さな effect の累積 argument**：
+   - Phase 2 Counterfactual A（universal +0.3 SD）での per-individual effect は small → でも 6,800 万人労働人口 × 24 週で **population-level に意味ある削減**として framing（Abelson 1985 batting average analogy）
+
+**caveat**:
+- Funder & Ozer の r=.05 "very small" は **stable estimation 前提**（reliable estimate からの解釈）
+- 本研究 cell-level r 推定は不安定 → cell ごと r の "small/large" 解釈は避け、aggregate prevalence で議論
+- 「r=.30 is large」は Funder & Ozer の主張だが、**field によって benchmark が異なる**ため適用領域に注意
+
+### Tier 4 Synthesis（4 件統合的含意）
+
+#### Synthesis 1: 本研究の "metascience compliance" 完成
+
+| Metascience domain | Anchor | 本研究での実装 |
+|---|---|---|
+| Pre-registration | Nosek 2018 | D12（Stage 0 実装前に OSF 登録、Challenge 3 既存データ対応）+ D-NEW8（null result publication commitment）|
+| Reproducibility | Munafò 2017 | D-NEW9（seed 固定、container 化、make reproduce、aggregated open data）+ D16（GitHub + OSF コード公開）|
+| Construct validity | Vazire 2010 | Limit 11（item content review、SOKA model に基づく self-report direction of bias 議論）|
+| Effect size 解釈 | Funder & Ozer 2019 | Part 11.4 更新（Cohen 1988 旧基準 → F&O 新基準で再解釈）、Pletzer 2019 HEXACO 効果量を "medium-to-large" として framing |
+
+→ **本研究は metascience の 4 大論点（Nosek、Munafò、Vazire、F&O）すべてに anchor を持つ**
+
+#### Synthesis 2: Self-report harassment validity の 3 系統 defense
+
+| 視点 | 文献 | 主張 |
+|---|---|---|
+| Magnitude（self vs other report の量的比較） | Berry, Carpenter & Barratt 2012 | self-raters は CWB を MORE 報告 → social desirability suppression は支持されない |
+| Direction（bias の方向理論） | Vazire 2010 SOKA | high-evaluativeness traits（HH、harassment）の self-rating は ego-protective bias で **conservative** 方向 |
+| Real-world correlation | Anderson & Bushman 2002 GAM | self-reported aggressiveness は real-world behavior と相関 → external validity 確立 |
+
+→ **本研究の self-report harassment 推定は "lower bound（過小評価）" として解釈、bias direction は conservative**
+
+#### Synthesis 3: Effect size 解釈の更新 framework
+
+| Source | 効果量 | Cohen 1988 | Funder & Ozer 2019 | 本研究での framing |
+|---|---|---|---|---|
+| Pletzer 2019 HEXACO HH × CWB | ρ ≈ -.20 to -.35 | small-medium | **medium-to-large** | personality contribution は意味ある（dismiss できない）|
+| Tokiwa preprint Psychopathy × harassment | β = .32 to .40 | medium | **large** | 単独最大 predictor の正当性 |
+| D13 MDE Cohen's d | ≥ 0.92 | very large | **possibly overestimate**（replication で半分の可能性）| 14-cell 主分析の保守的設計 |
+| Hudson 2023 cumulative | d ≈ 0.4–0.6（r ≈ .20–.29）| medium | **medium-to-large** | Counterfactual B effect は population scale で意味ある |
+| Counterfactual C upper bound | 20% reduction | — | — | Pruckner et al. 30% を保守側に再校正、F&O 警告整合 |
+
+#### Synthesis 4: Pre-registration timing（D12）の決定的根拠
+
+**Nosek 2018 Challenge 3 "Data Are Preexisting" の strict adherence**：
+- 既存データ（N=354 / N=13,668）は observed
+- ただし **以下は未観測**：
+  - 7-cluster × gender = 14-cell ごとの harassment prevalence（cross-tabulation）
+  - Stage 2 国レベル aggregate output
+  - Stage 3 sensitivity sweep の結果
+  - Phase 2 Counterfactual A/B/C の simulation output
+- → **Stage 0 実装前 OSF pre-registration で "pure pre-reg" 達成可能**
+- → 「執筆完了後」pre-reg は **Nosek 2018 Challenge 3 に違反**（既観測データから事後 hypothesizing の risk）
+
+**含意**: D12 修正版（Stage 0 実装前 pre-reg、本研究計画 v6）は Nosek 2018 framework と完全整合。
+
+#### Synthesis 5: 4 件の cross-citation 構造
+
+```
+Nosek 2018 ━━━ pre-registration の理論
+  │   ┃
+  │   ┃ pre-reg は reproducibility の手段
+  │   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  │                                       ┃
+  ┗━━━ Munafò 2017 ━━━ 5 themes for reproducibility
+                  ┃
+                  ┃ effect size reporting も reproducibility の一部
+                  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+                                                   ┃
+                                       Funder & Ozer 2019 ━━━ effect size 解釈
+                                       
+Vazire 2010 ━━━ self-report の direction of bias（construct validity の一形式）
+```
+
+→ **4 件は metascience の異なる layer を cover、本研究 defense は完全な多層構造**
 
