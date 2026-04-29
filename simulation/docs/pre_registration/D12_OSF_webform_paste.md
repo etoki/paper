@@ -90,3 +90,198 @@ The author commits in advance (Section 7) to publish the study even if H1 fails 
 
 ---
 
+## OSF Field 4 — Study type
+
+```
+Observational study (secondary analysis of preexisting IRB-approved data) combined with computational microsimulation and counterfactual projection. No new data collection. No experimental manipulation of human participants. No large language models or generative agents. All mechanisms use transparent probability tables, Monte Carlo bootstrap, and Empirical Bayes shrinkage (Beta-Binomial conjugate, method of moments). Causal framing follows the target trial emulation framework (Hernán & Robins 2020) and structural causal model do-operator notation (Pearl 2009).
+```
+
+(If OSF presents a multiple-choice control: select **"Other"** and paste the above into the "Please describe" field.)
+
+(Source: EN Section 2.1)
+
+---
+
+## OSF Field 5 — Blinding
+
+If the OSF form offers a multiple-choice control:
+- Select: **"No blinding is involved in this study."**
+
+Then paste the following clarification into any associated text field (or under "Other") to record the preregistration-equivalent blinding state:
+
+```
+Strict experimental blinding is not applicable to this secondary-analysis simulation study. However, a preregistration-equivalent blinding state is enforced at the analysis level:
+
+- Already observed at registration time: individual-level HEXACO scores (N = 354, N = 13,668) and individual-level harassment self-reports (N = 354). These were used in the Tokiwa harassment preprint (HC3-robust hierarchical regression) and the Tokiwa clustering paper (IEEE-published, 7-type centroids).
+
+- Unobserved at registration time, fixed by this preregistration: the 7 type × gender 14-cell harassment cross-tabulation; the national aggregate latent prevalence; counterfactual A / B / C ΔP estimates; MAPE values against MHLW surveys.
+
+This corresponds to Nosek 2018 PNAS Challenge 3 ("Data Are Preexisting") with partial blinding, honestly acknowledged in Section 3.1.3 of the attached document. All inference criteria (Section 6.1), sensitivity sweeps (Section 6.4), and MAPE thresholds (30% / 60%) are fixed by this preregistration before any cross-tabulation, aggregation, or comparison with MHLW data is performed.
+```
+
+(Source: EN Sections 2.2 + 3.1)
+
+---
+
+## OSF Field 6 — Is there any additional blinding?
+
+```
+None beyond the preregistration-equivalent state described in Field 5. The author has no co-authors and no organizational embargoes that would impose additional blinding.
+```
+
+(Source: EN Section 1.2 + 2.2)
+
+---
+
+## OSF Field 7 — Study design
+
+```
+Two-phase computational microsimulation with target trial emulation.
+
+Phase 1 (descriptive simulation, 5 stages):
+- Stage 0: Type assignment & probability table construction. Each of N = 354 is assigned to the nearest of 7 centroids (Euclidean, HEXACO 6 domains; centroids from N = 13,668 IEEE-published clustering paper). 14-cell (7 type × 2 gender) crosstab is computed for binary harassment outcomes (binarized at mean + 0.5 SD per outcome). Bootstrap B = 2,000 iterations per cell with BCa CI (Efron 1987).
+- Stage 1: Population aggregation via cell-conditional probabilities × MHLW Labor Force Survey weights (~68 million worker base).
+- Stage 2: Validation triangulation against MHLW 2016 (32.5%, primary), 2020 (31.4%), 2024 (19.3%); metrics include MAPE (primary), Pearson r, Spearman ρ, KS distance, Wasserstein distance, calibration plot.
+- Stage 3: Sensitivity sweeps (V, f1, f2, EB shrinkage strength, binarization threshold, cluster K, role estimation models — fully enumerated in Section 6.4).
+- Stage 4: Baseline hierarchy comparison B0 (random) → B1 (gender) → B2 (HEXACO 6-domain linear) → B3 (7 typology, proposed) → B4 (B3 + age + industry + employment).
+- Stage 5: CMV diagnostic (Harman's single-factor + marker-variable correction).
+
+Phase 2 (intervention counterfactuals, 3 stages):
+- Stage 6: Target trial emulation specification (PICO + 24-week duration following Roberts 2017) for each counterfactual.
+- Stage 7: Counterfactual simulation:
+  - A (universal): do(HH := HH + δ_A × SD(HH)) for all individuals; main δ = +0.3 SD.
+  - B (targeted, primary): do(HH := HH + δ_B × SD(HH)) only for individuals in Clusters 0/4/6; main δ = +0.4 SD.
+  - C (structural): do(p_c := p_c × (1 − effect_C)) for all cells; main effect_C = 0.20.
+- Stage 8: Transportability sensitivity (Western anchor effect × {0.3×, 0.5×, 0.7×, 1.0×}).
+
+The four identifying assumptions of target trial emulation (exchangeability, positivity, consistency, transportability) are made explicit in Section 5.7.4 and honestly assessed in the Discussion. Pearl (2009) do-operator notation is used.
+
+Full pipeline diagrams: Section 2.3 of the attached preregistration. Statistical models: Section 5. Inference criteria and sensitivity master table: Section 6.
+```
+
+(Source: EN Section 2.3)
+
+---
+
+## OSF Field 8 — Randomization
+
+```
+No physical randomization, as this is an observational secondary analysis combined with simulation. Within the simulation:
+
+- Bootstrap resampling and Monte Carlo runs are made deterministic via a fixed random seed (NumPy default_rng(seed=20260429), Python random.seed(20260429), Stan seed=20260429). Bootstrap resample states are persisted to HDF5.
+- Counterfactual A / B / C are simulated as if randomly assigned within the target trial emulation framework; this is documented as "simulated random" assignment in Section 2.3 (Stage 6) of the attached document.
+
+The seed value 20260429 is fixed by this preregistration and is not to be changed.
+```
+
+(Source: EN Section 2.4)
+
+---
+
+## OSF Field 9 — Existing data
+
+If OSF presents a multiple-choice control with the standard five options, select:
+- **"Registration prior to analysis of the data"** (closest match)
+
+Rationale: individual-level HEXACO and harassment data have been observed by the author for prior publications (Tokiwa harassment preprint and Tokiwa clustering paper IEEE-published); however, the 7 type × gender × harassment cell cross-tabulation, the national aggregate prediction, and the counterfactual outputs have not been computed at the time of registration. This is the partial-blinding state of Nosek 2018 PNAS Challenge 3, described fully in Field 10.
+
+---
+
+## OSF Field 10 — Explanation of existing data
+
+```
+Two preexisting datasets are used:
+
+(1) N = 354 harassment data (`harassment/raw.csv`). Collected and analyzed in the Tokiwa harassment preprint via HC3-robust hierarchical regression of HEXACO + Dark Triad on power and gender harassment. The author has observed: HEXACO 6 domain scores, Dark Triad 3 scores, the Tou et al. (2017) Workplace Power Harassment Scale, the Kobayashi & Tanaka (2010) Gender Harassment Scale, age, gender, and area at the individual level.
+
+(2) N = 13,668 clustering data (Tokiwa clustering paper, IEEE-published). The 7-type centroids and cluster proportions are observed at the aggregate level (centroid table fixed in `clustering/csv/clstr_kmeans_7c.csv`).
+
+Unobserved at registration time (the analyses fixed by this preregistration):
+- Distribution of 7-type membership obtained by assigning N = 354 to the nearest of 7 centroids.
+- 14-cell (7 type × 2 gender) crosstabulated harassment binary outcomes.
+- Cell-conditional propensities with bootstrap BCa CIs.
+- 28-cell EB-shrunken estimates (sensitivity).
+- National-level aggregate latent prevalence.
+- MAPE against MHLW national surveys (2016 / 2020 / 2024).
+- Counterfactual A / B / C ΔP estimates.
+
+Honest acknowledgment of partial blinding (Section 3.1.3 of the attached document): the author has prior knowledge of HEXACO-domain-level associations with harassment self-reports from the regression analyses in the harassment preprint, but the type-conditional cell-level propensity table and national-level aggregate predictions cannot be derived from those regression results. The interpretation distinguishes between (a) preregistered analyses (the 7-type cross-tabulation and aggregation pipeline) and (b) exploratory replications of prior HEXACO-domain associations.
+
+No new IRB is required: this is a secondary analysis of anonymized, IRB-approved data.
+```
+
+(Source: EN Section 3.1)
+
+---
+
+## OSF Field 11 — Data collection procedures
+
+```
+Not applicable: no new data collection. The two preexisting datasets (N = 354 harassment data; N = 13,668 clustering data) were collected and IRB-approved for the prior Tokiwa publications cited in Field 10. This preregistration covers only the secondary analysis and simulation pipeline, not new collection.
+
+Public statistics used as external validation targets are downloaded from MHLW (`https://www.mhlw.go.jp/`) and Statistics Bureau of Japan (`https://www.stat.go.jp/data/roudou/`):
+- MHLW 2016 R2, 2020 R2, 2024 R5 Surveys on Workplace Harassment (primary validation)
+- MHLW Employment Trend Survey (turnover by reason; f1 anchor)
+- MHLW Industrial Safety and Health Survey (mental disorder incidence; f2 anchor)
+- MHLW Labor Force Survey (population reweighting)
+- ILO 2022 Global survey (international baseline)
+```
+
+(Source: EN Section 12.3)
+
+---
+
+## OSF Field 12 — Sample size
+
+```
+Phase 1 main analysis: N = 354 individuals partitioned into 14 cells (7 HEXACO types × 2 genders).
+- Cell N: minimum 10, maximum 70, median 18.
+- 0 cells with N < 10 (no shrinkage required for main analysis).
+- 7 cells (50%) with N < 20.
+
+Phase 1 sensitivity analysis: 28 cells (7 type × 2 gender × 2 role).
+- 16 cells (57%) with N < 10; 9 cells with N ≤ 3; 4 cells with N = 0.
+- Empirical Bayes shrinkage (Beta-Binomial conjugate, method of moments) is mandatory for this sensitivity tier.
+
+Population aggregation: ~68 million Japanese workers aged 20–64 (MHLW Labor Force Survey base).
+
+Phase 2 counterfactual targets: Cluster 0 (primary, ~6.5% of N = 354), Clusters 4 (~14.4%) and 6 (~32.2%) (secondary). Population-level targets are scaled accordingly.
+
+Bootstrap iterations: B = 2,000 per cell (BCa CI). Random seed 20260429.
+```
+
+(Source: EN Section 3.2)
+
+---
+
+## OSF Field 13 — Sample size rationale
+
+```
+Drawn from the D13 power analysis (`simulation/docs/power_analysis/D13_power_analysis.md`, attached as supplementary):
+
+- N = 354 satisfies Funder & Ozer (2019)'s recommendation of N ≥ 250 for stable r estimation at the aggregate level.
+- The 14-cell main analysis satisfies N ≥ 10 in every cell, allowing bootstrap estimation without Empirical Bayes shrinkage.
+- Pairwise minimum detectable effect (Cohen's d ≥ 0.92) is "very large" by Cohen (1988) and "rarely found in replication" per Funder & Ozer (2019); accordingly, cell-level pairwise inference is avoided as a preregistered limitation, and aggregate-level inference is the primary inferential target.
+- The 28-cell sensitivity tier with 16 small cells (N < 10) requires Empirical Bayes shrinkage with the Beta-Binomial conjugate (method of moments), with a strength sweep at scale ∈ {0.5×, 1.0× main, 2.0×}.
+
+Sample size is fixed by the existing data and is not adjustable.
+```
+
+(Source: EN Section 3.3 + power analysis report)
+
+---
+
+## OSF Field 14 — Stopping rule
+
+```
+Not applicable: no new data collection.
+
+Sensitivity sweeps are restricted to the ranges fixed by Section 6.4 of the attached document. Any post-registration extension of sensitivity ranges will be flagged as exploratory and excluded from confirmatory inference.
+```
+
+(Source: EN Section 3.4)
+
+---
+
+
+
