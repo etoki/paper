@@ -393,6 +393,157 @@ Not applicable: no new data collection.
 
 ---
 
+## 5. Analysis Plan (statistical models)
+
+### 5.1 Phase 1 Stage 0: Cell-level propensity estimation
+
+For each cell c ∈ {1..14} (7 type × 2 gender):
+- X_c = number of "harassment perpetrators" (binarized at mean + 0.5 SD per outcome) in cell c
+- N_c = total N in cell c
+- Observed propensity: p̂_c = X_c / N_c
+- Bootstrap distribution: B = 2,000 BCa resamples per cell (Efron 1987 *J Am Stat Assoc*; DiCiccio & Efron 1996 *Stat Sci*)
+- BCa correction: bias correction z₀ + acceleration a from jackknife
+
+**Output**: 14-cell table with point estimates p̂_c and 95% BCa CIs [p̂_c^lo, p̂_c^hi].
+
+### 5.2 Phase 1 Stage 0 (sensitivity): 28-cell EB shrinkage
+
+Beta-Binomial conjugate shrinkage (Casella 1985 + Clayton & Kaldor 1987 + Efron 2014 *Stat Sci* + Greenland 2000 *IJE*):
+
+1. **Method-of-moments hyperprior estimation** (from 14-cell main):
+   - μ̂ = mean(p̂_j), σ̂² = var(p̂_j) for j = 1..14
+   - α̂ = μ̂ × [μ̂(1−μ̂)/σ̂² − 1]
+   - β̂ = (1−μ̂) × [μ̂(1−μ̂)/σ̂² − 1]
+2. **28-cell posterior** (each cell k):
+   - E[p_k | X_k, N_k] = (α̂ + X_k) / (α̂ + β̂ + N_k)
+   - 95% credible interval from Beta(α̂ + X_k, β̂ + N_k − X_k) quantiles
+3. **Strength sensitivity sweep** (★ preregistered):
+   - scale ∈ {0.5×, 1.0× (main), 2.0×}: hyperparameters (α̂, β̂) are multiplied by scale to produce weak / medium / strong shrinkage variants
+
+**MoM stability diagnostic** (research plan Part 11.9):
+- With only 14 cells, σ̂² may be small enough that α̂, β̂ become extreme (overly strong prior)
+- **Triangulation**: Marginal MLE and Stan / brms hierarchical Bayesian posteriors are run as auxiliary checks
+- Diagnostic plot: μ̂ ± SE plot and a shrunken-vs-raw scatter plot to visually detect over- or under-shrinkage
+
+### 5.3 Phase 1 Stage 1: Population aggregation
+
+For each validation period t ∈ {2016, 2020, 2024}:
+- W_c (cell weight) = MHLW labor-force population × cluster proportion (from N = 13,668) × gender proportion × age weight
+- National latent prevalence: P̂_t = Σ_c (p̂_c × W_c) / Σ_c W_c
+- Bootstrap CI for P̂_t: 2,000 iterations, BCa
+
+**Demographic reweighting source**: MHLW Labor Force Survey (age × gender × employment type).
+
+### 5.4 Phase 1 Stage 2: Validation triangulation
+
+**Primary metric** (★ preregistered):
+- **MAPE**(P̂_2016, MHLW 2016 32.5%) ≤ 30% → SUCCESS
+- 30% < MAPE ≤ 60% → PARTIAL SUCCESS
+- MAPE > 60% → FAILURE (publish anyway; see Section 7.3)
+
+**Secondary metrics** (descriptive):
+- Pearson r between cell-level p̂_c and MHLW subgroup rates
+- Spearman ρ (rank correlation)
+- KS distance (distribution shape)
+- Wasserstein distance (earth mover's distance)
+- Calibration plot (cell-level predicted vs observed)
+
+**Subgroup MAPE** (★ preregistered):
+- Gender × age band → subgroup MAPE to localize failure modes
+
+### 5.5 Phase 1 Stage 4: Baseline hierarchy
+
+For each baseline B ∈ {B0, B1, B2, B3 (proposed), B4}:
+- Train: same N = 354
+- Predict national prevalence
+- Compute MAPE against MHLW 2016
+- Preregistered ordinal hypothesis (H2): MAPE_B0 ≥ MAPE_B1 ≥ MAPE_B2 ≥ MAPE_B3 ≥ MAPE_B4
+
+**Models**:
+- **B0**: uniform p_random = MHLW 2016 grand mean
+- **B1**: gender-only logistic (P̂(harassment | gender))
+- **B2**: HEXACO 6-domain linear (logistic regression on all six domains)
+- **B3** (proposed): 7 type × gender cell-conditional (this study's main model)
+- **B4**: 7 type + age + industry estimate + employment type cell-conditional
+
+**Decision rule**:
+- B3 > B2 → "typology adds information beyond linear domain effects"
+- B3 ≈ B2 → "typology does not exceed linear" (reported as a finding)
+- B3 < B2 → "typology overfits" (reported as a critical finding)
+- B4 ≫ B3 → "personality slice alone is insufficient; peripheral covariates needed"
+- B4 ≈ B3 → "personality typology informationally subsumes peripheral covariates"
+
+### 5.6 Phase 1 Stage 5: CMV diagnostic
+
+**Harman's single-factor test** (Podsakoff et al. 2003 *J Appl Psychol*):
+- Apply unrotated EFA constrained to one factor on the full HEXACO item set in N = 13,668 personality data
+- First-factor variance explained < 50% → CMV concern is limited (preregistered threshold)
+
+**Marker variable correction** (Lindell & Whitney 2001 *J Appl Psychol*):
+- Use HEXACO Openness as a theoretical marker (theoretically weak association with harassment)
+- Partial out marker–target correlations to report adjusted associations
+
+### 5.7 Phase 2 Stages 6–8: Counterfactual estimation
+
+#### 5.7.1 Target trial emulation specification
+
+For each counterfactual, specify PICO + duration:
+
+| Element | Counterfactual A | Counterfactual B (★ main) | Counterfactual C |
+|---|---|---|---|
+| **P** (population) | Japanese workers aged 20–64 | Japanese workers aged 20–64 | Japanese workers aged 20–64 |
+| **I** (intervention) | Universal HH +δ_A SD | Targeted (Clusters 0/4/6) HH +δ_B SD | Cell probabilities × (1 − effect_C) |
+| **C** (control) | Pre-intervention baseline | Pre-intervention baseline | Pre-intervention baseline |
+| **O** (outcome) | National harassment prevalence | National harassment prevalence + cost-effectiveness | National harassment prevalence |
+| **Duration** | 24 weeks (Roberts 2017) | 24 weeks | 24 weeks |
+| **Anchor** | Kruse 2014 d = 0.71 | Hudson 2023 b = .03/week | Pruckner 2013 + Bezrukova 2016 + Roehling 2018 + Dobbin & Kalev 2018 |
+
+#### 5.7.2 Pearl 2009 do-operator notation
+
+- Counterfactual A: do(HH := HH + δ_A × SD(HH)) for all individuals
+- Counterfactual B: do(HH := HH + δ_B × SD(HH)) for individuals in Cluster ∈ {0, 4, 6}
+- Counterfactual C: do(p_c := p_c × (1 − effect_C)) for all cells c
+
+#### 5.7.3 Estimation
+
+For each counterfactual x ∈ {A, B, C}:
+- Apply the do-operator to N = 354 / cell-probability table per specification
+- Re-run Stage 0 → Stage 1 (Stage 2 validation is omitted; only prediction is required)
+- ΔP_x = P̂_baseline − P̂_x
+- Bootstrap CI for ΔP_x (2,000 iterations, propagating cell-level uncertainty)
+- Cost-effectiveness for B: ΔP_B / |Cluster 0 ∪ 4 ∪ 6 in population|
+
+#### 5.7.4 Identifying assumptions (Hernán & Robins 2020)
+
+To be honestly assessed in the Discussion:
+
+1. **Exchangeability**: Y^a ⊥⊥ A | L
+   - Violation risk: unmeasured confounding by culture and organizational climate
+   - Mitigation: B4 baseline adjusts for peripheral covariates; sensitivity sweep
+2. **Positivity**: P(A = a | L = l) > 0 for all l
+   - Violation risk: with Cluster 6 dominant at 32%, intervention coverage is uneven
+   - Mitigation: Cluster 6 is not deliberately excluded from counterfactual analysis
+3. **Consistency**: observed Y when A = a equals Y^a (no interference between agents)
+   - Violation risk: workplace peer effects, displacement
+   - Mitigation: Counterfactual C displacement is explicitly acknowledged in the Discussion
+4. **Transportability**: anchor-study population effects transport to the Japanese workforce
+   - Violation risk: Kruse / Hudson / Pruckner are all Western / U.S. samples
+   - Mitigation: Section 5.8 transportability sensitivity sweep + Sapouna 2010 / Nielsen 2017 cultural moderator citations
+
+### 5.8 Phase 2 Stage 8: Transportability sensitivity
+
+| Factor | Range | Interpretation |
+|---|---|---|
+| 0.3× | Strong cultural attenuation (Sapouna 2010 UK→Germany null worst case) | Conservative lower bound |
+| 0.5× | Moderate attenuation (Nielsen 2017: Asia/Oceania Neuroticism r = .16 vs Europe .33) | "Expected" attenuation |
+| 0.7× | Mild attenuation | Optimistic |
+| 1.0× (main) | No attenuation (anchor effect = Japan effect) | Reference |
+
+→ Robustness of conclusions to transportability_factor will be reported.
+
+---
+
+
 
 
 
