@@ -989,7 +989,300 @@ Part 4.2 で詳述。Tier 1+2+3 evidence で全 limitation に **2–4 系統 de
 
 ---
 
-**本ドキュメントは「研究計画」です。**  
+## Part 11. 統計処理の採択理由と平易な解説
+
+> **目的**: 本研究で用いる 10 件の統計処理について、(a)「何をやっているか」を専門外の読者にも分かるよう日常例で説明し、(b)「なぜ採択したのか」を文献根拠とともに示し、(c) 本研究での具体実装を明示する。Reviewer の "Why this method?" 質問に即答できる体裁で整理する。
+
+### 11.0 採択方針マトリクス（10 手法 × 採択理由 × 文献根拠 × 本研究での役割）
+
+| # | 手法 | 採択理由（一言） | 主要文献根拠 | 本研究での役割 |
+|---|---|---|---|---|
+| 1 | **Bootstrap CI** | 分布形を仮定せず CI を出せる、N=354 でも頑健 | Efron 1979/1987、Davison & Hinkley 1997 | Stage 1 cell prevalence、Stage 2 national prevalence の不確実性表示 |
+| 2 | **EB Beta-Binomial Shrinkage** | 小セル (N<10) でも安定推定、過学習回避 | Casella 1985、Clayton & Kaldor 1987、Efron 2014、Greenland 2000 | 28-cell sensitivity の小セル安定化 |
+| 3 | **MAPE** | 予測値 vs MHLW 実測の乖離をスケールフリーで評価 | Hyndman & Koehler 2006、Schofield et al. 2018 | Phase 2 validation 成功基準 (MAPE ≤ 30%) |
+| 4 | **Cohen's d / Power Analysis** | 検出可能効果量を事前確認しデザインを正当化 | Cohen 1988、Faul et al. 2007 | D13 feasibility (MDE d ≥ 0.92) |
+| 5 | **Target Trial Emulation + do-operator** | 観察研究を仮想 RCT として記述、介入定義を明確化 | Hernán & Robins 2020、Pearl 2009 | Counterfactual A/B/C の因果モデル定式化 |
+| 6 | **Sensitivity Analysis** | 仮定の幅を明示し結論の頑健性を担保 | VanderWeele & Ding 2017、Greenland 2000 | EB strength sweep、効果量幅、24/26/28-cell 比較 |
+| 7 | **CMV Diagnostic (Harman / marker)** | 自己報告データの単一情報源バイアスを定量検査 | Podsakoff et al. 2003、Lindell & Whitney 2001 | クラスタリング論文 N=13,668 の方法分散点検 |
+| 8 | **Multilevel Modeling** | セル別推定と全体推定を 1 つの枠組みで統合 | Greenland 2000、Gelman & Hill 2007 | EB shrinkage を hierarchical model として記述 |
+| 9 | **Method of Moments** | データから事前分布パラメータを実証的に決定 | Casella 1985、Efron 2014 | Beta(α, β) の α/β を観測 mean/var から算出 |
+| 10 | **BCa Bootstrap** | バイアス補正・加速で歪んだ分布でも正しい CI | Efron 1987、DiCiccio & Efron 1996 | 比率・小セル推定の CI 補正 |
+
+**全 10 手法が、本研究領域（疫学・組織心理学・微小シミュレーション）で長年確立された "標準ツール"** であり、独自開発・実験的手法は一切含まない。
+
+### 11.1 Bootstrap Confidence Interval（ブートストラップ信頼区間）
+
+**やっていること（一言）**: 手元の N=354 サンプルから「重複ありの再抽出」を 10,000 回繰り返し、各回で同じ統計量（例: cell prevalence）を計算→ 10,000 個の値の 2.5–97.5 パーセンタイルを CI とする。
+
+**日常例 / たとえ**: 福袋 354 個の中身を調べたい。1 個ずつ取り出して記録 → 戻して → また取り出す、を 354 回で「1 セット」とし、これを 10,000 セット繰り返す。10,000 セットそれぞれで「平均値段」を計算すると、平均値段の "ばらつきの幅" が見える。これが信頼区間。
+
+**採択理由**:
+1. **分布形仮定が不要**: t 分布や正規分布を仮定せず、手元データの実分布をそのまま使える
+2. **小標本でも頑健**: N=354 で正規近似が怪しい場面（cell N=10–30）でも妥当な CI が出る
+3. **シミュレーション出力との親和性**: Stage 2 の national prevalence は閉形式の分散公式が無いため bootstrap が事実上唯一の選択肢
+
+**文献根拠**:
+- Efron 1979 "Bootstrap methods: Another look at the jackknife" (Annals of Statistics) — bootstrap 提案論文
+- Efron & Tibshirani 1993 "An Introduction to the Bootstrap" — 教科書的標準
+- Davison & Hinkley 1997 "Bootstrap Methods and their Application" — 実装ガイドライン
+
+**本研究での具体実装**:
+- Stage 1 cell prevalence: 各 14 cell で B=10,000 回 resample → 95% percentile CI
+- Stage 2 national prevalence: 重み付け合算後の総和に対して B=10,000 回 → 95% CI
+- Counterfactual 効果 (Δp): 介入前後の差分分布から CI
+
+### 11.2 Empirical Bayes Beta-Binomial Shrinkage（経験ベイズ縮約）
+
+**やっていること（一言）**: 各セルの観測 prevalence を、全体平均に向かって "適度に引き寄せる"。サンプル小さいセルほど強く引き寄せ、大きいセルほど観測値を尊重する。
+
+**日常例 / たとえ**: 野球の打率推定。シーズン途中で 5 打数 3 安打の選手の "本当の実力" を聞かれて 6 割と答えるのは過大。リーグ平均 2 割 5 分に「適度に引き寄せて」3 割と答えるのが正しい。サンプルが少ないほど平均に寄せ、500 打数なら観測値そのままを使う。これが縮約。
+
+**採択理由**:
+1. **小セル過学習の自動抑制**: 28-cell の 16 セルは N<10 で観測 prevalence が 0% や 100% になりやすい → 縮約で安定化
+2. **bias-variance tradeoff の最適化**: Stein 効果（少数サンプルでは縮約推定の MSE が常に観測値より小さい）
+3. **共役性 (Beta × Binomial = Beta)** で計算が閉形式
+
+**文献根拠**:
+- Casella 1985 "An introduction to empirical Bayes data analysis" (American Statistician) — EB 解説標準
+- Clayton & Kaldor 1987 "Empirical Bayes estimates of age-standardized relative risks" (Biometrics) — 疫学への適用
+- Efron 2014 "Two modeling strategies for empirical Bayes estimation" (Statistical Science) — 現代的レビュー
+- Greenland 2000 "Principles of multilevel modelling" (IJE) — 疫学・公衆衛生での標準扱い
+
+**本研究での具体実装**:
+- Beta(α, β) prior を全体 mean/var から method of moments で算出
+- 各セル posterior: Beta(α + x, β + N − x) → mean = (α + x) / (α + β + N)
+- Strength sweep: prior 強度 {0.5×, 1×, 2×} を sensitivity として並記
+
+### 11.3 MAPE (Mean Absolute Percentage Error)
+
+**やっていること（一言）**: 「予測値と実測値が何 % ズレているか」を全データ点で平均する指標。
+
+**日常例 / たとえ**: 天気予報の精度評価。「明日の最高気温 25 度」予測に対し実測 27 度なら誤差率 8%、別日は予測 30/実測 28 で誤差 7%、… これを 30 日分平均すると "予報の平均ズレ率" が出る。これが MAPE。
+
+**採択理由**:
+1. **スケールフリー**: % 表記なので異なる規模の比較が可能（national prevalence 31% vs cell prevalence 5% を同じ尺度で評価できる）
+2. **解釈容易**: 「30% ズレ」は誰でも理解できる、reviewer も即理解
+3. **microsim validation の慣例**: 既存 microsim 論文で標準的に採用
+
+**文献根拠**:
+- Hyndman & Koehler 2006 "Another look at measures of forecast accuracy" (IJF) — 予測誤差指標の標準レビュー
+- Schofield et al. 2018 "Health-related microsimulation" (Eur. J. Health Econ.) — microsim での MAPE 採用例
+- Spielauer 2011 "What is dynamic social science microsimulation?" (Soc. Sci. Comput. Rev.) — microsim validation 慣例
+
+**本研究での具体実装**:
+- 成功基準: Phase 2 国レベル予測 vs MHLW 2016 (32.5%) → MAPE ≤ 30% を pre-registered threshold
+- Subgroup 別（性別 × 年代）でも MAPE 計算
+- Bootstrap 不確実性: MAPE 自体に CI を付ける (B=10,000)
+
+### 11.4 Cohen's d / Power Analysis
+
+**やっていること（一言）**: 「2 群の差を、両群のばらつきで割り算して標準化した効果量」が Cohen's d。あらかじめ N とα でどの大きさの d なら検出できるかを計算するのが Power Analysis。
+
+**日常例 / たとえ**: A 校 vs B 校の身長差 5 cm が「大きい差」か「小さい差」か。両校の身長 SD が 6 cm なら d = 5/6 ≈ 0.83 で "大きい差"、SD が 20 cm なら d = 0.25 で "小さい差"。N を増やすほど小さい差も統計的に見える（Power が上がる）。
+
+**採択理由**:
+1. **スケール統一**: HEXACO スコア（1–5 リッカート）と prevalence（0–1）を同じ d 尺度で比較可能
+2. **デザイン正当化**: D13 で「N=354 で実用的に何が見えるか」を事前判定 → 14-cell 採用根拠
+3. **学際標準**: 心理学・疫学・経済学すべてで採用される第一選択
+
+**文献根拠**:
+- Cohen 1988 "Statistical Power Analysis for the Behavioral Sciences" (2nd ed., LEA) — 効果量定義の標準
+- Faul, Erdfelder, Lang & Buchner 2007 "G*Power 3" (Behav Res Methods) — power analysis 実装標準
+- Lakens 2013 "Calculating and reporting effect sizes" (Front Psychol) — 実用ガイドライン
+
+**本研究での具体実装**:
+- D13 結果: 14-cell pairwise MDE Cohen's d ≥ 0.92（α=.05, 1−β=.80, two-tailed）
+- 解釈: 「Cluster 0（HH=2.5）vs Cluster 6（HH=4.0）の prevalence 差を検出するには d ≥ 0.92 必要」 → 既知文献（Pletzer 2019: HH × CWB d ≈ 0.5–1.0）と整合
+- Power 不足セルは事前に sensitivity 扱いと宣言
+
+### 11.5 Target Trial Emulation + do-operator（仮想 RCT 設計と因果介入記法）
+
+**やっていること（一言）**: 観察データを「もし RCT を組んだらどう設計するか」という仮想実験プロトコルとして書き下ろし、介入を do(X=x) という記号で明示する。
+
+**日常例 / たとえ**: 「タバコをやめたら寿命が伸びるか」を確かめるため、本物の RCT は倫理的に無理。だが「もし完全な RCT を組めるなら、対象者・追跡期間・治療群・対照群はどう定義するか」を紙の上で書き下ろし、観察データをその仕様に当てはめる。do(X=禁煙) という書き方で「自然な禁煙者を観察するのではなく、強制的に介入した状態」を区別する。
+
+**採択理由**:
+1. **介入定義の曖昧さ排除**: 「ハラスメント研修すれば 10% 下がる」では設計が不明確 → target trial で「対象 = N=63M, 介入 = T=12 月の HH +0.3 想定研修, 比較 = 通常勤務」と完全規定
+2. **観察データの causal claim 妥当化**: do-operator で「観察上の関連」と「介入後の効果」を明確に区別
+3. **疫学・公衆衛生研究のゴールドスタンダード**: 観察研究レビューの第一基準
+
+**文献根拠**:
+- Hernán & Robins 2020 "Causal Inference: What If" (Chapman & Hall/CRC) — target trial emulation 教科書的標準
+- Pearl 2009 "Causality: Models, Reasoning, and Inference" (2nd ed., Cambridge) — do-operator/SCM 理論
+- Hernán et al. 2016 "Specifying a target trial prevents immortal time bias" (J Clin Epidemiol) — 適用例
+
+**本研究での具体実装**:
+- Counterfactual A: do(全員の HH を +0.3) — 普遍介入
+- Counterfactual B: do(Cluster 0 のみ HH を +0.5) — 高リスク標的介入
+- Counterfactual C: do(構造要因 G を改変、HH 不変) — 法改正・構造改革モデル
+- 各 counterfactual で target trial protocol（PICO + duration）を Phase 2 章に明記
+
+### 11.6 Sensitivity Analysis（感度分析）
+
+**やっていること（一言）**: 「もし仮定がこれくらい外れていたら結論はどう変わるか」を体系的にチェックする。
+
+**日常例 / たとえ**: 家計簿で「来月の貯蓄予測 5 万円」を出した後、「もし給料が ±10% ぶれたら？」「もし食費が予想より 20% 高かったら？」を計算 → 予測の頑健性を確認。同じことを統計モデルでやる。
+
+**採択理由**:
+1. **観察研究の必須要件**: 未測定交絡・逆因果・モデル誤設定の影響を定量化
+2. **EB shrinkage の prior 強度依存性をチェック**: prior 弱→中→強で結論が変わらないことを示す
+3. **reviewer 必須質問への先回り回答**: "What if assumption X is wrong?" に表で即答
+
+**文献根拠**:
+- VanderWeele & Ding 2017 "Sensitivity analysis in observational research: introducing the E-value" (Ann Intern Med) — 現代標準
+- Greenland 2000 "Principles of multilevel modelling" (IJE) — multilevel sensitivity
+- Rosenbaum 2002 "Observational Studies" (Springer, 2nd ed.) — 古典的標準
+
+**本研究での具体実装**:
+- EB prior strength sweep: {0.5×, 1×, 2×} の 3 条件で結論安定性確認
+- Cell 構造比較: 14-cell（main） vs 24-cell vs 28-cell（sensitivity）
+- 効果量幅: Counterfactual 効果を {0.5×, 1×, 1.5×} の想定で並記
+- Personality drift: ±0.2 SD の年代変動を仮定した場合の影響表
+
+### 11.7 Common Method Variance Diagnostic（Harman's Single-Factor + Marker Variable）
+
+**やっていること（一言）**: 「全部の変数が同じアンケートで取られているせいで人工的な相関が出ていないか」を検査する手法。
+
+**日常例 / たとえ**: 同じ日に同じ気分で答えたアンケートでは、関係ない質問同士でも「気分が良い人は全部高め、悪い人は全部低め」と人工的に相関する。これを「方法分散」と呼ぶ。Harman の検査は「全変数を 1 因子に押し込んだら何 % 説明できるか」を見て、50% 超なら危険信号。Marker variable は本来関係ないはずの変数（例: 好きな色）を入れて、その変数との相関が高ければ方法分散の証拠。
+
+**採択理由**:
+1. **自己報告データの宿命的バイアス検査**: HEXACO・harassment ともに同じ質問紙 → CMV を否定できないと因果議論が崩壊
+2. **査読者の標準質問**: 組織心理学 reviewer は必ず CMV diagnostic を要求
+3. **計算容易・追加データ不要**: 既存 N=13,668 データで即実施可能
+
+**文献根拠**:
+- Podsakoff, MacKenzie, Lee & Podsakoff 2003 "Common method biases in behavioral research" (J Appl Psychol) — 26,000+ 引用、業界標準
+- Lindell & Whitney 2001 "Accounting for common method variance in cross-sectional research designs" (J Appl Psychol) — marker variable 法
+- Spector 2006 "Method variance in organizational research: Truth or urban legend?" (Org Res Methods) — 反証側議論
+
+**本研究での具体実装**:
+- Harman's test: クラスタリング論文 N=13,668 全変数を 1 因子に投影 → 第 1 因子説明率を報告（< 50% を確認）
+- Marker variable: HEXACO Openness は harassment と理論的無関連 → marker として相関を partial out
+- 結果は Methods + supplementary に明記
+
+### 11.8 Multilevel / Hierarchical Modeling（マルチレベル/階層モデリング）
+
+**やっていること（一言）**: 「個人」と「グループ」の 2 階建て構造を 1 つのモデルで同時に推定。
+
+**日常例 / たとえ**: 47 都道府県の平均寿命を推定したい。各県のデータだけで推定すると小県（鳥取等）が不安定。全国平均だけ使うと県差が消える。マルチレベルは「各県は全国分布から引いた 1 サンプル」と捉え、両方の情報を最適配分する。県人口が大きいほど県データを尊重、小さいほど全国平均に寄せる。これが先述の shrinkage と同じ仕組み。
+
+**採択理由**:
+1. **EB shrinkage の理論基盤**: shrinkage は multilevel の特殊形 → 統一的記述で reviewer に親切
+2. **疫学・公衆衛生で標準**: Greenland 2000 が IJE で推奨
+3. **Bayesian/Frequentist 橋渡し**: 同じモデルが両派から支持される
+
+**文献根拠**:
+- Greenland 2000 "Principles of multilevel modelling" (Int J Epidemiol) — 疫学側標準
+- Gelman & Hill 2007 "Data Analysis Using Regression and Multilevel/Hierarchical Models" (Cambridge) — 教科書的標準
+- Snijders & Bosker 2011 "Multilevel Analysis" (2nd ed., Sage) — 社会科学側標準
+
+**本研究での具体実装**:
+- Level 1: 個人 (i) → harassment outcome y_i ~ Bernoulli(p_cell)
+- Level 2: cell (j) → p_cell ~ Beta(α, β) ← 全体超事前
+- 28-cell sensitivity で本格的に hierarchical 化（14-cell main は frequentist + bootstrap で十分）
+
+### 11.9 Method of Moments（モーメント法によるパラメータ推定）
+
+**やっていること（一言）**: 観測データの「平均」と「分散」から、prior 分布の形パラメータを逆算する古典的手法。
+
+**日常例 / たとえ**: 14 cell の prevalence 観測値 {0.20, 0.35, 0.45, ...} が手元にある。Beta(α, β) prior の α, β を決めたい。Beta 分布の理論平均 = α/(α+β)、理論分散 = αβ/[(α+β)²(α+β+1)]。観測 mean=0.30, var=0.02 を理論式に代入して α, β を解く。これがモーメント法。
+
+**採択理由**:
+1. **計算が閉形式・高速**: 反復計算不要、N=14 でも安定
+2. **データ駆動**: 主観的 prior 設定の恣意性を排除
+3. **EB の伝統的実装**: Casella 1985 以来の標準アプローチ
+
+**文献根拠**:
+- Casella 1985 "An introduction to empirical Bayes data analysis" (Am Stat) — Method of moments で α, β 推定する標準例
+- Efron 2014 "Two modeling strategies for empirical Bayes estimation" (Stat Sci) — MoM vs ML の比較
+- Robbins 1956 "An empirical Bayes approach to statistics" (Berkeley Symp) — 起源
+
+**本研究での具体実装**:
+- 観測値: 14 cell の prevalence p̂_j (j=1..14)
+- 全体平均 μ̂ = mean(p̂_j)、全体分散 σ̂² = var(p̂_j)
+- α̂ = μ̂ × [μ̂(1−μ̂)/σ̂² − 1]
+- β̂ = (1−μ̂) × [μ̂(1−μ̂)/σ̂² − 1]
+- 算出後の (α̂, β̂) を全 cell prior として固定し、posterior 計算
+
+### 11.10 BCa Bootstrap（バイアス補正・加速ブートストラップ）
+
+**やっていること（一言）**: 普通の percentile bootstrap CI を「分布の歪み」と「分散のスケール変動」で補正する改良版。
+
+**日常例 / たとえ**: 普通の bootstrap で「95% CI = [0.10, 0.30]」が出たとする。だが本当の分布が右に歪んでいたら、左端 0.10 は実は 0.08 まで、右端 0.30 は 0.28 までだった、という補正を加えるのが BCa。歪んだ目盛りの定規を、まっすぐな定規に校正する作業。
+
+**採択理由**:
+1. **小標本・比率データで歪み補正が必要**: prevalence は 0–1 で歪みやすい
+2. **2 次精度**: BCa は CI のカバレッジ誤差が O(1/N) → percentile (O(1/√N)) より精度高
+3. **bootstrap 文献の現代標準**: Efron 自身が percentile より BCa を推奨
+
+**文献根拠**:
+- Efron 1987 "Better bootstrap confidence intervals" (J Am Stat Assoc) — BCa 提案論文
+- DiCiccio & Efron 1996 "Bootstrap confidence intervals" (Stat Sci) — 比較レビュー
+- Davison & Hinkley 1997 "Bootstrap Methods and their Application" (Cambridge) — 実装解説
+
+**本研究での具体実装**:
+- Stage 1 cell prevalence で BCa 採用（small-cell N=10–30 で歪み発生しやすい）
+- 補正パラメータ:
+  - Bias correction z₀: B 個の bootstrap 統計量のうち観測値以下の割合の正規逆変換
+  - Acceleration a: jackknife から計算 (Σ(θ̂(.) − θ̂(i))³) / (6 × (Σ(θ̂(.) − θ̂(i))²)^1.5)
+- 14-cell main analysis で BCa CI を併記、percentile CI と比較表示
+
+### 11.11 統計処理フロー図と想定 Reviewer Q&A
+
+**11.11.1 統計処理間の関係（フロー図）**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  Stage 0 (D13 Power Analysis)                                   │
+│   └─ Cohen's d / Power Analysis  →  feasibility 判定 (14-cell)  │
+└────────────────────────┬────────────────────────────────────────┘
+                         ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  Stage 1 (Cell-level Estimation)                                │
+│   ├─ 14-cell main:    Bootstrap CI (BCa)                        │
+│   └─ 28-cell sens:    Method of Moments → EB Beta-Binomial      │
+│                       Shrinkage (Multilevel framing)            │
+│                       + sensitivity sweep {0.5×, 1×, 2×}        │
+└────────────────────────┬────────────────────────────────────────┘
+                         ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  Stage 2 (National Aggregation)                                 │
+│   ├─ Bootstrap CI for national prevalence                       │
+│   ├─ MAPE vs MHLW 2016 (32.5%)  →  validation 成功基準          │
+│   └─ CMV diagnostic on N=13,668 personality data               │
+└────────────────────────┬────────────────────────────────────────┘
+                         ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  Stage 3 (Counterfactuals A/B/C)                                │
+│   ├─ Target Trial Emulation (PICO + duration) で介入定義        │
+│   ├─ do(X=x) operator で causal claim 明示                      │
+│   └─ Sensitivity analysis: 効果量幅 + 構造仮定                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**11.11.2 想定 Reviewer 質問と返答（Q&A）**
+
+| Q# | 想定質問 | 返答要旨 | 参照 |
+|---|---|---|---|
+| Q1 | "Why bootstrap instead of analytic CI?" | (a) microsim 出力の閉形式分散公式が無い、(b) 小セル N で正規近似が破綻、(c) Efron 1979 以降の業界標準 | Part 11.1 |
+| Q2 | "How do you justify the prior in EB?" | Method of moments で観測データから自動算出（主観プライアー無し）+ strength sweep で頑健性確認 | Part 11.2, 11.6, 11.9 |
+| Q3 | "Why MAPE ≤ 30% as success criterion?" | (a) microsim validation 慣例（Schofield 2018 等）、(b) MHLW survey 自体の年次変動が ±5–10pp、(c) pre-registration により恣意性排除 | Part 11.3 |
+| Q4 | "Is N=354 sufficient for 14-cell analysis?" | D13 power analysis で全 cell N ≥ 10 確認、pairwise MDE d ≥ 0.92 は既知文献 (Pletzer 2019 d ≈ 0.5–1.0) と整合 | Part 11.4 |
+| Q5 | "How can you make causal claims from observational data?" | Target trial emulation (Hernán & Robins 2020) + do-operator (Pearl 2009) で仮想 RCT を明示、未測定交絡には sensitivity で対応 | Part 11.5 |
+| Q6 | "What about common method bias?" | Harman's test + marker variable (Lindell & Whitney 2001) で診断、結果は supplementary に明記 | Part 11.7 |
+| Q7 | "How robust is the EB shrinkage to prior strength?" | Strength sweep {0.5×, 1×, 2×} の 3 条件で結論安定性を確認 | Part 11.6 |
+| Q8 | "Why BCa instead of percentile bootstrap?" | 小セル比率データの歪み補正 + 2 次精度（Efron 1987 推奨） | Part 11.10 |
+| Q9 | "Are these methods novel?" | 全て確立された標準ツール、独自手法ゼロ。新規性は手法ではなく "personality typology × Japan workplace harassment microsim" の組み合わせ | Part 11.0 |
+| Q10 | "Personality vs SSS independence — confound?" | Personality is upstream of SSS（Heckman 2006 + Roberts & DelVecchio 2000 + Specht 2011）、causal chain として記述 | Part 1.5, 5.1.5 |
+
+**11.11.3 文献的安心材料の総括**
+
+- 全 10 手法の被引用数合計: **80,000+**（Cohen 1988 単独で 200,000+、Pearl 2009 で 30,000+、Podsakoff 2003 で 26,000+）
+- 全手法に **2–4 件の独立文献根拠** を装備
+- **独自手法・実験的手法ゼロ** → reviewer の "Why this novel method?" 質問は発生しない
+- **Bayesian/Frequentist 折衷**: main は frequentist (bootstrap)、sensitivity は Bayesian (EB) → 両派から支持される構成
+
+
 **評価フレームは** `simulation_paper_evaluation_integrated.md`、  
 **研究ビジョン全体像は** `research_vision_integrated.md`、  
 **文献基盤の精読詳細は** `simulation/docs/literature_audit/deep_reading_notes.md` **を参照してください。**
