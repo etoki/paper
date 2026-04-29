@@ -28,11 +28,15 @@ OSF 提出時には：
 
 | Challenge | 本研究の状況 | 対応 |
 |---|---|---|
-| **C3: Data Are Preexisting** | N=354（harassment）/ N=13,668（clustering）は **既存 IRB 通過済データ**。ただし (a) 7 類型 × gender 14-cell harassment cross-tabulation、(b) 国レベル aggregate prediction、(c) Counterfactual A/B/C simulation outputs は **すべて未観測** | **"Pure" pre-registration 達成可能**。Section 3.1 で「誰が何を observed したか」を明示 |
-| C1: 手順変更 | Simulation のため data collection はなし | N/A |
-| C2: 分析時の仮定違反発見 | 14-cell main は frequentist bootstrap + BCa（仮定 light）。28-cell EB は Beta-Binomial conjugate（method of moments + sensitivity sweep）で robust 化 | Section 6.5 で deviation policy 明記 |
-| **C6: Program-level null result reporting** | 本研究は MAPE > 60% でも publication する commitment（D-NEW8） | Section 7.3 で commit |
-| C9: Narrative inference selectivity | Stage 3 sensitivity sweep（V, f1, f2, EB strength, threshold, K）すべてを pre-reg で固定、selective reporting 防止 | Section 6.4 で固定 |
+| **C1** 手順変更 | Simulation のため data collection はなし | N/A |
+| **C2** 分析時の仮定違反発見 | 14-cell main は frequentist bootstrap + BCa（仮定 light）。28-cell EB は Beta-Binomial conjugate（method of moments + sensitivity sweep）で robust 化 | Section 6.5 で deviation policy 明記 |
+| **C3** Data Are Preexisting | N=354（harassment）/ N=13,668（clustering）は **既存 IRB 通過済データ**。ただし (a) 7 類型 × gender 14-cell harassment cross-tabulation、(b) 国レベル aggregate prediction、(c) Counterfactual A/B/C simulation outputs は **すべて未観測** | Section 3.1 で「誰が何を observed したか」を明示。partial blinding 状態を honest acknowledge |
+| **C4** 縦断・大規模多変量データ | N=13,668 clustering data は HEXACO 6 領域 × 13,668 個人の大規模多変量データ。Cluster centroid 抽出は IEEE 掲載済だが、N=354 上の 7 類型 × gender × harassment cross-tabulation は未生成 | Section 2.3 で Stage 0–8 を upfront に完全列挙し、cell-level cross-tabulation 生成前にすべての分析 path を固定。Sensitivity sweep（Section 6.4）も網羅的に pre-spec し garden-of-forking-paths を排除 |
+| **C5** 多数実験 / 同一 study 内多検定 | 単一 design で 7 仮説（H1–H7）を population-level でテスト | Section 6.3 で H2（4 ordinal pairwise）と H4–H7（3 counterfactual tests）に Bonferroni–Holm 補正（family-wise α=.05）。H1 は単一 primary test で補正不要。H7 は composite single test |
+| **C6** Program-level null result reporting | 本研究は MAPE > 60% でも publication する commitment（D-NEW8） | Section 7 で 5 ケース（success / partial / failure / H7 reversal / B3 < B2 overfitting）に分けて明示 commit |
+| **C7** Discovery research（事前期待薄） | Stage 5 (CMV diagnostic)、Stage 4 (B0–B4 baseline hierarchy) は Phase 2 main hypotheses より prior expectation が薄い | これらも **specific decision rule を pre-register**（Section 5.5 decision rule 表、Section 5.6 Harman first-factor < 50% 閾値）。どちらに転んでも pre-spec rule 内で解釈、post-hoc reframing 禁止 |
+| **C8** Competing predictions | H7 (ΔP_B > ΔP_A AND ΔP_B > ΔP_C) は 3 種介入 strategy を比較する strong-inference test | Nosek 2018 が言うように competing predictions は pre-reg と相性良く strong inference の利点に転化。Section 6.1 で confirmation / partial / reversal 基準を明記 |
+| **C9** Narrative inference selectivity | Stage 3 sensitivity sweep（V, f1, f2, EB strength, threshold, K）と Stage 8 transportability sweep すべてを pre-reg で固定 | Section 6.4 で固定、Section 6.5 deviation policy で post-hoc selectivity 制限、Section 7 で全 pre-registered outcome を方向問わず publish commit |
 
 ### 0.3 本 pre-reg と研究計画 v6/v7 の関係
 
@@ -662,6 +666,16 @@ Anchor: **Nosek et al. 2018 PNAS Challenge 6** (program-level null result report
 ## 8. Reproducibility Infrastructure (D-NEW9)
 
 Anchor: **Munafò et al. 2017 Nature Human Behaviour** "A manifesto for reproducible science" 5 themes (Methods / Reporting / Reproducibility / Evaluation / Incentives) + TOP guidelines.
+
+### 8.0 Munafò et al. 2017 5 themes への mapping
+
+| Theme | 本研究での実装 | Section |
+|---|---|---|
+| **1. Methods**（cognitive bias 防止 / methodology training / independent statistical oversight / team science） | (a) Blinding-equivalent: 14-cell cross-tabulation 生成前に本 pre-reg を OSF 登録（Section 2.2）、(b) Independent statistical oversight: 数理生物学者（mode B、anonymous）が Section 5 を Stage 2 着手前に review（Section 1.2 + Section 8.1）、(c) Methodology training / team science は sole-authored secondary analysis のため N/A | 1.2, 2.2, 8.1 |
+| **2. Reporting / Dissemination**（pre-registration / reporting checklists CONSORT/ARRIVE/PRISMA/STROBE/STARD / COI 開示） | (a) OSF Standard Pre-Registration＝本ドキュメント、(b) Reporting は STROBE (observational study) と STARD（適用時）を Methods に統合（Section 8.1）、(c) COI 開示（Section 12.1） | 8.1, 8.3, 12.1 |
+| **3. Reproducibility**（open data / materials / software / TOP guidelines / Registered Reports） | (a) Open code (MIT) を GitHub + OSF mirror、(b) Open aggregated data、再同定 risk のある raw のみ restricted access（Section 9.5）、(c) Random seed (20260429)、environment pinning (uv lock or Docker)、`make reproduce` 30 分目標、(d) **TOP guidelines**: 本研究は **Tier 3 / "Verification"** を Data Citation, Data Transparency, Analytic Methods Transparency, Research Materials Transparency, Design and Analysis Transparency, Preregistration of Studies, Preregistration of Analysis Plans, Replication の全項目で目指す、(e) Registered Reports 投稿（Section 7.2） | 7.2, 8.1, 8.2, 9.5 |
+| **4. Evaluation**（preprints / post-publication review / results-blind review） | (a) **Results-blind review** は Registered Report track で達成（Section 7.2 RSOS RR primary）、(b) 全 venue refuse 時は preprint commitment（Section 7.3、OSF / SocArXiv / PsyArXiv）、(c) **Post-publication review**: 本 pre-reg と supplementary を OSF で 10 年以上 active 維持（Section 9.6）、misuse 報告に対し PubPeer / commentary 対応可能 | 7.2, 7.3, 9.6 |
+| **5. Incentives**（badges / Registered Reports / TOP guidelines / replication funding / hiring open practices） | (a) **OSF Open Practice Badges** — 本研究は Open Data, Open Materials, Preregistered の 3 badge すべて適格（aggregated data open、code open、analysis preregistered）、(b) Registered Report 投稿（Section 7.2）、(c) TOP-aligned reporting（本 Section 8.0 row 3）、(d) Replication funding / hiring は本 pre-reg では N/A だが Munafò 2017 が指摘する systemic lever として acknowledge | 7.2, 8.0 row 3, 8.1 |
 
 ### 8.1 Pre-registered infrastructure commitments
 

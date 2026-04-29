@@ -32,11 +32,15 @@ OSF submission workflow:
 
 | Challenge | Study situation | Response |
 |---|---|---|
-| **C3: Data Are Preexisting** | N=354 (harassment) and N=13,668 (clustering) are **prior IRB-approved data**. However, (a) the 7-type × gender 14-cell harassment cross-tabulation, (b) national-level aggregate predictions, and (c) Counterfactual A/B/C simulation outputs are **all unobserved**. | **Pure preregistration is achievable** for these unobserved analyses. Section 3.1 specifies who has observed what. |
-| C1: Procedure changes during data collection | Simulation only; no new data collection | N/A |
-| C2: Discovery of assumption violations during analysis | 14-cell main analysis uses frequentist bootstrap with BCa (light assumptions). 28-cell EB uses Beta-Binomial conjugate (method of moments + sensitivity sweep) for robustness. | Section 6.5 specifies deviation policy |
-| **C6: Program-level null result reporting** | This study commits to publication even if MAPE > 60% (D-NEW8) | Section 7.3 codifies the commitment |
-| C9: Selectivity in narrative inference | All Stage 3 sensitivity sweeps (V, f1, f2, EB strength, threshold, K) are pre-registered | Section 6.4 fixes the sweeps |
+| **C1** Procedure changes during data collection | Simulation only; no new data collection | N/A |
+| **C2** Discovery of assumption violations during analysis | 14-cell main analysis uses frequentist bootstrap with BCa (light assumptions). 28-cell EB uses Beta-Binomial conjugate (method of moments + sensitivity sweep) for robustness. | Section 6.5 specifies deviation policy |
+| **C3** Data Are Preexisting | N = 354 (harassment) and N = 13,668 (clustering) are **prior IRB-approved data**. However, (a) the 7-type × gender 14-cell harassment cross-tabulation, (b) national-level aggregate predictions, and (c) Counterfactual A/B/C simulation outputs are **all unobserved**. | Section 3.1 specifies who has observed what; the partial-blinding state is honestly acknowledged |
+| **C4** Longitudinal / large multivariate datasets | N = 13,668 clustering data is a large multivariate dataset (HEXACO 6 domains × 13,668 individuals). Although already used for cluster centroid extraction (IEEE-published), the 7-type × gender × harassment cross-tabulation in N = 354 has not been computed. | Section 2.3 enumerates Stages 0–8 in full upfront, fixing **all** analysis paths before any cell-level cross-tabulation is generated. Sensitivity sweeps (Section 6.4) are exhaustively pre-specified to remove garden-of-forking-paths risk. |
+| **C5** Many experiments / many tests within one study | This study contains a single design with 7 hypotheses (H1–H7) tested at the population level. | Section 6.3 applies Bonferroni–Holm correction at family-wise α = .05 for H2 (4 ordinal pairwise tests) and H4–H7 (3 counterfactual tests). H1 is a single primary test (no correction). H7 is a composite single test. |
+| **C6** Program-level null result reporting | This study commits to publication even if MAPE > 60% (D-NEW8) | Section 7 codifies the commitment in 5 explicit cases (success / partial / failure / H7 reversal / B3 < B2 overfitting) |
+| **C7** Discovery research with weak prior expectations | Stages 5 (CMV diagnostic) and 4 (B0–B4 baseline hierarchy) have weaker prior expectations than the Phase 2 main hypotheses. | These analyses are still pre-registered with **specific decision rules** (Section 5.5 decision rule table; Section 5.6 Harman first-factor < 50% threshold). Outcomes that go either way are interpreted within the pre-specified rules; post-hoc reframing is prohibited. |
+| **C8** Competing predictions | H7 (ΔP_B > ΔP_A AND ΔP_B > ΔP_C) is a strong-inference test that compares three competing intervention strategies. | Per Nosek 2018, competing predictions are well suited to preregistration and are turned to advantage by strong inference. Section 6.1 specifies criteria for confirmation, partial confirmation, and reversal. |
+| **C9** Selectivity in narrative inference | All Stage 3 sensitivity sweeps (V, f1, f2, EB strength, threshold, K) and Stage 8 transportability sweeps are pre-registered. | Section 6.4 fixes the sweeps; Section 6.5 deviation policy further constrains post-hoc selectivity; Section 7 commits to publishing all pre-registered outcomes regardless of direction. |
 
 ### 0.3 Relationship between this preregistration and the research plan
 
@@ -673,6 +677,16 @@ The author commits to journal submission in all of the following cases:
 ## 8. Reproducibility Infrastructure (D-NEW9)
 
 Anchor: **Munafò et al. 2017 *Nature Human Behaviour*** "A manifesto for reproducible science": five themes (Methods / Reporting / Reproducibility / Evaluation / Incentives) + TOP guidelines.
+
+### 8.0 Mapping to the Munafò et al. 2017 five themes
+
+| Theme | This study's implementation | Section |
+|---|---|---|
+| **1. Methods** (cognitive bias prevention; methodology training; independent statistical oversight; team science) | (a) Blinding-equivalent: this preregistration is registered before any 14-cell cross-tabulation is computed (Section 2.2); (b) Independent statistical oversight: anonymous external methodologist with mathematical biology background reviews Section 5 prior to Stage 2 (Section 1.2 + Section 8.1); (c) Methodology training and team science N/A for sole-authored secondary analysis. | 1.2, 2.2, 8.1 |
+| **2. Reporting / Dissemination** (preregistration; reporting checklists CONSORT/ARRIVE/PRISMA/STROBE/STARD; conflict-of-interest disclosure) | (a) OSF Standard Pre-Registration this document; (b) Reporting per STROBE (observational study) and STARD where applicable, integrated into the Methods (Section 8.1); (c) COI disclosure (Section 12.1). | 8.1, 8.3, 12.1 |
+| **3. Reproducibility** (open data, materials, software; TOP guidelines; Registered Reports) | (a) Open code (MIT) on GitHub + OSF mirror; (b) Open aggregated data; restricted-access raw data only where re-identification risk exists (Section 9.5); (c) Random seed (20260429), environment pinning (uv lock or Docker), `make reproduce` 30-minute target; (d) **TOP guidelines**: this study targets the highest TOP tier (Tier 3 / "Verification") for Data Citation, Data Transparency, Analytic Methods Transparency, Research Materials Transparency, Design and Analysis Transparency, Preregistration of Studies, Preregistration of Analysis Plans, and Replication; (e) Registered Reports submission (Section 7.2). | 7.2, 8.1, 8.2, 9.5 |
+| **4. Evaluation** (preprints; post-publication review; results-blind review) | (a) **Results-blind review** via Registered Report track (Section 7.2 RSOS RR primary); (b) Preprint commitment if all journals refuse (Section 7.3, OSF / SocArXiv / PsyArXiv); (c) **Post-publication review**: this preregistration and supplementary materials remain open and citable on OSF for ≥ 10 years (Section 9.6), enabling PubPeer / commentary if misuse is reported. | 7.2, 7.3, 9.6 |
+| **5. Incentives** (badges; Registered Reports; TOP guidelines; replication funding; open practices in hiring) | (a) **OSF Open Practice Badges** (Open Data, Open Materials, Preregistered) — this study qualifies for all three: aggregated data are open, code is open, and analysis is preregistered; (b) Registered Report submission (Section 7.2); (c) TOP-aligned reporting (this Section 8.0 row 3); (d) Replication funding and hiring N/A for the present preregistration but acknowledged as systemic levers per Munafò 2017. | 7.2, 8.0 row 3, 8.1 |
 
 ### 8.1 Preregistered infrastructure commitments
 
