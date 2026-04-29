@@ -795,6 +795,44 @@ In addition, the following four points will be stated:
 
 ---
 
+## 10. Limitations Pre-Acknowledged (research plan Part 4.2: 11 limitations)
+
+The following limitations are acknowledged in advance to avoid post-hoc rationalization in the Discussion (Nosek 2018 Challenge 9):
+
+| # | Limitation | Supporting / mitigating literature |
+|---|---|---|
+| L1 | Self-report → self-report circularity | Berry et al. 2012; Anderson & Bushman 2002; Vazire 2010 SOKA (direction-of-bias is conservative) |
+| L2 | Representativeness of N = 354 (crowd-sourced self-selection) | Triangulated against Tsuno et al. 2015 N = 1,546 random sample |
+| L3 | Error in role estimation | Promoted to a continuous covariate in D13; D1 compares 3 alternative models |
+| L4 | Cell-level statistical power (pairwise MDE Cohen's d ≥ 0.92) | D13 power analysis; emphasis on aggregate inference |
+| L5 | Uncertainty in V (victim multiplier), f1 (turnover rate), f2 (mental disorder rate) | Stage 3 sensitivity sweep |
+| L6 | Cross-sectional design precludes causal inference; reverse causation cannot be fully ruled out | Roberts & DelVecchio 2000 plateau r = .74; Specht 2011 mid-life stability |
+| L7 | Omission of GAM situational variables | "Personality slice" framing; Bowling & Beehr 2006 effects acknowledged |
+| L8 | Common method bias | Podsakoff 2003 standard reference; Stage 5 diagnostic |
+| L9 | Phase 2 transportability (Western anchors → Japan) | Section 5.8 sensitivity sweep; Sapouna 2010 / Nielsen 2017 |
+| L10 | Inseparability of latent vs expressed prevalence | Section 1.4 frames the boundary as continuous |
+| **L11** | **Construct validity** (whether the harassment scale measures "latent propensity" is empirically untested) | Vazire 2010 SOKA; convergent/discriminant validity check (supplementary) |
+
+---
+
+## 11. Researcher Reflexivity (Positionality)
+
+### 11.1 Preregistered positionality statement
+
+The following statement will be reproduced verbatim or substantively in the Methods or Acknowledgments of the eventual paper:
+
+> "The author has previously argued in non-peer-reviewed work for a systemic-causation framing of workplace harassment, emphasizing social systems' responsibility over individual self-responsibility (Tokiwa, *forthcoming*). This normative stance may influence which limitations are emphasized and how findings are framed in the Discussion. To mitigate, (a) the empirical analysis section is restricted to L1 descriptive/predictive claims, (b) all causal language is constrained by the target trial emulation framework (Hernán & Robins, 2020) with explicit identifying assumptions, (c) anti-screening and anti-discrimination statements are included regardless of findings, (d) limitations are presented in a structured 11-item framework derived from a 60+ paper literature audit (rather than selectively), (e) negative-result publication is committed in advance via Section 7 of this preregistration (D-NEW8), and (f) review by an independent methodologist is sought prior to Stage 2 validation (Section 8.1; D-NEW9)."
+
+### 11.2 Bias-mitigation procedures (preregistered)
+
+- A preregistered analysis plan (this document) limits the scope for post-hoc revision (Nosek 2018).
+- Independent review of the Discussion's interpretation by a methodologist (Munafò 2017 Box 1).
+- Advance commitment to failure-mode publication (Section 7).
+- Awareness of self-report direction-of-bias: per Vazire 2010 SOKA, harassment self-reports are framed as conservative (lower-bound) estimates.
+
+---
+
+
 
 
 
