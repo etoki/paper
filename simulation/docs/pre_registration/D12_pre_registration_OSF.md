@@ -621,22 +621,39 @@ Anchor: **Nosek et al. 2018 PNAS Challenge 6** (program-level null result report
 4. **H7 reversal** (ΔP_B ≤ ΔP_A or ΔP_C): "thesis revision" 論文として投稿、original framing を修正
 5. **B3 < B2** (typology overfitting): "critical finding" 論文として投稿、本研究の typology approach の限界を明示
 
-### 7.2 Target journal の幅
+### 7.2 Target journal path
 
-Negative / null / partial 結果も受け入れる candidacy を確保:
+> **Note**: Pre-registration が lock するのは **analysis plan**（hypotheses、models、thresholds、sensitivity sweeps、ethics commitments）であり、**投稿先 journal は自由に変更可能**。Section 6.5 deviation policy にも該当しない。本 Section は **submission roadmap** として記録するのみ。
 
-| Journal | 種別 | Negative result 対応 |
-|---|---|---|
-| **JBE** (Journal of Business Ethics) | 第一候補 | Section editor 判断、ethics-relevant null は受付歴あり |
-| **PAID** (Personality and Individual Differences) | 第二 | 通常論文 |
-| **PLOS ONE** | バックアップ | "Negative results welcome" 公式 policy |
-| **RIO Journal** | バックアップ | Registered Report 受付 |
-| **Cortex** | Registered Report 受付 | Negative result publication track 確立 |
-| **J Comp Soc Sci** | Computational バックアップ | 通常論文 |
+#### Primary target
+
+**Royal Society Open Science (Registered Report track)**
+
+- 選定理由：(1) RR track で IPA 取得後は publication 保証 → D-NEW8 negative-result commitment が構造的に担保、(2) 予算内（£1,800 ≈ ¥35 万）、(3) Open Access 標準で D-NEW9 reproducibility と整合、(4) Stage 1 review ~6–8 週、(5) IF 制約なし（user 明示）
+- Submission unit: **Stage 1 (Introduction + Methods + 本 pre-reg)** を提出 → IPA → Stage 2 (Results + Discussion) を後に提出
+
+#### Fallback path (IPA refused または scope mismatch 時)
+
+| Order | Journal | Track | APC (¥) | 採択確実性 | 備考 |
+|---|---|---|---|---|---|
+| 1 | **Royal Society Open Science** | RR | ¥35 万 | RR IPA 後 guarantee | Primary |
+| 2 | **Frontiers in Psychology** (Personality and Social Psychology specialty) | RR (一部 specialty) | ¥44 万 | RR specialty で同等 | Fallback 1 |
+| 3 | **Scientific Reports** (Nature) | Standard with pre-reg DOI | ¥34 万 | ~50% | Fallback 2、broad scope |
+| 4 | **PLOS ONE** | Standard with pre-reg DOI | ¥29 万 | ~50%、negative result accepting | Fallback 3 |
+| 5 | **PAID** (Personality and Individual Differences) | Standard | OA: ¥52 万 / 購読型: ¥0 | ~40% | Fallback 4、personality fit |
+| 6 | **JBE** (Journal of Business Ethics) | Standard | OA: ¥58 万 / 購読型: ¥0 | ~10–20% | Fallback 5、ethics scope 厳 |
+| 7 | **RIO Journal** | Pre-Registration article type or Research Article | ¥7–13 万 | 高 | Fallback 6、低 APC 緊急時 |
+| 8 | **PCI Registered Reports + PCI-friendly OA journal** | RR (decentralized) | ¥0 | recommender 探し時間要 | Fallback 7、cost-zero option |
+
+#### 本 pre-reg は journal-agnostic
+
+- 本 pre-reg の commitments は journal 選択に依存せず適用
+- Journal 変更は Section 6.5 Level 0 (no deviation) として扱い、deviation log には記録不要
+- 各 fallback は OSF pre-reg DOI を citable 引用として活用
 
 ### 7.3 Publication 拒否時の対応
 
-- Pre-print (OSF / SocArXiv / PsyArXiv) で公開
+- 全 fallback 失敗時：Pre-print (OSF / SocArXiv / PsyArXiv) で公開
 - Failure mode の technical report を OSF supplementary として permanent 公開
 - 本 pre-reg を最低 10 年間 OSF で active 維持
 
