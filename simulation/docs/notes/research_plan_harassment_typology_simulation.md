@@ -101,6 +101,32 @@
 
 ## Part 1：背景と動機
 
+### 1.0 ★ 本研究の scope と多要因 honest acknowledgment（Q1 対応で追加）
+
+**重要な前提整理**：職場ハラスメントは **多要因現象**である。本研究は、その多要因のうち **personality contribution を isolate** することを scope とする。
+
+#### ハラスメントに影響する主要要因（既存研究で確立）
+
+| 要因カテゴリ | 効果サイズ | 文献根拠 | 本研究での扱い |
+|---|---|---|---|
+| **Job demand / Role stressors** | ρ = 0.30–0.53（**最大**）| Bowling & Beehr 2006 meta | ✗ Scope 外（"personality slice" framing で acknowledge） |
+| **Subjective Social Status (SSS)** | OR = **4.21**（最強 OR）| Tsuno et al. 2015（Japan national rep）| ✗ Scope 外、ただし Part 1.5 で **personality が SSS の上流** と framing |
+| **業種・職場環境** | 業種間 prevalence 差 10–20pp | Notelaers et al. 2011、MHLW 2024 | ✗ Scope 外、limitation で言及 |
+| **法律・社会規範**（環境 gating）| MHLW 2016 → 2024 で **−12.1pp 自然減** | MHLW 2021 R2 vs 2024 R5 | ✓ **Latent vs expressed framing で integrate**（Part 1.4）|
+| **Personality（HEXACO 7 typology）** | 中規模（Pletzer 2019 HH 最強 perpetrator predictor、Tokiwa preprint Psychopathy β=.32–.40）| Tier 1+2+3 全文献 | ✓ **本研究の central focus** |
+
+#### 本研究の主張範囲
+
+> "本研究は、environmental stressors（Bowling & Beehr 2006）や socioeconomic factors（Tsuno et al. 2015）が **より大きな effect** を持つことを認めた上で、**personality typology が population-scale harassment prevalence の sufficient predictor となるか**を検証する。Personality は単独 dominant cause ではなく、scalable intervention target として位置付ける。"
+
+#### Introduction での framing 戦略（論文向け）
+
+論文 Introduction 第 1 段落（global concern）または第 3 段落（predictor lineage）の冒頭で **明示的に**：
+
+> "Workplace harassment results from multiple interacting factors: organizational stressors (work constraints, role conflict; Bowling & Beehr, 2006), socioeconomic position (subjective social status; Tsuno et al., 2015), industry composition (Notelaers et al., 2011), and individual differences in personality (Pletzer et al., 2019). The present study isolates the **personality contribution**, asking: given an individual-level HEXACO typology, what population-level harassment prevalence does it predict, and what scalable interventions follow?"
+
+→ **honest framing を Introduction 冒頭で先取り**、Limitation で初めて述べる形を avoid
+
 ### 1.1 研究ビジョンからの逆算（Doc 2 より）
 
 > **「個人 outcome は遺伝と環境の関数として確率的に予測可能であり、性格特性はその合成シグナルとして介入の手がかりになる。資源（収入・教育）が部分的に zero-sum である現実において、非ポジショナルな性格特性への集団介入こそが社会全体の幸福を底上げする最もスケーラブルな戦略である。」**
@@ -113,8 +139,37 @@
 
 #### Clustering 論文（**IEEE 掲載済**、N=13,668）
 - 日本人の HEXACO 7 類型を多手法クラスタリング（Ward / k-means / spectral）で同定、cross-method validation 済
-- Reserved / Emotionally Sensitive / Exploratory Extravert / Conscientious Introvert / Self-Oriented Independent / Emotionally Volatile Extravert / Reliable Introvert
+- 7 類型名（Tokiwa clustering paper より）：Reserved / Emotionally Sensitive / Exploratory Extravert / Conscientious Introvert / Self-Oriented Independent / Emotionally Volatile Extravert / Reliable Introvert
 - **本研究の Stage 0 入力**として使用
+
+##### 7 類型の HEXACO centroid（k-means 7-cluster）
+
+実データ（`clustering/csv/clstr_kmeans_7c.csv`）：
+
+| Cluster | HH | E | X | A | C | O | 比率 | 解釈（centroid から） |
+|---|---|---|---|---|---|---|---|---|
+| **0** | **🔴 2.5（最低）** | 2.25 | 3.79 | 🔴 2.45 | 2.89 | 3.91 | 11.7% | **低 HH + 低 A + 高 X** = ナルシシズム傾向、社交的だが利己的 |
+| 1 | 🟢 3.71 | 4.01 | 1.99 | 3.34 | 3.13 | 3.91 | 15.8% | 高 HH + 高 E + 低 X = 内向、感情敏感 |
+| 2 | 3.08 | 3.63 | 3.73 | 3.4 | 2.85 | 3.83 | 16.8% | 平均 HH + 高 X + 高 O = 活動的・好奇心 |
+| 3 | 🟢 3.76 | 2.39 | 2.92 | 3.42 | 🟢 3.94 | 4.13 | 12.9% | 高 HH + 高 C + 高 O = 信頼性高、内省的 |
+| 4 | 3.17 | 3.58 | 2.5 | 🔴 2.04（最低）| 3.68 | 4.01 | 15.4% | 平均 HH + **低 A** + 高 C = 真面目だが非協調 |
+| 5 | 3.45 | 2.22 | 2.38 | 3.24 | 2.27 | 3.37 | 13.6% | 高 HH + 低 E + 低 X + 低 C = 抑制的、低活動 |
+| 6 | 3.09 | 3.55 | 2.58 | 2.57 | 2.71 | 2.57 | 13.9% | 平均 HH + 全般低 = 困難プロファイル |
+
+##### 高ハラスメントリスク型の特定（centroid + Tier 1+2+3 文献根拠）
+
+★ **Cluster 0（HH=2.5、A=2.45、X=3.79）が最高リスク** — Self-Oriented Independent
+
+理由（3 系統）：
+1. **個人レベル直接効果**：Pletzer 2019 HEXACO meta で HH は workplace deviance の最強 negative predictor、Tokiwa preprint で Psychopathy β=.32–.40（Psychopathy ↔ 低 HH r=−.72、Lee & Ashton 2005）
+2. **キャリア advancement 経由間接効果**（Part 1.5 で詳述）：Grijalva 2015 meta で narcissism → leadership emergence ρ=+0.16 → 権力濫用機会増
+3. **Combination of A + HH**：A=2.45（低）+ HH=2.5（低）= "他者を傷つけることに無関心 × 利己的目標"の textbook 加害者プロファイル
+
+**副次的に高リスク**：
+- Cluster 4（A=2.04 最低）：低 A 中心、ただし HH 平均値で間接 path 弱
+- Cluster 6（全般低）：HH 平均値だが overall negative profile
+
+**Phase 2 Counterfactual B（targeted intervention）の主 target**：Cluster 0、副 target：Cluster 4 と 6
 
 #### Harassment 論文（Preprint 改訂版、N=354）
 - HEXACO + Dark Triad → 加害傾向の HC3-robust 階層回帰
@@ -275,11 +330,19 @@ Expressed harassment incidence（MHLW で観測）
 5. 各 cell に対して bootstrap で**期待 latent 加害者数**を計算（CI 付き）
 6. → 出力は **latent prevalence**（environmental gating 前）
 
-#### Stage 2：加害行動の連鎖
+#### Stage 2：加害行動の連鎖（**Q2 修正：メンタル疾患 → 離職 の正しい causal chain**）
 1. **加害者数**：Stage 1 で算出（latent）
 2. **被害者数**：加害者 1 人あたり平均 V 人の被害者（V は厚労省実態調査から推定）
-3. **離職**：被害者の f1 割が離職（f1 は雇用動向調査から推定）
-4. **メンタル疾患**：被害者の f2 割が adjustment disorder / depression（f2 は労働安全衛生調査から推定。Tsuno & Tabuchi 2022 の bullying → SPD PR=3.20 を anchor）
+3. **メンタル疾患**：被害者の f2 割が adjustment disorder / depression / SPD（severe psychological distress）
+   - f2 は労働安全衛生調査から推定
+   - **Tsuno & Tabuchi 2022 anchor**：bullying → SPD（K6≥13）PR=3.20（男性）/ 2.39（女性）
+   - bullying → suicidal ideation PR=1.95（男性）/ 1.87（女性）も併用
+4. **離職**：メンタル疾患発症者の f1 割が離職
+   - f1 は雇用動向調査「人間関係」カテゴリから推定（ハラスメント specific 推定で補正）
+   - **Causal chain rationale**：bullying-induced mental distress → 仕事継続困難 → withdrawal → 離職 の標準 stress-illness-withdrawal model
+   - メンタル疾患を経由しない離職（直接的恐怖等）も補助 path として f1 の一部に embed
+
+**注**：旧版（〜2026-04-29）では「離職 → メンタル疾患」と記載していたが、これは **causal direction が逆**（mental distress が intermediate variable）。Tsuno & Tabuchi 2022 + 標準 stress-illness model に従い修正。
 
 #### Stage 3：sensitivity analysis
 - **V を [2, 3, 4, 5] でスイープ**
