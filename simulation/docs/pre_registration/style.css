@@ -1,0 +1,100 @@
+@page {
+  size: A4;
+  margin: 18mm 16mm 18mm 16mm;
+}
+
+html {
+  font-family: "Noto Sans CJK JP", "Noto Sans", "DejaVu Sans", sans-serif;
+  font-size: 9.5pt;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+body { margin: 0; padding: 0; }
+
+h1 {
+  font-size: 18pt;
+  font-weight: 700;
+  border-bottom: 2px solid #333;
+  padding-bottom: 4pt;
+  margin: 14pt 0 10pt 0;
+  page-break-after: avoid;
+}
+h2 {
+  font-size: 13pt;
+  font-weight: 700;
+  border-bottom: 1px solid #888;
+  padding-bottom: 2pt;
+  margin: 14pt 0 6pt 0;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 11.5pt;
+  font-weight: 700;
+  margin: 10pt 0 4pt 0;
+  page-break-after: avoid;
+}
+h4 {
+  font-size: 10.5pt;
+  font-weight: 700;
+  margin: 8pt 0 3pt 0;
+  page-break-after: avoid;
+}
+
+p { margin: 4pt 0; }
+
+ul, ol { margin: 4pt 0 4pt 18pt; padding: 0; }
+li { margin: 2pt 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 6pt 0;
+  font-size: 8.5pt;
+  page-break-inside: avoid;
+}
+th, td {
+  border: 1px solid #999;
+  padding: 3pt 5pt;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background-color: #f0f0f0;
+  font-weight: 700;
+}
+
+code {
+  font-family: "DejaVu Sans Mono", "Noto Sans CJK JP", monospace;
+  font-size: 8.5pt;
+  background-color: #f4f4f4;
+  padding: 0 2pt;
+  border-radius: 2pt;
+}
+
+pre {
+  background-color: #f4f4f4;
+  padding: 6pt;
+  border-radius: 3pt;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  font-size: 8pt;
+  page-break-inside: avoid;
+  border: 1px solid #ddd;
+}
+pre code { background-color: transparent; padding: 0; }
+
+blockquote {
+  border-left: 3px solid #888;
+  padding: 2pt 0 2pt 10pt;
+  margin: 6pt 0;
+  color: #444;
+  font-style: italic;
+}
+
+hr { border: none; border-top: 1px solid #bbb; margin: 10pt 0; }
+
+a { color: #1a4480; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.title-block { display: none; }
