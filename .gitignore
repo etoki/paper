@@ -2,6 +2,8 @@
 *.pdf
 # ...except under simulation/data/
 !simulation/data/**/*.pdf
+# ...and pre-registration PDFs (small, OSF supplementary uploads)
+!simulation/docs/pre_registration/*.pdf
 
 # Claude Code local settings
 .claude/

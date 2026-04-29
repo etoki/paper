@@ -972,8 +972,9 @@ Doc 2 Part 3 の capability approach に従い：
 - [x] **D8（介入 anchor）の確定** — ✅ 完了（Tier 2 で更に triangulation 強化）
 - [x] **文献基盤確立** — ✅ 完了（Tier 1+2+3+4 で 44 paper deep reading、metascience anchor 含む）
 - [x] **Part 7 倫理的配慮の整備** — ✅ 完了（v6 で新設）
-- [ ] **★ D12（Pre-registration）の作成と OSF 登録** — **次のマイルストーン**（実装前に必須、修正後）
-  - Pre-registration には：(i) RQ、(ii) hypothesis、(iii) D13 power analysis、(iv) 14-cell main + 28-cell sensitivity 仕様、(v) MAPE ≤ 30% 成功基準と > 60% failure 公表 commitment、(vi) Part 7 ethical disclaimer、(vii) D-NEW9 reproducibility commitment を含む
+- [~] **★ D12（Pre-registration）の作成と OSF 登録** — **draft 完了、OSF 登録 pending**（2026-04-29、`simulation/docs/pre_registration/D12_pre_registration_OSF.md` v1.0、958 行、15 セクション）
+  - Pre-registration には：(i) RQ、(ii) hypothesis（H1–H7）、(iii) D13 power analysis、(iv) 14-cell main + 28-cell sensitivity 仕様、(v) MAPE ≤ 30% 成功基準と > 60% failure 公表 commitment、(vi) Part 7 ethical disclaimer triple-locking、(vii) D-NEW9 reproducibility commitment を含む
+  - 次のサブマイルストーン：(a) co-author internal review、(b) independent methodologist による Section 5 (Analysis Plan) review、(c) 英訳版 (`D12_pre_registration_OSF.en.md`) 作成、(d) OSF Standard Pre-Registration template に転記して登録、(e) DOI 取得後に header に追記して lock
 - [ ] **論文 Introduction draft 着手**（Pre-registration 後）
 - [ ] **Stage 0 コード実装**（Pre-registration 後、D-NEW9 reproducibility infrastructure を構築しながら）
 
