@@ -57,7 +57,7 @@ OSF 提出時には：
 - **Affiliation**: SUNBLAZE Co., Ltd.
 - **Corresponding email**: eisuke.tokiwa@sunblaze.jp
 - Co-authors: なし（sole-authored study）
-- **Independent methodologist consultation**: pre-reg lock 後・Stage 1 validation 着手前に外部方法論者に Section 5 (Analysis Plan) のみ review 依頼予定。本人の意向により公開を望まない場合は Acknowledgments で "anonymous external methodologist" として記載、または Acknowledgments への記載を完全に省略（私的レビューに留める）。Munafò et al. 2017 Box 1 CHDI Foundation 例の軽量化適用。
+- **Independent methodologist consultation**: pre-reg lock 後・Stage 1 validation 着手前に外部方法論者（**mode B: anonymous external methodologist**、専門分野は数理生物学 / mathematical biology）に Section 5 (Analysis Plan) のみ review 依頼予定。本人の意向により本 pre-reg および将来の論文 Acknowledgments では **anonymous** として記載（"We thank an anonymous external methodologist with mathematical biology background for review of the analysis plan"）。氏名は author の private record として保持。Munafò et al. 2017 Box 1 CHDI Foundation 例の軽量化適用。
 
 ### 1.3 Description（abstract レベル）
 
