@@ -143,3 +143,121 @@ No large language models are used. All mechanisms are transparent probability ta
 
 ---
 
+## 2. Design Plan
+
+### 2.1 Study Type
+
+**Secondary analysis of preexisting data + microsimulation + counterfactual projection.**
+
+- No new data collection
+- No large language models or generative agents
+- Mechanism: probability tables + Monte Carlo bootstrap + Empirical Bayes shrinkage (Beta-Binomial conjugate, method of moments)
+- Causal framing: target trial emulation (Hernán & Robins 2020) + structural causal model (Pearl 2009 do-operator)
+
+### 2.2 Blinding
+
+The OSF Standard Pre-Registration concept of "blinding" applies to this study as follows:
+
+| Item | Status |
+|---|---|
+| Individual HEXACO scores | **Already observed** (N = 354 / N = 13,668, prior IRB-approved) |
+| Individual harassment self-reports (N = 354) | **Already observed** (aggregated in the Tokiwa harassment preprint) |
+| 7 type × gender 14-cell harassment cross-tabulation | **Unobserved** (will be generated for the first time under the analysis specification fixed by this preregistration) |
+| Stage 1 national aggregate predictions | **Unobserved** |
+| Counterfactual A/B/C simulation outputs | **Unobserved** |
+| MAPE against MHLW survey | **Unobserved** |
+
+→ Under strict adherence to Nosek 2018 PNAS Challenge 3, **"pure" preregistration is achievable** for the unobserved analyses; for already-observed individual-level data, the preregistration is acknowledged as **partial blinding** (Section 3.1.3).
+
+**Additional blinding-equivalent commitments**:
+- This preregistration is registered on OSF prior to commencement of Stage 0 code execution
+- Inference criteria (Section 6.6) and sensitivity sweeps (Section 6.4) are fixed before the 14-cell cross-tabulation is computed
+- MAPE success/failure thresholds (30% / 60%) are fixed before any comparison with MHLW survey data is performed
+
+### 2.3 Study Design
+
+#### 2.3.1 Phase 1 Pipeline
+
+```
+Stage 0: Type assignment & probability table construction
+  ├─ Input: harassment/raw.csv (N=354), clustering/csv/clstr_kmeans_7c.csv (centroids)
+  ├─ Step 1: Assign each of N=354 individuals to nearest of 7 centroids by Euclidean distance
+  ├─ Step 2: Compute 14-cell (7 type × 2 gender) crosstab for binary harassment outcome
+  │            (binarization: mean + 0.5 SD per outcome [main]; sensitivity: +0.25 / +1.0 SD)
+  ├─ Step 3: Bootstrap B = 2,000 iterations per cell with BCa CI (Efron 1987; DiCiccio & Efron 1996)
+  └─ Output: 14-cell propensity table with 95% CIs
+
+Stage 1: Population aggregation
+  ├─ Input: Stage 0 output + N=13,668 type distribution + MHLW labor force composition
+  ├─ Step 1: Obtain population proportions of the 7 types from N=13,668
+  ├─ Step 2: Reweight by age × gender from the MHLW Labor Force Survey
+  ├─ Step 3: Multiply cell-conditional probabilities by population weights → expected national latent prevalence
+  └─ Output: National latent prevalence with bootstrap CI
+
+Stage 2: Validation triangulation
+  ├─ Compare national latent prediction against MHLW 2016 (32.5%, primary), 2020 (31.4%), 2024 (19.3%)
+  ├─ Metrics: MAPE (primary), Pearson r, Spearman ρ, KS distance, Wasserstein distance, calibration plot
+  └─ Output: Validation report + cell-level prediction error map
+
+Stage 3: Sensitivity sweeps
+  ├─ V (victim multiplier) ∈ {2, 3, 4, 5}
+  ├─ f1 (turnover rate) ∈ {0.05, 0.10, 0.15, 0.20}
+  ├─ f2 (mental disorder rate) ∈ {0.10, 0.20, 0.30}
+  ├─ EB shrinkage strength ∈ {0.5×, 1.0×, 2.0×}
+  ├─ Binarization threshold ∈ {mean + 0.25 SD, +0.5 SD [main], +1.0 SD}
+  ├─ Cluster K ∈ {4, 5, 6, 7 [main, IEEE published], 8}
+  ├─ Role estimation models: (a) personality linear, (b) tree-based, (c) literature-based
+  └─ Output: Robustness diagnostic table
+
+Stage 4: Baseline hierarchy comparison (B0–B4)
+  ├─ B0: Uniform random
+  ├─ B1: Gender only
+  ├─ B2: HEXACO 6-domain linear regression
+  ├─ B3: 7 typology + gender (★ proposed method)
+  ├─ B4: B3 + age + industry estimate + employment type
+  └─ Output: MAPE for each baseline + monotonicity check
+
+Stage 5: CMV diagnostic
+  ├─ Harman's single-factor test on N=13,668 personality data (target < 50% variance)
+  ├─ Marker variable correction (Lindell & Whitney 2001) using HEXACO Openness as theoretical marker
+  └─ Output: CMV diagnostic supplementary
+```
+
+#### 2.3.2 Phase 2 Pipeline
+
+```
+Stage 6: Target trial emulation specification
+  ├─ Specify target trial protocol (PICO + duration) for each counterfactual
+  ├─ Eligibility: Japanese workers aged 20–64
+  ├─ Treatment strategies: A (universal HH +δ SD), B (targeted HH +δ SD on Clusters 0/4/6),
+  │                        C (cell probabilities × (1 − effect_C))
+  ├─ Assignment: simulated random
+  ├─ Outcome: population-level harassment prevalence
+  ├─ Follow-up: 24 weeks (Roberts 2017 anchor)
+  └─ Output: 4 identifying assumptions made explicit (exchangeability, positivity,
+              consistency, transportability)
+
+Stage 7: Counterfactual simulation
+  ├─ A (Kruse 2014 anchor):  shift HH by +δ SD for all N, re-classify clusters,
+  │                           re-estimate propensities, aggregate to national level
+  ├─ B (Hudson 2023 anchor): shift HH by +δ SD only for individuals in Clusters 0/4/6
+  ├─ C (Pruckner 2013 + Bezrukova 2016 + Dobbin & Kalev 2018 + Roehling 2018 triangulation):
+  │     multiply cell-conditional probabilities by (1 − effect_C)
+  └─ Output: ΔP_A, ΔP_B, ΔP_C with bootstrap CIs
+
+Stage 8: Counterfactual sensitivity
+  ├─ A: δ ∈ [0.1, 0.5] SD sweep
+  ├─ B: δ ∈ [0.2, 0.6] SD sweep
+  ├─ C: effect_C ∈ [0.10, 0.30] sweep
+  ├─ Transportability: Western-anchor effect × {0.3, 0.5, 0.7, 1.0}
+  │                    (Sapouna 2010 / Nielsen 2017 cultural moderator)
+  └─ Output: Robustness table
+```
+
+### 2.4 Randomization
+
+No physical randomization (observational + simulation). Bootstrap resamples and Monte Carlo runs are made deterministic via a **fixed random seed** (NumPy `default_rng(seed=20260429)`). The seed value is fixed by this preregistration.
+
+---
+
+
