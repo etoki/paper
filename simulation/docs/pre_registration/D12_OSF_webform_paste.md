@@ -283,5 +283,230 @@ Sensitivity sweeps are restricted to the ranges fixed by Section 6.4 of the atta
 
 ---
 
+## OSF Field 15 — Manipulated variables
+
+```
+This is a simulation study; "manipulated variables" refer to counterfactual operators applied to the probability tables (Pearl 2009 do-operator notation), not physical experimental manipulations.
+
+Four manipulated variables are pre-specified:
+
+1. δ_A (universal HH shift): Add δ × SD(HH) to HH score for all individuals, then re-classify clusters.
+   - Main: +0.3 SD; sensitivity range: [0.1, 0.5] SD
+   - Anchor: conservative discount of Kruse et al. (2014) d = 0.71
+
+2. δ_B (targeted HH shift): Add δ × SD(HH) to HH score only for individuals in Clusters 0/4/6 (primary: Cluster 0; secondary: Clusters 4 and 6).
+   - Main: +0.4 SD; sensitivity range: [0.2, 0.6] SD
+   - Anchor: conservative discount of Hudson (2023) self-selected effect
+
+3. effect_C (structural reduction): Multiply each cell-conditional probability by (1 − effect_C) for all 14 cells.
+   - Main: 0.20; sensitivity range: [0.10, 0.30]
+   - Anchor: triangulation of Pruckner & Sausgruber (2013) + Bezrukova et al. (2016) + Roehling & Huang (2018) + Dobbin & Kalev (2018)
+
+4. transportability_factor: Multiply Phase 2 anchor effect by factor before applying to Japan.
+   - Main: 1.0×; sensitivity sweep: {0.3×, 0.5×, 0.7×, 1.0×}
+   - Anchor: Sapouna (2010) cultural moderator; Nielsen et al. (2017) Asia/Oceania attenuation
+
+Full specification: Section 4.1 of the attached document.
+```
+
+(Source: EN Section 4.1)
+
+---
+
+## OSF Field 16 — Measured variables
+
+```
+Individual-level (N = 354 harassment data, harassment/raw.csv):
+- HEXACO 6 domains (Wakabayashi 2014 Japanese HEXACO-60), continuous Likert 1–5 mean
+- Dark Triad 3 (Shimotsukasa & Oshio 2017 SD3-J), continuous
+- Power harassment (Tou et al. 2017), continuous → binarized at mean + 0.5 SD per outcome
+- Gender harassment (Kobayashi & Tanaka 2010), continuous → binarized at mean + 0.5 SD
+- Age (continuous, years), gender (binary, 0/1, n = 133/220), area (categorical) — all self-reported
+
+Individual-level (N = 13,668 clustering data, clustering/csv/clstr_kmeans_7c.csv):
+- HEXACO 6 domains (continuous; centroids already extracted in IEEE-published clustering paper)
+- 7-cluster proportions (categorical; population scaling weight)
+
+Population-level (MHLW external validation):
+- Past-3-year harassment victimization rate: MHLW 2016 R2 (32.5%, primary), 2020 R2 (31.4%), 2024 R5 (19.3%)
+- Industry-stratified prevalence: MHLW 2020 R2 supplementary tables
+- 30-day prevalence: Tsuno et al. 2015 N = 1,546 random sample (6.1%, marginal-distribution check)
+- International baseline: ILO 2022 Asia–Pacific lifetime 19.2%
+- Turnover by reason "interpersonal relations": MHLW Employment Trend Survey (f1 anchor)
+- Mental disorder incidence: MHLW Industrial Safety and Health Survey + Tsuno & Tabuchi 2022 PR = 3.20 (f2 anchor)
+
+Full specification: Section 4.2 of the attached document.
+```
+
+(Source: EN Section 4.2)
+
+---
+
+## OSF Field 17 — Indices
+
+```
+Derived indices:
+
+- 7-type membership: each individual in N = 354 assigned to nearest centroid (Euclidean, HEXACO 6 domains).
+- Cell ID (14-cell, main analysis): type ∈ {0..6} × gender ∈ {0, 1}.
+- Cell ID (28-cell, sensitivity): type × gender × role ∈ {0, 1}.
+- Role probability: continuous, predicted from C + 0.5·X composite (top 15% → manager); D1 sensitivity compares 3 alternative models — (a) personality linear, (b) tree-based, (c) literature-based.
+- National latent prevalence: P̂ = Σ_cell (cell propensity × cell population weight).
+- MAPE: mean(|predicted − observed| / observed × 100); primary metric in Stage 2.
+- ΔP_x (counterfactual reduction): predicted_baseline − predicted_counterfactual_x.
+- Cost-effectiveness ratio (Phase 2 only): ΔP_x / N_treated_x.
+
+Full specification: Section 4.3 of the attached document.
+```
+
+(Source: EN Section 4.3)
+
+---
+
+## OSF Field 18 — Statistical models
+
+```
+Phase 1:
+
+Stage 0 cell-level propensity (14-cell main):
+- For each cell c ∈ {1..14}: observed propensity p̂_c = X_c / N_c, where X_c is the count of binary "harassment perpetrator" cases (binarized at mean + 0.5 SD per outcome).
+- Bootstrap distribution: B = 2,000 BCa resamples per cell (Efron 1987 J Am Stat Assoc; DiCiccio & Efron 1996 Stat Sci); BCa correction uses bias z₀ + acceleration a from jackknife.
+
+Stage 0 sensitivity (28-cell EB shrinkage):
+- Beta-Binomial conjugate (Casella 1985 + Clayton & Kaldor 1987 + Efron 2014 + Greenland 2000).
+- Hyperprior estimated by method of moments from the 14-cell main: α̂ = μ̂ × [μ̂(1−μ̂)/σ̂² − 1], β̂ = (1−μ̂) × [μ̂(1−μ̂)/σ̂² − 1].
+- 28-cell posterior: E[p_k | X_k, N_k] = (α̂ + X_k) / (α̂ + β̂ + N_k); 95% CI from Beta(α̂ + X_k, β̂ + N_k − X_k) quantiles.
+- Strength sensitivity sweep at scale ∈ {0.5×, 1.0× main, 2.0×}.
+- MoM stability diagnostic: Marginal MLE and Stan / brms hierarchical Bayesian posteriors run as auxiliary triangulation.
+
+Stage 1 population aggregation:
+- For each validation period t ∈ {2016, 2020, 2024}: P̂_t = Σ_c (p̂_c × W_c) / Σ_c W_c, where W_c is the cell weight (MHLW labor-force population × cluster proportion × gender proportion × age weight).
+- Bootstrap CI for P̂_t: 2,000 iterations, BCa.
+
+Stage 4 baseline hierarchy: B0 uniform, B1 gender-only logistic, B2 HEXACO 6-domain logistic, B3 7 type × gender cell-conditional (proposed), B4 = B3 + age + industry estimate + employment type cell-conditional.
+
+Stage 5 CMV diagnostic: Harman's single-factor unrotated EFA (Podsakoff et al. 2003); marker variable correction with HEXACO Openness (Lindell & Whitney 2001).
+
+Phase 2 counterfactual estimation:
+- Apply do-operator to N = 354 / cell-probability table per Field 15 specification.
+- Re-run Stage 0 → Stage 1 (Stage 2 validation omitted; only prediction).
+- ΔP_x = P̂_baseline − P̂_x.
+- Bootstrap CI for ΔP_x propagating cell-level uncertainty (2,000 iterations).
+- Cost-effectiveness for B: ΔP_B / |Cluster 0 ∪ 4 ∪ 6 in population|.
+
+Identifying assumptions of target trial emulation (exchangeability, positivity, consistency, transportability) are explicitly assessed in the Discussion (Section 5.7.4 of the attached document).
+
+Full specification: Section 5 of the attached document.
+```
+
+(Source: EN Section 5.1–5.7)
+
+---
+
+## OSF Field 19 — Transformations
+
+```
+Outcome binarization: harassment scale scores are binarized at mean + 0.5 SD per outcome (main); sensitivity sweep at mean + 0.25 SD and mean + 1.0 SD.
+
+Cluster assignment: each individual's HEXACO 6-domain score vector is assigned to the nearest of 7 centroids by Euclidean distance.
+
+Population reweighting: cell-level estimates are scaled to the Japanese workforce by MHLW Labor Force Survey weights (age × gender × employment type).
+
+No log transforms, square roots, or other nonlinear transformations are applied to the primary HEXACO scores. The HEXACO domain scores are used as the standard Likert 1–5 mean (research plan Part 11.1).
+
+Random seed 20260429 governs all stochastic operations (bootstrap, Monte Carlo, simulated assignment).
+```
+
+(Source: EN Sections 2.3, 5.1, 4.1)
+
+---
+
+## OSF Field 20 — Inference criteria
+
+```
+H1 (primary):
+- MAPE(P̂_2016, MHLW 2016 32.5%) ≤ 30% → SUCCESS
+- 30% < MAPE ≤ 60% → PARTIAL SUCCESS
+- MAPE > 60% → FAILURE (publish as failure-mode discovery; Section 7)
+
+H2: MAPE_B0 ≥ MAPE_B1 ≥ MAPE_B2 ≥ MAPE_B3 ≥ MAPE_B4. Direction confirmed if at least 3 of the 4 pairwise inequalities hold. Bonferroni–Holm correction at family-wise α = .05.
+
+H3: gap(2016) < gap(2024). Confirmed if MAPE_2016 < MAPE_2024.
+
+H4: sign(ΔP_A) is negative. Confirmed if 95% CI excludes 0 in the negative direction.
+
+H5: sign(ΔP_B) negative AND ΔP_B / N_treated > ΔP_A / N_total. Confirmed if both conditions hold.
+
+H6: sign(ΔP_C) is negative. Confirmed if 95% CI excludes 0.
+
+H7: ΔP_B > ΔP_A AND ΔP_B > ΔP_C. Confirmed if both inequalities hold at point estimates; flagged as uncertain if 95% CIs overlap.
+
+Multiple-comparison correction: Bonferroni–Holm at family-wise α = .05 for H2 (4 ordinal pairwise tests) and H4–H7 (3 counterfactual main tests). H1 is a single primary test (no correction). H7 is a composite single test.
+
+Failure-mode commitments:
+- H1 failure (MAPE > 60%): publish as failure-mode discovery.
+- H2 reversal (B3 < B2): publish as critical finding (typology overfitting).
+- H7 reversal (ΔP_B ≤ ΔP_A or ΔP_B ≤ ΔP_C): publish; revise main thesis claim.
+
+Post-hoc revision of MAPE thresholds (30% / 60%) is prohibited. Comparison against MHLW survey is performed only after this preregistration is registered on OSF.
+
+Full specification: Section 6 of the attached document.
+```
+
+(Source: EN Section 6.1–6.6)
+
+---
+
+## OSF Field 21 — Data exclusion
+
+```
+None at the analytic level. The N = 354 harassment dataset is used in full as released in the Tokiwa harassment preprint. The N = 13,668 clustering dataset is used in full as released in the Tokiwa clustering paper (IEEE-published).
+
+Cluster 6 (population-dominant ~32%) is intentionally NOT excluded from any counterfactual analysis, in order to preserve the positivity assumption of target trial emulation (Section 5.7.4).
+
+If a participant is missing one or more HEXACO domain scores, see Field 22.
+```
+
+(Source: EN Sections 3.1, 5.7.4)
+
+---
+
+## OSF Field 22 — Missing data
+
+```
+Existing datasets are used as released. Any rows with missing HEXACO domain scores in N = 354 are handled as follows:
+- Cluster assignment uses Euclidean distance over the available 6 HEXACO domain scores. Rows missing more than 1 of the 6 domains are flagged in a sensitivity supplementary; if their proportion exceeds 5% of N = 354, an additional sensitivity analysis is run that excludes them from the 14-cell crosstab.
+- Bootstrap resampling treats missingness as observed (no imputation): a row missing one domain is left out of cluster reassignment in that resample.
+- No multiple imputation is performed at the main analysis stage to avoid introducing a model-based covariance structure not specified in this preregistration.
+
+For population aggregation (Stage 1) and for MHLW external validation (Stage 2), any missing cells in MHLW supplementary tables are reported as such; no synthetic values are inserted.
+
+If empirical missingness patterns require deviation, the deviation is logged per Section 6.5 of the attached document.
+```
+
+(Source: EN Section 6.5; new specification consistent with Section 5)
+
+---
+
+## OSF Field 23 — Exploratory analysis
+
+```
+The following analyses are pre-specified but interpreted as exploratory rather than confirmatory:
+
+1. 28-cell EB sensitivity (Section 5.2): treated as sensitivity rather than as a confirmatory test of role × type interactions, because pairwise MDE in 28-cell is too large for confirmatory inference (D13 power analysis).
+2. Stage 5 CMV diagnostic (Section 5.6): exploratory; Harman's single-factor first-factor variance < 50% is the preregistered "concern is limited" threshold.
+3. Stage 4 B4 baseline (Section 5.5): exploratory comparison of personality slice incrementality with peripheral covariates; treated as evidence quality rather than confirmatory ranking.
+4. Subgroup MAPE by gender × age band (Section 5.4): exploratory failure-mode localization.
+5. HEXACO-domain-level associations (Section 3.1.3): interpreted as exploratory replication of the Tokiwa harassment preprint; the preregistered analyses are the type-conditional, cell-level cross-tabulations and the national aggregate predictions.
+6. Discriminant validity check on the harassment scale vs depression / job stress / general negative affect (Section 4.2 limitations L11): exploratory construct validity check; if the relevant correlation data are unavailable in N = 354, HEXACO Emotionality is used as a proxy.
+
+Any analysis not enumerated in Sections 5, 6, or here is exploratory and will be reported as such.
+```
+
+(Source: EN Sections 5.2, 5.4–5.6, 3.1.3)
+
+---
+
+
 
 
