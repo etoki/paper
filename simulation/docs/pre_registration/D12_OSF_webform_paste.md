@@ -1089,6 +1089,88 @@ EXCLUSION VARIABLES:
 
 ---
 
+## OSF Field B15 — Indices
+
+```
+Derived indices and their formulas:
+
+1. 7-TYPE MEMBERSHIP (Stage 0):
+   - Method: each individual i in N=354 is assigned to the nearest of 7 centroids by Euclidean distance over HEXACO 6 domains
+   - Formula: type(i) = argmin_j sqrt(sum_d (HEXACO_d_i − centroid_d_j)^2)
+     where d ∈ {H, E, X, A, C, O} and j ∈ {0..6}
+   - Centroids: Tokiwa clustering paper IEEE-published (clustering/csv/clstr_kmeans_7c.csv)
+
+2. CELL ID (14-cell, main):
+   - Method: cell(i) = (type(i), gender(i)), where type ∈ {0..6} and gender ∈ {0, 1}
+   - Number of cells: 14
+
+3. CELL ID (28-cell, sensitivity):
+   - Method: cell(i) = (type(i), gender(i), role(i)), where role ∈ {0=non-manager, 1=manager}
+   - Number of cells: 28
+   - Used only in EB-shrunken sensitivity (Section 5.2)
+
+4. ROLE PROBABILITY (D1 sensitivity):
+   - Main: top 15% of (C + 0.5 × X) composite → manager (matches MHLW Labor Force ~12-15% manager rate, and Judge, Bono, Ilies & Gerhardt 2002 leadership emergence findings)
+   - D1 sensitivity sweep: 3 alternative models — (a) linear regression P(manager) ~ HEXACO + age, (b) tree-based classifier, (c) literature rule (main)
+
+5. INDUSTRY PROBABILITY (B4 baseline, ★ added v1.1):
+   - Method: P(industry_j | age_i, gender_i, employment_i) for j ∈ 16 buckets, derived from MHLW Labor Force 2022 industry × demographic crosstabs
+   - 16 buckets: Mining/quarrying, Construction, Manufacturing, Electricity/gas/water, Information/communication, Transport/postal, Wholesale/retail, Finance/insurance, Real estate, Academic/professional, Accommodation/food, Lifestyle/entertainment, Education, Health/welfare, Compound services, Other services
+   - Used as weighting vector for B4 cell predictions
+
+6. CELL-CONDITIONAL PROPENSITY (Stage 0 main):
+   - Formula: p̂_c = X_c / N_c
+     where X_c = number of "harassment perpetrators" (binarized at mean + 0.5 SD per outcome) in cell c, N_c = total N in cell c
+   - Bootstrap distribution: B = 2,000 BCa resamples per cell (Efron 1987)
+
+7. EB-SHRUNKEN PROPENSITY (Stage 0 sensitivity, 28-cell):
+   - Method: Beta-Binomial conjugate posterior
+   - Hyperprior estimation by method of moments from 14-cell distribution:
+     α̂ = μ̂ × [μ̂(1−μ̂)/σ̂² − 1]
+     β̂ = (1−μ̂) × [μ̂(1−μ̂)/σ̂² − 1]
+     where μ̂ = mean(p̂_j), σ̂² = var(p̂_j) for j = 1..14
+   - Posterior for 28-cell k: E[p_k | X_k, N_k] = (α̂ + X_k) / (α̂ + β̂ + N_k)
+   - 95% credible interval: from Beta(α̂ + X_k, β̂ + N_k − X_k) quantiles
+   - Strength sensitivity: scale ∈ {0.5×, 1.0× main, 2.0×}
+
+8. NATIONAL LATENT PREVALENCE (Stage 1):
+   - Formula: P̂_t = Σ_c (p̂_c × W_c) / Σ_c W_c
+     where W_c = MHLW labor-force population × cluster proportion (from N=13,668) × gender proportion × age weight
+   - For each validation period t ∈ {FY2016, FY2020, FY2023}
+   - Bootstrap CI: B = 2,000 iterations, BCa
+
+9. MAPE (PRIMARY metric, Stage 2):
+   - Formula: MAPE = mean(|predicted_i − observed_i| / observed_i) × 100
+   - Computed against MHLW H28 (FY2016, primary), MHLW R2 (FY2020), MHLW R5 (FY2023) power-harassment past-3-year rates
+   - SUCCESS threshold: ≤ 30%; PARTIAL: 30-60%; FAILURE: > 60%
+
+10. SUBGROUP MAPE (Stage 2 secondary):
+    - Gender × age band: failure-mode localization
+    - Industry-stratified (B4, H2.industry): MAPE against MHLW R5 16-bucket data; threshold ≤ 50% (relaxed)
+
+11. ΔP_x (counterfactual reduction, Phase 2 Stages 6-8):
+    - Formula: ΔP_x = P̂_baseline − P̂_x for x ∈ {A, B, C}
+    - Bootstrap CI propagating cell-level uncertainty
+
+12. COST-EFFECTIVENESS RATIO (H5):
+    - Formula: (ΔP_B) / |Cluster 0 ∪ 4 ∪ 6 in population|
+    - Compared to ΔP_A / N_total
+
+13. STAGE 2 CHAIN OUTPUT (Pasona sanity check, ★ added v1.1):
+    - Predicted annual harassment-induced turnover = Σ_cell (predicted perpetrators × V × f1)
+    - V (victim multiplier): main 3, sensitivity {2, 3, 4, 5}
+    - f1 (turnover rate): main 0.10, sensitivity {0.05, 0.10, 0.15, 0.20}
+    - Soft criterion: predicted within 50-200% of Pasona 2022 estimate (865,000/year), i.e., 430,000-1,730,000
+
+14. CMV INDICES (Stage 5):
+    - Harman's first-factor variance %: from unrotated 1-factor EFA on N=13,668 HEXACO items; threshold < 50%
+    - Marker-variable adjusted correlations: HEXACO Openness as theoretical marker (Lindell & Whitney 2001)
+
+All formulas, parameters, and sensitivity ranges are fixed by the preregistration (Sections 5 and 6.4 of the attached document).
+```
+
+---
+
 
 
 
