@@ -1171,6 +1171,30 @@ All formulas, parameters, and sensitivity ranges are fixed by the preregistratio
 
 ---
 
+## OSF Field B16 — Statistical models (REQUIRED, compact)
+
+```
+Full specifications in Section 5 of the attached preregistration PDF. Summary:
+
+Stage 0 (cell-level): Bootstrap B=2,000 with BCa CI (Efron 1987) for each of 14 cells (7 type × 2 gender). 28-cell sensitivity uses Beta-Binomial conjugate EB shrinkage (Casella 1985, Clayton & Kaldor 1987) with method-of-moments hyperprior; strength sweep at scale ∈ {0.5×, 1.0×, 2.0×}.
+
+Stage 1 (population aggregation): P̂_t = Σ_c (p̂_c × W_c) / Σ_c W_c, weights W_c from MHLW Labor Force Survey age × gender × employment crosstabs.
+
+Stage 2 (validation): MAPE against MHLW H28 (FY2016) 32.5% past-3-year power harassment (primary). Secondary: Pearson r, Spearman ρ, KS distance, Wasserstein distance, calibration plot.
+
+Stage 4 (baseline hierarchy): B0 uniform, B1 gender logistic, B2 HEXACO 6-domain logistic, B3 (proposed) 7 type × gender cell-conditional, B4 = B3 + age + estimated industry + employment cell-conditional. Pre-registered ordinal: MAPE_B0 ≥ ... ≥ MAPE_B4.
+
+Stage 5 (CMV): Harman's single-factor EFA on N=13,668 HEXACO items (threshold first-factor < 50%); marker-variable correction (Lindell & Whitney 2001) using HEXACO Openness.
+
+Phase 2 Stages 6-8 (counterfactuals): Pearl 2009 do-operator notation. A = do(HH := HH + δ_A · SD) all individuals; B = same on Clusters 0/4/6 only; C = do(p_c := p_c × (1 − effect_C)) all 14 cells. Bootstrap CIs for ΔP_x. Target trial emulation with 4 identifying assumptions explicit (Hernán & Robins 2020).
+
+Convergence criteria: bootstrap CI half-width must stabilize within 5% across the last 200 of 2,000 resamples per cell. MoM hyperprior diagnostics: σ̂² as fraction of μ̂(1−μ̂); auxiliary MLE / Stan posterior for triangulation if MoM diverges.
+
+Assumption tests: D13 power analysis (Cohen's d ≥ 0.92 pairwise) precludes cell-level confirmatory inference (preregistered limitation). CMV diagnostic gates causal interpretation (Section 4.2 L8).
+```
+
+---
+
 
 
 
