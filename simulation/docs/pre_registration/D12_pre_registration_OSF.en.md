@@ -1115,6 +1115,7 @@ The preregistration is **locked** when all of the following are complete; only t
 
 - [x] OSF DOI acquired (v1.1: 10.17605/OSF.IO/45QP9; **v2.0 (current primary): 10.17605/OSF.IO/3Y54U**)
 - [x] DOI added to the Header of this document (and the Japanese master), v2.0 LOCKED status reflected
+- [x] **Methods Clarifications Log v1.0** locked on 2026-05-21 (`D12_v2.0_methods_clarifications.md`, Section 6.5 Level 1 deviation log to be uploaded to the OSF v2.0 project as supplementary; 4 Major + 7 Minor + 5 Nitpick clarifications applied per anonymous methodologist review; 5th-tier proposal SKIPPED with rationale)
 - [N/A] Co-author sign-off — not applicable (sole-authored)
 - [ ] Section 5 (Analysis Plan) reviewed by an independent methodologist
 - [ ] Repository structure (Section 8.2) initialized
