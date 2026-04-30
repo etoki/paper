@@ -41,7 +41,7 @@ The present study adopts the framework of *target trial emulation* (Hernán & Ro
 
 Counterfactual contrasts are formulated using the Pearl (2009) do-operator. Specifically, we define three pre-registered interventions:
 
-- **Counterfactual A** (personality intervention): do(HH ← HH + 0.3 σ_HH; A ← A + 0.3 σ_A; E ← E + 0.3 σ_E). The +0.3 SD calibration is derived from the upper bound of effect sizes reported in personality-training meta-analyses (Hudson & Fraley, 2015; Sleep & Watts, 2024).
+- **Counterfactual A** (personality intervention): do(HH ← HH + 0.3 σ_HH; A ← A + 0.3 σ_A; E ← E + 0.3 σ_E). The +0.3 SD calibration is derived from the upper bound of effect sizes reported in personality-training meta-analyses (Hudson & Fraley, 2015; Roberts et al., 2017).
 - **Counterfactual B** (cluster reassignment): do(cluster ∈ {0, 4, 6}). Individuals are computationally reassigned to one of three low-harassment-prevalence typologies, retaining their original HEXACO scores. This intervention represents an extreme (and arguably implausible) personality-shift scenario, included as an upper bound on what any person-level intervention could achieve.
 - **Counterfactual C** (structural reform): do(P_{c, x = power} ← 0.8 × P_{c, x = power}). Cell-level propensity is reduced by 20% uniformly across all cluster × gender cells, calibrated against three meta-analyses of organizational anti-harassment interventions (Escartín, 2016; Hodgins, MacCurtain, & Mannix-McNamara, 2014; Salin, 2021), as well as the empirical −12.1 percentage-point reduction observed in the MHLW survey series during the 2020 Power Harassment Prevention Law's staged enforcement.
 
