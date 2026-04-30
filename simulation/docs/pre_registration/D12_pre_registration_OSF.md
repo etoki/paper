@@ -410,7 +410,14 @@ For each cell c ∈ {1..14} (7 type × 2 gender):
 - Bootstrap distribution: B = 2,000 BCa resamples / cell (Efron 1987 J Am Stat Assoc; DiCiccio & Efron 1996 Stat Sci)
 - BCa correction: bias z₀ + acceleration a from jackknife
 
-**Output**: 14-cell table with point estimate p̂_c and 95% BCa CI [p̂_c^lo, p̂_c^hi]
+**BCa numerical stability fallback chain** (★ added v2, anonymous methodologist consultation):
+- BCa is the primary CI method.
+- If acceleration parameter |a| > 10 (jackknife instability, typically caused by binary outcome with rate near 0/N or N/N at small N) OR BCa computation raises numerical error (division by zero, NaN propagation), automatically fallback to **Bias-Corrected (BC) bootstrap** (z₀ correction only, no acceleration).
+- If BC bootstrap also fails (rare; sample distribution too degenerate), fallback to **percentile bootstrap** (no correction).
+- All cells record which CI method was actually used; the supplementary table reports per-cell method (BCa / BC / percentile).
+- Aggregate-level (Stage 1, Stage 2) bootstrap propagation inherits the cell-level method choice automatically.
+
+**Output**: 14-cell table with point estimate p̂_c and 95% CI [p̂_c^lo, p̂_c^hi] (method = BCa / BC / percentile recorded per cell).
 
 ### 5.2 Phase 1 Stage 0 (sensitivity): 28-cell EB shrinkage
 
@@ -426,10 +433,30 @@ Beta-Binomial conjugate (Casella 1985 + Clayton & Kaldor 1987 + Efron 2014 Stat 
 3. **Strength sensitivity sweep** (★ pre-registered):
    - scale ∈ {0.5×, 1.0× (main), 2.0×}: hyper-parameters (α̂, β̂) を scale で乗じて weak / medium / strong shrinkage を比較
 
-**MoM 不安定性 diagnostic** (research plan Part 11.9 caveat):
-- N=14 cell で σ̂² 小 → α̂, β̂ が極端に大 (強 prior) になる risk
-- **Triangulation**: Marginal MLE および Stan / brms hierarchical Bayes posterior を補助実行
-- Diagnostic plot: μ̂ ± SE plot、shrunken vs raw scatter で過剰縮約 visual check
+**MoM rejection decision rule** (★ added v2, pre-specified, anonymous methodologist consultation):
+
+The pre-reg fixes the following hard rule for choosing between MoM and Stan hierarchical Bayes as the **primary** 28-cell estimator:
+
+- **REJECT MoM, switch to Stan** if EITHER of:
+  - σ̂² / [μ̂(1−μ̂)] < 0.05 (variance too small relative to maximum-possible binomial variance; MoM produces extreme α̂, β̂ with overshrink risk)
+  - max(α̂, β̂) > 100 (pseudo-count exceeds 7× the median cell N=14; MoM dominates likelihood signal)
+- **ACCEPT MoM as primary** if both conditions clear.
+- The threshold values 0.05 and 100 are FIXED by this v2 preregistration; no post-hoc adjustment is permitted.
+
+**In ALL cases (regardless of acceptance / rejection), THREE estimators are computed and reported** (★ added v2 triangulation requirement):
+
+| Estimator | Status | Reporting |
+|---|---|---|
+| MoM (Beta-Binomial conjugate) | Primary IF accepted | Main text + supplementary |
+| Marginal MLE (numerical maximization) | Always run | Supplementary (triangulation) |
+| Stan hierarchical Bayes (HMC, brms) | Primary IF MoM rejected | Main text (if primary) + supplementary always |
+
+**Cross-check diagnostic** (★ added v2, methodologist suggestion): in addition to the σ̂² / [μ̂(1−μ̂)] threshold, the supplementary reports the alternative diagnostic **(α̂ + β̂) / median cell N** as a second indicator of overshrink concern. Readers can verify that the threshold-based switch does not produce qualitatively different conclusions.
+
+**MoM threshold sensitivity caveat** (★ added v2, methodologist note): σ̂² is itself a sample estimate from N=14 cells with sampling variability. To address this, the supplementary reports MoM and Stan results in parallel even when MoM is "accepted" by the rule, demonstrating robustness across the threshold boundary.
+
+**Diagnostic plots** (★ existing, retained): μ̂ ± SE plot; shrunken vs raw scatter; MoM-vs-Stan agreement scatter (★ added v2).
+
 
 ### 5.3 Phase 1 Stage 1: Population aggregation
 
