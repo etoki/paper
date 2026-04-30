@@ -20,6 +20,11 @@ __pycache__/
 .venv/
 venv/
 
+# Stage 0 pipeline outputs (regenerable via `make reproduce`)
+simulation/output/supplementary/
+simulation/output/tables/
+simulation/output/figures/
+
 # Secrets / API keys (never commit)
 .env
 .env.*
