@@ -1195,6 +1195,24 @@ Assumption tests: D13 power analysis (Cohen's d ≥ 0.92 pairwise) precludes cel
 
 ---
 
+## OSF Field B17 — Transformations
+
+```
+Outcome binarization: harassment scale scores binarized at mean + 0.5 SD per outcome (main); sensitivity sweep at mean + 0.25 SD and mean + 1.0 SD.
+
+Cluster assignment: each individual's HEXACO 6-domain vector → nearest of 7 centroids by Euclidean distance.
+
+Population reweighting: cell-level estimates scaled by MHLW Labor Force Survey weights (age × gender × employment type).
+
+Categorical coding: gender 0/1, role 0/1 (non-manager/manager), cluster 0..6, industry 0..15 (16 buckets matching MHLW industry classification).
+
+No log transforms, square roots, or other nonlinear transformations on HEXACO scores. HEXACO domains used as standard Likert 1-5 means.
+
+Random seed 20260429 governs all stochastic operations.
+```
+
+---
+
 
 
 
