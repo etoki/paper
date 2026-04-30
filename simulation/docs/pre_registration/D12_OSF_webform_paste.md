@@ -725,6 +725,127 @@ No experimental blinding (this is an observational secondary-analysis study with
 
 ---
 
+## OSF Field B7 — Study design
+
+```
+This study has no experimental design in the traditional RCT sense (no two-group, factorial, randomized block, or repeated-measures structure with assigned treatments). It is an OBSERVATIONAL SECONDARY ANALYSIS combined with COMPUTATIONAL MICROSIMULATION and COUNTERFACTUAL PROJECTION.
+
+Two-phase computational pipeline:
+
+Phase 1 (descriptive simulation, 5 stages):
+- Stage 0: Type assignment and probability table construction. Each of N=354 individuals is assigned to the nearest of 7 centroids by Euclidean distance over HEXACO 6-domain scores (centroids from the IEEE-published Tokiwa clustering paper, N=13,668). The 14-cell (7 type × 2 gender) crosstab is computed for binary harassment outcomes (binarized at mean + 0.5 SD per outcome). Bootstrap B = 2,000 iterations per cell with BCa confidence intervals (Efron 1987).
+- Stage 1: Population aggregation. Cell-conditional probabilities are scaled to the Japanese workforce (~68 million) via MHLW Labor Force Survey weights (age × gender × employment type).
+- Stage 2: Validation triangulation. National latent prediction is compared against MHLW H28 (FY2016, pre-law) 32.5% (primary), MHLW R2 (FY2020, transition) 31.4%, and MHLW R5 (FY2023, post-law, published March 2024) 19.3% past-3-year power harassment rates. Metrics: MAPE (primary), Pearson r, Spearman rho, KS distance, Wasserstein distance, calibration plot.
+- Stage 3: Sensitivity sweeps over V, f1, f2, EB shrinkage strength, binarization threshold, cluster K, role-estimation models. All ranges fixed by Section 6.4 of the preregistration.
+- Stage 4: Baseline hierarchy comparison. B0 (uniform random), B1 (gender-only logistic), B2 (HEXACO 6-domain linear logistic), B3 (proposed: 7 type × gender cell-conditional), B4 (B3 + age + estimated industry + employment type). Pre-registered ordinal hypothesis: MAPE_B0 ≥ MAPE_B1 ≥ MAPE_B2 ≥ MAPE_B3 ≥ MAPE_B4.
+- Stage 5: Common-method-variance diagnostic (Harman's single-factor test on N=13,668 personality data; marker-variable correction using HEXACO Openness as theoretical marker, per Lindell & Whitney 2001).
+
+Phase 2 (intervention counterfactuals, 3 stages):
+- Stage 6: Target trial emulation specification (Hernán & Robins 2020). PICO + 24-week duration (Roberts 2017 anchor) for each counterfactual. Four identifying assumptions (exchangeability, positivity, consistency, transportability) are explicitly assessed.
+- Stage 7: Counterfactual simulation using Pearl 2009 do-operator notation:
+  - A (universal HH intervention): do(HH := HH + δ_A × SD(HH)) for all individuals; main δ_A = +0.3 SD; sensitivity range [0.1, 0.5] SD; anchor: Kruse 2014 d=0.71 (conservatively discounted).
+  - B (targeted intervention, primary intervention of interest): do(HH := HH + δ_B × SD(HH)) only for individuals in Cluster 0 (primary, Self-Oriented Independent profile) and Clusters 4, 6 (secondary); main δ_B = +0.4 SD; sensitivity range [0.2, 0.6] SD; anchor: Hudson 2023 self-selected effect (conservatively discounted).
+  - C (structural-only intervention): do(p_c := p_c × (1 − effect_C)) for all 14 cells; main effect_C = 0.20; sensitivity range [0.10, 0.30]; anchor: triangulation of Pruckner & Sausgruber 2013, Bezrukova et al. 2016, Roehling & Huang 2018, Dobbin & Kalev 2018.
+- Stage 8: Transportability sensitivity. Western anchor effects multiplied by {0.3×, 0.5×, 0.7×, 1.0×} to test cross-cultural attenuation per Sapouna 2010 / Nielsen 2017 cultural moderator evidence.
+
+Design characteristics:
+- BETWEEN-SUBJECT structure: the 14 cells (7 type × 2 gender) define between-subject groupings; each individual belongs to exactly one cell.
+- WITHIN-SUBJECT structure: not applicable (single observation per person; cross-sectional data).
+- COUNTERBALANCING: not applicable (no temporal order or sequence effects).
+- BLINDING: see Blinding fields above.
+
+Full pipeline diagrams in Section 2.3, statistical model specifications in Section 5, inference criteria in Section 6, of the attached preregistration document (D12_pre_registration_OSF.en.pdf).
+```
+
+---
+
+## OSF Field B8 — Randomization (Optional)
+
+```
+No physical randomization (this is an observational secondary analysis combined with simulation; there is no real-time assignment of subjects to treatments).
+
+Within the simulation, all stochastic operations are made deterministic via a fixed random seed:
+- NumPy: default_rng(seed=20260429)
+- Python: random.seed(20260429)
+- Stan: seed=20260429
+
+The seed value 20260429 is fixed by this preregistration and will not be changed. Bootstrap resample states (B = 2,000 iterations per cell, BCa CI) are persisted to HDF5 for full reproducibility regardless of analyst.
+
+Counterfactuals A / B / C in Phase 2 are framed as "simulated random assignment" within the target trial emulation framework (Hernán & Robins 2020). In practice, the do-operator is applied uniformly to the relevant subgroup:
+- Counterfactual A: do(HH := HH + δ_A × SD(HH)) applied to ALL individuals
+- Counterfactual B: do(HH := HH + δ_B × SD(HH)) applied to individuals in Clusters 0, 4, 6
+- Counterfactual C: do(p_c := p_c × (1 − effect_C)) applied to all 14 cells
+
+This "as-if randomization" is theoretical (counterfactual projection under explicit identifying assumptions), not actual experimental randomization.
+```
+
+---
+
+## OSF Field B9 — Data collection procedures (REQUIRED)
+
+```
+This study performs SECONDARY ANALYSIS of preexisting datasets and public statistics. NO NEW DATA COLLECTION is involved. The data sources are:
+
+1. INDIVIDUAL-LEVEL DATA (preexisting, IRB-approved):
+
+   (a) N=354 harassment data (Tokiwa harassment preprint).
+   - Population: Japanese workers
+   - Sampling frame: Japanese online panel platform
+   - Recruitment: self-selected respondents, monetary incentive
+   - Inclusion: working-age adults, Japanese language proficiency
+   - Exclusion: failed lie-scale and attention checks
+   - Variables: HEXACO 6 domains (Wakabayashi 2014 Japanese HEXACO-60), Dark Triad 3 (Shimotsukasa & Oshio 2017 SD3-J), Workplace Power Harassment Scale (Tou et al. 2017), Gender Harassment Scale (Kobayashi & Tanaka 2010), age, gender, area
+   - Source file: harassment/raw.csv (anonymized)
+   - IRB: documented in the Tokiwa harassment preprint
+
+   (b) N=13,668 clustering data (Tokiwa clustering paper, IEEE-published).
+   - Population: Japanese adults
+   - Sampling frame: large-scale Japanese online panel
+   - Recruitment: stratified online survey
+   - Inclusion: aged 18+, Japanese language proficiency
+   - Exclusion: incomplete responses, failed attention checks
+   - Variables: HEXACO 6 domains (full assessment), basic demographics
+   - Source file: clustering/csv/clstr_kmeans_7c.csv (centroids only, aggregated)
+   - IRB: documented in the Tokiwa clustering paper, IEEE
+
+2. POPULATION-LEVEL STATISTICS (preexisting public sources):
+   - MHLW H28 (FY2016) Survey on Workplace Power Harassment: 32.5% past-3-year power harassment, pre-law (★ H1 primary validation target)
+   - MHLW R2 (FY2020) Survey on Workplace Harassment: 31.4% (transition)
+   - MHLW R5 (FY2023, published March 2024) Survey on Workplace Harassment: 19.3% post-law; industry-stratified 16-26.8% (★ H2.industry secondary criterion). Full report (385 pages) attached in simulation/prior_research/_text/.
+   - MHLW R4 (FY2022) Employment Trend Survey: turnover by reason "workplace interpersonal" 8.3-9.4% (f1 secondary anchor). PDF attached.
+   - MHLW Industrial Safety and Health Survey: mental disorder incidence (f2 anchor).
+   - MHLW Labor Force Survey 2022: industry × demographic crosstabs for B4 industry probabilistic estimation.
+   - ILO 2022 Global Survey: Asia-Pacific lifetime 19.2% (international baseline).
+
+3. INDUSTRY-SURVEY DATA (preexisting third-party):
+   - Pasona Research (2022) "Quantitative Survey on Workplace Harassment" by PERSOL Research and Consulting Co., Ltd.
+   - Population: Japanese workers aged 20-69
+   - Sampling frame: PERSOL Research online panel
+   - N=28,135 total (3,000 5-year harassment victims, 1,000 witnesses, 1,000 non-experiencers, plus general workforce)
+   - Conducted August 30 - September 5, 2022
+   - Used for: 5-year harassment prevalence triangulation (19.7%), industry-stratified prevalence (16.9-22.9%), f1 PRIMARY empirical anchor (10.3% with industry range 6.3-13.3%), Stage 2 chain output sanity check (865,000 annual harassment-induced turnover; 66% unreported / 暗数化)
+   - Full report (152 pages) attached in simulation/prior_research/_text/
+
+4. OTHER PUBLISHED ANCHORS:
+   - Tsuno et al. (2010) Japanese NAQ-R (measurement validity)
+   - Tsuno et al. (2015) PLOS ONE - Japanese national-representative N=1,546, 30-day prevalence 6.1% (marginal-distribution check)
+   - Tsuno & Tabuchi (2022) - Bullying → SPD PR=3.20 (f2 anchor)
+
+DATA PREPARATION:
+- N=354 harassment data: loaded as-is from harassment/raw.csv (anonymized).
+- N=13,668 centroids: loaded from clustering/csv/clstr_kmeans_7c.csv (IEEE-published aggregated values).
+- Public PDFs and tables: accessed from simulation/prior_research/_text/ (committed to the repository).
+- All individual-level data have been previously anonymized; no personal identifiers are present.
+
+EXPECTED DURATION:
+- Data are already collected. The secondary analysis will be performed over approximately 2-3 months following preregistration lock and OSF DOI acquisition.
+
+ETHICS:
+- Secondary analysis of anonymized data; no new IRB approval is required. Original IRB approvals are documented in the Tokiwa harassment preprint and the Tokiwa clustering paper (IEEE-published).
+```
+
+---
+
 
 
 
