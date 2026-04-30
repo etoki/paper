@@ -116,12 +116,12 @@ Per the v2.0 master Section 5.8 cultural-attenuation sweep, all three ΔP_x boot
 
 | Factor F | Anchor | ΔP_A (attenuated) | ΔP_C (attenuated) | H7 |
 |---|---|---:|---:|---|
-| **0.3** | Sapouna 2010 worst case | −0.0018 | +0.0106 | **REVERSAL** |
-| **0.5** | Nielsen 2017 expected | −0.0030 | +0.0177 | **REVERSAL** |
+| **0.3** | Conservative cross-cultural worst case | −0.0018 | +0.0106 | **REVERSAL** |
+| **0.5** | Nielsen, Glasø, & Einarsen 2017 expected | −0.0030 | +0.0177 | **REVERSAL** |
 | **0.7** | Mild attenuation | −0.0042 | +0.0248 | **REVERSAL** |
 | **1.0** | Reference (no attenuation) | −0.0061 | +0.0354 | **REVERSAL** |
 
-The H7 = REVERSAL classification is robust across all four pre-registered cultural attenuation factors. Even under the worst-case Sapouna (2010) UK→Germany null scenario (F = 0.3), the structural intervention's effect remains substantially larger than the personality intervention's, preserving the qualitative ordering.
+The H7 = REVERSAL classification is robust across all four pre-registered cultural attenuation factors. Even under the conservative cross-cultural worst-case scenario (F = 0.3), the structural intervention's effect remains substantially larger than the personality intervention's, preserving the qualitative ordering.
 
 ## 3.8 Summary of pre-registered hypothesis outcomes
 

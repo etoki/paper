@@ -452,8 +452,8 @@ def figure6_transportability(
 
     # Annotate factor anchor labels
     anchor_labels = {
-        0.3: "Sapouna 2010\n(worst case)",
-        0.5: "Nielsen 2017\n(expected)",
+        0.3: "Conservative\n(worst case)",
+        0.5: "Nielsen et al. 2017\n(expected)",
         0.7: "Mild",
         1.0: "Reference",
     }

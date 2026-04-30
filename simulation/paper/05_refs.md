@@ -26,7 +26,7 @@ Hudson, N. W., & Fraley, R. C. (2015). Volitional personality trait change: Can 
 
 Kobayashi, F., & Tanaka, K. (2010). Development of a Gender Harassment Scale for Japanese workers. *Industrial Health, 48*(2), 183–192. [Equivalent / placeholder citation; final version to verify against original Japanese-language publication.]
 
-Lee, K., Ashton, M. C., Wiltshire, J., Bourdage, J. S., Visser, B. A., & Gallucci, A. (2014). Sex, power, and money: Prediction from the Dark Triad and Honesty-Humility. *European Journal of Personality, 27*(2), 169–184. https://doi.org/10.1002/per.1860
+Lee, K., Ashton, M. C., Wiltshire, J., Bourdage, J. S., Visser, B. A., & Gallucci, A. (2013). Sex, power, and money: Prediction from the Dark Triad and Honesty-Humility. *European Journal of Personality, 27*(2), 169–184. https://doi.org/10.1002/per.1860
 
 Lindell, M. K., & Whitney, D. J. (2001). Accounting for common method variance in cross-sectional research designs. *Journal of Applied Psychology, 86*(1), 114–121. https://doi.org/10.1037/0021-9010.86.1.114
 
@@ -40,7 +40,7 @@ Ministry of Health, Labour and Welfare (MHLW). (2021). *Workplace harassment sur
 
 Ministry of Health, Labour and Welfare (MHLW). (2024). *Workplace harassment survey: R5 (FY2023) results* [in Japanese: 令和5年度 職場のハラスメントに関する実態調査]. https://www.mhlw.go.jp/
 
-Nielsen, M. B. (2017). The HEXACO model and workplace bullying: Personality and victim characteristics. In E. G. Mikkelsen et al. (Eds.), *Bullying and harassment in the workplace*. CRC Press.
+Nielsen, M. B., Glasø, L., & Einarsen, S. (2017). Exposure to workplace harassment and the Five Factor Model of personality: A meta-analysis. *Personality and Individual Differences, 104*, 195–206. https://doi.org/10.1016/j.paid.2016.08.015
 
 Page, E. B. (1963). Ordered hypotheses for multiple treatments: A significance test for linear ranks. *Journal of the American Statistical Association, 58*(301), 216–230. https://doi.org/10.1080/01621459.1963.10500843
 
@@ -58,9 +58,9 @@ Salin, D. (2003). Ways of explaining workplace bullying: A review of enabling, m
 
 Salin, D. (2018). Workplace bullying and gender: An overview of empirical findings. In P. D'Cruz, E. Noronha, C. Caponecchia, J. Escartín, D. Salin, & M. R. Tuckey (Eds.), *Dignity and inclusion at work: Handbooks of workplace bullying, emotional abuse and harassment* (Vol. 3, pp. 331–361). Springer. https://doi.org/10.1007/978-981-13-0218-3_12
 
-Sapouna, M. (2010). Bullying in a primary school: A comparison of the prevalence in Greece and the United Kingdom. *International Journal of Adolescence and Youth, 16*(2), 143–161.
+Power, J. L., Brotheridge, C. M., Blenkinsopp, J., Bowes-Sperry, L., Bozionelos, N., Buzády, Z., Chuang, A., Drnevich, D., Garzon-Vico, A., Leighton, C., Madero, S. M., Mak, W., Mathew, R., Monserrat, S. I., Mujtaba, B. G., Olivas-Lujan, M. R., Polycroniou, P., Sprigg, C. A., Axtell, C., … Nnedumm, A. U. O. (2013). Acceptability of workplace bullying: A comparative study on six continents. *Journal of Business Research, 66*(3), 374–380. https://doi.org/10.1016/j.jbusres.2011.08.018
 
-Saunders, P., Huynh, A., & Goodman-Delahunty, J. (2007). Defining workplace bullying behaviour professional lay definitions of workplace bullying. *International Journal of Law and Psychiatry, 30*(4–5), 340–354. https://doi.org/10.1016/j.ijlp.2007.06.007
+Escartín, J. (2016). Insights into workplace bullying: Psychosocial drivers and effective interventions. *Psychology Research and Behavior Management, 9*, 157–169. https://doi.org/10.2147/PRBM.S91211
 
 Schelling, T. C. (1971). Dynamic models of segregation. *Journal of Mathematical Sociology, 1*(2), 143–186. https://doi.org/10.1080/0022250X.1971.9989794
 

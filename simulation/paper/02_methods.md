@@ -97,7 +97,7 @@ Counterfactual A applies a +0.3 SD shift to HEXACO H, A, and E for every individ
 
 Counterfactual B reassigns each individual to one of the three pre-registered low-prevalence target clusters {0, 4, 6}, retaining their original HEXACO scores and re-computing positivity in the same fashion.
 
-Counterfactual C multiplies cell-level propensity by 0.80 uniformly across all cells while leaving HEXACO scores unchanged. The 20% reduction is calibrated against three meta-analyses (Hodgins, 2014; Salin, 2018; Saunders, 2007) and the MHLW 2020-2023 natural experiment (−12.1pp ≈ −37% relative). Positivity for C is trivially preserved (ρ ≡ 1) per pre-registration v2.0 Section 5.7.
+Counterfactual C multiplies cell-level propensity by 0.80 uniformly across all cells while leaving HEXACO scores unchanged. The 20% reduction is calibrated against three meta-analyses (Escartín, 2016; Hodgins, MacCurtain, & Mannix-McNamara, 2014; Salin, 2018) and the MHLW 2020-2023 natural experiment (−12.1pp ≈ −37% relative). Positivity for C is trivially preserved (ρ ≡ 1) per pre-registration v2.0 Section 5.7.
 
 The H7 intersection-union test (Berger & Hsu, 1996; Methods Clarification m7) computes one-sided 95% lower bounds L_BA and L_BC for ΔP_B − ΔP_A and ΔP_B − ΔP_C, respectively, with bootstrap-resampled cell data (B = 2,000). The configuration is classified as:
 
@@ -110,8 +110,8 @@ The H7 intersection-union test (Berger & Hsu, 1996; Methods Clarification m7) co
 
 Per v2.0 Section 5.8 (cultural attenuation), the bootstrap distribution of each ΔP_x is multiplied by a transportability factor F ∈ {0.3, 0.5, 0.7, 1.0}, anchored as:
 
-- F = 0.3: Sapouna (2010) UK→Germany null worst case;
-- F = 0.5: Nielsen (2017) Asia/Oceania attenuation expected (r = .16 vs European r = .33);
+- F = 0.3: Conservative cross-cultural attenuation (worst-case anchor; supported by Power et al. 2013 cross-continent variability findings);
+- F = 0.5: Nielsen, Glasø, and Einarsen (2017) Asia/Oceania attenuation expected (r = .16 vs European r = .33);
 - F = 0.7: Mild attenuation (intermediate);
 - F = 1.0: Reference (no attenuation).
 
