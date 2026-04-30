@@ -32,7 +32,8 @@ Lindell, M. K., & Whitney, D. J. (2001). Accounting for common method variance i
 
 Linton, D. K., & Power, J. L. (2013). The personality traits of workplace bullies are often shared by their victims: Is there a dark side to victims? *Personality and Individual Differences, 54*(6), 738–743. https://doi.org/10.1016/j.paid.2012.11.026
 
-Mikkelsen, E. G., Hansen, Å. M., Persson, R., Byrgesen, M. F., & Hogh, A. (2020). Individual consequences of being exposed to workplace bullying. In S. Einarsen, H. Hoel, D. Zapf, & C. L. Cooper (Eds.), *Bullying and harassment in the workplace: Theory, research and practice* (3rd ed., pp. 163–208). CRC Press.
+
+Mikkelsen, E. G., Hansen, Å. M., Persson, R., Byrgesen, M. F., & Hogh, A. (2020). Individual consequences of being exposed to workplace bullying. In S. Einarsen, H. Hoel, D. Zapf, & C. L. Cooper (Eds.), *Bullying and harassment in the workplace: Theory, research and practice* (3rd ed., pp. 163–208). CRC Press. https://doi.org/10.1201/9780429462528-6
 
 Ministry of Health, Labour and Welfare (MHLW). (2017). *Workplace harassment survey: H28 (FY2016) results* [in Japanese: 平成28年度 職場のハラスメントに関する実態調査]. https://www.mhlw.go.jp/
 
@@ -56,7 +57,7 @@ Rutter, C. M., Zaslavsky, A. M., & Feuer, E. J. (2011). Dynamic microsimulation 
 
 Salin, D. (2003). Ways of explaining workplace bullying: A review of enabling, motivating and precipitating structures and processes in the work environment. *Human Relations, 56*(10), 1213–1232. https://doi.org/10.1177/00187267035610003
 
-Salin, D. (2018). Workplace bullying and gender: An overview of empirical findings. In P. D'Cruz, E. Noronha, C. Caponecchia, J. Escartín, D. Salin, & M. R. Tuckey (Eds.), *Dignity and inclusion at work: Handbooks of workplace bullying, emotional abuse and harassment* (Vol. 3, pp. 331–361). Springer. https://doi.org/10.1007/978-981-13-0218-3_12
+Salin, D. (2021). Workplace bullying and gender: An overview of empirical findings. In P. D'Cruz, E. Noronha, C. Caponecchia, J. Escartín, D. Salin, & M. R. Tuckey (Eds.), *Dignity and inclusion at work: Handbooks of workplace bullying, emotional abuse and harassment* (Vol. 3, pp. 331–361). Springer. https://doi.org/10.1007/978-981-13-0218-3_12
 
 Power, J. L., Brotheridge, C. M., Blenkinsopp, J., Bowes-Sperry, L., Bozionelos, N., Buzády, Z., Chuang, A., Drnevich, D., Garzon-Vico, A., Leighton, C., Madero, S. M., Mak, W., Mathew, R., Monserrat, S. I., Mujtaba, B. G., Olivas-Lujan, M. R., Polycroniou, P., Sprigg, C. A., Axtell, C., … Nnedumm, A. U. O. (2013). Acceptability of workplace bullying: A comparative study on six continents. *Journal of Business Research, 66*(3), 374–380. https://doi.org/10.1016/j.jbusres.2011.08.018
 
