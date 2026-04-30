@@ -966,6 +966,45 @@ All Level 2 and Level 3 deviations are reported in a dedicated Discussion subsec
 
 ---
 
+## OSF Field B13 — Manipulated variables (REQUIRED)
+
+```
+This is an observational secondary analysis combined with COMPUTATIONAL MICROSIMULATION. There are NO PHYSICAL MANIPULATIONS of subjects; subjects are not assigned to treatment arms.
+
+However, the Phase 2 counterfactual analysis involves COMPUTATIONAL MANIPULATIONS (do-operators per Pearl 2009 structural causal model notation) applied to the probability tables and individual-level HEXACO scores:
+
+1. δ_A (universal HH shift, Counterfactual A):
+   - Operation: do(HH := HH + δ × SD(HH)) applied to ALL individuals (N=354), then re-classify clusters
+   - Main value: δ_A = +0.3 SD
+   - Sensitivity range: [0.1, 0.5] SD step 0.1
+   - Anchor: Kruse 2014 d=0.71 (conservatively discounted)
+
+2. δ_B (targeted HH shift, Counterfactual B — PRIMARY intervention of interest):
+   - Operation: do(HH := HH + δ × SD(HH)) applied ONLY to individuals in Cluster 0 (primary, Self-Oriented Independent profile) and Clusters 4 and 6 (secondary)
+   - Main value: δ_B = +0.4 SD
+   - Sensitivity range: [0.2, 0.6] SD step 0.1
+   - Anchor: Hudson 2023 b=.03/week (conservatively discounted)
+   - Target-type-set sensitivity: {Cluster 0 only}, {Clusters 0+4}, {Clusters 0+4+6 (main)}, {Clusters 0+4+6+others}
+
+3. effect_C (structural reduction, Counterfactual C):
+   - Operation: do(p_c := p_c × (1 − effect_C)) applied to all 14 cell-conditional probabilities
+   - Main value: effect_C = 0.20
+   - Sensitivity range: [0.10, 0.30] step 0.05
+   - Anchor: triangulation of Pruckner & Sausgruber 2013, Bezrukova et al. 2016, Roehling & Huang 2018, Dobbin & Kalev 2018
+
+4. transportability_factor (Phase 2 cultural attenuation):
+   - Operation: anchor effect (from points 1-3) is multiplied by factor before applying to Japan
+   - Main value: 1.0× (no attenuation)
+   - Sensitivity sweep: {0.3×, 0.5×, 0.7×, 1.0×}
+   - Anchor: Sapouna 2010 UK→Germany null finding (worst case 0.3×); Nielsen 2017 Asia/Oceania attenuation ratio
+
+These four manipulations correspond to the do-operator in Pearl (2009) structural causal model notation. They are framed within Hernán & Robins (2020) target trial emulation, with four identifying assumptions explicitly assessed in Section 5.7.4 of the preregistration (exchangeability, positivity, consistency, transportability).
+
+Random seed (NumPy default_rng(seed=20260429), Python random.seed(20260429), Stan seed=20260429) ensures all stochastic aspects of the manipulation (cluster reassignment after δ shift, Monte Carlo runs in counterfactuals) are deterministic and reproducible.
+```
+
+---
+
 
 
 
