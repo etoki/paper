@@ -1,14 +1,18 @@
 # D12 OSF Pre-Registration — HEXACO 7-Typology Workplace Harassment Microsimulation (Phase 1 + Phase 2)
 
-**Document type**: OSF Standard Pre-Registration draft (English version for OSF submission)
+**Document type**: OSF Standard Pre-Registration (English version, registered on OSF)
 **Drafted**: 2026-04-29
-**Last updated**: 2026-04-29 (v1.1 — 3 new domestic surveys integrated: MHLW R5 full report, MHLW R4, Pasona N=28,135. See Section 14.1)
+**Last updated**: 2026-04-30 (v1.1 LOCKED — registered on OSF)
 **Branch**: `claude/hexaco-harassment-simulation-69jZp`
 **Author (corresponding)**: Eisuke Tokiwa (sole-authored)
 **ORCID**: 0009-0009-7124-6669
 **Affiliation**: SUNBLAZE Co., Ltd.
 **Email**: eisuke.tokiwa@sunblaze.jp
-**Status**: ⏳ DRAFT v1.1 — to be finalized and registered on OSF **prior to Stage 0 code execution**
+**Status**: 🔒 **LOCKED v1.1** — registered on OSF; Stage 0 code execution **unlocked**
+**OSF DOI**: 10.17605/OSF.IO/45QP9
+**OSF Registration URL**: https://osf.io/45qp9
+**OSF Associated Project**: https://osf.io/3hxz6 (HEXACO 7-Typology Workplace Harassment Microsimulation)
+**Registered**: 2026-04-30
 **Anchor template**: OSF Standard Pre-Registration (Bowman et al. 2020, https://osf.io/rh8jc) + Nosek et al. 2018 PNAS "preregistration revolution" 9-Challenge framework
 **Companion document (Japanese master)**: `simulation/docs/pre_registration/D12_pre_registration_OSF.md`
 
@@ -1003,6 +1007,7 @@ The commitments in this preregistration are anchored to the literature below. Th
 |---|---|---|
 | **v1.0 draft** | 2026-04-29 | Initial draft based on research plan v6/v7 (1,458 lines), the D13 power analysis (209 lines), and the 40-paper deep reading. Pending OSF registration. |
 | **v1.1 draft** | 2026-04-29 | Pre-OSF-lock revision integrating 3 new domestic surveys uploaded by the author: (1) MHLW R5 (FY2023, 385 pages, full report) — used for industry-stratified validation in the H2.industry secondary criterion (Sections 5.5, 6.1); (2) MHLW R4 (FY2022) Employment Trend Survey — used as f1 secondary anchor; (3) Pasona Research (2022) N=28,135 quantitative survey — used for Pasona triangulation (Section 5.4), as the f1 PRIMARY empirical anchor (Sections 4.2.3, 6.4 — value 10.3% with industry range 6.3-13.3%), and for the Stage 2 chain output sanity check (predicted annual harassment-induced turnover should fall within 50-200% of Pasona's 865,000/year estimate). All MHLW citations standardized: era code (H28/R2/R5) + fiscal year + scope (past-3-year power harassment) + policy phase (pre-law/transition/post-law). Added customer harassment (カスハラ) category emergence (10.8% in MHLW R5) as evidence of environmental moderation in the latent vs expressed framing (Section 1.4 H3). H1 main MAPE threshold (≤30%) and sensitivity sweep ranges UNCHANGED; only secondary criteria (H2.industry, Stage 2 chain sanity check) and citation precision improved. Pending OSF registration. |
+| **v1.1 LOCKED** | 2026-04-30 | 🔒 Registered on OSF. **DOI: 10.17605/OSF.IO/45QP9** (https://osf.io/45qp9). Associated project: https://osf.io/3hxz6. Subsequent modifications must follow Section 6.5 Level 3 deviation procedure (v2 registration with public diff against v1.1). Stage 0 code execution unlocked. |
 
 ### 14.2 Pre-registration submission checklist
 
@@ -1013,9 +1018,9 @@ The commitments in this preregistration are anchored to the literature below. Th
 - [ ] **Self-review against Munafò 2017's five themes**: complete Section 8
 - [x] **English translation**: this `D12_pre_registration_OSF.en.md` is the English version
 - [x] **OSF account**: existing (used for `metaanalysis/`); only new project creation is pending
-- [ ] **OSF Standard Pre-Registration template**: transcribe Sections 1–6 into the OSF web form
-- [ ] **PDF supplementary**: attach the Japanese master to OSF as a supplementary PDF
-- [ ] **DOI acquisition**: record the DOI in the Header of both the Japanese master and this English version after registration
+- [x] **OSF Standard Pre-Registration template**: Sections 1–6 transcribed into the OSF web form (Part B paste sheet used)
+- [x] **PDF supplementary**: JP/EN markdown + JP/EN PDFs attached to OSF
+- [x] **DOI acquisition**: 10.17605/OSF.IO/45QP9 acquired and recorded in the Header of both the Japanese master and this English version
 - [x] **GitHub mirror**: `simulation/docs/pre_registration/` is committed publicly (since commit `c5c591e`)
 - [x] **Funding & affiliation**: Section 12.2 is filled in (SUNBLAZE Co., Ltd. / no external funding for the simulation phase)
 - [ ] **Anti-screening triple-lock**: Section 9.1 prepared in all three locations
@@ -1044,8 +1049,8 @@ The commitments in this preregistration are anchored to the literature below. Th
 
 The preregistration is **locked** when all of the following are complete; only then may Stage 0 code execution begin:
 
-- [ ] OSF DOI acquired
-- [ ] DOI added to the Header of this document (and the Japanese master)
+- [x] OSF DOI acquired (10.17605/OSF.IO/45QP9)
+- [x] DOI added to the Header of this document (and the Japanese master)
 - [N/A] Co-author sign-off — not applicable (sole-authored)
 - [ ] Section 5 (Analysis Plan) reviewed by an independent methodologist
 - [ ] Repository structure (Section 8.2) initialized

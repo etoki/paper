@@ -1,10 +1,12 @@
 # OSF Standard Pre-Registration Web Form — Paste Sheet
 
-**Source**: `D12_pre_registration_OSF.en.md` (English version, v1.1)
+**Source**: `D12_pre_registration_OSF.en.md` (English version, v1.1 LOCKED)
 **Created**: 2026-04-29
-**Last updated**: 2026-04-30 (Part B added: live OSF webform transcription drafts synced from chat session, covering newer OSF template fields not in original 24-field structure)
+**Last updated**: 2026-04-30 (paste sheet now reflects ACTUAL OSF registration; Parts A and B both used during transcription)
 **Branch**: `claude/hexaco-harassment-simulation-69jZp`
 **Author**: Eisuke Tokiwa (sole-authored, ORCID: 0009-0009-7124-6669)
+**OSF Registration**: 🔒 COMPLETED — DOI 10.17605/OSF.IO/45QP9 (https://osf.io/45qp9)
+**OSF Associated Project**: https://osf.io/3hxz6
 
 > **Structure note**: This document has TWO parts:
 > - **Part A (Sections 1-24)**: original OSF Standard Pre-Registration template (24 fields, older / classic OSF webform)
