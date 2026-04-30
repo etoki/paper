@@ -1,0 +1,5 @@
+age_group,gender,count,employment
+15-64,女,2649,employed
+65+,女,375,employed
+15-64,男,3161,employed
+65+,男,538,employed

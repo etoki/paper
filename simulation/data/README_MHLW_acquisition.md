@@ -67,3 +67,50 @@ The acquired CSV file is small (≪ 1 MB) and is committed to the repository
 once acquired. Provenance (download date + e-Stat URL + sheet hash) should
 be recorded in this README upon commit so the source is traceable from
 GitHub history alone.
+
+## Acquired (2026-04-30): mhlw_labor_force_2022.csv
+
+**Source PDF**: `労働力調査（基本集計）2022年（令和４年）平均結果の要約.pdf`
+- Publisher: 総務省統計局 (Ministry of Internal Affairs and Communications, Statistics Bureau)
+- Publication date: 令和5年1月31日 (2023-01-31)
+- e-Stat metadata: `労働力調査（基本集計）2022年（令和４年）平均結果の要約、概要、統計表等`
+- Page extracted: p.4 表3「年齢階級別就業者数の推移」(Table 3: Annual employed persons by age group)
+
+**Population chosen**: 就業者 (employed persons), 2022 annual average
+
+| 区分 | 男女計 | 男 | 女 |
+|------|-------:|----:|----:|
+| 総数（万人） | 6,723 | 3,699 | 3,024 |
+| 15-64歳    | 5,810 | 3,161 | 2,649 |
+| 65歳以上    |   912 |   538 |   375 |
+
+**Resulting marginals**:
+- F (女) = 3,024 / 6,723 = **0.4498** (44.98%)
+- M (男) = 3,699 / 6,723 = **0.5502** (55.02%)
+
+**Why 就業者 (vs 役員除く雇用者)?**
+The MHLW power harassment survey denominator is 「労働者」 (workers in the
+broader sense, including self-employed). 就業者 is the closest demographic
+match. For sensitivity, 役員除く雇用者 (employees excluding officers, total
+5,699万人, F=2,682/47.06%, M=3,017/52.94%) is recorded as an alternative
+population definition in the source PDF page 9 表7.
+
+**Long-form CSV schema delivered**:
+```csv
+age_group,gender,count,employment
+15-64,女,2649,employed
+65+,女,375,employed
+15-64,男,3161,employed
+65+,男,538,employed
+```
+
+The loader (`utils_io.load_mhlw_weights`) sums across `age_group` and
+`employment` to derive the gender marginal used by Stage 1. Age columns
+are preserved in the long-form table for future age-stratified
+post-stratification (out of scope for v2.0; reserved for Phase 2 spin-off).
+
+**Reproducibility hash**:
+```
+SHA256 of source PDF: (recorded at git add time via 'git hash-object')
+File path: simulation/data/労働力調査（基本集計）2022年（令和４年）平均結果の要約.pdf
+```
