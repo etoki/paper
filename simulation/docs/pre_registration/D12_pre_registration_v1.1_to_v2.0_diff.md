@@ -5,7 +5,7 @@
 **Branch**: `claude/hexaco-harassment-simulation-69jZp`
 **Author**: Eisuke Tokiwa (sole-authored; ORCID: 0009-0009-7124-6669; SUNBLAZE Co., Ltd.)
 **v1.1 OSF DOI** (LOCKED, historical): 10.17605/OSF.IO/45QP9 — https://osf.io/45qp9
-**v2.0 OSF DOI** (pending): TBD
+**v2.0 OSF DOI** (LOCKED): **10.17605/OSF.IO/3Y54U** — https://osf.io/3y54u (registered 2026-04-30)
 
 ---
 
@@ -179,7 +179,7 @@ This is purely a reflection of the substantive change in Section 5.4.
 | Version | Date | Changes |
 |---|---|---|
 | v2.0 draft | 2026-04-30 | Path C upgrade per anonymous methodologist review (Matsuda mode B, mathematical biology). Four substantive changes (1-4 above). |
-| v2.0 LOCKED | TBD | 🔒 To be registered on OSF after author submits v2 with public diff against v1.1. v2 OSF DOI: TBD. v1.1 (DOI 10.17605/OSF.IO/45QP9) remains valid as historical record but is superseded by v2 for primary inference. |
+| v2.0 LOCKED | 2026-04-30 | 🔒 Registered on OSF as v2 with this diff document as supplementary. **v2.0 OSF DOI: 10.17605/OSF.IO/3Y54U** (https://osf.io/3y54u). v1.1 (DOI 10.17605/OSF.IO/45QP9) remains valid as historical record but is superseded by v2.0 for primary inference. |
 
 ---
 

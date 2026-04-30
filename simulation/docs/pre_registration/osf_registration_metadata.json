@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "study_title": "HEXACO 7-Typology Workplace Harassment Microsimulation: Latent Prevalence Prediction and Target Trial Emulation of Personality-Based and Structural Counterfactuals in Japan",
+  "short_title": "HEXACO Harassment Microsim (Phase 1 + Phase 2)",
+  "author": {
+    "name": "Eisuke Tokiwa",
+    "orcid": "0009-0009-7124-6669",
+    "affiliation": "SUNBLAZE Co., Ltd.",
+    "email": "eisuke.tokiwa@sunblaze.jp",
+    "sole_authored": true
+  },
+  "osf": {
+    "associated_project_url": "https://osf.io/3hxz6",
+    "associated_project_id": "3hxz6"
+  },
+  "registrations": [
+    {
+      "version": "v1.1",
+      "status": "LOCKED (historical, superseded by v2.0)",
+      "doi": "10.17605/OSF.IO/45QP9",
+      "url": "https://osf.io/45qp9",
+      "registered_date": "2026-04-30",
+      "supersedes": null,
+      "superseded_by": "v2.0"
+    },
+    {
+      "version": "v2.0",
+      "status": "LOCKED (current primary)",
+      "doi": "10.17605/OSF.IO/3Y54U",
+      "url": "https://osf.io/3y54u",
+      "registered_date": "2026-04-30",
+      "supersedes": "v1.1",
+      "superseded_by": null,
+      "public_diff_against_v1.1": "D12_pre_registration_v1.1_to_v2.0_diff.pdf"
+    }
+  ],
+  "level1_deviation_logs": [
+    {
+      "log_version": "v1.0",
+      "log_file": "D12_v2.0_methods_clarifications.md",
+      "log_pdf": "D12_v2.0_methods_clarifications.pdf",
+      "locked_date": "2026-05-21",
+      "section_6_5_level": 1,
+      "applies_to_registration": "v2.0",
+      "source": "Anonymous external methodologist review (mode B, mathematical biology background)",
+      "summary": "16 specification clarifications: 4 Major (M1-M4), 7 Minor (m1-m7 + m8 limitation), 5 Nitpick (n1-n5). Strategic 5th-tier proposal SKIPPED with documented rationale.",
+      "sha256_hash": "fcaaf0d94bb7e5879fa1e5df9113ead130dc95b73aebe0d984a0824fa171fcd0"
+    }
+  ],
+  "branch": "claude/hexaco-harassment-simulation-69jZp",
+  "github_repository": "https://github.com/etoki/paper",
+  "metadata_lock_date": "2026-05-21",
+  "schema_notes": "This metadata file fulfills v2.0 master Section 8.2 specification. It serves as a machine-readable index linking the Methods Clarifications Log to the LOCKED v2.0 OSF registration. Updates require corresponding GitHub commits; structural changes require Section 6.5 Level 1 deviation log entries."
+}

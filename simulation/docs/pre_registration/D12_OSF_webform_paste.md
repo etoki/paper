@@ -5,8 +5,8 @@
 **Last updated**: 2026-04-30 (v2.0 paste sheet — to be used for OSF v2 registration)
 **Branch**: `claude/hexaco-harassment-simulation-69jZp`
 **Author**: Eisuke Tokiwa (sole-authored, ORCID: 0009-0009-7124-6669)
-**v1.1 OSF Registration** (LOCKED, historical): DOI 10.17605/OSF.IO/45QP9 (https://osf.io/45qp9, registered 2026-04-30)
-**v2.0 OSF Registration**: ⏳ PENDING — Path C upgrade per anonymous methodologist (mode B, mathematical biology) review
+**v1.1 OSF Registration** (LOCKED, historical, superseded): DOI 10.17605/OSF.IO/45QP9 (https://osf.io/45qp9, registered 2026-04-30)
+**v2.0 OSF Registration** (LOCKED, current primary): **DOI 10.17605/OSF.IO/3Y54U** (https://osf.io/3y54u, registered 2026-04-30)
 **OSF Associated Project**: https://osf.io/3hxz6
 
 > **Note for v2 transcription**: When re-transcribing into the OSF webform for v2 registration, the following fields require updates from v1.1 content:
