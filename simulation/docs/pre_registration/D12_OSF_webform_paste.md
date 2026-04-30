@@ -1,12 +1,19 @@
 # OSF Standard Pre-Registration Web Form — Paste Sheet
 
-**Source**: `D12_pre_registration_OSF.en.md` (English version, v1.1 LOCKED)
+**Source**: `D12_pre_registration_OSF.en.md` (English version, v2.0 DRAFT)
 **Created**: 2026-04-29
-**Last updated**: 2026-04-30 (paste sheet now reflects ACTUAL OSF registration; Parts A and B both used during transcription)
+**Last updated**: 2026-04-30 (v2.0 paste sheet — to be used for OSF v2 registration)
 **Branch**: `claude/hexaco-harassment-simulation-69jZp`
 **Author**: Eisuke Tokiwa (sole-authored, ORCID: 0009-0009-7124-6669)
-**OSF Registration**: 🔒 COMPLETED — DOI 10.17605/OSF.IO/45QP9 (https://osf.io/45qp9)
+**v1.1 OSF Registration** (LOCKED, historical): DOI 10.17605/OSF.IO/45QP9 (https://osf.io/45qp9, registered 2026-04-30)
+**v2.0 OSF Registration**: ⏳ PENDING — Path C upgrade per anonymous methodologist (mode B, mathematical biology) review
 **OSF Associated Project**: https://osf.io/3hxz6
+
+> **Note for v2 transcription**: When re-transcribing into the OSF webform for v2 registration, the following fields require updates from v1.1 content:
+> - **Field B16 (Statistical models)**: append v2 changes — 4-tier judgment hierarchy, bootstrap MAPE CI procedure, MoM rejection rule, BCa fallback chain
+> - **Field B18 (Inference criteria)**: replace H1 single-tier with 4-tier (Strict / Standard / Partial / Failure)
+> - **Field B22 (Context)**: add note that this is v2 superseding v1.1, with public diff against v1.1 attached as supplementary
+> - All other fields: unchanged from v1.1 (or use v1.1 paste sheet content)
 
 > **Structure note**: This document has TWO parts:
 > - **Part A (Sections 1-24)**: original OSF Standard Pre-Registration template (24 fields, older / classic OSF webform)

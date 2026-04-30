@@ -1,18 +1,17 @@
 # D12 OSF Pre-Registration — HEXACO 7-Typology Workplace Harassment Microsimulation (Phase 1 + Phase 2)
 
-**Document type**: OSF Standard Pre-Registration (English version, registered on OSF)
+**Document type**: OSF Standard Pre-Registration (English version, v2.0 draft for OSF v2 registration)
 **Drafted**: 2026-04-29
-**Last updated**: 2026-04-30 (v1.1 LOCKED — registered on OSF)
+**Last updated**: 2026-04-30 (v2.0 DRAFT — Path C upgrade per anonymous methodologist review)
 **Branch**: `claude/hexaco-harassment-simulation-69jZp`
 **Author (corresponding)**: Eisuke Tokiwa (sole-authored)
 **ORCID**: 0009-0009-7124-6669
 **Affiliation**: SUNBLAZE Co., Ltd.
 **Email**: eisuke.tokiwa@sunblaze.jp
-**Status**: 🔒 **LOCKED v1.1** — registered on OSF; Stage 0 code execution **unlocked**
-**OSF DOI**: 10.17605/OSF.IO/45QP9
-**OSF Registration URL**: https://osf.io/45qp9
+**Status**: ⏳ **DRAFT v2.0** — pending OSF v2 registration. v1.1 (DOI 10.17605/OSF.IO/45QP9) remains valid as historical record.
+**v1.1 OSF DOI** (LOCKED, historical): 10.17605/OSF.IO/45QP9 — https://osf.io/45qp9 (registered 2026-04-30)
+**v2.0 OSF DOI** (pending): TBD — to be filled after author submits v2 with public diff against v1.1
 **OSF Associated Project**: https://osf.io/3hxz6 (HEXACO 7-Typology Workplace Harassment Microsimulation)
-**Registered**: 2026-04-30
 **Anchor template**: OSF Standard Pre-Registration (Bowman et al. 2020, https://osf.io/rh8jc) + Nosek et al. 2018 PNAS "preregistration revolution" 9-Challenge framework
 **Companion document (Japanese master)**: `simulation/docs/pre_registration/D12_pre_registration_OSF.md`
 
