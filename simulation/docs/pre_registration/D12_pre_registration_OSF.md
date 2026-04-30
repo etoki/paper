@@ -1,13 +1,14 @@
 # D12 OSF Pre-Registration — HEXACO 7-Typology Workplace Harassment Microsimulation (Phase 1 + Phase 2)
 
-**Document type**: OSF Standard Pre-Registration draft (internal master version)
+**Document type**: OSF Standard Pre-Registration v2.0 (internal master version, LOCKED on OSF)
 **Drafted**: 2026-04-29
-**Last updated**: 2026-04-30 (v2.0 DRAFT — Path C upgrade per anonymous methodologist review)
+**Last updated**: 2026-04-30 (v2.0 LOCKED — registered on OSF as v2 with public diff against v1.1)
 **Branch**: `claude/hexaco-harassment-simulation-69jZp`
 **Author (corresponding)**: Eisuke Tokiwa (sole-authored; ORCID: 0009-0009-7124-6669)
-**Status**: ⏳ **DRAFT v2.0** — pending OSF v2 registration. v1.1 (DOI 10.17605/OSF.IO/45QP9) remains valid as historical record.
-**v1.1 OSF DOI** (LOCKED, historical): 10.17605/OSF.IO/45QP9 — https://osf.io/45qp9 (registered 2026-04-30)
-**v2.0 OSF DOI** (pending): TBD — to be filled after author submits v2 with public diff against v1.1
+**Status**: 🔒 **LOCKED v2.0** — registered on OSF as v2; Stage 0 code execution **unlocked**
+**v2.0 OSF DOI** (LOCKED, current primary): **10.17605/OSF.IO/3Y54U** — https://osf.io/3y54u (registered 2026-04-30)
+**v1.1 OSF DOI** (LOCKED, historical, superseded): 10.17605/OSF.IO/45QP9 — https://osf.io/45qp9 (registered 2026-04-30)
+**Public diff v1.1 → v2.0**: `D12_pre_registration_v1.1_to_v2.0_diff.pdf` (attached as v2 supplementary)
 **OSF Associated Project**: https://osf.io/3hxz6 (HEXACO 7-Typology Workplace Harassment Microsimulation)
 **Anchor template**: OSF Standard Pre-Registration (Bowman et al. 2020, https://osf.io/rh8jc) + Nosek et al. 2018 PNAS "preregistration revolution" 9-Challenge framework
 **Referenced research plan**: `simulation/docs/notes/research_plan_harassment_typology_simulation.md` (v6/v7, 1,458 行)
@@ -1060,7 +1061,7 @@ Anchor: 研究計画 v6 Part 7（Sensitive topic としての harassment 研究�
 | **v1.1 draft** | 2026-04-29 | Pre-OSF-lock revision integrating 3 new domestic surveys uploaded by author: (1) MHLW R5 (FY2023, 385 pages, full report) — used for industry-stratified validation in H2.industry secondary criterion (Section 5.5, 6.1); (2) MHLW R4 (FY2022) Employment Trend Survey — used for f1 secondary anchor; (3) Pasona Research (2022) N=28,135 quantitative survey — used for Pasona triangulation (Section 5.4), f1 PRIMARY empirical anchor (Section 4.2.3, 6.4 — value 10.3% with industry range 6.3-13.3%), Stage 2 chain output sanity check (predicted annual harassment-induced turnover should fall within 50-200% of Pasona estimate 86.5 万人/年). All MHLW citations standardized: era code (H28/R2/R5) + fiscal year + scope (past-3-year power harassment) + policy phase (pre-law/transition/post-law). Added カスハラ category emergence (10.8% in MHLW R5) as evidence of environmental moderation in latent vs expressed framing (Section 1.4 H3). H1 main MAPE threshold (≤30%) and sensitivity ranges UNCHANGED; only secondary criteria (H2.industry, Stage 2 chain sanity check) and citation precision improved. Pending OSF registration. |
 | **v1.1 LOCKED** | 2026-04-30 | 🔒 Registered on OSF. **DOI: 10.17605/OSF.IO/45QP9** (https://osf.io/45qp9). Associated project: https://osf.io/3hxz6. Subsequent modifications must follow Section 6.5 Level 3 deviation procedure (v2 registration with public diff against v1.1). Stage 0 code execution was unlocked at this point but deferred pending methodologist review. |
 | **v2.0 draft** | 2026-04-30 | Path C upgrade following anonymous methodologist review (Matsuda mode B, mathematical biology background). Four substantive changes: (1) **4-tier judgment hierarchy** in Section 5.4 / 6.1 — Strict SUCCESS = point MAPE ≤ 30% AND 95% BCa CI upper bound ≤ 30%; Standard SUCCESS = point MAPE ≤ 30% with explicit CI ambiguity Tier qualifier required; PARTIAL / FAILURE unchanged. (2) **Bootstrap MAPE CI computation procedure** pre-specified in Section 5.4 (cell-stratified resample → re-classify with fixed centroids → re-estimate cell propensity → apply fixed population weights → compute MAPE^(b) → 95% BCa CI from empirical distribution; population weights and MHLW observed values fixed across iterations to isolate cell-level uncertainty). (3) **MoM rejection decision rule** in Section 5.2 — REJECT MoM and switch to Stan hierarchical Bayes if σ̂² / [μ̂(1−μ̂)] < 0.05 OR max(α̂, β̂) > 100; alternative diagnostic (α̂ + β̂ as fraction of median cell N=14) reported as cross-check. (4) **BCa numerical stability fallback chain** in Section 5.1 — BCa → BC (bias-corrected) → percentile bootstrap, triggered by |a| > 10 jackknife instability or numerical errors at edge rates 0/N or N/N. Pending OSF v2 registration. |
-| **v2.0 LOCKED** | TBD | 🔒 To be registered on OSF after author submits v2 with public diff against v1.1. v2 OSF DOI: TBD. v1.1 (DOI 10.17605/OSF.IO/45QP9) remains valid as historical record but is superseded by v2 for primary inference. |
+| **v2.0 LOCKED** | 2026-04-30 | 🔒 Registered on OSF as v2 with public diff (D12_pre_registration_v1.1_to_v2.0_diff.pdf) attached as supplementary. **v2.0 OSF DOI: 10.17605/OSF.IO/3Y54U** (https://osf.io/3y54u). Associated project: https://osf.io/3hxz6. v1.1 (DOI 10.17605/OSF.IO/45QP9) remains valid as historical record but is superseded by v2.0 for primary inference. Stage 0 code execution unlocked under v2.0 specifications. |
 
 ### 14.2 Pre-registration submission checklist
 
@@ -1102,8 +1103,8 @@ Anchor: 研究計画 v6 Part 7（Sensitive topic としての harassment 研究�
 
 以下がすべて完了した時点で本 pre-reg を **lock**、Stage 0 コード実装を開始:
 
-- [x] OSF DOI 取得済（10.17605/OSF.IO/45QP9）
-- [x] 本ドキュメントの Header に DOI 追記済
+- [x] OSF DOI 取得済（v1.1: 10.17605/OSF.IO/45QP9; **v2.0 (current primary): 10.17605/OSF.IO/3Y54U**）
+- [x] 本ドキュメントの Header に DOI 追記済 (v2.0 LOCKED status 反映)
 - [N/A] Co-author sign-off — sole-authored につき不要
 - [ ] Independent methodologist による Section 5 (Analysis Plan) review 完了
 - [ ] Repository structure (Section 8.2) 初期化
