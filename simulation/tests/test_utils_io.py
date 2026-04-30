@@ -5,6 +5,8 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
+import pandas as pd
+
 from code.utils_io import (
     HEXACO_DOMAINS,
     MHLW_VALIDATION_TARGETS,
@@ -13,6 +15,7 @@ from code.utils_io import (
     N_CLUSTERS,
     SEED,
     load_artifacts,
+    load_mhlw_weights,
     make_rng,
     save_artifacts,
     standard_metadata,
@@ -76,3 +79,113 @@ class TestArtifactPersistence:
         assert md["seed"] == SEED
         assert md["stage"] == "stage_test"
         assert "osf_doi" in md
+
+
+class TestMHLWLoader:
+    def _write_mock(self, path, rows):
+        df = pd.DataFrame(rows)
+        df.to_csv(path, index=False)
+
+    def test_canonical_numeric_gender(self, tmp_path):
+        path = tmp_path / "mhlw.csv"
+        self._write_mock(
+            path,
+            [
+                {"age_group": "20-24", "gender": 0, "count": 100},
+                {"age_group": "20-24", "gender": 1, "count": 150},
+                {"age_group": "25-29", "gender": 0, "count": 200},
+                {"age_group": "25-29", "gender": 1, "count": 250},
+            ],
+        )
+        m = load_mhlw_weights(path)
+        gp = m.gender_proportions
+        assert np.isclose(gp.sum(), 1.0)
+        # Female total = 300, male = 400, total = 700
+        assert np.isclose(gp[0], 300 / 700)
+        assert np.isclose(gp[1], 400 / 700)
+        assert m.total_population == 700
+        assert m.n_records == 4
+
+    def test_japanese_gender_labels(self, tmp_path):
+        path = tmp_path / "mhlw_jp.csv"
+        self._write_mock(
+            path,
+            [
+                {"age_group": "20-24", "gender": "女", "count": 50},
+                {"age_group": "20-24", "gender": "男", "count": 50},
+            ],
+        )
+        m = load_mhlw_weights(path)
+        gp = m.gender_proportions
+        assert np.allclose(gp, [0.5, 0.5])
+
+    def test_western_gender_labels(self, tmp_path):
+        path = tmp_path / "mhlw_en.csv"
+        self._write_mock(
+            path,
+            [
+                {"age_group": "20-24", "gender": "F", "count": 30},
+                {"age_group": "20-24", "gender": "M", "count": 70},
+            ],
+        )
+        m = load_mhlw_weights(path)
+        gp = m.gender_proportions
+        assert np.isclose(gp[0], 0.3)
+        assert np.isclose(gp[1], 0.7)
+
+    def test_missing_file_raises(self, tmp_path):
+        with pytest.raises(FileNotFoundError):
+            load_mhlw_weights(tmp_path / "nonexistent.csv")
+
+    def test_missing_required_column_raises(self, tmp_path):
+        path = tmp_path / "bad.csv"
+        self._write_mock(
+            path,
+            [{"age_group": "20-24", "count": 100}],  # no gender col
+        )
+        with pytest.raises(ValueError, match="missing required columns"):
+            load_mhlw_weights(path)
+
+    def test_unrecognized_gender_raises(self, tmp_path):
+        path = tmp_path / "bad_gender.csv"
+        self._write_mock(
+            path,
+            [{"age_group": "20-24", "gender": "other", "count": 100}],
+        )
+        with pytest.raises(ValueError, match="Unrecognized MHLW gender"):
+            load_mhlw_weights(path)
+
+    def test_negative_count_raises(self, tmp_path):
+        path = tmp_path / "neg.csv"
+        self._write_mock(
+            path,
+            [
+                {"age_group": "20-24", "gender": 0, "count": -10},
+                {"age_group": "20-24", "gender": 1, "count": 100},
+            ],
+        )
+        with pytest.raises(ValueError, match="negative counts"):
+            load_mhlw_weights(path)
+
+    def test_only_one_gender_raises(self, tmp_path):
+        path = tmp_path / "one_gender.csv"
+        self._write_mock(
+            path,
+            [{"age_group": "20-24", "gender": 0, "count": 100}],
+        )
+        m = load_mhlw_weights(path)
+        with pytest.raises(ValueError, match="missing gender categories"):
+            _ = m.gender_proportions
+
+    def test_optional_employment_column(self, tmp_path):
+        path = tmp_path / "with_emp.csv"
+        self._write_mock(
+            path,
+            [
+                {"age_group": "20-24", "gender": 0, "count": 50, "employment": "regular"},
+                {"age_group": "20-24", "gender": 1, "count": 50, "employment": "regular"},
+            ],
+        )
+        m = load_mhlw_weights(path)
+        assert "employment" in m.df.columns
+        assert (m.df["employment"] == "regular").all()

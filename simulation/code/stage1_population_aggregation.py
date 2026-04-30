@@ -26,12 +26,29 @@ import numpy as np
 
 from .utils_io import (
     MHLW_VALIDATION_TARGETS,
+    MHLW_WEIGHTS_PATH,
     N_CELLS_MAIN,
     load_artifacts,
+    load_mhlw_weights,
     make_rng,
     save_artifacts,
     standard_metadata,
 )
+
+DEFAULT_CLUSTER_PROPORTIONS = np.array(
+    [0.117, 0.158, 0.168, 0.129, 0.154, 0.136, 0.139]
+)
+"""7-cluster proportions from N=13,668 IEEE-published clustering.
+
+Per m8 limitation: cluster proportions remain M3-fixed at IEEE values
+even after MHLW post-stratification (cluster membership is not in the
+MHLW dataset). Only gender marginal is updated by MHLW reweight."""
+
+DEFAULT_GENDER_PROPORTIONS = np.array([0.5, 0.5])
+"""Placeholder gender proportions used when MHLW data is not available.
+
+Replaced by MHLW Labor Force Survey 2022 gender marginal once the file
+is acquired (see ``utils_io.load_mhlw_weights``)."""
 
 
 def aggregate_national_prevalence(
@@ -74,17 +91,49 @@ def construct_population_weights(
     return weights
 
 
-def run(cell_propensity_path: str | Path, output_path: str | Path) -> None:
-    """Aggregate cell propensities to national prevalence per validation period."""
+def run(
+    cell_propensity_path: str | Path,
+    output_path: str | Path,
+    mhlw_path: str | Path | None = None,
+) -> None:
+    """Aggregate cell propensities to national prevalence per validation period.
+
+    Parameters
+    ----------
+    cell_propensity_path : path-like
+        Stage 0 step 2 HDF5 (14-cell propensities).
+    output_path : path-like
+        Stage 1 HDF5 destination.
+    mhlw_path : path-like, optional
+        MHLW Labor Force Survey 2022 CSV; if None, attempts the default
+        path at ``MHLW_WEIGHTS_PATH``. Falls back to placeholder gender
+        proportions [0.5, 0.5] with explicit warning if the file is absent.
+    """
     arrays, _meta = load_artifacts(cell_propensity_path)
     point_power = arrays["point_power"]
 
-    # TODO (Stage 0 actual impl): load MHLW Labor Force Survey 2022 weights.
-    # Skeleton uses N=13,668 cluster proportions placeholder.
-    placeholder_cluster_props = np.array([0.117, 0.158, 0.168, 0.129, 0.154, 0.136, 0.139])
-    placeholder_gender_props = np.array([0.5, 0.5])
+    # Try to load MHLW weights; fall back to placeholder with warning
+    mhlw_p = Path(mhlw_path) if mhlw_path is not None else MHLW_WEIGHTS_PATH
+    if mhlw_p.is_file():
+        mhlw = load_mhlw_weights(mhlw_p)
+        gender_props = mhlw.gender_proportions
+        weight_provenance = (
+            f"MHLW Labor Force Survey 2022 ({mhlw_p.name}, "
+            f"N_total={mhlw.total_population:,}, n_records={mhlw.n_records})"
+        )
+    else:
+        import warnings
+        warnings.warn(
+            f"MHLW Labor Force Survey 2022 file not found at {mhlw_p}; "
+            "Stage 1 falling back to placeholder gender proportions [0.5, 0.5]. "
+            "Acquire from e-Stat to unlock Phase 1 actual aggregation.",
+            stacklevel=2,
+        )
+        gender_props = DEFAULT_GENDER_PROPORTIONS
+        weight_provenance = "PLACEHOLDER (MHLW e-Stat data not yet provided)"
+
     cell_weights = construct_population_weights(
-        placeholder_cluster_props, placeholder_gender_props
+        DEFAULT_CLUSTER_PROPORTIONS, gender_props
     )
 
     national_prevalence = aggregate_national_prevalence(point_power, cell_weights)
@@ -107,7 +156,10 @@ def run(cell_propensity_path: str | Path, output_path: str | Path) -> None:
         metadata=standard_metadata(
             stage="stage1_population_aggregation",
             extra={
-                "weight_construction": "PLACEHOLDER (TODO: MHLW Labor Force 2022 reweight)",
+                "weight_construction": weight_provenance,
+                "gender_proportion_female": float(gender_props[0]),
+                "gender_proportion_male": float(gender_props[1]),
+                "cluster_proportion_source": "IEEE-published 7-cluster k-means (M3-fixed)",
                 "primary_target": "MHLW H28 FY2016 (32.5%)",
             },
         ),
@@ -126,6 +178,16 @@ def main() -> None:
         type=Path,
         default=Path("output/supplementary/stage1_population_aggregation.h5"),
     )
+    parser.add_argument(
+        "--mhlw-data",
+        type=Path,
+        default=None,
+        help=(
+            "Path to MHLW Labor Force Survey 2022 CSV. If omitted, looks for "
+            f"{MHLW_WEIGHTS_PATH}; if not present, falls back to placeholder "
+            "gender proportions with a warning."
+        ),
+    )
     parser.add_argument("--seed", type=int, default=None)
     args = parser.parse_args()
     if args.seed is not None and args.seed != 20260429:
@@ -134,7 +196,7 @@ def main() -> None:
             "Seed override; v2.0 fixes seed=20260429.", stacklevel=2
         )
     _ = make_rng(extra_offset=30_000)  # reserve stream slot for Stage 1
-    run(args.cell_propensity, args.output)
+    run(args.cell_propensity, args.output, mhlw_path=args.mhlw_data)
 
 
 if __name__ == "__main__":

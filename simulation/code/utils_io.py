@@ -41,6 +41,22 @@ HARASSMENT_RAW_PATH = REPO_ROOT / "harassment" / "raw.csv"
 CENTROIDS_PATH = REPO_ROOT / "clustering" / "csv" / "clstr_kmeans_7c.csv"
 """Path to 7-cluster HEXACO centroids (Tokiwa clustering paper, IEEE-published)."""
 
+MHLW_WEIGHTS_PATH = REPO_ROOT / "simulation" / "data" / "mhlw_labor_force_2022.csv"
+"""Default path for MHLW Labor Force Survey 2022 marginal counts.
+
+Expected source: e-Stat https://www.e-stat.go.jp/dbview?sid=0003410173
+("労働力調査 基本集計 2022年平均") — the age × gender × employment
+crosstab. Saved as CSV with columns:
+    age_group    : str   (e.g., "15-19", "20-24", ..., "65+")
+    gender       : int   (0 = female, 1 = male; or "F"/"M")
+    count        : int   (persons in thousands)
+    employment   : str   (optional; "regular"/"non-regular"/"self-employed"/...)
+
+Stage 1 currently consumes only the gender marginal; age × gender
+post-stratification is reserved for v2.0 Phase 1 actual implementation
+once the file is provided. The 7-cluster proportions remain M3-fixed at
+the IEEE-published values per m8 limitation."""
+
 # HEXACO 6-domain column names (Wakabayashi 2014 Japanese HEXACO-60)
 HEXACO_DOMAINS = ["H", "E", "X", "A", "C", "O"]
 """HEXACO 6 domains: Honesty-Humility, Emotionality, eXtraversion, Agreeableness, Conscientiousness, Openness."""
@@ -283,6 +299,139 @@ def load_centroids(path: str | os.PathLike[str] | None = None) -> CentroidData:
             "Tokiwa clustering paper (IEEE-published)."
         )
     return CentroidData(df=df)
+
+
+# ====================================================================
+# MHLW Labor Force Survey 2022 weights loader (Stage 1 input)
+# ====================================================================
+
+
+@dataclass(frozen=True)
+class MHLWWeights:
+    """Container for MHLW Labor Force Survey 2022 marginal counts.
+
+    Used by Stage 1 population aggregation. Per m8 limitation, only the
+    gender marginal is consumed in v2.0 Phase 1; the age and employment
+    crosstab is preserved for future post-stratification work.
+    """
+
+    df: pd.DataFrame
+    """Long-form table of (age_group, gender, count, employment) rows."""
+
+    @property
+    def gender_proportions(self) -> np.ndarray:
+        """Length-2 array [P(gender=0), P(gender=1)] from MHLW marginals."""
+        totals = self.df.groupby("gender")["count"].sum()
+        if 0 not in totals.index or 1 not in totals.index:
+            raise ValueError(
+                f"MHLW data missing gender categories; got {totals.index.tolist()}. "
+                "Expected gender ∈ {0, 1} after canonicalization."
+            )
+        out = np.array([float(totals.loc[0]), float(totals.loc[1])])
+        s = float(out.sum())
+        if s <= 0:
+            raise ValueError("MHLW gender total count is zero.")
+        return out / s
+
+    @property
+    def n_records(self) -> int:
+        return len(self.df)
+
+    @property
+    def total_population(self) -> int:
+        return int(self.df["count"].sum())
+
+
+MHLW_GENDER_ALIASES = {
+    # Numeric (canonical)
+    0: 0, 1: 1, "0": 0, "1": 1,
+    # Common Western abbreviations
+    "F": 0, "M": 1, "f": 0, "m": 1,
+    "female": 0, "male": 1, "Female": 0, "Male": 1,
+    # Japanese
+    "女": 0, "男": 1, "女性": 0, "男性": 1,
+}
+"""Canonicalize MHLW gender labels to internal 0 = female, 1 = male."""
+
+
+def load_mhlw_weights(path: str | os.PathLike[str] | None = None) -> MHLWWeights:
+    """Load MHLW Labor Force Survey 2022 marginal counts.
+
+    Expected CSV schema (long form):
+        age_group  : str  (e.g., "15-19", "20-24", ..., "65+")
+        gender     : int  (0 = female, 1 = male) OR str ("F"/"M"/"女"/"男")
+        count      : int  (persons; in thousands acceptable)
+        employment : str  (optional; "regular"/"non-regular"/...)
+
+    Acquisition (manual, gated on Phase 1):
+        1. Visit e-Stat https://www.e-stat.go.jp/
+        2. Download the Labor Force Survey Basic Tabulation 2022 annual,
+           specifically the age × gender × employment crosstab.
+        3. Reshape to long form per the schema above.
+        4. Save to ``simulation/data/mhlw_labor_force_2022.csv``.
+
+    Validation:
+        - All rows must have non-null age_group, gender, count.
+        - Gender must canonicalize to {0, 1}.
+        - Count must be a non-negative integer.
+        - At least one row per gender category.
+
+    Parameters
+    ----------
+    path : path-like, optional
+        Override path. Defaults to ``MHLW_WEIGHTS_PATH``.
+
+    Returns
+    -------
+    MHLWWeights
+
+    Raises
+    ------
+    FileNotFoundError
+        If the file does not exist (Phase 1 gating signal).
+    ValueError
+        If the schema is malformed.
+    """
+    p = Path(path) if path is not None else MHLW_WEIGHTS_PATH
+    if not p.is_file():
+        raise FileNotFoundError(
+            f"MHLW Labor Force Survey 2022 file not found at {p}. "
+            "Acquire from e-Stat (see docstring for instructions) and "
+            "save as long-form CSV."
+        )
+    df = pd.read_csv(p)
+    required = {"age_group", "gender", "count"}
+    missing_cols = required - set(df.columns)
+    if missing_cols:
+        raise ValueError(
+            f"MHLW CSV missing required columns: {sorted(missing_cols)}. "
+            f"Expected at minimum: {sorted(required)}."
+        )
+
+    # Canonicalize gender
+    def _normalize_gender(value: Any) -> int:
+        if value in MHLW_GENDER_ALIASES:
+            return MHLW_GENDER_ALIASES[value]
+        raise ValueError(
+            f"Unrecognized MHLW gender value: {value!r}. "
+            f"Expected one of {sorted(set(MHLW_GENDER_ALIASES.keys()), key=str)}."
+        )
+
+    df["gender"] = df["gender"].apply(_normalize_gender).astype(int)
+
+    if df["count"].isna().any():
+        raise ValueError("MHLW CSV contains NaN counts.")
+    if (df["count"] < 0).any():
+        raise ValueError("MHLW CSV contains negative counts.")
+    df["count"] = df["count"].astype(int)
+
+    if df["age_group"].isna().any():
+        raise ValueError("MHLW CSV contains NaN age_group.")
+
+    if "employment" not in df.columns:
+        df = df.assign(employment="all")
+
+    return MHLWWeights(df=df)
 
 
 # ====================================================================
