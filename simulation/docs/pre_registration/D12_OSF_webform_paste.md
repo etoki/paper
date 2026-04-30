@@ -1277,6 +1277,30 @@ Empirical missingness patterns triggering deviation: logged per Section 6.5 devi
 
 ---
 
+## OSF Field B21 — Other planned analysis (Optional)
+
+```
+Pre-specified but interpreted as EXPLORATORY (not confirmatory):
+
+1. 28-cell EB sensitivity (Section 5.2): treated as sensitivity rather than confirmatory test of role × type interactions.
+
+2. Stage 5 CMV diagnostic (Section 5.6): exploratory; first-factor variance < 50% as preregistered "concern is limited" threshold.
+
+3. B4 baseline (Section 5.5): exploratory comparison of personality-slice incrementality vs peripheral covariates.
+
+4. Subgroup MAPE by gender × age band (Section 5.4): exploratory failure-mode localization.
+
+5. HEXACO domain-level associations (Section 3.1.3): interpreted as exploratory replication of Tokiwa harassment preprint; preregistered analyses are the type-conditional cell-level cross-tabulations.
+
+6. Discriminant validity check (Section 4.2 L11): exploratory; if depression/stress measures unavailable in N=354, HEXACO Emotionality used as proxy.
+
+7. Pasona 2022 macro turnover sanity check (★ added v1.1): exploratory triangulation of Stage 2 chain output against 865,000/year estimate.
+
+Any analysis not enumerated in Sections 5, 6, or here is exploratory and reported as such.
+```
+
+---
+
 
 
 
