@@ -1259,6 +1259,24 @@ External validation data (MHLW, ILO, Pasona, Tsuno) are used as published; no ma
 
 ---
 
+## OSF Field B20 — Missing data
+
+```
+Existing datasets are used as released. No multiple imputation at the main analysis stage (avoiding model-based covariance not specified in the preregistration).
+
+Within N=354:
+- Rows missing a single HEXACO domain: cluster assignment uses Euclidean distance over the 5 available domains (with the missing one excluded from the metric).
+- Rows missing ≥ 2 HEXACO domains: flagged for sensitivity supplementary; if proportion > 5% of N=354, an additional sensitivity analysis excludes them from the 14-cell crosstab.
+
+Bootstrap resampling treats missingness as observed (no imputation): a row missing a domain is left out of cluster reassignment in that resample.
+
+External validation data: any missing cells in MHLW supplementary tables are reported as such; no synthetic values are inserted.
+
+Empirical missingness patterns triggering deviation: logged per Section 6.5 deviation policy.
+```
+
+---
+
 
 
 
