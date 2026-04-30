@@ -846,6 +846,126 @@ ETHICS:
 
 ---
 
+## OSF Field B10 — Sample size (REQUIRED)
+
+```
+PHASE 1 MAIN ANALYSIS:
+- Individual-level: N=354 (Japanese workers, aged 20-64)
+- Cell-level: 14 cells (7 HEXACO types × 2 genders)
+  - Cell N: minimum 10, maximum 70, median 18
+  - 0 cells with N < 10
+  - 7 cells (50%) with N < 20
+
+PHASE 1 SENSITIVITY ANALYSIS:
+- 28 cells (7 type × 2 gender × 2 role)
+- 16 cells (57%) with N < 10
+- 9 cells with N ≤ 3
+- 4 cells with N = 0
+- Empirical Bayes shrinkage (Beta-Binomial conjugate, method of moments) is mandatory at this tier.
+
+POPULATION AGGREGATE:
+- ~68 million Japanese workers aged 20-64 (MHLW Labor Force Survey base, used for Stage 1 weighting)
+
+EXTERNAL VALIDATION REFERENCE SAMPLES (existing public statistics):
+- MHLW H28 / R2 / R5 surveys: each N≈8,000 (general worker sample)
+- Pasona Research 2022: N=28,135 (industry-survey panel)
+- Tsuno et al. 2015 PLOS ONE: N=1,546 (national-representative random sample)
+
+PHASE 2 COUNTERFACTUAL TARGETS:
+- Cluster 0 (primary, Self-Oriented Independent profile): ~6.5% of N=354 (~23 local; scaled to ~4.4 million in population)
+- Cluster 4 (secondary): ~14.4% (~51 local; ~9.8 million)
+- Cluster 6 (secondary): ~32.2% (~114 local; ~21.9 million)
+
+BOOTSTRAP ITERATIONS: B=2,000 per cell with BCa CI correction.
+RANDOM SEED: 20260429 (fixed by preregistration; deterministic for full reproducibility).
+
+NESTING:
+- Level 1: individuals (N=354)
+- Level 2: cells (14 cells main / 28 cells sensitivity)
+- Level 3: population aggregate (single point estimate per validation period)
+- 28-cell tier uses hierarchical Beta-Binomial framework with cell-level posteriors.
+
+The sample size is fixed by the existing data and is not adjustable.
+```
+
+---
+
+## OSF Field B11 — Sample size rationale (Optional)
+
+```
+Sample size is fixed by the existing data and is not adjustable. The rationale for proceeding with the available sample size, drawn from the D13 power analysis (simulation/docs/power_analysis/D13_power_analysis.md, attached as supplementary), is:
+
+1. N=354 satisfies Funder & Ozer (2019)'s recommendation of N ≥ 250 for stable correlation estimation at the aggregate level.
+
+2. The 14-cell main analysis satisfies N ≥ 10 in every cell, allowing bootstrap estimation WITHOUT empirical Bayes shrinkage. Cell-level binary-rate 95% CI half-widths are approximately ±13 percentage points (median) for power harassment outcomes.
+
+3. The pairwise minimum detectable effect (Cohen's d ≥ 0.92, computed at α = .05 two-sided, 1-β = .80) is "very large" by Cohen 1988 and "rarely found in replication" per Funder & Ozer 2019. Consequently:
+   - Cell-level pairwise inference is AVOIDED as a preregistered limitation.
+   - Aggregate-level (population) inference is the primary inferential target.
+   - This limitation is acknowledged in Section 10 of the preregistration (Limitation L4).
+
+4. The 28-cell sensitivity tier with 16 small cells (N < 10) requires empirical Bayes shrinkage (Beta-Binomial conjugate, method of moments) with a strength sensitivity sweep at scale ∈ {0.5×, 1.0× main, 2.0×}. This is enforced by Section 5.2 of the preregistration.
+
+5. Bootstrap iterations B=2,000 per cell are sufficient for stable BCa CI estimation given the cell-level sample sizes (Efron 1987; DiCiccio & Efron 1996).
+
+6. Population aggregate (~68 million workers) inherits cell-level uncertainty via bootstrap propagation; population-level CI half-widths are substantially narrower than cell-level CIs due to weighted aggregation across all 14 cells.
+
+7. External validation samples (MHLW N≈8,000 each survey; Pasona N=28,135) are sufficiently large that their reported point estimates (32.5%, 31.4%, 19.3%, 19.7%) have negligible measurement uncertainty relative to the simulation's prediction CIs.
+
+The full power analysis report is at simulation/docs/power_analysis/D13_power_analysis.md (attached as supplementary).
+```
+
+---
+
+## OSF Field B12 — Starting and stopping rules
+
+```
+NOT APPLICABLE for new data collection: no new data are collected in this study.
+
+PILOT TESTING: not applicable (preexisting data; secondary analysis only).
+
+STOPPING RULE FOR DATA COLLECTION: not applicable.
+
+STARTING RULE FOR ANALYSIS:
+- Stage 0 code execution begins ONLY after this preregistration is registered on OSF and the OSF DOI is recorded in the document headers (Section 14.3 of the preregistration document).
+- Stage 1 (validation against MHLW H28 FY2016) begins ONLY after Stage 0 cross-tabulations are complete and inspected for sanity (e.g., no NaN cells, all bootstrap CIs converged).
+- Stage 2 (validation triangulation) is preceded by independent methodologist review of Section 5 (Analysis Plan) per Section 8.1 of the preregistration.
+
+STOPPING RULES FOR THE ANALYSIS PIPELINE:
+
+1. Bootstrap iterations: B=2,000 per cell, FIXED by preregistration. No adaptive stopping (e.g., based on convergence diagnostics) is permitted.
+
+2. Sensitivity sweep ranges: pre-specified in Section 6.4 of the preregistration:
+   - V ∈ {2, 3, 4, 5}
+   - f1 ∈ {0.05, 0.10, 0.15, 0.20}
+   - f2 ∈ {0.10, 0.20, 0.30}
+   - EB shrinkage scale ∈ {0.5×, 1.0×, 2.0×}
+   - Binarization threshold ∈ {mean+0.25 SD, +0.5 SD, +1.0 SD}
+   - Cluster K ∈ {4, 5, 6, 7, 8}
+   - Role-estimation models ∈ {linear, tree-based, literature}
+   - Phase 2 δ_A, δ_B, effect_C, transportability_factor: respective fixed ranges
+
+   Any post-registration EXTENSION of these sensitivity ranges will be flagged as EXPLORATORY and EXCLUDED from confirmatory inference.
+
+3. Counterfactual exploration: counterfactuals A / B / C are exhaustively defined in Stages 6-8 with fixed parameter ranges. No ADDITIONAL counterfactuals (e.g., D, E) may be added post-lock without registering a v2 amendment per Section 6.5 Level 3 deviation procedure.
+
+4. Multiple-comparison correction: pre-specified Bonferroni-Holm at family-wise α=.05 for H2 (4 ordinal pairwise tests) and H4-H7 (3 counterfactual main tests). No alternative correction is permitted.
+
+5. Inference threshold modification: post-hoc revision of MAPE thresholds (≤30% SUCCESS / >60% FAILURE) is PROHIBITED. Any modification requires registering a v2 amendment.
+
+6. Optional stopping: NOT permitted. The analysis is run to completion under the preregistered plan regardless of intermediate results (e.g., the analysis does NOT stop early if H1 is rejected at the 14-cell stage; all preregistered downstream analyses including baseline hierarchy and counterfactuals are still executed).
+
+DEVIATION POLICY (Section 6.5 of the preregistration):
+- Level 0: no deviation
+- Level 1: minor specification clarification (recorded in Methods)
+- Level 2: data-driven adjustment (justified in Discussion subsection)
+- Level 3: analysis-plan revision (requires v2 registration on OSF with public diff against v1)
+
+All Level 2 and Level 3 deviations are reported in a dedicated Discussion subsection ("Deviations from Pre-Registration").
+```
+
+---
+
 
 
 
