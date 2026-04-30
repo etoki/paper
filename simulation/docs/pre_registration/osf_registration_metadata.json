@@ -20,6 +20,9 @@
       "doi": "10.17605/OSF.IO/45QP9",
       "url": "https://osf.io/45qp9",
       "registered_date": "2026-04-30",
+      "contributor_approved_date": "2026-05-21",
+      "public_finalized_date": "2026-05-21",
+      "doi_resolves": true,
       "supersedes": null,
       "superseded_by": "v2.0"
     },
@@ -29,6 +32,9 @@
       "doi": "10.17605/OSF.IO/3Y54U",
       "url": "https://osf.io/3y54u",
       "registered_date": "2026-04-30",
+      "contributor_approved_date": "2026-05-21",
+      "public_finalized_date": "2026-05-21",
+      "doi_resolves": true,
       "supersedes": "v1.1",
       "superseded_by": null,
       "public_diff_against_v1.1": "D12_pre_registration_v1.1_to_v2.0_diff.pdf"
