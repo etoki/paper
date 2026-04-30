@@ -1,13 +1,17 @@
 # D12 OSF Pre-Registration — HEXACO 7-Typology Workplace Harassment Microsimulation (Phase 1 + Phase 2)
 
-**Document type**: OSF Standard Pre-Registration draft (English version for OSF submission)
+**Document type**: OSF Standard Pre-Registration (English version, v2.0 draft for OSF v2 registration)
 **Drafted**: 2026-04-29
+**Last updated**: 2026-04-30 (v2.0 DRAFT — Path C upgrade per anonymous methodologist review)
 **Branch**: `claude/hexaco-harassment-simulation-69jZp`
-**Author (corresponding)**: Eisuke Tokiwa
+**Author (corresponding)**: Eisuke Tokiwa (sole-authored)
 **ORCID**: 0009-0009-7124-6669
 **Affiliation**: SUNBLAZE Co., Ltd.
 **Email**: eisuke.tokiwa@sunblaze.jp
-**Status**: ⏳ DRAFT — to be finalized and registered on OSF **prior to Stage 0 code execution**
+**Status**: ⏳ **DRAFT v2.0** — pending OSF v2 registration. v1.1 (DOI 10.17605/OSF.IO/45QP9) remains valid as historical record.
+**v1.1 OSF DOI** (LOCKED, historical): 10.17605/OSF.IO/45QP9 — https://osf.io/45qp9 (registered 2026-04-30)
+**v2.0 OSF DOI** (pending): TBD — to be filled after author submits v2 with public diff against v1.1
+**OSF Associated Project**: https://osf.io/3hxz6 (HEXACO 7-Typology Workplace Harassment Microsimulation)
 **Anchor template**: OSF Standard Pre-Registration (Bowman et al. 2020, https://osf.io/rh8jc) + Nosek et al. 2018 PNAS "preregistration revolution" 9-Challenge framework
 **Companion document (Japanese master)**: `simulation/docs/pre_registration/D12_pre_registration_OSF.md`
 
@@ -81,12 +85,14 @@ No large language models are used. All mechanisms are transparent probability ta
 
 #### H1 (Phase 1 main hypothesis)
 
-**The aggregate national prediction obtained by scaling 14-cell (7 type × 2 gender) conditional harassment propensities to the population reproduces the MHLW 2016 (pre-Power Harassment Prevention Law, 32.5% past-3-year harassment victimization rate) within MAPE ≤ 30%.**
+**The aggregate national prediction obtained by scaling 14-cell (7 type × 2 gender) conditional harassment propensities to the population reproduces the MHLW H28 (FY2016, pre-Power Harassment Prevention Law, 32.5% past-3-year **power harassment** victimization rate) within MAPE ≤ 30%.**
 
-- **Primary validation target**: MHLW 2016 R2 "Survey on Workplace Harassment" (past-3-year prevalence 32.5%)
-- **Secondary validation targets**: MHLW 2020 R2 (31.4%, transition period), MHLW 2024 R5 (19.3%, post-law)
+- **Primary validation target**: **MHLW H28 (FY2016)** "Survey on Workplace Power Harassment" (past-3-year power harassment prevalence 32.5%, pre-law)
+- **Secondary validation targets**: **MHLW R2 (FY2020)** "Survey on Workplace Harassment Report" (31.4%, transition); **MHLW R5 (FY2023, published March 2024)** "FY2023 MHLW-commissioned Survey on Workplace Harassment Report" (19.3%, post-law)
+- ★ **Important scope clarification**: This study validates **power harassment (パワハラ) past-3-year prevalence only**. Sexual harassment, customer harassment (カスハラ), and pregnancy/childcare-related harassment are separate categories. MHLW R5 (FY2023) measures sexual harassment 6.3% and customer harassment 10.8% on the same N=8,000 sample, but this study's validation target is **restricted to power harassment**.
 - **International baseline**: ILO (2022) Asia–Pacific lifetime prevalence 19.2%
-- **Marginal-distribution check**: Tsuno et al. (2015) N = 1,546 random sample, 30-day prevalence 6.1%
+- **Marginal-distribution check (1)**: **Pasona Research (2022)** N=28,135 nationwide workers aged 20–69, 5-year harassment prevalence 19.7% (lifetime 34.6%) — large-N harassment-specific domestic triangulation source
+- **Marginal-distribution check (2)**: Tsuno et al. (2015) N=1,546 random sample, 30-day prevalence 6.1%
 
 #### H2 (Phase 1 baseline hierarchy)
 
@@ -96,7 +102,9 @@ No large language models are used. All mechanisms are transparent probability ta
 
 #### H3 (Phase 1 latent vs expressed gap)
 
-**The gap between MHLW 2016 (pre-law, 32.5%) and our latent prediction is smaller than the gap between MHLW 2024 (post-law, 19.3%) and our latent prediction.** That is, the pre-law condition is closer to the latent rate, while the post-law condition shows stronger environmental gating.
+**The gap between MHLW H28 (FY2016, pre-law, past-3-year power harassment 32.5%) and our latent prediction is smaller than the gap between MHLW R5 (FY2023, post-law, past-3-year power harassment 19.3%) and our latent prediction.** That is, the pre-law condition is closer to the latent rate, while the post-law condition shows stronger environmental gating.
+
+**The emergence of customer harassment (カスハラ) as a distinct category** (codified by the FY2022 amendment of the Power Harassment Prevention Law extending coverage to all employers including SMEs from April 2022, and first independently measured at 10.8% in MHLW R5) provides evidence that the apparent decline from 32.5% (pre-law) → 19.3% (post-law) reflects a **compound environmental gating effect**: (a) the legal/categorical boundary of what constitutes "harassment" itself shifted (customer harassment carved out as a new expressed category), and (b) reporting of the existing power harassment category was simultaneously suppressed. The Discussion will honestly acknowledge that the latent vs expressed gap reflects "category boundary shift × gating strength" rather than a simple environmental effect on a fixed construct.
 
 #### H4 (Phase 2 Counterfactual A: Universal HH intervention)
 
@@ -129,9 +137,10 @@ No large language models are used. All mechanisms are transparent probability ta
 
 | H# | Phase | Type | Inference metric |
 |---|---|---|---|
-| H1 | 1 | Confirmatory predictive | MAPE vs MHLW 2016 |
+| H1 | 1 | Confirmatory predictive | MAPE vs MHLW H28 (FY2016) past-3-year power harassment 32.5% |
 | H2 | 1 | Confirmatory ordinal | Monotonic ordering of B0–B4 MAPE |
-| H3 | 1 | Exploratory descriptive | gap(2016) < gap(2024) |
+| **H2.industry** ★ | **1** | **Secondary confirmatory** | **B4 industry-stratified subgroup MAPE ≤ 50% against MHLW R5 (FY2023) industry-stratified power harassment (16-26.8% range)** |
+| H3 | 1 | Exploratory descriptive | gap(MHLW H28 FY2016) < gap(MHLW R5 FY2023) |
 | H4 | 2 | Conditional projection | Sign and magnitude of ΔP_A |
 | H5 | 2 | Conditional projection | Sign of ΔP_B and cost-effectiveness ranking |
 | H6 | 2 | Conditional projection | Sign and magnitude of ΔP_C |
@@ -199,7 +208,7 @@ Stage 1: Population aggregation
   └─ Output: National latent prevalence with bootstrap CI
 
 Stage 2: Validation triangulation
-  ├─ Compare national latent prediction against MHLW 2016 (32.5%, primary), 2020 (31.4%), 2024 (19.3%)
+  ├─ Compare national latent power-harassment prediction against MHLW H28 FY2016 (32.5%, primary), R2 FY2020 (31.4%), R5 FY2023 (19.3%)
   ├─ Metrics: MAPE (primary), Pearson r, Spearman ρ, KS distance, Wasserstein distance, calibration plot
   └─ Output: Validation report + cell-level prediction error map
 
@@ -371,15 +380,18 @@ Not applicable: no new data collection.
 | **HEXACO 6 domains** | Continuous | Centroid extraction (already aggregated; `clustering/csv/clstr_kmeans_7c.csv`) |
 | **Cluster proportion** | Categorical (7 types) | Population scaling weight |
 
-#### 4.2.3 Population-level (MHLW; external validation targets)
+#### 4.2.3 Population-level (MHLW + large-N domestic surveys; external validation targets)
 
 | Variable | Source | Role |
 |---|---|---|
-| **Past-3-year harassment victimization rate** | MHLW 2016 R2 (32.5%, ★ primary), 2020 R2 (31.4%), 2024 R5 (19.3%) | National validation target |
-| **Industry-stratified prevalence** | MHLW 2020 R2 supplementary tables | Subgroup validation |
-| **30-day prevalence** | Tsuno et al. 2015 N = 1,546 (6.1%) | Marginal-distribution check |
+| **Past-3-year power harassment victimization rate** | **MHLW H28 (FY2016, pre-law) 32.5% ★ primary**, MHLW R2 (FY2020, transition) 31.4%, **MHLW R5 (FY2023, post-law, published March 2024) 19.3%** | National validation target |
+| **Industry-stratified past-3-year power harassment** | **MHLW R5 (FY2023) industry-stratified: Construction 26.8%, Compound services 22.5%, Education / Health & welfare 20.6%, …, Education 16.9% (industry range 16-26.8%, N=8,000 general sample)** | **B4 baseline subgroup validation (H2.industry)** |
+| **Other harassment categories (for framing)** | MHLW R5 sexual harassment 6.3% (women 8.9% / men 3.9%), customer harassment 10.8% (for environmental shift framing) | Latent vs expressed gap framing (H3) |
+| **5-year harassment prevalence (industry survey)** | **Pasona Research (2022) "Quantitative Survey on Workplace Harassment" N=28,135, 5-year prevalence 19.7% (lifetime 34.6%), industry-stratified 16.9-22.9%** | Marginal-distribution check (large-N harassment-specific) |
+| **30-day prevalence (national-rep)** | Tsuno et al. 2015 N=1,546 (6.1%) | Marginal-distribution check (national-representative) |
 | **International baseline** | ILO 2022 Asia–Pacific lifetime 19.2% | Comparative reference |
-| **Turnover by reason "interpersonal relations"** | MHLW Employment Trend Survey | f1 anchor |
+| **f1 anchor (harassment-victim turnover rate)** | **Pasona (2022) 5-year turnover among harassment victims: overall 10.3% (industry range 6.3-13.3%) ★ primary**; **MHLW R4 (FY2022) Employment Trend Survey** turnover-among-job-changers' previous-job exit reason "workplace interpersonal relations": men 8.3% / women 9.4% (upper bound) | f1 sensitivity sweep [0.05, 0.10, 0.15, 0.20] empirical anchor |
+| **f1 macro cross-check** | Pasona (2022) annual harassment-induced turnover macro estimate: 865,000 persons/year (with 573,000 = 66% unreported / 暗数化), comprising 12.1% of total annual turnover (865,000 / 7,173,000) | Stage 2 chain output sanity check (Section 5.4) |
 | **Mental disorder incidence** | MHLW Industrial Safety and Health Survey + Tsuno & Tabuchi 2022 PR = 3.20 | f2 anchor |
 
 ### 4.3 Indices (derived)
@@ -408,7 +420,14 @@ For each cell c ∈ {1..14} (7 type × 2 gender):
 - Bootstrap distribution: B = 2,000 BCa resamples per cell (Efron 1987 *J Am Stat Assoc*; DiCiccio & Efron 1996 *Stat Sci*)
 - BCa correction: bias correction z₀ + acceleration a from jackknife
 
-**Output**: 14-cell table with point estimates p̂_c and 95% BCa CIs [p̂_c^lo, p̂_c^hi].
+**BCa numerical stability fallback chain** (★ added v2, anonymous methodologist consultation):
+- BCa is the primary CI method.
+- If acceleration parameter |a| > 10 (jackknife instability, typically caused by binary outcome with rate near 0/N or N/N at small N) OR BCa computation raises a numerical error (division by zero, NaN propagation), automatically fallback to **Bias-Corrected (BC) bootstrap** (z₀ correction only, no acceleration).
+- If BC bootstrap also fails (rare; sample distribution too degenerate), fallback to **percentile bootstrap** (no correction).
+- All cells record which CI method was actually used; the supplementary table reports per-cell method (BCa / BC / percentile).
+- Aggregate-level (Stage 1, Stage 2) bootstrap propagation inherits the cell-level method choice automatically.
+
+**Output**: 14-cell table with point estimates p̂_c and 95% CIs [p̂_c^lo, p̂_c^hi] (method = BCa / BC / percentile recorded per cell).
 
 ### 5.2 Phase 1 Stage 0 (sensitivity): 28-cell EB shrinkage
 
@@ -424,10 +443,29 @@ Beta-Binomial conjugate shrinkage (Casella 1985 + Clayton & Kaldor 1987 + Efron 
 3. **Strength sensitivity sweep** (★ preregistered):
    - scale ∈ {0.5×, 1.0× (main), 2.0×}: hyperparameters (α̂, β̂) are multiplied by scale to produce weak / medium / strong shrinkage variants
 
-**MoM stability diagnostic** (research plan Part 11.9):
-- With only 14 cells, σ̂² may be small enough that α̂, β̂ become extreme (overly strong prior)
-- **Triangulation**: Marginal MLE and Stan / brms hierarchical Bayesian posteriors are run as auxiliary checks
-- Diagnostic plot: μ̂ ± SE plot and a shrunken-vs-raw scatter plot to visually detect over- or under-shrinkage
+**MoM rejection decision rule** (★ added v2, pre-specified, anonymous methodologist consultation):
+
+The preregistration fixes the following hard rule for choosing between MoM and Stan hierarchical Bayes as the **primary** 28-cell estimator:
+
+- **REJECT MoM, switch to Stan** if EITHER of:
+  - σ̂² / [μ̂(1−μ̂)] < 0.05 (variance too small relative to maximum-possible binomial variance; MoM produces extreme α̂, β̂ with overshrink risk)
+  - max(α̂, β̂) > 100 (pseudo-count exceeds 7× the median cell N=14; MoM dominates the likelihood signal)
+- **ACCEPT MoM as primary** if both conditions clear.
+- The threshold values 0.05 and 100 are FIXED by this v2 preregistration; no post-hoc adjustment is permitted.
+
+**In ALL cases (regardless of acceptance / rejection), THREE estimators are computed and reported** (★ added v2 triangulation requirement):
+
+| Estimator | Status | Reporting |
+|---|---|---|
+| MoM (Beta-Binomial conjugate) | Primary IF accepted | Main text + supplementary |
+| Marginal MLE (numerical maximization) | Always run | Supplementary (triangulation) |
+| Stan hierarchical Bayes (HMC, brms) | Primary IF MoM rejected | Main text (if primary) + supplementary always |
+
+**Cross-check diagnostic** (★ added v2, methodologist suggestion): in addition to the σ̂² / [μ̂(1−μ̂)] threshold, the supplementary reports the alternative diagnostic **(α̂ + β̂) / median cell N** as a second indicator of overshrink concern. Readers can verify that the threshold-based switch does not produce qualitatively different conclusions.
+
+**MoM threshold sensitivity caveat** (★ added v2, methodologist note): σ̂² is itself a sample estimate from N=14 cells with sampling variability. To address this, the supplementary reports MoM and Stan results in parallel even when MoM is "accepted" by the rule, demonstrating robustness across the threshold boundary.
+
+**Diagnostic plots** (★ existing, retained): μ̂ ± SE plot; shrunken vs raw scatter; MoM-vs-Stan agreement scatter (★ added v2).
 
 ### 5.3 Phase 1 Stage 1: Population aggregation
 
@@ -440,13 +478,48 @@ For each validation period t ∈ {2016, 2020, 2024}:
 
 ### 5.4 Phase 1 Stage 2: Validation triangulation
 
-**Primary metric** (★ preregistered):
-- **MAPE**(P̂_2016, MHLW 2016 32.5%) ≤ 30% → SUCCESS
-- 30% < MAPE ≤ 60% → PARTIAL SUCCESS
-- MAPE > 60% → FAILURE (publish anyway; see Section 7.3)
+**Bootstrap MAPE CI computation procedure** (★ added v2, anonymous methodologist consultation, pre-specified):
+
+For each bootstrap iteration b ∈ {1..2,000}:
+
+1. Resample N=354 with replacement, **stratified by 14 cell** (preserving cell membership marginals; this is cell-level bootstrap, NOT independent resampling of population weights).
+2. Re-classify each resampled individual to the nearest of 7 centroids (centroids fixed from N=13,668; not bootstrapped).
+3. Re-compute each cell's binary harassment outcome propensity p̂_c^(b) on the resampled data, applying the BCa numerical stability fallback chain (Section 5.1) at the cell level.
+4. Apply population weights W_c (from MHLW Labor Force Survey, FIXED across iterations — not bootstrapped) to compute the resampled national latent prevalence:
+   P̂_t^(b) = Σ_c (p̂_c^(b) × W_c) / Σ_c W_c
+5. Compute the resampled MAPE:
+   MAPE^(b) = |P̂_t^(b) − MHLW_observed_t| / MHLW_observed_t × 100
+   where MHLW_observed_t is the FIXED point estimate from the MHLW survey for period t (no bootstrap of MHLW data).
+6. Record MAPE^(b).
+
+After all B = 2,000 iterations:
+- **Point estimate MAPE** is computed on the original (non-bootstrapped) data, NOT the mean of MAPE^(b). The bootstrap distribution informs only the CI, not the point estimate.
+- **95% BCa CI for MAPE** is constructed from the empirical distribution of {MAPE^(b)} using bias correction z₀ + acceleration a from jackknife (BCa fallback chain applies if numerical instability is detected at the MAPE level).
+
+Both point estimate and 95% BCa CI are reported for each validation period t ∈ {FY2016, FY2020, FY2023}. Identical procedure applies to all baseline models B0–B4.
+
+**4-tier judgment hierarchy** (★ added v2, primary inference criterion, pre-registered):
+
+| Tier | Condition | Interpretation |
+|---|---|---|
+| **Strict SUCCESS** | Point MAPE ≤ 30% **AND** 95% bootstrap CI upper bound ≤ 30% | Strong confirmatory result; CI rules out PARTIAL or FAILURE regions |
+| **Standard SUCCESS** | Point MAPE ≤ 30% (CI permitted to overlap the 30–60% PARTIAL region) | Weak confirmatory; Discussion explicitly notes the "Pre-registered ambiguity Tier" |
+| **PARTIAL SUCCESS** | 30% < point MAPE ≤ 60% | Mixed evidence; CI flagged in Discussion |
+| **FAILURE** | Point MAPE > 60% | Publish as failure-mode discovery (Section 7.3) |
+
+Tier assignment for **H1 primary** is based on FY2016 validation (against MHLW H28 32.5%). FY2020 and FY2023 receive independent tier classifications and are reported as secondary.
+
+**Tier-specific reporting requirements** (★ added v2, pre-registered):
+
+- **Strict SUCCESS**: "Strict SUCCESS achieved" allowed in the headline / abstract without further qualification.
+- **Standard SUCCESS**: must be qualified with an explicit CI ambiguity statement, e.g., "Standard SUCCESS achieved (point MAPE = X%, 95% bootstrap CI = [Y%, Z%]). The CI overlapped the PARTIAL region [30%, 60%], so the inferential strength is limited; the result falls in the **Pre-registered ambiguity Tier**, and confirmatory claims are correspondingly weakened."
+- **PARTIAL SUCCESS**: standard PARTIAL framing with CI reported.
+- **FAILURE**: standard FAILURE framing per Section 7.3.
+
+All Tiers continue to satisfy the Section 7 negative-result publication commitment (D-NEW8). Post-hoc tier-threshold revision is PROHIBITED; a v3 OSF registration with a public diff is required for any change.
 
 **Secondary metrics** (descriptive):
-- Pearson r between cell-level p̂_c and MHLW subgroup rates
+- Pearson r between cell-level p̂_c and MHLW R5 (FY2023) subgroup rates
 - Spearman ρ (rank correlation)
 - KS distance (distribution shape)
 - Wasserstein distance (earth mover's distance)
@@ -455,27 +528,52 @@ For each validation period t ∈ {2016, 2020, 2024}:
 **Subgroup MAPE** (★ preregistered):
 - Gender × age band → subgroup MAPE to localize failure modes
 
+**Triangulation against marginal-distribution surveys** (★ preregistered, descriptive):
+- **Pasona (2022) N=28,135, 5-year prevalence 19.7%**: report Pearson r between simulation cell-level prediction and Pasona industry-stratified rates (16.9-22.9%); descriptive only, no SUCCESS / FAILURE threshold.
+- Tsuno et al. (2015) N=1,546 30-day prevalence 6.1%: reference period correction discussed in Methods (cannot be directly compared to past-3-year prediction).
+- ILO (2022) 19.2% Asia-Pacific lifetime: report difference (Δ between predicted past-3-year and reported lifetime) for context.
+
+**Stage 2 chain output sanity check** (★ preregistered, soft criterion):
+- Compute predicted annual harassment-induced turnover via the V × f1 chain (Stage 2): Σ_cell (predicted perpetrators × V × f1).
+- Compare against **Pasona (2022) annual harassment-induced turnover macro estimate of 865,000 persons/year** (with 573,000 = 66% 暗数化 / unreported).
+- Soft criterion: predicted annual turnover within 50–200% of the Pasona estimate (i.e., 430,000–1,730,000 persons/year). Outside this range is flagged for failure-mode discussion.
+- This is a SECONDARY criterion (does not affect H1 SUCCESS / FAILURE).
+
 ### 5.5 Phase 1 Stage 4: Baseline hierarchy
 
 For each baseline B ∈ {B0, B1, B2, B3 (proposed), B4}:
 - Train: same N = 354
 - Predict national prevalence
-- Compute MAPE against MHLW 2016
+- Compute MAPE against MHLW H28 (FY2016) past-3-year power harassment 32.5%
 - Preregistered ordinal hypothesis (H2): MAPE_B0 ≥ MAPE_B1 ≥ MAPE_B2 ≥ MAPE_B3 ≥ MAPE_B4
 
 **Models**:
-- **B0**: uniform p_random = MHLW 2016 grand mean
+- **B0**: uniform p_random = MHLW H28 (FY2016) grand mean
 - **B1**: gender-only logistic (P̂(harassment | gender))
 - **B2**: HEXACO 6-domain linear (logistic regression on all six domains)
 - **B3** (proposed): 7 type × gender cell-conditional (this study's main model)
-- **B4**: 7 type + age + industry estimate + employment type cell-conditional
+- **B4**: 7 type + age + **industry (estimated)** + employment type cell-conditional
 
-**Decision rule**:
+**Industry estimation specification for B4** (★ preregistered, ★ Item 5):
+- N = 354 does **not contain direct industry data**. B4's "industry" is **probabilistically estimated** from the joint (age × gender × employment-type) distribution against MHLW Labor Force Survey industry × demographic crosstabs.
+- Estimation method (★ preregistered): for each individual i with (age_i, gender_i, employment_i), assign a 16-bucket industry probability vector P(industry_j | age_i, gender_i, employment_i) using MHLW Labor Force 2022 data. The cell prediction in B4 is then weighted by this probability vector.
+- 16 industry buckets follow MHLW 日本標準産業分類 main divisions (matching the structure of the MHLW R5 industry-stratified harassment data).
+- This estimation is **inherently noisy** (individual industry is not observed); B4's industry-level predictions are therefore **expected to have wide CIs**.
+
+**Decision rule** (overall MAPE):
 - B3 > B2 → "typology adds information beyond linear domain effects"
 - B3 ≈ B2 → "typology does not exceed linear" (reported as a finding)
 - B3 < B2 → "typology overfits" (reported as a critical finding)
 - B4 ≫ B3 → "personality slice alone is insufficient; peripheral covariates needed"
 - B4 ≈ B3 → "personality typology informationally subsumes peripheral covariates"
+
+**Industry-stratified validation (H2.industry)** (★ preregistered, ★ Item 5):
+- B4 industry-stratified predictions (16 buckets) are compared to **MHLW R5 (FY2023) industry-stratified past-3-year power harassment rates** (16-26.8% range)
+- **Subgroup MAPE threshold (relaxed)**: 50% (more lenient than overall H1 30%, given industry-estimation noise)
+- Decision rule:
+  - Industry-MAPE ≤ 50% → CONFIRMS that personality + estimated industry can predict industry-level patterns
+  - Industry-MAPE > 50% → REPORT as honest limitation (industry-estimation noise dominates the personality signal at the industry level)
+- This is a **secondary criterion** to H1; failure does NOT trigger H1 failure.
 
 ### 5.6 Phase 1 Stage 5: CMV diagnostic
 
@@ -553,11 +651,13 @@ To be honestly assessed in the Discussion:
 
 | H# | Criterion | Threshold | Decision |
 |---|---|---|---|
-| **H1** | MAPE(P̂_2016, MHLW 2016 32.5%) | ≤ 30% | SUCCESS |
-| H1 | MAPE | 30 < x ≤ 60% | PARTIAL SUCCESS |
-| H1 | MAPE | > 60% | FAILURE (publish anyway) |
+| **H1 (Strict SUCCESS)** ★ v2 | Point MAPE(P̂_FY2016, MHLW H28 FY2016 32.5%) **AND** 95% BCa CI upper bound | both ≤ 30% | Strong confirmatory; "Strict SUCCESS achieved" allowed without qualification |
+| **H1 (Standard SUCCESS)** ★ v2 | Point MAPE | ≤ 30% (CI may overlap PARTIAL region) | Weak confirmatory; **Pre-registered ambiguity Tier** note required (Section 5.4) |
+| H1 (Partial) | Point MAPE | 30 < x ≤ 60% | Mixed evidence; CI reported in Discussion |
+| H1 (Failure) | Point MAPE | > 60% | Publish as failure-mode discovery (Section 7.3) |
 | **H2** | MAPE_B0 ≥ MAPE_B1 ≥ MAPE_B2 ≥ MAPE_B3 ≥ MAPE_B4 | Strict monotonicity | Direction confirmed if ≥ 3 of the 4 pairwise inequalities hold |
-| H3 | gap(2016) < gap(2024) | Direction | Confirmed if MAPE_2016 < MAPE_2024 |
+| **H2.industry** ★ | B4 industry-stratified (16 buckets) MAPE vs MHLW R5 (FY2023) industry-stratified power harassment 16-26.8% | ≤ 50% (relaxed; industry estimated) | CONFIRMED if ≤ 50%; honest LIMITATION REPORT if > 50%. Secondary criterion (does not affect H1 SUCCESS / FAILURE). |
+| H3 | gap(MHLW H28 FY2016) < gap(MHLW R5 FY2023) | Direction | Confirmed if MAPE_FY2016 < MAPE_FY2023 |
 | H4 | sign(ΔP_A) | Negative (reduction) | Confirmed if 95% CI excludes 0 in the negative direction |
 | H5 | sign(ΔP_B) and ΔP_B / N_treated > ΔP_A / N_total | Cost-effectiveness | Confirmed if both conditions hold |
 | H6 | sign(ΔP_C) | Negative | Confirmed if 95% CI excludes 0 |
@@ -583,7 +683,7 @@ To be honestly assessed in the Discussion:
 | Parameter | Main | Sweep range | Stage |
 |---|---|---|---|
 | **V** (victim multiplier) | 3 | {2, 3, 4, 5} | 3 |
-| **f1** (turnover rate) | 0.10 | {0.05, 0.10, 0.15, 0.20} | 3 |
+| **f1** (harassment-induced turnover rate) | 0.10 (close to Pasona 2022 empirical 10.3%) | {0.05, 0.10, 0.15, 0.20} (covers Pasona industry range 6.3-13.3% + MHLW R4 "interpersonal" turnover 8.3-9.4%) | 3 |
 | **f2** (mental disorder rate) | 0.20 | {0.10, 0.20, 0.30} | 3 |
 | **EB shrinkage scale** | 1.0× | {0.5×, 1.0×, 2.0×} | 0 (28-cell) |
 | **Binarization threshold** | mean + 0.5 SD | {mean + 0.25 SD, +0.5 SD, +1.0 SD} | 0 |
@@ -869,15 +969,16 @@ The following statement will be reproduced verbatim or substantively in the Meth
 |---|---|---|
 | `harassment/raw.csv` (N = 354) | Primary | Author's prior IRB-approved collection (Tokiwa harassment preprint) |
 | `clustering/csv/clstr_kmeans_7c.csv` | Derived | Tokiwa clustering paper (IEEE-published; centroid table) |
-| MHLW 2016 R2 Survey on Workplace Harassment | Public | https://www.mhlw.go.jp/ |
-| MHLW 2020 R2 Survey on Workplace Harassment | Public | https://www.mhlw.go.jp/ |
-| MHLW 2024 R5 Survey on Workplace Harassment | Public | https://www.mhlw.go.jp/ |
-| MHLW Employment Trend Survey | Public | https://www.mhlw.go.jp/ |
+| MHLW H28 (FY2016) Survey on Workplace Power Harassment | Public | https://www.mhlw.go.jp/ (pre-law, 32.5%, ★ H1 primary validation target) |
+| MHLW R2 (FY2020) Survey on Workplace Harassment Report | Public | https://www.mhlw.go.jp/ (transition, 31.4%) |
+| **MHLW R5 (FY2023, published March 2024) "FY2023 MHLW-Commissioned Survey on Workplace Harassment Report"** (PwC Consulting, 385 pages) | Public | `simulation/prior_research/_text/令和５年度 厚生労働省委託事業 職場のハラスメントに関する実態調査報告書.pdf` (post-law, 19.3%, full report; industry-stratified data 16-26.8% used for B4 H2.industry validation) |
+| **MHLW R4 (FY2022) Employment Trend Survey Summary** | Public | `simulation/prior_research/_text/厚生労働省_令和４年雇用動向調査結果の概況.pdf` (FY2022 turnover by reason "workplace interpersonal" 8.3-9.4%; f1 secondary anchor) |
 | MHLW Industrial Safety and Health Survey | Public | https://www.mhlw.go.jp/ |
-| MHLW Labor Force Survey | Public | https://www.stat.go.jp/data/roudou/ |
+| MHLW Labor Force Survey | Public | https://www.stat.go.jp/data/roudou/ (industry × demographic crosstabs for B4 industry estimation, Section 5.5) |
 | ILO 2022 Global survey | Public | https://www.ilo.org/ |
-| Tsuno et al. 2015 N = 1,546 | Published | *PLOS ONE* (Tsuno et al. 2015) |
-| Tsuno & Tabuchi 2022 | Published | (Tsuno & Tabuchi 2022) |
+| Tsuno et al. 2015 N = 1,546 | Published | *PLOS ONE* (Tsuno et al. 2015; national-rep 30-day prevalence 6.1%) |
+| Tsuno & Tabuchi 2022 | Published | (Tsuno & Tabuchi 2022; PR=3.20 for f2 anchor) |
+| **Pasona Research (2022) "Quantitative Survey on Workplace Harassment"** (PERSOL Research and Consulting Co., Ltd., Think Tank, 152 pages) | Industry survey | `simulation/prior_research/_text/パーソル_職場のハラスメントについての定量調査.pdf` (★ N=28,135 large-N harassment-specific 5-year prevalence 19.7%, industry-stratified 16.9-22.9%; ★ primary f1 empirical anchor 10.3% [industry range 6.3-13.3%]; ★ macro turnover estimate 865,000/year with 66% unreported / 暗数化) |
 
 ---
 
@@ -943,11 +1044,14 @@ The commitments in this preregistration are anchored to the literature below. Th
 
 ### 13.7 Japanese context
 
-- **MHLW (2021)**, R2 Survey on Workplace Harassment. [→ primary validation]
-- **MHLW (2024)**, R5 Survey on Workplace Harassment. [→ post-law validation]
-- **Tsuno et al. (2010)**, Japanese NAQ-R. [→ measurement]
-- **Tsuno et al. (2015)**, Socioeconomic determinants in a Japanese national-representative sample. [→ Sections 1.5, 4.2]
-- **Tsuno & Tabuchi (2022)**, Bullying → SPD PR = 3.20. [→ f2 anchor]
+- **MHLW (H28, FY2016)** Heisei 28 Survey on Workplace Power Harassment. [→ ★ H1 primary validation target, 32.5% pre-law, past-3-year power harassment]
+- **MHLW (R2, FY2020, published 2021)** Reiwa 2 Survey on Workplace Harassment Report. [→ secondary validation 31.4% transition]
+- **MHLW (R5, FY2023, published March 2024)** Reiwa 5 MHLW-Commissioned Survey on Workplace Harassment Report (PwC Consulting, 385 pages). [→ ★ secondary validation 19.3% post-law; ★ industry-stratified data 16-26.8% used in H2.industry secondary criterion (Sections 5.5, 6.1); customer harassment 10.8% as new environmental category (Section 1.4 H3)]
+- **MHLW (R4, FY2022, published August 2023)** Reiwa 4 Employment Trend Survey Summary. [→ ★ f1 secondary anchor: turnover by reason "workplace interpersonal" men 8.3% / women 9.4% upper bound]
+- **Pasona Research (2022)** Quantitative Survey on Workplace Harassment (PERSOL Research and Consulting Co., Ltd., Think Tank, N=28,135 nationwide workers aged 20–69, 152 pages). [→ ★ Pre-reg validation triangulation (Section 5.4): 5-year harassment prevalence 19.7%, industry-stratified 16.9-22.9%; ★ f1 PRIMARY empirical anchor: harassment-victim turnover rate 10.3% (industry range 6.3-13.3%) (Sections 4.2.3, 6.4); ★ Stage 2 chain output sanity check (Section 5.4): macro estimate 865,000 annual turnover with 66% unreported]
+- **Tsuno et al. (2010)** Japanese NAQ-R. [→ measurement]
+- **Tsuno et al. (2015)** Socioeconomic determinants in a Japanese national-representative sample N=1,546 (PLOS ONE). [→ Sections 1.5, 4.2; 30-day prevalence 6.1% as reference]
+- **Tsuno & Tabuchi (2022)** Bullying → SPD PR = 3.20. [→ f2 anchor]
 
 ### 13.8 Self-citation hub
 
@@ -963,6 +1067,10 @@ The commitments in this preregistration are anchored to the literature below. Th
 | Version | Date | Changes |
 |---|---|---|
 | **v1.0 draft** | 2026-04-29 | Initial draft based on research plan v6/v7 (1,458 lines), the D13 power analysis (209 lines), and the 40-paper deep reading. Pending OSF registration. |
+| **v1.1 draft** | 2026-04-29 | Pre-OSF-lock revision integrating 3 new domestic surveys uploaded by the author: (1) MHLW R5 (FY2023, 385 pages, full report) — used for industry-stratified validation in the H2.industry secondary criterion (Sections 5.5, 6.1); (2) MHLW R4 (FY2022) Employment Trend Survey — used as f1 secondary anchor; (3) Pasona Research (2022) N=28,135 quantitative survey — used for Pasona triangulation (Section 5.4), as the f1 PRIMARY empirical anchor (Sections 4.2.3, 6.4 — value 10.3% with industry range 6.3-13.3%), and for the Stage 2 chain output sanity check (predicted annual harassment-induced turnover should fall within 50-200% of Pasona's 865,000/year estimate). All MHLW citations standardized: era code (H28/R2/R5) + fiscal year + scope (past-3-year power harassment) + policy phase (pre-law/transition/post-law). Added customer harassment (カスハラ) category emergence (10.8% in MHLW R5) as evidence of environmental moderation in the latent vs expressed framing (Section 1.4 H3). H1 main MAPE threshold (≤30%) and sensitivity sweep ranges UNCHANGED; only secondary criteria (H2.industry, Stage 2 chain sanity check) and citation precision improved. Pending OSF registration. |
+| **v1.1 LOCKED** | 2026-04-30 | 🔒 Registered on OSF. **DOI: 10.17605/OSF.IO/45QP9** (https://osf.io/45qp9). Associated project: https://osf.io/3hxz6. Subsequent modifications must follow Section 6.5 Level 3 deviation procedure (v2 registration with public diff against v1.1). Stage 0 code execution was unlocked at this point but deferred pending methodologist review. |
+| **v2.0 draft** | 2026-04-30 | Path C upgrade following anonymous methodologist review (Matsuda, mode B, mathematical biology background). Four substantive changes: (1) **4-tier judgment hierarchy** in Sections 5.4 / 6.1 — Strict SUCCESS = point MAPE ≤ 30% AND 95% BCa CI upper bound ≤ 30%; Standard SUCCESS = point MAPE ≤ 30% with explicit CI ambiguity Tier qualifier required; PARTIAL / FAILURE unchanged. (2) **Bootstrap MAPE CI computation procedure** pre-specified in Section 5.4 (cell-stratified resample → re-classify with fixed centroids → re-estimate cell propensity → apply fixed population weights → compute MAPE^(b) → 95% BCa CI from empirical distribution; population weights and MHLW observed values fixed across iterations to isolate cell-level uncertainty). (3) **MoM rejection decision rule** in Section 5.2 — REJECT MoM and switch to Stan hierarchical Bayes if σ̂² / [μ̂(1−μ̂)] < 0.05 OR max(α̂, β̂) > 100; alternative diagnostic (α̂ + β̂ as fraction of median cell N=14) reported as cross-check. (4) **BCa numerical stability fallback chain** in Section 5.1 — BCa → BC (bias-corrected) → percentile bootstrap, triggered by |a| > 10 jackknife instability or numerical errors at edge rates 0/N or N/N. Pending OSF v2 registration. |
+| **v2.0 LOCKED** | TBD | 🔒 To be registered on OSF after the author submits v2 with a public diff against v1.1. v2 OSF DOI: TBD. v1.1 (DOI 10.17605/OSF.IO/45QP9) remains valid as historical record but is superseded by v2 for primary inference. |
 
 ### 14.2 Pre-registration submission checklist
 
@@ -973,9 +1081,9 @@ The commitments in this preregistration are anchored to the literature below. Th
 - [ ] **Self-review against Munafò 2017's five themes**: complete Section 8
 - [x] **English translation**: this `D12_pre_registration_OSF.en.md` is the English version
 - [x] **OSF account**: existing (used for `metaanalysis/`); only new project creation is pending
-- [ ] **OSF Standard Pre-Registration template**: transcribe Sections 1–6 into the OSF web form
-- [ ] **PDF supplementary**: attach the Japanese master to OSF as a supplementary PDF
-- [ ] **DOI acquisition**: record the DOI in the Header of both the Japanese master and this English version after registration
+- [x] **OSF Standard Pre-Registration template**: Sections 1–6 transcribed into the OSF web form (Part B paste sheet used)
+- [x] **PDF supplementary**: JP/EN markdown + JP/EN PDFs attached to OSF
+- [x] **DOI acquisition**: 10.17605/OSF.IO/45QP9 acquired and recorded in the Header of both the Japanese master and this English version
 - [x] **GitHub mirror**: `simulation/docs/pre_registration/` is committed publicly (since commit `c5c591e`)
 - [x] **Funding & affiliation**: Section 12.2 is filled in (SUNBLAZE Co., Ltd. / no external funding for the simulation phase)
 - [ ] **Anti-screening triple-lock**: Section 9.1 prepared in all three locations
@@ -1004,8 +1112,8 @@ The commitments in this preregistration are anchored to the literature below. Th
 
 The preregistration is **locked** when all of the following are complete; only then may Stage 0 code execution begin:
 
-- [ ] OSF DOI acquired
-- [ ] DOI added to the Header of this document (and the Japanese master)
+- [x] OSF DOI acquired (10.17605/OSF.IO/45QP9)
+- [x] DOI added to the Header of this document (and the Japanese master)
 - [N/A] Co-author sign-off — not applicable (sole-authored)
 - [ ] Section 5 (Analysis Plan) reviewed by an independent methodologist
 - [ ] Repository structure (Section 8.2) initialized

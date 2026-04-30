@@ -14,17 +14,20 @@ CSS         := style.css
 
 JP_SRC      := D12_pre_registration_OSF.md
 EN_SRC      := D12_pre_registration_OSF.en.md
+DIFF_SRC    := D12_pre_registration_v1.1_to_v2.0_diff.md
 JP_PDF      := D12_pre_registration_OSF.pdf
 EN_PDF      := D12_pre_registration_OSF.en.pdf
+DIFF_PDF    := D12_pre_registration_v1.1_to_v2.0_diff.pdf
 
 PANDOC_FLAGS := --pdf-engine=$(PDF_ENGINE) --css=$(CSS)
 
-.PHONY: all jp en clean
+.PHONY: all jp en diff clean
 
-all: jp en
+all: jp en diff
 
 jp: $(JP_PDF)
 en: $(EN_PDF)
+diff: $(DIFF_PDF)
 
 $(JP_PDF): $(JP_SRC) $(CSS)
 	$(PANDOC) $(JP_SRC) -o $(JP_PDF) $(PANDOC_FLAGS) \
@@ -34,5 +37,9 @@ $(EN_PDF): $(EN_SRC) $(CSS)
 	$(PANDOC) $(EN_SRC) -o $(EN_PDF) $(PANDOC_FLAGS) \
 	  --metadata title="D12 OSF Pre-Registration (English version)"
 
+$(DIFF_PDF): $(DIFF_SRC) $(CSS)
+	$(PANDOC) $(DIFF_SRC) -o $(DIFF_PDF) $(PANDOC_FLAGS) \
+	  --metadata title="D12 Pre-Registration Public Diff v1.1 to v2.0"
+
 clean:
-	rm -f $(JP_PDF) $(EN_PDF)
+	rm -f $(JP_PDF) $(EN_PDF) $(DIFF_PDF)
