@@ -170,7 +170,7 @@ def main() -> None:
         help="Output HDF5 path",
     )
     args = parser.parse_args()
-    if args.seed is not None:
+    if args.seed is not None and args.seed != 20260429:
         # Per v2.0 Section 2.4, seed is fixed by preregistration.
         # CLI override is provided only for ad-hoc development; it
         # MUST NOT be used in reproduction runs.

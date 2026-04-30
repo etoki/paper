@@ -183,10 +183,11 @@ def main() -> None:
     )
     parser.add_argument("--seed", type=int, default=None)
     args = parser.parse_args()
-    if args.seed is not None:
+    if args.seed is not None and args.seed != 20260429:
         import warnings
-
-        warnings.warn("Seed override; v2.0 fixes seed=20260429.", stacklevel=2)
+        warnings.warn(
+            "Seed override; v2.0 fixes seed=20260429.", stacklevel=2
+        )
     run(
         cell_propensity_path=args.cell_propensity,
         aggregation_path=args.aggregation,

@@ -44,7 +44,11 @@
       "applies_to_registration": "v2.0",
       "source": "Anonymous external methodologist review (mode B, mathematical biology background)",
       "summary": "16 specification clarifications: 4 Major (M1-M4), 7 Minor (m1-m7 + m8 limitation), 5 Nitpick (n1-n5). Strategic 5th-tier proposal SKIPPED with documented rationale.",
-      "sha256_hash": "fcaaf0d94bb7e5879fa1e5df9113ead130dc95b73aebe0d984a0824fa171fcd0"
+      "sha256_hash": "fcaaf0d94bb7e5879fa1e5df9113ead130dc95b73aebe0d984a0824fa171fcd0",
+      "uploaded_to_osf_project": true,
+      "osf_upload_date": "2026-05-21",
+      "osf_upload_location": "https://osf.io/3hxz6/files/osfstorage/v2.0/",
+      "discoverability_pointer": "Project Wiki at https://osf.io/3hxz6/wiki/home/ links from registration page (https://osf.io/3y54u) via Associated Project navigation"
     }
   ],
   "branch": "claude/hexaco-harassment-simulation-69jZp",

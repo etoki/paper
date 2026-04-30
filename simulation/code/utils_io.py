@@ -171,6 +171,37 @@ class CentroidData:
         return self.df.loc[:, list(self.hexaco_columns)].to_numpy()
 
 
+HARASSMENT_COLUMN_ALIASES = {
+    "hexaco_HH": "H",
+    "hexaco_E": "E",
+    "hexaco_X": "X",
+    "hexaco_A": "A",
+    "hexaco_C": "C",
+    "hexaco_O": "O",
+    "Machiavellianism": "machiavellianism",
+    "Narcissism": "narcissism",
+    "Psychopathy": "psychopathy",
+}
+"""Canonicalize harassment/raw.csv column names to internal convention.
+
+The raw CSV uses hexaco_HH/hexaco_E/... while v2.0 master + clarifications
+log + utility code uses H/E/X/A/C/O. This alias map applied at load time
+isolates the naming variability."""
+
+CENTROID_COLUMN_ALIASES = {
+    "Honesty-Humility": "H",
+    "Emotionality": "E",
+    "Extraversion": "X",
+    "Agreeableness": "A",
+    "Conscientiousness": "C",
+    "Openness": "O",
+}
+"""Canonicalize centroid CSV column names to internal convention.
+
+The IEEE-published centroid CSV uses full HEXACO domain names; this
+alias map normalizes to internal H/E/X/A/C/O."""
+
+
 def load_harassment(path: str | os.PathLike[str] | None = None) -> HarassmentData:
     """Load N=354 harassment-preprint individual-level data.
 
@@ -193,6 +224,12 @@ def load_harassment(path: str | os.PathLike[str] | None = None) -> HarassmentDat
     - Gender Harassment Scale (Kobayashi & Tanaka 2010), continuous
     - age (continuous), gender (binary 0/1), area (categorical)
 
+    Column name canonicalization (Level 1 clarification, smoke-test
+    discovered 2026-04-30): the raw CSV uses ``hexaco_HH``,
+    ``hexaco_E``, etc. with the ``hexaco_`` prefix. ``HARASSMENT_COLUMN_ALIASES``
+    renames these to internal H/E/X/A/C/O at load time. This keeps
+    downstream code aligned with v2.0 master notation (Section 4.2.1).
+
     Missing-data handling per clarifications log Section 4.6 (m6 not
     present here; cluster reassignment behavior is implemented in
     ``code.stage0_type_assignment``).
@@ -204,6 +241,7 @@ def load_harassment(path: str | os.PathLike[str] | None = None) -> HarassmentDat
             "Verify ../harassment/raw.csv exists and is readable."
         )
     df = pd.read_csv(p)
+    df = df.rename(columns=HARASSMENT_COLUMN_ALIASES)
     return HarassmentData(df=df)
 
 
@@ -213,6 +251,11 @@ def load_centroids(path: str | os.PathLike[str] | None = None) -> CentroidData:
     Per v2.0 master Section 5.4 + clarifications log M3, these centroids
     are treated as fixed parameters; bootstrap CIs are conditional on
     them and do not propagate centroid-estimation uncertainty.
+
+    Column name canonicalization (Level 1 clarification, smoke-test
+    discovered 2026-04-30): the IEEE centroid CSV uses full domain
+    names ``Honesty-Humility``, ``Emotionality``, etc. ``CENTROID_COLUMN_ALIASES``
+    renames these to internal H/E/X/A/C/O at load time.
 
     Parameters
     ----------
@@ -231,6 +274,7 @@ def load_centroids(path: str | os.PathLike[str] | None = None) -> CentroidData:
             "Verify ../clustering/csv/clstr_kmeans_7c.csv exists."
         )
     df = pd.read_csv(p)
+    df = df.rename(columns=CENTROID_COLUMN_ALIASES)
     expected_n = N_CLUSTERS
     if len(df) != expected_n:
         raise ValueError(
