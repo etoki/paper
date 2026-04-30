@@ -2,9 +2,15 @@
 
 **Source**: `D12_pre_registration_OSF.en.md` (English version, v1.1)
 **Created**: 2026-04-29
-**Last updated**: 2026-04-29 (synced with pre-reg v1.1: 3 new domestic surveys integrated — MHLW R5 full report, MHLW R4, Pasona N=28,135)
+**Last updated**: 2026-04-30 (Part B added: live OSF webform transcription drafts synced from chat session, covering newer OSF template fields not in original 24-field structure)
 **Branch**: `claude/hexaco-harassment-simulation-69jZp`
 **Author**: Eisuke Tokiwa (sole-authored, ORCID: 0009-0009-7124-6669)
+
+> **Structure note**: This document has TWO parts:
+> - **Part A (Sections 1-24)**: original OSF Standard Pre-Registration template (24 fields, older / classic OSF webform)
+> - **Part B (Sections B0-B21)**: current OSF webform transcription drafts (newer template with Foreknowledge / Subjects / Causal interpretation / etc.)
+>
+> If your OSF webform shows the newer fields, use Part B. If it shows the classic 24-field structure, use Part A. Field content is consistent between parts; Part B includes additional newer fields not present in Part A.
 
 ---
 
@@ -612,7 +618,112 @@ Any analysis not enumerated in Sections 5, 6, or here is exploratory and will be
 
 ---
 
-**End of OSF Standard Pre-Registration paste sheet.**
+**End of Part A (OSF Standard 24-field paste sheet).**
+
+---
+
+# Part B: Current OSF Webform Transcription (newer template)
+
+> **Note**: This Part contains paste-ready content for OSF webform fields that appear in the newer (2024+) OSF Preregistration template but are not in the classic 24-field structure of Part A. Use these alongside Part A as needed; field content overlaps where both parts apply, with Part B versions tailored to the actual webform wording observed during transcription.
+
+---
+
+## OSF Field B1 — Foreknowledge of data and evidence (radio button)
+
+**Selection**: **"Authors have observed the data, but have not performed the proposed analyses"**
+
+Rationale (matches preregistration Section 3.1.3 honest acknowledgment):
+- Author has observed individual-level HEXACO data and harassment self-reports in N=354 (Tokiwa harassment preprint, HC3 regression already published)
+- Author has observed aggregate-level 7-cluster centroids in N=13,668 (Tokiwa clustering paper, IEEE-published)
+- Author has NOT performed the proposed cell-level cross-tabulations, national aggregate predictions, or counterfactual analyses
+- This corresponds to Nosek 2018 PNAS Challenge 3 partial-blinding state
+
+---
+
+## OSF Field B2 — Explanation of foreknowledge and managing unintended influences (Optional)
+
+```
+The author has accessed and observed individual-level data in N=354 (harassment study) and aggregate-level centroids in N=13,668 (clustering study, IEEE-published) prior to this preregistration. Specifically:
+- The author has previously published HC3-robust hierarchical regression results showing HEXACO and Dark Triad domain-level associations with power harassment and gender harassment self-reports (Tokiwa harassment preprint).
+- The author has published 7-cluster centroids in HEXACO 6-domain space (Tokiwa clustering paper, IEEE).
+
+However, the specific analyses preregistered here have NOT been performed and will not be performed until after this plan is registered:
+1. The 7-type × 2-gender 14-cell cross-tabulation of harassment binary outcomes (Stage 0 main analysis)
+2. The 28-cell empirical Bayes shrunken sensitivity (with role; Stage 0 sensitivity)
+3. The Stage 1 national aggregate latent prevalence with bootstrap CIs
+4. MAPE comparison against MHLW H28 (FY2016) 32.5%, MHLW R2 (FY2020) 31.4%, and MHLW R5 (FY2023) 19.3% past-3-year power harassment rates
+5. The B0-B4 baseline hierarchy MAPE comparison (H2)
+6. The B4 industry-stratified MAPE against MHLW R5 industry-stratified data (H2.industry secondary criterion)
+7. The CMV diagnostic (Harman's single-factor + marker-variable correction)
+8. The Stage 7 counterfactual A/B/C ΔP estimates with target trial emulation
+9. The Pasona (2022) macro turnover sanity check (Stage 2 chain output validation)
+
+Actions taken to reduce the risk of unintended influences:
+
+1. Preregistration locked at OSF before any cell-level cross-tabulation, aggregation, or comparison with MHLW data is computed.
+2. All inference criteria fixed in advance: MAPE thresholds (≤30% / 30-60% / >60%), H2.industry threshold (≤50% relaxed), H7 magnitude ranking, decision rules.
+3. Sensitivity sweeps exhaustively pre-specified: V {2,3,4,5}, f1 {0.05,0.10,0.15,0.20}, f2 {0.10,0.20,0.30}, EB scale {0.5×,1.0×,2.0×}, binarization threshold {mean+0.25, +0.5, +1.0 SD}, cluster K {4-8}, transportability {0.3×,0.5×,0.7×,1.0×}.
+4. Random seed fixed: NumPy default_rng(seed=20260429), Python random.seed(20260429), Stan seed=20260429.
+5. Bonferroni-Holm correction pre-specified: family-wise α=.05 for H2 and H4-H7.
+6. Negative-result publication committed in advance (D-NEW8, Section 7).
+7. Independent methodologist review (mode B: anonymous, mathematical biology background) prior to Stage 2 validation.
+8. Honest distinction (Section 3.1.3): HEXACO domain-level associations are exploratory replications of prior work, distinct from the type-conditional cell-level analyses preregistered here.
+9. Reproducibility infrastructure (D-NEW9): open code, environment pinning, make reproduce, OSF Open Practice Badges, TOP guidelines Tier 3.
+10. Deviation policy (Section 6.5): Levels 0-3, with Level 3 requiring v2 registration.
+```
+
+---
+
+## OSF Field B3 — Subjects (taxonomy, multi-select)
+
+**Recommended (3 minimum)**:
+1. Social and Behavioral Sciences > Psychology > **Industrial and Organizational Psychology**
+2. Social and Behavioral Sciences > Psychology > **Personality and Social Contexts**
+3. Social and Behavioral Sciences > Psychology > **Quantitative Psychology**
+
+**Optional (up to 5 for broader visibility)**:
+4. Social and Behavioral Sciences > Psychology > **Social Psychology**
+5. Medicine and Health Sciences > Public Health > **Occupational Health and Industrial Hygiene**
+
+---
+
+## OSF Field B4 — Intention for causal interpretation (radio button)
+
+**Selection**: **"Indirect inference on causal relationship(s)"**
+
+Rationale: study uses Hernán & Robins 2020 target trial emulation framework + Pearl 2009 do-operator notation, positioned at Pearl's Rung 2 (intervention prediction), not direct experimental causal inference (Section 5.1.5 of preregistration).
+
+---
+
+## OSF Field B5 — Blinding of experimental treatments (radio + multi-select)
+
+**Selection**: **"No blinding is involved"** (single)
+
+Rationale: observational secondary analysis combined with computational simulation; no physical assignment of subjects to treatment arms. Other blinding options do not apply.
+
+---
+
+## OSF Field B6 — Additional blinding during research or analysis (Optional)
+
+```
+No experimental blinding (this is an observational secondary-analysis study with computational microsimulation). However, the following preregistration-equivalent procedures are employed to remove unintended influences:
+
+1. ANALYSIS-LEVEL BLINDING via preregistration. The cell-level cross-tabulations (7 type × 2 gender 14 cells), national aggregate predictions, MAPE values against MHLW H28/R2/R5 surveys, B0-B4 baseline comparisons, B4 industry-stratified MAPE, CMV diagnostic, and counterfactual A/B/C outputs are NOT computed or observed at the time of OSF registration. The author has only observed (a) individual-level HEXACO scores and harassment self-reports in N=354 (aggregated in the Tokiwa harassment preprint via HC3-robust regression), and (b) aggregate-level 7-cluster centroids in N=13,668 (published in the Tokiwa clustering paper, IEEE). All preregistered analyses (Section 5 of the attached preregistration document) are performed only after this preregistration is registered on OSF.
+
+2. RANDOM SEED FIXING. NumPy default_rng(seed=20260429), Python random.seed(20260429), and Stan seed=20260429 make all stochastic operations (bootstrap, Monte Carlo resample, simulated random assignment in counterfactuals) deterministic and reproducible regardless of analyst.
+
+3. INDEPENDENT METHODOLOGIST REVIEW (mode B: anonymous, mathematical biology background). The methodologist will review Section 5 (Analysis Plan) prior to Stage 2 validation, providing an external check on inference decisions (per Munafò et al. 2017 Box 1, lightweight variant).
+
+4. NEGATIVE-RESULT PUBLICATION COMMITMENT (Section 7 of the preregistration). The author commits to journal submission for all five enumerated cases (success / partial / failure / H7 reversal / B3 < B2 typology overfitting), removing the incentive for post-hoc framing toward positive results.
+
+5. EXHAUSTIVE SENSITIVITY SWEEPS (Section 6.4 of the preregistration). All ranges (V, f1, f2, EB strength, binarization threshold, cluster K, role-estimation models, counterfactual main values δ_A/δ_B/effect_C, transportability factor) are pre-specified, removing garden-of-forking-paths risk (Nosek 2018 Challenge 9).
+
+6. DEVIATION POLICY (Section 6.5 of the preregistration). All deviations are reported in a dedicated Discussion subsection, classified Levels 0-3, with Level 3 (analysis-plan revision) requiring registration of v2 with public diff against v1.
+
+7. HONEST DISTINCTION between preregistered confirmatory analyses and exploratory replications of prior HEXACO domain-level associations from the Tokiwa harassment preprint (Section 3.1.3 of the preregistration document).
+```
+
+---
 
 
 
