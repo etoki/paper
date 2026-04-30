@@ -1243,6 +1243,22 @@ Post-hoc threshold revision PROHIBITED. MAPE comparison performed only after OSF
 
 ---
 
+## OSF Field B19 — Data inclusion and exclusion
+
+```
+All N=354 (harassment) and N=13,668 (clustering) observations are used as released; no participant-level exclusion.
+
+Cluster 6 (population-dominant ~32%) is intentionally NOT excluded from counterfactual analyses to preserve the positivity assumption (Section 5.7.4).
+
+No outlier detection or removal at the participant level. Bootstrap inherently down-weights extreme observations via resampling.
+
+If a row in N=354 is missing > 1 of the 6 HEXACO domains, it is flagged for sensitivity analysis (excluded from one supplementary 14-cell crosstab). If such cases exceed 5% of N=354, an additional sensitivity analysis is run that excludes them; otherwise the main analysis treats them via cluster-distance computation on available domains.
+
+External validation data (MHLW, ILO, Pasona, Tsuno) are used as published; no manipulation of public summary statistics.
+```
+
+---
+
 
 
 
