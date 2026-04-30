@@ -110,8 +110,8 @@ $(S3_SENS): code/stage3_sensitivity.py $(S2_VAL)
 
 stage4: $(S4_BASE)
 
-$(S4_BASE): code/stage4_baselines.py $(S2_VAL)
-	@echo "[Stage 4] B0-B4 baseline hierarchy + Page's L (n4)"
+$(S4_BASE): code/stage4_baselines.py $(S0_TYPE) $(S0_CELL) $(S1_AGG)
+	@echo "[Stage 4] B0-B4 baseline hierarchy + Bonferroni-Holm + Page's L (n4)"
 	$(PYTHON) -m code.stage4_baselines --seed $(SEED) --output $@
 
 stage5: $(S5_CMV)
