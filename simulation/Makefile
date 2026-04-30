@@ -142,11 +142,21 @@ $(S8_TRANS): code/stage8_transportability.py $(S7_COUNTER)
 # Reporting: aggregate all stage outputs into final tables/figures
 # ====================================================================
 
-report: $(REPORT)
+report: $(REPORT) figures
 
 $(REPORT): code/report.py $(S2_VAL) $(S3_SENS) $(S4_BASE) $(S5_CMV) $(S7_COUNTER) $(S8_TRANS)
 	@echo "[Report] Aggregating outputs into tables/figures/supplementary"
 	$(PYTHON) -m code.report --output-tier $@
+
+figures: $(S0_CELL) $(S1_AGG) $(S3_SENS) $(S7_COUNTER) $(S8_TRANS)
+	@echo "[Figures] Generating Figures 1-6 in PNG/PDF/SVG formats"
+	$(PYTHON) -m code.figures \
+		--cell-propensity $(S0_CELL) \
+		--aggregation $(S1_AGG) \
+		--sensitivity $(S3_SENS) \
+		--counterfactual $(S7_COUNTER) \
+		--transportability $(S8_TRANS) \
+		--output-dir $(OUT_FIGURES)
 
 # ====================================================================
 # Development targets
