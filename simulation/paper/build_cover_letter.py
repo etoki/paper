@@ -155,7 +155,7 @@ def main():
         para_text = " ".join(strip_md(l) for l in para_lines)
         if para_text:
             # Italicize journal name placeholder line
-            if para_text == "XXX X":
+            if para_text == "XXXX":
                 add_para(doc, para_text, italic=True)
             else:
                 add_para(doc, para_text)

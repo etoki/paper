@@ -10,11 +10,11 @@
 [Date]
 
 The Editors
-*XXX X*
+*XXXX*
 
 Dear Editors,
 
-I am pleased to submit the enclosed manuscript, *Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan*, for consideration as a Stage 2 Registered Report at *XXX X*.
+I am pleased to submit the enclosed manuscript, *Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan*, for consideration as a Stage 2 Registered Report at *XXXX*.
 
 This submission implements, without deviation, the analysis pre-registered as v2.0 at the Open Science Framework (DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u); locked 2026-05-21). All seven primary hypotheses (H1–H7) are evaluated against pre-registered classification rules; all sensitivity sweeps and diagnostic procedures specified in the v2.0 master are executed and reported. The Methods Clarifications Log accompanying the v2.0 registration (Section 6.5 Level 1 deviation; SHA-256 fcaaf0d…) documents 16 minor specification clarifications resolved during the Stage 1 protocol-development phase.
 
@@ -60,7 +60,7 @@ This is a sole-authored submission. The author (Eisuke Tokiwa, ORCID [0009-0009-
 
 ## Suggested reviewers
 
-Per *XXX X* guidelines, the following experts have publicly stated expertise relevant to this manuscript and have no known conflict of interest with the author:
+Per *XXXX* guidelines, the following experts have publicly stated expertise relevant to this manuscript and have no known conflict of interest with the author:
 
 - *[Reviewer 1]* — workplace bullying / structural-intervention meta-analyses
 - *[Reviewer 2]* — HEXACO model and cross-cultural personality differences
