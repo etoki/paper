@@ -469,10 +469,45 @@ For target validation period t ∈ {2016, 2020, 2024}:
 
 ### 5.4 Phase 1 Stage 2: Validation triangulation
 
-**Primary metric** (★ pre-registered):
-- **MAPE**(P̂_FY2016, MHLW H28 FY2016 past-3-year power harassment 32.5%) ≤ 30% → SUCCESS
-- 30% < MAPE ≤ 60% → PARTIAL SUCCESS
-- MAPE > 60% → FAILURE (publish anyway, see Section 7.3)
+**Bootstrap MAPE CI computation procedure** (★ added v2, anonymous methodologist consultation, pre-specified):
+
+For each bootstrap iteration b ∈ {1..2,000}:
+
+1. Resample N=354 with replacement, **stratified by 14 cell** (preserving cell membership marginals; this is the cell-level bootstrap, NOT independent resampling of population weights).
+2. Re-classify each resampled individual to the nearest of 7 centroids (centroids fixed from N=13,668; not bootstrapped).
+3. Re-compute each cell's binary harassment outcome propensity p̂_c^(b) on the resampled data, applying the BCa numerical stability fallback chain (Section 5.1) at the cell level.
+4. Apply population weights W_c (from MHLW Labor Force Survey, FIXED across iterations — not bootstrapped) to compute the resampled national latent prevalence:
+   P̂_t^(b) = Σ_c (p̂_c^(b) × W_c) / Σ_c W_c
+5. Compute the resampled MAPE:
+   MAPE^(b) = |P̂_t^(b) − MHLW_observed_t| / MHLW_observed_t × 100
+   where MHLW_observed_t is the FIXED point estimate from MHLW survey for period t (no bootstrap of MHLW data).
+6. Record MAPE^(b).
+
+After all B = 2,000 iterations:
+- **Point estimate MAPE** is computed on the original (non-bootstrapped) data, NOT the mean of MAPE^(b). The bootstrap distribution informs only the CI, not the point.
+- **95% BCa CI for MAPE** is constructed from the empirical distribution of {MAPE^(b)} using bias correction z₀ + acceleration a from jackknife (BCa fallback chain applies if numerical instability detected at the MAPE level).
+
+Both point estimate and 95% BCa CI are reported for each validation period t ∈ {FY2016, FY2020, FY2023}. Identical procedure applies to all baseline models B0–B4.
+
+**4-tier judgment hierarchy** (★ added v2, primary inference criterion, pre-registered):
+
+| Tier | Condition | Interpretation |
+|---|---|---|
+| **Strict SUCCESS** | Point MAPE ≤ 30% **AND** 95% bootstrap CI upper bound ≤ 30% | Strong confirmatory result; CI rules out PARTIAL or FAILURE regions |
+| **Standard SUCCESS** | Point MAPE ≤ 30% (CI permitted to overlap 30%–60% PARTIAL region) | Weak confirmatory; Discussion explicitly notes "Pre-registered ambiguity Tier" |
+| **PARTIAL SUCCESS** | 30% < point MAPE ≤ 60% | Mixed evidence; CI flagged in Discussion |
+| **FAILURE** | Point MAPE > 60% | Publish as failure-mode discovery (Section 7.3) |
+
+Tier assignment for **H1 primary** is based on FY2016 validation (against MHLW H28 32.5%). FY2020 and FY2023 receive independent tier classifications and are reported as secondary.
+
+**Tier-specific reporting requirements** (★ added v2, pre-registered):
+
+- **Strict SUCCESS**: "Strict SUCCESS achieved" allowed in headline / abstract without further qualification.
+- **Standard SUCCESS**: "Standard SUCCESS" must be qualified with explicit CI ambiguity statement, e.g., "Standard SUCCESS achieved (point MAPE = X%, 95% bootstrap CI = [Y%, Z%]). The CI overlapped the PARTIAL region [30%, 60%], so the inferential strength is limited; the result falls in the **Pre-registered ambiguity Tier**, and confirmatory claims are correspondingly weakened."
+- **PARTIAL SUCCESS**: standard PARTIAL framing with CI reported.
+- **FAILURE**: standard FAILURE framing per Section 7.3.
+
+All Tiers continue to satisfy Section 7 negative-result publication commitment (D-NEW8). Post-hoc tier-threshold revision is PROHIBITED; v3 OSF registration with public diff is required for any change.
 
 **Secondary metrics** (descriptive):
 - Pearson r between cell-level p̂_c and MHLW R5 (FY2023) subgroup rates
