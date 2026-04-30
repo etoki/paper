@@ -1005,6 +1005,90 @@ Random seed (NumPy default_rng(seed=20260429), Python random.seed(20260429), Sta
 
 ---
 
+## OSF Field B14 — Measured variables
+
+```
+Measured variables are organized by level of analysis. All variables are PREEXISTING; no new measurement is performed.
+
+INDIVIDUAL-LEVEL (N=354 harassment data, harassment/raw.csv):
+
+1. HEXACO 6 domains (Wakabayashi 2014 Japanese HEXACO-60):
+   - H (Honesty-Humility), E (Emotionality), X (eXtraversion), A (Agreeableness), C (Conscientiousness), O (Openness)
+   - Each: continuous, Likert 1-5 mean of facet items
+   - Role: predictor (cluster assignment); counterfactual operand (δ_A, δ_B target HH only)
+
+2. Dark Triad 3 (Shimotsukasa & Oshio 2017 SD3-J):
+   - Machiavellianism, Narcissism, Psychopathy: each continuous
+   - Role: covariate; convergent validity check with HEXACO HH (Lee & Ashton 2005 r ≈ -.53 to -.72)
+
+3. Power Harassment Scale (Tou et al. 2017 Workplace Power Harassment Scale):
+   - Continuous item mean → BINARIZED at mean + 0.5 SD (main; sensitivity {+0.25, +0.5, +1.0 SD})
+   - Role: outcome (binary perpetrator status)
+
+4. Gender Harassment Scale (Kobayashi & Tanaka 2010):
+   - Continuous item mean → BINARIZED at mean + 0.5 SD
+   - Role: outcome (binary perpetrator status)
+
+5. Demographics (self-reported):
+   - Age: continuous (years)
+   - Gender: binary (0/1, n=133/220)
+   - Area: categorical
+
+INDIVIDUAL-LEVEL (N=13,668 clustering data, AGGREGATED ONLY, clustering/csv/clstr_kmeans_7c.csv):
+
+6. HEXACO 6-domain centroids: continuous (7 clusters × 6 domains = 42 values)
+7. Cluster proportions: categorical (7 types; used as population scaling weight)
+
+POPULATION-LEVEL (external validation targets):
+
+8. Past-3-year POWER HARASSMENT victimization rate:
+   - MHLW H28 (FY2016) 32.5% ★ H1 PRIMARY validation target (pre-law)
+   - MHLW R2 (FY2020) 31.4% (transition)
+   - MHLW R5 (FY2023, published March 2024) 19.3% (post-law)
+
+9. Industry-stratified past-3-year power harassment (MHLW R5 FY2023):
+   - 16 industry buckets, range 16-26.8% (e.g., Construction 26.8%, Compound services 22.5%, Health/welfare 20.6%, Education 16.9%)
+   - Role: H2.industry secondary criterion (B4 baseline subgroup MAPE ≤ 50%)
+
+10. Other harassment categories (FRAMING ONLY, not validation target):
+    - MHLW R5 sexual harassment 6.3% (women 8.9% / men 3.9%)
+    - MHLW R5 customer harassment 10.8% (new category emerging post-FY2022 law amendment)
+    - Role: latent vs expressed framing in Section 1.4 H3
+
+11. 5-year harassment prevalence (Pasona Research 2022, N=28,135):
+    - Overall: 19.7% (lifetime 34.6%)
+    - Industry-stratified: 16.9-22.9%
+    - Role: marginal-distribution check (large-N harassment-specific)
+
+12. Harassment-victim turnover rate (Pasona 2022):
+    - Overall: 10.3% (industry range 6.3-13.3%)
+    - Role: f1 PRIMARY empirical anchor
+
+13. Macro annual harassment-induced turnover (Pasona 2022):
+    - Estimate: 865,000 persons/year (66% unreported / 暗数化)
+    - 12.1% of all annual turnovers (865,000 / 7,173,000)
+    - Role: Stage 2 chain output sanity check (Section 5.4)
+
+14. Other anchors:
+    - MHLW R4 (FY2022) Employment Trend Survey: turnover by reason "workplace interpersonal" men 8.3% / women 9.4% (f1 secondary anchor, upper bound)
+    - MHLW Industrial Safety and Health Survey: mental disorder incidence (f2 anchor)
+    - Tsuno & Tabuchi 2022: bullying → SPD PR=3.20 (f2 anchor)
+    - Tsuno et al. 2015 PLOS ONE N=1,546 30-day prevalence 6.1% (marginal-distribution check, national-rep)
+    - ILO 2022 Asia-Pacific lifetime 19.2% (international baseline)
+
+PARTITIONING / SUBSET VARIABLES:
+- Gender (binary): used for 14-cell partition
+- Age band: used for subgroup MAPE (failure-mode localization)
+- Cluster membership (1-7): used for counterfactual targeting (B targets Clusters 0/4/6)
+
+EXCLUSION VARIABLES:
+- No participant-level exclusion at the analytic stage; all N=354 / N=13,668 used as released.
+- Cluster 6 (32% population-dominant) is intentionally NOT excluded from counterfactuals to preserve positivity assumption (Section 5.7.4).
+- HEXACO domain missingness >1 of 6 domains: handled by listwise within-resample (Section 5).
+```
+
+---
+
 
 
 
