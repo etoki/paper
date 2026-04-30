@@ -1301,6 +1301,47 @@ Any analysis not enumerated in Sections 5, 6, or here is exploratory and reporte
 
 ---
 
+## OSF Field B22 — Context and additional information (Optional)
+
+```
+1. SOLE-AUTHORED INDUSTRY-AFFILIATED RESEARCH: Eisuke Tokiwa, ORCID 0009-0009-7124-6669, SUNBLAZE Co., Ltd. The author derives no commercial benefit from the findings; the affiliation has no commercial interest in the results. No external funding for the simulation phase.
+
+2. SELF-CITATION HUB: This study uses two prior datasets from the author:
+   (a) Tokiwa harassment preprint (HEXACO + Dark Triad regression on power and gender harassment, N=354)
+   (b) Tokiwa clustering paper (IEEE-published, 7-cluster HEXACO centroids, N=13,668)
+   Per Section 3.1.3 of the preregistration, the author honestly acknowledges PARTIAL BLINDING (Nosek 2018 Challenge 3): individual-level HEXACO ↔ harassment associations are observed in prior work, but the type-conditional cell-level cross-tabulations and counterfactual outputs preregistered here are unobserved.
+
+3. NEGATIVE-RESULT PUBLICATION COMMITMENT (D-NEW8, Section 7): the author commits in advance to journal submission for all five enumerated outcome cases — success / partial / failure / H7 reversal / B3 < B2 typology overfitting. This is anchored to Nosek 2018 PNAS Challenge 6 and removes incentives for post-hoc framing.
+
+4. INDEPENDENT METHODOLOGIST CONSULTATION (mode B: anonymous, mathematical biology background): per Section 1.2 and 8.1, the methodologist will review Section 5 (Analysis Plan) prior to Stage 2 validation. The methodologist's identity is held privately by the author; only their disciplinary background (mathematical biology) is disclosed publicly. This follows the lightweight variant of Munafò et al. 2017 Box 1 (CHDI Foundation independent statistical oversight).
+
+5. TARGET JOURNAL PATH (Section 7.2): primary target is Royal Society Open Science (Registered Report track) — selected to maximize the value of preregistration via results-blind acceptance and to structurally guarantee D-NEW8 negative-result commitment via In-Principle Acceptance. Seven fallback venues specified in case of IPA refusal: Frontiers in Psychology RR specialty, Scientific Reports, PLOS ONE, PAID, JBE, RIO Journal, PCI Registered Reports. The choice of journal is not locked by this preregistration.
+
+6. VERSION 1.1 CONTEXT: this preregistration is v1.1, revised from v1.0 by integrating three new domestic survey sources uploaded to the project after the initial v1.0 draft: (a) MHLW R5 (FY2023) full report, 385 pages — used for the new H2.industry secondary criterion; (b) MHLW R4 (FY2022) Employment Trend Survey — used as f1 secondary anchor; (c) Pasona Research (2022) N=28,135 quantitative survey — used for Pasona triangulation, f1 PRIMARY empirical anchor (10.3%), and Stage 2 chain output sanity check (865,000/year macro estimate). The H1 main MAPE threshold (≤30%) and all sensitivity sweep ranges are UNCHANGED in v1.1; only secondary criteria and citation precision were improved. The version log is in Section 14.1.
+
+7. REPRODUCIBILITY (D-NEW9, Section 8): this study targets the highest TOP guidelines tier (Tier 3 / "Verification") and qualifies for all three OSF Open Practice Badges (Open Data, Open Materials, Preregistered). Random seed (NumPy default_rng(seed=20260429)) fixed by this preregistration. Repository: https://github.com/etoki/paper, branch claude/hexaco-harassment-simulation-69jZp; `make reproduce` regenerates all outputs in 30 minutes. Open code under MIT license; aggregated open data; restricted-access only for cell-level raw data with re-identification risk (Section 9.5).
+
+8. ETHICAL COMMITMENTS (D-NEW10, Section 9): triple-locking of the anti-screening statement (Methods + Discussion + this preregistration). Voluntary, opt-in policy principle for Counterfactual B targeted intervention (no employment consequence; anonymity / confidentiality; resource provision rather than coercion). Long-term ethical monitoring: this preregistration and supplementary materials remain active on OSF for at least 10 years; the author commits to publishing corrections or commentary if findings are misappropriated for discrimination or screening.
+
+9. REFLEXIVITY STATEMENT (Section 11): the author has previously argued in non-peer-reviewed work for a systemic-causation framing of workplace harassment (emphasizing social systems' responsibility over individual self-responsibility). This normative stance is acknowledged as a potential bias source; mitigations include restricting the empirical analysis to L1 descriptive/predictive claims, constraining causal language to target trial emulation with explicit identifying assumptions, and including anti-screening statements regardless of findings.
+
+10. COMPANION DOCUMENTS (attached as supplementary):
+    - D12_pre_registration_OSF.md (Japanese master, 1,108 lines)
+    - D12_pre_registration_OSF.en.md (English version, 1,138 lines)
+    - D12_pre_registration_OSF.pdf (Japanese PDF, 25 pages)
+    - D12_pre_registration_OSF.en.pdf (English PDF, 25 pages)
+
+Full citation list (Tier 1+2+3+4 metascience anchors, statistical methods, intervention anchors, personality and harassment literature) is in Section 13 of the preregistration.
+```
+
+---
+
+**End of Part B (Live OSF Webform Transcription).**
+
+---
+
+**End of OSF Standard Pre-Registration paste sheet (Parts A + B).**
+
 
 
 
