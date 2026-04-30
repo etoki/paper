@@ -1213,6 +1213,36 @@ Random seed 20260429 governs all stochastic operations.
 
 ---
 
+## OSF Field B18 — Inference criteria
+
+```
+H1 (primary, Phase 1): MAPE against MHLW H28 (FY2016) 32.5% past-3-year power harassment.
+  - ≤ 30% → SUCCESS
+  - 30-60% → PARTIAL SUCCESS
+  - > 60% → FAILURE (publish anyway; Section 7)
+  Single primary test, no correction. Two-sided 95% bootstrap BCa CI.
+
+H2 (Phase 1 ordinal): MAPE_B0 ≥ MAPE_B1 ≥ MAPE_B2 ≥ MAPE_B3 ≥ MAPE_B4. Confirmed if ≥ 3 of 4 pairwise inequalities hold. Bonferroni-Holm correction at family-wise α = .05.
+
+H2.industry (★ added v1.1, secondary): B4 industry-stratified MAPE vs MHLW R5 (FY2023) industry-stratified rates (16-26.8%) ≤ 50% (relaxed; industry estimated). CONFIRMED if ≤ 50%; LIMITATION REPORT if > 50%. Does not affect H1.
+
+H3 (exploratory): gap(MHLW H28) < gap(MHLW R5).
+
+H4-H6: sign(ΔP_x) negative, 95% bootstrap CI excludes 0. Two-sided.
+
+H5 cost-effectiveness: ΔP_B / N_treated > ΔP_A / N_total.
+
+H7 (primary, Phase 2): ΔP_B > ΔP_A AND ΔP_B > ΔP_C. Confirmed if both inequalities at point estimates; uncertain if 95% CIs overlap.
+
+Multiple-comparison correction: Bonferroni-Holm at family-wise α = .05 for H2 (4 pairwise) and H4-H7 (3 counterfactuals). H1 single test, H7 composite — no further correction.
+
+Stage 2 chain sanity check (★ added v1.1): predicted annual harassment-induced turnover (V × f1 chain) within 50-200% of Pasona 2022 estimate (865,000/year). Soft criterion only.
+
+Post-hoc threshold revision PROHIBITED. MAPE comparison performed only after OSF DOI lock.
+```
+
+---
+
 
 
 
