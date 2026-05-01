@@ -20,9 +20,9 @@ Per the v2.0 master Section 5.4 four-tier judgment hierarchy, the H1 results acr
 |---|---:|---:|---:|---|---|
 | **FY2016** (32.5%, primary) | 0.325 | 0.1744 | 46.34% | [32.36, 59.30] | **PARTIAL SUCCESS** |
 | FY2020 (31.4%, secondary) | 0.314 | 0.1744 | 44.46% | [30.00, 57.88] | PARTIAL SUCCESS |
-| **FY2023** (19.3%, secondary) | 0.193 | 0.1744 | **9.65%** | [0.52, 31.52] | **Strict SUCCESS** |
+| **FY2023** (19.3%, secondary) | 0.193 | 0.1744 | **9.65%** | [0.52, 31.52] | **Standard SUCCESS** |
 
-The FY2016 primary classification is **PARTIAL SUCCESS** (point MAPE > 30%, ≤ 60%). However, the post-Power-Harassment-Prevention-Law FY2023 result attains **Strict SUCCESS** with a point MAPE of 9.65% and a 95% CI upper bound of 31.52%. Interpretation of this temporal heterogeneity is deferred to the Discussion (Section 4.1).
+The FY2016 primary classification is **PARTIAL SUCCESS** (point MAPE > 30%, ≤ 60%). However, the post-Power-Harassment-Prevention-Law FY2023 result attains **Standard SUCCESS** with a point MAPE of 9.65% (well below the 30% threshold for both Strict and Standard tiers); the 95% CI upper bound of 31.52% narrowly exceeds the Strict criterion (≤ 30%) by 1.52 pp, placing the classification at Standard rather than Strict. Interpretation of this temporal heterogeneity is deferred to the Discussion (Section 4.1).
 
 ## 3.3 Sensitivity sweep (Stage 3)
 

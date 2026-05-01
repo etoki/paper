@@ -10,7 +10,7 @@
 |---|---:|---:|---:|---|---|
 | FY2016 (32.5%, primary) | 0.325 | 0.1744 | 46.34% | [32.36, 59.30] | PARTIAL SUCCESS |
 | FY2020 (31.4%, secondary) | 0.314 | 0.1744 | 44.46% | [30.00, 57.88] | PARTIAL SUCCESS |
-| FY2023 (19.3%, secondary) | 0.193 | 0.1744 | 9.65% | [0.52, 31.52] | Strict SUCCESS |
+| FY2023 (19.3%, secondary) | 0.193 | 0.1744 | 9.65% | [0.52, 31.52] | Standard SUCCESS |
 
 ---
 
@@ -117,7 +117,7 @@ A heatmap of P̂_c across 7 HEXACO clusters × 2 genders, with cell sizes overla
 
 A bar chart of model-predicted P̂ = 0.1744 (single bar) overlaid with the three MHLW validation targets (FY2016 = 0.325, FY2020 = 0.314, FY2023 = 0.193) as horizontal reference lines, with the staged enforcement period of the 2020 Power Harassment Prevention Law shaded.
 
-**Caption.** *Model-based national prevalence (P̂ = 17.44%, blue bar) compared with MHLW past-three-year power-harassment victimization targets across three survey periods. The 2020 Power Harassment Prevention Law's staged enforcement (large enterprises 2020-06; SMEs 2022-04) coincides with the FY2020 → FY2023 decline. Predicted prevalence aligns most closely with the post-law FY2023 target (Strict SUCCESS).*
+**Caption.** *Model-based national prevalence (P̂ = 17.44%, blue bar) compared with MHLW past-three-year power-harassment victimization targets across three survey periods. The 2020 Power Harassment Prevention Law's staged enforcement (large enterprises 2020-06; SMEs 2022-04) coincides with the FY2020 → FY2023 decline. Predicted prevalence aligns most closely with the post-law FY2023 target (Standard SUCCESS; CI upper 31.52% narrowly above the 30% Strict threshold).*
 
 ---
 
