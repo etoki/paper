@@ -94,13 +94,20 @@ Headline ethical reframing (from Q&A log §6):
 
 ---
 
-## Final recommendation
+## Final recommendation (locked 2026-05-01)
 
-**Primary submission title (RSOS Stage 2 RR):**
-> **Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan**
+**Primary submission title (T2.2 — academic / balanced tone, mapped to Personality and Individual Differences via the recommendation table):**
+> **Person-Level versus System-Level Anti-Harassment Interventions: HEXACO 7-Typology Evidence That Structure Dominates Personality in Japanese Workplaces**
+
+**Selection rationale**:
+- Per author's stated preference (academic / balance over headline / viral)
+- Recommendation-table match: Personality and Individual Differences (Elsevier) — HEXACO-friendly readership; balanced "dominates" wording matches journal's empirical-but-nuanced tone.
+- "Dominates" is calibrated to the actual finding (|ΔP_C|/|ΔP_A| ≈ 5.7×) without overstating ("doesn't work" of T2.1 risks reviewer pushback per Q&A §3 reduced-form caveat).
 
 **Subtitle (subtitle option, abstract teaser):**
 > A pre-registered comparison of person-level and system-level interventions (OSF DOI 10.17605/OSF.IO/3Y54U).
 
-**Preprint title (slightly different for separate preprint posting):**
-> Identical to primary submission; preprint posted to Research Square or OSF Preprints under the same DOI lineage.
+**Preprint title (Research Square / OSF Preprints)**:
+> Identical to primary submission for citation continuity.
+
+**If submission target changes**: titles for alternative venues remain documented above (T2.1 for RSOS / preprint, T4.1 for J. Occupational Health Psychology, T1.1 for PCI RR, T3.1 for ethics-forward venues).

@@ -1,7 +1,7 @@
 # 01. Abstract + Introduction
 
-**Working title (T2.1):**
-*Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan*
+**Working title (T2.2):**
+*Person-Level versus System-Level Anti-Harassment Interventions: HEXACO 7-Typology Evidence That Structure Dominates Personality in Japanese Workplaces*
 
 **Author**: Eisuke Tokiwa (SUNBLAZE Co., Ltd.; ORCID 0009-0009-7124-6669)
 **Pre-registration**: OSF DOI 10.17605/OSF.IO/3Y54U (v2.0; locked 2026-04-30)

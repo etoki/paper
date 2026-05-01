@@ -1,7 +1,7 @@
 # Cover Letter
 
 **Submission Type:** Stage 2 Registered Report
-**Manuscript:** *Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan*
+**Manuscript:** *Person-Level versus System-Level Anti-Harassment Interventions: HEXACO 7-Typology Evidence That Structure Dominates Personality in Japanese Workplaces*
 **Author:** Eisuke Tokiwa (sole-authored)
 **Pre-registration:** OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u) (v2.0; registered 2026-04-30)
 
@@ -14,7 +14,7 @@ The Editors
 
 Dear Editors,
 
-I am pleased to submit the enclosed manuscript, *Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan*, for consideration as a Stage 2 Registered Report at *XXXX*.
+I am pleased to submit the enclosed manuscript, *Person-Level versus System-Level Anti-Harassment Interventions: HEXACO 7-Typology Evidence That Structure Dominates Personality in Japanese Workplaces*, for consideration as a Stage 2 Registered Report at *XXXX*.
 
 This submission implements, without deviation, the analysis pre-registered as v2.0 at the Open Science Framework (DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u); registered 2026-04-30). All seven primary hypotheses (H1–H7) are evaluated against pre-registered classification rules; all sensitivity sweeps and diagnostic procedures specified in the v2.0 master are executed and reported. The Methods Clarifications Log accompanying the v2.0 registration (Section 6.5 Level 1 deviation; SHA-256 fcaaf0d…) documents 16 minor specification clarifications resolved during the Stage 1 protocol-development phase.
 
