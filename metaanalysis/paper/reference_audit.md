@@ -1,9 +1,23 @@
 # Reference Audit Report
 
-**実施日**: 2026-04-23
-**対象**: `metaanalysis/paper/references_data.py`（37 entries）
+**実施日**: 2026-04-23（最新更新: 2026-05-01）
+**対象**: `metaanalysis/paper/references_data.py`（54 entries; 厳格ハルシネーションチェック後拡充）
 **方法**: PDF 直接参照（`metaanalysis/prior_research/`）および標準知識
 **実施者**: 自動検証 + 手動クロスチェック
+
+**2026-05-01 厳格チェック結果サマリ**:
+- 引用された primary study と methodological reference のうち 17 件が REFERENCES に欠落していたため追補:
+  Audet (2021), Audet (2023), Baruth & Cohen (2023), Bhattacharjee & Ramkumar (2025),
+  Boonyapison et al. (2025), Cohen & Baruth (2017), Eilam et al. (2009),
+  Elvers et al. (2003), Hidalgo-Fuentes et al. (2024), Kaspar et al. (2023),
+  MacLean (2022), Mustafa et al. (2022), Paulhus (1998), Quigley et al. (2022),
+  Sahinidis & Tsaknis (2021), Tlili et al. (2023), Zheng & Zheng (2023)
+- マニュスクリプト本文の年次表記誤りを修正: "Baruth & Cohen 2022/2023" → "Baruth & Cohen 2023"
+- ハルシネーションされた寄与研究を除去: Mustafa et al. (2022) は exclude_from_primary であり β-converted 寄与研究リストに含めるべきでなかった
+- 教育レベル集計の不整合を修正: A-10 Boonyapison は face-to-face 除外であるため K-12 included list から削除（2 studies に修正）
+- PRISMA caption の算術不整合を修正: "Seven reports were excluded" → "Eleven reports"; non-Big-Five exclusion count を 7→5 に整合
+- 検証不能な引用を削除: "Jackson et al. (2010)"
+- Methods deviations の log-sample size 閾値 (N > 500) と数値 (Alkış 316 → 189 analytic) の不整合を修正
 
 ---
 
