@@ -103,8 +103,13 @@ def add_para(doc: Document, text: str, *, bold: bool = False, italic: bool = Fal
         p.paragraph_format.first_line_indent = Inches(0.5)
     set_double_space(p)
     if text:
-        run = p.add_run(text)
-        set_font(run, size=size, bold=bold or None, italic=italic or None)
+        # If text contains markdown inline markers (**bold**, *italic*, `code`),
+        # split into multi-run with proper formatting; otherwise single run.
+        if re.search(r"\*\*|`|(?<!\w)\*(?!\w)", text) or re.search(r"\*[^*]+\*", text):
+            render_inline(p, text, base_bold=bold, base_italic=italic, size=size)
+        else:
+            run = p.add_run(text)
+            set_font(run, size=size, bold=bold or None, italic=italic or None)
     return p
 
 
@@ -267,14 +272,46 @@ def parse_md_blocks(md_path: Path) -> list[tuple[str, str]]:
     return blocks
 
 
-def render_inline(run, text: str):
-    """Apply minimal inline formatting (**bold**, *italic*) to a single docx run.
+def render_inline(run_or_paragraph, text: str, *, base_bold: bool = False,
+                  base_italic: bool = False, size: int = 12):
+    """Render `text` as one or more runs, parsing inline markdown markers.
 
-    Note: For multi-style runs we'd need separate runs; here we choose simplest
-    matching since most paragraphs are plain text in our content.
+    Supported markers:
+        **bold**       → bold run
+        *italic*       → italic run
+        `code`         → plain run (backticks stripped)
+        plain text     → plain run
+
+    Multiple markers can appear in one paragraph; each becomes its own run with
+    appropriate font properties.
+
+    Accepts either a Run (for single-run / table-cell legacy callers) or a
+    Paragraph (for multi-run inline rendering).
     """
-    # Strip simple markdown inline markers — APA gets bold/italic via font props
-    # If a paragraph is wholly bold (entirely wrapped in ** **), apply bold
+    # Detect Paragraph vs Run by checking for `add_run` attribute
+    if hasattr(run_or_paragraph, "add_run"):
+        p = run_or_paragraph
+        # Tokenize: capture markdown spans, leave plain text between
+        pattern = r"(\*\*[^*\n]+?\*\*|(?<![*])\*(?!\s|\*)[^*\n]+?(?<![\s*])\*(?!\*)|`[^`\n]+?`)"
+        parts = re.split(pattern, text)
+        for part in parts:
+            if not part:
+                continue
+            if part.startswith("**") and part.endswith("**"):
+                r = p.add_run(part[2:-2])
+                set_font(r, size=size, bold=True, italic=base_italic or None)
+            elif part.startswith("*") and part.endswith("*"):
+                r = p.add_run(part[1:-1])
+                set_font(r, size=size, bold=base_bold or None, italic=True)
+            elif part.startswith("`") and part.endswith("`"):
+                r = p.add_run(part[1:-1])
+                set_font(r, size=size, bold=base_bold or None, italic=base_italic or None)
+            else:
+                r = p.add_run(part)
+                set_font(r, size=size, bold=base_bold or None, italic=base_italic or None)
+        return
+    # Legacy Run-based path: strip markdown markers, set whole-run formatting
+    run = run_or_paragraph
     text = text.strip()
     if text.startswith("**") and text.endswith("**") and text.count("**") == 2:
         run.text = text[2:-2]
@@ -283,7 +320,6 @@ def render_inline(run, text: str):
         run.text = text[1:-1]
         run.italic = True
     else:
-        # Strip any remaining markers but preserve content
         text = re.sub(r"\*\*([^\*]+)\*\*", r"\1", text)
         text = re.sub(r"\*([^\*]+)\*", r"\1", text)
         text = re.sub(r"`([^`]+)`", r"\1", text)
