@@ -66,11 +66,11 @@ The pre-registered B0–B4 baseline ladder yielded the following MAPE_FY2016 est
 
 | Baseline | Description | MAPE | 95% CI |
 |---|---|---:|---|
-| B0 | Uniform = MHLW grand mean | 0.00% | [0.0, 0.0] |
-| B1 | Gender logistic | 45.35% | [45.4, 45.4] |
-| B2 | HEXACO 6-domain logistic | 44.24% | [40.6, 47.7] |
-| B3 | 14-cell conditional | 45.51% | [45.5, 45.5] |
-| B4 | Extended (age + age × cluster) | 46.30% | [44.2, 48.5] |
+| B0 | Uniform = MHLW grand mean | 0.00% | [0.00, 0.00] |
+| B1 | Gender logistic | 46.02% | [46.02, 46.02] |
+| B2 | HEXACO 6-domain logistic | 43.98% | [40.33, 47.35] |
+| B3 | 14-cell conditional | 46.34% | [46.34, 46.34] |
+| B4 | Extended (age + age × cluster) | 47.04% | [45.02, 49.05] |
 
 The H2 hypothesis (B0 > B1 > B2 > B3 > B4 in MAPE, monotonic improvement) was tested via Bonferroni-Holm-corrected pairwise inequalities; **0 of 4 pairs were confirmed** at one-sided α = 0.05. Page's L (1963) ordinal trend test produced p = 0.9757, far from significance.
 
@@ -98,15 +98,15 @@ The three pre-registered counterfactual interventions produced the following ΔP
 
 | Intervention | Operationalization | ΔP point | 95% CI | Decision (CI excludes 0?) |
 |---|---|---:|---|---|
-| **Counterfactual A** | do(HH ← HH + 0.3σ; A ← A + 0.3σ; E ← E + 0.3σ) | −0.0061 | [−0.0199, +0.0054] | **No (null)** |
-| **Counterfactual B** | do(cluster ∈ {0, 4, 6}) | −0.0058 | [−0.0199, +0.0056] | **No (null)** |
-| **Counterfactual C** | do(P_{c, x} ← 0.80 × P_{c, x}) | **+0.0354** | [+0.0266, +0.0445] | **Yes (positive)** |
+| **Counterfactual A** | do(HH ← HH + 0.3σ; A ← A + 0.3σ; E ← E + 0.3σ) | −0.0061 | [−0.0207, +0.0062] | **No (null)** |
+| **Counterfactual B** | do(cluster ∈ {0, 4, 6}) with HH +0.40 SD shift | −0.0059 | [−0.0207, +0.0066] | **No (null)** |
+| **Counterfactual C** | do(P_{c, x} ← 0.80 × P_{c, x}) | **+0.0349** | [+0.0264, +0.0435] | **Yes (positive)** |
 
-The intersection-union test (Berger & Hsu, 1996) produced one-sided 95% lower bounds L_BA = 0.0003 and L_BC = −0.0413. Because point ΔP_B = −0.0058 is less than point ΔP_C = +0.0354, the m7 priority-1 condition is satisfied and H7 is classified as **REVERSAL** (consistent with L_BC < 0 in the CI-based cascade).
+The intersection-union test (Berger & Hsu, 1996) produced one-sided 95% lower bounds L_BA = −0.0011 and L_BC = −0.0544. Because point ΔP_B = −0.0059 is less than point ΔP_C = +0.0349, the m7 priority-1 condition is satisfied and H7 is classified as **REVERSAL** (consistent with L_BC < 0 in the CI-based cascade; L_BA also lies just below zero, ruling out the CONFIRMED branch).
 
-Substantively, this means that the cell-level structural intervention (Counterfactual C) outperforms both the personality intervention (Counterfactual A) and the cluster reassignment intervention (Counterfactual B) by a large margin. Numerically, |ΔP_C| / |ΔP_A| ≈ 5.8.
+Substantively, this means that the cell-level structural intervention (Counterfactual C) outperforms both the personality intervention (Counterfactual A) and the cluster reassignment intervention (Counterfactual B) by a large margin. Numerically, |ΔP_C| / |ΔP_A| ≈ 5.7.
 
-**Positivity diagnostic.** Counterfactual A and Counterfactual B trivially preserve positivity (ρ ≡ 1 by construction; per Methods Clarification m5). Counterfactual B's cell positivity ratio ρ_{c, B} was 45.8% flagged (i.e., 45.8% of population weight in cells where the post-intervention expected count is < 10% of observed), triggering the m5 downgrade rule (flagged_weight ≥ 20%). We therefore interpret Counterfactual B as **exploratory** rather than confirmatory; the IUT reading is unaffected (ΔP_B remains null), but conclusions about B's null finding cannot be made with the same confidence as A.
+**Positivity diagnostic.** Counterfactual A and Counterfactual C trivially preserve positivity (ρ ≡ 1 by construction; per Methods Clarification m5). Counterfactual B's cell positivity ratio ρ_{c, B} was 44.5% flagged (i.e., 44.5% of population weight in cells where the post-intervention expected count is < 10% of observed), triggering the m5 downgrade rule (flagged_weight ≥ 20%). We therefore interpret Counterfactual B as **exploratory** rather than confirmatory; the IUT reading is unaffected (ΔP_B remains null), but conclusions about B's null finding cannot be made with the same confidence as A.
 
 ## 3.7 Transportability sensitivity (Stage 8)
 
@@ -116,10 +116,10 @@ Per the v2.0 master Section 5.8 cultural-attenuation sweep, all three ΔP_x boot
 
 | Factor F | Anchor | ΔP_A (attenuated) | ΔP_C (attenuated) | H7 |
 |---|---|---:|---:|---|
-| **0.3** | Conservative cross-cultural worst case | −0.0018 | +0.0106 | **REVERSAL** |
-| **0.5** | Nielsen, Glasø, & Einarsen 2017 expected | −0.0030 | +0.0177 | **REVERSAL** |
-| **0.7** | Mild attenuation | −0.0042 | +0.0248 | **REVERSAL** |
-| **1.0** | Reference (no attenuation) | −0.0061 | +0.0354 | **REVERSAL** |
+| **0.3** | Conservative cross-cultural worst case | −0.0018 | +0.0105 | **REVERSAL** |
+| **0.5** | Nielsen, Glasø, & Einarsen 2017 expected | −0.0031 | +0.0174 | **REVERSAL** |
+| **0.7** | Mild attenuation | −0.0043 | +0.0244 | **REVERSAL** |
+| **1.0** | Reference (no attenuation) | −0.0061 | +0.0349 | **REVERSAL** |
 
 The H7 = REVERSAL classification is robust across all four pre-registered cultural attenuation factors. Even under the conservative cross-cultural worst-case scenario (F = 0.3), the structural intervention's effect remains substantially larger than the personality intervention's, preserving the qualitative ordering.
 

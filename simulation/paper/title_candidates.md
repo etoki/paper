@@ -5,7 +5,7 @@
 **Author**: Eisuke Tokiwa (SUNBLAZE Co., Ltd., ORCID 0009-0009-7124-6669)
 
 Headline empirical message:
-> Personality interventions show null effects; structural interventions show ~5.8× larger effect at the population level. The structural-intervention dominance is robust to cultural attenuation factors of 0.3–1.0.
+> Personality interventions show null effects; structural interventions show ~5.7× larger effect at the population level. The structural-intervention dominance is robust to cultural attenuation factors of 0.3–1.0.
 
 Headline ethical reframing (from Q&A log §6):
 > HEXACO is a *stratification variable*, not an *intervention target*. Low-HH individuals are not "flawed" — they are differentially exposed to harassment-prone environments. The study rejects victim-blaming.

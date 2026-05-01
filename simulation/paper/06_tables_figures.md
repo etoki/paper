@@ -42,11 +42,11 @@
 
 | Baseline | Description | MAPE | 95% CI |
 |---|---|---:|---|
-| B0 | Uniform = MHLW grand mean | 0.00% | [0.0, 0.0] |
-| B1 | Gender-only logistic | 45.35% | [45.4, 45.4] |
-| B2 | HEXACO 6-domain logistic | 44.24% | [40.6, 47.7] |
-| B3 | 14-cell conditional (main pipeline) | 45.51% | [45.5, 45.5] |
-| B4 | Extended (age + age × cluster) | 46.30% | [44.2, 48.5] |
+| B0 | Uniform = MHLW grand mean | 0.00% | [0.00, 0.00] |
+| B1 | Gender-only logistic | 46.02% | [46.02, 46.02] |
+| B2 | HEXACO 6-domain logistic | 43.98% | [40.33, 47.35] |
+| B3 | 14-cell conditional (main pipeline) | 46.34% | [46.34, 46.34] |
+| B4 | Extended (age + age × cluster) | 47.04% | [45.02, 49.05] |
 
 ---
 
@@ -56,13 +56,13 @@
 
 | Intervention | Operationalization | ΔP point | 95% CI | CI excludes 0? |
 |---|---|---:|---|---|
-| A (personality) | do(HH ← +0.3σ; A ← +0.3σ; E ← +0.3σ) | −0.0061 | [−0.0199, +0.0054] | No (null) |
-| B (cluster reassignment) | do(cluster ∈ {0, 4, 6}) | −0.0058 | [−0.0199, +0.0056] | No (null) |
-| C (structural) | do(P_{c, x} ← 0.80 × P_{c, x}) | **+0.0354** | [+0.0266, +0.0445] | **Yes** |
+| A (personality) | do(HH ← +0.3σ; A ← +0.3σ; E ← +0.3σ) | −0.0061 | [−0.0207, +0.0062] | No (null) |
+| B (cluster reassignment) | do(cluster ∈ {0, 4, 6}) with HH +0.40 SD shift | −0.0059 | [−0.0207, +0.0066] | No (null) |
+| C (structural) | do(P_{c, x} ← 0.80 × P_{c, x}) | **+0.0349** | [+0.0264, +0.0435] | **Yes** |
 
-**H7 IUT:** L_BA = 0.0003, L_BC = −0.0413 → **REVERSAL**
+**H7 IUT:** L_BA = −0.0011, L_BC = −0.0544; point ΔP_B < point ΔP_C triggers m7 priority-1 → **REVERSAL**
 
-**Positivity diagnostic (Methods Clarification m5):** Counterfactual A and C trivially preserve positivity. Counterfactual B's flagged-weight share = 45.8%; m5 downgrade rule triggered. We interpret B's null finding as exploratory rather than confirmatory.
+**Positivity diagnostic (Methods Clarification m5):** Counterfactual A and C trivially preserve positivity. Counterfactual B's flagged-weight share = 44.5%; m5 downgrade rule triggered. We interpret B's null finding as exploratory rather than confirmatory.
 
 ---
 
@@ -72,10 +72,10 @@
 
 | Factor F | Anchor | ΔP_A (att) | ΔP_C (att) | H7 |
 |---|---|---:|---:|---|
-| 0.3 | Conservative cross-cultural worst case | −0.0018 | +0.0106 | REVERSAL |
-| 0.5 | Nielsen, Glasø, & Einarsen 2017 expected | −0.0030 | +0.0177 | REVERSAL |
-| 0.7 | Mild attenuation | −0.0042 | +0.0248 | REVERSAL |
-| 1.0 | Reference (no attenuation) | −0.0061 | +0.0354 | REVERSAL |
+| 0.3 | Conservative cross-cultural worst case | −0.0018 | +0.0105 | REVERSAL |
+| 0.5 | Nielsen, Glasø, & Einarsen 2017 expected | −0.0031 | +0.0174 | REVERSAL |
+| 0.7 | Mild attenuation | −0.0043 | +0.0244 | REVERSAL |
+| 1.0 | Reference (no attenuation) | −0.0061 | +0.0349 | REVERSAL |
 
 ---
 

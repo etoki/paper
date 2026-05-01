@@ -95,7 +95,7 @@ Stage 6 produces a metadata-only artifact documenting the target trial (Hernán 
 
 Counterfactual A applies a +0.3 SD shift to HEXACO H, A, and E for every individual, recomputes nearest-centroid cluster membership, recomputes per-cell propensity, re-aggregates via Stage 1 weights, and produces ΔP_A as the per-bootstrap difference between counterfactual and baseline national prevalence. Per Methods Clarification m5, positivity is quantitatively diagnosed via the cell-level ratio ρ_{c, x = A} = (counterfactual cell N) / (observed cell N); cells with ρ < 0.10 are flagged, and intervention is downgraded from confirmatory to exploratory if flagged_weight ≥ 20%.
 
-Counterfactual B reassigns each individual to one of the three pre-registered low-prevalence target clusters {0, 4, 6}, retaining their original HEXACO scores and re-computing positivity in the same fashion.
+Counterfactual B reassigns each individual to one of the three pre-registered low-prevalence target clusters {0, 4, 6}, paired with a +0.40 SD shift in Honesty-Humility (`code/stage7_counterfactual.py:DELTA_B_MAIN_SD`) so that the post-intervention HEXACO scores are consistent with the target-cluster centroids. Positivity is then re-computed in the same fashion as Counterfactual A.
 
 Counterfactual C multiplies cell-level propensity by 0.80 uniformly across all cells while leaving HEXACO scores unchanged. The 20% reduction is calibrated against three meta-analyses (Escartín, 2016; Hodgins, MacCurtain, & Mannix-McNamara, 2014; Salin, 2021) and the MHLW FY2016–FY2023 natural experiment (32.5% → 19.3%; −13.2pp ≈ −40.6% relative). Positivity for C is trivially preserved (ρ ≡ 1) per pre-registration v2.0 Section 5.7.
 
