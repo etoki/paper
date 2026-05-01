@@ -104,7 +104,7 @@ The three pre-registered counterfactual interventions produced the following ΔP
 
 The intersection-union test (Berger & Hsu, 1996) produced one-sided 95% lower bounds L_BA = −0.0011 and L_BC = −0.0544. Because point ΔP_B = −0.0059 is less than point ΔP_C = +0.0349, the m7 priority-1 condition is satisfied and H7 is classified as **REVERSAL** (consistent with L_BC < 0 in the CI-based cascade; L_BA also lies just below zero, ruling out the CONFIRMED branch).
 
-Substantively, this means that the cell-level structural intervention (Counterfactual C) outperforms both the personality intervention (Counterfactual A) and the cluster reassignment intervention (Counterfactual B) by a large margin. Numerically, |ΔP_C| / |ΔP_A| ≈ 5.7.
+Substantively, this means that the cell-level structural intervention (Counterfactual C) outperforms both the universal personality intervention (Counterfactual A) and the targeted personality intervention on the low-prevalence subgroup (Counterfactual B) by a large margin. Numerically, |ΔP_C| / |ΔP_A| ≈ 5.7.
 
 **Positivity diagnostic.** Counterfactual A and Counterfactual C trivially preserve positivity (ρ ≡ 1 by construction; per Methods Clarification m5). Counterfactual B's cell positivity ratio ρ_{c, B} was 44.5% flagged (i.e., 44.5% of population weight in cells where the post-intervention expected count is < 10% of observed), triggering the m5 downgrade rule (flagged_weight ≥ 20%). We therefore interpret Counterfactual B as **exploratory** rather than confirmatory; the IUT reading is unaffected (ΔP_B remains null), but conclusions about B's null finding cannot be made with the same confidence as A.
 
