@@ -4,7 +4,7 @@
 
 ### Table 1. H1 Four-Tier Classification of Mean Absolute Percentage Error (MAPE) Across Three MHLW Validation Periods
 
-*Note*. Predicted values are computed via 14-cell HEXACO 7-typology × gender propensity weighted by MHLW Labor Force Survey 2022 marginals. Bootstrap 95% CIs use B = 10,000 cell-stratified resamples (Methods Clarification m3). Tier classification per pre-registered four-tier hierarchy (v2.0 Section 5.4).
+*Note*. Predicted values are computed via 14-cell HEXACO 7-typology × gender propensity weighted by Statistics Bureau (MIC) Labor Force Survey 2022 marginals. Bootstrap 95% CIs use B = 10,000 cell-stratified resamples (Methods Clarification m3). Tier classification per pre-registered four-tier hierarchy (v2.0 Section 5.4).
 
 | Period (MHLW) | Observed | Predicted | MAPE | 95% CI | Tier |
 |---|---:|---:|---:|---|---|
@@ -99,7 +99,7 @@
 
 ### Figure 1. Pipeline Schematic
 
-A box-and-arrow diagram of the nine pre-registered pipeline stages, showing the data inputs (N=354 individual data; IEEE 7-cluster centroids; MHLW Labor Force Survey 2022) flowing through Stages 0–8 with their HDF5 outputs. To be generated as PNG/SVG by `simulation/code/report.py`.
+A box-and-arrow diagram of the nine pre-registered pipeline stages, showing the data inputs (N=354 individual data; IEEE 7-cluster centroids; Statistics Bureau (MIC) Labor Force Survey 2022) flowing through Stages 0–8 with their HDF5 outputs. To be generated as PNG/SVG by `simulation/code/report.py`.
 
 **Caption.** *The HEXACO 7-typology workplace harassment microsimulation pipeline. Stage 0 (cell propensity) feeds into Stage 1 (population aggregation, MHLW reweighted) and Stage 2 (H1 four-tier classification). Stage 3 (sensitivity), Stage 4 (baselines), Stage 5 (CMV diagnostic), Stage 6 (target trial PICO), Stage 7 (counterfactuals + H7 IUT), and Stage 8 (transportability) operate in parallel after Stage 2.*
 

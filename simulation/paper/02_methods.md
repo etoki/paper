@@ -18,9 +18,9 @@ We use the Tokiwa harassment preprint dataset (Tokiwa, 2025; IRB-approved), comp
 
 Seven HEXACO cluster centroids were taken from the previously published Tokiwa (2024, IEEE) clustering of N = 13,668 Japanese respondents. Per pre-registration v2.0 Methods Clarification M3, these centroids are treated as *fixed parameters*; bootstrap confidence intervals are computed conditional on the centroids and do not propagate centroid-estimation uncertainty. This decision aligns with the inferential target of the present study (causal contrasts within a fixed taxonomy) rather than the joint estimation of the taxonomy itself.
 
-### 2.1.3 Population reweighting (MHLW Labor Force Survey 2022)
+### 2.1.3 Population reweighting (Statistics Bureau Labor Force Survey 2022)
 
-Marginal gender-by-age proportions for the Japanese working population were obtained from the MHLW Labor Force Survey Basic Tabulation 2022 Annual Average (公表元: 総務省統計局, 2023; PDF retrieved from e-Stat 2026-04-30 by the investigator and archived at `simulation/data/`). We use Table 3 (年齢階級別就業者数; employed persons by age group) restricted to 就業者 (employed persons), yielding total 6,723万人 with age × gender breakdown {15-64, 65+} × {male, female}. The resulting marginals (F = 0.4498, M = 0.5502) replace the v2.0 Stage 1 placeholder (F = 0.5, M = 0.5).
+Marginal gender-by-age proportions for the Japanese working population were obtained from the Labor Force Survey Basic Tabulation 2022 Annual Average, published by the Statistics Bureau, Ministry of Internal Affairs and Communications (総務省統計局, 2023; PDF retrieved from e-Stat 2026-04-30 by the investigator and archived at `simulation/data/`). We use Table 3 (年齢階級別就業者数; employed persons by age group) restricted to 就業者 (employed persons), yielding total 6,723万人 with age × gender breakdown {15-64, 65+} × {male, female}. The resulting marginals (F = 0.4498, M = 0.5502) replace the v2.0 Stage 1 placeholder (F = 0.5, M = 0.5).
 
 ### 2.1.4 MHLW power-harassment victimization targets
 
@@ -97,14 +97,14 @@ Counterfactual A applies a +0.3 SD shift to HEXACO H, A, and E for every individ
 
 Counterfactual B reassigns each individual to one of the three pre-registered low-prevalence target clusters {0, 4, 6}, retaining their original HEXACO scores and re-computing positivity in the same fashion.
 
-Counterfactual C multiplies cell-level propensity by 0.80 uniformly across all cells while leaving HEXACO scores unchanged. The 20% reduction is calibrated against three meta-analyses (Escartín, 2016; Hodgins, MacCurtain, & Mannix-McNamara, 2014; Salin, 2021) and the MHLW 2020-2023 natural experiment (−12.1pp ≈ −37% relative). Positivity for C is trivially preserved (ρ ≡ 1) per pre-registration v2.0 Section 5.7.
+Counterfactual C multiplies cell-level propensity by 0.80 uniformly across all cells while leaving HEXACO scores unchanged. The 20% reduction is calibrated against three meta-analyses (Escartín, 2016; Hodgins, MacCurtain, & Mannix-McNamara, 2014; Salin, 2021) and the MHLW FY2016–FY2023 natural experiment (32.5% → 19.3%; −13.2pp ≈ −40.6% relative). Positivity for C is trivially preserved (ρ ≡ 1) per pre-registration v2.0 Section 5.7.
 
-The H7 intersection-union test (Berger & Hsu, 1996; Methods Clarification m7) computes one-sided 95% lower bounds L_BA and L_BC for ΔP_B − ΔP_A and ΔP_B − ΔP_C, respectively, with bootstrap-resampled cell data (B = 2,000). The configuration is classified as:
+The H7 intersection-union test (Berger & Hsu, 1996; Methods Clarification m7) computes one-sided 95% lower bounds L_BA and L_BC for ΔP_B − ΔP_A and ΔP_B − ΔP_C, respectively, with bootstrap-resampled cell data (B = 2,000). The configuration is classified per the m7 priority cascade implemented in `code/stage7_counterfactual.py:h7_iut`:
 
-- **CONFIRMED**: L_BA > 0 AND L_BC > 0 (B dominates both A and C);
-- **REVERSAL**: L_BC < 0 AND L_BA ≥ 0 (C dominates B);
-- **PARTIAL**: one of L_BA, L_BC > 0 but not both;
-- **AMBIGUOUS**: neither condition met.
+- **REVERSAL** (priority 1): point ΔP_B < point ΔP_A OR point ΔP_B < point ΔP_C (B is dominated by A or C in point estimate, indicating that the pre-registered hypothesis ordering ΔP_B > {ΔP_A, ΔP_C} is reversed);
+- **CONFIRMED**: L_BA > 0 AND L_BC > 0 (B dominates both A and C in CI lower bound);
+- **PARTIAL**: exactly one of L_BA, L_BC > 0;
+- **AMBIGUOUS**: neither lower bound > 0 (CIs allow zero or reversal).
 
 ### 2.2.9 Stage 8: Transportability factor sweep
 

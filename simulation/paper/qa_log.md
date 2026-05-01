@@ -40,7 +40,7 @@
 
 **A (summary):** **The investigator is methodologically correct.** The simulation is a *reduced-form* model — it does not endogenously model deterrence dynamics. The contribution is therefore narrower than initially stated:
 
-- The −20% is *not* an arbitrary parameter; it is calibrated against three meta-analyses (Salin 2018; Saunders 2007; Hodgins 2014) and the MHLW 2020-2023 natural experiment (-12.1pp pre-/post-Power Harassment Prevention Law).
+- The −20% is *not* an arbitrary parameter; it is calibrated against three meta-analyses (Salin 2021; Escartín 2016; Hodgins, MacCurtain, & Mannix-McNamara 2014) and the MHLW FY2016–FY2023 natural experiment (32.5% → 19.3%; −13.2pp ≈ −40.6% relative, spanning the 2020 Power Harassment Prevention Law's staged enforcement).
 - The +0.3 SD on Counterfactual A is similarly calibrated against personality training meta-analyses.
 - The simulation's contribution is to translate both prior meta-analytic effect sizes into a common population-level metric (national prevalence) and compare them apples-to-apples.
 - It does **not** prove "structural interventions work"; it shows that, **given prior literature on realistic effect sizes**, structural interventions are roughly 5.8× more effective than personality interventions at the population level.

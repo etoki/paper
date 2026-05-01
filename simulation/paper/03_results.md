@@ -10,7 +10,7 @@ Per-cell 95% confidence intervals followed the four-step priority cascade (Metho
 
 ## 3.2 National prevalence and H1 four-tier classification (Stages 1–2)
 
-After re-weighting with MHLW Labor Force Survey 2022 marginals (F = 0.4498, M = 0.5502; total 6,723 万人 employed), the model-based national past-three-year power-harassment prevalence was P̂ = 0.1744 (point estimate), corresponding to 17.44%.
+After re-weighting with Statistics Bureau (MIC) Labor Force Survey 2022 marginals (F = 0.4498, M = 0.5502; total 6,723 万人 employed), the model-based national past-three-year power-harassment prevalence was P̂ = 0.1744 (point estimate), corresponding to 17.44%.
 
 Per the v2.0 master Section 5.4 four-tier judgment hierarchy, the H1 results across three MHLW validation periods are summarized in Table 1.
 
@@ -102,7 +102,7 @@ The three pre-registered counterfactual interventions produced the following ΔP
 | **Counterfactual B** | do(cluster ∈ {0, 4, 6}) | −0.0058 | [−0.0199, +0.0056] | **No (null)** |
 | **Counterfactual C** | do(P_{c, x} ← 0.80 × P_{c, x}) | **+0.0354** | [+0.0266, +0.0445] | **Yes (positive)** |
 
-The intersection-union test (Berger & Hsu, 1996) produced one-sided 95% lower bounds L_BA = 0.0003 and L_BC = −0.0413 with the configuration L_BA ≥ 0 AND L_BC < 0, classifying H7 as **REVERSAL**.
+The intersection-union test (Berger & Hsu, 1996) produced one-sided 95% lower bounds L_BA = 0.0003 and L_BC = −0.0413. Because point ΔP_B = −0.0058 is less than point ΔP_C = +0.0354, the m7 priority-1 condition is satisfied and H7 is classified as **REVERSAL** (consistent with L_BC < 0 in the CI-based cascade).
 
 Substantively, this means that the cell-level structural intervention (Counterfactual C) outperforms both the personality intervention (Counterfactual A) and the cluster reassignment intervention (Counterfactual B) by a large margin. Numerically, |ΔP_C| / |ΔP_A| ≈ 5.8.
 

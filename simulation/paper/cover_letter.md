@@ -20,7 +20,7 @@ This submission implements, without deviation, the analysis pre-registered as v2
 
 ## Headline finding
 
-Using N = 354 individual-level Japanese workplace harassment data, partitioned into 14 cells (7 HEXACO clusters × 2 genders) and re-weighted with MHLW Labor Force Survey 2022 marginals, we tested three pre-registered counterfactual interventions: (A) personality intervention shifting Honesty-Humility, Agreeableness, and Emotionality by +0.3 SD; (B) cluster reassignment to three low-prevalence typologies; and (C) structural intervention reducing cell-level propensity by 20%, calibrated against three meta-analyses and the MHLW 2020-2023 Power Harassment Prevention Law natural experiment.
+Using N = 354 individual-level Japanese workplace harassment data, partitioned into 14 cells (7 HEXACO clusters × 2 genders) and re-weighted with Statistics Bureau (MIC) Labor Force Survey 2022 marginals, we tested three pre-registered counterfactual interventions: (A) personality intervention shifting Honesty-Humility, Agreeableness, and Emotionality by +0.3 SD; (B) cluster reassignment to three low-prevalence typologies; and (C) structural intervention reducing cell-level propensity by 20%, calibrated against three meta-analyses and the MHLW 2020-2023 Power Harassment Prevention Law natural experiment.
 
 The pre-registered intersection-union test (Berger & Hsu, 1996) classifies the configuration as **REVERSAL**: ΔP_A and ΔP_B are statistically null, whereas ΔP_C = +3.54 percentage points (95% CI excluding zero). The classification is robust across all four pre-registered cultural attenuation factors (F = 0.3 to 1.0), including the conservative cross-cultural worst-case anchor. Numerically, the structural intervention's population-level effect is approximately 5.8× larger than the personality intervention's, given prior meta-analytic effect-size calibrations.
 
@@ -39,7 +39,7 @@ The convergence of our pre-registered counterfactual evidence with the MHLW 2020
 - **Pre-registration adherence**: All deviations from the v2.0 master are documented in the Methods Clarifications Log (locked 2026-05-21) and disclosed in §2.2 of the manuscript. No undocumented deviations occurred.
 - **Hypotheses tested**: All seven pre-registered hypotheses (H1–H7) are evaluated; outcomes are reported per pre-registered classification rules in Table 6.
 - **Reproducibility**: All code is publicly archived under MIT license at [https://github.com/etoki/paper](https://github.com/etoki/paper) (directory: `simulation/`); intermediate HDF5 artifacts at OSF; SHA-256 hash-verified reproduction via `make reproduce`.
-- **Data availability**: The N = 354 individual-level data are available at OSF under IRB-approved data-sharing protocol; population reweighting data (MHLW Labor Force Survey 2022) are publicly archived in repository.
+- **Data availability**: The N = 354 individual-level data are available at OSF under IRB-approved data-sharing protocol; population reweighting data (Statistics Bureau / MIC Labor Force Survey 2022) are publicly archived in repository.
 
 ## Limitations openly disclosed
 
@@ -83,4 +83,4 @@ Tokyo, Japan
 Email: eisuke.tokiwa@sunblaze.jp
 ORCID: [0009-0009-7124-6669](https://orcid.org/0009-0009-7124-6669)
 GitHub: [https://github.com/etoki/paper](https://github.com/etoki/paper)
-OSF: [https://osf.io/3hxz6](https://osf.io/3hxz6)
+OSF: [https://osf.io/3y54u](https://osf.io/3y54u)
