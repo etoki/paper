@@ -1072,37 +1072,50 @@ def build_methods_part5(doc):
         "Narrative description of the six moderators for which quantitative "
         "meta-regression was not feasible is summarized below. (a) Personality "
         "instrument: the instrument was heavily skewed toward the Big Five "
-        "Inventory family (14 of 31 studies); NEO-family, IPIP, HEXACO, and "
-        "TIPI/TIPI-J together contributed fewer than three studies each. "
-        "Within the primary achievement pool, Conscientiousness estimates were "
-        "comparable across BFI-44 (r range = .068 to .49), TIPI-J (r = .144 "
-        "in Rivers, 2021), and β-converted studies. Consistent with McAbee "
-        "and Oswald (2013), the short-form Mini-IPIP and TIPI produced the "
-        "smallest magnitudes, but the k-per-instrument was insufficient for "
-        "inferential testing. (b) Publication year: the eligible studies "
+        "Inventory family (13 of 25 retained studies); NEO-family, IPIP, "
+        "HEXACO, and TIPI/TIPI-J together contributed fewer than three "
+        "studies each in the retained set. Within the primary achievement "
+        "pool, Conscientiousness estimates were comparable across BFI-44 "
+        "studies (r range from .068 in Bahçekapılı & Karaman, 2020 to .37 "
+        "in Abe, 2020 paper-grade outcome), TIPI-J (r = .144 in Rivers, "
+        "2021), and β-converted studies (Yu, 2021 and Kaspar et al., 2023). "
+        "Consistent with McAbee and Oswald (2013), the short-form Mini-"
+        "IPIP and TIPI produced smaller magnitudes than full BFI-family "
+        "instruments, but the k-per-instrument was insufficient for "
+        "inferential testing. (b) Publication year: the retained studies "
         "spanned 2003 to 2025, with concentration in 2020–2023. A scatter-"
-        "plot inspection of year vs. effect size (not reported) indicated no "
-        "systematic trend. (c) Log-sample size: larger studies (Wang "
-        "2023 N = 1,625; Yu 2021 N = 1,152; Bahçekapılı & Karaman 2020 "
-        "N = 525; Alkış & Taşkaya Temizel 2018 online subsample N = 189; "
-        "Kaspar et al. "
-        "2023 N = 413; Quigley et al. 2022 N = 301; Rodrigues et al. 2024 "
-        "N = 260; Zheng & Zheng 2023 N = 282) produced smaller pooled "
-        "Conscientiousness estimates (r ≈ .10) than the smallest studies "
-        "in the corpus (r ≈ .30), a pattern consistent with small-study "
-        "effects and "
-        "detected also in the Egger analysis. (d) Risk-of-bias score: the "
-        "low-quality exclusion sensitivity analysis (reported in Results) "
-        "showed robustness to RoB < 5 exclusion, with |Δr| ≤ .015 for all "
-        "traits. (e) Modality: only 2 non-fully-online studies (A-02 "
-        "blended subsample; A-28 MOOC) could be separately identified, "
-        "precluding quantitative modality moderation. (f) Education level: "
-        "only 3 K-12 studies (A-10, A-25, A-26) were identified, of which "
-        "only A-26 contributed to the primary achievement pool; the K-12 "
-        "contribution was therefore anchored in a single Chinese sample "
-        "and cannot be generalized to the K-12 online population more "
-        "broadly. Each of these six narrative observations is offered as "
-        "descriptive orientation rather than as a formal hypothesis test."
+        "plot inspection of year vs. effect size (not reported) indicated "
+        "no systematic trend. (c) Log-sample size: among the 10 studies "
+        "in the primary quantitative pool, larger samples (Yu, 2021 "
+        "N = 1,152; Bahçekapılı & Karaman, 2020 N = 525; Kaspar et al., "
+        "2023 N = 413; Quigley et al., 2022 N = 301; Zheng & Zheng, 2023 "
+        "N = 282; Rodrigues et al., 2024 N = 260; Alkış & Taşkaya Temizel, "
+        "2018 online subsample N = 189) produced smaller pooled "
+        "Conscientiousness estimates (r ≈ .10) than the two smallest pool "
+        "members (Abe, 2020 N = 92; Elvers et al., 2003 online subset "
+        "N = 21; r ≈ .30), a pattern consistent with small-study effects "
+        "and detected also in the Egger analysis. (d) Risk-of-bias score: "
+        "the low-quality exclusion sensitivity analysis (reported in "
+        "Results) showed robustness to RoB < 5 exclusion, with |Δr| ≤ .015 "
+        "for all traits. (e) Modality: among the 25 retained studies, "
+        "only one was not-explicitly-online (A-13 Dang et al., 2025; "
+        "general learning-engagement scale not online-specific) and one "
+        "(A-02 Alkış & Taşkaya Temizel, 2018) contributed both online "
+        "(N = 189) and blended (N = 127) subsamples. A-28 Yu's MOOC "
+        "context is itself a form of online learning. The k for any "
+        "non-fully-online cell was insufficient for quantitative modality "
+        "moderation. (f) Education level: 2 K-12 studies were retained "
+        "(A-25 Tokiwa, 2025; A-26 Wang et al., 2023), with an additional "
+        "K-12 record (A-10 Boonyapison et al., 2025) excluded for face-"
+        "to-face modality. Neither retained K-12 study contributed direct "
+        "or β-converted r to the primary quantitative achievement pool: "
+        "A-25 reported test-completion outcomes without extractable "
+        "achievement r, and A-26 reported only a β path through engagement "
+        "(no direct trait–achievement r). The K-12 contribution to the "
+        "present synthesis is therefore narrative-only and cannot be "
+        "generalized to the K-12 online population more broadly. Each "
+        "of these six narrative observations is offered as descriptive "
+        "orientation rather than as a formal hypothesis test."
     )
     add_para(doc, p3, indent_first=True)
 
@@ -1291,7 +1304,8 @@ def build_results_part1(doc):
         "the Ten-Item Personality Inventory (TIPI, TIPI-J; 2 studies: "
         "A-31 Rivers, A-37 Zheng & Zheng), and other validated Big "
         "Five–aligned scales (Sahinidis & Tsaknis's 30-item custom "
-        "scale, Chinese-language Big Five scales of A-20 and A-26, "
+        "scale, Chinese-language Big Five scales of A-20 Mustafa et "
+        "al. (2022) and A-26 Wang et al. (2023), "
         "and McCrae's 40-item scale used in A-28 Yu; 4 studies in "
         "total). Achievement outcomes in the 10-study primary pool "
         "were operationalized as GPA or course grade (6 studies: A-02 "
@@ -1401,11 +1415,17 @@ def build_results_part2(doc):
         "face benchmark of ρ = .05–.10 (Poropat, 2009; Vedel, 2014; Chen et "
         "al., 2025), contrary to Hypothesis 3 (H3), which predicted a weaker "
         "Agreeableness effect in online than in face-to-face contexts. "
-        "Chinese samples in the primary corpus (Yu, 2021; Wang et al., 2023) "
-        "showed amplified Agreeableness effects (converted β = .442 and β = "
-        ".112, respectively), contributing to the higher pooled estimate; "
-        "this is explored in the region moderator analysis. Heterogeneity "
-        "was extremely high (Q(8) = 208.49, p < .001; I² = 96.2%; τ² = .030)."
+        "Within the primary pool the largest Agreeableness contribution "
+        "came from a single Chinese MOOC sample (A-28 Yu, 2021; converted "
+        "β = .442); leave-one-out analysis confirmed Yu as the most "
+        "influential study for the Agreeableness estimate (removal "
+        "shifts r from .112 to .038). Wang et al. (2023; β = .112 from "
+        "Agreeableness to engagement) and Baruth and Cohen (2023; ρ = "
+        ".458 with satisfaction) provide narrative support for "
+        "Agreeableness amplification in East Asian and Israeli samples "
+        "respectively, but neither contributed direct correlations to "
+        "the primary pool. Heterogeneity was extremely high (Q(8) = "
+        "208.49, p < .001; I² = 96.2%; τ² = .030)."
     )
     add_para(doc, p_a1, indent_first=True)
 
@@ -1417,12 +1437,20 @@ def build_results_part2(doc):
         "which expected a negative effect more pronounced in fully online "
         "than in blended modalities; H4 was not supported in the primary "
         "analysis. Heterogeneity was moderate-to-high (Q(9) = 42.76, "
-        "p < .001; I² = 79.0%; τ² = .010). Primary-study signs were mixed: "
-        "Rodrigues et al. (2024) and Baruth and Cohen (2023) reported "
-        "negative associations with satisfaction or well-being, whereas Yu "
-        "(2021) reported a weakly positive association, and the β-excluded "
-        "sensitivity analysis (see below) reduced the pooled N estimate to "
-        "r = −.043, partially consistent with H4 under β-free conditions."
+        "p < .001; I² = 79.0%; τ² = .010). Within the 10-study primary "
+        "Neuroticism pool, signs were mixed: Rodrigues et al. (2024) "
+        "reported a negative direct association with sign-flipped GPA "
+        "(r = −.142), and Bahçekapılı and Karaman (2020) likewise reported "
+        "a negative direct r (−.072), whereas the two β-converted "
+        "contributions (Yu, 2021 weakly positive β = .037; Kaspar et al., "
+        "2023 β = .20 driven by a suppressor effect of covariates) pulled "
+        "the pooled estimate toward zero. Convergent narrative evidence "
+        "of negative associations between Neuroticism and well-being or "
+        "satisfaction was reported by Baruth and Cohen (2023; ρ = −.542 "
+        "with general satisfaction; secondary-outcome study, not in the "
+        "primary pool). The β-excluded sensitivity analysis (see below) "
+        "reduced the pooled N estimate to r = −.043, partially consistent "
+        "with H4 under β-free conditions."
     )
     add_para(doc, p_n1, indent_first=True)
 
@@ -1541,12 +1569,13 @@ def build_results_part3(doc):
         "the direction predicted by Hypotheses 4 and 2, respectively. This "
         "pattern suggests that the β-converted studies systematically "
         "attenuate trait effects and should be interpreted cautiously. "
-        "Fourth, the leave-one-out analysis (Table S3) identified Yu (2021) "
-        "as the most influential single study for the Agreeableness pool "
-        "(removal shifted r from .112 to .066) and Rivers (2021) as "
-        "influential for Extraversion (removal shifted r from .002 to .028), "
-        "consistent with their roles as the largest objective-outcome "
-        "sources in those pools."
+        "Fourth, the leave-one-out analysis (Table S3) identified Yu "
+        "(2021) as the single most influential study for both the "
+        "Agreeableness pool (removal shifted r from .112 to .038, "
+        "|Δr| = .074) and the Extraversion pool (removal shifted r from "
+        ".002 to .031, |Δr| = .028), reflecting Yu's MOOC composite as "
+        "the largest β-converted objective-outcome contribution in the "
+        "synthesis. No other study produced |Δr| > .05 on any trait."
     )
     add_para(doc, p5, indent_first=True)
 
@@ -1594,7 +1623,7 @@ def build_results_part3(doc):
         "in Table 5 (Summary of Findings). Confidence in the pooled "
         "Conscientiousness–achievement association was rated as Moderate, "
         "reflecting adequate risk-of-bias across contributing studies "
-        "(mean JBI = 6.0), moderate inconsistency (I² = 65.1% with a PI "
+        "(mean JBI = 5.8), moderate inconsistency (I² = 65.1% with a PI "
         "that just crosses zero), direct relevance to the review question, "
         "adequate precision (CI width = .15 < 2 × MOI of .10), and "
         "borderline publication-bias signal (Egger p = .094). Confidence "
@@ -1642,8 +1671,12 @@ def build_discussion_part1(doc):
         "predictor, and Extraversion as null—but diverged in two important "
         "respects: the Conscientiousness magnitude was somewhat lower than "
         "face-to-face ρ of .20–.28, and Agreeableness showed a slightly "
-        "larger effect than in face-to-face samples, driven by Chinese and "
-        "Middle Eastern studies. Two pre-registered moderator effects were "
+        "larger effect than in face-to-face samples, driven primarily "
+        "by a single influential Chinese MOOC sample (Yu, 2021) within "
+        "the primary pool, with convergent narrative evidence from East "
+        "Asian (Wang et al., 2023) and Israeli (Baruth & Cohen, 2023) "
+        "secondary-outcome studies. Two pre-registered moderator effects "
+        "were "
         "highly significant: Extraversion × Region (Q_between = 46.43, "
         "p < .001), with Asian samples showing r = −.131 vs. non-Asian "
         "r = .050, and Extraversion × Outcome Type (Q_between = 17.30, "
@@ -1700,12 +1733,19 @@ def build_discussion_part1(doc):
         "r = .112, slightly larger than the face-to-face benchmark "
         "range of .05–.10 (Poropat, 2009; Vedel, 2014; Chen et al., "
         "2025). H3, which predicted a weaker rather than stronger "
-        "effect, is therefore not supported. Examination of the primary "
-        "corpus suggests that the pooled estimate is driven largely by "
-        "Chinese undergraduate samples (A-28 Yu, 2021, converted β = "
-        ".442; A-26 Wang et al., 2023, β to engagement = .112) and by "
-        "Israeli samples (A-12 Baruth & Cohen, 2023, ρ = .458 with "
-        "satisfaction). These findings converge with Mammadov's (2022) "
+        "effect, is therefore not supported. Within the 9-study primary "
+        "Agreeableness pool, the pooled estimate is driven principally "
+        "by a single influential Chinese MOOC sample (A-28 Yu, 2021; "
+        "converted β = .442); leave-one-out analysis confirms that "
+        "removing Yu drops the pooled r from .112 to .038. Convergent "
+        "narrative evidence for Agreeableness amplification in East "
+        "Asian online learners is provided by Wang et al. (2023; β = "
+        ".112 from Agreeableness to engagement; K-12 sample retained "
+        "for qualitative synthesis but not in the primary pool) and in "
+        "Israeli samples by Baruth and Cohen (2023; ρ = .458 with "
+        "satisfaction; retained as a secondary-outcome study, not in "
+        "the primary pool). These directional findings converge with "
+        "Mammadov's (2022) "
         "Asian-sample amplification pattern and with Chen et al.'s "
         "(2025) cultural-moderation findings. The region moderator "
         "analysis (Asia r = .330 vs. non-Asia r = .030) was "
@@ -2052,7 +2092,9 @@ def build_conclusion(doc):
         "average (r = .002) but showed a highly significant negative "
         "shift in Asian samples and in objective outcomes; Agreeableness "
         "was slightly larger than the face-to-face benchmark, driven "
-        "by Chinese and Middle Eastern studies; and Neuroticism and "
+        "primarily by a single Chinese MOOC sample (Yu, 2021) with "
+        "convergent narrative evidence from other East Asian and Israeli "
+        "studies; and Neuroticism and "
         "Openness effects were essentially null in the primary "
         "synthesis. The Personality-Achievement Saturation Hypothesis "
         "(Meyer et al., 2023) is partially supported as a framework "
@@ -2211,22 +2253,22 @@ def build_table3_moderators(doc):
         ["Era: Neuroticism", "pre-COVID", "4",
          "−.050 [−.173, .074]", "2.04(1), .153"],
         ["", "COVID-era", "5", ".060 [−.125, .240]", ""],
-        # Outcome type
+        # Outcome type — values per analysis/moderator_results.csv
         ["Outcome: Conscientiousness", "objective", "8",
-         ".147 [.076, .217]", "2.40(1), .121"],
-        ["", "self-rated", "2", ".225 [.126, .319]", ""],
+         ".147 [.048, .243]", "2.40(1), .121"],
+        ["", "self-rated", "2", ".225 [−.167, .556]", ""],
         ["Outcome: Openness", "objective", "7",
-         ".092 [−.068, .246]", "0.04(1), .839"],
-        ["", "self-rated", "2", ".072 [−.027, .170]", ""],
+         ".092 [−.086, .265]", "0.04(1), .839"],
+        ["", "self-rated", "2", ".072 [−.637, .715]", ""],
         ["Outcome: Extraversion", "objective", "7",
-         "−.038 [−.134, .060]", "17.30(1), <.001 †"],
-        ["", "self-rated", "2", ".117 [.017, .214]", ""],
+         "−.038 [−.115, .039]", "17.30(1), <.001 †"],
+        ["", "self-rated", "2", ".117 [−.136, .356]", ""],
         ["Outcome: Agreeableness", "objective", "7",
-         ".131 [−.088, .336]", "0.49(1), .485"],
-        ["", "self-rated", "2", ".041 [−.056, .137]", ""],
+         ".131 [−.054, .308]", "0.49(1), .485"],
+        ["", "self-rated", "2", ".041 [−.862, .881]", ""],
         ["Outcome: Neuroticism", "objective", "8",
-         "−.009 [−.154, .137]", "0.82(1), .364"],
-        ["", "self-rated", "2", ".120 [−.142, .364]", ""],
+         "−.009 [−.097, .080]", "0.82(1), .364"],
+        ["", "self-rated", "2", ".120 [−.926, .954]", ""],
     ]
 
     table = doc.add_table(rows=len(data), cols=len(data[0]))
@@ -2276,15 +2318,15 @@ def build_table4_sensitivity(doc):
 
     data = [
         ["Trait", "Analysis", "k", "r [95% CI]", "Δr vs primary"],
-        # Conscientiousness
+        # Conscientiousness — values per analysis/sensitivity_results.md
         ["Conscientiousness", "Primary", "10",
          ".167 [.089, .243]", "—"],
         ["", "Exclude Tokiwa (COI)", "10",
          ".167 [.089, .243]", "±.000"],
         ["", "Exclude β-converted", "7",
-         ".203 [.095, .307]", "+.036"],
+         ".203 [.105, .298]", "+.036"],
         ["", "Exclude RoB < 5", "9",
-         ".182 [.099, .262]", "+.015"],
+         ".182 [.111, .252]", "+.015"],
         ["", "Egger regression", "—",
          "intercept = 2.14, p = .094", "—"],
         ["", "Trim-and-fill adjusted", "10",
@@ -2295,9 +2337,9 @@ def build_table4_sensitivity(doc):
         ["", "Exclude Tokiwa (COI)", "9",
          ".086 [−.044, .214]", "±.000"],
         ["", "Exclude β-converted", "6",
-         ".031 [−.127, .184]", "−.055 ‡"],
+         ".031 [−.117, .178]", "−.055 ‡"],
         ["", "Exclude RoB < 5", "8",
-         ".097 [−.040, .228]", "+.011"],
+         ".097 [−.052, .242]", "+.011"],
         ["", "Egger regression", "—",
          "intercept = −6.41, p = .045 †", "—"],
         ["", "Trim-and-fill adjusted", "10",
@@ -2308,9 +2350,9 @@ def build_table4_sensitivity(doc):
         ["", "Exclude Tokiwa (COI)", "9",
          ".002 [−.076, .080]", "±.000"],
         ["", "Exclude β-converted", "6",
-         ".018 [−.081, .117]", "+.016"],
+         ".018 [−.087, .122]", "+.016"],
         ["", "Exclude RoB < 5", "8",
-         ".003 [−.080, .086]", "+.001"],
+         ".003 [−.088, .093]", "+.001"],
         ["", "Egger regression", "—",
          "intercept = 2.29, p = .255", "—"],
         ["", "Trim-and-fill adjusted", "11",
@@ -2321,9 +2363,9 @@ def build_table4_sensitivity(doc):
         ["", "Exclude Tokiwa (COI)", "9",
          ".112 [−.031, .250]", "±.000"],
         ["", "Exclude β-converted", "6",
-         ".067 [−.089, .219]", "−.045"],
+         ".067 [−.015, .148]", "−.045"],
         ["", "Exclude RoB < 5", "8",
-         ".126 [−.028, .273]", "+.014"],
+         ".126 [−.036, .281]", "+.014"],
         ["", "Egger regression", "—",
          "intercept = −8.53, p = .072", "—"],
         ["", "Trim-and-fill adjusted", "9",
@@ -2334,9 +2376,9 @@ def build_table4_sensitivity(doc):
         ["", "Exclude Tokiwa (COI)", "10",
          ".018 [−.079, .114]", "±.000"],
         ["", "Exclude β-converted", "7",
-         "−.043 [−.165, .082]", "−.061 ‡"],
+         "−.043 [−.126, .040]", "−.061 ‡"],
         ["", "Exclude RoB < 5", "9",
-         ".019 [−.084, .121]", "+.001"],
+         ".019 [−.093, .130]", "+.001"],
         ["", "Egger regression", "—",
          "intercept = −1.79, p = .304", "—"],
         ["", "Trim-and-fill adjusted", "10",
@@ -2393,7 +2435,7 @@ def build_table5_grade(doc):
          "Indirectness", "Imprecision", "Publication Bias",
          "Magnitude", "GRADE"],
         ["Conscientiousness\n(k=10, N=3,384)",
-         "Not serious\n(mean JBI=5.9)",
+         "Not serious\n(mean JBI=5.80)",
          "Serious\n(I²=65.1%)",
          "Not serious",
          "Not serious\n(CI width=.15)",
@@ -2401,7 +2443,7 @@ def build_table5_grade(doc):
          "Small\n(r=.167)",
          "Moderate"],
         ["Openness\n(k=9, N=3,363)",
-         "Not serious\n(mean JBI=5.7)",
+         "Not serious\n(mean JBI=5.78)",
          "Very serious\n(I²=92.0%)",
          "Not serious",
          "Serious\n(CI crosses 0)",
@@ -2409,7 +2451,7 @@ def build_table5_grade(doc):
          "Small\n(r=.086)",
          "Low"],
         ["Extraversion\n(k=9, N=3,363)",
-         "Not serious\n(mean JBI=5.8)",
+         "Not serious\n(mean JBI=5.78)",
          "Serious\n(I²=75.5%)",
          "Not serious",
          "Not serious\n(null robust)",
@@ -2417,7 +2459,7 @@ def build_table5_grade(doc):
          "Null\n(r=.002)",
          "Moderate"],
         ["Agreeableness\n(k=9, N=3,363)",
-         "Not serious\n(mean JBI=5.7)",
+         "Not serious\n(mean JBI=5.78)",
          "Very serious\n(I²=96.2%)",
          "Not serious",
          "Serious\n(CI crosses 0)",
@@ -2425,7 +2467,7 @@ def build_table5_grade(doc):
          "Small\n(r=.112)",
          "Low"],
         ["Neuroticism\n(k=10, N=3,384)",
-         "Not serious\n(mean JBI=5.9)",
+         "Not serious\n(mean JBI=5.80)",
          "Serious\n(I²=79.0%)",
          "Not serious",
          "Serious\n(null, wide CI)",
