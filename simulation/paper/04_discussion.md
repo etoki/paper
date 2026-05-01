@@ -1,6 +1,6 @@
 # 04. Discussion + Limitations
 
-## 4.1 Principal findings
+## Principal findings
 
 Three findings stand out from the pre-registered analysis pipeline:
 
@@ -13,13 +13,13 @@ The pre-registered intersection-union test produced REVERSAL via the m7 priority
 **Finding 3: HEXACO 7-typology is a stratification variable, not an intervention target.**
 The Counterfactual A null result (ΔP_A = −0.0061, 95% CI crosses zero) implies that shifting individual HEXACO scores by realistic training-effect magnitudes does not measurably reduce population-level harassment prevalence. This finding has substantive consequences for how the HEXACO 7-typology should be interpreted in workplace contexts: the typology *identifies which subgroups are differentially exposed* to harassment, but does *not* identify a personality-based target for individual modification. Consequently, the conventional HR practice of allocating prevention budget toward personality-screening hires or self-improvement training programs rests on a weak empirical foundation; allocation toward structural reforms, with effect sizes documented in Salin (2021), Escartín (2016), and Hodgins et al. (2014), is supported by both prior literature and the present counterfactual analysis.
 
-## 4.2 The 2020 Power Harassment Prevention Law as natural experiment
+## The 2020 Power Harassment Prevention Law as natural experiment
 
 The MHLW survey series provides a rare natural-experiment quasi-validation of our central counterfactual claim. The FY2016 → FY2023 decline in past-three-year power-harassment victimization (32.5% → 19.3%; −13.2 percentage points) coincides with the staged enforcement of the 2020 Power Harassment Prevention Law (large enterprises, June 2020; SMEs, April 2022). Two competing explanations for this decline are: (a) the law functioned as a structural intervention that reduced harassment-supportive environmental affordances; or (b) the underlying personality distribution of Japanese workers shifted between 2016 and 2023.
 
 The latter explanation is implausible on demographic grounds: cohort-level changes in HEXACO traits over six years are unlikely to exceed 0.05 SD. Our Counterfactual A simulation, which models a *six times larger* personality shift (+0.3 SD on H/A/E), produced a null effect at the population level. Hence, the 13.2 pp natural-experiment decline cannot be attributed to personality drift. By exclusion, it is attributable primarily to structural change. This convergence between the natural-experiment evidence and our pre-registered counterfactual is, in our view, the strongest case the present study can make for its policy implication.
 
-## 4.3 Reframing HEXACO: stratification, not modification
+## Reframing HEXACO: stratification, not modification
 
 A central reframing emerges from the integrated reading of Counterfactual A's null and Counterfactual C's positive effect. The conventional reading of "low Honesty-Humility correlates with workplace harassment exposure" tempts an intervention prescription: train individuals to elevate their Honesty-Humility (or, less charitably, screen them out of hiring pools). Our results contraindicate this prescription on two grounds.
 
@@ -29,9 +29,9 @@ Second, even *granting* M1 as the operative mechanism, the +0.3 SD personality-s
 
 The repositioning is therefore: **HEXACO 7-typology serves as a stratification lens that identifies differentially exposed populations and verifies that structural interventions do not differentially fail any subgroup, but is not itself a target of intervention.** This framing has the additional ethical virtue of rejecting victim-blaming readings: low-HH individuals are not "flawed" or "in need of improvement"; they are differentially situated in environments where harassment is more prevalent, and the appropriate response is to modify those environments rather than the individuals.
 
-## 4.4 Limitations
+## Limitations
 
-### 4.4.1 Reduced-form framing of Counterfactual C
+### Reduced-form framing of Counterfactual C
 
 The most important limitation, identified through dialogue with an external methodologist, concerns the *reduced-form* nature of Counterfactual C. Operationally, Counterfactual C reduces cell-level propensity by 20% uniformly, leaving HEXACO scores and cluster memberships unchanged. This is a population-level statistical translation of structural change; the simulation does not endogenously model the psychological mechanisms — deterrence, perceived reporting risk, social cost, peer monitoring — through which institutional intervention actually reduces harassment behavior.
 
@@ -39,27 +39,27 @@ The simulation's contribution is therefore narrower than a mechanistic claim: it
 
 A mechanistically richer extension would adopt agent-based modeling (Schelling, 1971; Park et al., 2023) with explicit deterrence dynamics, individual-level perceived risk, and interaction with peers. Such extensions are beyond the scope of v2.0 pre-registration but are pre-flagged as Phase 2 follow-up work in the present manuscript.
 
-### 4.4.2 Causal under-identification among M2/M3/M4
+### Causal under-identification among M2/M3/M4
 
 Our analysis can reject M1 (direct personality-causation of harassment) but cannot distinguish among M2 (selection into harassment-prone environments), M3 (confounding via SES/educational/economic factors), or M4 (reverse causation: harassment depresses HEXACO-H scores via cynicism). Each of these is consistent with our Counterfactual A null result. Identification would require either: (a) an exogenous shock or instrumental variable affecting HEXACO scores independent of harassment exposure; (b) a longitudinal design with pre-employment HEXACO measurement; or (c) a sibling/twin-controlled design. None of these is feasible within the present cross-sectional preregistration. Consequently, the substantive interpretation of the low-HH–harassment association is left open at the level of mechanism, while the policy implication (structural intervention dominance) is unaffected.
 
-### 4.4.3 Heterogeneity in counterfactual response
+### Heterogeneity in counterfactual response
 
 Counterfactual C is operationalized as a uniform 20% reduction across all 14 cells. In reality, structural interventions plausibly differ in efficacy across HEXACO 7-typology × gender combinations: cell-specific intervention effects could amplify or attenuate the global average. Our analysis does not estimate cell-specific intervention efficacy. A natural extension is to allow ΔP_C to vary by cell, parameterized as a multiplicative factor F_c per cell, and to estimate F_c via auxiliary data (e.g., MHLW industry × gender breakdowns of intervention adoption).
 
-### 4.4.4 Static framing
+### Static framing
 
 The simulation produces a single population-level snapshot under each counterfactual; it does not model dynamic effects such as institutional erosion (intervention efficacy decay over time), behavioral adaptation (perpetrator response), or composition change (workforce HEXACO drift). Stage 8's transportability factor sweep partially addresses this concern by stress-testing the conclusion against attenuation, but a fully dynamic agent-based extension is required for endogenous modeling of these mechanisms.
 
-### 4.4.5 m8 limitation: cluster proportions M3-fixed
+### m8 limitation: cluster proportions M3-fixed
 
 Per Methods Clarification m8, the 7-cluster proportions used in Stage 1 reweighting remain fixed at the Tokiwa (2026, *IEEE Access*) values for N = 13,668; only the gender marginal is updated to the Statistics Bureau (MIC) 2022 working-population value. This is a conscious limitation: the Labor Force Survey does not capture HEXACO cluster membership, so the cluster proportions cannot be updated. The OAT sensitivity sweep over cluster mass shifts (Section 3.3) shows that the H1 conclusion depends on the cluster proportions, with MAPE ranging from 34.55% (favorable composition) to 56.47% (unfavorable). We disclose this dependency explicitly and recommend that future Phase 2 work integrate larger-sample HEXACO surveys (e.g., the JLPS panel) to relax this constraint.
 
-### 4.4.6 Sample-size and external-validity caveats
+### Sample-size and external-validity caveats
 
 The N = 354 individual-level harassment sample is demographically heterogeneous within Japan but does not match the MHLW survey's sampling frame perfectly. The cell sizes range from 10 to 70 (median 18); some cells contribute weakly to per-cell propensity precision. The sensitivity sweep over EB shrinkage scale (Section 3.3) confirms that estimates are robust to alternative shrinkage strengths, but precision could be improved with larger samples. We have refrained from pooling additional samples to preserve pre-registration integrity; future replication studies are encouraged.
 
-## 4.5 Implications for workplace harassment policy
+## Implications for workplace harassment policy
 
 The integrated findings carry three policy implications:
 
@@ -67,6 +67,6 @@ The integrated findings carry three policy implications:
 2. **Causal humility about HEXACO-based screening.** The use of HEXACO scores (or related personality assessments) in pre-employment screening to filter out "harassment-prone" candidates is not supported by our analysis. The HEXACO–harassment association is consistent with selection into harassment-prone environments rather than direct causation; screening on HEXACO would simply re-route low-HH applicants to less protective workplaces, without reducing aggregate harassment.
 3. **Continued evaluation of the 2020 Power Harassment Prevention Law.** Our analysis converges with the MHLW natural experiment in attributing the FY2016–FY2023 decline to structural mechanisms. We recommend that the law's enforcement be strengthened in the SME sector (where compliance has been documented as weaker) and that auxiliary mechanisms — anonymous reporting, independent investigation, retaliation prohibition — be empirically evaluated for differential efficacy.
 
-## 4.6 Conclusion
+## Conclusion
 
 We pre-registered and executed a HEXACO 7-typology workplace harassment microsimulation that emulates a target trial of three counterfactual interventions in Japan. The null result for personality intervention (Counterfactual A; ΔP_A = −0.0061, CI crosses zero) and the strongly positive result for structural intervention (Counterfactual C; ΔP_C = +0.0349, CI excludes zero), corroborated by the H7 IUT classification of REVERSAL across all four pre-registered cultural attenuation factors, support the conclusion that *structural interventions translate to approximately 5.7× larger population-level harassment-prevalence reductions than realistic personality-training interventions*, given prior meta-analytic effect-size literature. The 2020 Power Harassment Prevention Law's natural-experiment 13.2 pp decline corroborates the policy mechanism. We reposition HEXACO 7-typology as a stratification lens that identifies differentially exposed populations rather than as a target of intervention, and reject victim-blaming framings of harassment exposure. All code, data, and intermediate artifacts are publicly available under MIT license; full reproducibility is verified via SHA-256 hash comparison against the v2.0 OSF registration.

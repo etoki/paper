@@ -17,15 +17,15 @@ Workplace harassment imposes major public-health costs in Japan, where Ministry 
 
 ---
 
-## 1. Introduction
+## Introduction
 
-### 1.1 Workplace harassment as a public-health and policy problem
+### Workplace harassment as a public-health and policy problem
 
 Workplace harassment is a leading driver of psychiatric morbidity, voluntary turnover, and lost productivity in industrialized economies (Hershcovis & Barling, 2010; Salin, 2003). In Japan, the Ministry of Health, Labour and Welfare (MHLW) has documented past-three-year power-harassment victimization rates of 32.5% in FY2016, 31.4% in FY2020, and 19.3% in FY2023 (MHLW, 2017, 2021, 2024). The 13.2 percentage-point decline between FY2016 and FY2023 coincides closely with the staged enforcement of the 2020 Power Harassment Prevention Law, which mandated formal anti-harassment policies, employee-accessible reporting channels, and prohibited retaliation against complainants — first for large enterprises in June 2020, and subsequently extended to small-and-medium enterprises in April 2022. This natural experiment offers a rare opportunity to interrogate what types of intervention reduce harassment, and at what scale.
 
 A long-standing controversy in workplace-psychology research concerns whether to allocate prevention resources toward person-level interventions — for example, personality training, mindset coaching, or hiring screens designed to filter out individuals with traits associated with harassment perpetration — versus system-level interventions that modify organizational structure, accountability mechanisms, and power asymmetries (Mikkelsen et al., 2020; Salin, 2021). The former approach assumes that harassment is largely driven by individual disposition; the latter, that it is largely driven by environmental affordance. Despite extensive research linking personality traits to bullying and harassment (Nielsen et al., 2017; Pilch & Turska, 2015), the relative population-level efficacy of person-level versus system-level interventions has not been quantitatively compared in a counterfactually rigorous framework.
 
-### 1.2 HEXACO 7-typology and its prior connection to workplace harassment
+### HEXACO 7-typology and its prior connection to workplace harassment
 
 The HEXACO model of personality (Ashton & Lee, 2007) extends the classical Big Five framework with an additional dimension, Honesty-Humility (HH), which captures fairness, modesty, sincerity, and resistance to exploiting others. Within the HEXACO literature, low Honesty-Humility, low Agreeableness, and high Emotionality have repeatedly been associated with workplace bullying perpetration and victimization (Glasø et al., 2007; Lee et al., 2013; Linton & Power, 2013; Nielsen et al., 2017). However, the magnitude of these associations is generally modest (uncorrected r typically in the range 0.10–0.30; Nielsen et al., 2017), and recent meta-analyses suggest considerable cross-cultural heterogeneity in workplace bullying acceptability and effect sizes (Power et al., 2013, comparing six continents; Nielsen et al., 2017, reporting attenuated Asia/Oceania effects of r = .16 versus European r = .33 for Neuroticism–bullying associations).
 
@@ -33,7 +33,7 @@ In a companion study, our research group identified seven robust HEXACO clusters
 
 **A critical reframing.** The role of HEXACO in this study is *not* to identify who should be subjected to personality interventions. Rather, HEXACO 7-typology serves as a *stratification variable* that identifies which subgroups are differentially exposed to workplace harassment. Whether this differential exposure reflects direct personality causation (low-HH individuals harass or are harassed at higher rates), selection (low-HH individuals self-select into harassment-prone industries), confounding (shared socioeconomic factors elevate both low-HH and harassment risk), or reverse causation (harassment exposure depresses HH scores via cynicism) cannot be distinguished from observational data alone. Our counterfactual analysis is designed to identify which of these mechanisms is *not* the dominant one — namely, by testing whether shifting individuals' HEXACO scores reduces aggregate prevalence — but is not designed to adjudicate among the remaining alternatives.
 
-### 1.3 Microsimulation as a methodological bridge
+### Microsimulation as a methodological bridge
 
 Microsimulation methods, originating in demographic and economic policy analysis (Spielauer, 2011) and extended into epidemiology and public health (Rutter et al., 2011), allow researchers to project individual-level data into population-level prevalence estimates under counterfactual scenarios. The methodological strength of microsimulation lies in its ability to combine (a) detailed individual-level inputs, (b) population-level reweighting via official census or labor-force statistics, and (c) explicit counterfactual interventions with causal interpretation. In contrast to purely statistical adjustment or survey reweighting, microsimulation makes the implementation of "what-if" interventions explicit and falsifiable.
 
@@ -47,7 +47,7 @@ Counterfactual contrasts are formulated using the Pearl (2009) do-operator. Spec
 
 The asymmetry between A/B and C — namely, that A and B intervene on personality while C intervenes on the propensity-environment pathway — operationalizes the question: *given comparable effect sizes drawn from prior literature on each intervention type, which produces a larger population-level prevalence reduction?*
 
-### 1.4 Hypotheses
+### Hypotheses
 
 The pre-registration v2.0 (OSF DOI 10.17605/OSF.IO/3Y54U) specifies seven primary hypotheses:
 
@@ -59,7 +59,7 @@ The pre-registration v2.0 (OSF DOI 10.17605/OSF.IO/3Y54U) specifies seven primar
 - **H6 (cross-domain triangulation)**: Power and gender harassment scales (Tou et al., 2017; Kobayashi & Tanaka, 2010) yield concordant cluster-level rankings.
 - **H7 (counterfactual ordering)**: The pre-registered ordering Δ_BA = ΔP_B − ΔP_A and Δ_BC = ΔP_B − ΔP_C is tested via the Berger and Hsu (1996) intersection-union test (IUT) at one-sided α = .05; the configuration is classified as REVERSAL, CONFIRMED, PARTIAL, or AMBIGUOUS.
 
-### 1.5 Contribution and roadmap
+### Contribution and roadmap
 
 This study makes four contributions:
 

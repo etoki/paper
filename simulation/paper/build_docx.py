@@ -318,17 +318,22 @@ def render_table(doc: Document, table_md: str):
 
 
 def render_blocks(doc: Document, blocks: list[tuple[str, str]], *, title_seen: bool = True):
+    """Map markdown heading levels to APA 7 paper levels.
+
+    Mapping (per author's request: Level 1 = centered, no italic anywhere):
+      markdown #     (h1)  → paper Level 1 (centered, bold)
+      markdown ##    (h2)  → paper Level 1 (centered, bold)   ← top-level sections
+      markdown ###   (h3)  → paper Level 2 (left, bold)        ← subsections
+      markdown ####  (h4)  → paper Level 3 (left, bold)        ← sub-subsections
+    """
     for kind, text in blocks:
         if kind == "h1":
-            if not title_seen:
-                title_seen = True
-                add_heading(doc, text, level=1)
-            else:
-                add_heading(doc, text, level=2)
+            add_heading(doc, text, level=1)
+            title_seen = True
         elif kind == "h2":
-            add_heading(doc, text, level=2)
+            add_heading(doc, text, level=1)  # treat as Level 1 = centered
         elif kind == "h3":
-            add_heading(doc, text, level=3)
+            add_heading(doc, text, level=2)
         elif kind == "h4":
             add_heading(doc, text, level=3)
         elif kind == "para":
@@ -534,7 +539,7 @@ def build_preprint(out_path: Path, *, journal_variant: bool = False):
             render_inline(run, text)
             set_font(run, size=12)
         elif kind == "h2" or kind == "h3":
-            add_heading(doc, text, level=2 if kind == "h2" else 3)
+            add_heading(doc, text, level=1 if kind == "h2" else 2)
         elif kind == "list_item":
             # Treat as reference item with hanging indent
             p = doc.add_paragraph()
@@ -622,7 +627,7 @@ def build_split_02(out_path: Path):
             render_inline(run, text)
             set_font(run, size=12)
         elif kind == "h2" or kind == "h3":
-            add_heading(doc, text, level=2 if kind == "h2" else 3)
+            add_heading(doc, text, level=1 if kind == "h2" else 2)
     doc.save(str(out_path))
     print(f"  Wrote {out_path}")
 
