@@ -10,7 +10,7 @@ We use the Tokiwa harassment preprint dataset (Tokiwa, 2025, Research Square pre
 
 - **HEXACO-60** (Wakabayashi, 2014; Japanese adaptation of Ashton & Lee, 2009): 60-item Likert 1-5 scale yielding six domain scores (H, E, X, A, C, O).
 - **Dark Triad** scales (Machiavellianism, Narcissism, Psychopathy): used in the common-method-variance diagnostic (Section 2.5) but not in the primary analysis.
-- **Workplace Power Harassment Scale** (Tou, 2017): continuous severity scale measuring past-three-year power-harassment victimization frequency in the participant's workplace.
+- **Workplace Power Harassment Scale** (Tou et al., 2017): continuous severity scale measuring past-three-year power-harassment victimization frequency in the participant's workplace.
 - **Gender Harassment Scale** (Kobayashi & Tanaka, 2010): continuous severity scale; used as triangulation outcome (H6).
 - **Demographics**: binary self-reported gender (0 = female, 1 = male), age (continuous), prefecture-level region (categorical).
 
@@ -97,7 +97,7 @@ Counterfactual A applies a +0.3 SD shift to HEXACO H, A, and E for every individ
 
 Counterfactual B applies a +0.40 SD shift in Honesty-Humility (`code/stage7_counterfactual.py:DELTA_B_MAIN_SD`) **only to individuals whose baseline nearest-centroid cluster is already in the pre-registered low-prevalence target set {0, 4, 6}**, leaving all other individuals' HEXACO scores unchanged. Following the targeted shift, all individuals are re-classified by nearest-centroid on the post-intervention HEXACO matrix, per-cell propensities are re-computed from the realized binary outcomes within the new cell assignments, and ΔP_B is reported per-bootstrap as the difference between counterfactual and baseline national prevalence. This operationalization matches pre-registration v2.0 Section 5.7 ("HH := HH + δ_B × SD(HH) for individuals in Cluster ∈ {0, 4, 6}") and Methods Clarifications Log n3 (Pearl 2009 do-operator notation form, which formalizes the targeted indicator "if i ∈ Cluster {0, 4, 6}; HH_i otherwise"). Positivity is computed via ρ_{c, B} = (count of individuals reassigned into target Cluster c after the shift) / (count of individuals in target Cluster c at baseline) and is downgraded by the same m5 rule as Counterfactual A.
 
-Counterfactual C multiplies cell-level propensity by 0.80 uniformly across all cells while leaving HEXACO scores unchanged. The 20% reduction is calibrated against three meta-analyses (Escartín, 2016; Hodgins, MacCurtain, & Mannix-McNamara, 2014; Salin, 2021) and the MHLW FY2016–FY2023 natural experiment (32.5% → 19.3%; −13.2pp ≈ −40.6% relative). Positivity for C is trivially preserved (ρ ≡ 1) per pre-registration v2.0 Section 5.7.
+Counterfactual C multiplies cell-level propensity by 0.80 uniformly across all cells while leaving HEXACO scores unchanged. The 20% reduction is calibrated against three meta-analyses (Escartín, 2016; Hodgins et al., 2014; Salin, 2021) and the MHLW FY2016–FY2023 natural experiment (32.5% → 19.3%; −13.2pp ≈ −40.6% relative). Positivity for C is trivially preserved (ρ ≡ 1) per pre-registration v2.0 Section 5.7.
 
 The H7 intersection-union test (Berger & Hsu, 1996; Methods Clarification m7) computes one-sided 95% lower bounds L_BA and L_BC for ΔP_B − ΔP_A and ΔP_B − ΔP_C, respectively, with bootstrap-resampled cell data (B = 2,000). The configuration is classified per the m7 priority cascade implemented in `code/stage7_counterfactual.py:h7_iut`:
 
@@ -111,7 +111,7 @@ The H7 intersection-union test (Berger & Hsu, 1996; Methods Clarification m7) co
 Per v2.0 Section 5.8 (cultural attenuation), the bootstrap distribution of each ΔP_x is multiplied by a transportability factor F ∈ {0.3, 0.5, 0.7, 1.0}, anchored as:
 
 - F = 0.3: Conservative cross-cultural attenuation (worst-case anchor; supported by Power et al. 2013 cross-continent variability findings);
-- F = 0.5: Nielsen, Glasø, and Einarsen (2017) Asia/Oceania attenuation expected (r = .16 vs European r = .33);
+- F = 0.5: Nielsen et al. (2017) Asia/Oceania attenuation expected (r = .16 vs European r = .33);
 - F = 0.7: Mild attenuation (intermediate);
 - F = 1.0: Reference (no attenuation).
 

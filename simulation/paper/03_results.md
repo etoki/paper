@@ -117,7 +117,7 @@ Per the v2.0 master Section 5.8 cultural-attenuation sweep, all three ΔP_x boot
 | Factor F | Anchor | ΔP_A (attenuated) | ΔP_C (attenuated) | H7 |
 |---|---|---:|---:|---|
 | **0.3** | Conservative cross-cultural worst case | −0.0018 | +0.0105 | **REVERSAL** |
-| **0.5** | Nielsen, Glasø, & Einarsen 2017 expected | −0.0031 | +0.0174 | **REVERSAL** |
+| **0.5** | Nielsen et al., 2017 expected | −0.0031 | +0.0174 | **REVERSAL** |
 | **0.7** | Mild attenuation | −0.0043 | +0.0244 | **REVERSAL** |
 | **1.0** | Reference (no attenuation) | −0.0061 | +0.0349 | **REVERSAL** |
 

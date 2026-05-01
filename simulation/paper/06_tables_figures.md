@@ -73,7 +73,7 @@
 | Factor F | Anchor | ΔP_A (att) | ΔP_C (att) | H7 |
 |---|---|---:|---:|---|
 | 0.3 | Conservative cross-cultural worst case | −0.0018 | +0.0105 | REVERSAL |
-| 0.5 | Nielsen, Glasø, & Einarsen 2017 expected | −0.0031 | +0.0174 | REVERSAL |
+| 0.5 | Nielsen et al., 2017 expected | −0.0031 | +0.0174 | REVERSAL |
 | 0.7 | Mild attenuation | −0.0043 | +0.0244 | REVERSAL |
 | 1.0 | Reference (no attenuation) | −0.0061 | +0.0349 | REVERSAL |
 
@@ -141,7 +141,7 @@ A forest plot with three counterfactuals on the y-axis (A, B, C), point estimate
 
 A line plot with cultural attenuation factor F on the x-axis (0.3 to 1.0) and ΔP_x on the y-axis. Three lines for ΔP_A, ΔP_B, ΔP_C, with 95% CIs as shaded bands. The ΔP_C line remains above zero across the entire factor range; the ΔP_A and ΔP_B lines remain centered on zero.
 
-**Caption.** *H7 IUT classification under cultural attenuation factors F ∈ {0.3, 0.5, 0.7, 1.0}. The REVERSAL classification (structural dominance) is preserved across all four factors, including the conservative cross-cultural worst-case anchor (F = 0.3) and the Nielsen, Glasø, and Einarsen (2017) Asia/Oceania expected attenuation (F = 0.5).*
+**Caption.** *H7 IUT classification under cultural attenuation factors F ∈ {0.3, 0.5, 0.7, 1.0}. The REVERSAL classification (structural dominance) is preserved across all four factors, including the conservative cross-cultural worst-case anchor (F = 0.3) and the Nielsen et al. (2017) Asia/Oceania expected attenuation (F = 0.5).*
 
 ---
 

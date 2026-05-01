@@ -356,63 +356,136 @@ def render_blocks(doc: Document, blocks: list[tuple[str, str]], *, title_seen: b
 
 
 def build_title_page(doc: Document, *, journal_variant: bool = False):
-    # Title (centered, bold, ~ middle of page)
+    """APA 7 title page modeled on metaanalysis/paper/split/01_title_declarations.docx.
+
+    Layout:
+      - Title (centered, bold, ~ middle of page)
+      - Author name (centered, plain — NOT italic)
+      - Affiliation (centered, plain — NOT italic)
+      - Author Note (centered, bold) header
+      - Author Note content: ORCID line, COI line, correspondence line
+      - Declarations (left-aligned, bold) header
+      - Sub-sections: Conflict of Interest, Funding, Ethics Approval,
+        Informed Consent, Pre-registration, Availability of data and material,
+        Authors' contributions, Preprint Statement, Acknowledgments
+    """
+    # === Title block (centered) ===
     for _ in range(2):
         add_para(doc, "")  # spacer
-    p = add_para(doc, TITLE, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER)
+    add_para(doc, TITLE, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER)
     add_para(doc, "")
-    # Author block
     add_para(doc, AUTHOR, align=WD_ALIGN_PARAGRAPH.CENTER)
-    add_para(doc, AFFILIATION, align=WD_ALIGN_PARAGRAPH.CENTER, italic=True)
-    add_para(doc, f"ORCID: {ORCID}", align=WD_ALIGN_PARAGRAPH.CENTER)
+    add_para(doc, AFFILIATION, align=WD_ALIGN_PARAGRAPH.CENTER)  # plain (not italic)
     add_para(doc, "")
-    add_para(doc, "Author note", bold=True, align=WD_ALIGN_PARAGRAPH.CENTER)
+    add_para(doc, "")
+
+    # === Author Note (centered header, left-aligned content) ===
+    add_para(doc, "Author Note", bold=True, align=WD_ALIGN_PARAGRAPH.CENTER)
+    add_para(doc, f"{AUTHOR}  https://orcid.org/{ORCID}")
+    add_para(doc,
+             "The author has no known conflict of interest to disclose beyond that "
+             "stated in the Declarations below.")
     add_para(doc,
              f"Correspondence concerning this article should be addressed to {AUTHOR}, "
-             f"{AFFILIATION}. Email: {EMAIL}", indent_first=True)
+             f"{AFFILIATION}. Email: {EMAIL}")
+    add_para(doc, "")
+    add_para(doc, "")
+
+    # === Declarations (per metaanalysis template) ===
+    add_para(doc, "Declarations", bold=True)
+    add_para(doc, "")
+
+    add_para(doc, "Conflict of Interest", bold=True)
     add_para(doc,
-             f"Pre-registration: OSF DOI {OSF_DOI} ({OSF_URL}). "
-             f"Code, data, and intermediate artifacts are publicly archived "
-             f"under MIT license at {GITHUB_URL}.",
-             indent_first=True)
+             "The author declares that there are no financial or personal relationships "
+             "with other people or organizations that could inappropriately influence "
+             "(bias) the work reported in this paper.")
+    add_para(doc, "")
+
+    add_para(doc, "Funding", bold=True)
+    add_para(doc,
+             "This research was self-funded by SUNBLAZE Co., Ltd. (Tokyo, Japan). "
+             "No external grant funding from agencies in the public, commercial, or "
+             "not-for-profit sectors was received.")
+    add_para(doc, "")
+
+    add_para(doc, "Ethics Approval", bold=True)
+    add_para(doc,
+             "The N = 354 individual-level harassment data re-analyzed in this study "
+             "were originally collected under an IRB-approved protocol described in "
+             "Tokiwa (2025, Research Square preprint, DOI 10.21203/rs.3.rs-7756124/v1). "
+             "Secondary analysis of these de-identified data does not require additional "
+             "ethics review under SUNBLAZE Co., Ltd. policy.")
+    add_para(doc, "")
+
+    add_para(doc, "Informed Consent", bold=True)
+    add_para(doc,
+             "All N = 354 participants in the original survey provided informed consent "
+             "for research use of their de-identified responses (per Tokiwa, 2025). The "
+             "present secondary analysis introduces no new participant contact.")
+    add_para(doc, "")
+
+    add_para(doc, "Pre-registration", bold=True)
+    add_para(doc,
+             f"This Stage 2 Registered Report implements, without deviation, the analysis "
+             f"plan pre-registered as v2.0 at the Open Science Framework "
+             f"(DOI {OSF_DOI}; {OSF_URL}; registered 2026-04-30). The Section 6.5 "
+             f"Level 1 Methods Clarifications Log accompanying the v2.0 registration "
+             f"documents 16 minor specification clarifications applied prior to Stage 0 "
+             f"implementation.")
+    add_para(doc, "")
+
+    add_para(doc, "Availability of data and material", bold=True)
+    add_para(doc,
+             f"Public-tier supplementary artifacts (Stage 0–8 HDF5, Figures 1–6 in "
+             f"PNG/PDF/SVG, canonical numerical record, SHA-256 reference hashes) are "
+             f"openly available at the v2.0 OSF working project (osf.io/3hxz6, "
+             f"v2.0/v2.0_supplementary.tar.gz). The N = 354 individual-level dataset is "
+             f"governed by the IRB-approved data-sharing protocol and hosted in a Private "
+             f"OSF component with a documented Request-Access mechanism (parent project "
+             f"Wiki at osf.io/3hxz6/wiki/home/ lists access criteria, IRB requirements, "
+             f"and data-use terms). All analysis code is publicly archived under MIT "
+             f"license at {GITHUB_URL} (directory: simulation/).")
+    add_para(doc, "")
+
+    add_para(doc, "Authors' contributions", bold=True)
+    add_para(doc,
+             "The sole author (Eisuke Tokiwa) was responsible for conceptualization, "
+             "methodology, software, formal analysis, investigation, data curation, "
+             "writing — original draft, and writing — review & editing.")
+    add_para(doc, "")
+
+    add_para(doc, "Preprint Statement", bold=True)
+    add_para(doc,
+             f"A preprint of the original survey (the underlying N = 354 dataset and "
+             f"its descriptive analyses) is available at Research Square "
+             f"(DOI 10.21203/rs.3.rs-7756124/v1; Tokiwa, 2025). The seven HEXACO cluster "
+             f"centroids used as fixed parameters in this study are from the companion "
+             f"paper Tokiwa (2026, IEEE Access, DOI 10.1109/ACCESS.2026.3651324).")
+    add_para(doc, "")
+
+    add_para(doc, "Acknowledgments", bold=True)
+    add_para(doc,
+             "The author thanks the anonymous external methodologist (mode B; mathematical "
+             "biology background) whose review memo led to the Section 6.5 Level 1 Methods "
+             "Clarifications Log, and the N = 354 survey respondents whose anonymized "
+             "data made this analysis possible.")
+
     if journal_variant:
         add_para(doc, "")
         add_para(doc,
-                 "Submitted to: Royal Society Open Science (Stage 2 Registered Report). "
-                 "This manuscript implements the analysis pre-registered as v2.0 at OSF "
-                 f"({OSF_URL}). Conditional acceptance based on Stage 1 review of the "
-                 f"v2.0 protocol document is acknowledged in the cover letter.",
-                 indent_first=True)
-    add_para(doc, "")
-    # Page break
+                 "Note (journal submission): This manuscript is being submitted as a Stage 2 "
+                 f"Registered Report. Conditional acceptance based on Stage 1 review of the "
+                 f"v2.0 protocol document ({OSF_URL}) is acknowledged in the accompanying "
+                 f"cover letter.")
     doc.add_page_break()
 
 
 def build_declarations_page(doc: Document):
-    add_heading(doc, "Declarations", level=1)
-    add_para(doc, "Funding", bold=True)
-    add_para(doc, "This research was self-funded by SUNBLAZE Co., Ltd. No external funding was received.",
-             indent_first=True)
-    add_para(doc, "Conflicts of interest", bold=True)
-    add_para(doc, "The author declares no competing interests.", indent_first=True)
-    add_para(doc, "Author contributions", bold=True)
-    add_para(doc,
-             "The author (sole-authored) was responsible for conceptualization, methodology, software, "
-             "formal analysis, investigation, data curation, writing — original draft, and writing — "
-             "review & editing.", indent_first=True)
-    add_para(doc, "Data and code availability", bold=True)
-    add_para(doc,
-             f"All code, data, and intermediate artifacts are publicly archived under MIT license at "
-             f"{GITHUB_URL} (directory: simulation/) and at OSF DOI {OSF_DOI} ({OSF_URL}). "
-             "Reproducibility is verified via SHA-256 hash comparison against the v2.0 OSF registration.",
-             indent_first=True)
-    add_para(doc, "Ethics statement", bold=True)
-    add_para(doc,
-             "The N=354 individual-level harassment data analyzed in this study were collected under "
-             "an IRB-approved protocol (Tokiwa, 2025, harassment preprint). Analysis of de-identified "
-             "data does not require additional ethics review under SUNBLAZE Co., Ltd. policy.",
-             indent_first=True)
-    doc.add_page_break()
+    """No-op: Declarations are now built inline in build_title_page() per the
+    metaanalysis/paper/ template, which combines title page + author note +
+    declarations on the same opening page-block."""
+    return
 
 
 # ============================================================================
