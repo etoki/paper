@@ -18,18 +18,22 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Pt
 
 PAPER_DIR = Path(__file__).resolve().parent
+SIM_ROOT = PAPER_DIR.parent
+PAPER_IEEE_DIR = SIM_ROOT / "paper_IEEE"
 
 # Build matrix: each cover letter source markdown → output docx.
 # The "template" (cover_letter.md) keeps the placeholder *XXXX* journal name and
 # generic suggested reviewers; the four journal-specific variants are tailored
 # to PAID / RSOS / JOHP / PCI RR with the title that matches each journal's fit
 # (T2.2 / T2.1 / T4.1 / T1.1 respectively per title_candidates.md).
+# IEEE Access version lives under paper_IEEE/ alongside the IEEE manuscript.
 COVER_LETTER_BUILDS = [
-    ("cover_letter.md",        "cover_letter.docx"),
-    ("cover_letter_paid.md",   "cover_letter_paid.docx"),
-    ("cover_letter_rsos.md",   "cover_letter_rsos.docx"),
-    ("cover_letter_johp.md",   "cover_letter_johp.docx"),
-    ("cover_letter_pcirr.md",  "cover_letter_pcirr.docx"),
+    (PAPER_DIR / "cover_letter.md",        PAPER_DIR / "cover_letter.docx"),
+    (PAPER_DIR / "cover_letter_paid.md",   PAPER_DIR / "cover_letter_paid.docx"),
+    (PAPER_DIR / "cover_letter_rsos.md",   PAPER_DIR / "cover_letter_rsos.docx"),
+    (PAPER_DIR / "cover_letter_johp.md",   PAPER_DIR / "cover_letter_johp.docx"),
+    (PAPER_DIR / "cover_letter_pcirr.md",  PAPER_DIR / "cover_letter_pcirr.docx"),
+    (PAPER_IEEE_DIR / "cover_letter_ieee.md", PAPER_IEEE_DIR / "cover_letter_ieee.docx"),
 ]
 
 
@@ -87,12 +91,10 @@ def add_para(doc, text, *, bold=False, italic=False, align=None, single_space=Tr
     return p
 
 
-def build_one(src_filename: str, out_filename: str):
+def build_one(src: Path, out: Path):
     """Build a single cover_letter*.docx from its markdown source."""
-    src = PAPER_DIR / src_filename
-    out = PAPER_DIR / out_filename
     if not src.exists():
-        print(f"  Skipping (source missing): {src_filename}")
+        print(f"  Skipping (source missing): {src}")
         return
 
     doc = Document()
@@ -184,9 +186,9 @@ def build_one(src_filename: str, out_filename: str):
 
 
 def main():
-    """Build all cover letter variants (template + 4 journal-specific)."""
-    for src_filename, out_filename in COVER_LETTER_BUILDS:
-        build_one(src_filename, out_filename)
+    """Build all cover letter variants (template + 4 journal-specific + IEEE)."""
+    for src, out in COVER_LETTER_BUILDS:
+        build_one(src, out)
 
 
 if __name__ == "__main__":
