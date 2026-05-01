@@ -375,11 +375,13 @@ def replace_citations_with_ieee(text: str, mapping: dict[str, int]) -> str:
                 leftover_pieces.append(piece)
         if nums and not leftover_pieces:
             nums = sorted(set(nums))
-            return "[" + ", ".join(str(n) for n in nums) + "]"
+            # IEEE Editorial Style Manual: separate multiple citations with
+            # comma between brackets, e.g., [1], [2], [3] — NOT [1, 2, 3].
+            return ", ".join(f"[{n}]" for n in nums)
         if nums and leftover_pieces:
             nums = sorted(set(nums))
-            return ("[" + ", ".join(str(n) for n in nums) + "] (" +
-                    "; ".join(leftover_pieces) + ")")
+            cite_str = ", ".join(f"[{n}]" for n in nums)
+            return f"{cite_str} (" + "; ".join(leftover_pieces) + ")"
         # No matched citations; return original
         return match.group(0)
 
@@ -611,27 +613,56 @@ def parse_md_blocks(md_text: str) -> list[tuple[str, str]]:
     return blocks
 
 
-def add_ieee_section_heading(doc, text: str):
-    """9pt bold ALL CAPS section heading."""
+def to_roman(n: int) -> str:
+    """Integer → Roman numeral (1..30)."""
+    pairs = [(10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")]
+    out = ""
+    for v, s in pairs:
+        while n >= v:
+            out += s
+            n -= v
+    return out
+
+
+def to_letter(n: int) -> str:
+    """Integer → uppercase letter (1..26)."""
+    return chr(ord("A") + n - 1) if 1 <= n <= 26 else f"AA{n}"
+
+
+def add_ieee_section_heading(doc, text: str, *, roman: int | None = None,
+                             centered: bool = True):
+    """9pt bold ALL CAPS section heading. If `roman` is given, prefixes the
+    heading with Roman numerals "I. ", "II. ", etc., and centers the heading
+    per IEEE Editorial Style Manual. Unnumbered top-level sections (REFERENCES,
+    ACKNOWLEDGMENT, BIOGRAPHIES) pass roman=None.
+    """
     p = doc.add_paragraph()
-    set_para_format(p, space_before=6, space_after=2)
-    r = p.add_run(text.upper())
+    align = WD_ALIGN_PARAGRAPH.CENTER if centered else None
+    set_para_format(p, align=align, space_before=8, space_after=4)
+    label = f"{to_roman(roman)}. " if roman is not None else ""
+    r = p.add_run(label + text.upper())
     set_font(r, size=9, bold=True)
 
 
-def add_ieee_subsection_heading(doc, text: str):
-    """10pt bold mixed-case subsection heading."""
+def add_ieee_subsection_heading(doc, text: str, *, letter: int | None = None):
+    """10pt bold mixed-case subsection heading.
+    Prefixed with a letter "A. ", "B. ", ... per IEEE Style Manual.
+    """
     p = doc.add_paragraph()
     set_para_format(p, space_before=4, space_after=2)
-    r = p.add_run(text)
+    label = f"{to_letter(letter)}. " if letter is not None else ""
+    r = p.add_run(label + text)
     set_font(r, size=10, bold=True)
 
 
-def add_ieee_subsubsection_heading(doc, text: str):
-    """10pt bold italic mixed-case sub-subsection heading."""
+def add_ieee_subsubsection_heading(doc, text: str, *, number: int | None = None):
+    """10pt bold italic run-in style sub-subsection heading.
+    Prefixed with "1) ", "2) ", ... and ends with colon (per IEEE Style Manual).
+    """
     p = doc.add_paragraph()
     set_para_format(p, space_before=2, space_after=2)
-    r = p.add_run(text)
+    label = f"{number}) " if number is not None else ""
+    r = p.add_run(label + text + ":")
     set_font(r, size=10, bold=True, italic=True)
 
 
@@ -715,17 +746,20 @@ def build():
     #   4. After all content, set the final (trailing) sectPr to cols=2.
 
     # === Title block (single column) ===
-    # Date / DOI placeholders
+    # Manuscript ID block (italic 8pt) — review/version metadata placeholder
     p = doc.add_paragraph()
     set_para_format(p, space_before=0, space_after=0)
-    r = p.add_run("Date of publication xxxx 00, 0000, date of current "
-                  "version xxxx 00, 0000.")
-    set_font(r, size=7)
+    r = p.add_run(
+        "Received XX Month, 20XX; revised XX Month, 20XX; accepted XX Month, "
+        "20XX. Date of publication XX Month, 20XX; date of current version "
+        "XX Month, 20XX."
+    )
+    set_font(r, size=8, italic=True)
 
     p = doc.add_paragraph()
     set_para_format(p, space_before=0, space_after=8)
     r = p.add_run("Digital Object Identifier 10.1109/ACCESS.20XX.DOI")
-    set_font(r, size=6, italic=True)
+    set_font(r, size=8, italic=True)
 
     # Title
     p = doc.add_paragraph()
@@ -759,9 +793,20 @@ def build():
 
     # Funding
     p = doc.add_paragraph()
-    set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY, space_after=10)
+    set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY, space_after=2)
     r = p.add_run(FUNDING)
     set_font(r, size=8)
+
+    # First-page IEEE Access copyright + CC-BY notice
+    p = doc.add_paragraph()
+    set_para_format(p, align=WD_ALIGN_PARAGRAPH.LEFT, space_after=10)
+    r = p.add_run(
+        "© 2026 The Authors. This work is licensed under a Creative Commons "
+        "Attribution 4.0 License. For more information, see "
+        "https://creativecommons.org/licenses/by/4.0/. "
+        "VOLUME XX, 2026"
+    )
+    set_font(r, size=7)
 
     # === Read body markdown ===
     intro_md = MD_INTRO.read_text(encoding="utf-8")
@@ -798,53 +843,133 @@ def build():
     # === Section break: title block ends here as 1-column ===
     add_continuous_section_break(doc, num_cols=1)
 
-    # === Render body sections ===
-    for md_text, default_section in [
-        (intro_md, "Introduction"),
-        (methods_md, "Methods"),
-        (results_md, "Results"),
-        (discussion_md, "Discussion"),
-    ]:
-        # Strip front-matter
-        md_text = re.sub(
-            r"^# 0\d\..*?\n", "", md_text)
+    # === Body section structure ===
+    # IEEE Access uses Roman-numeral major sections (I., II., III., ...).
+    # Each markdown file becomes one major section; the ## headings inside
+    # each file become A., B., C., ... subsections; ### headings become
+    # 1), 2), ... sub-subsections.
+    # Conclusion is extracted from discussion_md and rendered as its own
+    # major section (V. CONCLUSION).
+    SECTION_PLAN = [
+        ("INTRODUCTION", intro_md),
+        ("METHODS", methods_md),
+        ("RESULTS", results_md),
+        ("DISCUSSION", discussion_md),
+    ]
+
+    def _strip_metadata(md_text: str) -> str:
+        md_text = re.sub(r"^# 0\d\..*?\n", "", md_text)
         md_text = re.sub(
             r"^\*\*(?:Working title|Author|Pre-registration|Reporting standard).*?\n",
             "", md_text, flags=re.MULTILINE)
-        # Strip Abstract (already rendered above)
         md_text = re.sub(r"## Abstract\s*\n\n.*?\n\n\*\*Keywords.*?\n",
                          "", md_text, flags=re.DOTALL)
-        # Strip Keywords line (we use INDEX TERMS above)
-        md_text = re.sub(r"^\*\*Keywords.*?\n", "", md_text,
-                         flags=re.MULTILINE)
-        # Strip horizontal rules
+        md_text = re.sub(r"^\*\*Keywords.*?\n", "", md_text, flags=re.MULTILINE)
         md_text = re.sub(r"^---\s*$", "", md_text, flags=re.MULTILINE)
+        return md_text
 
-        # Replace citations
+    def _extract_conclusion(discussion_md: str) -> tuple[str, str]:
+        """Split discussion_md into (discussion_without_conclusion, conclusion_md).
+        The Conclusion subsection becomes its own major section in IEEE format.
+        """
+        # Match `## Conclusion\n\n...` until the end of file
+        m = re.search(r"\n(##\s+Conclusion\b.*?)$", discussion_md,
+                      re.DOTALL | re.IGNORECASE)
+        if m:
+            return discussion_md[:m.start()].rstrip(), m.group(1).lstrip()
+        return discussion_md, ""
+
+    discussion_body, conclusion_md = _extract_conclusion(discussion_md)
+    SECTION_PLAN[3] = ("DISCUSSION", discussion_body)
+    SECTION_PLAN.append(("CONCLUSION", conclusion_md))
+
+    # === Render body sections ===
+    for roman_idx, (section_label, md_text) in enumerate(SECTION_PLAN, start=1):
+        if not md_text.strip():
+            continue
+        md_text = _strip_metadata(md_text)
         md_text = replace_citations_with_ieee(md_text, cit_mapping)
+
+        # Emit Roman-numeral major section heading
+        add_ieee_section_heading(doc, section_label, roman=roman_idx)
+
+        # Walk blocks, applying letter / number prefix to ## / ### / ####
+        letter_counter = 0   # A. B. C. ...
+        number_counter = 0   # 1) 2) 3) ...
+        last_h2_was_conclusion_root = False
 
         blocks = parse_md_blocks(md_text)
         for kind, txt in blocks:
-            txt = strip_markdown_inline(txt) if kind != "table_md" else txt
+            txt_clean = strip_markdown_inline(txt) if kind != "table_md" else txt
             if kind == "h1":
                 continue  # file-title h1 already stripped
             if kind == "h2":
-                if txt in SKIP_HEADINGS:
+                if txt_clean in SKIP_HEADINGS:
                     continue
-                add_ieee_section_heading(doc, HEADING_MAPPING.get(txt, txt))
+                # If this is the section's bare CONCLUSION (== section_label),
+                # don't repeat as subsection
+                if txt_clean.upper() == section_label:
+                    last_h2_was_conclusion_root = True
+                    continue
+                letter_counter += 1
+                number_counter = 0
+                add_ieee_subsection_heading(doc, txt_clean, letter=letter_counter)
             elif kind == "h3":
-                add_ieee_subsection_heading(doc, txt)
+                number_counter += 1
+                add_ieee_subsubsection_heading(doc, txt_clean, number=number_counter)
             elif kind == "h4":
-                add_ieee_subsubsection_heading(doc, txt)
+                add_ieee_subsubsection_heading(doc, txt_clean)
             elif kind == "para":
-                add_ieee_body_para(doc, txt)
+                add_ieee_body_para(doc, txt_clean)
             elif kind == "list_item":
-                add_ieee_list_item(doc, txt)
+                add_ieee_list_item(doc, txt_clean)
             elif kind == "table_md":
                 add_ieee_table(doc, txt)
 
-    # === References (IEEE-numbered, 2-column body) ===
-    add_ieee_section_heading(doc, "REFERENCES")
+    # === ACKNOWLEDGMENT (unnumbered, before References) ===
+    add_ieee_section_heading(doc, "ACKNOWLEDGMENT", roman=None)
+    p = doc.add_paragraph()
+    set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY)
+    r = p.add_run(
+        "The author thanks the anonymous external methodologist (mode B; "
+        "mathematical biology background) whose review memo led to the Section "
+        "6.5 Level 1 Methods Clarifications Log, and the N = 354 survey "
+        "respondents whose anonymized data made this analysis possible. "
+    )
+    set_font(r, size=10)
+    r = p.add_run(
+        "Conflict of Interest: The author declares no financial or "
+        "non-financial competing interests. "
+    )
+    set_font(r, size=10, italic=True)
+    r = p.add_run(
+        "Ethics statement: The N = 354 individual-level harassment data "
+        "re-analyzed in this study were originally collected under an "
+        "IRB-approved protocol described in [29]; the present secondary "
+        "analysis of de-identified records does not require additional "
+        "ethics review. "
+    )
+    set_font(r, size=10, italic=True)
+    r = p.add_run(
+        "Data availability: Public-tier supplementary artifacts (Stage 0–8 "
+        "HDF5, Figures 1–6 in PNG/PDF/SVG, canonical numerical record, "
+        "SHA-256 reference hashes) are openly available at the v2.0 OSF "
+        "working project (osf.io/3hxz6, v2.0/v2.0_supplementary.tar.gz). "
+        "The N = 354 individual-level dataset is governed by the "
+        "IRB-approved data-sharing protocol and hosted in a Private OSF "
+        "component with a documented Request-Access mechanism "
+        "(osf.io/3hxz6/wiki/home/). "
+    )
+    set_font(r, size=10, italic=True)
+    r = p.add_run(
+        "AI use disclosure: Generative AI (Anthropic Claude) was used as a "
+        "drafting and code-review assistant; all final claims, derivations, "
+        "and statistical conclusions are the author's responsibility."
+    )
+    set_font(r, size=10, italic=True)
+
+    # === References (IEEE-numbered) ===
+    add_ieee_section_heading(doc, "REFERENCES", roman=None)
     for idx, key in enumerate(cit_order, start=1):
         ref_text = IEEE_REFS[key]
         p = doc.add_paragraph()
@@ -854,17 +979,32 @@ def build():
         r2 = p.add_run(ref_text)
         set_font(r2, size=8)
 
-    # === Author Bio ===
-    add_ieee_section_heading(doc, "BIOGRAPHIES")
+    # === Author Biography (IEEE Access required, 100-150 words/author) ===
+    add_ieee_section_heading(doc, "BIOGRAPHIES", roman=None)
+
+    # Photo placeholder note (post-acceptance, IEEE provides typesetting frame)
+    p = doc.add_paragraph()
+    set_para_format(p, space_after=4)
+    r = p.add_run("[Photo placeholder — 100×120 px grayscale or color, supplied separately at production stage.]")
+    set_font(r, size=8, italic=True)
+
     p = doc.add_paragraph()
     set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY, space_after=4)
-    r = p.add_run(AUTHOR_LASTNAME + ", EISUKE ")
-    set_font(r, size=8, bold=True)
+    r = p.add_run("EISUKE TOKIWA ")
+    set_font(r, size=8, bold=True, smallcaps=True)
     r2 = p.add_run(
-        "is the founder of SUNBLAZE Co., Ltd. (Tokyo, Japan). His research "
-        "interests include personality psychology (HEXACO model), workplace "
-        "harassment, microsimulation, target trial emulation, and "
-        "pre-registered counterfactual analysis. ORCID: " + ORCID + "."
+        f"(Member, IEEE) is the founder of SUNBLAZE Co., Ltd., Tokyo, Japan. "
+        f"He received his graphic-design training in Japan and subsequently "
+        f"redirected his work toward computational psychology and "
+        f"workplace-organization research. His current research interests "
+        f"span the HEXACO personality model, workplace harassment, target-"
+        f"trial emulation in observational data, microsimulation pipelines "
+        f"with empirical-Bayes shrinkage, and pre-registered counterfactual "
+        f"causal analysis. Prior work includes a HEXACO 7-typology "
+        f"clustering of N = 13,668 Japanese respondents (IEEE Access, 2026). "
+        f"He is committed to fully reproducible, hash-verified analytical "
+        f"pipelines (MIT-licensed, OSF-archived). ORCID: {ORCID}. Contact: "
+        f"{EMAIL}."
     )
     set_font(r2, size=8)
 
