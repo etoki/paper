@@ -1524,8 +1524,13 @@ def build_results_part3(doc):
         "Neuroticism-era pattern was consistent with an attenuation "
         "hypothesis (pre-COVID r = −.050 vs. COVID r = .060; Q_between(1) = "
         "2.04, p = .153), but did not reach conventional significance. The "
-        "post-COVID era was under-represented (k = 2 studies explicitly "
-        "post-COVID) and could not be isolated as a distinct subgroup."
+        "post-COVID era could not be isolated as a moderator subgroup "
+        "because no explicitly post-COVID study contributed direct or "
+        "β-converted Pearson correlations to the primary quantitative "
+        "pool (the 4 post-COVID studies in the qualitative-synthesis "
+        "retained set — A-13 Dang et al., 2025; A-17 Kara, 2024; A-25 "
+        "Tokiwa, 2025; A-26 Wang et al., 2023 — are described "
+        "narratively only)."
     )
     add_para(doc, p3, indent_first=True)
 
@@ -1885,9 +1890,12 @@ def build_discussion_part2(doc):
         "benchmarks, is consistent with a hypothesis that the online "
         "environment itself—independent of era—attenuates the visible "
         "behavioral channels through which Conscientiousness is "
-        "expressed academically. The post-COVID era was too under-"
-        "represented (k = 2 explicitly post-COVID studies) to support "
-        "strong claims; future meta-analytic updates should reassess "
+        "expressed academically. The post-COVID era could not be "
+        "evaluated quantitatively because no post-COVID study "
+        "contributed correlations to the primary pool (k = 0 in the "
+        "moderator analysis, with 4 post-COVID studies retained for "
+        "qualitative synthesis only); future meta-analytic updates "
+        "should reassess "
         "this pattern as the post-COVID primary literature matures."
     )
     add_para(doc, p4, indent_first=True)
