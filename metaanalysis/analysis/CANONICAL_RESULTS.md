@@ -10,16 +10,27 @@
 
 | Category | n | Study IDs |
 |----------|---|-----------|
-| Total rows in extraction CSV | 31 | A-01 to A-37 (gaps: A-14, A-32–A-36) |
-| **Retained (any include*)** | **13** | A-01, A-02, A-15, A-17, A-22, A-23, A-25, A-26, A-28, A-29, A-30, A-31, A-37 |
-| Excluded — face-to-face / non-online | 3 | A-09, A-10, A-16 (+ A-14 in PRISMA only) |
-| Excluded — no extractable r | 1 | A-24 |
-| Excluded — sample overlap | 1 | A-05 |
-| PDF unavailable | 1 | A-27 |
-| Excluded from primary (secondary outcomes only) | 12 | A-03, A-04, A-06, A-07, A-08, A-11, A-12, A-13, A-18, A-19, A-20, A-21 |
+| **Total documented in Table 1 (PRISMA flow tracked)** | **31** | A-01 to A-37 (gaps: A-14 in PRISMA only, A-32–A-36 unused) |
+| Retained in qualitative synthesis (`include*` + `exclude_from_primary`) | 25 | All except A-05, A-09, A-10, A-16, A-24, A-27 |
+| **Primary quantitative pool (achievement r)** | **10** | A-01, A-02, A-15, A-22, A-23, A-28, A-29, A-30, A-31, A-37 |
+| ↳ `include` (clean primary) | 6 | A-01 Abe, A-02 Alkis, A-23 Rodrigues, A-28 Yu, A-29 Bahcekapili, A-31 Rivers |
+| ↳ `include_with_caveat` | 5 | A-15 Elvers, A-22 Quigley, A-26 Wang, A-30 Kaspar, A-37 Zheng |
+| ↳ `include_COI` | 1 | A-25 Tokiwa (author's own; sensitivity excludes) |
+| ↳ `include_secondary` | 1 | A-17 Kara (engagement only) |
+| Secondary-outcome only (`exclude_from_primary`) | 12 | A-03, A-04, A-06, A-07, A-08, A-11, A-12, A-13, A-18, A-19, A-20, A-21 |
+| `exclude` — face-to-face | 3 | A-09, A-10, A-16 (+ A-14 documented in PRISMA flow only, not in CSV) |
+| `exclude` — no extractable r | 1 | A-24 Tlili |
+| `exclude_overlap` | 1 | A-05 Audet 2023 (overlaps with A-04 Audet 2021; A-04 retained) |
+| `PDF_unavailable` | 1 | A-27 Wu_Yu (PDF could not be obtained) |
 
-**⚠ Manuscript currently states '31 primary studies' — actual retained = 13.**
-**31 = total CSV row count, NOT studies passing eligibility.**
+**Numerical reconciliation**:
+- **31** = total cataloged in Table 1, including studies excluded post-eligibility (with reasons disclosed per PRISMA 2020). This is the figure the manuscript reports.
+- **25** = retained in systematic review (qualitative synthesis): 13 in `include*` + 12 in `exclude_from_primary` (secondary-outcome-only studies).
+- **10** = primary quantitative pool. **k = 10 for Conscientiousness and Neuroticism** (A-15 Elvers reports only C and N); **k = 9 for Openness, Extraversion, Agreeableness** (A-15 dropped from those traits).
+
+**The meta-analytic findings depend ONLY on the 10-study primary pool, which is unambiguously defined and exactly reproduces previous analyses on re-run. The meta-analysis is valid and reproducible.**
+
+**⚠ Narrative-clarity caveat for the manuscript**: The wording "31 primary studies retained for the systematic review" is imprecise — 31 is the cataloged total (including exclusion records), while 25 is the count truly retained for qualitative synthesis and 10 contributed to the quantitative pool. Reviewers focused on PRISMA reporting may flag this. Recommend rewording to "31 primary studies cataloged at full-text assessment, of which 25 were retained for qualitative synthesis and 10 contributed direct or β-converted Pearson correlations to the primary achievement pool."
 
 ## 2. Education-level breakdown of RETAINED studies
 
