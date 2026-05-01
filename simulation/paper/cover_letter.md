@@ -36,14 +36,14 @@ The convergence of our pre-registered counterfactual evidence with the MHLW FY20
 
 ## Compliance with Stage 2 RR review criteria
 
-- **Pre-registration adherence**: All deviations from the v2.0 master are documented in the Methods Clarifications Log (locked 2026-04-30 alongside the v2.0 registration) and disclosed in §2.2 of the manuscript. No undocumented deviations occurred.
+- **Pre-registration adherence**: All deviations from the v2.0 master are documented in the Methods Clarifications Log (locked 2026-04-30 alongside the v2.0 registration) and disclosed in the Methods (Pre-registered analytic pipeline) section of the manuscript. No undocumented deviations occurred.
 - **Hypotheses tested**: All seven pre-registered hypotheses (H1–H7) are evaluated; outcomes are reported per pre-registered classification rules in Table 6.
 - **Reproducibility**: All code is publicly archived under MIT license at [https://github.com/etoki/paper](https://github.com/etoki/paper) (directory: `simulation/`); intermediate HDF5 artifacts at OSF; SHA-256 hash-verified reproduction via `make reproduce`.
 - **Data availability**: Public-tier supplementary artifacts (Stage 0–8 HDF5, Figures 1–6 in PNG/PDF/SVG, canonical numerical record, SHA-256 reference hashes) are openly available at the v2.0 OSF working project (osf.io/3hxz6, `v2.0/v2.0_supplementary.tar.gz`). The N = 354 individual-level dataset is governed by the IRB-approved data-sharing protocol and hosted in a Private OSF component with a documented Request-Access mechanism; the parent project's public Wiki (osf.io/3hxz6/wiki/home/) lists the access criteria, IRB requirements, and four data-use terms. Population reweighting data (Statistics Bureau / MIC Labor Force Survey 2022) are publicly archived in the GitHub repository.
 
 ## Limitations openly disclosed
 
-The Discussion section (§4.4) discloses six limitations explicitly:
+The Discussion (Limitations subsection) discloses six limitations explicitly:
 
 1. **Reduced-form framing of Counterfactual C** (population-level statistical translation of structural change; mechanistic deterrence dynamics not endogenously modeled);
 2. **Causal under-identification** (selection, confounding, and reverse causation cannot be distinguished from M1 direct causation, only the latter rejected);

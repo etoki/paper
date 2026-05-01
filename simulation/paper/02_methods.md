@@ -9,7 +9,7 @@ All procedures were pre-registered at OSF prior to data analysis (DOI 10.17605/O
 We use the Tokiwa harassment preprint dataset (Tokiwa, 2025, Research Square preprint, DOI 10.21203/rs.3.rs-7756124/v1; IRB-approved), comprising N = 354 Japanese workplace participants who completed the following self-report measures:
 
 - **HEXACO-60** (Wakabayashi, 2014; Japanese adaptation of Ashton & Lee, 2009): 60-item Likert 1-5 scale yielding six domain scores (H, E, X, A, C, O).
-- **Dark Triad** scales (Machiavellianism, Narcissism, Psychopathy): used in the common-method-variance diagnostic (Section 2.5) but not in the primary analysis.
+- **Dark Triad** scales (Machiavellianism, Narcissism, Psychopathy): used in the common-method-variance diagnostic (Stage 5, below) but not in the primary analysis.
 - **Workplace Power Harassment Scale** (Tou et al., 2017): continuous severity scale measuring past-three-year power-harassment victimization frequency in the participant's workplace.
 - **Gender Harassment Scale** (Kobayashi & Tanaka, 2010): continuous severity scale; used as triangulation outcome (H6).
 - **Demographics**: binary self-reported gender (0 = female, 1 = male), age (continuous), prefecture-level region (categorical).

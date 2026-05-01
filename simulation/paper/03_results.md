@@ -6,7 +6,7 @@ All results are reported using the locked seed 20260429. Numerical values are re
 
 The N = 354 sample was assigned to 14 cells (7 HEXACO clusters × 2 genders) via Euclidean nearest-centroid hard-assignment, using the Tokiwa (2026, *IEEE Access*) centroids as fixed parameters. Cell sizes ranged from 10 to 70 individuals (median = 18), with no degenerate (N = 0) cells. Cell-level past-three-year power-harassment victimization rates ranged from 0.000 to 0.400 (mean across cells = 0.181).
 
-Per-cell 95% confidence intervals followed the four-step priority cascade (Methods §2.2.1). Of the 14 cells, **13 were resolved at the BCa stage** and **1 cell (cluster × gender index 11; N = 12, X = 0) was resolved at the Clopper-Pearson stage** as the M4 cascade prescribes for degenerate cells (X_c ∈ {0, N_c}). No cells required the BC or Percentile fallbacks, confirming that the v2.0 master Section 5.1 priority cascade operates as designed for the realized data structure.
+Per-cell 95% confidence intervals followed the four-step priority cascade described in Methods (Stage 0 specification). Of the 14 cells, **13 were resolved at the BCa stage** and **1 cell (cluster × gender index 11; N = 12, X = 0) was resolved at the Clopper-Pearson stage** as the M4 cascade prescribes for degenerate cells (X_c ∈ {0, N_c}). No cells required the BC or Percentile fallbacks, confirming that the v2.0 master Section 5.1 priority cascade operates as designed for the realized data structure.
 
 ## National prevalence and H1 four-tier classification (Stages 1–2)
 
@@ -22,7 +22,7 @@ Per the v2.0 master Section 5.4 four-tier judgment hierarchy, the H1 results acr
 | FY2020 (31.4%, secondary) | 0.314 | 0.1744 | 44.46% | [30.00, 57.88] | PARTIAL SUCCESS |
 | **FY2023** (19.3%, secondary) | 0.193 | 0.1744 | **9.65%** | [0.52, 31.52] | **Standard SUCCESS** |
 
-The FY2016 primary classification is **PARTIAL SUCCESS** (point MAPE > 30%, ≤ 60%). However, the post-Power-Harassment-Prevention-Law FY2023 result attains **Standard SUCCESS** with a point MAPE of 9.65% (well below the 30% threshold for both Strict and Standard tiers); the 95% CI upper bound of 31.52% narrowly exceeds the Strict criterion (≤ 30%) by 1.52 pp, placing the classification at Standard rather than Strict. Interpretation of this temporal heterogeneity is deferred to the Discussion (Section 4.1).
+The FY2016 primary classification is **PARTIAL SUCCESS** (point MAPE > 30%, ≤ 60%). However, the post-Power-Harassment-Prevention-Law FY2023 result attains **Standard SUCCESS** with a point MAPE of 9.65% (well below the 30% threshold for both Strict and Standard tiers); the 95% CI upper bound of 31.52% narrowly exceeds the Strict criterion (≤ 30%) by 1.52 pp, placing the classification at Standard rather than Strict. Interpretation of this temporal heterogeneity is deferred to the Discussion (Principal findings).
 
 ## Sensitivity sweep (Stage 3)
 
