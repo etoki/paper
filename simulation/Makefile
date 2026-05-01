@@ -6,9 +6,9 @@
 # Random seed 20260429 is hard-coded across all stages (see
 # code/utils_io.py).
 
-PYTHON       := python
-PYTEST       := pytest
-RUFF         := ruff
+PYTHON       := uv run python
+PYTEST       := uv run pytest
+RUFF         := uv run ruff
 SEED         := 20260429
 
 # Output paths

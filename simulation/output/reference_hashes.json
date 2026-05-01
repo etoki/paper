@@ -1,4 +1,5 @@
 {
+  "canonical_numbers.md": "139502256876bbb8539511299e91440e2afcdedb11230f8e807936f98bac5911",
   "figures/figure1_pipeline.pdf": "9fb24ae6bb5e5fc17e6297add7badd63e735de0969dae8837f004d170e4ddc28",
   "figures/figure1_pipeline.png": "48f409f0fb945a9e71c0769a56a4384be30053637a0eef3ac4f981292645dfd0",
   "figures/figure1_pipeline.svg": "053052bdd5c6d376e9f4f1936a4c49a0e55ad19f58ecd177d1534e4212d37dbb",
@@ -29,5 +30,6 @@
   "supplementary/stage6_target_trial.h5": "f341fb548d3b9fd450f208b91510714ed264b5f7131c45a584a0c6fc71aa2b67",
   "supplementary/stage7_counterfactual.h5": "25d4e2aa2bc2c763439410f228cd1624e21311fd95b47226288992ac6c66dffc",
   "supplementary/stage8_transportability.h5": "42869096a6f16149ce197239905412d9eec9cc5a34a7024e53b531606e020ee2",
-  "tables/h1_classification.txt": "81b1c8c2470bd1e4599e14a57204f89ff7d38f9e91f496293e282e2b94e580f5"
+  "tables/h1_classification.txt": "81b1c8c2470bd1e4599e14a57204f89ff7d38f9e91f496293e282e2b94e580f5",
+  "v2.0_supplementary.tar.gz": "2f0e1cca89b8a315c021748a049a39698964e6d6212305c5d911dfdd20f4d0a0"
 }
