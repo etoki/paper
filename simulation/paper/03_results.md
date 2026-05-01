@@ -1,6 +1,6 @@
 # 03. Results
 
-All results are reported using the locked seed 20260429. Numerical values are reproduced verbatim from the HDF5 artifacts under `output/supplementary/`. The full numerical record (~ 12 MB across 10 stages) is publicly archived at OSF DOI 10.17605/OSF.IO/3Y54U.
+All results are reported using the locked seed 20260429. Numerical values are reproduced verbatim from the HDF5 artifacts under `output/supplementary/`. The full numerical record (~ 600 KB of HDF5 artifacts across 9 pipeline stages, plus ~ 2.2 MB of figures in PNG/PDF/SVG, totaling ~ 2.8 MB) is publicly archived at OSF DOI 10.17605/OSF.IO/3Y54U; SHA-256 hashes for byte-identical reproduction verification are committed in `simulation/output/reference_hashes.json`.
 
 ## 3.1 Sample characteristics and 14-cell propensity (Stage 0)
 
@@ -54,7 +54,7 @@ Two parameter families show substantial sensitivity:
 Two parameter families show negligible sensitivity:
 
 - **Soft-assignment τ** (range: 45.04% to 45.24%; 0.20 percentage-point spread): cluster-membership-fuzziness is essentially irrelevant to the conclusion;
-- **Empirical Bayes shrinkage scale** (range: 45.51% to 45.90%; 0.40 percentage-point spread): the empirical Bayes priorpseudocount magnitude is negligible.
+- **Empirical Bayes shrinkage scale** (range: 45.51% to 45.90%; 0.40 percentage-point spread): the empirical Bayes prior-pseudocount magnitude is negligible.
 
 The two stable axes provide affirmative robustness evidence; the two sensitive axes circumscribe the assumptions on which the conclusion explicitly depends.
 

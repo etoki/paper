@@ -20,7 +20,7 @@ This submission implements, without deviation, the analysis pre-registered as v2
 
 ## Headline finding
 
-Using N = 354 individual-level Japanese workplace harassment data, partitioned into 14 cells (7 HEXACO clusters × 2 genders) and re-weighted with Statistics Bureau (MIC) Labor Force Survey 2022 marginals, we tested three pre-registered counterfactual interventions: (A) personality intervention shifting Honesty-Humility, Agreeableness, and Emotionality by +0.3 SD; (B) cluster reassignment to three low-prevalence typologies; and (C) structural intervention reducing cell-level propensity by 20%, calibrated against three meta-analyses and the MHLW 2020-2023 Power Harassment Prevention Law natural experiment.
+Using N = 354 individual-level Japanese workplace harassment data, partitioned into 14 cells (7 HEXACO clusters × 2 genders) and re-weighted with Statistics Bureau (MIC) Labor Force Survey 2022 marginals, we tested three pre-registered counterfactual interventions: (A) personality intervention shifting Honesty-Humility, Agreeableness, and Emotionality by +0.3 SD; (B) cluster reassignment to three low-prevalence typologies; and (C) structural intervention reducing cell-level propensity by 20%, calibrated against three meta-analyses and the MHLW FY2016–FY2023 natural experiment spanning the staged enforcement of the 2020 Power Harassment Prevention Law.
 
 The pre-registered intersection-union test (Berger & Hsu, 1996) classifies the configuration as **REVERSAL**: ΔP_A and ΔP_B are statistically null, whereas ΔP_C = +3.49 percentage points (95% CI [+2.64, +4.35] excluding zero). The classification is robust across all four pre-registered cultural attenuation factors (F = 0.3 to 1.0), including the conservative cross-cultural worst-case anchor. Numerically, the structural intervention's population-level effect is approximately 5.7× larger than the personality intervention's, given prior meta-analytic effect-size calibrations.
 
@@ -32,7 +32,7 @@ Three contributions distinguish this work:
 2. **Empirical**: The first quantitative apples-to-apples comparison of person-level and system-level intervention effects on a population-level harassment-prevalence metric, leveraging effect-size calibrations from prior meta-analyses.
 3. **Substantive reframing**: We reposition HEXACO 7-typology as a *stratification variable* identifying differentially exposed populations rather than as an *intervention target*. This framing rejects victim-blaming readings of harassment exposure and aligns with workplace ethics literature.
 
-The convergence of our pre-registered counterfactual evidence with the MHLW 2020-2023 natural experiment (−13.2 pp post-Power-Harassment-Prevention-Law decline) provides a rare quasi-validation of our policy-relevant claim.
+The convergence of our pre-registered counterfactual evidence with the MHLW FY2016–FY2023 natural experiment (−13.2 pp post-Power-Harassment-Prevention-Law decline) provides a rare quasi-validation of our policy-relevant claim.
 
 ## Compliance with Stage 2 RR review criteria
 
