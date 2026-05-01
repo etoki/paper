@@ -6,7 +6,7 @@ All results are reported using the locked seed 20260429. Numerical values are re
 
 The N = 354 sample was assigned to 14 cells (7 HEXACO clusters × 2 genders) via Euclidean nearest-centroid hard-assignment, using the Tokiwa (2026, *IEEE Access*) centroids as fixed parameters. Cell sizes ranged from 10 to 70 individuals (median = 18), with no degenerate (N = 0) cells. Cell-level past-three-year power-harassment victimization rates ranged from 0.000 to 0.400 (mean across cells = 0.181).
 
-Per-cell 95% confidence intervals followed the four-step priority cascade (Methods §2.2.1). Of the 14 cells, all were resolved at the BCa stage (no cells required the BC, percentile, or Clopper-Pearson fallbacks), confirming that the v2.0 master Section 5.1 primary BCa procedure operates as designed for the realized data structure.
+Per-cell 95% confidence intervals followed the four-step priority cascade (Methods §2.2.1). Of the 14 cells, **13 were resolved at the BCa stage** and **1 cell (cluster × gender index 11; N = 12, X = 0) was resolved at the Clopper-Pearson stage** as the M4 cascade prescribes for degenerate cells (X_c ∈ {0, N_c}). No cells required the BC or Percentile fallbacks, confirming that the v2.0 master Section 5.1 priority cascade operates as designed for the realized data structure.
 
 ## 3.2 National prevalence and H1 four-tier classification (Stages 1–2)
 
@@ -99,7 +99,7 @@ The three pre-registered counterfactual interventions produced the following ΔP
 | Intervention | Operationalization | ΔP point | 95% CI | Decision (CI excludes 0?) |
 |---|---|---:|---|---|
 | **Counterfactual A** | do(HH ← HH + 0.3σ; A ← A + 0.3σ; E ← E + 0.3σ) | −0.0061 | [−0.0207, +0.0062] | **No (null)** |
-| **Counterfactual B** | do(cluster ∈ {0, 4, 6}) with HH +0.40 SD shift | −0.0059 | [−0.0207, +0.0066] | **No (null)** |
+| **Counterfactual B** | do(HH := HH + 0.40σ_HH) for individuals whose baseline cluster ∈ {0, 4, 6} | −0.0059 | [−0.0207, +0.0066] | **No (null)** |
 | **Counterfactual C** | do(P_{c, x} ← 0.80 × P_{c, x}) | **+0.0349** | [+0.0264, +0.0435] | **Yes (positive)** |
 
 The intersection-union test (Berger & Hsu, 1996) produced one-sided 95% lower bounds L_BA = −0.0011 and L_BC = −0.0544. Because point ΔP_B = −0.0059 is less than point ΔP_C = +0.0349, the m7 priority-1 condition is satisfied and H7 is classified as **REVERSAL** (consistent with L_BC < 0 in the CI-based cascade; L_BA also lies just below zero, ruling out the CONFIRMED branch).
@@ -132,9 +132,9 @@ The H7 = REVERSAL classification is robust across all four pre-registered cultur
 | H1 | MAPE_FY2016 ≤ 30% (Strict / Standard SUCCESS) | MAPE = 46.34% | **PARTIAL SUCCESS** |
 | H2 | Monotonic B0 > B1 > B2 > B3 > B4 | 0 of 4 pairs confirmed (Page's L p = 0.976) | **REJECTED** |
 | H3 | Centroid concordance N=354 vs N=13,668 | (Reported in Tokiwa, 2026 *IEEE Access*) | Confirmed |
-| H4 | Per-cell propensity stability across bootstrap procedures | All 14 cells resolved at BCa stage | **CONFIRMED** |
-| H5 | Gender invariance | 14-cell vs 28-cell sensitivity stable | **CONFIRMED** |
-| H6 | Power × gender harassment cluster ranking concordance | High concordance (Spearman ρ > 0.80; computed in supplementary) | **CONFIRMED** |
+| H4 | Per-cell propensity stability across bootstrap procedures | 13/14 cells resolved at BCa; 1 degenerate cell (X=0) at Clopper-Pearson per M4 cascade | **CONFIRMED** |
+| H5 | Gender invariance | High concordance of cluster-level power-harassment rankings across genders (Spearman ρ = 0.87, p = 0.01 at 7-cluster level); 14-cell vs 28-cell sensitivity stable | **CONFIRMED** |
+| H6 | Power × gender harassment cluster ranking concordance | Weak concordance (Spearman ρ = 0.04 at 7-cluster level, p = 0.94; ρ = 0.14 at 14-cell level, p = 0.62) | **REJECTED** |
 | H7 | IUT classification | **REVERSAL** (robust across F = 0.3–1.0) | **REVERSAL** (per pre-registered classification) |
 
 The headline empirical finding is the H7 = REVERSAL classification with cross-cultural robustness, which we develop substantively in the Discussion.

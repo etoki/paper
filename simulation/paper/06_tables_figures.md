@@ -57,7 +57,7 @@
 | Intervention | Operationalization | ΔP point | 95% CI | CI excludes 0? |
 |---|---|---:|---|---|
 | A (personality) | do(HH ← +0.3σ; A ← +0.3σ; E ← +0.3σ) | −0.0061 | [−0.0207, +0.0062] | No (null) |
-| B (cluster reassignment) | do(cluster ∈ {0, 4, 6}) with HH +0.40 SD shift | −0.0059 | [−0.0207, +0.0066] | No (null) |
+| B (targeted HH+ on low-prev clusters) | do(HH := HH + 0.40σ_HH) for individuals whose baseline cluster ∈ {0, 4, 6} | −0.0059 | [−0.0207, +0.0066] | No (null) |
 | C (structural) | do(P_{c, x} ← 0.80 × P_{c, x}) | **+0.0349** | [+0.0264, +0.0435] | **Yes** |
 
 **H7 IUT:** L_BA = −0.0011, L_BC = −0.0544; point ΔP_B < point ΔP_C triggers m7 priority-1 → **REVERSAL**
@@ -88,9 +88,9 @@
 | H1 | MAPE_FY2016 ≤ 30% (Strict / Standard SUCCESS) | MAPE = 46.34% | PARTIAL SUCCESS |
 | H2 | Monotonic B0 > B1 > B2 > B3 > B4 | 0 of 4 pairs confirmed | REJECTED |
 | H3 | Centroid concordance N=354 vs N=13,668 | Verified in centroid study | CONFIRMED |
-| H4 | Per-cell propensity stability | All 14 cells resolved at BCa | CONFIRMED |
-| H5 | Gender invariance | 14-cell vs 28-cell stable | CONFIRMED |
-| H6 | Power × gender harassment cluster ranking concordance | Spearman ρ > 0.80 | CONFIRMED |
+| H4 | Per-cell propensity stability | 13/14 cells resolved at BCa; 1 (X=0) at Clopper-Pearson per M4 cascade | CONFIRMED |
+| H5 | Gender invariance | Spearman ρ(female, male) = 0.87 across 7 clusters (p = 0.01); 14-cell vs 28-cell stable | CONFIRMED |
+| H6 | Power × gender harassment cluster ranking concordance | Spearman ρ = 0.04 (7-cluster) / 0.14 (14-cell), both p > 0.6 | REJECTED |
 | H7 | IUT classification | REVERSAL (robust F=0.3–1.0) | REVERSAL |
 
 ---
@@ -133,7 +133,7 @@ A tornado plot with parameter families on the y-axis and MAPE_FY2016 horizontal 
 
 A forest plot with three counterfactuals on the y-axis (A, B, C), point estimates with 95% CIs as horizontal whiskers, and a vertical reference line at ΔP = 0. Counterfactuals A and B's CIs overlap zero; Counterfactual C's CI excludes zero on the positive side.
 
-**Caption.** *Counterfactual ΔP_x estimates and 95% CIs. Personality intervention (A; +0.3 SD on H/A/E) and cluster reassignment (B; do(cluster ∈ {0, 4, 6}) with HH +0.40 SD shift) yield null effects (CIs cross zero). Structural intervention (C; −20% propensity, calibrated against three meta-analyses and the MHLW FY2016–FY2023 Power Harassment Prevention Law natural experiment) yields a positive effect of +3.49 percentage points (CI excludes zero on the positive side). The H7 intersection-union test (Berger & Hsu, 1996) classifies this configuration as REVERSAL.*
+**Caption.** *Counterfactual ΔP_x estimates and 95% CIs. Personality intervention (A; +0.3 SD on H/A/E for all individuals) and targeted personality intervention (B; +0.40 SD on HH restricted to individuals already in the low-prevalence Cluster {0, 4, 6} subgroup) yield null effects (CIs cross zero). Structural intervention (C; −20% propensity, calibrated against three meta-analyses and the MHLW FY2016–FY2023 Power Harassment Prevention Law natural experiment) yields a positive effect of +3.49 percentage points (CI excludes zero on the positive side). The H7 intersection-union test (Berger & Hsu, 1996) classifies this configuration as REVERSAL.*
 
 ---
 
