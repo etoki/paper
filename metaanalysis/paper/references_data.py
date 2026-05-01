@@ -22,11 +22,41 @@ REFERENCES = [
     'and Social Psychology Review, 11</i>(2), 150–166. '
     'https://doi.org/10.1177/1088868306294907',
 
+    'Audet, É. C., Levine, S. L., Metin, E., Koestner, S., & Barcan, S. '
+    '(2021). Zooming their way through university: Which Big 5 traits '
+    'facilitated students\' adjustment to online courses during the COVID-19 '
+    'pandemic. <i>Personality and Individual Differences, 180</i>, 110969. '
+    'https://doi.org/10.1016/j.paid.2021.110969',
+
+    'Audet, É. C., Levine, S. L., Dubois, P., Koestner, S., & Koestner, R. '
+    '(2023). The unanticipated virtual year: How the Big 5 personality '
+    'traits of openness to experience and conscientiousness impacted '
+    'engagement in online classes during the COVID-19 crisis. <i>Journal of '
+    'College Reading and Learning, 53</i>(4), 298–315. '
+    'https://doi.org/10.1080/10790195.2023.2250402',
+
     # B
     'Bahçekapılı, E., & Karaman, S. (2020). A path analysis of five-factor '
     'personality traits, self-efficacy, academic locus of control and '
     'academic achievement among online students. <i>Knowledge Management & '
     'E-Learning, 12</i>(2), 191–208. https://doi.org/10.34105/j.kmel.2020.12.010',
+
+    'Baruth, O., & Cohen, A. (2023). Personality and satisfaction with online '
+    'courses: The relation between the Big Five personality traits and '
+    'satisfaction with online learning activities. <i>Education and '
+    'Information Technologies, 28</i>, 879–904. '
+    'https://doi.org/10.1007/s10639-022-11199-x',
+
+    'Bhattacharjee, R. R., & Ramkumar, A. (2025). Effect of big five '
+    'personality dimensions on the academic performance of college students. '
+    '<i>Frontiers in Psychology, 16</i>, 1490427. '
+    'https://doi.org/10.3389/fpsyg.2025.1490427',
+
+    'Boonyapison, K., Sittironnarit, G., & Rattanaumpawan, P. (2025). '
+    'Association between the big five personalities and academic '
+    'performance among grade 12 students at international high school '
+    'in Thailand. <i>Scientific Reports, 15</i>, 16484. '
+    'https://doi.org/10.1038/s41598-025-01038-7',
 
     'Borenstein, M., Hedges, L. V., Higgins, J. P. T., & Rothstein, H. R. '
     '(2009). <i>Introduction to meta-analysis</i>. John Wiley & Sons.',
@@ -52,6 +82,10 @@ REFERENCES = [
     'Journal of Educational Technology, 54</i>(4), 898–923. '
     'https://doi.org/10.1111/bjet.13302',
 
+    'Cohen, A., & Baruth, O. (2017). Personality, learning, and satisfaction '
+    'in fully online academic courses. <i>Computers in Human Behavior, 72'
+    '</i>, 1–12. https://doi.org/10.1016/j.chb.2017.02.030',
+
     # D
     'Duval, S., & Tweedie, R. (2000). Trim and fill: A simple funnel-plot-'
     'based method of testing and adjusting for publication bias in meta-'
@@ -63,6 +97,16 @@ REFERENCES = [
     'in meta-analysis detected by a simple, graphical test. <i>BMJ, 315'
     '</i>(7109), 629–634. https://doi.org/10.1136/bmj.315.7109.629',
 
+    'Eilam, B., Zeidner, M., & Aharon, I. (2009). Student conscientiousness, '
+    'self-regulated learning, and science achievement: An explorative field '
+    'study. <i>Psychology in the Schools, 46</i>(5), 420–432. '
+    'https://doi.org/10.1002/pits.20387',
+
+    'Elvers, G. C., Polzella, D. J., & Graetz, K. (2003). Procrastination '
+    'in online courses: Performance and attitudinal differences. <i>Teaching '
+    'of Psychology, 30</i>(2), 159–162. '
+    'https://doi.org/10.1207/S15328023TOP3002_13',
+
     # G
     'Gignac, G. E., & Szodorai, E. T. (2016). Effect size guidelines for '
     'individual differences researchers. <i>Personality and Individual '
@@ -72,6 +116,13 @@ REFERENCES = [
     'Harrer, M., Cuijpers, P., Furukawa, T. A., & Ebert, D. D. (2021). '
     '<i>Doing meta-analysis with R: A hands-on guide</i>. Chapman & Hall/'
     'CRC Press.',
+
+    'Hidalgo-Fuentes, S., Martínez-Álvarez, I., Llamas-Salguero, F., '
+    'Pineda-Zelaya, I. S., Merino-Soto, C., & Chans, G. M. (2024). The role '
+    'of big five traits and self-esteem on academic procrastination in '
+    'Honduran and Spanish university students: A cross-cultural study. '
+    '<i>Heliyon, 10</i>(17), e36172. '
+    'https://doi.org/10.1016/j.heliyon.2024.e36172',
 
     'Hunter, E. G., Niblock, J., Barefoot, S., Miller, J., Hughes, J., Kite, '
     'L., & Scarletto, E. (2025). The influence of student personality traits '
@@ -86,7 +137,18 @@ REFERENCES = [
     'Laird method. <i>BMC Medical Research Methodology, 14</i>, 25. '
     'https://doi.org/10.1186/1471-2288-14-25',
 
+    # K
+    'Kaspar, K., Burtniak, K., & Rüth, M. (2023). Online learning during the '
+    'Covid-19 pandemic: How university students\' perceptions, engagement, '
+    'and performance are related to their personal characteristics. '
+    '<i>Current Psychology</i>. Advance online publication. '
+    'https://doi.org/10.1007/s12144-023-04403-9',
+
     # M
+    'MacLean, K. A. (2022). <i>Endorsed, or just enforced? Personality and '
+    'preferences for online learning during COVID-19</i> [Master\'s thesis, '
+    'University of Calgary]. PRISM Repository.',
+
     'Mammadov, S. (2022). Big Five personality traits and academic '
     'performance: A meta-analysis. <i>Journal of Personality, 90</i>(2), '
     '222–255. https://doi.org/10.1111/jopy.12663',
@@ -114,6 +176,12 @@ REFERENCES = [
     'Aromataris & Z. Munn (Eds.), <i>Joanna Briggs Institute Reviewer\'s '
     'Manual</i>. The Joanna Briggs Institute.',
 
+    'Mustafa, S., Qiao, Y., Yan, X., Anwar, A., Hao, T., & Rana, S. (2022). '
+    'Digital students\' satisfaction with and intention to use online '
+    'teaching modes, role of Big Five personality traits. <i>Frontiers in '
+    'Psychology, 13</i>, 956281. '
+    'https://doi.org/10.3389/fpsyg.2022.956281',
+
     # P
     'Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, '
     'T. C., Mulrow, C. D., Shamseer, L., Tetzlaff, J. M., Akl, E. A., '
@@ -122,6 +190,11 @@ REFERENCES = [
     '… Moher, D. (2021). The PRISMA 2020 statement: An updated guideline for '
     'reporting systematic reviews. <i>BMJ, 372</i>, n71. '
     'https://doi.org/10.1136/bmj.n71',
+
+    'Paulhus, D. L. (1998). Interpersonal and intrapsychic adaptiveness of '
+    'trait self-enhancement: A mixed blessing? <i>Journal of Personality and '
+    'Social Psychology, 74</i>(5), 1197–1208. '
+    'https://doi.org/10.1037/0022-3514.74.5.1197',
 
     'Peterson, R. A., & Brown, S. P. (2005). On the use of beta coefficients '
     'in meta-analysis. <i>Journal of Applied Psychology, 90</i>(1), 175–181. '
@@ -135,6 +208,13 @@ REFERENCES = [
     'variance estimators with small-sample corrections</i> (R package '
     'version 0.5.10) [Computer software]. https://CRAN.R-project.org/'
     'package=clubSandwich',
+
+    # Q
+    'Quigley, M., Bradley, A., Playfoot, D., & Harrad, R. (2022). '
+    'Personality traits and stress perception as predictors of students\' '
+    'online engagement during the COVID-19 pandemic. <i>Personality and '
+    'Individual Differences, 194</i>, 111645. '
+    'https://doi.org/10.1016/j.paid.2022.111645',
 
     # R
     'Raudenbush, S. W. (2009). Analyzing effect sizes: Random-effects '
@@ -154,6 +234,13 @@ REFERENCES = [
     'https://doi.org/10.3390/ejihpe14020025',
 
     # S
+    'Sahinidis, A. G., & Tsaknis, P. A. (2021). Exploring the relationship '
+    'of the Big Five personality traits with student satisfaction with '
+    'synchronous online academic learning: The case of Covid-19-induced '
+    'changes. In A. Kavoura, S. Kefallonitis, & P. Theodoridis (Eds.), '
+    '<i>Strategic Innovative Marketing and Tourism</i> (pp. 116–130). '
+    'Springer. https://doi.org/10.1007/978-3-030-66154-0_10',
+
     'Schünemann, H. J., Higgins, J. P. T., Vist, G. E., Glasziou, P., Akl, '
     'E. A., Skoetz, N., & Guyatt, G. H. (2019). Chapter 14: Completing '
     '"Summary of findings" tables and grading the certainty of the '
@@ -175,6 +262,12 @@ REFERENCES = [
     'Tipton, E. (2015). Small sample adjustments for robust variance '
     'estimation with meta-regression. <i>Psychological Methods, 20</i>(3), '
     '375–393. https://doi.org/10.1037/met0000011',
+
+    'Tlili, A., Sun, T., Denden, M., Kinshuk, Graf, S., Fei, C., & Wang, H. '
+    '(2023). Impact of personality traits on learners\' navigational '
+    'behavior patterns in an online course: A lag sequential analysis '
+    'approach. <i>Frontiers in Psychology, 14</i>, 1071985. '
+    'https://doi.org/10.3389/fpsyg.2023.1071985',
 
     'Tokiwa, E. (2025). Big Five personality traits and online learning '
     'outcomes in Japanese high school students [Manuscript in preparation]. '
@@ -205,4 +298,10 @@ REFERENCES = [
     'Zell, E., & Lesick, T. L. (2022). Big five personality traits and '
     'performance: A quantitative synthesis of 50+ meta-analyses. <i>Journal '
     'of Personality, 90</i>(4), 559–573. https://doi.org/10.1111/jopy.12683',
+
+    'Zheng, Y., & Zheng, S. (2023). Exploring educational impacts among pre, '
+    'during and post COVID-19 lockdowns from students with different '
+    'personality traits. <i>International Journal of Educational Technology '
+    'in Higher Education, 20</i>(1), 21. '
+    'https://doi.org/10.1186/s41239-023-00388-4',
 ]
