@@ -6,7 +6,7 @@ All procedures were pre-registered at OSF prior to data analysis (DOI 10.17605/O
 
 ### 2.1.1 Individual-level harassment data (N = 354)
 
-We use the Tokiwa harassment preprint dataset (Tokiwa, 2025; IRB-approved), comprising N = 354 Japanese workplace participants who completed the following self-report measures:
+We use the Tokiwa harassment preprint dataset (Tokiwa, 2025; manuscript in preparation, preprint location pending — see reference note 1; IRB-approved), comprising N = 354 Japanese workplace participants who completed the following self-report measures:
 
 - **HEXACO-60** (Wakabayashi, 2014; Japanese adaptation of Ashton & Lee, 2009): 60-item Likert 1-5 scale yielding six domain scores (H, E, X, A, C, O).
 - **Dark Triad** scales (Machiavellianism, Narcissism, Psychopathy): used in the common-method-variance diagnostic (Section 2.5) but not in the primary analysis.
@@ -119,7 +119,7 @@ H7 is re-classified per attenuated factor to verify robustness.
 
 ## 2.3 Reproducibility
 
-All stochastic operations use seed 20260429 (Methods Clarification M3). HDF5 artifacts at each stage include the seed, version, OSF DOI, and stage-specific provenance metadata as root-level attributes, enabling full audit-trail reconstruction. Verification hashes for all artifacts are computed via `simulation/code/verify_reproduction.py` and compared against `reference_hashes.json`. The Docker container `Dockerfile` and the `Makefile` `reproduce` target encapsulate the full pipeline. A 47-test pytest suite (extended to 56 with the MHLW loader tests upon Phase 1 activation) guards against regression in core utilities.
+All stochastic operations use seed 20260429 (Methods Clarification M3). HDF5 artifacts at each stage include the seed, version, OSF DOI, and stage-specific provenance metadata as root-level attributes, enabling full audit-trail reconstruction. Verification hashes for all artifacts are computed via `simulation/code/verify_reproduction.py` and compared against `reference_hashes.json`. The Docker container `Dockerfile` and the `Makefile` `reproduce` target encapsulate the full pipeline. A 56-test pytest suite (including the MHLW loader tests activated under Phase 1) guards against regression in core utilities.
 
 ## 2.4 Software and statistical environment
 

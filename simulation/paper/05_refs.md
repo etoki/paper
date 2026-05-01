@@ -55,7 +55,7 @@ Pilch, I., & Turska, E. (2015). Relationships between Machiavellianism, organiza
 
 Podsakoff, P. M., MacKenzie, S. B., Lee, J. Y., & Podsakoff, N. P. (2003). Common method biases in behavioral research: A critical review of the literature and recommended remedies. *Journal of Applied Psychology, 88*(5), 879–903. https://doi.org/10.1037/0021-9010.88.5.879
 
-Power, J. L., Brotheridge, C. M., Blenkinsopp, J., Bowes-Sperry, L., Bozionelos, N., Buzády, Z., Chuang, A., Drnevich, D., Garzon-Vico, A., Leighton, C., Madero, S. M., Mak, W., Mathew, R., Monserrat, S. I., Mujtaba, B. G., Olivas-Lujan, M. R., Polycroniou, P., Sprigg, C. A., Axtell, C., … Nnedumm, A. U. O. (2013). Acceptability of workplace bullying: A comparative study on six continents. *Journal of Business Research, 66*(3), 374–380. https://doi.org/10.1016/j.jbusres.2011.08.018
+Power, J. L., Brotheridge, C. M., Blenkinsopp, J., Bowes-Sperry, L., Bozionelos, N., Buzády, Z., Chuang, A., Drnevich, D., Garzon-Vico, A., Leighton, C., Madero, S. M., Mak, W., Mathew, R., Monserrat, S. I., Mujtaba, B. G., Olivas-Lujan, M. R., Polycroniou, P., Sprigg, C. A., Axtell, C., … Nnedum, A. U. O. (2013). Acceptability of workplace bullying: A comparative study on six continents. *Journal of Business Research, 66*(3), 374–380. https://doi.org/10.1016/j.jbusres.2011.08.018
 
 Roberts, B. W., Luo, J., Briley, D. A., Chow, P. I., Su, R., & Hill, P. L. (2017). A systematic review of personality trait change through intervention. *Psychological Bulletin, 143*(2), 117–141. https://doi.org/10.1037/bul0000088
 
