@@ -141,7 +141,7 @@ REFERENCES = [
     'Kaspar, K., Burtniak, K., & Rüth, M. (2023). Online learning during the '
     'Covid-19 pandemic: How university students\' perceptions, engagement, '
     'and performance are related to their personal characteristics. '
-    '<i>Current Psychology, 42</i>, 33153–33170. '
+    '<i>Current Psychology</i>. Advance online publication. '
     'https://doi.org/10.1007/s12144-023-04403-9',
 
     # M
