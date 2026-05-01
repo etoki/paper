@@ -51,9 +51,9 @@ MD_REFS = PAPER_DIR / "05_refs.md"
 MD_TABLES_FIGURES = PAPER_DIR / "06_tables_figures.md"
 
 TITLE = (
-    "Personality Interventions Don't Work; Structural Ones Do: "
-    "Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment "
-    "Microsimulation in Japan"
+    "Person-Level versus System-Level Anti-Harassment Interventions: "
+    "HEXACO 7-Typology Evidence That Structure Dominates Personality "
+    "in Japanese Workplaces"
 )
 AUTHOR = "Eisuke Tokiwa"
 ORCID = "0009-0009-7124-6669"
