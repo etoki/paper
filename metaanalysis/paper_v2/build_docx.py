@@ -12,8 +12,8 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
 
-OUTPUT_PREPRINT = "/home/user/paper/metaanalysis/paper/manuscript_preprint.docx"
-OUTPUT_JOURNAL = "/home/user/paper/metaanalysis/paper/manuscript_journal.docx"
+OUTPUT_PREPRINT = "/home/user/paper/metaanalysis/paper_v2/manuscript_preprint_v2.docx"
+OUTPUT_JOURNAL = "/home/user/paper/metaanalysis/paper_v2/manuscript_journal_v2.docx"
 # Legacy path kept for backwards compat during transition; will be removed
 OUTPUT = OUTPUT_PREPRINT
 
@@ -293,10 +293,13 @@ def build_abstract(doc):
         "without testing delivery mode as a moderator. This pre-registered "
         "systematic review and meta-analysis is the first quantitative "
         "synthesis dedicated to online learning environments. Following PRISMA "
-        "2020 standards, 31 primary studies catalogued in Table 1 reporting Big Five "
-        "personality and academic achievement in online, blended, or MOOC "
-        "environments were synthesized. Ten studies (pooled N = 3,384) "
-        "contributed direct Pearson correlations to the primary achievement "
+        "2020 standards, 25 primary studies retained for systematic "
+        "synthesis (cataloguing 31 full-text records in Table 1, "
+        "including 6 documented post-eligibility exclusions for PRISMA "
+        "transparency) reporting Big Five personality and academic "
+        "achievement in online, blended, or MOOC environments were "
+        "synthesized. Ten studies (pooled N = 3,384) contributed direct "
+        "or β-converted Pearson correlations to the primary achievement "
         "pool, analysed with random-effects meta-analysis using Hartung-"
         "Knapp-Sidik-Jonkman adjustment on the Fisher z scale. "
         "Conscientiousness was the strongest predictor (pooled r = .167, 95% "
@@ -1240,56 +1243,68 @@ def build_results_part1(doc):
     add_h2(doc, "Characteristics of Included Studies")
 
     p3 = (
-        "Characteristics of the 31 catalogued primary studies are presented in "
-        "Table 1. Publication years ranged from 2003 to 2025, with a marked "
-        "acceleration in the COVID-19 era (2020–2022), during which "
-        "approximately half of the eligible studies were conducted. Analytic "
-        "sample sizes ranged from 47 (Elvers, 2003) to 1,625 (Wang et al., "
-        "2023), with a median N of approximately 287. The 12 studies "
-        "contributing direct Pearson correlations to the primary achievement "
-        "pool aggregated a total sample of 3,384 participants."
+        "Characteristics of the 25 retained primary studies (and the 6 "
+        "post-eligibility exclusions documented for transparency) are "
+        "presented in Table 1. Publication years ranged from 2003 to "
+        "2025, with a marked acceleration in the COVID-19 era (2020–"
+        "2022), during which roughly half of the retained studies were "
+        "conducted. Analytic sample sizes (retained 25) ranged from 47 "
+        "(Elvers, 2003) to 1,625 (Wang et al., 2023), with a median N of "
+        "260. The 10 studies contributing direct or β-converted Pearson "
+        "correlations to the primary achievement pool aggregated a total "
+        "sample of 3,384 participants (k = 10 for Conscientiousness and "
+        "Neuroticism; k = 9 for Openness, Extraversion, Agreeableness — "
+        "A-15 Elvers reported only C and N)."
     )
     add_para(doc, p3, indent_first=True)
 
     p4 = (
-        "The distribution of studies across learning modality was dominated "
-        "by fully online modalities (27 of 31 studies), with the remainder "
-        "classified as blended (A-02 has a blended subsample; reported as a "
-        "separate effect size) or MOOC-specific (A-28 Yu, 2021). Within "
-        "fully online, the asynchronous/synchronous distinction was "
-        "explicitly reported for only 9 studies; these comprised 5 primarily "
-        "asynchronous and 4 synchronous or mixed contexts. Education levels "
-        "comprised K-12 (2 studies: A-25, A-26; A-10 was identified as a "
-        "K-12 record but excluded as face-to-face), undergraduate (22 "
-        "studies), mixed undergraduate/graduate (5 studies), and graduate "
-        "only (1 study: A-37 Zheng & Zheng, 2023). Regional distribution, "
-        "important for the pre-registered Asian-amplification moderator "
-        "analysis, was as follows: Asia (13 studies; includes East Asian and "
-        "Middle Eastern samples), Europe (8 studies), North America (5 "
-        "studies), and Other (1 study: A-24 Tunisia). Era coding, for the "
-        "era moderator, yielded 7 pre-COVID, 15 COVID-era, and 7 post-COVID "
-        "or mixed-era studies; 2 studies spanned multiple eras."
+        "Among the 25 retained studies, learning modality was "
+        "overwhelmingly fully online (24 of 25 studies); the remaining "
+        "study (A-13 Dang) used a Big Five-engagement scale that was "
+        "not explicitly online-specific and is included with that "
+        "caveat. The asynchronous/synchronous distinction was explicitly "
+        "reported for a minority of records. Education levels comprised "
+        "K-12 (2 studies: A-25 Tokiwa, A-26 Wang), undergraduate (15 "
+        "studies), mixed undergraduate/graduate (5 studies: A-08, A-18, "
+        "A-20, A-28, A-30), graduate only (2 studies: A-07 Cohen & "
+        "Baruth, 2017; A-37 Zheng & Zheng, 2023), and mixed secondary/"
+        "post-secondary (1 study: A-11 Cheng et al., 2023). Regional "
+        "distribution, important for the pre-registered Asian-"
+        "amplification moderator analysis, was Asia (12 studies; "
+        "includes East Asian and Middle Eastern samples), Europe (7 "
+        "studies), and North America (6 studies); within the primary "
+        "quantitative pool the Asian subset is reduced to k = 2. Era "
+        "coding for the era moderator yielded 8 pre-COVID, 12 COVID-era, "
+        "4 post-COVID, and 1 mixed-era (A-37 Zheng & Zheng, spanning "
+        "pre/during/post lockdown) retained studies."
     )
     add_para(doc, p4, indent_first=True)
 
     p5 = (
-        "Personality measurement instruments used across the included "
-        "studies comprised the Big Five Inventory family (BFI-44, BFI-2, "
-        "BFI-S; 14 studies), the NEO Personality Inventory family (NEO-FFI, "
-        "NEO-PI-R; 3 studies), the International Personality Item Pool "
-        "(IPIP, Mini-IPIP; 3 studies), the HEXACO Personality Inventory "
-        "(1 study: A-19 MacLean, 2022), the Ten-Item Personality Inventory "
-        "(TIPI, TIPI-J; 2 studies), and other validated Big Five–aligned "
-        "scales (Sahinidis's 30-item Big Five, Chinese-language Big Five "
-        "scales; 8 studies). Academic achievement outcomes were "
-        "operationalized as GPA or course grade (6 studies), standardized "
-        "exam or quiz score (2 studies), MOOC platform composite (1 study: "
-        "A-28 Yu, 2021), self-rated performance (3 studies), or indirect "
-        "proxies such as procrastination and engagement subscales (4 "
-        "studies). Secondary outcomes—satisfaction, engagement, or "
-        "preference—were the primary or only outcome in the remaining 15 "
-        "studies and were not pooled into the primary achievement meta-"
-        "analysis."
+        "Personality measurement instruments used across the 25 "
+        "retained studies comprised the Big Five Inventory family "
+        "(BFI-44, BFI-2, BFI-S; 13 studies), the NEO Personality "
+        "Inventory family (NEO-FFI; 2 studies), the International "
+        "Personality Item Pool (IPIP, Mini-IPIP; 3 studies), the "
+        "HEXACO Personality Inventory (1 study: A-19 MacLean, 2022), "
+        "the Ten-Item Personality Inventory (TIPI, TIPI-J; 2 studies: "
+        "A-31 Rivers, A-37 Zheng & Zheng), and other validated Big "
+        "Five–aligned scales (Sahinidis & Tsaknis's 30-item custom "
+        "scale, Chinese-language Big Five scales of A-20 and A-26, "
+        "and McCrae's 40-item scale used in A-28 Yu; 4 studies in "
+        "total). Achievement outcomes in the 10-study primary pool "
+        "were operationalized as GPA or course grade (6 studies: A-02 "
+        "Alkis, A-23 Rodrigues, A-29 Bahçekapılı, A-31 Rivers, A-37 "
+        "Zheng & Zheng, plus the paper-grade subscale of A-01 Abe), "
+        "standardized exam (1 study: A-15 Elvers Intro-Psych exam), "
+        "MOOC platform composite (1 study: A-28 Yu), and self-rated "
+        "performance (2 studies: A-22 Quigley OSES subscale; A-30 "
+        "Kaspar self-rated performance composite). Secondary outcomes "
+        "— satisfaction, engagement, preference, or perception — were "
+        "the only available outcome in the remaining 15 retained "
+        "studies and were not pooled into the primary achievement "
+        "meta-analysis."
     )
     add_para(doc, p5, indent_first=True)
 
@@ -1298,10 +1313,10 @@ def build_results_part1(doc):
     p6 = (
         "Risk-of-bias ratings using the Joanna Briggs Institute 8-item "
         "checklist are reported per study in Table S2 (Supplementary "
-        "Material). The mean aggregate score across the 31 catalogued "
-        "studies was 5.6 (SD = 1.1, range = 4–8). Twenty-four studies "
+        "Material). The mean aggregate score across the 25 retained "
+        "studies was 5.44 (SD = 0.87, range = 4–7). Twenty-one studies "
         "scored at or above the pre-specified low-bias threshold of 5, "
-        "while seven scored below and were flagged for sensitivity "
+        "while four scored below and were flagged for sensitivity "
         "analysis. Domain-level weaknesses were most common in Item 5 "
         "(identification of confounding factors) and Item 6 (strategies "
         "to deal with confounding factors), consistent with the cross-"
@@ -2990,7 +3005,7 @@ def main():
     build_manuscript(for_journal=True, output_path=OUTPUT_JOURNAL)
 
     # Split versions (journal version only — preprint typically submitted as combined)
-    split_dir = "/home/user/paper/metaanalysis/paper/split"
+    split_dir = "/home/user/paper/metaanalysis/paper_v2/split"
     _os.makedirs(split_dir, exist_ok=True)
     build_split_titledecl(f"{split_dir}/01_title_declarations.docx", for_journal=True)
     build_split_body(f"{split_dir}/02_body.docx")
