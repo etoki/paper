@@ -6,7 +6,7 @@ All procedures were pre-registered at OSF prior to data analysis (DOI 10.17605/O
 
 ### 2.1.1 Individual-level harassment data (N = 354)
 
-We use the Tokiwa harassment preprint dataset (Tokiwa, 2025; manuscript in preparation, preprint location pending — see reference note 1; IRB-approved), comprising N = 354 Japanese workplace participants who completed the following self-report measures:
+We use the Tokiwa harassment preprint dataset (Tokiwa, 2025, Research Square preprint, DOI 10.21203/rs.3.rs-7756124/v1; IRB-approved), comprising N = 354 Japanese workplace participants who completed the following self-report measures:
 
 - **HEXACO-60** (Wakabayashi, 2014; Japanese adaptation of Ashton & Lee, 2009): 60-item Likert 1-5 scale yielding six domain scores (H, E, X, A, C, O).
 - **Dark Triad** scales (Machiavellianism, Narcissism, Psychopathy): used in the common-method-variance diagnostic (Section 2.5) but not in the primary analysis.
@@ -14,9 +14,9 @@ We use the Tokiwa harassment preprint dataset (Tokiwa, 2025; manuscript in prepa
 - **Gender Harassment Scale** (Kobayashi & Tanaka, 2010): continuous severity scale; used as triangulation outcome (H6).
 - **Demographics**: binary self-reported gender (0 = female, 1 = male), age (continuous), prefecture-level region (categorical).
 
-### 2.1.2 Cluster centroids (N = 13,668; IEEE-published, M3-fixed)
+### 2.1.2 Cluster centroids (N = 13,668; Tokiwa 2026 IEEE Access, M3-fixed)
 
-Seven HEXACO cluster centroids were taken from the previously published Tokiwa (2024, IEEE) clustering of N = 13,668 Japanese respondents. Per pre-registration v2.0 Methods Clarification M3, these centroids are treated as *fixed parameters*; bootstrap confidence intervals are computed conditional on the centroids and do not propagate centroid-estimation uncertainty. This decision aligns with the inferential target of the present study (causal contrasts within a fixed taxonomy) rather than the joint estimation of the taxonomy itself.
+Seven HEXACO cluster centroids were taken from the previously published Tokiwa (2026, *IEEE Access*; DOI 10.1109/ACCESS.2026.3651324) clustering of N = 13,668 Japanese respondents. Per pre-registration v2.0 Methods Clarification M3, these centroids are treated as *fixed parameters*; bootstrap confidence intervals are computed conditional on the centroids and do not propagate centroid-estimation uncertainty. This decision aligns with the inferential target of the present study (causal contrasts within a fixed taxonomy) rather than the joint estimation of the taxonomy itself.
 
 ### 2.1.3 Population reweighting (Statistics Bureau Labor Force Survey 2022)
 
@@ -49,7 +49,7 @@ Empirical Bayes shrinkage on 28 cells uses the method-of-moments hyperprior (μ�
 
 ### 2.2.2 Stage 1: National prevalence aggregation
 
-The national prevalence is computed as the weighted sum P̂_t = Σ_c (p̂_c × W_c) / Σ_c W_c, where W_c is the cluster × gender population weight. Cluster proportions remain at the IEEE-published values (M3-fixed; m8 limitation: cluster membership is not in the MHLW data); only the gender marginal is updated to the 2022 working-population value.
+The national prevalence is computed as the weighted sum P̂_t = Σ_c (p̂_c × W_c) / Σ_c W_c, where W_c is the cluster × gender population weight. Cluster proportions remain at the Tokiwa (2026, *IEEE Access*) values (M3-fixed; m8 limitation: cluster membership is not in the MHLW data); only the gender marginal is updated to the 2022 working-population value.
 
 ### 2.2.3 Stage 2: H1 four-tier classification
 

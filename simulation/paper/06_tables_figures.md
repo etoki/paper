@@ -99,7 +99,7 @@
 
 ### Figure 1. Pipeline Schematic
 
-A box-and-arrow diagram of the nine pre-registered pipeline stages, showing the data inputs (N=354 individual data; IEEE 7-cluster centroids; Statistics Bureau (MIC) Labor Force Survey 2022) flowing through Stages 0–8 with their HDF5 outputs. To be generated as PNG/SVG by `simulation/code/report.py`.
+A box-and-arrow diagram of the nine pre-registered pipeline stages, showing the data inputs (N=354 individual data; Tokiwa 2026 *IEEE Access* 7-cluster centroids; Statistics Bureau (MIC) Labor Force Survey 2022) flowing through Stages 0–8 with their HDF5 outputs. To be generated as PNG/SVG by `simulation/code/report.py`.
 
 **Caption.** *The HEXACO 7-typology workplace harassment microsimulation pipeline. Stage 0 (cell propensity) feeds into Stage 1 (population aggregation, MHLW reweighted) and Stage 2 (H1 four-tier classification). Stage 3 (sensitivity), Stage 4 (baselines), Stage 5 (CMV diagnostic), Stage 6 (target trial PICO), Stage 7 (counterfactuals + H7 IUT), and Stage 8 (transportability) operate in parallel after Stage 2.*
 

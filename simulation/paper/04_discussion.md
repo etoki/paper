@@ -53,7 +53,7 @@ The simulation produces a single population-level snapshot under each counterfac
 
 ### 4.4.5 m8 limitation: cluster proportions M3-fixed
 
-Per Methods Clarification m8, the 7-cluster proportions used in Stage 1 reweighting remain fixed at the IEEE-published values for N = 13,668; only the gender marginal is updated to the Statistics Bureau (MIC) 2022 working-population value. This is a conscious limitation: the Labor Force Survey does not capture HEXACO cluster membership, so the cluster proportions cannot be updated. The OAT sensitivity sweep over cluster mass shifts (Section 3.3) shows that the H1 conclusion depends on the cluster proportions, with MAPE ranging from 34.55% (favorable composition) to 56.47% (unfavorable). We disclose this dependency explicitly and recommend that future Phase 2 work integrate larger-sample HEXACO surveys (e.g., the JLPS panel) to relax this constraint.
+Per Methods Clarification m8, the 7-cluster proportions used in Stage 1 reweighting remain fixed at the Tokiwa (2026, *IEEE Access*) values for N = 13,668; only the gender marginal is updated to the Statistics Bureau (MIC) 2022 working-population value. This is a conscious limitation: the Labor Force Survey does not capture HEXACO cluster membership, so the cluster proportions cannot be updated. The OAT sensitivity sweep over cluster mass shifts (Section 3.3) shows that the H1 conclusion depends on the cluster proportions, with MAPE ranging from 34.55% (favorable composition) to 56.47% (unfavorable). We disclose this dependency explicitly and recommend that future Phase 2 work integrate larger-sample HEXACO surveys (e.g., the JLPS panel) to relax this constraint.
 
 ### 4.4.6 Sample-size and external-validity caveats
 

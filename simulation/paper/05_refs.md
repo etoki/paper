@@ -71,9 +71,9 @@ Spielauer, M. (2011). What is social science microsimulation? *Social Science Co
 
 Statistics Bureau, Ministry of Internal Affairs and Communications. (2023). *Labour Force Survey (Basic Tabulation): 2022 Annual Average Results Summary* [in Japanese: 労働力調査（基本集計）2022年（令和４年）平均結果の要約]. Tokyo: Statistics Bureau. Retrieved 2026-04-30 from https://www.e-stat.go.jp/
 
-Tokiwa, E. (2024). HEXACO-based 7-cluster typology of Japanese personality structure (N = 13,668) [Conference paper]. *IEEE [conference name pending citation verification]*. [Citation requires final journal/proceedings reference.]
+Tokiwa, E. (2026). Cultural influences on personality types: A cluster analysis of HEXACO traits in Japan. *IEEE Access*. https://doi.org/10.1109/ACCESS.2026.3651324
 
-Tokiwa, E. (2025). *Workplace harassment in Japan: A HEXACO and Dark Triad multivariate study (N = 354)* [Manuscript in preparation / OSF preprint]. SUNBLAZE Co., Ltd. [Pre-print location pending.]
+Tokiwa, E. (2025). *Predicting power and gender harassment from HEXACO and Dark Traits* (Version 1) [Preprint]. Research Square. https://doi.org/10.21203/rs.3.rs-7756124/v1
 
 Tou, K., Tsuda, A., Nii, M., Yamahiro, T., & Irie, M. (2017). Development of new power harassment questionnaire in workplace. In *Proceedings of the 81st Annual Convention of the Japanese Psychological Association*. Japanese Psychological Association. [Conference paper; in Japanese]
 
@@ -83,7 +83,7 @@ Wakabayashi, A. (2014). A sixth personality domain that is independent of the Bi
 
 ## Reference notes
 
-1. Tokiwa (2024, IEEE) and Tokiwa (2025, harassment preprint) are self-citations; final DOIs/URLs to be inserted at submission time once the IEEE conference proceedings reference and the harassment preprint OSF/Research Square DOI are confirmed.
+1. Tokiwa (2026, *IEEE Access*) and Tokiwa (2025, Research Square preprint) are self-citations from the same author; their DOIs (10.1109/ACCESS.2026.3651324 and 10.21203/rs.3.rs-7756124/v1, respectively) are confirmed and resolvable as of submission.
 2. MHLW survey series citations point to the Japanese government MHLW website; English-language summaries are available at the same URL with `?lang=en` query parameter (verification recommended at submission time).
 3. Kobayashi & Tanaka (2010) and Tou et al. (2017) citations sourced from Tokiwa (2025) harassment preprint Manuscript_all.docx (verified 2026-04-30); the Tou et al. (2017) reference is a Japanese Psychological Association conference proceedings rather than a journal article.
 4. Roberts et al. (2017) is the principal personality-change-intervention meta-analysis cited alongside Hudson and Fraley (2015) for the +0.3 SD upper-bound calibration of Counterfactual A.

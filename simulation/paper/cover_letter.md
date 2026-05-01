@@ -49,7 +49,7 @@ The Discussion section (§4.4) discloses six limitations explicitly:
 2. **Causal under-identification** (selection, confounding, and reverse causation cannot be distinguished from M1 direct causation, only the latter rejected);
 3. **Heterogeneity in counterfactual response** (uniform −20% across cells; cell-specific response not estimated);
 4. **Static framing** (no temporal dynamics);
-5. **m8 limitation** (cluster proportions M3-fixed at IEEE-published values);
+5. **m8 limitation** (cluster proportions M3-fixed at Tokiwa 2026 *IEEE Access* values);
 6. **Sample size** (N = 354; cell-level CIs adequate but not extensively replicated).
 
 We position these limitations as future-work targets rather than threats to the Stage 2 conclusion, which depends only on the apples-to-apples comparison of pre-registered effect-size calibrations.

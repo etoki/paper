@@ -4,7 +4,7 @@ All results are reported using the locked seed 20260429. Numerical values are re
 
 ## 3.1 Sample characteristics and 14-cell propensity (Stage 0)
 
-The N = 354 sample was assigned to 14 cells (7 HEXACO clusters × 2 genders) via Euclidean nearest-centroid hard-assignment, using the IEEE-published centroids as fixed parameters. Cell sizes ranged from 10 to 70 individuals (median = 18), with no degenerate (N = 0) cells. Cell-level past-three-year power-harassment victimization rates ranged from 0.000 to 0.400 (mean across cells = 0.181).
+The N = 354 sample was assigned to 14 cells (7 HEXACO clusters × 2 genders) via Euclidean nearest-centroid hard-assignment, using the Tokiwa (2026, *IEEE Access*) centroids as fixed parameters. Cell sizes ranged from 10 to 70 individuals (median = 18), with no degenerate (N = 0) cells. Cell-level past-three-year power-harassment victimization rates ranged from 0.000 to 0.400 (mean across cells = 0.181).
 
 Per-cell 95% confidence intervals followed the four-step priority cascade (Methods §2.2.1). Of the 14 cells, all were resolved at the BCa stage (no cells required the BC, percentile, or Clopper-Pearson fallbacks), confirming that the v2.0 master Section 5.1 primary BCa procedure operates as designed for the realized data structure.
 
@@ -49,7 +49,7 @@ The pre-registered one-at-a-time sweep over four parameter families produced 13 
 Two parameter families show substantial sensitivity:
 
 - **Binarization threshold** (range: 29.58% to 48.95%): a more lenient threshold (+0.25 SD) yields Standard SUCCESS classification, suggesting that the MHLW survey may operationalize harassment more inclusively than the +0.5 SD main threshold;
-- **Cluster proportion mass shift** (range: 34.55% to 56.47%): underscores the centrality of the IEEE-published cluster proportions to the conclusion (m8 limitation per pre-registration v2.0).
+- **Cluster proportion mass shift** (range: 34.55% to 56.47%): underscores the centrality of the Tokiwa (2026, *IEEE Access*) cluster proportions to the conclusion (m8 limitation per pre-registration v2.0).
 
 Two parameter families show negligible sensitivity:
 
@@ -131,7 +131,7 @@ The H7 = REVERSAL classification is robust across all four pre-registered cultur
 |---|---|---|---|
 | H1 | MAPE_FY2016 ≤ 30% (Strict / Standard SUCCESS) | MAPE = 46.34% | **PARTIAL SUCCESS** |
 | H2 | Monotonic B0 > B1 > B2 > B3 > B4 | 0 of 4 pairs confirmed (Page's L p = 0.976) | **REJECTED** |
-| H3 | Centroid concordance N=354 vs N=13,668 | (Reported in Tokiwa, 2024 IEEE) | Confirmed |
+| H3 | Centroid concordance N=354 vs N=13,668 | (Reported in Tokiwa, 2026 *IEEE Access*) | Confirmed |
 | H4 | Per-cell propensity stability across bootstrap procedures | All 14 cells resolved at BCa stage | **CONFIRMED** |
 | H5 | Gender invariance | 14-cell vs 28-cell sensitivity stable | **CONFIRMED** |
 | H6 | Power × gender harassment cluster ranking concordance | High concordance (Spearman ρ > 0.80; computed in supplementary) | **CONFIRMED** |
