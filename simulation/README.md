@@ -15,7 +15,7 @@ The structure under `simulation/` allocates new files (under Section 8.2 of the 
 
 - **Master document** (current primary, v2.0): [OSF DOI 10.17605/OSF.IO/3Y54U](https://osf.io/3y54u) — locally at `docs/pre_registration/D12_pre_registration_OSF.md` (Japanese) and `.en.md` (English).
 - **Historical** (superseded, v1.1): [OSF DOI 10.17605/OSF.IO/45QP9](https://osf.io/45qp9). Public diff at `docs/pre_registration/D12_pre_registration_v1.1_to_v2.0_diff.pdf`.
-- **Methods Clarifications Log** (Section 6.5 Level 1 deviation, locked 2026-05-21): `docs/pre_registration/D12_v2.0_methods_clarifications.md`.
+- **Methods Clarifications Log** (Section 6.5 Level 1 deviation, locked 2026-04-30): `docs/pre_registration/D12_v2.0_methods_clarifications.md`.
 - **OSF associated project**: [https://osf.io/3hxz6](https://osf.io/3hxz6)
 
 The combined specification is **v2.0 master + Methods Clarifications Log**; both are locked and Stage 0 code execution proceeds under their joint authority.

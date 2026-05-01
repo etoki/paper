@@ -4,7 +4,7 @@
 *Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan*
 
 **Author**: Eisuke Tokiwa (SUNBLAZE Co., Ltd.; ORCID 0009-0009-7124-6669)
-**Pre-registration**: OSF DOI 10.17605/OSF.IO/3Y54U (v2.0; locked 2026-05-21)
+**Pre-registration**: OSF DOI 10.17605/OSF.IO/3Y54U (v2.0; locked 2026-04-30)
 **Reporting standard**: Stage 2 Registered Report (post-data) following the v2.0 pre-registration
 
 ---

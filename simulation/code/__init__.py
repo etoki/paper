@@ -1,7 +1,7 @@
 """HEXACO Harassment Microsimulation v2.0.
 
 Pre-registration: OSF DOI 10.17605/OSF.IO/3Y54U (https://osf.io/3y54u)
-Methods Clarifications Log: v1.0 (locked 2026-05-21)
+Methods Clarifications Log: v1.0 (locked 2026-04-30)
 Random seed: 20260429
 """
 

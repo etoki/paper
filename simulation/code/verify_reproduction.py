@@ -148,7 +148,7 @@ def main() -> None:
     print(
         "\nReproduction VERIFIED: all output files match reference hashes.\n"
         f"v2.0 OSF DOI: 10.17605/OSF.IO/3Y54U\n"
-        f"Methods Clarifications Log: v1.0 (locked 2026-05-21)"
+        f"Methods Clarifications Log: v1.0 (locked 2026-04-30)"
     )
     sys.exit(0)
 

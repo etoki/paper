@@ -11,7 +11,7 @@ Section 6.5 Level 1 deviation log.
 
 ## Methods Clarifications Log (Section 6.5 Level 1 deviation log)
 
-- D12_v2.0_methods_clarifications.md / .pdf — added 2026-05-21
+- D12_v2.0_methods_clarifications.md / .pdf — added 2026-04-30 alongside the v2.0 OSF registration. Note: the document's internal "uploaded ... on 2026-05-21" wording reflects an earlier planned schedule; the authoritative upload timestamp is the OSF Date Registered (2026-04-30) plus the GitHub commit log (`c9de551 "Methods Clarifications Log v1.0 LOCKED"`).
   Anonymous methodologist (mode B, mathematical biology) review applied:
   4 Major + 7 Minor + 5 Nitpick clarifications. 5th-tier proposal SKIPPED
   with documented rationale. SHA256 hash recorded in document.

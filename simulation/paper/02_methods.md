@@ -1,6 +1,6 @@
 # 02. Methods
 
-All procedures were pre-registered at OSF prior to data analysis (DOI 10.17605/OSF.IO/3Y54U; v2.0 locked 2026-05-21). Code, intermediate artifacts (HDF5), random seeds, and Docker containerization are publicly archived at <https://github.com/etoki/paper>. The analysis is fully reproducible via `make reproduce` (~30 minutes on a single core). All stochastic operations use the locked seed 20260429.
+All procedures were pre-registered at OSF prior to data analysis (DOI 10.17605/OSF.IO/3Y54U; v2.0 registered/locked 2026-04-30). Code, intermediate artifacts (HDF5), random seeds, and Docker containerization are publicly archived at <https://github.com/etoki/paper>. The analysis is fully reproducible via `make reproduce` (~30 minutes on a single core). All stochastic operations use the locked seed 20260429.
 
 ## 2.1 Data sources
 

@@ -3,7 +3,7 @@
 **Submission Type:** Stage 2 Registered Report
 **Manuscript:** *Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan*
 **Author:** Eisuke Tokiwa (sole-authored)
-**Pre-registration:** OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u) (v2.0; locked 2026-05-21)
+**Pre-registration:** OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u) (v2.0; registered 2026-04-30)
 
 ---
 
@@ -16,7 +16,7 @@ Dear Editors,
 
 I am pleased to submit the enclosed manuscript, *Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan*, for consideration as a Stage 2 Registered Report at *XXXX*.
 
-This submission implements, without deviation, the analysis pre-registered as v2.0 at the Open Science Framework (DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u); locked 2026-05-21). All seven primary hypotheses (H1–H7) are evaluated against pre-registered classification rules; all sensitivity sweeps and diagnostic procedures specified in the v2.0 master are executed and reported. The Methods Clarifications Log accompanying the v2.0 registration (Section 6.5 Level 1 deviation; SHA-256 fcaaf0d…) documents 16 minor specification clarifications resolved during the Stage 1 protocol-development phase.
+This submission implements, without deviation, the analysis pre-registered as v2.0 at the Open Science Framework (DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u); registered 2026-04-30). All seven primary hypotheses (H1–H7) are evaluated against pre-registered classification rules; all sensitivity sweeps and diagnostic procedures specified in the v2.0 master are executed and reported. The Methods Clarifications Log accompanying the v2.0 registration (Section 6.5 Level 1 deviation; SHA-256 fcaaf0d…) documents 16 minor specification clarifications resolved during the Stage 1 protocol-development phase.
 
 ## Headline finding
 
@@ -36,7 +36,7 @@ The convergence of our pre-registered counterfactual evidence with the MHLW FY20
 
 ## Compliance with Stage 2 RR review criteria
 
-- **Pre-registration adherence**: All deviations from the v2.0 master are documented in the Methods Clarifications Log (locked 2026-05-21) and disclosed in §2.2 of the manuscript. No undocumented deviations occurred.
+- **Pre-registration adherence**: All deviations from the v2.0 master are documented in the Methods Clarifications Log (locked 2026-04-30 alongside the v2.0 registration) and disclosed in §2.2 of the manuscript. No undocumented deviations occurred.
 - **Hypotheses tested**: All seven pre-registered hypotheses (H1–H7) are evaluated; outcomes are reported per pre-registered classification rules in Table 6.
 - **Reproducibility**: All code is publicly archived under MIT license at [https://github.com/etoki/paper](https://github.com/etoki/paper) (directory: `simulation/`); intermediate HDF5 artifacts at OSF; SHA-256 hash-verified reproduction via `make reproduce`.
 - **Data availability**: The N = 354 individual-level data are available at OSF under IRB-approved data-sharing protocol; population reweighting data (Statistics Bureau / MIC Labor Force Survey 2022) are publicly archived in repository.

@@ -1,7 +1,7 @@
 # HEXACO Harassment Microsimulation — Makefile
 #
 # Operates under v2.0 master (DOI 10.17605/OSF.IO/3Y54U) + Methods
-# Clarifications Log v1.0 (locked 2026-05-21).
+# Clarifications Log v1.0 (locked 2026-04-30).
 #
 # Random seed 20260429 is hard-coded across all stages (see
 # code/utils_io.py).
@@ -51,7 +51,7 @@ reproduce: $(REPORT)
 	@echo "  HEXACO Harassment Microsim reproduction COMPLETE"
 	@echo "============================================================"
 	@echo "  v2.0 OSF DOI: 10.17605/OSF.IO/3Y54U"
-	@echo "  Methods Clarifications Log: v1.0 (locked 2026-05-21)"
+	@echo "  Methods Clarifications Log: v1.0 (locked 2026-04-30)"
 	@echo "  Random seed: $(SEED)"
 	@echo ""
 	@echo "  Headline H1 tier classification:"
@@ -201,5 +201,5 @@ help:
 	@echo "  make clean-all      Remove outputs + caches"
 	@echo ""
 	@echo "  Pre-registration: v2.0 OSF DOI 10.17605/OSF.IO/3Y54U"
-	@echo "  Methods Clarifications Log: v1.0 (locked 2026-05-21)"
+	@echo "  Methods Clarifications Log: v1.0 (locked 2026-04-30)"
 	@echo "  Random seed: $(SEED)"

@@ -67,7 +67,7 @@ def write_h1_classification(
         f"  {explanation}",
         "",
         "  v2.0 OSF DOI: 10.17605/OSF.IO/3Y54U",
-        "  Methods Clarifications Log v1.0 (locked 2026-05-21)",
+        "  Methods Clarifications Log v1.0 (locked 2026-04-30)",
     ])
     p.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
