@@ -20,7 +20,7 @@ Seven HEXACO cluster centroids were taken from the previously published Tokiwa (
 
 ### 2.1.3 Population reweighting (Statistics Bureau Labor Force Survey 2022)
 
-Marginal gender-by-age proportions for the Japanese working population were obtained from the Labor Force Survey Basic Tabulation 2022 Annual Average, published by the Statistics Bureau, Ministry of Internal Affairs and Communications (総務省統計局, 2023; PDF retrieved from e-Stat 2026-04-30 by the investigator and archived at `simulation/data/`). We use Table 3 (年齢階級別就業者数; employed persons by age group) restricted to 就業者 (employed persons), yielding total 6,723万人 with age × gender breakdown {15-64, 65+} × {male, female}. The resulting marginals (F = 0.4498, M = 0.5502) replace the v2.0 Stage 1 placeholder (F = 0.5, M = 0.5).
+Marginal gender-by-age proportions for the Japanese working population were obtained from the Labor Force Survey Basic Tabulation 2022 Annual Average, published by the Statistics Bureau, Ministry of Internal Affairs and Communications (Statistics Bureau, 2023; PDF retrieved from e-Stat on 2026-04-30 by the investigator and archived at `simulation/data/`). We use Table 3 (employed persons by age group) restricted to the employed-persons category, yielding a total of 67.23 million persons with age × gender breakdown {15–64, 65+} × {male, female}. The resulting marginals (F = 0.4498, M = 0.5502) replace the v2.0 Stage 1 placeholder (F = 0.5, M = 0.5).
 
 ### 2.1.4 MHLW power-harassment victimization targets
 

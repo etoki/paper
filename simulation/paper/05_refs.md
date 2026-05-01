@@ -37,11 +37,11 @@ Linton, D. K., & Power, J. L. (2013). The personality traits of workplace bullie
 
 Mikkelsen, E. G., Hansen, Å. M., Persson, R., Byrgesen, M. F., & Hogh, A. (2020). Individual consequences of being exposed to workplace bullying. In S. Einarsen, H. Hoel, D. Zapf, & C. L. Cooper (Eds.), *Bullying and harassment in the workplace: Theory, research and practice* (3rd ed., pp. 163–208). CRC Press. https://doi.org/10.1201/9780429462528-6
 
-Ministry of Health, Labour and Welfare (MHLW). (2017). *Workplace harassment survey: H28 (FY2016) results* [in Japanese: 平成28年度 職場のハラスメントに関する実態調査]. https://www.mhlw.go.jp/
+Ministry of Health, Labour and Welfare (MHLW). (2017). *Workplace harassment survey: H28 (FY2016) results* [Original report in Japanese]. https://www.mhlw.go.jp/
 
-Ministry of Health, Labour and Welfare (MHLW). (2021). *Workplace harassment survey: R2 (FY2020) results* [in Japanese: 令和2年度 職場のハラスメントに関する実態調査]. https://www.mhlw.go.jp/
+Ministry of Health, Labour and Welfare (MHLW). (2021). *Workplace harassment survey: R2 (FY2020) results* [Original report in Japanese]. https://www.mhlw.go.jp/
 
-Ministry of Health, Labour and Welfare (MHLW). (2024). *Workplace harassment survey: R5 (FY2023) results* [in Japanese: 令和5年度 職場のハラスメントに関する実態調査]. https://www.mhlw.go.jp/
+Ministry of Health, Labour and Welfare (MHLW). (2024). *Workplace harassment survey: R5 (FY2023) results* [Original report in Japanese]. https://www.mhlw.go.jp/
 
 Nielsen, M. B., Glasø, L., & Einarsen, S. (2017). Exposure to workplace harassment and the Five Factor Model of personality: A meta-analysis. *Personality and Individual Differences, 104*, 195–206. https://doi.org/10.1016/j.paid.2016.08.015
 
@@ -69,7 +69,7 @@ Schelling, T. C. (1971). Dynamic models of segregation. *Journal of Mathematical
 
 Spielauer, M. (2011). What is social science microsimulation? *Social Science Computer Review, 29*(1), 9–20. https://doi.org/10.1177/0894439310370085
 
-Statistics Bureau, Ministry of Internal Affairs and Communications. (2023). *Labour Force Survey (Basic Tabulation): 2022 Annual Average Results Summary* [in Japanese: 労働力調査（基本集計）2022年（令和４年）平均結果の要約]. Tokyo: Statistics Bureau. Retrieved 2026-04-30 from https://www.e-stat.go.jp/
+Statistics Bureau, Ministry of Internal Affairs and Communications. (2023). *Labour Force Survey (Basic Tabulation): 2022 Annual Average Results Summary* [Original report in Japanese]. Tokyo: Statistics Bureau. Retrieved 2026-04-30 from https://www.e-stat.go.jp/
 
 Tokiwa, E. (2026). Cultural influences on personality types: A cluster analysis of HEXACO traits in Japan. *IEEE Access*. https://doi.org/10.1109/ACCESS.2026.3651324
 

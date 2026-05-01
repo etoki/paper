@@ -10,7 +10,7 @@ Per-cell 95% confidence intervals followed the four-step priority cascade (Metho
 
 ## 3.2 National prevalence and H1 four-tier classification (Stages 1–2)
 
-After re-weighting with Statistics Bureau (MIC) Labor Force Survey 2022 marginals (F = 0.4498, M = 0.5502; total 6,723 万人 employed), the model-based national past-three-year power-harassment prevalence was P̂ = 0.1744 (point estimate), corresponding to 17.44%.
+After re-weighting with Statistics Bureau (MIC) Labor Force Survey 2022 marginals (F = 0.4498, M = 0.5502; total = 67.23 million employed persons), the model-based national past-three-year power-harassment prevalence was P̂ = 0.1744 (point estimate), corresponding to 17.44%.
 
 Per the v2.0 master Section 5.4 four-tier judgment hierarchy, the H1 results across three MHLW validation periods are summarized in Table 1.
 

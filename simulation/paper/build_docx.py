@@ -23,7 +23,7 @@ from pathlib import Path
 
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Inches, Pt
@@ -55,6 +55,7 @@ TITLE = (
     "HEXACO 7-Typology Evidence That Structure Dominates Personality "
     "in Japanese Workplaces"
 )
+RUNNING_HEAD = "STRUCTURE DOMINATES PERSONALITY"  # APA 7 ≤ 50 chars (32 chars)
 AUTHOR = "Eisuke Tokiwa"
 ORCID = "0009-0009-7124-6669"
 AFFILIATION = "SUNBLAZE Co., Ltd., Tokyo, Japan"
@@ -108,22 +109,24 @@ def add_para(doc: Document, text: str, *, bold: bool = False, italic: bool = Fal
 
 
 def add_heading(doc: Document, text: str, level: int = 1):
-    """APA-style heading (Level 1 = bold centered; Level 2 = bold left; Level 3 = bold italic indent)."""
+    """Heading style (Level 1 = bold centered; Level 2/3 = bold left, no italic).
+
+    Note: strict APA 7 specifies Level 3 as bold italic; this implementation
+    follows the author's stylistic preference (no italic at any heading level)
+    for compatibility with journals that diverge from strict APA 7 heading
+    italics. Level 1: centered bold; Level 2: left bold; Level 3+: left bold,
+    no indentation, no terminal period.
+    """
     p = doc.add_paragraph()
     set_double_space(p)
     if level == 1:
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         run = p.add_run(text)
         set_font(run, size=12, bold=True)
-    elif level == 2:
+    else:  # level 2, 3, 4 — all flush-left bold, no italic
         p.alignment = WD_ALIGN_PARAGRAPH.LEFT
         run = p.add_run(text)
         set_font(run, size=12, bold=True)
-    else:  # level >= 3
-        p.alignment = WD_ALIGN_PARAGRAPH.LEFT
-        p.paragraph_format.first_line_indent = Inches(0.5)
-        run = p.add_run(text + ".")
-        set_font(run, size=12, bold=True, italic=True)
     return p
 
 
@@ -144,6 +147,48 @@ def configure_styles(doc: Document):
         section.bottom_margin = Inches(1.0)
         section.left_margin = Inches(1.0)
         section.right_margin = Inches(1.0)
+
+
+def add_running_head(doc: Document, running_head: str = RUNNING_HEAD):
+    """APA 7 professional-paper running head: short title (≤ 50 chars,
+    typically uppercase) flush-left; page number flush-right; appears on
+    every page including title page.
+    """
+    assert len(running_head) <= 50, (
+        f"Running head exceeds APA 7 limit (50 chars): '{running_head}' = {len(running_head)} chars"
+    )
+    for section in doc.sections:
+        header = section.header
+        # Clear any default
+        for p in list(header.paragraphs):
+            p.clear()
+        p = header.paragraphs[0]
+        p.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        # Use a tab stop at right margin for page number
+        p.paragraph_format.tab_stops.add_tab_stop(
+            section.page_width - section.left_margin - section.right_margin,
+            WD_TAB_ALIGNMENT.RIGHT,
+        )
+        run_left = p.add_run(running_head)
+        set_font(run_left, size=12, bold=False)
+        # Tab + page number field
+        run_tab = p.add_run("\t")
+        set_font(run_tab, size=12)
+        # PAGE field code
+        fld_begin = OxmlElement("w:fldChar")
+        fld_begin.set(qn("w:fldCharType"), "begin")
+        instr = OxmlElement("w:instrText")
+        instr.text = "PAGE"
+        fld_sep = OxmlElement("w:fldChar")
+        fld_sep.set(qn("w:fldCharType"), "separate")
+        fld_end = OxmlElement("w:fldChar")
+        fld_end.set(qn("w:fldCharType"), "end")
+        page_run = p.add_run()
+        page_run._r.append(fld_begin)
+        page_run._r.append(instr)
+        page_run._r.append(fld_sep)
+        page_run._r.append(fld_end)
+        set_font(page_run, size=12)
 
 
 # ============================================================================
@@ -379,6 +424,7 @@ def build_preprint(out_path: Path, *, journal_variant: bool = False):
     """Single-file APA preprint (or journal variant)."""
     doc = Document()
     configure_styles(doc)
+    add_running_head(doc)
     build_title_page(doc, journal_variant=journal_variant)
     build_declarations_page(doc)
 
@@ -467,6 +513,7 @@ def build_preprint(out_path: Path, *, journal_variant: bool = False):
 def build_split_01(out_path: Path):
     doc = Document()
     configure_styles(doc)
+    add_running_head(doc)
     build_title_page(doc)
     build_declarations_page(doc)
     doc.save(str(out_path))
@@ -476,6 +523,7 @@ def build_split_01(out_path: Path):
 def build_split_02(out_path: Path):
     doc = Document()
     configure_styles(doc)
+    add_running_head(doc)
     for md_path in [MD_INTRO, MD_METHODS, MD_RESULTS, MD_DISCUSSION]:
         blocks = parse_md_blocks(md_path)
         filtered = []
@@ -510,6 +558,7 @@ def build_split_03(out_path: Path):
     """Tables only."""
     doc = Document()
     configure_styles(doc)
+    add_running_head(doc)
     add_para(doc, TITLE, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER)
     add_para(doc, "Tables", bold=True, align=WD_ALIGN_PARAGRAPH.CENTER)
     add_para(doc, "")
@@ -537,6 +586,7 @@ def build_split_04(out_path: Path):
     """Figure captions only (figure files referenced separately)."""
     doc = Document()
     configure_styles(doc)
+    add_running_head(doc)
     add_para(doc, TITLE, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER)
     add_para(doc, "Figures (captions)", bold=True, align=WD_ALIGN_PARAGRAPH.CENTER)
     add_para(doc, "")
