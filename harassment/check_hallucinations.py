@@ -438,9 +438,9 @@ def task_t6_alphas(text: str, f: Findings) -> None:
         return
     alpha_df = pd.read_csv(alfa_csv).set_index("domain")
 
-    # Manuscript-reported α
+    # Manuscript-reported α (post-fix: H-H corrected from .671 to .571)
     reported = {
-        "Honesty-Humility": 0.671,
+        "Honesty-Humility": 0.571,
         "Emotionality": 0.830,
         "Extraversion": 0.621,
         "Agreeableness": 0.783,
@@ -460,7 +460,7 @@ def task_t6_alphas(text: str, f: Findings) -> None:
 
     # Manuscript wording check
     text_claims = [
-        "α = .671 for Honesty",
+        "α = .571 for Honesty",
         "α = .830 for Emotionality",
         "α = .621 for Extraversion",
         "α = .783 for Agreeableness",
