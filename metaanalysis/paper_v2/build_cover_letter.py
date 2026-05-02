@@ -1,4 +1,17 @@
-"""Generate the HSSC submission cover letter as a Word document."""
+"""Generate 3 journal-tailored cover letters for v2 manuscript.
+
+Targets (within 20-50万円 budget, paid OA only — Diamond OA excluded
+because the user noted free venues are oversubscribed; Frontiers in
+Education excluded because already submitted elsewhere):
+
+- Education Sciences (MDPI) — ~$1,800 ≈ 27万円
+- Systematic Reviews (BMC) — ~$2,545 ≈ 38万円
+- Heliyon (Elsevier) — ~$1,890 ≈ 28万円
+
+Each cover letter is tailored to the journal's scope, audience, and
+editorial culture. All share the same factual core (preregistration,
+preprint, OSF deposits, COI).
+"""
 
 from datetime import date
 from pathlib import Path
@@ -16,97 +29,293 @@ HEADER_LINES = [
     "Email: eisuke.tokiwa@sunblaze.jp",
 ]
 
-ADDRESSEE_LINES = [
-    "To the Editors,",
-    "Humanities and Social Sciences Communications",
+SIGNATURE_LINES = [
+    "Eisuke Tokiwa",
+    "Founder, SUNBLAZE Co., Ltd.",
+    "Tokyo, Japan",
+    "ORCID: 0009-0009-7124-6669",
+    "Email: eisuke.tokiwa@sunblaze.jp",
 ]
 
-BODY_PARAGRAPHS = [
+# Shared factual blocks (identical across journals)
+SHARED_OPEN_SCIENCE = (
+    "__Open science.__ "
+    "Pre-registration: https://doi.org/10.17605/OSF.IO/E5W47 (OSF Registries, "
+    "registered 23 April 2026, prior to formal data extraction). "
+    "Preprint: https://doi.org/10.21203/rs.3.rs-9513298 (Research Square v1, "
+    "posted 27 April 2026). Data, analysis code, search logs, screening "
+    "decisions, risk-of-bias ratings, and supplementary materials are "
+    "publicly available on the OSF project (https://doi.org/10.17605/OSF.IO/79M5J), "
+    "comprising seven separately DOI-tagged components covering protocol, "
+    "search, screening, extraction, risk of bias, analysis, and the article-"
+    "level DOI index. A version-controlled mirror is maintained at "
+    "https://github.com/etoki/paper."
+)
+
+SHARED_COI = (
+    "__Conflict of interest.__ "
+    "I declare no financial conflicts of interest. One of my own prior primary "
+    "studies (Tokiwa, 2025, manuscript in preparation) is potentially eligible "
+    "for inclusion; this is addressed transparently through a pre-specified "
+    "sensitivity analysis excluding the author's own study, which leaves the "
+    "primary conclusions unchanged (|Δr| < .001 for every trait, because that "
+    "study did not contribute extractable zero-order correlations to the "
+    "primary quantitative pool)."
+)
+
+SHARED_NONDUP = (
+    "The manuscript has not been published elsewhere and is not under "
+    "consideration by another journal. The Research Square preprint (v1) is "
+    "explicitly disclosed above; any substantive revisions during peer review "
+    "will be reflected in a versioned preprint update under the same DOI stem. "
+    "I am the sole author and accept full accountability for all aspects of "
+    "the work."
+)
+
+# ---------------------------------------------------------------------------
+# Education Sciences (MDPI)
+# ---------------------------------------------------------------------------
+ES_ADDRESSEE = [
+    "To the Editors,",
+    "Education Sciences (MDPI)",
+]
+
+ES_BODY = [
     "Dear Editors,",
 
     "I am pleased to submit “Big Five Personality Traits and Academic "
     "Achievement in Online Learning Environments: A Systematic Review and "
-    "Meta-Analysis” for consideration as an Article in Humanities and "
-    "Social Sciences Communications.",
+    "Meta-Analysis” for consideration as a Review article in Education "
+    "Sciences. The manuscript reports a pre-registered, PRISMA 2020-compliant "
+    "quantitative synthesis at the intersection of educational psychology, "
+    "personality science, and online/distance learning research.",
 
-    ("__Context and importance.__ "
-     "Eight prior meta-analyses (Poropat, 2009; McAbee & Oswald, 2013; "
-     "Vedel, 2014; Stajkovic et al., 2018; Mammadov, 2022; Zell & Lesick, "
-     "2022; Meyer et al., 2023; Chen et al., 2025) have established "
-     "Conscientiousness as the strongest Big Five predictor of academic "
-     "achievement (ρ ≈ .19–.28), with smaller but reliable "
-     "Openness effects. None of these syntheses, however, has tested "
-     "learning modality—online, blended, or face-to-face—as a "
-     "substantive moderator. As post-secondary instruction is increasingly "
-     "delivered online, the question of whether established "
-     "personality–achievement relationships transfer to "
-     "technology-mediated environments is empirically open and societally "
-     "consequential."),
+    ("__Background and gap.__ "
+     "Conscientiousness has been established as the strongest Big Five "
+     "predictor of academic achievement across eight prior meta-analyses "
+     "(Poropat, 2009 through Chen et al., 2025), but those syntheses pooled "
+     "face-to-face, blended, and online samples without testing learning "
+     "modality as a moderator. With online and blended instruction now "
+     "constituting a substantial share of post-secondary education globally, "
+     "an online-specific quantitative synthesis is needed to determine "
+     "whether established face-to-face benchmarks generalize to technology-"
+     "mediated contexts."),
 
-    ("__Contribution.__ "
-     "This pre-registered (OSF Registries e5w47, registered 23 April 2026) "
-     "PRISMA 2020-compliant review is, to my knowledge, the first "
-     "quantitative synthesis of this question. Drawing on 31 primary "
-     "studies (10 contributing direct correlations to the primary pool; "
-     "pooled N = 3,384), I report online-specific pooled estimates for "
-     "each Big Five trait (Conscientiousness r = .167, 95% CI "
-     "[.089, .243]; Agreeableness r = .112; Openness r = .086; Neuroticism "
-     "r = .018; Extraversion r = .002), and document two highly "
-     "significant pre-registered moderator effects: Extraversion × "
-     "Region (Asian r = −.131 vs. non-Asian r = .050; "
+    ("__Methods and findings.__ "
+     "The review followed a pre-registered protocol (OSF Registries E5W47, "
+     "registered 23 April 2026) and PRISMA 2020 reporting standards. From "
+     "31 primary studies catalogued at full-text assessment, 25 were retained "
+     "for qualitative synthesis and 10 contributed direct or β-converted "
+     "Pearson correlations to the primary quantitative pool (pooled "
+     "N = 3,384). Random-effects meta-analysis with REML estimation and "
+     "Hartung-Knapp-Sidik-Jonkman confidence-interval adjustment yielded "
+     "Conscientiousness r = .167, 95% CI [.089, .243]; Agreeableness "
+     "r = .112; Openness r = .086; Neuroticism r = .018; Extraversion "
+     "r = .002. Two pre-registered moderator effects were highly significant: "
+     "Extraversion × Region (Asian r = −.131 vs. non-Asian r = .050; "
      "Q_between = 46.43, p < .001) and Extraversion × Outcome Type "
-     "(objective r = −.038 vs. self-rated r = .117; Q_between = "
-     "17.30, p < .001). The findings preliminarily support a "
-     "technology-mediated extension of the Personality–Achievement "
-     "Saturation Hypothesis and document novel cultural- and "
-     "outcome-dependent shifts in the Extraversion–achievement link."),
+     "(objective r = −.038 vs. self-rated r = .117; Q_between = 17.30, "
+     "p < .001), indicating that the Extraversion–achievement association "
+     "shifts negatively in Asian samples and in objective achievement outcomes. "
+     "GRADE confidence ratings ranged from Moderate (Conscientiousness, "
+     "Extraversion) to Low (Openness, Agreeableness, Neuroticism). Seven "
+     "pre-specified sensitivity analyses confirm robustness."),
 
-    ("__Fit with the journal.__ "
-     "The work sits at the interdisciplinary intersection of educational "
-     "psychology, individual differences, and the social transformation "
-     "of learning under technology mediation—questions that extend "
-     "beyond any single subfield. The findings are directly relevant to "
-     "educators designing post-pandemic online curricula, to psychologists "
-     "refining theories of personality–context interaction, and to "
-     "policymakers concerned with cultural variation in technology-"
-     "mediated education—audiences that align with the broad "
-     "social-science readership of Humanities and Social Sciences "
-     "Communications."),
+    ("__Fit with Education Sciences.__ "
+     "Education Sciences has an established record of publishing rigorous "
+     "systematic reviews and meta-analyses on technology-supported learning, "
+     "personality and individual differences in education, and post-pandemic "
+     "educational change. The manuscript's combination of pre-registered "
+     "methodology, transparent open-science deposits, and online-specific "
+     "focus aligns directly with the journal's mission of methodologically "
+     "robust, openly reported education research. Findings are directly "
+     "relevant to readers designing online and blended curricula and to "
+     "researchers refining personality-context interaction theory."),
 
-    ("__Open science.__ "
-     "Pre-registration: https://doi.org/10.17605/OSF.IO/E5W47. "
-     "Preprint: https://doi.org/10.21203/rs.3.rs-9513298/v1 (Research "
-     "Square v1, posted 27 April 2026). Data, analysis code, search "
-     "logs, and supplementary materials: https://doi.org/10.17605/OSF.IO/79M5J "
-     "(seven OSF components covering protocol, search, screening, "
-     "extraction, risk of bias, analysis, and the article-level DOI "
-     "index). A version-controlled mirror is maintained at "
-     "https://github.com/etoki/paper."),
+    SHARED_OPEN_SCIENCE,
 
-    ("__Conflict of interest.__ "
-     "I declare no financial conflicts. One of my own primary studies "
-     "(Tokiwa, 2025, manuscript in preparation) is potentially eligible "
-     "for inclusion; this is addressed through a pre-specified "
-     "sensitivity analysis excluding the author’s own study, which "
-     "leaves the primary conclusions unchanged."),
+    SHARED_COI,
 
-    ("The manuscript has not been published elsewhere and is not under "
-     "consideration by another journal. The submission has been prepared "
-     "in compliance with the journal’s double-anonymous peer review "
-     "policy: identifying information has been removed from the main "
-     "manuscript and supplementary files, and the author contribution "
-     "statement is provided through the submission portal rather than in "
-     "the manuscript itself. I am the sole author and accept full "
-     "accountability for all aspects of the work."),
+    SHARED_NONDUP,
 
-    "Thank you for considering this submission.",
+    "All MDPI submission requirements are addressed: ORCID provided in the "
+    "header, structured abstract conformant to journal guidelines, "
+    "supplementary materials linked from the OSF deposit, and ICMJE "
+    "authorship criteria met (sole author).",
+
+    "Thank you for considering this manuscript. I look forward to your "
+    "decision.",
+
+    "Sincerely,",
+]
+
+# ---------------------------------------------------------------------------
+# Systematic Reviews (BMC)
+# ---------------------------------------------------------------------------
+SR_ADDRESSEE = [
+    "To the Editors,",
+    "Systematic Reviews (BMC)",
+]
+
+SR_BODY = [
+    "Dear Editors,",
+
+    "I am pleased to submit “Big Five Personality Traits and Academic "
+    "Achievement in Online Learning Environments: A Systematic Review and "
+    "Meta-Analysis” for consideration in Systematic Reviews. The manuscript "
+    "reports a pre-registered, PRISMA 2020-compliant systematic review and "
+    "meta-analysis with a fully reproducible analytic pipeline.",
+
+    ("__Why this synthesis is needed.__ "
+     "Eight prior meta-analyses have established Conscientiousness as the "
+     "strongest Big Five predictor of academic achievement (ρ ≈ "
+     ".19–.28; Poropat, 2009 through Chen et al., 2025). However, every "
+     "one of these syntheses has aggregated face-to-face, blended, and "
+     "online samples without testing learning modality as a substantive "
+     "moderator. As post-secondary instruction is increasingly delivered "
+     "online, the question of whether face-to-face benchmarks generalize to "
+     "technology-mediated environments has been empirically open and "
+     "societally consequential. The present review is, to my knowledge, the "
+     "first quantitative synthesis dedicated specifically to online learning "
+     "environments."),
+
+    ("__Methodological rigor (highlights for Systematic Reviews readers).__"
+     " (1) Protocol pre-registered on OSF Registries (E5W47) on 23 April "
+     "2026, prior to formal data extraction; PRISMA 2020-compliant reporting "
+     "with the completed checklist deposited as supplementary material. "
+     "(2) Effect-size synthesis on the Fisher z scale with REML τ² "
+     "estimation and Hartung-Knapp-Sidik-Jonkman confidence-interval "
+     "adjustment to control Type I error in small-k scenarios. (3) Risk of "
+     "bias assessed with the Joanna Briggs Institute 8-item checklist for "
+     "analytical cross-sectional studies; intra-rater reliability target "
+     "κ ≥ 0.80 met for screening, full-text assessment, extraction, and "
+     "RoB rating. (4) Seven pre-specified sensitivity analyses (COI "
+     "exclusion, Peterson-Brown β-converted exclusion, RoB < 5 "
+     "exclusion, leave-one-out, alternative τ² estimators, HEXACO "
+     "crosswalk variants, small-sample exclusion) all confirm robustness "
+     "of the primary conclusions. (5) Publication-bias assessment using "
+     "Egger's regression, Duval and Tweedie's trim-and-fill, and Simonsohn "
+     "et al.'s p-curve. (6) Certainty of evidence rated using an "
+     "adaptation of GRADE for correlational syntheses, yielding ratings "
+     "ranging from Moderate (Conscientiousness, Extraversion) to Low "
+     "(Openness, Agreeableness, Neuroticism). (7) Three pre-registered "
+     "deviations are transparently disclosed (database access limitations, "
+     "moderator quantitative-vs-narrative reduction with k-per-level "
+     "documentation, and the post-registration addition of one benchmark "
+     "meta-analysis to the introductory comparison set)."),
+
+    ("__Principal results.__ "
+     "Across 31 catalogued primary studies (25 retained for qualitative "
+     "synthesis, 10 contributing to the primary quantitative pool; pooled "
+     "N = 3,384), Conscientiousness emerged as the strongest predictor "
+     "(r = .167, 95% CI [.089, .243]) but at attenuated magnitude relative "
+     "to face-to-face benchmarks (ρ ≈ .22–.28). Two pre-"
+     "registered moderator effects were highly significant: Extraversion × "
+     "Region (Q_between = 46.43, p < .001) and Extraversion × Outcome Type "
+     "(Q_between = 17.30, p < .001), the latter being, to my knowledge, the "
+     "first meta-analytic evidence that the choice of objective vs. self-"
+     "rated outcome systematically alters the Extraversion–achievement "
+     "association in online learning environments."),
+
+    ("__Fit with Systematic Reviews.__ "
+     "Systematic Reviews is the natural venue for a methodologically rigorous, "
+     "preregistered, PRISMA 2020-compliant synthesis with a fully reproducible "
+     "analytic pipeline. The manuscript's strict adherence to systematic "
+     "review methodology, its transparent disclosure of pre-registered "
+     "deviations, and its publicly deposited data + code + search logs are "
+     "directly aligned with the journal's editorial mission."),
+
+    SHARED_OPEN_SCIENCE,
+
+    SHARED_COI,
+
+    SHARED_NONDUP,
+
+    "Thank you for considering this manuscript. I look forward to your "
+    "decision.",
+
+    "Sincerely,",
+]
+
+# ---------------------------------------------------------------------------
+# Heliyon (Elsevier)
+# ---------------------------------------------------------------------------
+HE_ADDRESSEE = [
+    "To the Editors,",
+    "Heliyon",
+]
+
+HE_BODY = [
+    "Dear Editors,",
+
+    "I am pleased to submit “Big Five Personality Traits and Academic "
+    "Achievement in Online Learning Environments: A Systematic Review and "
+    "Meta-Analysis” for consideration in Heliyon, with the suggested "
+    "section “Education” or “Psychology”.",
+
+    ("__Significance and novelty.__ "
+     "Eight prior meta-analyses have established Conscientiousness as the "
+     "strongest Big Five predictor of academic achievement (ρ ≈ "
+     ".19–.28), but no prior synthesis has tested learning modality "
+     "as a substantive moderator. With online and blended instruction now "
+     "constituting a substantial share of post-secondary education, the "
+     "generalizability of face-to-face benchmarks to technology-mediated "
+     "environments has been an empirically open question. This pre-"
+     "registered, PRISMA 2020-compliant review is, to my knowledge, the "
+     "first quantitative meta-analytic synthesis dedicated to online "
+     "learning environments."),
+
+    ("__Summary of methods and findings.__ "
+     "The review followed a pre-registered protocol (OSF Registries E5W47, "
+     "registered 23 April 2026, prior to formal data extraction). From 31 "
+     "primary studies catalogued at full-text assessment, 25 were retained "
+     "for qualitative synthesis and 10 contributed direct or β-converted "
+     "Pearson correlations to the primary quantitative pool (total pooled "
+     "N = 3,384). Pooled estimates from random-effects REML meta-analysis "
+     "with Hartung-Knapp-Sidik-Jonkman adjustment: Conscientiousness "
+     "r = .167, 95% CI [.089, .243]; Agreeableness r = .112; Openness "
+     "r = .086; Neuroticism r = .018; Extraversion r = .002. Two pre-"
+     "registered moderator effects were highly significant: Extraversion × "
+     "Region (Asian r = −.131 vs. non-Asian r = .050; Q_between = 46.43, "
+     "p < .001) and Extraversion × Outcome Type (objective r = −.038 vs. "
+     "self-rated r = .117; Q_between = 17.30, p < .001). GRADE confidence "
+     "ratings range from Moderate (Conscientiousness, Extraversion) to Low "
+     "(Openness, Agreeableness, Neuroticism). Seven pre-specified "
+     "sensitivity analyses confirm robustness."),
+
+    ("__Fit with Heliyon.__ "
+     "Heliyon's broad multidisciplinary scope is well suited to a manuscript "
+     "that sits at the intersection of educational psychology, personality "
+     "science, and online/distance learning research. Several primary studies "
+     "in the synthesis are themselves Elsevier titles, including The Internet "
+     "and Higher Education (Abe, 2020), Personality and Individual Differences "
+     "(Quigley et al., 2022), and Computers in Human Behavior (Cohen & "
+     "Baruth, 2017). Heliyon's commitment to publishing methodologically "
+     "rigorous research regardless of perceived novelty premium is directly "
+     "aligned with this manuscript's emphasis on transparent reporting and "
+     "open data."),
+
+    SHARED_OPEN_SCIENCE,
+
+    SHARED_COI,
+
+    SHARED_NONDUP,
+
+    "All Elsevier submission requirements are addressed: ORCID, structured "
+    "abstract, declarations section, data availability statement linked to "
+    "the OSF deposit, and CRediT statement (sole author).",
+
+    "Thank you for considering this submission. I look forward to your "
+    "decision.",
 
     "Sincerely,",
 ]
 
 
-def add_paragraph(doc, text, bold_segments=None, alignment=WD_ALIGN_PARAGRAPH.LEFT,
-                  space_after=Pt(6)):
+# ---------------------------------------------------------------------------
+# Builder
+# ---------------------------------------------------------------------------
+def add_paragraph(doc, text, alignment=WD_ALIGN_PARAGRAPH.LEFT, space_after=Pt(6)):
     """Add a paragraph; supports inline bold via __segment__ markers."""
     p = doc.add_paragraph()
     p.alignment = alignment
@@ -125,7 +334,7 @@ def add_paragraph(doc, text, bold_segments=None, alignment=WD_ALIGN_PARAGRAPH.LE
     return p
 
 
-def build_document(out_path: Path) -> None:
+def build_document(addressee, body, out_path: Path) -> None:
     doc = Document()
 
     for section in doc.sections:
@@ -141,23 +350,31 @@ def build_document(out_path: Path) -> None:
     add_paragraph(doc, date.today().strftime("%B %d, %Y"))
     add_paragraph(doc, "", space_after=Pt(0))
 
-    for line in ADDRESSEE_LINES:
+    for line in addressee:
         add_paragraph(doc, line, space_after=Pt(0))
     add_paragraph(doc, "", space_after=Pt(0))
 
-    for paragraph in BODY_PARAGRAPHS:
+    for paragraph in body:
         add_paragraph(doc, paragraph)
 
-    add_paragraph(doc, "Eisuke Tokiwa", space_after=Pt(0))
-    add_paragraph(doc, "Founder, SUNBLAZE Co., Ltd.", space_after=Pt(0))
-    add_paragraph(doc, "Tokyo, Japan", space_after=Pt(0))
-    add_paragraph(doc, "ORCID: 0009-0009-7124-6669", space_after=Pt(0))
-    add_paragraph(doc, "Email: eisuke.tokiwa@sunblaze.jp", space_after=Pt(0))
+    for line in SIGNATURE_LINES:
+        add_paragraph(doc, line, space_after=Pt(0))
 
     doc.save(str(out_path))
 
 
+def main():
+    here = Path(__file__).resolve().parent
+    targets = [
+        ("education_sciences_mdpi", ES_ADDRESSEE, ES_BODY),
+        ("systematic_reviews_bmc", SR_ADDRESSEE, SR_BODY),
+        ("heliyon", HE_ADDRESSEE, HE_BODY),
+    ]
+    for slug, addressee, body in targets:
+        out = here / f"cover_letter_{slug}.docx"
+        build_document(addressee, body, out)
+        print(f"Wrote {out}")
+
+
 if __name__ == "__main__":
-    out = Path(__file__).resolve().parent / "cover_letter_hssc.docx"
-    build_document(out)
-    print(f"Wrote {out}")
+    main()
