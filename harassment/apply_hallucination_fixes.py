@@ -11,6 +11,14 @@ Fixes the 4 findings from HALLUCINATION_REPORT.md:
    list and matches the Honesty-Humility / abusive supervision theme).
 4. Remove the unused Jones & Paulhus (2011) entry from the reference list.
 
+Plus T9 (live Crossref) follow-up:
+
+5. Vize et al. (2016) → (2018): per APA 7 §10.1 example 47 the print year
+   takes precedence over the advance-online date for periodicals. The
+   article appeared online in 2016 but was assigned to *Personality
+   Disorders* vol 9 issue 2 in 2018. Updates both the body citation and
+   the reference-list entry.
+
 Run:
     python3 harassment/apply_hallucination_fixes.py
 """
@@ -182,6 +190,34 @@ def fix_breevaart_year(xml: str) -> tuple[str, int]:
     return xml.replace(target, repl), n
 
 
+def fix_vize_year(xml: str) -> tuple[str, int]:
+    """Replace Vize et al., 2016 → 2018 in both body and reference list.
+
+    The DOI 10.1037/per0000222 resolved on Crossref to print year 2018
+    (Personality Disorders vol 9 issue 2); the local "(2016)" reflected
+    the advance-online date. APA 7 §10.1 prefers the final/print year
+    once it is available.
+
+    Two literal anchors are sufficient:
+      - body in-text:    "Vize et al., 2016"
+      - reference list:  "Miller, J. D. (2016)" (the unique tail of the
+                         Vize et al. author block, which guarantees we
+                         only touch the Vize entry's year and not any
+                         other Miller-2016 occurrence).
+    Idempotent: after the first run neither anchor exists.
+    """
+    body_target = "Vize et al., 2016"
+    body_repl = "Vize et al., 2018"
+    refs_target = "Miller, J. D. (2016). Differences among Dark Triad"
+    refs_repl = "Miller, J. D. (2018). Differences among Dark Triad"
+    n_body = xml.count(body_target)
+    n_refs = xml.count(refs_target)
+    new_xml = xml.replace(body_target, body_repl).replace(
+        refs_target, refs_repl
+    )
+    return new_xml, n_body + n_refs
+
+
 def remove_jones_2011(xml: str) -> tuple[str, bool]:
     """Remove the Jones, D. N., & Paulhus, D. L. (2011)... reference paragraph."""
     anchor = "Jones, D. N., &amp; Paulhus, D. L. (2011)"
@@ -231,6 +267,17 @@ def insert_references(xml: str) -> tuple[str, list[str]]:
             c for c in u.normalize("NFD", s) if not u.combining(c)
         ).lower()
 
+    # Idempotency: build a set of (surname, year) pairs that already exist
+    # in the reference list so that re-running this script does not insert
+    # duplicate paragraphs.
+    existing_pairs: set[tuple[str, str]] = set()
+    for _start, _end, surname in paragraphs:
+        # Re-extract year from the same paragraph
+        para_text = "".join(text_re.findall(xml[_start:_end]))
+        ym = re.search(r"\((\d{4})", para_text)
+        if ym:
+            existing_pairs.add((fold(surname), ym.group(1)))
+
     inserted: list[str] = []
     new_xml = xml
     # Process in reverse alphabetical order so earlier insertions don't shift
@@ -242,6 +289,8 @@ def insert_references(xml: str) -> tuple[str, list[str]]:
         # Compare key surname (e.g., "Babiak 2006") only on surname portion
         new_surname = fold(key.split()[0])
         new_year = key.split()[-1]
+        if (new_surname, new_year) in existing_pairs:
+            continue  # already present — keep idempotent
         # Find insertion point: first paragraph where (fold(surname), year) > (new)
         insert_at = None
         # Re-scan paragraphs from current new_xml — they may have shifted by
@@ -306,6 +355,9 @@ def patch_docx(path: Path) -> dict:
 
     new_xml, n_breevaart = fix_breevaart_year(new_xml)
     report["breevaart_2019_to_2017"] = n_breevaart
+
+    new_xml, n_vize = fix_vize_year(new_xml)
+    report["vize_2016_to_2018"] = n_vize
 
     new_xml, ok_jones = remove_jones_2011(new_xml)
     report["jones_2011_removed"] = ok_jones

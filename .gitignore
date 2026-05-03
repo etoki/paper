@@ -30,3 +30,6 @@ simulation/output/figures/
 .env.*
 !.env.example
 .coverage
+
+# Local docx backups created by apply_hallucination_fixes.py
+*.docx.bak
