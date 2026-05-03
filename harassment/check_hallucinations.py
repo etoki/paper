@@ -721,6 +721,26 @@ def task_t8_references(text: str, f: Findings) -> None:
 # --------------------------------------------------------------------- #
 # Main
 # --------------------------------------------------------------------- #
+def task_t9_doi_audit(text: str, f: Findings) -> None:
+    """Dry-run DOI audit on Manuscript_all.docx via the shared auditor."""
+    import sys as _sys
+    shared = ROOT.parent / "metaanalysis" / "analysis"
+    if str(shared) not in _sys.path:
+        _sys.path.insert(0, str(shared))
+    import check_doi as _cd  # type: ignore
+    refs_path = PAPER / "Manuscript_all.docx"
+    records = _cd.load_references(refs_path)
+    passed, warn, failed = _cd.dry_run(records)
+    if failed:
+        f.failed("T9", f"DOI dry-run: {failed} hard failure(s)",
+                 "see stdout above")
+    else:
+        f.passed("T9",
+                 f"DOI dry-run: {passed} passed / {warn} warn / "
+                 f"{failed} failed (use harassment/check_doi.py --mode online "
+                 f"for Crossref verification)")
+
+
 ALL_TASKS = {
     "t1": ("Descriptives (Table 1)", task_t1_descriptives),
     "t2": ("Spearman correlations (Table 2)", task_t2_correlations),
@@ -730,6 +750,7 @@ ALL_TASKS = {
     "t6": ("Cronbach's α (Methods)", task_t6_alphas),
     "t7": ("Sample / counts", task_t7_sample_counts),
     "t8": ("Reference list audit", task_t8_references),
+    "t9": ("DOI audit (Crossref-backed; dry-run here)", task_t9_doi_audit),
 }
 
 

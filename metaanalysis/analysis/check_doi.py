@@ -112,9 +112,22 @@ JOURNAL_TO_PREFIX = {
 # ---------------------------------------------------------------------------
 # Parsing
 # ---------------------------------------------------------------------------
-DOI_RE = re.compile(r"https?://(?:dx\.)?doi\.org/(10\.\d{4,9}/[^\s]+)", re.I)
+# DOI in any of: APA URL form, Vancouver "doi: 10.xxx", or bare "10.xxx/y".
+# We anchor with a non-word boundary on the left to avoid false matches inside
+# longer identifiers.
+DOI_URL_RE = re.compile(r"https?://(?:dx\.)?doi\.org/(10\.\d{4,9}/\S+)", re.I)
+DOI_BARE_RE = re.compile(r"(?:^|\s|doi:\s*)(10\.\d{4,9}/[^\s,;]+)", re.I)
 YEAR_RE = re.compile(r"\((\d{4})\)")
+# Fallback for non-APA entries (e.g., Vancouver "Behav Brain Sci. 2010 Jun;…")
+YEAR_LOOSE_RE = re.compile(r"\b(19\d{2}|20\d{2})\b")
 ITALIC_RE = re.compile(r"<i>(.*?)</i>", re.DOTALL)
+# Heuristic: a paragraph that doesn't look like an APA reference start.
+# Used to detect end of References section in .docx files lacking a heading
+# for the next section (Tables/Figures often inline immediately after).
+NOT_A_REFERENCE_RE = re.compile(
+    r"^(?:Table\s+\d+|Figure\s+\d+|Note\.|Notes?\b|Appendix\b)",
+    re.IGNORECASE,
+)
 # Trailing punctuation to strip from page/volume tokens when we slice
 TRAILING_PUNCT = ".,;"
 
@@ -159,13 +172,24 @@ def parse_entry(entry: str) -> dict:
         "doi": None,
     }
 
-    m_doi = DOI_RE.search(entry)
+    # DOI: prefer URL form (most reliable boundary), then any bare 10.x/y form
+    m_doi = DOI_URL_RE.search(entry)
+    if not m_doi:
+        m_doi = DOI_BARE_RE.search(entry)
     if m_doi:
         record["doi"] = m_doi.group(1).rstrip(TRAILING_PUNCT)
 
+    # Year: prefer "(YYYY)" (APA), fall back to any 19xx/20xx token that is
+    # not embedded in the DOI string.
     m_year = YEAR_RE.search(entry)
     if m_year:
         record["year"] = m_year.group(1)
+    else:
+        doi_str = record["doi"] or ""
+        for m in YEAR_LOOSE_RE.finditer(entry):
+            if m.group(0) not in doi_str:
+                record["year"] = m.group(0)
+                break
 
     # First author surname: substring up to the first comma
     head = entry.split(",", 1)[0].strip()
@@ -211,18 +235,136 @@ def parse_entry(entry: str) -> dict:
     return record
 
 
-def load_references(refs_path: Path) -> list[dict]:
+def _load_py(refs_path: Path) -> list[str]:
+    """Load REFERENCES list from a Python module exposing a top-level
+    REFERENCES list of strings (already <i>...</i>-tagged)."""
     spec = importlib.util.spec_from_file_location("references_data", refs_path)
     if spec is None or spec.loader is None:
         raise RuntimeError(f"Could not load {refs_path}")
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
-    out = []
-    for raw in mod.REFERENCES:
-        if not raw or not raw[0].isupper():
+    return [s for s in mod.REFERENCES if s and s[0].isupper()]
+
+
+_MD_ITALIC_RE = re.compile(r"\*([^*\n]+?)\*")
+
+
+def _load_md(refs_path: Path) -> list[str]:
+    """Load reference entries from an APA-formatted markdown file.
+
+    Entries are paragraphs separated by blank lines. Markdown italic
+    `*Journal, vol*` is rewritten to `<i>Journal, vol</i>` so the rest of
+    the parsing pipeline can use a single italic syntax."""
+    text = refs_path.read_text(encoding="utf-8")
+    # Strip an introductory heading like "# 05. References ..."
+    text = re.sub(r"\A\s*#[^\n]*\n", "", text)
+    paragraphs = re.split(r"\n\s*\n", text)
+    out: list[str] = []
+    for p in paragraphs:
+        p = p.strip()
+        if not p or not p[0].isupper():
             continue
-        out.append(parse_entry(raw))
+        # Collapse internal newlines (an APA entry sometimes wraps)
+        p = re.sub(r"\s*\n\s*", " ", p)
+        # Markdown italic -> <i>...</i>
+        p = _MD_ITALIC_RE.sub(r"<i>\1</i>", p)
+        out.append(p)
     return out
+
+
+def _load_docx(refs_path: Path,
+               heading_pattern: str = r"^references\b",
+               terminators: tuple[str, ...] = (
+                   "tables", "figures", "appendix",
+                   "author note", "supplementary", "supplement",
+               )) -> list[str]:
+    """Load reference entries from a .docx manuscript.
+
+    Walks paragraphs, locates the References section by heading, and
+    yields each subsequent paragraph until a terminator heading. Italic
+    runs are wrapped in `<i>...</i>` so the journal/book title and
+    volume token are recoverable by parse_entry.
+    """
+    try:
+        from docx import Document  # type: ignore
+    except ImportError as e:
+        raise RuntimeError(
+            "python-docx is required to load .docx reference lists"
+        ) from e
+
+    doc = Document(str(refs_path))
+    in_refs = False
+    out: list[str] = []
+    head_re = re.compile(heading_pattern, re.IGNORECASE)
+    term_set = {t.lower() for t in terminators}
+
+    for para in doc.paragraphs:
+        text = para.text.strip()
+        if not text:
+            continue
+        low = text.lower()
+        if not in_refs:
+            if head_re.search(low):
+                in_refs = True
+            continue
+        # Inside refs section
+        if low in term_set:
+            break
+        # Some manuscripts have no Tables/Figures heading; the section
+        # transitions silently into "Table 1", "Note.", "Figure 1" etc.
+        # Stop as soon as we encounter such a paragraph.
+        if NOT_A_REFERENCE_RE.match(text):
+            break
+        # Build the entry preserving italic markers per-run, walking both
+        # regular runs and hyperlink runs in document order. python-docx
+        # exposes only direct-child runs via paragraph.runs, which omits
+        # hyperlinked text — and DOIs are usually hyperlinks.
+        from docx.oxml.ns import qn  # local import to keep top tidy
+        parts: list[str] = []
+
+        def _emit_run(r_elem):
+            t_elems = r_elem.findall(qn("w:t"))
+            text_pieces = [(t.text or "") for t in t_elems]
+            run_text = "".join(text_pieces)
+            if run_text == "":
+                return
+            italic_props = r_elem.find(qn("w:rPr"))
+            italic = (italic_props is not None
+                      and italic_props.find(qn("w:i")) is not None)
+            parts.append(f"<i>{run_text}</i>" if italic else run_text)
+
+        for child in para._element.iterchildren():
+            tag = child.tag
+            if tag == qn("w:r"):
+                _emit_run(child)
+            elif tag == qn("w:hyperlink"):
+                for sub in child.findall(qn("w:r")):
+                    _emit_run(sub)
+
+        joined = "".join(parts) if parts else text
+        # Collapse adjacent <i>…</i><i>…</i> that arise from run splits
+        joined = re.sub(r"</i>\s*<i>", " ", joined)
+        joined = re.sub(r"<i>\s*</i>", "", joined)
+        if joined and joined[0].isupper():
+            out.append(joined.strip())
+    return out
+
+
+def load_references(refs_path: Path) -> list[dict]:
+    """Dispatch on file extension and return parsed reference records."""
+    suffix = refs_path.suffix.lower()
+    if suffix == ".py":
+        raws = _load_py(refs_path)
+    elif suffix == ".md":
+        raws = _load_md(refs_path)
+    elif suffix == ".docx":
+        raws = _load_docx(refs_path)
+    else:
+        raise RuntimeError(
+            f"Unsupported reference source format: {suffix} "
+            f"(expected .py, .md, or .docx)"
+        )
+    return [parse_entry(raw) for raw in raws]
 
 
 # ---------------------------------------------------------------------------

@@ -32,6 +32,7 @@ python3 harassment/check_hallucinations.py --verbose  # show passes
 | **T6** | Cronbach's α (Methods) | Y | `alfa/hexaco_alpha_results.csv` (item-level data) |
 | **T7** | Sample / counts (N, gender, age bins, missing) | Y | `raw.csv` |
 | **T8** | Reference list audit (in-text ⇔ ref list) | Y | manuscript text only |
+| **T9** | DOI audit (syntactic dry-run; live Crossref via `harassment/check_doi.py --mode online --mailto …`) | Y | shared `metaanalysis/analysis/check_doi.py` driving on `paper/Manuscript_all.docx` |
 
 ## Typical failure patterns
 
