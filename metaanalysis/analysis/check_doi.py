@@ -133,14 +133,23 @@ TRAILING_PUNCT = ".,;"
 
 
 def _strip_diacritics(s: str) -> str:
-    """Lowercase and remove combining accents and special letter variants."""
+    """Lowercase, normalize curly quotes, and remove combining accents and
+    special-letter variants. Order matters: lowercase first so that uppercase
+    Ø/Æ/Ł/etc. fall through the replacement map."""
+    s = (s or "").lower()
+    # Normalize various apostrophes to ASCII '
+    s = (s.replace("‘", "'")
+           .replace("’", "'")
+           .replace("ʼ", "'")
+           .replace("‛", "'"))
     s = unicodedata.normalize("NFD", s)
     s = "".join(c for c in s if not unicodedata.combining(c))
     repl = {"ı": "i", "ş": "s", "ç": "c", "ğ": "g", "ü": "u", "ö": "o",
-            "ä": "a", "ñ": "n", "ø": "o", "æ": "ae", "ß": "ss"}
+            "ä": "a", "ñ": "n", "ø": "o", "æ": "ae", "ß": "ss",
+            "ł": "l", "đ": "d"}
     for k, v in repl.items():
         s = s.replace(k, v)
-    return s.lower().strip()
+    return s.strip()
 
 
 def _norm_text(s: str) -> str:
@@ -191,9 +200,20 @@ def parse_entry(entry: str) -> dict:
                 record["year"] = m.group(0)
                 break
 
-    # First author surname: substring up to the first comma
-    head = entry.split(",", 1)[0].strip()
-    record["surname"] = head
+    # First author surname: depends on entry style.
+    #   APA:        "Vize, C. E., Lynam, ..."  / "de Vries, R. E."
+    #               surname is everything before ", I." (initial + period).
+    #   Vancouver:  "Bianchi R. (2018)" / "Henrich J, Heine SJ, ..."
+    #               surname is the leading word followed by space + initials.
+    apa_m = re.match(r"^(.+?),\s+[A-Z]\.", entry)
+    if apa_m:
+        record["surname"] = apa_m.group(1).strip()
+    else:
+        van_m = re.match(r"^([A-ZÀ-ÿ][\w'’`\-]+)\s+[A-Z]+\b", entry)
+        if van_m:
+            record["surname"] = van_m.group(1).strip()
+        else:
+            record["surname"] = entry.split(",", 1)[0].strip()
 
     # Italic block: usually the journal/book title plus volume
     m_it = ITALIC_RE.search(entry)
@@ -431,7 +451,26 @@ def dry_run(records: list[dict]) -> tuple[int, int, int]:
 # ---------------------------------------------------------------------------
 # Online checks (Crossref)
 # ---------------------------------------------------------------------------
-def crossref_get(doi: str, mailto: str, timeout: float = 10.0) -> Optional[dict]:
+def _crossref_status(doi: str) -> str:
+    """Best-effort guess at the most likely DOI registration agency for a
+    given prefix. Used only to label 404s informatively."""
+    prefix = doi.split("/", 1)[0]
+    return {
+        "10.15002": "JaLC (Hosei University Repository)",
+        "10.32222": "JaLC (Japanese journal)",
+        "10.24602": "JaLC (Japanese journal)",
+        "10.4992":  "JaLC (Japanese journal)",
+        "10.21203": "DataCite (Research Square preprint)",
+        "10.17605": "DataCite (OSF)",
+        "10.5281":  "DataCite (Zenodo)",
+        "10.31234": "DataCite (PsyArXiv)",
+    }.get(prefix, "")
+
+
+def crossref_get(doi: str, mailto: str,
+                 timeout: float = 10.0) -> tuple[Optional[dict], Optional[str]]:
+    """Return (message, error_kind). error_kind is None on success, otherwise
+    one of: 'not_found', 'http_error', 'network', 'decode'."""
     url = f"https://api.crossref.org/works/{doi}"
     req = urlrequest.Request(
         url,
@@ -440,16 +479,18 @@ def crossref_get(doi: str, mailto: str, timeout: float = 10.0) -> Optional[dict]
     try:
         with urlrequest.urlopen(req, timeout=timeout) as resp:
             data = json.load(resp)
-        return data.get("message")
+        return data.get("message"), None
     except urlerror.HTTPError as e:
+        if e.code == 404:
+            return None, "not_found"
         print(f"  ❌ HTTP {e.code} for {doi}: {e.reason}")
-        return None
+        return None, "http_error"
     except urlerror.URLError as e:
         print(f"  ❌ Network error for {doi}: {e.reason}")
-        return None
+        return None, "network"
     except (TimeoutError, json.JSONDecodeError) as e:
         print(f"  ❌ Decode/timeout for {doi}: {e}")
-        return None
+        return None, "decode"
 
 
 def _decode_html_entities(s: str) -> str:
@@ -468,19 +509,34 @@ def _container_titles(msg: dict) -> list[str]:
     return [_decode_html_entities(t) for t in raw if t]
 
 
-def _surname_match(local: str, crossref_family: str) -> bool:
-    """Tolerate Crossref records that store given+family in the family slot
-    (a known Frontiers / proceedings ingestion artifact)."""
+def _surname_match(local: str, crossref_family: str,
+                   crossref_given: str = "") -> bool:
+    """Tolerant first-author comparison.
+
+    Returns True when:
+    - normalized local equals normalized family or given, or
+    - local appears as the last whitespace-separated token of the Crossref
+      family (a known Frontiers / proceedings ingestion artifact where
+      "Given Family" is stored in the family slot), or
+    - local appears as the last token of given (DataCite/Research Square
+      sometimes records "Given Family" in the given slot and leaves family
+      empty), or
+    - the Crossref family equals the last token of the local surname (multi-
+      word particles like "de Vries" / "Van der Linden")."""
+    def _toks(s: str) -> list[str]:
+        return _strip_diacritics(s).split()
+
     a = _strip_diacritics(local)
     b = _strip_diacritics(crossref_family)
-    if a == b:
+    g = _strip_diacritics(crossref_given)
+    if a and (a == b or a == g):
         return True
-    # Local surname appears as the last whitespace-separated token of
-    # the Crossref family field
-    if b.split() and b.split()[-1] == a:
+    a_tokens, b_tokens, g_tokens = _toks(local), _toks(crossref_family), _toks(crossref_given)
+    if b_tokens and b_tokens[-1] == a:
         return True
-    # Or the Crossref family is the last token of the local surname
-    if a.split() and a.split()[-1] == b:
+    if g_tokens and g_tokens[-1] == a:
+        return True
+    if a_tokens and (a_tokens[-1] == b or a_tokens[-1] == g):
         return True
     return False
 
@@ -557,10 +613,20 @@ def online_audit(records: list[dict], mailto: str,
         if r["doi"] is None:
             continue
         label = f"{r['surname']} ({r['year']})"
-        msg = crossref_get(r["doi"], mailto)
+        msg, err = crossref_get(r["doi"], mailto)
         time.sleep(sleep)
         if msg is None:
-            failed += 1
+            if err == "not_found":
+                hint = _crossref_status(r["doi"])
+                tail = f" — likely {hint}" if hint else (
+                    " — Crossref has no record; verify the DOI resolves at "
+                    "doi.org and that it is registered with a DOI agency "
+                    "other than Crossref (JaLC / DataCite / mEDRA / OP)."
+                )
+                print(f"  ⚠ {label} [{r['doi']}]: not in Crossref{tail}")
+                warn += 1
+            else:
+                failed += 1
             continue
 
         local_findings = []
@@ -574,15 +640,20 @@ def online_audit(records: list[dict], mailto: str,
                 f"(print={print_y}, online={online_y}, issued={issued_y})"
             )
 
-        # First-author surname — substring/last-token tolerant
-        cr_first = None
+        # First-author surname — also consult the `given` field
+        cr_first_family = ""
+        cr_first_given = ""
         for a in (msg.get("author") or []):
-            if a.get("sequence") == "first" or cr_first is None:
-                cr_first = a.get("family") or cr_first
-        if r["surname"] and cr_first:
-            if not _surname_match(r["surname"], cr_first):
+            if a.get("sequence") == "first" or not cr_first_family:
+                cr_first_family = a.get("family") or cr_first_family
+                cr_first_given = a.get("given") or cr_first_given
+        if r["surname"] and (cr_first_family or cr_first_given):
+            if not _surname_match(r["surname"], cr_first_family,
+                                  cr_first_given):
                 local_findings.append(
-                    f"first-author local='{r['surname']}' crossref='{cr_first}'"
+                    f"first-author local='{r['surname']}' "
+                    f"crossref family='{cr_first_family}' "
+                    f"given='{cr_first_given}'"
                 )
 
         # Container title — check all titles, decode entities, subtitle-split
@@ -601,12 +672,15 @@ def online_audit(records: list[dict], mailto: str,
                 f"volume local={r['volume']} crossref={cr_vol}"
             )
 
-        # Pages
+        # Pages — accept Crossref reporting only the first page when local
+        # provides a full range
         cr_pages = (msg.get("page") or "").replace(" ", "")
         if r["pages"] and cr_pages:
-            local_p = r["pages"].replace(" ", "")
-            local_p = re.sub(r"[‐-―−]", "-", local_p)
-            if local_p != cr_pages:
+            local_p = re.sub(r"[‐-―−]", "-", r["pages"].replace(" ", ""))
+            cr_p = re.sub(r"[‐-―−]", "-", cr_pages)
+            local_first = local_p.split("-", 1)[0]
+            cr_first_pg = cr_p.split("-", 1)[0]
+            if local_p != cr_p and local_first != cr_first_pg:
                 local_findings.append(
                     f"pages local={r['pages']} crossref={cr_pages}"
                 )
