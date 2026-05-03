@@ -581,6 +581,12 @@ def task_t7():
 # ----------------------------------------------------------------------
 # Main dispatcher
 # ----------------------------------------------------------------------
+from check_doi import task_t9 as task_t9_doi
+
+def task_t9():
+    return task_t9_doi(REFS_PY)
+
+
 TASKS = {
     "t1": task_t1,
     "t2": task_t2,
@@ -589,8 +595,9 @@ TASKS = {
     "t5": task_t5,
     "t6": task_t6,
     "t7": task_t7,
+    "t9": task_t9,
 }
-AUTO = ["t1", "t2", "t4", "t6"]
+AUTO = ["t1", "t2", "t4", "t6", "t9"]
 SEMI_AUTO = ["t3", "t5", "t7"]
 
 
