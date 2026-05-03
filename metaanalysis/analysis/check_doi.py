@@ -310,6 +310,99 @@ def crossref_get(doi: str, mailto: str, timeout: float = 10.0) -> Optional[dict]
         return None
 
 
+def _decode_html_entities(s: str) -> str:
+    """Decode HTML/XML entities sometimes returned by Crossref (e.g., &amp;)."""
+    import html
+    return html.unescape(s or "")
+
+
+def _container_titles(msg: dict) -> list[str]:
+    """Return all non-empty container-title strings from a Crossref message,
+    HTML-entity-decoded. Some records carry both a book title and a series
+    title; checking each independently avoids false positives."""
+    raw = msg.get("container-title") or []
+    if isinstance(raw, str):
+        raw = [raw]
+    return [_decode_html_entities(t) for t in raw if t]
+
+
+def _surname_match(local: str, crossref_family: str) -> bool:
+    """Tolerate Crossref records that store given+family in the family slot
+    (a known Frontiers / proceedings ingestion artifact)."""
+    a = _strip_diacritics(local)
+    b = _strip_diacritics(crossref_family)
+    if a == b:
+        return True
+    # Local surname appears as the last whitespace-separated token of
+    # the Crossref family field
+    if b.split() and b.split()[-1] == a:
+        return True
+    # Or the Crossref family is the last token of the local surname
+    if a.split() and a.split()[-1] == b:
+        return True
+    return False
+
+
+def _journal_match(local: str, crossref_titles: list[str]) -> bool:
+    """Tolerant journal/container comparison.
+
+    Pass when any of the following holds for at least one Crossref title:
+    - normalized substring match in either direction
+    - the local title equals the head segment of "Head: Subtitle" form,
+      or vice versa (for journals whose Crossref entry includes a subtitle)
+    - the local title equals one of the Crossref titles after stripping a
+      trailing volume token from the local side
+    """
+    a = _norm_text(local)
+    a = re.sub(r"\s+\d+$", "", a)  # strip trailing volume token from local
+    if not a:
+        return False
+    for t in crossref_titles:
+        b = _norm_text(t)
+        if not b:
+            continue
+        if a in b or b in a:
+            return True
+        # Subtitle split (": ..." part is often absent in citation form)
+        a_head = a.split(":", 1)[0].strip()
+        b_head = b.split(":", 1)[0].strip()
+        if a_head and (a_head == b_head or a_head == b or a == b_head):
+            return True
+    return False
+
+
+def _years_from_msg(msg: dict) -> tuple[Optional[str], Optional[str], Optional[str]]:
+    """Return (print_year, online_year, issued_year) from a Crossref message.
+
+    Crossref's `issued` is the earliest known publication date — usually
+    online-first. APA 7 prefers the print/issue cover year for periodicals,
+    which is in `published-print`."""
+    def _y(field: str) -> Optional[str]:
+        try:
+            return str(msg[field]["date-parts"][0][0])
+        except (KeyError, IndexError, TypeError):
+            return None
+    return _y("published-print"), _y("published-online"), _y("issued")
+
+
+def _year_match(local: Optional[str], print_y: Optional[str],
+                online_y: Optional[str], issued_y: Optional[str]) -> bool:
+    """Pass when local equals the print year (preferred), or is within ±1 of
+    any reported Crossref year (covers online-first vs cover-date drift)."""
+    if not local:
+        return True
+    if print_y and local == print_y:
+        return True
+    candidates = [y for y in (print_y, online_y, issued_y) if y]
+    if any(local == y for y in candidates):
+        return True
+    try:
+        ly = int(local)
+        return any(abs(ly - int(y)) <= 1 for y in candidates if y.isdigit())
+    except ValueError:
+        return False
+
+
 def online_audit(records: list[dict], mailto: str,
                  sleep: float = 0.05) -> tuple[int, int, int]:
     """Return (passed, warn, failed)."""
@@ -330,37 +423,33 @@ def online_audit(records: list[dict], mailto: str,
 
         local_findings = []
 
-        # Year
-        try:
-            cr_year = str(msg["issued"]["date-parts"][0][0])
-        except (KeyError, IndexError, TypeError):
-            cr_year = None
-        if r["year"] and cr_year and cr_year != r["year"]:
-            local_findings.append(f"year local={r['year']} crossref={cr_year}")
+        # Year — prefer print, allow ±1 against online/issued
+        print_y, online_y, issued_y = _years_from_msg(msg)
+        if not _year_match(r["year"], print_y, online_y, issued_y):
+            shown = print_y or online_y or issued_y
+            local_findings.append(
+                f"year local={r['year']} crossref={shown} "
+                f"(print={print_y}, online={online_y}, issued={issued_y})"
+            )
 
-        # First-author surname
+        # First-author surname — substring/last-token tolerant
         cr_first = None
         for a in (msg.get("author") or []):
             if a.get("sequence") == "first" or cr_first is None:
                 cr_first = a.get("family") or cr_first
         if r["surname"] and cr_first:
-            if _strip_diacritics(cr_first) != _strip_diacritics(r["surname"]):
+            if not _surname_match(r["surname"], cr_first):
                 local_findings.append(
                     f"first-author local='{r['surname']}' crossref='{cr_first}'"
                 )
 
-        # Container title (journal / book)
-        cr_container = (msg.get("container-title") or [""])[0]
-        if r["journal_or_book"] and cr_container:
-            local = _norm_text(r["journal_or_book"])
-            # Drop trailing volume token from local
-            local = re.sub(r"\s+\d+$", "", local)
-            crn = _norm_text(cr_container)
-            # Allow either to be a substring of the other (abbreviation-tolerant)
-            if not (local in crn or crn in local):
+        # Container title — check all titles, decode entities, subtitle-split
+        cr_titles = _container_titles(msg)
+        if r["journal_or_book"] and cr_titles:
+            if not _journal_match(r["journal_or_book"], cr_titles):
                 local_findings.append(
                     f"journal local='{r['journal_or_book']}' "
-                    f"crossref='{cr_container}'"
+                    f"crossref={cr_titles}"
                 )
 
         # Volume
