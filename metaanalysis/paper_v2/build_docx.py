@@ -227,7 +227,7 @@ def build_declarations(doc, for_journal=False):
          "formal data extraction and quantitative synthesis. The full protocol (PRISMA-P "
          "2015 compliant) and supplementary materials are publicly available in the "
          "associated OSF project (https://doi.org/10.17605/OSF.IO/79M5J)."),
-        ("Availability of data and material",
+        ("Data and Code Availability",
          "All extracted data, analysis code, search logs, risk-of-bias "
          "ratings, figures, and supplementary materials are publicly "
          "available on the associated OSF project "
