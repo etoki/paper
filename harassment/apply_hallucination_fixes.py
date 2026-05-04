@@ -95,8 +95,7 @@ NEW_REFS: dict[str, str] = {
     ),
     "Paulhus 2001": (
         "Paulhus, D. L. (2001). Normal narcissism: Two minimalist accounts. "
-        "Psychological Inquiry, 12(4), 228–230. "
-        "https://doi.org/10.1207/S15327965PLI1204_5"
+        "Psychological Inquiry, 12(4), 228–230."
     ),
     "Zuckerman 1994": (
         "Zuckerman, M. (1994). Behavioral expressions and biosocial bases "
