@@ -227,7 +227,7 @@ def build_declarations(doc, for_journal=False):
          "formal data extraction and quantitative synthesis. The full protocol (PRISMA-P "
          "2015 compliant) and supplementary materials are publicly available in the "
          "associated OSF project (https://doi.org/10.17605/OSF.IO/79M5J)."),
-        ("Data and Code Availability",
+        ("Data Availability Statement",
          "All extracted data, analysis code, search logs, risk-of-bias "
          "ratings, figures, and supplementary materials are publicly "
          "available on the associated OSF project "
@@ -1303,7 +1303,7 @@ def build_results_part1(doc):
         "HEXACO Personality Inventory (1 study: A-19 MacLean, 2022), "
         "the Ten-Item Personality Inventory (TIPI, TIPI-J; 2 studies: "
         "A-31 Rivers, A-37 Zheng & Zheng), and other validated Big "
-        "Five–aligned scales (Sahinidis & Tsaknis's 30-item custom "
+        "Five–aligned scales (Sahinidis and Tsaknis's (2021) 30-item custom "
         "scale, Chinese-language Big Five scales of A-20 Mustafa et "
         "al. (2022) and A-26 Wang et al. (2023), "
         "and McCrae's 40-item scale used in A-28 Yu; 4 studies in "

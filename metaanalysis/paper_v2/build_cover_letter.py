@@ -1,9 +1,10 @@
-"""Generate 3 journal-tailored cover letters for v2 manuscript.
+"""Generate journal-tailored cover letters for v2 manuscript.
 
-Targets (within 20-50万円 budget, paid OA only — Diamond OA excluded
-because the user noted free venues are oversubscribed; Frontiers in
-Education excluded because already submitted elsewhere):
+Targets:
 
+- Frontiers in Education — author-initiated resubmission of the v2
+  refactor (already under the journal's submission system; editor invited
+  resubmission after the author flagged corrections)
 - Education Sciences (MDPI) — ~$1,800 ≈ 27万円
 - Systematic Reviews (BMC) — ~$2,545 ≈ 38万円
 - Heliyon (Elsevier) — ~$1,890 ≈ 28万円
@@ -71,6 +72,91 @@ SHARED_NONDUP = (
     "I am the sole author and accept full accountability for all aspects of "
     "the work."
 )
+
+# ---------------------------------------------------------------------------
+# Frontiers in Education (author-initiated resubmission)
+# ---------------------------------------------------------------------------
+FE_ADDRESSEE = [
+    "To the Editors,",
+    "Frontiers in Education",
+]
+
+FE_BODY = [
+    "Dear Editors,",
+
+    ("Thank you for your message inviting resubmission. Following my "
+     "earlier submission of this manuscript to Frontiers in Education, "
+     "I conducted an extensive self-audit and substantive refactor of the "
+     "analysis pipeline and reporting. I contacted the editorial office "
+     "to flag that corrections were warranted, and per your reply I am "
+     "now resubmitting the corrected version (v2) for consideration."),
+
+    ("__Summary of changes since the initial submission.__ "
+     "(1) The full quantitative pipeline was re-run after re-curating the "
+     "primary study set, yielding a transparent and now-canonical record: "
+     "31 primary studies catalogued at full-text assessment, 25 retained "
+     "for qualitative synthesis, and 10 contributing direct or β-converted "
+     "Pearson correlations to the primary quantitative pool (pooled "
+     "N = 3,384). All Tables 2–5 and the body-text effect sizes are "
+     "regenerated from the canonical pipeline (REML τ² with Hartung-Knapp-"
+     "Sidik-Jonkman CIs). "
+     "(2) An adapted GRADE assessment was added (Table 5), yielding "
+     "Moderate confidence for Conscientiousness and Extraversion, and Low "
+     "for Openness, Agreeableness, and Neuroticism. "
+     "(3) Seven pre-specified sensitivity analyses (COI exclusion, "
+     "Peterson-Brown β-converted exclusion, RoB < 5 exclusion, leave-one-"
+     "out, alternative τ² estimators, HEXACO crosswalk variants, small-"
+     "sample exclusion) and a publication-bias suite (Egger, trim-and-"
+     "fill, p-curve) were completed and reported. "
+     "(4) The full PRISMA 2020 checklist and a Declaration of Interest "
+     "form are attached as supplementary files. "
+     "(5) Reference list and citation entries were audited end-to-end "
+     "(authors, years, volumes, pages, and DOIs cross-validated against "
+     "Crossref); fabricated or imprecise bibliographic fields identified "
+     "during the audit were corrected. "
+     "(6) An automated hallucination-check protocol (T1–T9) was developed "
+     "to verify every numerical claim in the manuscript against the "
+     "canonical analysis outputs; all checks pass on the resubmitted "
+     "version."),
+
+    ("__Why the work belongs in Frontiers in Education.__ "
+     "Frontiers in Education has an established record of publishing "
+     "rigorously preregistered, openly reported reviews on technology-"
+     "supported learning and individual differences in education. The "
+     "manuscript reports the first quantitative meta-analytic synthesis "
+     "of Big Five personality traits and academic achievement dedicated "
+     "specifically to online learning environments, with two pre-"
+     "registered moderator findings (Extraversion × Region and "
+     "Extraversion × Outcome Type) that are directly relevant to readers "
+     "designing online and blended curricula across diverse cultural and "
+     "assessment contexts."),
+
+    ("__Headline findings.__ "
+     "Random-effects meta-analysis with REML estimation and Hartung-"
+     "Knapp-Sidik-Jonkman CI adjustment yielded Conscientiousness "
+     "r = .167, 95% CI [.089, .243]; Agreeableness r = .112; Openness "
+     "r = .086; Neuroticism r = .018; Extraversion r = .002. Two pre-"
+     "registered moderator effects were highly significant: Extraversion "
+     "× Region (Asian r = −.131 vs. non-Asian r = .050; "
+     "Q_between = 46.43, p < .001) and Extraversion × Outcome Type "
+     "(objective r = −.038 vs. self-rated r = .117; Q_between = 17.30, "
+     "p < .001). Conscientiousness remains the strongest Big Five "
+     "predictor in online environments but at attenuated magnitude "
+     "relative to face-to-face benchmarks (ρ ≈ .22–.28 in eight prior "
+     "meta-analyses)."),
+
+    SHARED_OPEN_SCIENCE,
+
+    SHARED_COI,
+
+    SHARED_NONDUP,
+
+    "Thank you for accommodating this author-initiated correction and "
+    "resubmission. I am happy to provide any further information the "
+    "editorial team may require.",
+
+    "Sincerely,",
+]
 
 # ---------------------------------------------------------------------------
 # Education Sciences (MDPI)
@@ -366,6 +452,7 @@ def build_document(addressee, body, out_path: Path) -> None:
 def main():
     here = Path(__file__).resolve().parent
     targets = [
+        ("frontiers_in_education", FE_ADDRESSEE, FE_BODY),
         ("education_sciences_mdpi", ES_ADDRESSEE, ES_BODY),
         ("systematic_reviews_bmc", SR_ADDRESSEE, SR_BODY),
         ("heliyon", HE_ADDRESSEE, HE_BODY),
