@@ -33,6 +33,7 @@ COVER_LETTER_BUILDS = [
     (PAPER_DIR / "cover_letter_rsos.md",   PAPER_DIR / "cover_letter_rsos.docx"),
     (PAPER_DIR / "cover_letter_johp.md",   PAPER_DIR / "cover_letter_johp.docx"),
     (PAPER_DIR / "cover_letter_pcirr.md",  PAPER_DIR / "cover_letter_pcirr.docx"),
+    (PAPER_DIR / "cover_letter_socarxiv.md", PAPER_DIR / "cover_letter_socarxiv.docx"),
     (PAPER_IEEE_DIR / "cover_letter_ieee.md", PAPER_IEEE_DIR / "cover_letter_ieee.docx"),
 ]
 
