@@ -114,13 +114,26 @@ def extract_all_keys(ref_text: str):
 
 REF_KEYS = [extract_first_key(r) for r in REFERENCES]
 
-# Build (surname, year) -> ref_idx map. Include diacritic-folded variants so
-# the body's "Alkis (2018)" matches references' "Alkış, N., ..."
+# Build (surname, year) -> ref_idx map. First-author keys win over co-author
+# keys to avoid Wang(2023) resolving to Tlili et al. (2023) just because
+# "Wang, H." is a co-author there. Diacritic-folded variants are also added
+# so the body's "Alkis (2018)" matches references' "Alkış, N., ..."
 KEY_TO_REFIDX = {}
+
+# Pass 1: register first-author keys (highest priority).
+for i, ref in enumerate(REFERENCES):
+    fk = extract_first_key(ref)
+    if fk:
+        KEY_TO_REFIDX[fk] = i
+        folded = (_strip_diacritics(fk[0]), fk[1])
+        KEY_TO_REFIDX.setdefault(folded, i)
+
+# Pass 2: register co-author keys as fallback (don't override first-author).
 for i, ref in enumerate(REFERENCES):
     for key in extract_all_keys(ref):
-        for variant in {key, (_strip_diacritics(key[0]), key[1])}:
-            KEY_TO_REFIDX.setdefault(variant, i)
+        KEY_TO_REFIDX.setdefault(key, i)
+        folded = (_strip_diacritics(key[0]), key[1])
+        KEY_TO_REFIDX.setdefault(folded, i)
 
 
 # ---------------------------------------------------------------------------

@@ -17,6 +17,10 @@ REFERENCES = [
     'personality on academic performance in online and blended learning '
     'environments. <i>Educational Technology & Society, 21</i>(3), 35–47.',
 
+    'Ashouri, A., Taheri, M., Rasouli, M., & Rouhalamin, S. (2025). '
+    'Personality traits and e-learning course satisfaction: A study of '
+    'health science students. <i>Cureus, 17</i>(7), e89131.',
+
     'Ashton, M. C., & Lee, K. (2007). Empirical, theoretical, and practical '
     'advantages of the HEXACO model of personality structure. <i>Personality '
     'and Social Psychology Review, 11</i>(2), 150–166. '
@@ -46,6 +50,11 @@ REFERENCES = [
     'satisfaction with online learning activities. <i>Education and '
     'Information Technologies, 28</i>, 879–904. '
     'https://doi.org/10.1007/s10639-022-11199-x',
+
+    'Bhagat, K. K., Wu, L. Y., & Chang, C. Y. (2019). The impact of '
+    'personality on students\' perceptions towards online learning. '
+    '<i>Australasian Journal of Educational Technology, 35</i>(4), 98–108. '
+    'https://doi.org/10.14742/ajet.4162',
 
     'Bhattacharjee, R. R., & Ramkumar, A. (2025). Effect of big five '
     'personality dimensions on the academic performance of college students. '
@@ -87,6 +96,11 @@ REFERENCES = [
     '</i>, 1–12. https://doi.org/10.1016/j.chb.2017.02.030',
 
     # D
+    'Dang, T., Du, W., Niu, M., & Xu, Z. (2025). The effects of personality '
+    'traits on learning engagement among college students: The mediating role '
+    'of emotion regulation. <i>Frontiers in Psychology, 15</i>, 1476437. '
+    'https://doi.org/10.3389/fpsyg.2024.1476437',
+
     'Duval, S., & Tweedie, R. (2000). Trim and fill: A simple funnel-plot-'
     'based method of testing and adjusting for publication bias in meta-'
     'analysis. <i>Biometrics, 56</i>(2), 455–463. https://doi.org/10.1111/'
@@ -138,11 +152,21 @@ REFERENCES = [
     'https://doi.org/10.1186/1471-2288-14-25',
 
     # K
+    'Kara, A., Ergulec, F., & Eren, E. (2024). The mediating role of self-'
+    'regulated online learning behaviors: Exploring the impact of personality '
+    'traits on student engagement. <i>Education and Information Technologies, '
+    '29</i>, 23517–23546. https://doi.org/10.1007/s10639-024-12755-3',
+
     'Kaspar, K., Burtniak, K., & Rüth, M. (2023). Online learning during the '
     'Covid-19 pandemic: How university students\' perceptions, engagement, '
     'and performance are related to their personal characteristics. '
     '<i>Current Psychology</i>. Advance online publication. '
     'https://doi.org/10.1007/s12144-023-04403-9',
+
+    'Keller, H., & Karau, S. J. (2013). The importance of personality in '
+    'students\' perceptions of the online learning experience. <i>Computers '
+    'in Human Behavior, 29</i>(6), 2494–2500. '
+    'https://doi.org/10.1016/j.chb.2013.06.007',
 
     # M
     'MacLean, K. A. (2022). <i>Endorsed, or just enforced? Personality and '
@@ -181,6 +205,12 @@ REFERENCES = [
     'teaching modes, role of Big Five personality traits. <i>Frontiers in '
     'Psychology, 13</i>, 956281. '
     'https://doi.org/10.3389/fpsyg.2022.956281',
+
+    # N
+    'Nakayama, M., Mutsuura, K., & Yamamoto, H. (2014). Impact of learner\'s '
+    'characteristics and learning behaviour on learning performance during '
+    'a fully online course. <i>Electronic Journal of e-Learning, 12</i>(4), '
+    '394–408.',
 
     # P
     'Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, '
@@ -287,6 +317,11 @@ REFERENCES = [
     'online learning: An empirical study of impact mechanisms in the post-'
     'pandemic era. <i>Frontiers in Psychology, 14</i>, 1241477. '
     'https://doi.org/10.3389/fpsyg.2023.1241477',
+
+    'Wu, R., & Yu, Z. (2024). Relationship between university students\' '
+    'personalities and e-learning engagement mediated by achievement emotions '
+    'and adaptability. <i>Education and Information Technologies, 29</i>, '
+    '10821–10850. https://doi.org/10.1007/s10639-023-12222-5',
 
     # Y
     'Yu, Z. (2021). The effects of gender, educational level, and '

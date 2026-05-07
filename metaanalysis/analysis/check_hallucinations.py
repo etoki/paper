@@ -448,6 +448,41 @@ def task_t5():
             continue
         citations.add((author, year))
 
+    # Additional pass: detect "Surname et al., YYYY" / "Surname, YYYY" patterns
+    # that appear (a) inside parentheses, e.g. "(Smith, 2020; Jones, 2021)", or
+    # (b) prefixed by a study-code such as "A-13 Dang et al., 2025". Earlier
+    # versions of T5 missed these and let several missing references through.
+    # Negative lookbehinds skip co-author surnames preceded by "& ", " and ",
+    # or hyphen (so "Hidalgo-Fuentes" doesn't yield a spurious "Fuentes" key).
+    inner_re = re.compile(
+        r"(?<!&\s)(?<!and\s)(?<!-)(?<![a-z]\s)"
+        r"\b([A-ZÀ-Ɏ][a-zçñışığéüöäÀ-ɏĀ-ſ\-]{2,})"
+        r"(?:\s+et\s+al\.)?"
+        r",\s*(\d{4})"
+    )
+    paren_re = re.compile(r"\(([^()]*?\d{4}[a-z]?[^()]*?)\)")
+    prefixed_re = re.compile(
+        r"(?<!&\s)(?<!and\s)(?<!-)(?<![a-z]\s)"
+        r"\bA-\d+\s+([A-ZÀ-Ɏ][a-zçñışığéüöäÀ-ɏĀ-ſ\-]{2,})"
+        r"(?:\s+et\s+al\.)?"
+        r",\s*(\d{4})"
+    )
+    for outer in paren_re.finditer(v2):
+        for m in inner_re.finditer(outer.group(1)):
+            author, year = m.group(1), m.group(2)
+            if author in skip:
+                continue
+            if not (1990 <= int(year) <= 2030):
+                continue
+            citations.add((author, year))
+    for m in prefixed_re.finditer(v2):
+        author, year = m.group(1), m.group(2)
+        if author in skip:
+            continue
+        if not (1990 <= int(year) <= 2030):
+            continue
+        citations.add((author, year))
+
     # Check each citation has corresponding entry
     for author, year in sorted(citations):
         author_norm = (author.replace("ı", "i").replace("ş", "s")
@@ -458,6 +493,24 @@ def task_t5():
         else:
             print(f"  ❌ Cited but not in references_data.py: {author} ({year})")
             failed += 1
+
+    # Build a CSV-derived "table-cited" set: Table 1 is rendered dynamically
+    # from data_extraction_populated.csv, so any included study's first author
+    # counts as cited even though build_docx.py's source text doesn't mention
+    # them.
+    table_cited = set()
+    csv_path = ROOT / "analysis" / "data_extraction_populated.csv"
+    if csv_path.exists():
+        import csv as _csv
+        with open(csv_path, encoding="utf-8") as f:
+            reader = _csv.DictReader(f)
+            for row in reader:
+                if row.get("inclusion_status", "").startswith("exclude_screen"):
+                    continue
+                first = (row.get("first_author") or "").strip()
+                year = (row.get("year") or "").strip()
+                if first and year:
+                    table_cited.add((first, year))
 
     # Check every reference is cited at least once in body (flat).
     # Use one canonical surname per year (deduplicate diacritic variants)
@@ -472,7 +525,9 @@ def task_t5():
                        .replace("ç", "c").replace("ğ", "g")
                        .replace("ü", "u").replace("ö", "o").replace("ä", "a"))
         if (re.search(rf"{author_pat}.{{0,200}}{year}", v2) or
-            re.search(rf"{re.escape(author_norm)}.{{0,200}}{year}", v2)):
+            re.search(rf"{re.escape(author_norm)}.{{0,200}}{year}", v2) or
+            (surname, year) in table_cited or
+            (author_norm, year) in table_cited):
             passed += 1
         else:
             print(f"  ⚠ Reference present but not cited in body: {surname} ({year})")
