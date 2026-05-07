@@ -4,6 +4,8 @@
 !simulation/data/**/*.pdf
 # ...and pre-registration PDFs (small, OSF supplementary uploads)
 !simulation/docs/pre_registration/*.pdf
+# ...and journal-specific anonymised cover letters (small, submission-ready)
+!metaanalysis/paper_v2/cover_letter_*_anon.pdf
 
 # Claude Code local settings
 .claude/
