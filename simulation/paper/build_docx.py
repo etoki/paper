@@ -52,10 +52,10 @@ MD_TABLES_FIGURES = PAPER_DIR / "06_tables_figures.md"
 
 TITLE = (
     "Person-Level versus System-Level Anti-Harassment Interventions: "
-    "HEXACO 7-Typology Evidence That Structure Dominates Personality "
+    "A Pre-Registered HEXACO 7-Typology Counterfactual Microsimulation "
     "in Japanese Workplaces"
 )
-RUNNING_HEAD = "STRUCTURE DOMINATES PERSONALITY"  # APA 7 ≤ 50 chars (32 chars)
+RUNNING_HEAD = "HEXACO COUNTERFACTUAL MICROSIMULATION"  # APA 7 ≤ 50 chars (37 chars)
 AUTHOR = "Eisuke Tokiwa"
 ORCID = "0009-0009-7124-6669"
 AFFILIATION = "SUNBLAZE Co., Ltd., Tokyo, Japan"
@@ -424,8 +424,8 @@ def build_title_page(doc: Document, *, journal_variant: bool = False):
     add_para(doc, "Author Note", bold=True, align=WD_ALIGN_PARAGRAPH.CENTER)
     add_para(doc, f"{AUTHOR}  https://orcid.org/{ORCID}")
     add_para(doc,
-             "The author has no known conflict of interest to disclose beyond that "
-             "stated in the Declarations below.")
+             "The author discloses a potential competing interest as detailed in the "
+             "Declarations below.")
     add_para(doc,
              f"Correspondence concerning this article should be addressed to {AUTHOR}, "
              f"{AFFILIATION}. Email: {EMAIL}")
@@ -436,18 +436,34 @@ def build_title_page(doc: Document, *, journal_variant: bool = False):
     add_para(doc, "Declarations", bold=True)
     add_para(doc, "")
 
-    add_para(doc, "Conflict of Interest", bold=True)
+    add_para(doc, "Competing Interests", bold=True)
     add_para(doc,
-             "The author declares that there are no financial or personal relationships "
-             "with other people or organizations that could inappropriately influence "
-             "(bias) the work reported in this paper.")
+             "The author discloses the following potential competing interest: the "
+             "author is the representative of SUNBLAZE Co., Ltd. (Tokyo, Japan), which "
+             "provides HEXACO-JP, a proprietary Japanese-language HEXACO-based "
+             "personality assessment service. Three points qualify the disclosure. "
+             "(i) The present study does not use HEXACO-JP. The HEXACO instrument used "
+             "here is the HEXACO-PI-R Japanese 60-item adaptation published by "
+             "Wakabayashi (2014), a separately validated and openly cited instrument "
+             "that predates and is independent of HEXACO-JP. (ii) The present "
+             "manuscript does not reference, evaluate, market, recommend, or otherwise "
+             "promote HEXACO-JP or any other SUNBLAZE product or service, and SUNBLAZE "
+             "Co., Ltd. did not commission, sponsor, or direct the research. (iii) The "
+             "headline empirical findings (a null personality-intervention contrast, a "
+             "positive structural-intervention contrast, and the reframing of HEXACO "
+             "7-typology as a stratification variable rather than an intervention or "
+             "screening target) do not differentially favor commercial HEXACO-based "
+             "assessment products.")
     add_para(doc, "")
 
     add_para(doc, "Funding", bold=True)
     add_para(doc,
-             "This research was self-funded by SUNBLAZE Co., Ltd. (Tokyo, Japan). "
-             "No external grant funding from agencies in the public, commercial, or "
-             "not-for-profit sectors was received.")
+             "No funding was received for this research. SUNBLAZE Co., Ltd. did not "
+             "provide any funding, equipment, or compensation, and no external grant "
+             "funding from public, commercial, or not-for-profit agencies was received. "
+             "The author conducted the research as an independent academic project at "
+             "no monetary cost, using publicly available analytical software and "
+             "previously collected data.")
     add_para(doc, "")
 
     add_para(doc, "Ethics Approval", bold=True)
@@ -455,8 +471,10 @@ def build_title_page(doc: Document, *, journal_variant: bool = False):
              "The N = 354 individual-level harassment data re-analyzed in this study "
              "were originally collected under an IRB-approved protocol described in "
              "Tokiwa (2025, Research Square preprint, DOI 10.21203/rs.3.rs-7756124/v1). "
-             "Secondary analysis of these de-identified data does not require additional "
-             "ethics review under SUNBLAZE Co., Ltd. policy.")
+             "The present study is a secondary analysis of these de-identified data "
+             "and does not introduce any new contact with participants; consistent with "
+             "standard practice for secondary analysis of de-identified data covered by "
+             "the original IRB approval, no additional ethics review was sought.")
     add_para(doc, "")
 
     add_para(doc, "Informed Consent", bold=True)
