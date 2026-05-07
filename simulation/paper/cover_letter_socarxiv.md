@@ -9,9 +9,15 @@
 
 ## Scope statement (for SocArXiv moderators)
 
-This is an academic, pre-registered counterfactual microsimulation study in occupational and personality psychology. It is **not** an evaluation of any commercial product, software, intervention, or service. The study tests three counterfactual interventions — universal personality shift, targeted personality shift on a low-prevalence subgroup, and a structural cell-level propensity reduction — operationalized through a microsimulation calibrated against three published meta-analyses of organizational anti-harassment interventions and against meta-analytic effect sizes from the personality-change literature. No commercial product, software, or service of the author's affiliated company is referenced, evaluated, marketed, or implied.
+This is an academic, pre-registered counterfactual microsimulation study in occupational and personality psychology. The study tests three counterfactual interventions — a universal personality shift, a targeted personality shift on a low-prevalence subgroup, and a structural cell-level propensity reduction — operationalized through a microsimulation calibrated against three published meta-analyses of organizational anti-harassment interventions and against meta-analytic effect sizes from the personality-change literature.
 
-The author's postal correspondence is c/o SUNBLAZE Co., Ltd. (Tokyo, Japan) for routing convenience; the company did not commission, fund, sponsor, or otherwise direct the research, and has no commercial offering related to workplace harassment, HEXACO assessment, or the topic of the present analysis. The research was conducted independently and self-funded; no external grants supported the work. The author declares no competing interests.
+**Disclosure of a potential competing interest.** The author is the representative of SUNBLAZE Co., Ltd. (Tokyo, Japan), which provides HEXACO-JP, a proprietary Japanese-language HEXACO-based personality assessment service. This affiliation is disclosed as a potential competing interest. Three qualifications apply:
+
+1. **The study does not use HEXACO-JP.** The HEXACO instrument used in this analysis is the HEXACO-PI-R Japanese 60-item adaptation published by Wakabayashi (2014), a separately validated, openly cited instrument that predates and is independent of HEXACO-JP. The Wakabayashi (2014) instrument is referenced in the Methods (Data sources) section.
+2. **The manuscript does not reference, evaluate, market, recommend, or otherwise promote HEXACO-JP or any other SUNBLAZE product or service.** No company product is named or evaluated in the body of the manuscript. SUNBLAZE Co., Ltd. did not commission, fund, sponsor, or direct the research; the work received no SUNBLAZE funding and no external grant funding.
+3. **The empirical findings do not differentially favor commercial HEXACO-based products.** The headline result — a null personality-intervention contrast (Counterfactual A) combined with a positive structural-intervention contrast (Counterfactual C) — and the accompanying reframing of HEXACO 7-typology as a stratification variable rather than an intervention or screening target, are findings that, if anything, constrain rather than promote person-level commercial applications of HEXACO-based assessments.
+
+The author conducted the research as an independent academic project. SUNBLAZE Co., Ltd. is also the postal correspondence address. No external grants supported the work.
 
 ## Headline empirical content
 

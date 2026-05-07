@@ -60,9 +60,9 @@ The Discussion (Limitations subsection) discloses six limitations explicitly:
 
 We position these limitations as future-work targets rather than threats to the Stage 2 conclusion, which depends only on the apples-to-apples comparison of pre-registered effect-size calibrations.
 
-## Author and conflict-of-interest statement
+## Author, funding, and competing-interests statement
 
-This is a sole-authored submission. The author (Eisuke Tokiwa, ORCID [0009-0009-7124-6669](https://orcid.org/0009-0009-7124-6669)) declares no competing interests. The research was self-funded by SUNBLAZE Co., Ltd. (Tokyo, Japan); no external funding was received.
+This is a sole-authored submission. The author (Eisuke Tokiwa, ORCID [0009-0009-7124-6669](https://orcid.org/0009-0009-7124-6669)) discloses the following potential competing interest: the author is the representative of SUNBLAZE Co., Ltd. (Tokyo, Japan), which provides HEXACO-JP, a proprietary Japanese-language HEXACO-based personality assessment service. The present study does **not** use HEXACO-JP; it uses the HEXACO-PI-R Japanese 60-item adaptation published by Wakabayashi (2014) as a separately validated, openly cited instrument. The manuscript does not reference, evaluate, market, recommend, or otherwise promote HEXACO-JP or any other SUNBLAZE product or service. The research received no SUNBLAZE funding, no external grant funding, and was conducted as an independent academic project. The headline empirical findings (null personality-intervention contrast, positive structural-intervention contrast, and the reframing of HEXACO 7-typology as a stratification variable rather than an intervention or screening target) do not differentially favor commercial HEXACO-based assessment products.
 
 ## Suggested reviewers
 
