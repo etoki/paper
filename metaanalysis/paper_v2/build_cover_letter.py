@@ -5,6 +5,9 @@ Targets:
 - Frontiers in Education — author-initiated resubmission of the v2
   refactor (already under the journal's submission system; editor invited
   resubmission after the author flagged corrections)
+- Humanities and Social Sciences Communications (Springer Nature) —
+  point-by-point response to the technical-check feedback on
+  Manuscript ID 72427190-7674-4b5f-ac51-9518b8c16eaf
 - Education Sciences (MDPI) — ~$1,800 ≈ 27万円
 - Systematic Reviews (BMC) — ~$2,545 ≈ 38万円
 - Heliyon (Elsevier) — ~$1,890 ≈ 28万円
@@ -72,6 +75,73 @@ SHARED_NONDUP = (
     "I am the sole author and accept full accountability for all aspects of "
     "the work."
 )
+
+# ---------------------------------------------------------------------------
+# Humanities and Social Sciences Communications (Springer Nature)
+# Response to technical-check feedback (Manuscript ID 72427190-7674-...)
+# ---------------------------------------------------------------------------
+HSSC_ADDRESSEE = [
+    "To the Editorial Team,",
+    "Humanities and Social Sciences Communications",
+    "Attn: Meenakshi Sundaram, Editorial Support",
+]
+
+HSSC_BODY = [
+    "Dear Editorial Team,",
+
+    ("Thank you for the technical-check feedback on Manuscript ID "
+     "72427190-7674-4b5f-ac51-9518b8c16eaf (v1.0). I have addressed each "
+     "of the four points raised. The Declarations block of the manuscript "
+     "has been revised accordingly; the remainder of the manuscript has "
+     "been left unchanged in accordance with the editorial instruction."),
+
+    ("__Point-by-point response.__"),
+
+    ("(1) Consent to Participate declaration. A dedicated "
+     "\"Consent to Participate\" subsection has been added to the "
+     "Declarations section. The subsection states that this study is a "
+     "systematic review and meta-analysis of previously published "
+     "quantitative research and did not involve any direct interaction "
+     "with, or recruitment of, human participants by the present author; "
+     "informed consent and consent to participate for the underlying data "
+     "were obtained by the original investigators of each included primary "
+     "study at the time of original data collection."),
+
+    ("(2) Standard / norm referenced in the Ethics declaration. The "
+     "Ethics Approval subsection now explicitly references the "
+     "__Declaration of Helsinki__ (as revised in 2013) and the __PRISMA "
+     "2020__ reporting guidelines as the conduct and reporting standards "
+     "followed by this systematic review and meta-analysis."),
+
+    ("(3) Approval Committee / IRB. The Ethics Approval subsection "
+     "now explicitly states that __no Institutional Review Board (IRB) "
+     "or Research Ethics Committee approval was required__ for the "
+     "conduct of the present synthesis because no new primary data were "
+     "collected, and that ethical approval for each of the included "
+     "primary studies was the responsibility of the original "
+     "investigators of those studies, as documented in their respective "
+     "publications."),
+
+    ("(4) Human Ethics and Consent to Participate declarations. In "
+     "addition to the individual subsections (Ethics Approval, Consent "
+     "to Participate, Consent for Publication), an explicit summary "
+     "declaration has been added: \"__Human Ethics and Consent to "
+     "Participate Declarations: Not applicable.__\""),
+
+    ("All four editorial requirements are now satisfied. No other "
+     "changes have been introduced relative to the previously submitted "
+     "manuscript file."),
+
+    SHARED_OPEN_SCIENCE,
+
+    SHARED_COI,
+
+    SHARED_NONDUP,
+
+    "Thank you for your prompt review of these technical-check items.",
+
+    "Sincerely,",
+]
 
 # ---------------------------------------------------------------------------
 # Frontiers in Education (author-initiated resubmission)
@@ -453,6 +523,7 @@ def main():
     here = Path(__file__).resolve().parent
     targets = [
         ("frontiers_in_education", FE_ADDRESSEE, FE_BODY),
+        ("hssc_springer", HSSC_ADDRESSEE, HSSC_BODY),
         ("education_sciences_mdpi", ES_ADDRESSEE, ES_BODY),
         ("systematic_reviews_bmc", SR_ADDRESSEE, SR_BODY),
         ("heliyon", HE_ADDRESSEE, HE_BODY),

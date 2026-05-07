@@ -213,14 +213,28 @@ def build_declarations(doc, for_journal=False):
          "This research did not receive any specific grant from funding agencies in the "
          "public, commercial, or not-for-profit sectors."),
         ("Ethics Approval",
-         "Not applicable. This meta-analysis synthesizes data from previously published "
-         "studies and does not involve direct collection of data from human participants. "
-         "Ethical approval for the original studies was the responsibility of the authors "
-         "of those studies."),
-        ("Informed Consent",
-         "Not applicable. All included studies obtained informed consent from their "
-         "participants in accordance with institutional and journal requirements at the "
-         "time of original data collection."),
+         "Not applicable. This study is a systematic review and meta-analysis of "
+         "previously published quantitative research and did not involve any direct "
+         "collection of data from human participants by the present author. As no new "
+         "primary data were collected, no Institutional Review Board (IRB) or Research "
+         "Ethics Committee approval was required for the conduct of this synthesis. The "
+         "conduct of this review followed the ethical principles outlined in the "
+         "Declaration of Helsinki (as revised in 2013) and the PRISMA 2020 reporting "
+         "guidelines for systematic reviews. Ethical approval for each of the included "
+         "primary studies was the responsibility of the original investigators of those "
+         "studies, as documented in their respective publications."),
+        ("Consent to Participate",
+         "Not applicable. This systematic review and meta-analysis did not involve any "
+         "direct interaction with, or recruitment of, human participants by the present "
+         "author. Informed consent and consent to participate for the underlying data "
+         "were obtained by the original investigators of each included primary study at "
+         "the time of original data collection, in accordance with the institutional and "
+         "ethical standards applicable at that time."),
+        ("Consent for Publication",
+         "Not applicable. This manuscript does not contain any individual person's data "
+         "in any form (including individual details, images, or videos)."),
+        ("Human Ethics and Consent to Participate Declarations",
+         "Not applicable."),
         ("Pre-registration",
          "This systematic review and meta-analysis was pre-registered on OSF Registries "
          "(https://osf.io/e5w47/; DOI: 10.17605/OSF.IO/E5W47) on April 23, 2026, prior to "
