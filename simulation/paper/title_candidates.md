@@ -103,11 +103,12 @@ Headline ethical reframing (from Q&A log §6):
 **Lesson learned.** The "Evidence That Structure Dominates Personality" framing, combined with sole company-affiliation signature and HR-program-targeted policy implications, was readable as a corporate white paper rather than as a scientific microsimulation study. The revision in this directory tones the title, abstract, and discussion accordingly.
 
 **Revised primary preprint title (locked 2026-05-07 for SocArXiv submission, T2.2 lineage but de-claimed):**
-> **Person-Level versus System-Level Anti-Harassment Interventions: A Pre-Registered HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces**
+> **Person-Level versus System-Level Anti-Harassment Interventions: A HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces**
 
 **Selection rationale (revised):**
 - Removes the editorial claim "Evidence That Structure Dominates Personality" that read as a strong assertion of cross-paradigm superiority and contributed to the corporate-white-paper misread at PsyArXiv. The empirical contrast itself is preserved in the body of the manuscript and reported numerically (|ΔP_C|/|ΔP_A| ≈ 5.7) without elevation to title-claim status.
-- Foregrounds the methodological contribution ("Pre-Registered HEXACO 7-Typology Counterfactual Microsimulation") that aligns with SocArXiv's social-science scope.
+- Drops the "Pre-Registered" qualifier from the title. The N = 354 dataset is a secondary-analysis input that was collected before the pre-registration, so labeling the title "pre-registered" can be read as overstating the registration scope (which covers the analysis pipeline, not the data collection). The OSF v2.0 registration and the Reporting-standard line on the title page communicate the registration cleanly without performative title-level branding.
+- Foregrounds the methodological contribution ("HEXACO 7-Typology Counterfactual Microsimulation") that aligns with SocArXiv's social-science scope.
 - Retains "Person-Level versus System-Level Anti-Harassment Interventions" as the substantive framing for citation continuity with the OSF v2.0 pre-registration.
 
 **Subtitle / abstract teaser (unchanged in spirit):**

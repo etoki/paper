@@ -1,7 +1,7 @@
 # 01. Abstract + Introduction
 
 **Title:**
-*Person-Level versus System-Level Anti-Harassment Interventions: A Pre-Registered HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces*
+*Person-Level versus System-Level Anti-Harassment Interventions: A HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces*
 
 **Author**: Eisuke Tokiwa (independent researcher; correspondence c/o SUNBLAZE Co., Ltd., Tokyo, Japan; ORCID 0009-0009-7124-6669; eisuke.tokiwa@sunblaze.jp)
 **Pre-registration**: OSF DOI 10.17605/OSF.IO/3Y54U (v2.0; locked 2026-04-30)

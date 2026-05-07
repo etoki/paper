@@ -52,7 +52,7 @@ MD_TABLES_FIGURES = PAPER_DIR / "06_tables_figures.md"
 
 TITLE = (
     "Person-Level versus System-Level Anti-Harassment Interventions: "
-    "A Pre-Registered HEXACO 7-Typology Counterfactual Microsimulation "
+    "A HEXACO 7-Typology Counterfactual Microsimulation "
     "in Japanese Workplaces"
 )
 RUNNING_HEAD = "HEXACO COUNTERFACTUAL MICROSIMULATION"  # APA 7 ≤ 50 chars (37 chars)
