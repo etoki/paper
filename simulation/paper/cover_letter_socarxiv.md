@@ -1,7 +1,7 @@
 # Cover Letter
 
 **Submission Type:** Preprint submission to SocArXiv (post-data Stage 2 of a pre-registered analysis)
-**Manuscript:** *Person-Level versus System-Level Anti-Harassment Interventions: A Pre-Registered HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces*
+**Manuscript:** *Person-Level versus System-Level Anti-Harassment Interventions: A HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces*
 **Author:** Eisuke Tokiwa (independent researcher; ORCID 0009-0009-7124-6669)
 **Pre-registration:** OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u) (v2.0; locked 2026-04-30); code and aggregate artifacts at [https://github.com/etoki/paper](https://github.com/etoki/paper) (MIT license; reproducible via `make reproduce`).
 
