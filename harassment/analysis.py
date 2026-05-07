@@ -97,9 +97,7 @@ def prepare_area_dummies(df_src):
     if "area" not in df_src.columns:
         return df_src.copy(), []
     df_tmp = df_src.copy()
-    counts = df_tmp["area"].astype(str).value_counts(dropna=True)
-    keep = counts.index.tolist()[:2]
-    df_tmp["area_simplified"] = df_tmp["area"].astype(str).apply(lambda x: x if x in keep else "Other")
+    df_tmp["area_simplified"] = df_tmp["area"].astype(str)
     df_dum = pd.get_dummies(df_tmp, columns=["area_simplified"], drop_first=True, dtype=float)
     area_dummy_cols = [c for c in df_dum.columns if c.startswith("area_simplified_")]
     return df_dum, area_dummy_cols
