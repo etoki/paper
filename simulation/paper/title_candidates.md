@@ -94,20 +94,26 @@ Headline ethical reframing (from Q&A log §6):
 
 ---
 
-## Final recommendation (locked 2026-05-01)
+## Final recommendation (revised 2026-05-07 after Research Square / PsyArXiv preprint rejections)
 
-**Primary submission title (T2.2 — academic / balanced tone, mapped to Personality and Individual Differences via the recommendation table):**
-> **Person-Level versus System-Level Anti-Harassment Interventions: HEXACO 7-Typology Evidence That Structure Dominates Personality in Japanese Workplaces**
+**Submission history:**
+- 2026-05-XX: Submitted to Research Square as T2.2 ("HEXACO 7-Typology Evidence That Structure Dominates Personality...") — rejected at editorial-screening stage as outside scope (no specific reason given).
+- 2026-05-XX: Submitted to PsyArXiv as T2.2 — rejected by moderator as appearing to be "an evaluation of a company's product" rather than a contribution to scientific psychology; the moderation decision was final and re-submission to PsyArXiv is precluded.
 
-**Selection rationale**:
-- Per author's stated preference (academic / balance over headline / viral)
-- Recommendation-table match: Personality and Individual Differences (Elsevier) — HEXACO-friendly readership; balanced "dominates" wording matches journal's empirical-but-nuanced tone.
-- "Dominates" is calibrated to the actual finding (|ΔP_C|/|ΔP_A| ≈ 5.7×) without overstating ("doesn't work" of T2.1 risks reviewer pushback per Q&A §3 reduced-form caveat).
+**Lesson learned.** The "Evidence That Structure Dominates Personality" framing, combined with sole company-affiliation signature and HR-program-targeted policy implications, was readable as a corporate white paper rather than as a scientific microsimulation study. The revision in this directory tones the title, abstract, and discussion accordingly.
 
-**Subtitle (subtitle option, abstract teaser):**
+**Revised primary preprint title (locked 2026-05-07 for SocArXiv submission, T2.2 lineage but de-claimed):**
+> **Person-Level versus System-Level Anti-Harassment Interventions: A Pre-Registered HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces**
+
+**Selection rationale (revised):**
+- Removes the editorial claim "Evidence That Structure Dominates Personality" that read as a strong assertion of cross-paradigm superiority and contributed to the corporate-white-paper misread at PsyArXiv. The empirical contrast itself is preserved in the body of the manuscript and reported numerically (|ΔP_C|/|ΔP_A| ≈ 5.7) without elevation to title-claim status.
+- Foregrounds the methodological contribution ("Pre-Registered HEXACO 7-Typology Counterfactual Microsimulation") that aligns with SocArXiv's social-science scope.
+- Retains "Person-Level versus System-Level Anti-Harassment Interventions" as the substantive framing for citation continuity with the OSF v2.0 pre-registration.
+
+**Subtitle / abstract teaser (unchanged in spirit):**
 > A pre-registered comparison of person-level and system-level interventions (OSF DOI 10.17605/OSF.IO/3Y54U).
 
-**Preprint title (Research Square / OSF Preprints)**:
-> Identical to primary submission for citation continuity.
+**Preprint title for SocArXiv (recommended target):**
+> Identical to revised primary submission title above. SocArXiv accepts pre-registered social-science work; the OSF integration of pre-registration → preprint is a structural fit.
 
-**If submission target changes**: titles for alternative venues remain documented above (T2.1 for RSOS / preprint, T4.1 for J. Occupational Health Psychology, T1.1 for PCI RR, T3.1 for ethics-forward venues).
+**If submission target changes:** alternative-venue titles remain documented above (T2.1 / T2.3 for headline-driven venues, T4.1 for J. Occupational Health Psychology, T1.1 for PCI RR, T3.1 / T3.2 for ethics-forward venues). Note that T2.1 ("Personality Interventions Don't Work; Structural Ones Do") is now treated as **inadvisable** until further revision evidence accumulates, given the same misread risk that affected T2.2.

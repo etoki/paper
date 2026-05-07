@@ -47,6 +47,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# Manuscript build (paper/build_docx.py — APA-formatted preprint/journal docx)
+paper = [
+    "python-docx>=1.2,<2.0",
+]
 # Stan / Bayesian triangulation per M1 (auxiliary 28-cell estimator)
 bayes = [
     "cmdstanpy>=1.2,<2.0",
