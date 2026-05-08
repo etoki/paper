@@ -71,7 +71,7 @@ We respectfully request that reviewers familiar with both the HEXACO model and t
 
 ## Closing
 
-I confirm that this manuscript has not been previously published, is not under consideration elsewhere, and that all authors (sole-authored) have agreed to the submission. Code, data, and intermediate artifacts will remain publicly accessible at the indicated OSF DOI and GitHub repository for the duration of peer review and beyond.
+I confirm that this manuscript has not been previously published in any peer-reviewed venue and is not under consideration at any other journal. A non-peer-reviewed version has been posted as a preprint at SocArXiv (DOI 10.31235/osf.io/p2d8w_v1) per the journal's preprint policy. The submission is sole-authored. Code, data, and intermediate artifacts will remain publicly accessible at the indicated OSF DOI and GitHub repository for the duration of peer review and beyond.
 
 I look forward to the editorial team's response and the peer-review process.
 

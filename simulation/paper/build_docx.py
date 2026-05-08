@@ -516,11 +516,14 @@ def build_title_page(doc: Document, *, journal_variant: bool = False):
 
     add_para(doc, "Preprint Statement", bold=True)
     add_para(doc,
-             f"A preprint of the original survey (the underlying N = 354 dataset and "
-             f"its descriptive analyses) is available at Research Square "
-             f"(DOI 10.21203/rs.3.rs-7756124/v1; Tokiwa, 2025). The seven HEXACO cluster "
-             f"centroids used as fixed parameters in this study are from the companion "
-             f"paper Tokiwa (2026, IEEE Access, DOI 10.1109/ACCESS.2026.3651324).")
+             f"A preprint of the present manuscript is publicly available at "
+             f"SocArXiv (DOI 10.31235/osf.io/p2d8w_v1; "
+             f"https://osf.io/preprints/socarxiv/p2d8w_v1). The underlying N = 354 "
+             f"dataset and its descriptive analyses are available as a separate "
+             f"preprint at Research Square (DOI 10.21203/rs.3.rs-7756124/v1; "
+             f"Tokiwa, 2025). The seven HEXACO cluster centroids used as fixed "
+             f"parameters in this study are from the companion paper Tokiwa (2026, "
+             f"IEEE Access, DOI 10.1109/ACCESS.2026.3651324).")
     add_para(doc, "")
 
     add_para(doc, "Acknowledgments", bold=True)

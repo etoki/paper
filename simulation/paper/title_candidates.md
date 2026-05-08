@@ -99,6 +99,7 @@ Headline ethical reframing (from Q&A log §6):
 **Submission history:**
 - 2026-05-XX: Submitted to Research Square as T2.2 ("HEXACO 7-Typology Evidence That Structure Dominates Personality...") — rejected at editorial-screening stage as outside scope (no specific reason given).
 - 2026-05-XX: Submitted to PsyArXiv as T2.2 — rejected by moderator as appearing to be "an evaluation of a company's product" rather than a contribution to scientific psychology; the moderation decision was final and re-submission to PsyArXiv is precluded.
+- **2026-05-08**: Submitted to SocArXiv with the revised title ("...A HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces") and toned-down disclosure (HEXACO-JP qualified competing-interest disclosure, "no funding" statement, dropped "Pre-Registered" from title) — **accepted**. Preprint DOI [10.31235/osf.io/p2d8w_v1](https://osf.io/preprints/socarxiv/p2d8w_v1); Public preregistration link "Both" (preprint and v2.0 registration cross-linked).
 
 **Lesson learned.** The "Evidence That Structure Dominates Personality" framing, combined with sole company-affiliation signature and HR-program-targeted policy implications, was readable as a corporate white paper rather than as a scientific microsimulation study. The revision in this directory tones the title, abstract, and discussion accordingly.
 

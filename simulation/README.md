@@ -136,7 +136,9 @@ When the two documents disagree (none expected; verified during clarifications l
 
 ### Citation
 
-If you use this work, please cite the v2.0 OSF registration:
+If you use this work, please cite the SocArXiv preprint and the v2.0 OSF registration:
+
+> Tokiwa, E. (2026). *Person-Level versus System-Level Anti-Harassment Interventions: A HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces* [Preprint]. SocArXiv. https://doi.org/10.31235/osf.io/p2d8w_v1
 
 > Tokiwa, E. (2026). HEXACO 7-Typology Workplace Harassment Microsimulation (v2.0). Open Science Framework Pre-Registration. https://doi.org/10.17605/OSF.IO/3Y54U
 

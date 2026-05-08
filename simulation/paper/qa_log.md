@@ -114,3 +114,17 @@ The above Q&A surfaced four limitations that the manuscript will openly disclose
 4. **Static framing**: No dynamic effects (e.g., institutional erosion over time) are captured.
 
 These limitations are flagged in the Discussion section with proposed extensions (agent-based modeling; longitudinal causal inference; cluster-specific intervention modeling).
+
+---
+
+## Q-final. Preprint submission outcome
+
+> **Q (investigator):** What is the preprint deposit status?
+
+**A (summary):** The manuscript was screened in May 2026 across three preprint servers and is now publicly deposited:
+
+- **2026-05 (early): Research Square** — rejected at editorial screening (no specific reason given; generic "manuscript type or content not suitable" notice).
+- **2026-05 (early): PsyArXiv** — rejected by moderator as appearing to be "an evaluation of a company's product" rather than a contribution to scientific psychology; moderation decision was final.
+- **2026-05-08: SocArXiv** — **accepted**, after a tone-down revision (title de-claimed; HEXACO-JP qualified competing-interest disclosure; corrected funding statement clarifying that SUNBLAZE Co., Ltd. provided no funding; "Pre-Registered" dropped from title to avoid scope-overstatement). Preprint DOI: [10.31235/osf.io/p2d8w_v1](https://osf.io/preprints/socarxiv/p2d8w_v1); public preregistration link configured as "Both" (the SocArXiv preprint page and the v2.0 OSF registration page cross-link to each other).
+
+**Implication for paper**: The Declarations section of `manuscript_preprint.docx` and all journal-specific cover letters now reference the SocArXiv preprint DOI in the front-matter; the IEEE Access cover letter additionally documents the prior preprint deposit per IEEE's preprint-permissive policy. The "previously published" closing-paragraph wording in all cover letters has been updated from "has not been previously published, is not under consideration elsewhere" to "has not been previously published in any peer-reviewed venue ... A non-peer-reviewed version has been posted as a preprint at SocArXiv (DOI ...)." This wording avoids a self-contradiction with the public preprint deposit while remaining truthful about the absence of prior peer-reviewed publication.

@@ -4,6 +4,7 @@
 **Manuscript:** *HEXACO 7-Typology Workplace Harassment Microsimulation: Latent Prevalence Prediction and Target Trial Emulation of Personality-Based and Structural Counterfactuals in Japan*
 **Author:** Eisuke Tokiwa (sole-authored)
 **Pre-registration:** OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u) (v2.0; registered 2026-04-30)
+**Preprint:** SocArXiv DOI [10.31235/osf.io/p2d8w_v1](https://osf.io/preprints/socarxiv/p2d8w_v1) (posted 2026-05-08)
 
 ---
 
@@ -83,7 +84,7 @@ We respectfully request that recommenders familiar with target-trial emulation, 
 
 ## Closing
 
-I confirm that this manuscript has not been previously published, is not under consideration elsewhere, and that all authors (sole-authored) have agreed to the submission. Code, data, and intermediate artifacts will remain publicly accessible at the indicated OSF DOI and GitHub repository for the duration of peer review and beyond.
+I confirm that this manuscript has not been previously published in any peer-reviewed venue and is not under consideration elsewhere. A non-peer-reviewed version has been posted as a preprint at SocArXiv (DOI 10.31235/osf.io/p2d8w_v1) per PCI RR's preprint-permissive policy. The submission is sole-authored. Code, data, and intermediate artifacts will remain publicly accessible at the indicated OSF DOI and GitHub repository for the duration of peer review and beyond.
 
 I look forward to the recommender's response and the community-review process.
 

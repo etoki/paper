@@ -4,6 +4,7 @@
 **Manuscript:** *Person-Level versus System-Level Anti-Harassment Interventions: A HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces*
 **Author:** Eisuke Tokiwa (sole-authored)
 **Pre-registration:** OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u) (v2.0; registered 2026-04-30)
+**Preprint:** SocArXiv DOI [10.31235/osf.io/p2d8w_v1](https://osf.io/preprints/socarxiv/p2d8w_v1) (posted 2026-05-08)
 **Companion paper:** Tokiwa, *IEEE Access*, 2026, doi: 10.1109/ACCESS.2026.3651324
 
 ---
@@ -50,9 +51,9 @@ The temporal coincidence between the MHLW FY2016 → FY2023 −13.2-percentage-p
 
 ## IEEE Access policy compliance
 
-- **Originality:** The manuscript has not been previously published, in whole or in part, and is not under consideration at any other journal. The companion *IEEE Access* publication (Tokiwa 2026) is a distinct paper covering the cluster-typology derivation; the present submission is a microsimulation analysis using the previously-published cluster centroids as fixed parameters.
+- **Originality:** The manuscript has not been previously published in any peer-reviewed venue and is not under consideration at any other journal. A version of the manuscript has been posted as a non-peer-reviewed preprint at SocArXiv (DOI 10.31235/osf.io/p2d8w_v1; posted 2026-05-08) per IEEE's preprint policy, which permits prior preprint deposit and is consistent with the journal's open-access ethos. The companion *IEEE Access* publication (Tokiwa, 2026) is a distinct paper covering the cluster-typology derivation; the present submission is a microsimulation analysis using the previously-published cluster centroids as fixed parameters.
 - **Reproducibility:** Source code is publicly archived under MIT license at <https://github.com/etoki/paper> (directory: `simulation/`); supplementary artifacts at OSF DOI 10.17605/OSF.IO/3Y54U; SHA-256 hash-verified reproduction via `make verify`. The Docker container plus pinned `uv.lock` ensure byte-identical regeneration on the canonical platform.
-- **Ethics:** The N = 354 individual-level data re-analyzed in this study were originally collected under an IRB-approved protocol (Tokiwa, 2025, Research Square preprint, doi: 10.21203/rs.3.rs-7756124/v1). Secondary analysis of de-identified records does not require additional ethics review.
+- **Ethics:** The N = 354 individual-level data re-analyzed in this study were originally collected under an IRB-approved protocol (Tokiwa, 2025). The present study is a secondary analysis of de-identified records; consistent with standard practice for secondary analysis of data covered by the original IRB approval, no additional ethics review was sought.
 - **Competing Interests:** The author discloses the following potential competing interest: the author is the founder and representative of SUNBLAZE Co., Ltd. (Tokyo, Japan), which provides HEXACO-JP, a proprietary Japanese-language HEXACO-based personality assessment service. Three points qualify the disclosure. (i) The present study does **not** use HEXACO-JP; the HEXACO instrument used here is the HEXACO-PI-R Japanese 60-item adaptation published by Wakabayashi (2014), a separately validated and openly cited instrument that predates and is independent of HEXACO-JP. (ii) The manuscript does not reference, evaluate, market, recommend, or otherwise promote HEXACO-JP or any other SUNBLAZE product or service. (iii) The headline empirical findings (a null personality-intervention contrast, a positive structural-intervention contrast, and the reframing of HEXACO 7-typology as a stratification variable rather than an intervention or screening target) do not differentially favor commercial HEXACO-based assessment products.
 - **Funding:** No funding was received for this research. SUNBLAZE Co., Ltd. did not provide any funding, equipment, or compensation, and no external grant funding from public, commercial, or not-for-profit agencies was received. The author conducted the research as an independent academic project at no monetary cost, using publicly available analytical software and previously collected data.
 - **Open Access fee acknowledgment:** The author acknowledges the *IEEE Access* article processing charge (APC) and is prepared to comply upon acceptance.
@@ -72,7 +73,7 @@ I respectfully request reviewers familiar with statistical-computing methodology
 
 ## Closing
 
-I confirm that this manuscript has not been previously published, is not under consideration elsewhere, and that all author tasks (sole-authored) have been completed by me. Code, data, and intermediate artifacts will remain publicly accessible at the indicated OSF DOI and GitHub repository for the duration of peer review and beyond.
+I confirm that this manuscript has not been previously published in any peer-reviewed venue and is not under consideration at any other journal. A non-peer-reviewed version has been posted as a preprint at SocArXiv (DOI 10.31235/osf.io/p2d8w_v1) per *IEEE Access* preprint policy. The submission is sole-authored, and all author tasks have been completed by me. Code, data, and intermediate artifacts will remain publicly accessible at the indicated OSF DOI and GitHub repository for the duration of peer review and beyond.
 
 I look forward to the editorial team's response and the peer-review process.
 
