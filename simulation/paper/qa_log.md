@@ -16,7 +16,7 @@
 
 **Decision**: Use 就業者 (employed persons) as the primary working population (broader than 役員除く雇用者; includes self-employed; better matches MHLW survey "労働者" denominator). 役員除く雇用者 retained as alternative for sensitivity reporting.
 
-**Implication for paper**: Section 5.3 (population aggregation) cites the MHLW publication directly. Acquisition provenance preserved in `simulation/data/README_MHLW_acquisition.md` and the source PDF retained in repository for reproducibility.
+**Implication for paper**: Section 5.3 (population aggregation) cites the Statistics Bureau (MIC) publication directly. Note: the Labor Force Survey is produced by the Statistics Bureau, Ministry of Internal Affairs and Communications (MIC, 総務省統計局), not by MHLW; an earlier draft mistakenly labeled the acquisition path with "MHLW" and the data file/README have been renamed accordingly. Acquisition provenance preserved in `simulation/data/README_MIC_acquisition.md` and the source PDF retained in repository for reproducibility.
 
 ---
 

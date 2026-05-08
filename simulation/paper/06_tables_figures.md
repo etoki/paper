@@ -38,14 +38,14 @@
 
 ### Table 3. Baseline Comparison for H2 Ordinal Trend Hypothesis
 
-*Note*. B0 trivially attains MAPE = 0 by construction (its prediction equals MHLW grand mean). H2 was tested via Bonferroni-Holm-corrected pairwise inequalities at one-sided α = 0.05 and Page's L (1963) ordinal trend test as auxiliary. **0 of 4 pairs were confirmed**; Page's L statistic *p* = 0.9757. H2 decision: ambiguous_or_reversed.
+*Note*. B0 trivially attains MAPE = 0 by construction (its prediction equals MHLW grand mean). H2 was tested via Bonferroni-Holm-corrected pairwise inequalities at one-sided α = 0.05 and Page's L (1963) ordinal trend test as auxiliary. **0 of 4 pairs were confirmed**; Page's L statistic *p* = 0.9757. H2 decision: ambiguous_or_reversed. Baselines B0, B1, and B3 are deterministic functions of the realized cell counts under the cell-stratified bootstrap (their aggregation rules are closed-form given the cell partitions) and therefore yield zero-width bootstrap CIs by construction; B2 and B4 re-fit logistic-regression coefficients within each bootstrap replicate and accordingly show non-degenerate CIs.
 
 | Baseline | Description | MAPE | 95% CI |
 |---|---|---:|---|
-| B0 | Uniform = MHLW grand mean | 0.00% | [0.00, 0.00] |
-| B1 | Gender-only logistic | 46.02% | [46.02, 46.02] |
+| B0 | Uniform = MHLW grand mean | 0.00% | [0.00, 0.00] (deterministic) |
+| B1 | Gender-only logistic | 46.02% | [46.02, 46.02] (deterministic) |
 | B2 | HEXACO 6-domain logistic | 43.98% | [40.33, 47.35] |
-| B3 | 14-cell conditional (main pipeline) | 46.34% | [46.34, 46.34] |
+| B3 | 14-cell conditional (main pipeline) | 46.34% | [46.34, 46.34] (deterministic) |
 | B4 | Extended (age + age × cluster) | 47.04% | [45.02, 49.05] |
 
 ---
@@ -87,9 +87,9 @@
 |---|---|---|---|
 | H1 | MAPE_FY2016 ≤ 30% (Strict / Standard SUCCESS) | MAPE = 46.34% | PARTIAL SUCCESS |
 | H2 | Monotonic B0 > B1 > B2 > B3 > B4 | 0 of 4 pairs confirmed | REJECTED |
-| H3 | Centroid concordance N=354 vs N=13,668 | Verified in centroid study | CONFIRMED |
+| H3 | Centroid concordance N=354 vs N=13,668 | Externally validated in Tokiwa (2026, *IEEE Access*) on the N=13,668 source sample; not separately re-tested in the present N=354 pipeline | EXTERNALLY CONFIRMED |
 | H4 | Per-cell propensity stability | 13/14 cells resolved at BCa; 1 (X=0) at Clopper-Pearson per M4 cascade | CONFIRMED |
-| H5 | Gender invariance | Spearman ρ(female, male) = 0.87 across 7 clusters (p = 0.01); 14-cell vs 28-cell stable | CONFIRMED |
+| H5 | Gender invariance | Spearman ρ(female, male) = 0.87 across 7 clusters (p = 0.01). The 14-cell vs 28-cell sensitivity (28-cell adds × 2 roles, not a re-split of gender) is reported as a robustness check on role-stratification stability rather than as a re-test of gender invariance. | CONFIRMED |
 | H6 | Power × gender harassment cluster ranking concordance | Spearman ρ = 0.04 (7-cluster) / 0.14 (14-cell), both p > 0.6 | REJECTED |
 | H7 | IUT classification | REVERSAL (robust F=0.3–1.0) | REVERSAL |
 

@@ -62,14 +62,14 @@ The two stable axes provide affirmative robustness evidence; the two sensitive a
 
 The pre-registered B0–B4 baseline ladder yielded the following MAPE_FY2016 estimates (Table 3).
 
-**Table 3.** Baseline comparison for H2. B = 2,000 cell-stratified bootstrap. Note that B0 (uniform-MHLW-grand-mean prediction) trivially attains MAPE = 0 by construction and is included only as the lower-bound reference.
+**Table 3.** Baseline comparison for H2. B = 2,000 cell-stratified bootstrap. Note that B0 (uniform-MHLW-grand-mean prediction) trivially attains MAPE = 0 by construction and is included only as the lower-bound reference. Baselines B0, B1, and B3 are deterministic functions of the realized cell counts under the cell-stratified bootstrap (their aggregation rules are closed-form given the cell partitions) and therefore yield zero-width bootstrap CIs by construction; B2 and B4 re-fit logistic-regression coefficients within each bootstrap replicate and accordingly show non-degenerate CIs.
 
 | Baseline | Description | MAPE | 95% CI |
 |---|---|---:|---|
-| B0 | Uniform = MHLW grand mean | 0.00% | [0.00, 0.00] |
-| B1 | Gender logistic | 46.02% | [46.02, 46.02] |
+| B0 | Uniform = MHLW grand mean | 0.00% | [0.00, 0.00] (deterministic) |
+| B1 | Gender logistic | 46.02% | [46.02, 46.02] (deterministic) |
 | B2 | HEXACO 6-domain logistic | 43.98% | [40.33, 47.35] |
-| B3 | 14-cell conditional | 46.34% | [46.34, 46.34] |
+| B3 | 14-cell conditional | 46.34% | [46.34, 46.34] (deterministic) |
 | B4 | Extended (age + age × cluster) | 47.04% | [45.02, 49.05] |
 
 The H2 hypothesis (B0 > B1 > B2 > B3 > B4 in MAPE, monotonic improvement) was tested via Bonferroni-Holm-corrected pairwise inequalities; **0 of 4 pairs were confirmed** at one-sided α = 0.05. Page's L (1963) ordinal trend test produced p = 0.9757, far from significance.
@@ -102,7 +102,7 @@ The three pre-registered counterfactual interventions produced the following ΔP
 | **Counterfactual B** | do(HH := HH + 0.40σ_HH) for individuals whose baseline cluster ∈ {0, 4, 6} | −0.0059 | [−0.0207, +0.0066] | **No (null)** |
 | **Counterfactual C** | do(P_{c, x} ← 0.80 × P_{c, x}) | **+0.0349** | [+0.0264, +0.0435] | **Yes (positive)** |
 
-The intersection-union test (Berger & Hsu, 1996) produced one-sided 95% lower bounds L_BA = −0.0011 and L_BC = −0.0544. Because point ΔP_B = −0.0059 is less than point ΔP_C = +0.0349, the m7 priority-1 condition is satisfied and H7 is classified as **REVERSAL** (consistent with L_BC < 0 in the CI-based cascade; L_BA also lies just below zero, ruling out the CONFIRMED branch).
+The intersection-union test (Berger & Hsu, 1996) produced one-sided 95% lower bounds L_BA = −0.0011 and L_BC = −0.0544. Because point ΔP_B = −0.0059 is less than point ΔP_C = +0.0349, the m7 priority-1 condition is satisfied and H7 is classified as **REVERSAL**. We note that the priority-1 trigger uses the ΔP_B point estimate, which is downgraded to *exploratory* under the m5 positivity rule (44.5% flagged-weight; see Positivity diagnostic below); however, the CI-based cascade independently corroborates REVERSAL via L_BC = −0.0544 < 0 (ruling out the CONFIRMED branch without relying on the ΔP_B point estimate), and L_BA also lies just below zero. The REVERSAL classification therefore does not depend on the exploratory ΔP_B point estimate alone.
 
 Substantively, this means that the cell-level structural intervention (Counterfactual C) outperforms both the universal personality intervention (Counterfactual A) and the targeted personality intervention on the low-prevalence subgroup (Counterfactual B) by a large margin. Numerically, |ΔP_C| / |ΔP_A| ≈ 5.7.
 
@@ -131,9 +131,9 @@ The H7 = REVERSAL classification is robust across all four pre-registered cultur
 |---|---|---|---|
 | H1 | MAPE_FY2016 ≤ 30% (Strict / Standard SUCCESS) | MAPE = 46.34% | **PARTIAL SUCCESS** |
 | H2 | Monotonic B0 > B1 > B2 > B3 > B4 | 0 of 4 pairs confirmed (Page's L p = 0.976) | **REJECTED** |
-| H3 | Centroid concordance N=354 vs N=13,668 | (Reported in Tokiwa, 2026 *IEEE Access*) | Confirmed |
+| H3 | Centroid concordance N=354 vs N=13,668 | Externally validated in Tokiwa (2026, *IEEE Access*) via stability analyses on the N=13,668 source sample; not separately re-tested in the present N=354 pipeline | Externally Confirmed |
 | H4 | Per-cell propensity stability across bootstrap procedures | 13/14 cells resolved at BCa; 1 degenerate cell (X=0) at Clopper-Pearson per M4 cascade | **CONFIRMED** |
-| H5 | Gender invariance | High concordance of cluster-level power-harassment rankings across genders (Spearman ρ = 0.87, p = 0.01 at 7-cluster level); 14-cell vs 28-cell sensitivity stable | **CONFIRMED** |
+| H5 | Gender invariance | High concordance of cluster-level power-harassment rankings across genders (Spearman ρ = 0.87, p = 0.01 at 7-cluster level). The 14-cell vs 28-cell comparison adds a role stratification (× 2 roles per cell) rather than re-testing gender invariance; that comparison is reported separately as a robustness check on role-stratification stability and shows no qualitative effect on the cluster-level rank ordering used to evaluate H5. | **CONFIRMED** |
 | H6 | Power × gender harassment cluster ranking concordance | Weak concordance (Spearman ρ = 0.04 at 7-cluster level, p = 0.94; ρ = 0.14 at 14-cell level, p = 0.62) | **REJECTED** |
 | H7 | IUT classification | **REVERSAL** (robust across F = 0.3–1.0) | **REVERSAL** (per pre-registered classification) |
 
