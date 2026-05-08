@@ -50,7 +50,7 @@ MD_TABLES_FIGURES = SIM_PAPER_DIR / "06_tables_figures.md"
 # Manuscript metadata
 TITLE = (
     "Person-Level versus System-Level Anti-Harassment Interventions: "
-    "HEXACO 7-Typology Evidence That Structure Dominates Personality "
+    "A HEXACO 7-Typology Counterfactual Microsimulation "
     "in Japanese Workplaces"
 )
 AUTHOR_LASTNAME = "TOKIWA"
@@ -61,8 +61,14 @@ AFFILIATION = (
     "Tokyo 160-0023, Japan"
 )
 EMAIL = "eisuke.tokiwa@sunblaze.jp"
-ORCID = "0000-0009-7124-6669"
-FUNDING = "This research received no external funding."
+ORCID = "0009-0009-7124-6669"
+FUNDING = (
+    "No funding was received for this research. SUNBLAZE Co., Ltd. did not "
+    "provide any funding, equipment, or compensation, and no external grant "
+    "funding from public, commercial, or not-for-profit agencies was received. "
+    "The author conducted the research as an independent academic project at "
+    "no monetary cost."
+)
 
 INDEX_TERMS = (
     "Bootstrap, counterfactual analysis, HEXACO model, intersection-union "
@@ -938,8 +944,20 @@ def build():
     )
     set_font(r, size=10)
     r = p.add_run(
-        "Conflict of Interest: The author declares no financial or "
-        "non-financial competing interests. "
+        "Competing Interests: The author discloses the following potential "
+        "competing interest: the author is the founder and representative of "
+        "SUNBLAZE Co., Ltd. (Tokyo, Japan), which provides HEXACO-JP, a "
+        "proprietary Japanese-language HEXACO-based personality assessment "
+        "service. The present study does not use HEXACO-JP; the HEXACO "
+        "instrument used here is the HEXACO-PI-R Japanese 60-item adaptation "
+        "published by Wakabayashi (2014), a separately validated and openly "
+        "cited instrument that predates and is independent of HEXACO-JP. The "
+        "manuscript does not reference, evaluate, market, recommend, or "
+        "otherwise promote HEXACO-JP or any other SUNBLAZE product or "
+        "service, and the headline empirical findings (a null personality-"
+        "intervention contrast and a positive structural-intervention "
+        "contrast) do not differentially favor commercial HEXACO-based "
+        "assessment products. "
     )
     set_font(r, size=10, italic=True)
     r = p.add_run(
