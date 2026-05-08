@@ -1,17 +1,26 @@
-# MHLW Labor Force Survey 2022 — Data Acquisition Guide
+# Statistics Bureau (MIC) Labor Force Survey 2022 — Data Acquisition Guide
 
-This file documents how to acquire the MHLW Labor Force Survey 2022 marginal
-counts that unlock Stage 1 (population aggregation) of the harassment
-microsimulation pipeline. It applies to v2.0 of the pre-registration
-(OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u)) and is gated on
-manual data acquisition per the m8 limitation note.
+This file documents how to acquire the Statistics Bureau (MIC) Labor Force
+Survey 2022 marginal counts that unlock Stage 1 (population aggregation) of
+the harassment microsimulation pipeline. It applies to v2.0 of the
+pre-registration (OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u)) and
+is gated on manual data acquisition per the m8 limitation note.
+
+**Note on naming**: The Labor Force Survey is published by the Statistics
+Bureau, Ministry of Internal Affairs and Communications (MIC, 総務省統計局),
+**not** by MHLW (厚生労働省). Earlier drafts of this repository labeled the
+acquisition path with "MHLW", which was a labeling error. The data file and
+this README have been renamed accordingly. The internal Python identifiers
+(``MHLW_WEIGHTS_PATH``, ``MHLWWeights``, ``load_mhlw_weights``) retain their
+historical names for code-level backward compatibility but refer to the
+MIC-published Labor Force Survey throughout.
 
 ## What Stage 1 needs
 
 Stage 1 reweights cluster × gender cells using the **gender marginal**
 of the working-age population in Japan. The 7-cluster proportions remain
 fixed at IEEE-published values (M3-fixed; cluster membership is not in
-the MHLW dataset).
+the MIC Labor Force Survey).
 
 Per `code/utils_io.load_mhlw_weights`, the expected CSV schema is:
 
@@ -30,7 +39,7 @@ Per `code/utils_io.load_mhlw_weights`, the expected CSV schema is:
 2. Download the age × gender × employment status crosstab (XLSX or CSV).
 3. Reshape to long form matching the schema above. The pipeline accepts
    either Japanese (女/男) or Western (F/M, female/male) gender labels.
-4. Save to: `simulation/data/mhlw_labor_force_2022.csv`.
+4. Save to: `simulation/data/mic_labor_force_2022.csv`.
 
 ## Verification
 
@@ -40,7 +49,7 @@ Once saved, Stage 1 picks up the file automatically:
 make stage1
 # or, with explicit override:
 python -m code.stage1_population_aggregation \
-    --mhlw-data simulation/data/mhlw_labor_force_2022.csv
+    --mhlw-data simulation/data/mic_labor_force_2022.csv
 ```
 
 Without the file, Stage 1 falls back to placeholder gender proportions
@@ -52,14 +61,14 @@ provenance in metadata (`weight_construction` attribute).
 Per v2.0 master Section 5.3 + Methods Clarifications Log Section 5.1
 (m8), the cluster proportion source remains the IEEE-published 7-cluster
 clustering of N=13,668 (M3-fixed parameters). Only the gender marginal
-is updated by MHLW post-stratification in v2.0; full age × gender ×
-employment post-stratification is reserved for future work and is not
-in scope for the current registered analysis.
+is updated by MIC Labor Force Survey post-stratification in v2.0; full
+age × gender × employment post-stratification is reserved for future
+work and is not in scope for the current registered analysis.
 
-The MHLW data acquisition does NOT alter any pre-registered analysis
-choices. Acquiring the file simply replaces the placeholder
-`[0.5, 0.5]` gender proportions with the actual Japan-2022 working-age
-gender marginal.
+The MIC Labor Force Survey data acquisition does NOT alter any
+pre-registered analysis choices. Acquiring the file simply replaces the
+placeholder `[0.5, 0.5]` gender proportions with the actual Japan-2022
+working-age gender marginal.
 
 ## File location and version control
 
@@ -68,7 +77,7 @@ once acquired. Provenance (download date + e-Stat URL + sheet hash) should
 be recorded in this README upon commit so the source is traceable from
 GitHub history alone.
 
-## Acquired (2026-04-30): mhlw_labor_force_2022.csv
+## Acquired (2026-04-30): mic_labor_force_2022.csv
 
 **Source PDF**: `労働力調査（基本集計）2022年（令和４年）平均結果の要約.pdf`
 - Publisher: 総務省統計局 (Ministry of Internal Affairs and Communications, Statistics Bureau)
@@ -89,11 +98,13 @@ GitHub history alone.
 - M (男) = 3,699 / 6,723 = **0.5502** (55.02%)
 
 **Why 就業者 (vs 役員除く雇用者)?**
-The MHLW power harassment survey denominator is 「労働者」 (workers in the
-broader sense, including self-employed). 就業者 is the closest demographic
-match. For sensitivity, 役員除く雇用者 (employees excluding officers, total
-5,699万人, F=2,682/47.06%, M=3,017/52.94%) is recorded as an alternative
-population definition in the source PDF page 9 表7.
+The MHLW power-harassment survey (which provides the H1 *validation
+targets*) uses the denominator 「労働者」 (workers in the broader sense,
+including self-employed). 就業者 in the MIC Labor Force Survey is the
+closest demographic match for that denominator. For sensitivity, 役員除く
+雇用者 (employees excluding officers, total 5,699万人, F=2,682/47.06%,
+M=3,017/52.94%) is recorded as an alternative population definition in the
+source PDF page 9 表7.
 
 **Long-form CSV schema delivered**:
 ```csv

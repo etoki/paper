@@ -41,8 +41,16 @@ HARASSMENT_RAW_PATH = REPO_ROOT / "harassment" / "raw.csv"
 CENTROIDS_PATH = REPO_ROOT / "clustering" / "csv" / "clstr_kmeans_7c.csv"
 """Path to 7-cluster HEXACO centroids (Tokiwa clustering paper, IEEE-published)."""
 
-MHLW_WEIGHTS_PATH = REPO_ROOT / "simulation" / "data" / "mhlw_labor_force_2022.csv"
-"""Default path for MHLW Labor Force Survey 2022 marginal counts.
+MHLW_WEIGHTS_PATH = REPO_ROOT / "simulation" / "data" / "mic_labor_force_2022.csv"
+"""Default path for the Statistics Bureau (MIC) Labor Force Survey 2022 marginal
+counts used for population reweighting.
+
+Note: The variable name is retained as ``MHLW_WEIGHTS_PATH`` for backward
+compatibility with previously committed code; the data are in fact published
+by the Statistics Bureau, Ministry of Internal Affairs and Communications
+(MIC, 総務省統計局), not by MHLW. The file has been renamed from the
+previous ``mhlw_labor_force_2022.csv`` to ``mic_labor_force_2022.csv`` to
+reflect the correct provenance.
 
 Expected source: e-Stat https://www.e-stat.go.jp/dbview?sid=0003410173
 ("労働力調査 基本集計 2022年平均") — the age × gender × employment
@@ -368,7 +376,7 @@ def load_mhlw_weights(path: str | os.PathLike[str] | None = None) -> MHLWWeights
         2. Download the Labor Force Survey Basic Tabulation 2022 annual,
            specifically the age × gender × employment crosstab.
         3. Reshape to long form per the schema above.
-        4. Save to ``simulation/data/mhlw_labor_force_2022.csv``.
+        4. Save to ``simulation/data/mic_labor_force_2022.csv``.
 
     Validation:
         - All rows must have non-null age_group, gender, count.

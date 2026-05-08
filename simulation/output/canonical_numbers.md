@@ -42,7 +42,11 @@ uv run python -m code.build_canonical_numbers     # rewrite this file
 
 ## Stage 1 — National prevalence (Results §3.2)
 
-- P̂ baseline (Stage 2 bootstrap mean): 0.1745
+- P̂ baseline (Stage 2 bootstrap mean): **0.1745** (used internally; differs from
+  the headline value below by 0.0001 due to bootstrap-replicate noise — Stage 2
+  uses B = 10,000 per Methods Clarification m3, while Stage 7 uses B = 2,000
+  for counterfactual contrasts; the paper consistently reports the Stage 7
+  value 0.1744 as the headline P̂ baseline)
 - MIC Labor Force Survey 2022 marginals: F = 0.4498, M = 0.5502 (total 6,723万人)
 - Cluster proportions M3-fixed at Tokiwa (2026, IEEE Access) values
 
@@ -96,7 +100,12 @@ Marker-variable correction (Lindell & Whitney 2001) using HEXACO O as theoretica
 
 ## Stage 7 — Counterfactual ΔP_x and H7 IUT (Results §3.6 Table 4)
 
-- P̂ baseline: **0.1744** (17.44%)
+- P̂ baseline: **0.1744** (17.44%) — headline value used in the paper Abstract,
+  Results §3.2, and all downstream tables. Differs from Stage 2 internal
+  bootstrap mean (0.1745) by 0.0001 due to bootstrap-replicate noise (B
+  differs across stages per Methods Clarification m3); the headline 0.1744 is
+  the value the paper consistently reports and the value embedded in
+  Tables 1, 4, 5 and Figure 3.
 
 | Counterfactual | Operationalization | ΔP point | 95% CI |
 |---|---|---:|---|
@@ -157,7 +166,7 @@ Power Harassment Prevention Law (改正労働施策総合推進法):
 |---|---|---|
 | H1 (latent prevalence) | MAPE_FY2016 = 46.34% | PARTIAL SUCCESS |
 | H2 (B0–B4 ordinal trend) | 0/4 BH pairs confirmed; Page's L p = 0.9757 | REJECTED |
-| H3 (centroid concordance) | Reported in Tokiwa 2026 IEEE Access | CONFIRMED |
+| H3 (centroid concordance) | Externally validated in Tokiwa (2026, IEEE Access) on the N=13,668 source sample; not separately re-tested in the present N=354 pipeline | EXTERNALLY CONFIRMED |
 | H4 (CI cascade stability) | 13/14 BCa + 1 Clopper-Pearson per M4 | CONFIRMED |
 | H5 (gender invariance) | Spearman ρ = 0.87 (p = 0.010) | CONFIRMED |
 | H6 (cross-domain triangulation) | Spearman ρ = 0.04 (cluster), 0.14 (cell) | REJECTED |
