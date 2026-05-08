@@ -4,15 +4,15 @@ All results are reported using the locked random seed. Numerical values are repr
 
 ## Sample characteristics and 14-cell propensity (Stage 0)
 
-The N = 354 sample was assigned to 14 cells (7 HEXACO clusters × 2 genders) via Euclidean nearest-centroid hard-assignment, using the Tokiwa (2026, *IEEE Access*) centroids as fixed parameters. Cell sizes ranged from 10 to 70 individuals (median = 18), with no degenerate (N = 0) cells. Cell-level past-three-year power-harassment victimization rates ranged from 0.000 to 0.400 (mean across cells = 0.181).
+The N = 354 sample was assigned to 14 cells (7 HEXACO clusters × 2 genders) via Euclidean nearest-centroid hard-assignment, using the Tokiwa (2026) centroids as fixed parameters. Cell sizes ranged from 10 to 70 individuals (median = 18), with no degenerate (N = 0) cells. Cell-level past-three-year power-harassment victimization rates ranged from 0.000 to 0.400 (mean across cells = 0.181).
 
-Per-cell 95% confidence intervals followed the four-step priority cascade described in Methods (Stage 0 specification). Of the 14 cells, **13 were resolved at the BCa stage** and **1 cell (cluster × gender index 11; N = 12, X = 0) was resolved at the Clopper-Pearson stage** as the M4 cascade prescribes for degenerate cells (X_c ∈ {0, N_c}). No cells required the BC or Percentile fallbacks, confirming that the v2.0 master Section 5.1 priority cascade operates as designed for the realized data structure.
+Per-cell 95% confidence intervals followed the four-step priority cascade described in Methods (Stage 0 specification). Of the 14 cells, **13 were resolved at the BCa stage** and **1 cell (cluster × gender index 11; N = 12, X = 0) was resolved at the Clopper-Pearson stage** as the cascade prescribes for degenerate cells (X_c ∈ {0, N_c}). No cells required the BC or Percentile fallbacks, confirming that the pre-registered priority cascade operates as designed for the realized data structure.
 
 ## National prevalence and H1 four-tier classification (Stages 1–2)
 
 After re-weighting with Statistics Bureau (MIC) Labor Force Survey 2022 marginals (F = 0.4498, M = 0.5502; total = 67.23 million employed persons), the model-based national past-three-year power-harassment prevalence was P̂ = 0.1744 (point estimate), corresponding to 17.44%.
 
-Per the v2.0 master Section 5.4 four-tier judgment hierarchy, the H1 results across three MHLW validation periods are summarized in Table 1.
+Per the pre-registered four-tier judgment hierarchy, the H1 results across three MHLW validation periods are summarized in Table 1.
 
 **Table 1.** Mean Absolute Percentage Error (MAPE) of model-based national prevalence against MHLW survey targets, with bootstrap 95% confidence intervals (B = 10,000 cell-stratified). Primary outcome: power harassment.
 
@@ -49,7 +49,7 @@ The pre-registered one-at-a-time sweep over four parameter families produced 13 
 Two parameter families show substantial sensitivity:
 
 - **Binarization threshold** (range: 29.58% to 48.95%): a more lenient threshold (+0.25 SD) yields Standard SUCCESS classification, suggesting that the MHLW survey may operationalize harassment more inclusively than the +0.5 SD main threshold;
-- **Cluster proportion mass shift** (range: 34.55% to 56.47%): underscores the centrality of the Tokiwa (2026, *IEEE Access*) cluster proportions to the conclusion (m8 limitation per pre-registration v2.0).
+- **Cluster proportion mass shift** (range: 34.55% to 56.47%): underscores the centrality of the Tokiwa (2026) cluster proportions to the conclusion (acknowledged as a pre-registered limitation, since cluster membership is not measured in the Labour Force Survey and the cluster mass cannot be re-weighted).
 
 Two parameter families show negligible sensitivity:
 
@@ -102,15 +102,15 @@ The three pre-registered counterfactual interventions produced the following ΔP
 | **Counterfactual B** | do(HH := HH + 0.40σ_HH) for individuals whose baseline cluster ∈ {0, 4, 6} | −0.0059 | [−0.0207, +0.0066] | **No (null)** |
 | **Counterfactual C** | do(P_{c, x} ← 0.80 × P_{c, x}) | **+0.0349** | [+0.0264, +0.0435] | **Yes (positive)** |
 
-The intersection-union test (Berger & Hsu, 1996) produced one-sided 95% lower bounds L_BA = −0.0011 and L_BC = −0.0544. Because point ΔP_B = −0.0059 is less than point ΔP_C = +0.0349, the m7 priority-1 condition is satisfied and H7 is classified as **REVERSAL**. We note that the priority-1 trigger uses the ΔP_B point estimate, which is downgraded to *exploratory* under the m5 positivity rule (44.5% flagged-weight; see Positivity diagnostic below); however, the CI-based cascade independently corroborates REVERSAL via L_BC = −0.0544 < 0 (ruling out the CONFIRMED branch without relying on the ΔP_B point estimate), and L_BA also lies just below zero. The REVERSAL classification therefore does not depend on the exploratory ΔP_B point estimate alone.
+The intersection-union test (Berger & Hsu, 1996) produced one-sided 95% lower bounds L_BA = −0.0011 and L_BC = −0.0544. Because point ΔP_B = −0.0059 is less than point ΔP_C = +0.0349, the priority-1 condition is satisfied and H7 is classified as **REVERSAL**. We note that the priority-1 trigger uses the ΔP_B point estimate, which is downgraded to *exploratory* under the pre-registered positivity rule (44.5% flagged-weight; see Positivity diagnostic below); however, the CI-based cascade independently corroborates REVERSAL via L_BC = −0.0544 < 0 (ruling out the CONFIRMED branch without relying on the ΔP_B point estimate), and L_BA also lies just below zero. The REVERSAL classification therefore does not depend on the exploratory ΔP_B point estimate alone.
 
 Substantively, this means that the cell-level structural intervention (Counterfactual C) outperforms both the universal personality intervention (Counterfactual A) and the targeted personality intervention on the low-prevalence subgroup (Counterfactual B) by a large margin. Numerically, |ΔP_C| / |ΔP_A| ≈ 5.7.
 
-**Positivity diagnostic.** Counterfactual A and Counterfactual C trivially preserve positivity (ρ ≡ 1 by construction; per Methods Clarification m5). Counterfactual B's cell positivity ratio ρ_{c, B} was 44.5% flagged (i.e., 44.5% of population weight in cells where the post-intervention expected count is < 10% of observed), triggering the m5 downgrade rule (flagged_weight ≥ 20%). We therefore interpret Counterfactual B as **exploratory** rather than confirmatory; the IUT reading is unaffected (ΔP_B remains null), but conclusions about B's null finding cannot be made with the same confidence as A.
+**Positivity diagnostic.** Counterfactual A and Counterfactual C trivially preserve positivity (ρ ≡ 1 by construction; per the pre-registered positivity rule). Counterfactual B's cell positivity ratio ρ_{c, B} was 44.5% flagged (i.e., 44.5% of population weight in cells where the post-intervention expected count is < 10% of observed), triggering the pre-registered downgrade rule (flagged_weight ≥ 20%). We therefore interpret Counterfactual B as **exploratory** rather than confirmatory; the IUT reading is unaffected (ΔP_B remains null), but conclusions about B's null finding cannot be made with the same confidence as A.
 
 ## Transportability sensitivity (Stage 8)
 
-Per the v2.0 master Section 5.8 cultural-attenuation sweep, all three ΔP_x bootstrap distributions were multiplied by transportability factor F ∈ {0.3, 0.5, 0.7, 1.0}, and the H7 IUT was re-classified per factor (Table 5).
+Per the pre-registered cultural-attenuation sweep, all three ΔP_x bootstrap distributions were multiplied by transportability factor F ∈ {0.3, 0.5, 0.7, 1.0}, and the H7 IUT was re-classified per factor (Table 5).
 
 **Table 5.** H7 classification under cultural attenuation factors. Each row uses the same H7 IUT procedure on attenuated bootstrap distributions.
 
@@ -131,8 +131,8 @@ The H7 = REVERSAL classification is robust across all four pre-registered cultur
 |---|---|---|---|
 | H1 | MAPE_FY2016 ≤ 30% (Strict / Standard SUCCESS) | MAPE = 46.34% | **PARTIAL SUCCESS** |
 | H2 | Monotonic B0 > B1 > B2 > B3 > B4 | 0 of 4 pairs confirmed (Page's L p = 0.976) | **REJECTED** |
-| H3 | Centroid concordance N=354 vs N=13,668 | Externally validated in Tokiwa (2026, *IEEE Access*) via stability analyses on the N=13,668 source sample; not separately re-tested in the present N=354 pipeline | Externally Confirmed |
-| H4 | Per-cell propensity stability across bootstrap procedures | 13/14 cells resolved at BCa; 1 degenerate cell (X=0) at Clopper-Pearson per M4 cascade | **CONFIRMED** |
+| H3 | Centroid concordance N=354 vs N=13,668 | Externally validated in Tokiwa (2026) via stability analyses on the N=13,668 source sample; not separately re-tested in the present N=354 pipeline | Externally Confirmed |
+| H4 | Per-cell propensity stability across bootstrap procedures | 13/14 cells resolved at BCa; 1 degenerate cell (X=0) at Clopper-Pearson per the pre-registered cascade | **CONFIRMED** |
 | H5 | Gender invariance | High concordance of cluster-level power-harassment rankings across genders (Spearman ρ = 0.87, p = 0.01 at 7-cluster level). The 14-cell vs 28-cell comparison adds a role stratification (× 2 roles per cell) rather than re-testing gender invariance; that comparison is reported separately as a robustness check on role-stratification stability and shows no qualitative effect on the cluster-level rank ordering used to evaluate H5. | **CONFIRMED** |
 | H6 | Power × gender harassment cluster ranking concordance | Weak concordance (Spearman ρ = 0.04 at 7-cluster level, p = 0.94; ρ = 0.14 at 14-cell level, p = 0.62) | **REJECTED** |
 | H7 | IUT classification | **REVERSAL** (robust across F = 0.3–1.0) | **REVERSAL** (per pre-registered classification) |

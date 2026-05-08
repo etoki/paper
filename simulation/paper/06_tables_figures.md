@@ -4,7 +4,7 @@
 
 ### Table 1. H1 Four-Tier Classification of Mean Absolute Percentage Error (MAPE) Across Three MHLW Validation Periods
 
-*Note*. Predicted values are computed via 14-cell HEXACO 7-typology × gender propensity weighted by Statistics Bureau (MIC) Labor Force Survey 2022 marginals. Bootstrap 95% CIs use B = 10,000 cell-stratified resamples (Methods Clarification m3). Tier classification per pre-registered four-tier hierarchy (v2.0 Section 5.4).
+*Note*. Predicted values are computed via 14-cell HEXACO 7-typology × gender propensity weighted by Statistics Bureau (MIC) Labour Force Survey 2022 marginals. Bootstrap 95% CIs use B = 10,000 cell-stratified resamples per the pre-registered headline-bootstrap rule. Tier classification follows the pre-registered four-tier hierarchy.
 
 | Period (MHLW) | Observed | Predicted | MAPE | 95% CI | Tier |
 |---|---:|---:|---:|---|---|
@@ -52,7 +52,7 @@
 
 ### Table 4. Counterfactual ΔP_x Estimates and H7 Intersection-Union Test
 
-*Note*. Counterfactual operationalization per pre-registered v2.0 Section 5.7. Positive ΔP indicates *reduction* in prevalence (sign convention). Bootstrap CIs use B = 2,000 cell-stratified resamples. The H7 IUT (Berger & Hsu, 1996) computes one-sided 95% lower bounds L_BA and L_BC. Classification follows the m7 priority cascade implemented in `code/stage7_counterfactual.py:h7_iut`: REVERSAL (priority 1) is triggered when point ΔP_B < ΔP_A OR point ΔP_B < ΔP_C; CONFIRMED requires L_BA > 0 AND L_BC > 0; PARTIAL requires exactly one of L_BA, L_BC > 0; AMBIGUOUS otherwise.
+*Note*. Counterfactual operationalization follows the pre-registered specification. Positive ΔP indicates *reduction* in prevalence (sign convention). Bootstrap CIs use B = 2,000 cell-stratified resamples. The H7 IUT (Berger & Hsu, 1996) computes one-sided 95% lower bounds L_BA and L_BC. Classification follows the pre-registered priority cascade: REVERSAL (priority 1) is triggered when point ΔP_B < ΔP_A OR point ΔP_B < ΔP_C; CONFIRMED requires L_BA > 0 AND L_BC > 0; PARTIAL requires exactly one of L_BA, L_BC > 0; AMBIGUOUS otherwise.
 
 | Intervention | Operationalization | ΔP point | 95% CI | CI excludes 0? |
 |---|---|---:|---|---|
@@ -60,9 +60,9 @@
 | B (targeted HH+ on low-prev clusters) | do(HH := HH + 0.40σ_HH) for individuals whose baseline cluster ∈ {0, 4, 6} | −0.0059 | [−0.0207, +0.0066] | No (null) |
 | C (structural) | do(P_{c, x} ← 0.80 × P_{c, x}) | **+0.0349** | [+0.0264, +0.0435] | **Yes** |
 
-**H7 IUT:** L_BA = −0.0011, L_BC = −0.0544; point ΔP_B < point ΔP_C triggers m7 priority-1 → **REVERSAL**
+**H7 IUT:** L_BA = −0.0011, L_BC = −0.0544; point ΔP_B < point ΔP_C triggers the pre-registered priority-1 condition → **REVERSAL**
 
-**Positivity diagnostic (Methods Clarification m5):** Counterfactual A and C trivially preserve positivity. Counterfactual B's flagged-weight share = 44.5%; m5 downgrade rule triggered. We interpret B's null finding as exploratory rather than confirmatory.
+**Positivity diagnostic (per the pre-registered positivity rule):** Counterfactual A and C trivially preserve positivity. Counterfactual B's flagged-weight share = 44.5%; the pre-registered downgrade rule is triggered. We interpret B's null finding as exploratory rather than confirmatory.
 
 ---
 
@@ -81,14 +81,14 @@
 
 ### Table 6. Pre-Registered Hypothesis Outcomes Summary
 
-*Note*. Hypothesis classification per v2.0 pre-registration master Section 5.4 (H1) and Section 5.7 (H7).
+*Note*. Hypothesis classification follows the pre-registered specification (the four-tier hierarchy for H1 and the IUT priority cascade for H7).
 
 | Hypothesis | Pre-registered prediction | Outcome | Tier |
 |---|---|---|---|
 | H1 | MAPE_FY2016 ≤ 30% (Strict / Standard SUCCESS) | MAPE = 46.34% | PARTIAL SUCCESS |
 | H2 | Monotonic B0 > B1 > B2 > B3 > B4 | 0 of 4 pairs confirmed | REJECTED |
-| H3 | Centroid concordance N=354 vs N=13,668 | Externally validated in Tokiwa (2026, *IEEE Access*) on the N=13,668 source sample; not separately re-tested in the present N=354 pipeline | EXTERNALLY CONFIRMED |
-| H4 | Per-cell propensity stability | 13/14 cells resolved at BCa; 1 (X=0) at Clopper-Pearson per M4 cascade | CONFIRMED |
+| H3 | Centroid concordance N=354 vs N=13,668 | Externally validated in Tokiwa (2026) on the N=13,668 source sample; not separately re-tested in the present N=354 pipeline | EXTERNALLY CONFIRMED |
+| H4 | Per-cell propensity stability | 13/14 cells resolved at BCa; 1 (X=0) at Clopper-Pearson per the pre-registered cascade | CONFIRMED |
 | H5 | Gender invariance | Spearman ρ(female, male) = 0.87 across 7 clusters (p = 0.01). The 14-cell vs 28-cell sensitivity (28-cell adds × 2 roles, not a re-split of gender) is reported as a robustness check on role-stratification stability rather than as a re-test of gender invariance. | CONFIRMED |
 | H6 | Power × gender harassment cluster ranking concordance | Spearman ρ = 0.04 (7-cluster) / 0.14 (14-cell), both p > 0.6 | REJECTED |
 | H7 | IUT classification | REVERSAL (robust F=0.3–1.0) | REVERSAL |
@@ -99,7 +99,7 @@
 
 ### Figure 1. Pipeline Schematic
 
-A box-and-arrow diagram of the nine pre-registered pipeline stages, showing the data inputs (N=354 individual data; Tokiwa 2026 *IEEE Access* 7-cluster centroids; Statistics Bureau (MIC) Labor Force Survey 2022) flowing through Stages 0–8 with their HDF5 outputs. Generated as PNG/PDF/SVG by `simulation/code/figures.py` (Makefile target `figures`).
+A box-and-arrow diagram of the nine pre-registered pipeline stages, showing the data inputs (N = 354 individual data; Tokiwa, 2026, 7-cluster centroids; Statistics Bureau (MIC) Labour Force Survey 2022) flowing through Stages 0–8 with their HDF5 outputs.
 
 **Caption.** *The HEXACO 7-typology workplace harassment microsimulation pipeline. Stage 0 (cell propensity) feeds into Stage 1 (population aggregation, MIC-reweighted) and Stage 2 (H1 four-tier classification). Stage 3 (sensitivity), Stage 4 (baselines), Stage 5 (CMV diagnostic), Stage 6 (target trial PICO), Stage 7 (counterfactuals + H7 IUT), and Stage 8 (transportability) operate in parallel after Stage 2.*
 
@@ -107,9 +107,9 @@ A box-and-arrow diagram of the nine pre-registered pipeline stages, showing the 
 
 ### Figure 2. 14-Cell Cell-Level Propensity (Stage 0)
 
-A heatmap of P̂_c across 7 HEXACO clusters × 2 genders, with cell sizes overlaid. Cell ordering follows the v2.0 master Section 5.1 convention (cluster × 2 + gender index).
+A heatmap of P̂_c across 7 HEXACO clusters × 2 genders, with cell sizes overlaid. Cell ordering follows the pre-registered convention (cluster × 2 + gender index).
 
-**Caption.** *Per-cell power-harassment victimization propensities P̂_c with 95% BCa CIs. Cell sizes (N_c) range from 10 to 70 (median 18). Color encodes propensity (blue = low; red = high). Cells with N_c < 20 are demarcated with a dashed boundary.*
+**Caption.** *Per-cell power-harassment victimization propensities P̂_c with 95% bootstrap CIs computed under the pre-registered cascade. Cell sizes (N_c) range from 10 to 70 (median 18). Color encodes propensity (blue = low; red = high). Cells with N_c < 20 are demarcated with a dashed boundary.*
 
 ---
 
@@ -148,7 +148,7 @@ A line plot with cultural attenuation factor F on the x-axis (0.3 to 1.0) and Δ
 ## Tables and Figures: Generation notes
 
 - **Tables 1–6**: Embedded in `manuscript_preprint.docx` as native Word tables with APA-style formatting (Times New Roman 12 pt, double-spaced, lines below header and final row).
-- **Figure 1 (pipeline schematic)**: Generated by `simulation/code/figures.py` as `simulation/output/figures/figure1_pipeline.{png,pdf,svg}`. The pipeline schematic is illustrative; values come from the v2.0 master.
+- **Figure 1 (pipeline schematic)**: Illustrative schematic; the underlying values come from the pre-registered specification.
 - **Figure 2 (14-cell heatmap)**: Generated from `output/supplementary/stage0_cell_propensity.h5` via matplotlib.
 - **Figure 3 (prevalence comparison)**: Generated from `stage1_population_aggregation.h5` and `stage2_validation.h5`.
 - **Figure 4 (sensitivity tornado)**: Generated from `stage3_sensitivity.h5`.
