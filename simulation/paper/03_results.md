@@ -1,6 +1,6 @@
 # 03. Results
 
-All results are reported using the locked seed 20260429. Numerical values are reproduced verbatim from the HDF5 artifacts under `output/supplementary/`. The full numerical record (~ 600 KB of HDF5 artifacts across 9 pipeline stages, plus ~ 2.2 MB of figures in PNG/PDF/SVG, totaling ~ 2.8 MB) is publicly archived at OSF DOI 10.17605/OSF.IO/3Y54U; SHA-256 hashes for byte-identical reproduction verification are committed in `simulation/output/reference_hashes.json`.
+All results are reported using the locked random seed. Numerical values are reproduced verbatim from the HDF5 artifacts produced by the pipeline; deposit locations and SHA-256 verification hashes are documented in Methods (Data availability).
 
 ## Sample characteristics and 14-cell propensity (Stage 0)
 
