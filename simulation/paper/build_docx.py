@@ -566,16 +566,20 @@ def build_preprint(out_path: Path, *, journal_variant: bool = False):
     # Body: Abstract + Introduction + Methods + Results + Discussion
     for md_path in [MD_INTRO, MD_METHODS, MD_RESULTS, MD_DISCUSSION]:
         blocks = parse_md_blocks(md_path)
-        # Skip top-level "01. ..." heading and our metadata; start from Abstract / first H2
+        # Drop the entire markdown front-matter: everything before the first
+        # "## " (H2) heading is treated as metadata and stripped (this includes
+        # the file's "# 01. ..." H1 wrapper, the bold-prefixed metadata lines
+        # like "**Author**", "**Pre-registration**", any parenthetical reader
+        # notes, and the "---" front-matter separator). Body rendering begins
+        # at the first H2 (e.g., "## Abstract").
         filtered = []
-        skip_metadata = True
+        body_started = False
         for kind, text in blocks:
-            if skip_metadata and kind == "para" and (text.startswith("**") or "OSF DOI" in text or "Working title" in text):
-                continue
-            if skip_metadata and kind == "h1":
-                # Drop the file's "01. Abstract + Introduction" wrapper
-                continue
-            skip_metadata = False
+            if not body_started:
+                if kind == "h2":
+                    body_started = True
+                else:
+                    continue
             filtered.append((kind, text))
         render_blocks(doc, filtered)
         doc.add_page_break()
