@@ -864,10 +864,18 @@ def build():
     ]
 
     def _strip_metadata(md_text: str) -> str:
-        md_text = re.sub(r"^# 0\d\..*?\n", "", md_text)
-        md_text = re.sub(
-            r"^\*\*(?:Working title|Author|Pre-registration|Reporting standard).*?\n",
-            "", md_text, flags=re.MULTILINE)
+        # Strip the entire markdown front-matter: everything before the first
+        # "## " (H2) heading is treated as metadata and removed. This catches
+        # the file's "# 0X. ..." H1 wrapper, all "**...**" front-matter lines
+        # (Title, Author, Affiliation, ORCID, Correspondence, Pre-registration,
+        # Preprint, Reporting standard, Funding, etc.), HTML comments, any
+        # parenthetical reader notes, and the "---" front-matter separator.
+        m = re.search(r"(^|\n)##\s", md_text)
+        if m:
+            md_text = md_text[m.start():].lstrip("\n")
+        # Strip the Abstract+Keywords block (handled separately above for the
+        # IEEE single-column abstract typesetting); body rendering resumes at
+        # the next "## " heading after Keywords.
         md_text = re.sub(r"## Abstract\s*\n\n.*?\n\n\*\*Keywords.*?\n",
                          "", md_text, flags=re.DOTALL)
         md_text = re.sub(r"^\*\*Keywords.*?\n", "", md_text, flags=re.MULTILINE)

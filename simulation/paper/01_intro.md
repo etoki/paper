@@ -7,8 +7,12 @@
 **Affiliation**: SUNBLAZE Co., Ltd., Tokyo, Japan
 **ORCID**: 0009-0009-7124-6669
 **Correspondence**: eisuke.tokiwa@sunblaze.jp
+**Pre-registration**: OSF DOI 10.17605/OSF.IO/3Y54U (v2.0; locked 2026-04-30)
+**Preprint**: SocArXiv DOI 10.31235/osf.io/p2d8w_v1 (posted 2026-05-08)
+**Reporting standard**: Stage 2 Registered Report (post-data) following the v2.0 pre-registration
 
-(*Pre-registration, reporting standard, funding, competing interests, and data availability* are reported in the Author Note / Declarations on the title page of the rendered manuscript and in the Methods § Data availability subsection. The condensed disclosure: the author is the founder of SUNBLAZE Co., Ltd., which provides HEXACO-JP, a proprietary Japanese-language HEXACO-based personality assessment service; this is a potential competing interest. The present study does not use HEXACO-JP — it uses the HEXACO-PI-R Japanese 60-item adaptation of Wakabayashi (2014) — and the manuscript does not reference, evaluate, market, recommend, or promote HEXACO-JP or any other SUNBLAZE product. No funding was received for this research from any source. Pre-registration: v2.0, locked 2026-04-30.)
+<!-- Note (markdown source): Funding, competing interests, ethics, authors' contributions, data availability, and acknowledgments are rendered in the Author Note / Declarations section of the docx by build_docx.py / build_ieee_docx.py from constants in those scripts; they do not need to be repeated in this markdown file. -->
+
 
 ---
 
