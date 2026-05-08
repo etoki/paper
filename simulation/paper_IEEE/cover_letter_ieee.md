@@ -1,7 +1,7 @@
 # Cover Letter — IEEE Access
 
 **Submission Category:** Regular Article (Original Research)
-**Manuscript:** *Person-Level versus System-Level Anti-Harassment Interventions: HEXACO 7-Typology Evidence That Structure Dominates Personality in Japanese Workplaces*
+**Manuscript:** *Person-Level versus System-Level Anti-Harassment Interventions: A HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces*
 **Author:** Eisuke Tokiwa (sole-authored)
 **Pre-registration:** OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u) (v2.0; registered 2026-04-30)
 **Companion paper:** Tokiwa, *IEEE Access*, 2026, doi: 10.1109/ACCESS.2026.3651324
@@ -16,7 +16,7 @@ Institute of Electrical and Electronics Engineers (IEEE)
 
 Dear Editor-in-Chief,
 
-I am pleased to submit the enclosed manuscript, *Person-Level versus System-Level Anti-Harassment Interventions: HEXACO 7-Typology Evidence That Structure Dominates Personality in Japanese Workplaces*, for consideration as a regular article in *IEEE Access*. This work continues the computational-psychology research program initiated in my prior IEEE Access publication on HEXACO cluster typology in a non-WEIRD Japanese sample (doi: 10.1109/ACCESS.2026.3651324) and applies the same emphasis on methodological transparency and reproducibility that *IEEE Access* requires.
+I am pleased to submit the enclosed manuscript, *Person-Level versus System-Level Anti-Harassment Interventions: A HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces*, for consideration as a regular article in *IEEE Access*. This work continues the computational-psychology research program initiated in my prior IEEE Access publication on HEXACO cluster typology in a non-WEIRD Japanese sample (doi: 10.1109/ACCESS.2026.3651324) and applies the same emphasis on methodological transparency and reproducibility that *IEEE Access* requires.
 
 ## Why *IEEE Access*
 
@@ -44,17 +44,17 @@ Three contributions distinguish this work, each speaking directly to *IEEE Acces
 
 1. **Methodological:** the first end-to-end pre-registered counterfactual microsimulation of Japanese workplace harassment, with full reproducibility (HDF5 artifacts, fixed seed = 20260429, Docker container, MIT-licensed code, SHA-256 hash-locked outputs, 56-test pytest suite all passing).
 2. **Empirical:** the first quantitative apples-to-apples comparison of person-level and system-level intervention effects on a population-level harassment-prevalence metric, leveraging effect-size calibrations from prior meta-analyses.
-3. **Substantive reframing:** the manuscript repositions HEXACO 7-typology as a *stratification variable* identifying differentially exposed populations rather than as an *intervention target*. This framing rejects victim-blaming readings of harassment exposure and aligns with workplace-ethics literature.
+3. **Substantive reframing:** the manuscript repositions HEXACO 7-typology as a *stratification variable* identifying differentially exposed populations rather than as an *intervention target*, and cautions against reading observational HEXACO–harassment associations as endorsing person-focused remediation.
 
-The convergence of our pre-registered counterfactual evidence with the MHLW FY2016–FY2023 natural experiment (−13.2 percentage-point post-Power-Harassment-Prevention-Law decline) provides a rare quasi-validation of the policy-relevant claim.
+The temporal coincidence between the MHLW FY2016 → FY2023 −13.2-percentage-point decline and the staged enforcement of the 2020 Power Harassment Prevention Law is treated in the manuscript as substantive context rather than as a formal causal estimand of the law's effect.
 
 ## IEEE Access policy compliance
 
 - **Originality:** The manuscript has not been previously published, in whole or in part, and is not under consideration at any other journal. The companion *IEEE Access* publication (Tokiwa 2026) is a distinct paper covering the cluster-typology derivation; the present submission is a microsimulation analysis using the previously-published cluster centroids as fixed parameters.
 - **Reproducibility:** Source code is publicly archived under MIT license at <https://github.com/etoki/paper> (directory: `simulation/`); supplementary artifacts at OSF DOI 10.17605/OSF.IO/3Y54U; SHA-256 hash-verified reproduction via `make verify`. The Docker container plus pinned `uv.lock` ensure byte-identical regeneration on the canonical platform.
 - **Ethics:** The N = 354 individual-level data re-analyzed in this study were originally collected under an IRB-approved protocol (Tokiwa, 2025, Research Square preprint, doi: 10.21203/rs.3.rs-7756124/v1). Secondary analysis of de-identified records does not require additional ethics review.
-- **Conflict of Interest:** The author declares no competing interests, financial or non-financial.
-- **Funding:** This research received no external funding; it was self-funded by SUNBLAZE Co., Ltd. (Tokyo, Japan).
+- **Competing Interests:** The author discloses the following potential competing interest: the author is the founder and representative of SUNBLAZE Co., Ltd. (Tokyo, Japan), which provides HEXACO-JP, a proprietary Japanese-language HEXACO-based personality assessment service. Three points qualify the disclosure. (i) The present study does **not** use HEXACO-JP; the HEXACO instrument used here is the HEXACO-PI-R Japanese 60-item adaptation published by Wakabayashi (2014), a separately validated and openly cited instrument that predates and is independent of HEXACO-JP. (ii) The manuscript does not reference, evaluate, market, recommend, or otherwise promote HEXACO-JP or any other SUNBLAZE product or service. (iii) The headline empirical findings (a null personality-intervention contrast, a positive structural-intervention contrast, and the reframing of HEXACO 7-typology as a stratification variable rather than an intervention or screening target) do not differentially favor commercial HEXACO-based assessment products.
+- **Funding:** No funding was received for this research. SUNBLAZE Co., Ltd. did not provide any funding, equipment, or compensation, and no external grant funding from public, commercial, or not-for-profit agencies was received. The author conducted the research as an independent academic project at no monetary cost, using publicly available analytical software and previously collected data.
 - **Open Access fee acknowledgment:** The author acknowledges the *IEEE Access* article processing charge (APC) and is prepared to comply upon acceptance.
 - **Generative AI disclosure:** Generative AI (Anthropic Claude) was used as a drafting and code-review assistant; all final claims, derivations, and statistical conclusions are the author's responsibility. This is disclosed in the manuscript ACKNOWLEDGMENT section per the IEEE 2025 AI use policy.
 
