@@ -4,6 +4,7 @@
 **Manuscript:** *Counterfactual Evidence That Organizational Structure Outweighs Personality in Japanese Workplace Harassment: A HEXACO 7-Typology Microsimulation Aligned with the 2020 Power Harassment Prevention Law*
 **Author:** Eisuke Tokiwa (sole-authored)
 **Pre-registration:** OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u) (v2.0; registered 2026-04-30)
+**Preprint:** SocArXiv DOI [10.31235/osf.io/p2d8w_v1](https://osf.io/preprints/socarxiv/p2d8w_v1) (posted 2026-05-08)
 
 ---
 
@@ -80,7 +81,7 @@ We respectfully request that reviewers familiar with both workplace-bullying int
 
 ## Closing
 
-I confirm that this manuscript has not been previously published, is not under consideration elsewhere, and that all authors (sole-authored) have agreed to the submission. Code, data, and intermediate artifacts will remain publicly accessible at the indicated OSF DOI and GitHub repository for the duration of peer review and beyond.
+I confirm that this manuscript has not been previously published in any peer-reviewed venue and is not under consideration at any other journal. A non-peer-reviewed version has been posted as a preprint at SocArXiv (DOI 10.31235/osf.io/p2d8w_v1) per *Journal of Occupational Health Psychology* preprint policy. The submission is sole-authored. Code, data, and intermediate artifacts will remain publicly accessible at the indicated OSF DOI and GitHub repository for the duration of peer review and beyond.
 
 I look forward to the editorial team's response and the peer-review process.
 
