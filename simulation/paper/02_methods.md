@@ -1,6 +1,6 @@
 # 02. Methods
 
-All procedures were pre-registered at OSF prior to data analysis (DOI 10.17605/OSF.IO/3Y54U; v2.0 registered/locked 2026-04-30). Code, intermediate artifacts (HDF5), random seeds, and Docker containerization are publicly archived at <https://github.com/etoki/paper>. The analysis is fully reproducible via `make reproduce` (~30 minutes on a single core). All stochastic operations use the locked seed 20260429.
+All procedures were pre-registered prior to data analysis (v2.0 registered and locked 2026-04-30; deposit details and access conditions are given in the Data availability subsection below). The analysis is fully reproducible from publicly available code and intermediate artifacts in approximately 30 minutes on a single core; all stochastic operations use a fixed random seed.
 
 ## Data sources
 
@@ -119,7 +119,7 @@ H7 is re-classified per attenuated factor to verify robustness.
 
 ## Reproducibility
 
-All stochastic operations use seed 20260429 (Methods Clarification M3). HDF5 artifacts at each stage include the seed, version, OSF DOI, and stage-specific provenance metadata as root-level attributes, enabling full audit-trail reconstruction. Verification hashes for all artifacts are computed via `simulation/code/verify_reproduction.py` and compared against `reference_hashes.json`. The Docker container `Dockerfile` and the `Makefile` `reproduce` target encapsulate the full pipeline. A 56-test pytest suite (including the MHLW loader tests activated under Phase 1) guards against regression in core utilities.
+All stochastic operations use a fixed random seed (Methods Clarification M3). HDF5 artifacts at each stage include the seed, version, OSF DOI, and stage-specific provenance metadata as root-level attributes, enabling full audit-trail reconstruction. Verification hashes for all artifacts are computed via the project's verification script and compared against the committed reference-hash registry. A Docker container and a `reproduce` Makefile target encapsulate the full pipeline. A 56-test pytest suite (including the loader tests for the Statistics Bureau Labour Force Survey data activated under Phase 1) guards against regression in core utilities.
 
 ## Software and statistical environment
 
