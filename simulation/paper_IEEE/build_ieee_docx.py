@@ -76,6 +76,28 @@ INDEX_TERMS = (
 )
 
 # ============================================================================
+# IEEE Access typographic constants (matched against the formatted clustering
+# companion paper at clustering/paper_IEEE/Manuscript_IEEE_rivision.docx)
+# ============================================================================
+
+# Display font for Title, Author, Abstract label, major section headings, and
+# captions. IEEE Access uses Helvetica Neue throughout the display layer.
+DISPLAY_FONT = "Helvetica Neue"
+
+# Body font for prose, references, equations, and most subsection headings.
+BODY_FONT = "Times New Roman"
+
+# IEEE Access brand colors observed in the reference manuscript:
+# - 00629B: teal/blue used for Title, ABSTRACT label, and major section
+#           headings (e.g., "INTRODUCTION", "MATERIALS AND METHODS")
+# - 58595B: dark gray used for sub-subsection headings (e.g., "STUDY DESIGN
+#           AND PARTICIPANTS")
+# - 000000: black, used for everything else
+COLOR_IEEE_BLUE = "00629B"
+COLOR_IEEE_SUBSUB_GRAY = "58595B"
+COLOR_BLACK = "000000"
+
+# ============================================================================
 # IEEE Access page setup constants (twips: 1 inch = 1440 twips)
 # ============================================================================
 
@@ -417,7 +439,7 @@ def replace_citations_with_ieee(text: str, mapping: dict[str, int]) -> str:
 # ============================================================================
 
 def set_font(run, name="Times New Roman", size=10, bold=None, italic=None,
-             smallcaps=False):
+             smallcaps=False, color=None):
     run.font.name = name
     run.font.size = Pt(size)
     if bold is not None:
@@ -426,6 +448,13 @@ def set_font(run, name="Times New Roman", size=10, bold=None, italic=None,
         run.italic = italic
     if smallcaps:
         run.font.small_caps = True
+    if color is not None:
+        # Accept either a hex string ("00629B") or a docx.shared.RGBColor
+        from docx.shared import RGBColor
+        if isinstance(color, str):
+            run.font.color.rgb = RGBColor.from_string(color)
+        else:
+            run.font.color.rgb = color
     rPr = run._element.get_or_add_rPr()
     rFonts = rPr.find(qn("w:rFonts"))
     if rFonts is None:
@@ -637,39 +666,42 @@ def to_letter(n: int) -> str:
 
 def add_ieee_section_heading(doc, text: str, *, roman: int | None = None,
                              centered: bool = True):
-    """9pt bold ALL CAPS section heading. If `roman` is given, prefixes the
-    heading with Roman numerals "I. ", "II. ", etc., and centers the heading
-    per IEEE Editorial Style Manual. Unnumbered top-level sections (REFERENCES,
-    ACKNOWLEDGMENT, BIOGRAPHIES) pass roman=None.
+    """Major section heading: Helvetica Neue 9pt bold ALL CAPS in IEEE blue
+    (#00629B). If `roman` is given, prefixes the heading with Roman numerals
+    "I. ", "II. ", etc. Centered per IEEE Editorial Style Manual. Unnumbered
+    top-level sections (REFERENCES, ACKNOWLEDGMENT, BIOGRAPHIES) pass
+    roman=None.
     """
     p = doc.add_paragraph()
     align = WD_ALIGN_PARAGRAPH.CENTER if centered else None
     set_para_format(p, align=align, space_before=8, space_after=4)
     label = f"{to_roman(roman)}. " if roman is not None else ""
     r = p.add_run(label + text.upper())
-    set_font(r, size=9, bold=True)
+    set_font(r, name=DISPLAY_FONT, size=9, bold=True, color=COLOR_IEEE_BLUE)
 
 
 def add_ieee_subsection_heading(doc, text: str, *, letter: int | None = None):
-    """10pt bold mixed-case subsection heading.
+    """Subsection heading: Times New Roman 10pt bold mixed-case, black.
     Prefixed with a letter "A. ", "B. ", ... per IEEE Style Manual.
     """
     p = doc.add_paragraph()
     set_para_format(p, space_before=4, space_after=2)
     label = f"{to_letter(letter)}. " if letter is not None else ""
     r = p.add_run(label + text)
-    set_font(r, size=10, bold=True)
+    set_font(r, name=BODY_FONT, size=10, bold=True, color=COLOR_BLACK)
 
 
 def add_ieee_subsubsection_heading(doc, text: str, *, number: int | None = None):
-    """10pt bold italic run-in style sub-subsection heading.
-    Prefixed with "1) ", "2) ", ... and ends with colon (per IEEE Style Manual).
+    """Sub-subsection heading: Helvetica Neue 9pt bold, dark gray (#58595B),
+    run-in style. Prefixed with "1) ", "2) ", ... and ends with colon per
+    the IEEE Access companion-paper formatting.
     """
     p = doc.add_paragraph()
     set_para_format(p, space_before=2, space_after=2)
     label = f"{number}) " if number is not None else ""
     r = p.add_run(label + text + ":")
-    set_font(r, size=10, bold=True, italic=True)
+    set_font(r, name=DISPLAY_FONT, size=9, bold=True,
+             color=COLOR_IEEE_SUBSUB_GRAY)
 
 
 def add_ieee_body_para(doc, text: str, *, indent=True):
@@ -752,56 +784,57 @@ def build():
     #   4. After all content, set the final (trailing) sectPr to cols=2.
 
     # === Title block (single column) ===
-    # Manuscript ID block (italic 8pt) — review/version metadata placeholder
+    # Per IEEE Access companion-paper formatting:
+    #   line 1 — Helvetica Neue 7pt, "Date of publication ...".
+    #   line 2 — Times New Roman 6pt, "Digital Object Identifier ...".
     p = doc.add_paragraph()
     set_para_format(p, space_before=0, space_after=0)
     r = p.add_run(
-        "Received XX Month, 20XX; revised XX Month, 20XX; accepted XX Month, "
-        "20XX. Date of publication XX Month, 20XX; date of current version "
-        "XX Month, 20XX."
+        "Date of publication xxxx 00, 0000, date of current version "
+        "xxxx 00, 0000."
     )
-    set_font(r, size=8, italic=True)
+    set_font(r, name=DISPLAY_FONT, size=7, color=COLOR_BLACK)
 
     p = doc.add_paragraph()
     set_para_format(p, space_before=0, space_after=8)
-    r = p.add_run("Digital Object Identifier 10.1109/ACCESS.20XX.DOI")
-    set_font(r, size=8, italic=True)
+    r = p.add_run("Digital Object Identifier 10.1109/ACCESS.20XX.Doi Number")
+    set_font(r, name=BODY_FONT, size=6, color=COLOR_BLACK)
 
-    # Title
+    # Title — Helvetica Neue 22pt bold, IEEE Access teal/blue (#00629B).
     p = doc.add_paragraph()
     set_para_format(p, align=WD_ALIGN_PARAGRAPH.LEFT, space_after=10)
     r = p.add_run(TITLE)
-    set_font(r, size=22, bold=True)
+    set_font(r, name=DISPLAY_FONT, size=22, bold=True, color=COLOR_IEEE_BLUE)
 
-    # Author + superscript
+    # Author + superscript — Helvetica Neue 10pt bold, black.
     p = doc.add_paragraph()
     set_para_format(p, align=WD_ALIGN_PARAGRAPH.LEFT, space_after=2)
-    r = p.add_run(AUTHOR_INITIAL.upper())
-    set_font(r, size=10, bold=True)
+    r = p.add_run(AUTHOR_INITIAL)
+    set_font(r, name=DISPLAY_FONT, size=10, bold=True, color=COLOR_BLACK)
     r2 = p.add_run("1")
-    set_font(r2, size=7, bold=True)
+    set_font(r2, name=DISPLAY_FONT, size=7, bold=True, color=COLOR_BLACK)
     r2.font.superscript = True
 
-    # Affiliation
+    # Affiliation — Times New Roman 7pt, black.
     p = doc.add_paragraph()
     set_para_format(p, space_after=2)
     r = p.add_run("1")
-    set_font(r, size=7)
+    set_font(r, name=BODY_FONT, size=7, color=COLOR_BLACK)
     r.font.superscript = True
     r2 = p.add_run(AFFILIATION)
-    set_font(r2, size=7)
+    set_font(r2, name=BODY_FONT, size=7, color=COLOR_BLACK)
 
-    # Corresponding author
+    # Corresponding author — Times New Roman 7.5pt, black.
     p = doc.add_paragraph()
     set_para_format(p, space_after=2)
     r = p.add_run(f"Corresponding author: {AUTHOR_INITIAL} (e-mail: {EMAIL}).")
-    set_font(r, size=8)
+    set_font(r, name=BODY_FONT, size=7.5, color=COLOR_BLACK)
 
-    # Funding
+    # Funding — Times New Roman 8pt, black.
     p = doc.add_paragraph()
     set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY, space_after=2)
     r = p.add_run(FUNDING)
-    set_font(r, size=8)
+    set_font(r, name=BODY_FONT, size=8, color=COLOR_BLACK)
 
     # First-page IEEE Access copyright + CC-BY notice
     p = doc.add_paragraph()
@@ -831,20 +864,22 @@ def build():
     abstract_text = strip_markdown_inline(abstract_text)
     abstract_text = replace_citations_with_ieee(abstract_text, cit_mapping)
 
+    # ABSTRACT label: Helvetica Neue 10pt bold, IEEE blue (#00629B).
+    # Abstract body text: Times New Roman 10pt, black.
     p = doc.add_paragraph()
     set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY, space_after=4)
     r = p.add_run("ABSTRACT")
-    set_font(r, size=10, bold=True)
+    set_font(r, name=DISPLAY_FONT, size=10, bold=True, color=COLOR_IEEE_BLUE)
     r2 = p.add_run(" " + abstract_text)
-    set_font(r2, size=10)
+    set_font(r2, name=BODY_FONT, size=10, color=COLOR_BLACK)
 
     # === Index Terms (inline bold) ===
     p = doc.add_paragraph()
     set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY, space_after=10)
     r = p.add_run("INDEX TERMS")
-    set_font(r, size=10, bold=True)
+    set_font(r, name=DISPLAY_FONT, size=10, bold=True, color=COLOR_IEEE_BLUE)
     r2 = p.add_run(" " + INDEX_TERMS)
-    set_font(r2, size=10)
+    set_font(r2, name=BODY_FONT, size=10, color=COLOR_BLACK)
 
     # === Section break: title block ends here as 1-column ===
     add_continuous_section_break(doc, num_cols=1)
@@ -913,6 +948,18 @@ def build():
         last_h2_was_conclusion_root = False
 
         blocks = parse_md_blocks(md_text)
+
+        # Detect "single-H2 wrapper" files (e.g., 01_intro.md whose only top-
+        # level H2 is "## Introduction" matching section_label). In such files,
+        # the H3s are the natural first-level nesting under the major section
+        # and should render as A./B./C. subsections rather than as 1) 2) 3)
+        # sub-subsections — matching the IEEE Access companion paper layout.
+        h2_titles = [strip_markdown_inline(t) for k, t in blocks if k == "h2"]
+        h2_titles = [t for t in h2_titles if t not in SKIP_HEADINGS]
+        promote_h3_to_subsection = (
+            len(h2_titles) == 1 and h2_titles[0].upper() == section_label
+        )
+
         for kind, txt in blocks:
             txt_clean = strip_markdown_inline(txt) if kind != "table_md" else txt
             if kind == "h1":
@@ -929,8 +976,15 @@ def build():
                 number_counter = 0
                 add_ieee_subsection_heading(doc, txt_clean, letter=letter_counter)
             elif kind == "h3":
-                number_counter += 1
-                add_ieee_subsubsection_heading(doc, txt_clean, number=number_counter)
+                if promote_h3_to_subsection:
+                    letter_counter += 1
+                    number_counter = 0
+                    add_ieee_subsection_heading(doc, txt_clean,
+                                                letter=letter_counter)
+                else:
+                    number_counter += 1
+                    add_ieee_subsubsection_heading(doc, txt_clean,
+                                                  number=number_counter)
             elif kind == "h4":
                 add_ieee_subsubsection_heading(doc, txt_clean)
             elif kind == "para":
