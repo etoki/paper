@@ -571,7 +571,9 @@ def strip_markdown_inline(text: str) -> str:
 def add_inline_runs(p, text: str, *, base_size=10, base_bold=False,
                    base_italic=False):
     """Add runs to paragraph p, parsing **bold** / *italic* / `code` markers
-    so the docx output reflects the inline emphasis without literal markers."""
+    so the docx output reflects the inline emphasis without literal markers.
+    All runs default to Times New Roman with explicit black (#000000) color
+    to match the clustering companion paper's uniform body-text styling."""
     pattern = (
         r"(\*\*[^*\n]+?\*\*|"
         r"(?<![*])\*(?!\s|\*)[^*\n]+?(?<![\s*])\*(?!\*)|"
@@ -583,18 +585,22 @@ def add_inline_runs(p, text: str, *, base_size=10, base_bold=False,
             continue
         if part.startswith("**") and part.endswith("**"):
             r = p.add_run(part[2:-2])
-            set_font(r, size=base_size, bold=True, italic=base_italic or None)
+            set_font(r, name=BODY_FONT, size=base_size, bold=True,
+                     italic=base_italic or None, color=COLOR_BLACK)
         elif part.startswith("*") and part.endswith("*"):
             r = p.add_run(part[1:-1])
-            set_font(r, size=base_size, bold=base_bold or None, italic=True)
+            set_font(r, name=BODY_FONT, size=base_size,
+                     bold=base_bold or None, italic=True, color=COLOR_BLACK)
         elif part.startswith("`") and part.endswith("`"):
             r = p.add_run(part[1:-1])
-            set_font(r, size=base_size, bold=base_bold or None,
-                     italic=base_italic or None)
+            set_font(r, name=BODY_FONT, size=base_size,
+                     bold=base_bold or None,
+                     italic=base_italic or None, color=COLOR_BLACK)
         else:
             r = p.add_run(part)
-            set_font(r, size=base_size, bold=base_bold or None,
-                     italic=base_italic or None)
+            set_font(r, name=BODY_FONT, size=base_size,
+                     bold=base_bold or None,
+                     italic=base_italic or None, color=COLOR_BLACK)
 
 
 def parse_md_blocks(md_text: str) -> list[tuple[str, str]]:
@@ -695,15 +701,15 @@ def add_ieee_subsection_heading(doc, text: str, *, letter: int | None = None):
 
 
 def add_ieee_subsubsection_heading(doc, text: str, *, number: int | None = None):
-    """Sub-subsection heading: Helvetica Neue 9pt bold, dark gray (#58595B),
-    run-in style. Prefixed with "1) ", "2) ", ... and ends with colon per
-    the IEEE Access companion-paper formatting.
+    """Sub-subsection heading: Helvetica Neue 9pt bold italic, dark gray
+    (#58595B), run-in style. Prefixed with "1) ", "2) ", ... and ends with
+    colon per the IEEE Access companion-paper formatting.
     """
     p = doc.add_paragraph()
     set_para_format(p, space_before=2, space_after=2)
     label = f"{number}) " if number is not None else ""
     r = p.add_run(label + text + ":")
-    set_font(r, name=DISPLAY_FONT, size=9, bold=True,
+    set_font(r, name=DISPLAY_FONT, size=9, bold=True, italic=True,
              color=COLOR_IEEE_SUBSUB_GRAY)
 
 
@@ -1227,10 +1233,11 @@ def build():
         ref_text = IEEE_REFS[key]
         p = doc.add_paragraph()
         set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY, space_after=2)
-        r = p.add_run(f"[{idx}] ")
-        set_font(r, size=9, bold=True)
-        r2 = p.add_run(ref_text)
-        set_font(r2, size=8)
+        # Single TNR 8pt run for the entire reference entry (including the
+        # "[N]" prefix), matching the clustering companion paper's
+        # uniform-weight reference list style.
+        r = p.add_run(f"[{idx}] {ref_text}")
+        set_font(r, name=BODY_FONT, size=8, color=COLOR_BLACK)
 
     # === Author Biography (IEEE Access required, 100-150 words/author) ===
     add_ieee_section_heading(doc, "BIOGRAPHIES", roman=None)
