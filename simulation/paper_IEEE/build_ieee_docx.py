@@ -31,7 +31,7 @@ from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Pt, Twips, RGBColor
+from docx.shared import Inches, Pt, Twips, RGBColor
 
 # ============================================================================
 # Paths and constants
@@ -1226,6 +1226,47 @@ def build():
         "and statistical conclusions are the author's responsibility."
     )
     set_font(r, size=10, italic=True)
+
+    # === Figures (embedded at end of body, before References) ===
+    # Parse 06_tables_figures.md for "### Figure N. Title" sections, then
+    # embed the corresponding output/figures/figureN_*.png file with a
+    # "FIGURE N." label and an italic caption per IEEE Access convention.
+    figures_md_text = MD_TABLES_FIGURES.read_text(encoding="utf-8")
+    # Locate the start of the "## Figures" section.
+    figures_start = re.search(r"^##\s+Figures\b", figures_md_text,
+                              flags=re.MULTILINE)
+    figures_dir = SIM_PAPER_DIR.parent / "output" / "figures"
+    if figures_start and figures_dir.exists():
+        figures_text = figures_md_text[figures_start.end():]
+        # Each figure block: "### Figure N. Title\n\n...desc...\n\n
+        # **Caption.** *italic caption text*\n"
+        fig_blocks = re.findall(
+            r"^###\s+Figure\s+(\d+)\.\s+(.+?)\n\n.*?\*\*Caption\.\*\*\s+\*([^*]+)\*",
+            figures_text, flags=re.MULTILINE | re.DOTALL,
+        )
+        # Filename pattern: figureN_<slug>.png
+        png_files = {p.name.split("_")[0]: p
+                     for p in figures_dir.glob("figure*.png")}
+        for fig_num, _fig_title, caption in fig_blocks:
+            key = f"figure{fig_num}"
+            png_path = png_files.get(key)
+            if png_path is None or not png_path.exists():
+                continue
+            # Image centered, fit one column width (~3.35").
+            p = doc.add_paragraph()
+            set_para_format(p, align=WD_ALIGN_PARAGRAPH.CENTER,
+                           space_before=8, space_after=2)
+            run = p.add_run()
+            run.add_picture(str(png_path), width=Inches(3.30))
+            # "FIGURE N." label + caption inline as TNR 7pt
+            p = doc.add_paragraph()
+            set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY,
+                           space_before=0, space_after=6)
+            r = p.add_run(f"FIGURE {to_roman(int(fig_num))}. ")
+            set_font(r, name=BODY_FONT, size=7, bold=True, color=COLOR_BLACK)
+            r2 = p.add_run(caption.strip())
+            set_font(r2, name=BODY_FONT, size=7, italic=True,
+                     color=COLOR_BLACK)
 
     # === References (IEEE-numbered) ===
     add_ieee_section_heading(doc, "REFERENCES", roman=None)
