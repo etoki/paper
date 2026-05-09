@@ -58,37 +58,49 @@
 ## 4. Discussion (~2 pages)
 
 The headline empirical result is that **modality matters for Extraversion
-but not for Conscientiousness**. After running the script:
+but not for Conscientiousness**. After running the script (with PDF-based
+modality override applied to the 4 unspecified-bucket studies):
 
-- Q_between is highly significant for Extraversion (Q = 15.52, p < .001),
-  Neuroticism (Q = 12.24, p = .002), and Agreeableness (Q = 9.11,
-  p = .011), but not for Conscientiousness (Q = 0.85, p = .65) or
-  Openness (Q = 4.55, p = .10).
-- The asynchronous Extraversion pool is *negative* (r = -0.121
-  [-0.246, 0.007]), the mixed-online pool is *weakly positive*
-  (r = +0.067), and the single synchronous study (A-29 Bahcekapili 2020)
-  reports r = +0.027.
-- The interaction Wald test on the long-format model is
-  chi-squared(8) = 14.27, p = .075 — trend-level evidence consistent
-  with the per-trait Q_between picture.
+- Q_between (per trait, A vs M):
+  - **Extraversion**: Q = 17.60, df = 1, **p < .001**
+  - Agreeableness: Q = 3.28, df = 1, p = .070 (trend)
+  - Openness: Q = 1.96, p = .16 (n.s.)
+  - Neuroticism: Q = 0.42, p = .52 (n.s.)
+  - Conscientiousness: Q = 0.015, p = .90 (n.s.; modality-independent)
+- Joint modality x trait interaction Wald test:
+  **chi-squared(4) = 13.64, p = .0085**.
+- Cell-level estimates:
+  - Asynchronous Extraversion: r = -0.121 [-0.246, 0.007] (k = 3)
+  - Mixed-online Extraversion: r = +0.059 [-0.027, 0.145] (k = 5)
+  - Synchronous Extraversion: r = +0.027 (k = 1, narrative; A-29 Bahcekapili 2020)
+  - Asynchronous Conscientiousness: r = 0.190 [-0.034, 0.395] (k = 4)
+  - Mixed-online Conscientiousness: r = 0.180 [0.051, 0.302] (k = 5)
+- Specific interaction term `trait[E]:modality[M]` = +0.385 Fisher z,
+  p = .009.
 
 Discussion subsections:
 
-- **Conscientiousness is robust across modality.** All four modality
-  cells produce r in the 0.07–0.22 band; no Q_between detection.
-  The preprint's headline holds at finer resolution.
+- **Conscientiousness is robust across modality.** A and M cells produce
+  r in the 0.18–0.19 band; Q_b is essentially null (p = .90). The
+  preprint's headline (overall r = .167 for C) holds at finer resolution.
 - **Extraversion is modality-dependent.** The negative async cell and
-  the positive mixed/unspecified cells are theoretically consistent with
-  the social-presence-of-extraverts hypothesis: extraverts thrive when
+  the positive mixed cell are theoretically consistent with the
+  social-presence-of-extraverts hypothesis: extraverts thrive when
   there *is* a social channel and lose ground when there is not.
 - **Synchronous evidence (k = 1)**: A-29 Bahcekapili 2020 provides the
-  only synchronous data point. This sets a hypothesis for replication
-  rather than a confirmatory result.
-- **Blended (k = 0 primary)**: the field needs *more reporting* of
+  only purely synchronous data point. This sets a hypothesis for
+  replication rather than a confirmatory result.
+- **Blended (k = 0 primary)**: the field still needs more reporting of
   modality. This is itself a finding.
 - Theoretical bridge to self-regulation models (Zimmerman, Pintrich) —
   why C dominates async — is now bolstered by a *negative* result for E
   in async, exactly the signal those models predict.
+- **Self-plagiarism firewall**: Modality was pre-registered as a moderator
+  in the preprint but explicitly not quantitatively executed (k<10 per
+  level). The preprint declared this as a Methods Deviation. The present
+  paper completes that registered-but-unrun analysis and adds the
+  interaction model — both legitimate distinct contributions per
+  `preprint_audit.md` section 2.
 
 ## 5. Limitations (~0.5 page)
 

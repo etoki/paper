@@ -1,0 +1,31 @@
+trait,level,discipline,k,N_total,r_pooled,r_ci_lo,r_ci_hi,I2,tau2,note
+A,Graduate,Mixed,1,282,0.0000,,,,,k=1 single study
+A,Mixed_UG_Grad,Humanities,1,1152,0.4920,,,,,k=1 single study
+A,Mixed_UG_Grad,Mixed,1,413,-0.0600,,,,,k=1 single study
+A,UG,Mixed,3,934,0.0114,-0.1301,0.1524,1.0,0.0000,
+A,UG,Psychology,2,393,0.1523,0.0984,0.2053,0.0,0.0000,
+A,UG,STEM,1,189,0.0940,,,,,k=1 single study
+C,Graduate,Mixed,1,282,0.0000,,,,,k=1 single study
+C,Mixed_UG_Grad,Humanities,1,1152,0.1070,,,,,k=1 single study
+C,Mixed_UG_Grad,Mixed,1,413,0.2000,,,,,k=1 single study
+C,UG,Mixed,3,934,0.1358,-0.0806,0.3400,57.4,0.0023,
+C,UG,Psychology,3,414,0.2918,0.1230,0.4442,0.0,0.0000,
+C,UG,STEM,1,189,0.2050,,,,,k=1 single study
+E,Graduate,Mixed,1,282,0.0000,,,,,k=1 single study
+E,Mixed_UG_Grad,Humanities,1,1152,-0.1260,,,,,k=1 single study
+E,Mixed_UG_Grad,Mixed,1,413,0.1000,,,,,k=1 single study
+E,UG,Mixed,3,934,-0.0282,-0.2523,0.1988,57.0,0.0012,
+E,UG,Psychology,2,393,0.1149,-0.4444,0.6097,0.0,0.0000,
+E,UG,STEM,1,189,0.0510,,,,,k=1 single study
+N,Graduate,Mixed,1,282,0.0000,,,,,k=1 single study
+N,Mixed_UG_Grad,Humanities,1,1152,0.0870,,,,,k=1 single study
+N,Mixed_UG_Grad,Mixed,1,413,0.2500,,,,,k=1 single study
+N,UG,Mixed,3,934,-0.0545,-0.3239,0.2231,66.3,0.0029,
+N,UG,Psychology,3,414,-0.0369,-0.2684,0.1987,19.5,0.0000,
+N,UG,STEM,1,189,0.0300,,,,,k=1 single study
+O,Graduate,Mixed,1,282,0.0000,,,,,k=1 single study
+O,Mixed_UG_Grad,Humanities,1,1152,0.3550,,,,,k=1 single study
+O,Mixed_UG_Grad,Mixed,1,413,0.1300,,,,,k=1 single study
+O,UG,Mixed,3,934,0.0291,-0.1258,0.1826,17.3,0.0000,
+O,UG,Psychology,2,393,0.1598,-0.9729,0.9857,89.1,0.0261,
+O,UG,STEM,1,189,-0.0920,,,,,k=1 single study

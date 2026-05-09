@@ -32,16 +32,18 @@ modality x trait interaction model.
   preprint's canonical pool (`metaanalysis/analysis/CANONICAL_RESULTS.md`):
   C / N: k = 10; O / E / A: k = 9.
 - **Modality coding**: derived from `modality_subtype` in the master
-  extraction. Where the source paper does not state synchrony explicitly,
-  platform context is used (Moodle / MOOC platforms → asynchronous unless
-  stated otherwise). Inference rules are documented in
-  `inputs/derive_studies_csv.py::classify_modality`.
-- **Modality categories used in the analysis**:
-  - **A** asynchronous
-  - **M** mixed-online (within an online-only setting, both sync and async)
-  - **S** synchronous
-  - **U** unspecified
-  - **B** blended (mix of online and face-to-face) — currently k=0 in primary pool
+  extraction; for the four studies whose preprint extraction was blank
+  (A-15 Elvers, A-23 Rodrigues, A-26 Wang, A-30 Kaspar) modality was
+  re-checked against the original PDFs and overridden in
+  `inputs/derive_studies_csv.py::MODALITY_OVERRIDES`. PDF-citation
+  evidence for each override is documented in
+  `papers/P3_meta_analysis/preprint_audit.md` section 4.
+- **Modality categories used in the analysis** (after override):
+  - **A** asynchronous (k = 3 for O / E / A; k = 4 for C / N)
+  - **M** mixed-online (k = 5 across all five traits)
+  - **S** synchronous (k = 1 — A-29 Bahcekapili — narrative only)
+  - **B** blended (k = 0 in primary pool — reported as a coverage gap)
+  - **U** unspecified (k = 0 after override)
 
 ## 3. Statistical model
 

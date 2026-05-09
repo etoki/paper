@@ -38,7 +38,16 @@ def classify_modality(row: dict) -> str:
     B = blended (mix of online + face-to-face)
     M = mixed-online (within an online setting, both sync and async used)
     U = unspecified (the source paper does not say)
+
+    Manual overrides are applied for studies whose `modality_subtype` is
+    blank in the master extraction but where 2026-05-09 PDF re-reading
+    pinned down the format (see preprint_audit.md section 4).
     """
+    sid = (row.get("study_id") or "").strip()
+    override = MODALITY_OVERRIDES.get(sid)
+    if override is not None:
+        return override
+
     sub = (row.get("modality_subtype") or "").strip().lower()
     mod = (row.get("modality") or "").strip().lower()
     platform = (row.get("platform_name") or "").strip().lower()
@@ -55,6 +64,20 @@ def classify_modality(row: dict) -> str:
     if "mooc" in platform or "moodle" in platform or "studysapuri" in platform:
         return "A"
     return "U"
+
+
+# Manual modality overrides — see papers/P3_meta_analysis/preprint_audit.md
+# section 4 for evidence and PDF page citations.
+MODALITY_OVERRIDES: dict[str, str] = {
+    # A-15 Elvers 2003 — Web-based class with logged self-paced LMS access; no live online sessions.
+    "A-15": "A",
+    # A-23 Rodrigues 2024 — German university COVID home study; "partly asynchronous" + sync Zoom lectures.
+    "A-23": "M",
+    # A-26 Wang 2023 — China K-12 post-COVID; "teacher teaching" + platform usage suggest sync + async.
+    "A-26": "M",
+    # A-30 Kaspar 2023 — German university COVID-2021; cites synchronous Zoom + async materials.
+    "A-30": "M",
+}
 
 
 def classify_region(row: dict) -> str:
