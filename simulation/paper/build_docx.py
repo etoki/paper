@@ -326,112 +326,52 @@ def render_inline(run_or_paragraph, text: str, *, base_bold: bool = False,
         run.text = text
 
 
-def _apa_table_borders(table):
-    """Apply APA 7 table border style: single black line across the top of
-    the table, below the header row, and below the last data row only. No
-    vertical lines, no other interior horizontal lines."""
-    n_rows = len(table.rows)
-    if n_rows == 0:
-        return
-    for row_idx, row in enumerate(table.rows):
-        for cell in row.cells:
-            tcPr = cell._tc.get_or_add_tcPr()
-            # Remove any pre-existing borders on this cell.
-            existing = tcPr.find(qn("w:tcBorders"))
-            if existing is not None:
-                tcPr.remove(existing)
-            tcBorders = OxmlElement("w:tcBorders")
-            for edge in ("top", "left", "bottom", "right",
-                        "insideH", "insideV"):
-                b = OxmlElement(f"w:{edge}")
-                show = (
-                    (edge == "top" and row_idx == 0) or
-                    (edge == "bottom" and row_idx == 0) or
-                    (edge == "bottom" and row_idx == n_rows - 1)
-                )
-                b.set(qn("w:val"), "single" if show else "nil")
-                b.set(qn("w:sz"), "4")
-                b.set(qn("w:space"), "0")
-                b.set(qn("w:color"), "000000")
-                tcBorders.append(b)
-            tcPr.append(tcBorders)
-
-
 def render_table(doc: Document, table_md: str):
-    """Render a markdown pipe table as a native docx table with APA 7 borders
-    (top + header-bottom + table-bottom only) and per-column alignment hints
-    derived from the markdown alignment row."""
+    """Render a markdown pipe table as a native docx table with APA borders."""
     rows = [r for r in table_md.split("\n") if r.strip()]
+    # Strip outer pipes and split each row
     parsed_rows: list[list[str]] = []
-    align_row: list[str] | None = None
     for row in rows:
         cells = [c.strip() for c in row.strip().strip("|").split("|")]
-        if all(re.match(r"^:?-+:?$", c) for c in cells):
-            align_row = cells
-            continue
         parsed_rows.append(cells)
+    # Detect separator row (---|---|---) and skip it
+    parsed_rows = [r for r in parsed_rows if not all(re.match(r"^[-:\s]+$", c) for c in r)]
     if not parsed_rows:
         return
     n_cols = len(parsed_rows[0])
-
-    col_align: list = []
-    for j in range(n_cols):
-        spec = align_row[j] if align_row and j < len(align_row) else "---"
-        if spec.startswith(":") and spec.endswith(":"):
-            col_align.append(WD_ALIGN_PARAGRAPH.CENTER)
-        elif spec.endswith(":"):
-            col_align.append(WD_ALIGN_PARAGRAPH.RIGHT)
-        else:
-            col_align.append(WD_ALIGN_PARAGRAPH.LEFT)
-
     table = doc.add_table(rows=len(parsed_rows), cols=n_cols)
     for i, cells in enumerate(parsed_rows):
         for j, cell in enumerate(cells[:n_cols]):
             tcell = table.cell(i, j)
+            # Replace existing paragraph text
             p = tcell.paragraphs[0]
             for run in list(p.runs):
                 run._element.getparent().remove(run._element)
-            is_header = (i == 0)
-            p.paragraph_format.alignment = (
-                WD_ALIGN_PARAGRAPH.CENTER if is_header else col_align[j])
             run = p.add_run()
             render_inline(run, cell)
-            set_font(run, size=11, bold=is_header)
-
-    _apa_table_borders(table)
+            set_font(run, size=11, bold=(i == 0))
     add_para(doc, "")  # spacer after table
 
 
-def render_blocks(doc: Document, blocks: list[tuple[str, str]], *,
-                  title_seen: bool = True, demote_h2: bool = False):
+def render_blocks(doc: Document, blocks: list[tuple[str, str]], *, title_seen: bool = True):
     """Map markdown heading levels to APA 7 paper levels.
 
-    Default mapping (per author's request: Level 1 = centered, no italic):
+    Mapping (per author's request: Level 1 = centered, no italic anywhere):
       markdown #     (h1)  → paper Level 1 (centered, bold)
       markdown ##    (h2)  → paper Level 1 (centered, bold)   ← top-level sections
-      markdown ###   (h3)  → paper Level 2 (left, bold)       ← subsections
-      markdown ####  (h4)  → paper Level 3 (left, bold)       ← sub-subsections
-
-    When ``demote_h2=True`` (used for body files like 02_methods.md whose
-    H2s are the subsections of a major section heading we have already
-    emitted at Level 1):
-      markdown ##    (h2)  → paper Level 2 (left, bold)
-      markdown ###   (h3)  → paper Level 3 (left, bold)
-      markdown ####  (h4)  → paper Level 4 (left, italic)
+      markdown ###   (h3)  → paper Level 2 (left, bold)        ← subsections
+      markdown ####  (h4)  → paper Level 3 (left, bold)        ← sub-subsections
     """
-    h2_level = 2 if demote_h2 else 1
-    h3_level = 3 if demote_h2 else 2
-    h4_level = 4 if demote_h2 else 3
     for kind, text in blocks:
         if kind == "h1":
             add_heading(doc, text, level=1)
             title_seen = True
         elif kind == "h2":
-            add_heading(doc, text, level=h2_level)
+            add_heading(doc, text, level=1)  # treat as Level 1 = centered
         elif kind == "h3":
-            add_heading(doc, text, level=h3_level)
+            add_heading(doc, text, level=2)
         elif kind == "h4":
-            add_heading(doc, text, level=h4_level)
+            add_heading(doc, text, level=3)
         elif kind == "para":
             add_para(doc, text, indent_first=True)
         elif kind == "list_item":
@@ -623,19 +563,7 @@ def build_preprint(out_path: Path, *, journal_variant: bool = False):
     build_title_page(doc, journal_variant=journal_variant)
     build_declarations_page(doc)
 
-    # Body: Abstract + Introduction + Methods + Results + Discussion.
-    # 01_intro.md carries its own H2 section structure ("## Abstract",
-    # "## Introduction", "## Background and History", and the section
-    # headings within Background); the other three files do not, so we
-    # prepend an explicit major-section heading ("Methods" / "Results" /
-    # "Discussion") before rendering each, matching IEEE Access' explicit
-    # major-section structure.
-    section_prefix = {
-        MD_INTRO: None,
-        MD_METHODS: "Methods",
-        MD_RESULTS: "Results",
-        MD_DISCUSSION: "Discussion",
-    }
+    # Body: Abstract + Introduction + Methods + Results + Discussion
     for md_path in [MD_INTRO, MD_METHODS, MD_RESULTS, MD_DISCUSSION]:
         blocks = parse_md_blocks(md_path)
         # Drop the entire markdown front-matter: everything before the first
@@ -653,12 +581,7 @@ def build_preprint(out_path: Path, *, journal_variant: bool = False):
                 else:
                     continue
             filtered.append((kind, text))
-        prefix = section_prefix.get(md_path)
-        if prefix is not None:
-            add_heading(doc, prefix, level=1)
-            render_blocks(doc, filtered, demote_h2=True)
-        else:
-            render_blocks(doc, filtered)
+        render_blocks(doc, filtered)
         doc.add_page_break()
 
     # References
@@ -689,18 +612,15 @@ def build_preprint(out_path: Path, *, journal_variant: bool = False):
             set_font(run, size=12)
     doc.add_page_break()
 
-    # Figures (placed after References per APA 7 convention).
-    # Tables remain inline in the body (rendered via render_blocks above);
-    # the duplicate Tables section that previously appeared after References
-    # has been removed to avoid redundancy.
+    # Tables and Figures (placed after References per APA 7 convention)
+    add_heading(doc, "Tables", level=1)
     tf_blocks = parse_md_blocks(MD_TABLES_FIGURES)
     figures_dir = PAPER_DIR.parent / "output" / "figures"
     in_tables = False
     in_figures = False
     for kind, text in tf_blocks:
-        # Skip the Tables section entirely; tables are already inline in body.
         if kind == "h2" and text.strip().lower().startswith("tables"):
-            in_tables = False
+            in_tables = True
             in_figures = False
             continue
         if kind == "h2" and text.strip().lower().startswith("figures"):
@@ -712,7 +632,7 @@ def build_preprint(out_path: Path, *, journal_variant: bool = False):
             in_tables = False
             in_figures = False
             continue
-        if in_figures:
+        if in_tables or in_figures:
             if kind == "h3":
                 add_heading(doc, text, level=2)
                 # Embed the corresponding PNG immediately after the
