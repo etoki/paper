@@ -39,7 +39,7 @@ Poropat (2009) reported broadly stable Conscientiousness — achievement correla
 
 ### 2.2. Discipline / domain moderators
 
-Vedel (2014) reported domain effects in tertiary samples: Openness was substantially stronger for language students than for STEM students; Conscientiousness was stable across domains. Stadler et al. (2024) extended this with a domain-specificity moderator confirming that the Conscientiousness — achievement link is "achievement-domain-invariant" while Openness is domain-sensitive.
+Vedel (2014) reported domain effects in tertiary samples: Openness was substantially stronger for language students than for STEM students; Conscientiousness was stable across domains. Meyer, Jansen, Hübner, and Lüdtke (2023) — a K-12-focused meta-analysis (k = 110, N = 500,218) — extended this with a domain-specificity moderator and reported that the Conscientiousness — achievement link is largely domain-invariant while Openness is domain-sensitive (stronger for language than for STEM).
 
 ### 2.3. Online-learning-specific cross-tab evidence
 
@@ -209,18 +209,29 @@ This paper was prepared by the sole author. A preliminary version of the underly
 
 ## References
 
-(Working list; final formatting per ICERI / IATED template.)
+The references below are taken from `metaanalysis/reference_index.md` (PDF-verified) where possible. Methodological references not in the corpus PDFs are marked "[std]" and should be DOI-verified at submission time.
 
-- M. K. Boonyapison et al., "Big Five personality and academic performance among Thailand grade-12 students," *Scientific Reports*, vol. 15, 2025.
-- G. Hartung, "An alternative method for meta-analysis," *Biometrical Journal*, vol. 41, no. 8, pp. 901-916, 1999.
-- G. Knapp and J. Hartung, "Improved tests for a random effects meta-regression with a single covariate," *Statistics in Medicine*, vol. 22, no. 17, pp. 2693-2710, 2003.
-- S. Mammadov, "Big Five personality traits and academic achievement: A meta-analysis," *Journal of Personality*, vol. 90, no. 2, pp. 222-255, 2022.
-- M. J. Page et al., "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews," *BMJ*, vol. 372, n71, 2021.
-- A. E. Poropat, "A meta-analysis of the five-factor model of personality and academic performance," *Psychological Bulletin*, vol. 135, no. 2, pp. 322-338, 2009.
-- M. Stadler et al., "Domain specificity of the Big Five — academic achievement link: A meta-analytic synthesis," *Educational Psychology Review*, 2024.
-- E. Tokiwa, "Big Five personality traits and academic achievement in online learning environments: A systematic review and meta-analysis," Research Square preprint, DOI 10.21203/rs.3.rs-9513298/v1, 2026.
-- A. Vedel, "The Big Five and tertiary academic performance: A systematic review and meta-analysis," *Personality and Individual Differences*, vol. 71, pp. 66-76, 2014.
-- P. Wang, F. Wang, and Z. Li, "Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era," *Frontiers in Psychology*, vol. 14, 1241477, 2023.
+### Primary studies cited
+
+- K. Boonyapison, G. Sittironnarit, and P. Rattanaumpawan, "Association between the big five personalities and academic performance among grade 12 students at international high school in Thailand," *Scientific Reports*, vol. 15, 16484, 2025. https://doi.org/10.1038/s41598-025-01038-7
+- E. Tokiwa, "Big Five personality traits and online learning outcomes in Japanese high school students," *Frontiers in Psychology*, vol. 16, 1420996, 2025. https://doi.org/10.3389/fpsyg.2025.1420996
+- P. Wang, F. Wang, and Z. Li, "Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era," *Frontiers in Psychology*, vol. 14, 1241477, 2023. https://doi.org/10.3389/fpsyg.2023.1241477
+
+### Benchmark meta-analyses cited
+
+- S. Mammadov, "Big Five personality traits and academic performance: A meta-analysis," *Journal of Personality*, vol. 90, no. 2, pp. 222–255, 2022. https://doi.org/10.1111/jopy.12663
+- J. Meyer, T. Jansen, N. Hübner, and O. Lüdtke, "Disentangling the association between the Big Five personality traits and student achievement: Meta-analytic evidence on the role of domain specificity and achievement measures," *Educational Psychology Review*, vol. 35, Article 12, 2023. https://doi.org/10.1007/s10648-023-09736-2
+- A. E. Poropat, "A meta-analysis of the five-factor model of personality and academic performance," *Psychological Bulletin*, vol. 135, no. 2, pp. 322–338, 2009. https://doi.org/10.1037/a0014996
+- A. Vedel, "The Big Five and tertiary academic performance: A systematic review and meta-analysis," *Personality and Individual Differences*, vol. 71, pp. 66–76, 2014. https://doi.org/10.1016/j.paid.2014.07.011
+
+### Methodological references
+
+- J. Hartung and G. Knapp, "A refined method for the meta-analysis of controlled clinical trials with binary outcome," *Statistics in Medicine*, vol. 20, no. 24, pp. 3875–3889, 2001. *[std — origin of HKSJ adjustment]*
+- M. J. Page, J. E. McKenzie, P. M. Bossuyt, et al., "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews," *BMJ*, vol. 372, n71, 2021. https://doi.org/10.1136/bmj.n71 *[std]*
+
+### Author's own preprint
+
+- E. Tokiwa, "Big Five personality traits and academic achievement in online learning environments: A systematic review and meta-analysis," *Research Square* preprint, https://doi.org/10.21203/rs.3.rs-9513298/v1, 2026.
 
 ---
 

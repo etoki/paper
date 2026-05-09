@@ -25,9 +25,9 @@ The Big Five personality traits — Openness (O), Conscientiousness (C), Extrave
 
 The author's own systematic review and meta-analysis, deposited as a preprint on Research Square in April 2026 (DOI 10.21203/rs.3.rs-9513298/v1), is the first quantitative synthesis dedicated specifically to online learning environments. Across k = 9 - 10 primary studies per trait (pooled N = 3,384), only Conscientiousness retained a robust positive pooled correlation with achievement (r = 0.167, 95 % CI [0.089, 0.243]). Openness, Agreeableness, Neuroticism and especially Extraversion (r = 0.002) were null or directionally inconsistent. Two pre-registered moderators reached significance at p < .001: Extraversion x Region (Asian samples r = -0.131 vs non-Asian r = +0.050) and Extraversion x Outcome Type (objective r = -0.038 vs self-rated r = +0.117).
 
-The preprint is, however, *silent* on a moderator that is theoretically central to its scope: **learning modality**. The Methods Deviations subsection explicitly notes that modality, education level, instrument family, publication year, log-sample-size, and risk-of-bias score were pre-registered as moderators but did not meet the k >= 10 per-level rule and were therefore reported only narratively. Modality is the most theoretically pressing of these omissions because it directly conditions the four dimensions of online learning that distinguish it from face-to-face teaching: social presence, temporal flexibility, self-regulation demand, and platform-mediated affordance (Hrastinski, 2008; Means et al., 2014).
+The preprint is, however, *silent* on a moderator that is theoretically central to its scope: **learning modality**. The Methods Deviations subsection explicitly notes that modality, education level, instrument family, publication year, log-sample-size, and risk-of-bias score were pre-registered as moderators but did not meet the k >= 10 per-level rule and were therefore reported only narratively. Modality is the most theoretically pressing of these omissions because it directly conditions the four dimensions of online learning that distinguish it from face-to-face teaching: social presence, temporal flexibility, self-regulation demand, and platform-mediated affordance.
 
-Three theoretical predictions follow if modality matters. First, **synchronous instruction** reintroduces social cues and instructor-led pacing; if Extraversion's null result in the trait-only pool is driven by social-cue deprivation, synchronous samples should re-acquire a positive Extraversion-achievement link. Second, **asynchronous instruction** shifts the load to learner self-regulation; Conscientiousness — already the dominant predictor in the pool — should remain so or strengthen further. Third, **mixed-online and blended modalities** sit between these poles and are likely to produce intermediate, more heterogeneous outcomes empirically.
+Three theoretical predictions follow if modality matters. First, **synchronous instruction** reintroduces social cues and instructor-led pacing; if Extraversion's null result in the trait-only pool is driven by social-cue deprivation, synchronous samples should re-acquire a positive Extraversion-achievement link. Second, **asynchronous instruction** shifts the load to learner self-regulation (Pintrich, 2004; Zimmerman, 2000); Conscientiousness — already the dominant predictor in the pool — should remain so or strengthen further. Third, **mixed-online and blended modalities** sit between these poles and are likely to produce intermediate, more heterogeneous outcomes empirically.
 
 This paper completes the modality moderator analysis that the parent preprint pre-registered but did not quantitatively execute, and adds a long-format modality x trait interaction model. Its contribution is therefore both **methodological** (closing a registered analytic gap) and **substantive** (reporting a trait-specific modality effect that the trait-only pool obscures). It does not duplicate the preprint: every modality-stratified estimate, every interaction coefficient, and the joint Wald test reported below are absent from the preprint Results section (audit log: `preprint_audit.md`).
 
@@ -62,7 +62,7 @@ These overrides are hard-coded in `papers/P3_meta_analysis/inputs/derive_studies
 
 #### 2.3.1. Per-modality x per-trait pooled estimates
 
-For each (trait, modality) cell with k >= 2, a random-effects pool was computed using REML estimation of tau-squared and a Hartung-Knapp-Sidik-Jonkman (HKSJ) adjustment for the confidence interval (Hartung, 1999; Knapp & Hartung, 2003). Effect sizes were Fisher's z-transformed Pearson correlations with sampling variance v = 1 / (N - 3); the back-transformed pooled r and its CI are reported. Synchronous studies (k = 1; A-29 Bahcekapili 2020) are reported narratively only.
+For each (trait, modality) cell with k >= 2, a random-effects pool was computed using REML estimation of tau-squared and a Hartung-Knapp-Sidik-Jonkman (HKSJ) adjustment for the confidence interval (Hartung & Knapp, 2001). Effect sizes were Fisher's z-transformed Pearson correlations with sampling variance v = 1 / (N - 3); the back-transformed pooled r and its CI are reported. Synchronous studies (k = 1; A-29 Bahçekapılı 2020) are reported narratively only.
 
 #### 2.3.2. Q_between contrast across modality levels
 
@@ -167,7 +167,7 @@ The most striking pattern in Table 1 is what *does not* vary: Conscientiousness 
 
 The headline empirical contribution is the modality dependence of Extraversion. In asynchronous courses the pooled r is -0.121 [-0.246, 0.007] — small, with the upper CI limit just brushing zero — while in mixed-online courses it flips to +0.059. The interaction term trait[E]:modality[M] is +0.385 Fisher z (p = .009), and the joint Wald test on all four interaction terms is chi-squared(4) = 13.64, p = .0085. These results align with the social-presence-of-extraverts hypothesis: extraverts thrive when there is a social channel and lose ground when there is not. A purely asynchronous course removes the live, real-time interaction in which extraversion's sociability functions as an asset; in fact, the literature is converging on the view that extraverts in asynchronous environments may even procrastinate more on solitary activities (Cheng 2023; Quigley 2022), translating into mildly negative achievement effects.
 
-The k = 1 synchronous evidence (A-29 Bahcekapili 2020 GPA, r = +0.027) is reported only narratively but is consistent with this directional pattern: introducing live elements should restore Extraversion's neutral-to-positive role. A single study cannot carry inferential weight, but the prediction it sets (extraversion is positive in synchronous-heavy courses) is testable in any future synthesis with k > 1 in the synchronous cell.
+The k = 1 synchronous evidence (A-29 Bahçekapılı 2020 GPA, r = +0.027) is reported only narratively but is consistent with this directional pattern: introducing live elements should restore Extraversion's neutral-to-positive role. A single study cannot carry inferential weight, but the prediction it sets (extraversion is positive in synchronous-heavy courses) is testable in any future synthesis with k > 1 in the synchronous cell.
 
 ### 4.3. Other traits
 
@@ -197,7 +197,7 @@ The interaction model uses a simple weighted-OLS approximation in lieu of a full
 
 A modality lens partially changes the Big Five — online-learning-achievement picture. The Conscientiousness story is unchanged: it remains the dominant positive predictor at modality-stratified resolution. But Extraversion, which the trait-only pool reports as null (r = .002), is in fact modality-dependent: a small negative effect in asynchronous courses, reversing to a small positive effect in mixed-online courses, with a joint interaction Wald test at p = .0085.
 
-Two implications for course designers and educational researchers follow. First, in asynchronous-dominant programmes, Big Five-based personalisation should target self-regulation supports rather than personality-fit recommendations: there is no "right" trait profile, only a robust Conscientiousness gradient. Second, course-designer claims that extraverts succeed in online environments cannot be applied uniformly — they hold (weakly) in mixed-online and synchronous formats and *invert* in asynchronous-only formats. This trait-by-modality contingency is exactly the pattern self-regulated learning theory (Zimmerman, Pintrich) predicts.
+Two implications for course designers and educational researchers follow. First, in asynchronous-dominant programmes, Big Five-based personalisation should target self-regulation supports rather than personality-fit recommendations: there is no "right" trait profile, only a robust Conscientiousness gradient. Second, course-designer claims that extraverts succeed in online environments cannot be applied uniformly — they hold (weakly) in mixed-online and synchronous formats and *invert* in asynchronous-only formats. This trait-by-modality contingency is exactly the pattern self-regulated-learning theory (Pintrich, 2004; Zimmerman, 2000) predicts.
 
 The dominant message for the field, however, is structural: most online-learning meta-analyses to date have treated modality as noise, in part because original-paper reporting of synchrony is sparse. Of 27 fully-online studies in this corpus, only 9 report sync/async explicitly. Future syntheses should refuse to extract studies that fail to code synchrony, and editors of online-learning journals should require it as a reporting standard.
 
@@ -211,31 +211,37 @@ This paper was prepared by the sole author. A preliminary version of the underly
 
 ## References
 
-(Inherits the parent preprint reference list; only modality- and theoretical-bridge additions are new. Final formatting will follow the ECEL Harvard-style template; below is a working list.)
+The references below are taken from `metaanalysis/reference_index.md` (PDF-verified). Methodological / theoretical references not in the corpus PDFs are marked "[std]" and should be DOI-verified at submission time.
 
-- Abe, J. A. A. (2020). Big Five, linguistic styles, and successful online learning. *The Internet and Higher Education, 45*, 100724.
-- Alkis, N., & Taşkaya Temizel, T. (2018). The impact of motivation and personality on academic performance in online and blended learning environments. *Educational Technology & Society, 21*(3), 35-47.
-- Bahcekapili, E., & Karaman, S. (2020). Predicting academic achievement in distance education: The role of self-efficacy, academic locus of control and personality. *Knowledge Management & E-Learning, 12*(2), 191-208.
-- Cheng, S.-L., & Liu, M. (2023). Big Five personality, online learning, and academic procrastination. *British Journal of Educational Technology, 54*(4), 898-923.
-- Elvers, G. C., Polzella, D. J., & Graetz, K. (2003). Procrastination in online courses: Performance and attitudinal differences. *Teaching of Psychology, 30*(2), 159-162.
-- Hartung, J. (1999). An alternative method for meta-analysis. *Biometrical Journal, 41*(8), 901-916.
-- Hrastinski, S. (2008). Asynchronous and synchronous e-learning. *EDUCAUSE Quarterly, 31*(4), 51-55.
-- Kaspar, K., Burtniak, K., & Rüth, M. (2023). Online learning during the COVID-19 pandemic: How university students' perceptions, engagement, and performance are related to their personal characteristics. *Current Psychology*, https://doi.org/10.1007/s12144-023-04403-9.
-- Knapp, G., & Hartung, J. (2003). Improved tests for a random effects meta-regression with a single covariate. *Statistics in Medicine, 22*(17), 2693-2710.
-- Mammadov, S. (2022). Big Five personality traits and academic achievement: A meta-analysis. *Journal of Personality, 90*(2), 222-255.
-- Means, B., Toyama, Y., Murphy, R., & Baki, M. (2014). The effectiveness of online and blended learning: A meta-analysis of the empirical literature. *Teachers College Record, 115*(3), 1-47.
-- Page, M. J. et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ, 372*: n71.
-- Pintrich, P. R. (2004). A conceptual framework for assessing motivation and self-regulated learning in college students. *Educational Psychology Review, 16*(4), 385-407.
-- Poropat, A. E. (2009). A meta-analysis of the five-factor model of personality and academic performance. *Psychological Bulletin, 135*(2), 322-338.
-- Quigley, M., Bradley, A., Playfoot, D., & Harrad, R. (2022). Personality traits and stress perception as predictors of students' online engagement during the COVID-19 pandemic. *Personality and Individual Differences, 194*, 111645.
-- Rivers, D. J. (2021). Strategies and struggles in the COVID-19 era: A study of two semesters of remote teaching from a sociocultural perspective. *Education and Information Technologies, 26*(4), 4353-4378.
-- Rodrigues, J., Rose, R., & Hewig, J. (2024). The relation of Big Five personality traits on academic performance, well-being, and home study satisfaction in Corona times. *European Journal of Investigation in Health, Psychology and Education, 14*(2), 368-384.
-- Tokiwa, E. (2025). Big Five personality traits and online study performance among Japanese high-school year 3 students. *Frontiers in Psychology, 16*, 1420996.
-- Vedel, A. (2014). The Big Five and tertiary academic performance: A systematic review and meta-analysis. *Personality and Individual Differences, 71*, 66-76.
-- Wang, P., Wang, F., & Li, Z. (2023). Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era. *Frontiers in Psychology, 14*, 1241477.
-- Yu, Z. (2021). The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic. *International Journal of Educational Technology in Higher Education, 18*, 14.
-- Zheng, R., & Zheng, M. (2023). Big Five personality and online learning during the COVID-19 pandemic. *International Journal of Educational Technology in Higher Education, 20*, 21.
-- Zimmerman, B. J. (2002). Becoming a self-regulated learner: An overview. *Theory into Practice, 41*(2), 64-70.
+### Primary studies cited
+
+- Abe, J. A. A. (2020). Big five, linguistic styles, and successful online learning. *The Internet and Higher Education, 45*, 100724. https://doi.org/10.1016/j.iheduc.2019.100724
+- Alkış, N., & Taşkaya Temizel, T. (2018). The impact of motivation and personality on academic performance in online and blended learning environments. *Educational Technology & Society, 21*(3), 35–47.
+- Bahçekapılı, E., & Karaman, S. (2020). A path analysis of five-factor personality traits, self-efficacy, academic locus of control and academic achievement among online students. *Knowledge Management & E-Learning, 12*(2), 191–208. https://doi.org/10.34105/j.kmel.2020.12.010
+- Cheng, S.-L., Chang, J.-C., Quilantan-Garza, K., & Gutierrez, M. L. (2023). Conscientiousness, prior experience, achievement emotions and academic procrastination in online learning environments. *British Journal of Educational Technology, 54*(4), 898–923. https://doi.org/10.1111/bjet.13302
+- Elvers, G. C., Polzella, D. J., & Graetz, K. (2003). Procrastination in online courses: Performance and attitudinal differences. *Teaching of Psychology, 30*(2), 159–162. https://doi.org/10.1207/S15328023TOP3002_13
+- Kaspar, K., Burtniak, K., & Rüth, M. (2023). Online learning during the Covid-19 pandemic: How university students' perceptions, engagement, and performance are related to their personal characteristics. *Current Psychology, 42*(30), 26571–26586. https://doi.org/10.1007/s12144-023-04403-9
+- Quigley, M., Bradley, A., Playfoot, D., & Harrad, R. (2022). Personality traits and stress perception as predictors of students' online engagement during the COVID-19 pandemic. *Personality and Individual Differences, 194*, 111645. https://doi.org/10.1016/j.paid.2022.111645
+- Rivers, D. J. (2021). The role of personality traits and online academic self-efficacy in acceptance, actual use and achievement in Moodle. *Education and Information Technologies, 26*(4), 4353–4378. https://doi.org/10.1007/s10639-021-10478-3
+- Rodrigues, J., Rose, R., & Hewig, J. (2024). The relation of Big Five personality traits on academic performance, well-being and home study satisfaction in Corona times. *European Journal of Investigation in Health, Psychology and Education, 14*(2), 368–384. https://doi.org/10.3390/ejihpe14020025
+- Tokiwa, E. (2025). [Big Five personality traits and online learning outcomes in Japanese high school students.] *Frontiers in Psychology, 16*, 1420996. https://doi.org/10.3389/fpsyg.2025.1420996
+- Wang, P., Wang, F., & Li, Z. (2023). Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era. *Frontiers in Psychology, 14*, 1241477. https://doi.org/10.3389/fpsyg.2023.1241477
+- Yu, Z. (2021). The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic. *International Journal of Educational Technology in Higher Education, 18*(1), Article 14. https://doi.org/10.1186/s41239-021-00252-3
+- Zheng, Y., & Zheng, S. (2023). Exploring educational impacts among pre, during and post COVID-19 lockdowns from students with different personality traits. *International Journal of Educational Technology in Higher Education, 20*(1), Article 21. https://doi.org/10.1186/s41239-023-00388-4
+
+### Benchmark meta-analyses cited
+
+- Mammadov, S. (2022). Big Five personality traits and academic performance: A meta-analysis. *Journal of Personality, 90*(2), 222–255. https://doi.org/10.1111/jopy.12663
+- Poropat, A. E. (2009). A meta-analysis of the five-factor model of personality and academic performance. *Psychological Bulletin, 135*(2), 322–338. https://doi.org/10.1037/a0014996
+- Vedel, A. (2014). The Big Five and tertiary academic performance: A systematic review and meta-analysis. *Personality and Individual Differences, 71*, 66–76. https://doi.org/10.1016/j.paid.2014.07.011
+
+### Methodological / theoretical references
+
+- Hartung, J., & Knapp, G. (2001). A refined method for the meta-analysis of controlled clinical trials with binary outcome. *Statistics in Medicine, 20*(24), 3875–3889. https://doi.org/10.1002/sim.1009 *[std — origin of HKSJ adjustment]*
+- Higgins, J. P. T., Thompson, S. G., & Spiegelhalter, D. J. (2009). A re-evaluation of random-effects meta-analysis. *Journal of the Royal Statistical Society: Series A, 172*(1), 137–159. https://doi.org/10.1111/j.1467-985X.2008.00552.x *[std — prediction interval origin]*
+- Page, M. J., McKenzie, J. E., Bossuyt, P. M., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ, 372*, n71. https://doi.org/10.1136/bmj.n71 *[std]*
+- Pintrich, P. R. (2004). A conceptual framework for assessing motivation and self-regulated learning in college students. *Educational Psychology Review, 16*(4), 385–407. https://doi.org/10.1007/s10648-004-0006-x *[std — SRL framework]*
+- Zimmerman, B. J. (2000). Attaining self-regulation: A social cognitive perspective. In M. Boekaerts, P. R. Pintrich, & M. Zeidner (Eds.), *Handbook of self-regulation* (pp. 13–39). Academic Press. *[std — SRL theory origin]*
 
 ---
 

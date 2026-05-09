@@ -23,7 +23,7 @@ Meta-analyses of personality and academic achievement in online learning have ma
 
 Personality x academic achievement has been one of the most-studied questions in educational psychology, with Big Five meta-analyses converging on Conscientiousness as the dominant trait predictor in face-to-face contexts (Poropat 2009; Vedel 2014; Mammadov 2022). The transition to online and blended modalities has motivated focused syntheses of the personality x achievement link in technology-mediated contexts; the present author's systematic review and meta-analysis (Research Square preprint, DOI 10.21203/rs.3.rs-9513298/v1) is the first quantitative synthesis dedicated to online-learning samples, pooling k = 9 — 10 primary studies per Big Five trait.
 
-Trait-level pooling, however, leaves a structural question unanswered: which study-level features make it more or less likely that a study will report a non-null personality effect? Sample size, modality, era, region, and instrument family are all candidate moderators, and the parent preprint analyses three of them quantitatively (Region, Era, Outcome Type) plus six narratively. The natural complement is a *predictive* lens that treats each study as a row in a feature matrix and asks: given a study's features, can we predict whether it will report a non-null trait effect?
+Trait-level pooling, however, leaves a structural question unanswered: which study-level features make it more or less likely that a study will report a non-null personality effect? Sample size, modality, era, region, and instrument family are all candidate moderators, and the parent preprint analyses three of them quantitatively (Region, Era, Outcome Type) plus six narratively (modality, education level, instrument family, publication year, log-sample-size, risk-of-bias score). The natural complement is a *predictive* lens that treats each study as a row in a feature matrix and asks: given a study's features, can we predict whether it will report a non-null trait effect?
 
 This paper instantiates that lens. We train three classifiers — Logistic Regression (LR), Random Forest (RF), and (where available) XGBoost — on the engineered features of the corpus, evaluate them with leave-one-study-out cross-validation (LOSO-CV), and use TreeSHAP / KernelSHAP to interpret the best-fit model. We then audit the model's predictions for fairness across two sensitive attributes — region (Asia vs non-Asia) and era (pre-COVID vs COVID-and-after) — using disparity metrics drawn from the fairlearn toolkit.
 
@@ -43,7 +43,7 @@ The author's own preprint pools k = 10 primary studies for Conscientiousness and
 
 ### C. ML on small meta-analytic corpora
 
-Educational data mining has begun to apply ML to research synthesis (Hilbert et al. 2021), but most applications are at the participant level (large N per study). At the *study* level the N is the number of included studies — typically 10 — 30 even for extensive syntheses. This regime is below conventional ML sample-size guidelines and demands explicit caveats. The present paper inherits the small-corpus epistemic stance from clinical meta-analytic ML literature (Polley et al. 2010) where the goal is interpretability rather than out-of-sample deployment.
+Educational data mining typically applies ML at the participant level (large N per study). At the *study* level the N is the number of included studies — typically 10 — 30 even for extensive syntheses. This regime is below conventional ML sample-size guidelines and demands explicit caveats. The present paper takes the position that the value of small-corpus ML lies in interpretability (which features carry predictive signal) rather than out-of-sample classifier deployment, and therefore evaluates only the SHAP-based feature ranking and fairness disparity gaps as substantive outputs; the AUROC / F1 numbers themselves are reported as faithful run logs but not as deployable performance.
 
 ### D. Algorithmic fairness in research synthesis
 
@@ -195,18 +195,27 @@ This paper was prepared by the sole author. A preliminary version of the underly
 
 ## References
 
-(Working list; final formatting will follow IEEE conference reference style.)
+The references below are taken from `metaanalysis/reference_index.md` (PDF-verified) where possible. Methodological / tooling references not in the corpus PDFs are marked "[std]" and should be DOI-verified at submission time.
 
-- A. Bird et al., "Fairlearn: A toolkit for assessing and improving fairness in AI," Microsoft Technical Report, 2020.
-- T. Chen and C. Guestrin, "XGBoost: A scalable tree boosting system," in *Proc. KDD*, 2016, pp. 785-794.
-- A. P. Hilbert et al., "Machine learning in educational data mining: A systematic review," *Computers and Education*, 2021.
-- S. Lundberg and S.-I. Lee, "A unified approach to interpreting model predictions," in *Proc. NeurIPS*, 2017.
-- S. Mammadov, "Big Five personality traits and academic achievement: A meta-analysis," *Journal of Personality*, vol. 90, no. 2, pp. 222-255, 2022.
-- M. J. Page et al., "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews," *BMJ*, vol. 372, n71, 2021.
-- D. M. Polley et al., "Statistical and machine learning approaches to research synthesis," *Research Synthesis Methods*, 2010.
-- A. E. Poropat, "A meta-analysis of the five-factor model of personality and academic performance," *Psychological Bulletin*, vol. 135, no. 2, pp. 322-338, 2009.
-- E. Tokiwa, "Big Five personality traits and online study performance among Japanese high-school year 3 students," *Frontiers in Psychology*, vol. 16, 1420996, 2025.
-- A. Vedel, "The Big Five and tertiary academic performance: A systematic review and meta-analysis," *Personality and Individual Differences*, vol. 71, pp. 66-76, 2014.
+### Primary studies cited
+
+- N. Alkış and T. Taşkaya Temizel, "The impact of motivation and personality on academic performance in online and blended learning environments," *Journal of Educational Technology & Society*, vol. 21, no. 3, pp. 35–47, 2018.
+- E. Tokiwa, "Big Five personality traits and online learning outcomes in Japanese high school students," *Frontiers in Psychology*, vol. 16, 1420996, 2025. https://doi.org/10.3389/fpsyg.2025.1420996
+
+### Benchmark meta-analyses cited
+
+- S. Mammadov, "Big Five personality traits and academic performance: A meta-analysis," *Journal of Personality*, vol. 90, no. 2, pp. 222–255, 2022. https://doi.org/10.1111/jopy.12663
+- A. E. Poropat, "A meta-analysis of the five-factor model of personality and academic performance," *Psychological Bulletin*, vol. 135, no. 2, pp. 322–338, 2009. https://doi.org/10.1037/a0014996
+- A. Vedel, "The Big Five and tertiary academic performance: A systematic review and meta-analysis," *Personality and Individual Differences*, vol. 71, pp. 66–76, 2014. https://doi.org/10.1016/j.paid.2014.07.011
+
+### Methodological / tooling references
+
+- T. Chen and C. Guestrin, "XGBoost: A scalable tree boosting system," in *Proc. ACM SIGKDD*, 2016, pp. 785–794. *[std]*
+- S. Bird, M. Dudík, R. Edgar, B. Horn, R. Lutz, V. Milan, M. Sameki, H. Wallach, and K. Walker, "Fairlearn: A toolkit for assessing and improving fairness in AI," Microsoft Tech. Report MSR-TR-2020-32, 2020. *[std]*
+- S. M. Lundberg and S.-I. Lee, "A unified approach to interpreting model predictions," in *Proc. NeurIPS*, vol. 30, 2017. *[std]*
+- M. J. Page, J. E. McKenzie, P. M. Bossuyt, et al., "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews," *BMJ*, vol. 372, n71, 2021. https://doi.org/10.1136/bmj.n71 *[std]*
+- J. Hartung and G. Knapp, "A refined method for the meta-analysis of controlled clinical trials with binary outcome," *Statistics in Medicine*, vol. 20, no. 24, pp. 3875–3889, 2001. *[std — origin of HKSJ adjustment]*
+- E. Tokiwa, "Big Five personality traits and academic achievement in online learning environments: A systematic review and meta-analysis," *Research Square* preprint, https://doi.org/10.21203/rs.3.rs-9513298/v1, 2026.
 
 ---
 

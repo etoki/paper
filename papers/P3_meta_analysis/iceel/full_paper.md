@@ -21,7 +21,7 @@ The parent meta-analysis (Research Square preprint, DOI 10.21203/rs.3.rs-9513298
 
 ## 1. Introduction
 
-The Big Five — academic-achievement link is robust at the trait level but is increasingly recognised as conditional on cultural context. Mammadov's (2022) meta-analysis flagged Asian samples as showing systematically different patterns from Euro-North-American samples, with Conscientiousness amplified in some Asian sub-populations and Extraversion sometimes inverted. Chen et al. (2025) reported, in a review focused on culturally sensitive contexts, that Extraversion's positive role in achievement essentially disappears or reverses in collectivist samples — a finding consistent with the trait-activation framing in which extraversion's social affordances are valued differently across cultures.
+The Big Five — academic-achievement link is robust at the trait level but is increasingly recognised as conditional on cultural context. Mammadov (2022) flagged Asian samples as showing systematically different patterns from Euro-North-American samples, with Conscientiousness amplified in some Asian sub-populations (rho up to .35 in his Asian-only subgroup) and Extraversion sometimes inverted. Chen, Cheung, and Zeng (2025) — the most recent university-only Big Five — academic-performance meta-analysis (k = 84, N = 46,729; coverage 1995 — 2024) — confirms the smaller and more variable Extraversion effect (r = .076 across all samples, with substantial between-region heterogeneity). The trait-activation framing therefore has empirical legs even if the within-Asia structure has not been decomposed.
 
 The parent preprint (Tokiwa, 2026, Research Square preprint DOI 10.21203/rs.3.rs-9513298/v1) confirms the binary Asia / non-Asia contrast at the trait-by-region level, with **Extraversion x Region** the headline finding (Q_between = 46.43, p < .001; Asian samples r = -0.131 vs non-Asian r = +0.050). What the preprint does not do is decompose the Asian bin into its country-level constituents. Yet "Asia" is heterogeneous in cultural terms: Japan and China are nominally collectivist but differ sharply on Power Distance, Indulgence, and Uncertainty Avoidance (Hofstede Insights 2024); Korea and Taiwan add further variation; the within-region structure is meaningful and theoretically interesting.
 
@@ -207,18 +207,30 @@ This paper was prepared by the sole author. A preliminary version of the underly
 
 ## References
 
-(Working list; final formatting per ICEEL template.)
+The references below are taken from `metaanalysis/reference_index.md` (PDF-verified) where possible. Hofstede framework references and McSweeney critique are standard knowledge marked "[std]"; verify DOIs at submission time.
 
-- B. Chen et al. "Cultural sensitivity in personality — academic-achievement research: A systematic review," *Journal of Cross-Cultural Psychology*, 2025.
-- G. Hofstede, *Culture's Consequences: International Differences in Work-Related Values*, Sage, 1980.
-- Hofstede Insights, "Country comparison tool," https://www.hofstede-insights.com/, accessed 2024.
-- B. McSweeney, "Hofstede's model of national cultural differences and their consequences: A triumph of faith — a failure of analysis," *Human Relations*, vol. 55, no. 1, pp. 89-118, 2002.
-- M. Minkov and G. Hofstede, "A replication of Hofstede's uncertainty avoidance dimension across nationally representative samples from Europe," *International Journal of Cross-Cultural Management*, vol. 14, no. 1, pp. 7-22, 2014.
-- S. Mammadov, "Big Five personality traits and academic achievement: A meta-analysis," *Journal of Personality*, vol. 90, no. 2, pp. 222-255, 2022.
-- D. J. Rivers, "Strategies and struggles in the COVID-19 era: A study of two semesters of remote teaching from a sociocultural perspective," *Education and Information Technologies*, vol. 26, no. 4, pp. 4353-4378, 2021.
-- E. Tokiwa, "Big Five personality traits and online study performance among Japanese high-school year 3 students," *Frontiers in Psychology*, vol. 16, 1420996, 2025.
-- E. Tokiwa, "Big Five personality traits and academic achievement in online learning environments: A systematic review and meta-analysis," Research Square preprint, DOI 10.21203/rs.3.rs-9513298/v1, 2026.
-- Z. Yu, "The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic," *International Journal of Educational Technology in Higher Education*, vol. 18, 14, 2021.
+### Primary studies cited
+
+- D. J. Rivers, "The role of personality traits and online academic self-efficacy in acceptance, actual use and achievement in Moodle," *Education and Information Technologies*, vol. 26, no. 4, pp. 4353–4378, 2021. https://doi.org/10.1007/s10639-021-10478-3
+- E. Tokiwa, "Big Five personality traits and online learning outcomes in Japanese high school students," *Frontiers in Psychology*, vol. 16, 1420996, 2025. https://doi.org/10.3389/fpsyg.2025.1420996
+- P. Wang, F. Wang, and Z. Li, "Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era," *Frontiers in Psychology*, vol. 14, 1241477, 2023. https://doi.org/10.3389/fpsyg.2023.1241477
+- Z. Yu, "The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic," *International Journal of Educational Technology in Higher Education*, vol. 18, no. 1, Article 14, 2021. https://doi.org/10.1186/s41239-021-00252-3
+
+### Benchmark meta-analyses cited
+
+- S. Chen, A. C. K. Cheung, and Z. Zeng, "Big Five personality traits and university students' academic performance: A meta-analysis," *Personality and Individual Differences*, vol. 240, 113163, 2025. https://doi.org/10.1016/j.paid.2025.113163
+- S. Mammadov, "Big Five personality traits and academic performance: A meta-analysis," *Journal of Personality*, vol. 90, no. 2, pp. 222–255, 2022. https://doi.org/10.1111/jopy.12663
+
+### Hofstede framework and critiques
+
+- G. Hofstede, *Culture's Consequences: International Differences in Work-Related Values*, Sage, 1980. *[std]*
+- Hofstede Insights, "Country comparison tool," https://www.hofstede-insights.com/, accessed 2024. *[std]*
+- B. McSweeney, "Hofstede's model of national cultural differences and their consequences: A triumph of faith — a failure of analysis," *Human Relations*, vol. 55, no. 1, pp. 89–118, 2002. *[std]*
+- M. Minkov and G. Hofstede, "A replication of Hofstede's uncertainty avoidance dimension across nationally representative samples from Europe," *International Journal of Cross-Cultural Management*, vol. 14, no. 1, pp. 7–22, 2014. *[std]*
+
+### Author's own preprint
+
+- E. Tokiwa, "Big Five personality traits and academic achievement in online learning environments: A systematic review and meta-analysis," *Research Square* preprint, https://doi.org/10.21203/rs.3.rs-9513298/v1, 2026.
 
 ---
 

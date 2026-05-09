@@ -1,10 +1,17 @@
 # Preprint Disclosure Template
 
+**Decision (locked 2026-05-09)**: Research Square preprint **is maintained
+as-is**; no migration to OSF / arXiv. Use **Version B** as the primary
+disclosure for every venue. Version C (post-migration) is **not in scope**
+under the current decision and is retained below only for documentation.
+Version D (IEEE-compliance phrasing) is layered onto Version B for IEEE
+TALE submission.
+
 The Research Square preprint (DOI 10.21203/rs.3.rs-9513298/v1, deposited
 2026-04-27) is the "parent work" of every conference sub-paper in this
 portfolio. Each venue must be told about it. Version A–D は preprint server
-の状態(維持 or 移行 or IEEE系)に応じた一般文面、続く venue 別 block は
-本ポートフォリオの 4 学会向けの具体表現。
+の状態に応じた一般文面、続く venue 別 block は本ポートフォリオの 4 学会向け
+の具体表現。
 
 ---
 
@@ -16,8 +23,10 @@ portfolio. Each venue must be told about it. Version A–D は preprint server
 
 > **Preprint disclosure.** A preliminary version of this manuscript has been posted on Research Square (DOI: 10.21203/rs.3.rs-9513298/v1) on 27 April 2026. The Research Square posting is licensed under CC BY 4.0 and pre-dates this submission. The current submission has been substantively extended with [list extensions]. Should the conference's policy require migration to a different preprint server, the authors are prepared to coordinate accordingly.
 
-## Version C: Migration済み(Research Square から OSF へ移行後)
+## Version C: Migration済み(Research Square から OSF へ移行後) — **NOT IN SCOPE 2026-05-09**
 
+> *Retained for documentation only. The 2026-05-09 decision is to keep the preprint on Research Square; do not use this version unless the decision is reversed.*
+>
 > **Preprint disclosure.** A preliminary version of this manuscript was previously posted on Research Square (DOI: 10.21203/rs.3.rs-9513298/v1, posted 27 April 2026). Following a clarification of preprint server requirements, the version has been migrated to **OSF Preprints** (DOI: [NEW_DOI]) on [DATE]. The Research Square version has been formally withdrawn. The current conference submission represents an extended and revised version of the OSF-hosted preprint.
 
 ## Version D: IEEE TALE 等 IEEE 系学会への disclosure
