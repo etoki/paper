@@ -1,0 +1,48 @@
+{
+  "id": "ictle_2026",
+  "name": "ICTLE 2026",
+  "full_name": "11th International Conference on Teaching, Learning, and Education",
+  "tier": "B",
+  "url": "https://www.ictle.com/",
+  "location": "Novotel Zürich City West, Zurich, Switzerland",
+  "dates": {
+    "conference_start": "2026-07-02",
+    "conference_end": "2026-07-04",
+    "abstract_deadline": "2026-06-12",
+    "registration_deadline": "2026-06-22"
+  },
+  "host": "Tomorrow People Organization (same as WORLDCTE)",
+  "publication": {
+    "proceedings": "Conference Proceedings (ISBN)",
+    "indexing": ["DOI", "SCOPUS / WoS / DOAJ (submission possible)"]
+  },
+  "online_presentation": {
+    "available": true,
+    "official_quote": "Virtual Presentation tier offered"
+  },
+  "preprint_policy": {
+    "explicit": false,
+    "general_rule": "not stated"
+  },
+  "fees_eur": {
+    "early_until_03_17": {
+      "authors_regular": 390,
+      "authors_student": 360,
+      "listener": 150,
+      "virtual": 140
+    },
+    "late_until_06_22": {
+      "authors_regular": 440,
+      "authors_student": 390,
+      "listener": 170,
+      "virtual": 160
+    }
+  },
+  "contact": "info@ictle.com / +370 521 40 361",
+  "candidate_papers": [],
+  "blocking_issues": [
+    "Same Tomorrow People Org as WORLDCTE - duplicating both has no value",
+    "Mid-tier organizer; SFC committee evaluation concern"
+  ],
+  "decision": "DROP_IF_WORLDCTE_SELECTED - only choose one of {WORLDCTE, ICTLE}"
+}

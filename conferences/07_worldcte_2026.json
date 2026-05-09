@@ -1,0 +1,42 @@
+{
+  "id": "worldcte_2026",
+  "name": "WORLDCTE 2026",
+  "full_name": "10th World Conference on Teaching and Education",
+  "tier": "B",
+  "url": "https://www.worldcte.org/",
+  "location": "Copenhagen, Denmark",
+  "dates": {
+    "conference_start": "2026-07-23",
+    "conference_end": "2026-07-25",
+    "abstract_deadline": "2026-07-03",
+    "registration_deadline": "2026-07-14"
+  },
+  "host": "Tomorrow People Organization / e-SER (Lithuania-based)",
+  "publication": {
+    "proceedings": "Conference Abstract Book (ISBN)",
+    "indexing": ["DOI (CrossRef)", "Google Scholar", "ISSN", "ISBN"],
+    "full_paper_route": "Separate submission to SCOPUS / WoS / DOAJ journals possible"
+  },
+  "online_presentation": {
+    "available": true,
+    "official_quote": "Virtual Presentation tier offered (€160)"
+  },
+  "preprint_policy": {
+    "explicit": false,
+    "general_rule": "not stated"
+  },
+  "fees_eur": {
+    "authors_regular": 440,
+    "authors_student": 390,
+    "listener": 170,
+    "virtual_presentation": 160,
+    "extra_paper": 75
+  },
+  "contact": "info@worldcte.org / +37064517211",
+  "candidate_papers": ["P1 extension (insurance option)", "P3 metaanalysis"],
+  "blocking_issues": [
+    "Mid-tier organizer (Tomorrow People Org); SFC committee evaluation may rank below ECEL/IEEE TALE",
+    "Abstract Book only - full proceedings indexing not guaranteed"
+  ],
+  "advantage": "Cheap virtual fee (€160), late deadline allows late submission insurance"
+}

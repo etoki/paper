@@ -1,0 +1,50 @@
+{
+  "id": "ieee_tale_2026",
+  "name": "IEEE TALE 2026",
+  "full_name": "International Conference on Teaching, Assessment, and Learning for Engineers",
+  "tier": "S",
+  "url": "https://tale-conference.org/2026",
+  "location": "Pattaya, Thailand",
+  "dates": {
+    "conference_start": "2026-12-02",
+    "conference_end": "2026-12-04",
+    "paper_deadline": "2026-06-30",
+    "acceptance_notification": "2026-09-01",
+    "camera_ready": "2026-10-01",
+    "earlybird_registration": "2026-10-01"
+  },
+  "host": "IEEE Education Society + IEEE Thailand Section",
+  "publication": {
+    "proceedings": "IEEE Xplore Digital Library",
+    "indexing": ["IEEE Xplore", "Scopus", "Ei Compendex"],
+    "format": "IEEE conference format",
+    "page_count": "4-6 pages standard"
+  },
+  "online_presentation": {
+    "available": "unknown",
+    "notes": "Past editions hybrid; 2026 CFP/FAQ does not explicitly state virtual option. Pre-submission email inquiry required.",
+    "official_quote": null
+  },
+  "preprint_policy": {
+    "explicit": true,
+    "allowed_servers": ["arXiv.org", "TechRxiv.org", "non-profit preprint servers approved by PSPB", "author institutional repository", "author personal website"],
+    "research_square_allowed": false,
+    "osf_preprints_allowed": "likely (non-profit, PSPB-approved status to confirm)",
+    "socarxiv_allowed": "likely (non-profit, OSF-hosted)",
+    "official_quote": "Authors who have submitted or plan to submit their articles to IEEE may post their preprints in the following locations: arXiv.org, TechRxiv.org, or any not-for-profit preprint server approved by the Publication Services and Products Board (PSPB), Author's employer's website or institutional repository, Author's personal website."
+  },
+  "submission": {
+    "system": "EDAS",
+    "review": "Double-anonymous",
+    "copyright": "IEEE Copyright Form required"
+  },
+  "theme_2026": "AI-Augmented Learning: Redefining the Future of Engineering & Technology Education",
+  "tracks": ["AI for Education (Generative AI, Adaptive Learning, Learning Analytics, Ethical AI)", "Engineering Education", "Online & Blended Learning"],
+  "contact": "via email-protection link on tale-conference.org",
+  "candidate_papers": ["P1 extension (Big Five x online learning, Japanese cohort, Learning Analytics framing)", "P5 simulation (Big Five generative agent prediction)"],
+  "blocking_issues": [
+    "Virtual presentation availability unconfirmed - requires direct inquiry",
+    "P3 metaanalysis cannot be used as-is due to Research Square preprint"
+  ],
+  "action_required_today": "Send virtual-presentation inquiry email; resolve preprint server question for any candidate"
+}
