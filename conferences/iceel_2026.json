@@ -1,0 +1,32 @@
+{
+  "id": "iceel_2026",
+  "name": "ICEEL 2026 — International Conference on Education and E-Learning",
+  "year": 2026,
+  "host": "ICEEL organising committee",
+  "location": "Tokyo, Japan",
+  "dates": "TBD (autumn 2026)",
+  "url": null,
+  "deadlines": {
+    "abstract":    null,
+    "full_paper":  "2026-06-30",
+    "camera_ready":"TBD",
+    "registration":"TBD"
+  },
+  "submission": {
+    "system":  "ICEEL submission portal",
+    "format":  "ACM/IEEE-style conference template",
+    "max_length_pages": 6,
+    "anonymous": false,
+    "review":   "single-blind"
+  },
+  "indexing":  ["Scopus", "ACM Digital Library (in past editions)"],
+  "fees":      { "currency": "USD", "early": null, "late": null },
+  "travel_required": false,
+  "subset_axis":    "East Asian (Japan / China / Korea / Taiwan) studies subset, plus targeted Japan synthesis using author's own A-25 Tokiwa 2025 and A-31 Rivers 2021.",
+  "novel_analysis": "Hofstede cultural-dimensions moderator analysis (Power Distance, Individualism, Long-Term Orientation, Uncertainty Avoidance) on Big Five trait–achievement correlations; integrative narrative synthesis of Japan-specific online learning context. NOT in preprint.",
+  "preprint_disclosure_required": true,
+  "preprint_doi":   "10.21203/rs.3.rs-9513298/v1",
+  "notes": "Tokyo venue minimises travel cost for Japan-based author. Author has prior Frontiers in Psychology Japan-context publication (P1, 2025).",
+  "verified_on": "2026-05-09",
+  "source": "user-provided"
+}

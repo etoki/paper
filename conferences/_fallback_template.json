@@ -1,0 +1,32 @@
+{
+  "id": "<lowercase_id>_2026",
+  "name": "<full name>",
+  "year": 2026,
+  "host": "<organiser>",
+  "location": "<city, country>",
+  "dates": "TBD",
+  "url": null,
+  "deadlines": {
+    "abstract":    null,
+    "full_paper":  null,
+    "camera_ready":null,
+    "registration":null
+  },
+  "submission": {
+    "system":  null,
+    "format":  null,
+    "max_length_pages": null,
+    "anonymous": false,
+    "review":   null
+  },
+  "indexing":  [],
+  "fees":      { "currency": null, "early": null, "late": null },
+  "travel_required": null,
+  "subset_axis":    null,
+  "novel_analysis": null,
+  "preprint_disclosure_required": true,
+  "preprint_doi":   "10.21203/rs.3.rs-9513298/v1",
+  "notes": "Verify all fields against the official CFP before treating as a fact source.",
+  "verified_on": null,
+  "source": null
+}
