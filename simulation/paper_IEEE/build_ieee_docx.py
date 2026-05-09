@@ -31,7 +31,7 @@ from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Pt, Twips, RGBColor
+from docx.shared import Inches, Pt, Twips, RGBColor
 
 # ============================================================================
 # Paths and constants
@@ -571,7 +571,9 @@ def strip_markdown_inline(text: str) -> str:
 def add_inline_runs(p, text: str, *, base_size=10, base_bold=False,
                    base_italic=False):
     """Add runs to paragraph p, parsing **bold** / *italic* / `code` markers
-    so the docx output reflects the inline emphasis without literal markers."""
+    so the docx output reflects the inline emphasis without literal markers.
+    All runs default to Times New Roman with explicit black (#000000) color
+    to match the clustering companion paper's uniform body-text styling."""
     pattern = (
         r"(\*\*[^*\n]+?\*\*|"
         r"(?<![*])\*(?!\s|\*)[^*\n]+?(?<![\s*])\*(?!\*)|"
@@ -583,18 +585,22 @@ def add_inline_runs(p, text: str, *, base_size=10, base_bold=False,
             continue
         if part.startswith("**") and part.endswith("**"):
             r = p.add_run(part[2:-2])
-            set_font(r, size=base_size, bold=True, italic=base_italic or None)
+            set_font(r, name=BODY_FONT, size=base_size, bold=True,
+                     italic=base_italic or None, color=COLOR_BLACK)
         elif part.startswith("*") and part.endswith("*"):
             r = p.add_run(part[1:-1])
-            set_font(r, size=base_size, bold=base_bold or None, italic=True)
+            set_font(r, name=BODY_FONT, size=base_size,
+                     bold=base_bold or None, italic=True, color=COLOR_BLACK)
         elif part.startswith("`") and part.endswith("`"):
             r = p.add_run(part[1:-1])
-            set_font(r, size=base_size, bold=base_bold or None,
-                     italic=base_italic or None)
+            set_font(r, name=BODY_FONT, size=base_size,
+                     bold=base_bold or None,
+                     italic=base_italic or None, color=COLOR_BLACK)
         else:
             r = p.add_run(part)
-            set_font(r, size=base_size, bold=base_bold or None,
-                     italic=base_italic or None)
+            set_font(r, name=BODY_FONT, size=base_size,
+                     bold=base_bold or None,
+                     italic=base_italic or None, color=COLOR_BLACK)
 
 
 def parse_md_blocks(md_text: str) -> list[tuple[str, str]]:
@@ -695,15 +701,15 @@ def add_ieee_subsection_heading(doc, text: str, *, letter: int | None = None):
 
 
 def add_ieee_subsubsection_heading(doc, text: str, *, number: int | None = None):
-    """Sub-subsection heading: Helvetica Neue 9pt bold, dark gray (#58595B),
-    run-in style. Prefixed with "1) ", "2) ", ... and ends with colon per
-    the IEEE Access companion-paper formatting.
+    """Sub-subsection heading: Helvetica Neue 9pt bold italic, dark gray
+    (#58595B), run-in style. Prefixed with "1) ", "2) ", ... and ends with
+    colon per the IEEE Access companion-paper formatting.
     """
     p = doc.add_paragraph()
     set_para_format(p, space_before=2, space_after=2)
     label = f"{number}) " if number is not None else ""
     r = p.add_run(label + text + ":")
-    set_font(r, name=DISPLAY_FONT, size=9, bold=True,
+    set_font(r, name=DISPLAY_FONT, size=9, bold=True, italic=True,
              color=COLOR_IEEE_SUBSUB_GRAY)
 
 
@@ -1221,16 +1227,58 @@ def build():
     )
     set_font(r, size=10, italic=True)
 
+    # === Figures (embedded at end of body, before References) ===
+    # Parse 06_tables_figures.md for "### Figure N. Title" sections, then
+    # embed the corresponding output/figures/figureN_*.png file with a
+    # "FIGURE N." label and an italic caption per IEEE Access convention.
+    figures_md_text = MD_TABLES_FIGURES.read_text(encoding="utf-8")
+    # Locate the start of the "## Figures" section.
+    figures_start = re.search(r"^##\s+Figures\b", figures_md_text,
+                              flags=re.MULTILINE)
+    figures_dir = SIM_PAPER_DIR.parent / "output" / "figures"
+    if figures_start and figures_dir.exists():
+        figures_text = figures_md_text[figures_start.end():]
+        # Each figure block: "### Figure N. Title\n\n...desc...\n\n
+        # **Caption.** *italic caption text*\n"
+        fig_blocks = re.findall(
+            r"^###\s+Figure\s+(\d+)\.\s+(.+?)\n\n.*?\*\*Caption\.\*\*\s+\*([^*]+)\*",
+            figures_text, flags=re.MULTILINE | re.DOTALL,
+        )
+        # Filename pattern: figureN_<slug>.png
+        png_files = {p.name.split("_")[0]: p
+                     for p in figures_dir.glob("figure*.png")}
+        for fig_num, _fig_title, caption in fig_blocks:
+            key = f"figure{fig_num}"
+            png_path = png_files.get(key)
+            if png_path is None or not png_path.exists():
+                continue
+            # Image centered, fit one column width (~3.35").
+            p = doc.add_paragraph()
+            set_para_format(p, align=WD_ALIGN_PARAGRAPH.CENTER,
+                           space_before=8, space_after=2)
+            run = p.add_run()
+            run.add_picture(str(png_path), width=Inches(3.30))
+            # "FIGURE N." label + caption inline as TNR 7pt
+            p = doc.add_paragraph()
+            set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY,
+                           space_before=0, space_after=6)
+            r = p.add_run(f"FIGURE {to_roman(int(fig_num))}. ")
+            set_font(r, name=BODY_FONT, size=7, bold=True, color=COLOR_BLACK)
+            r2 = p.add_run(caption.strip())
+            set_font(r2, name=BODY_FONT, size=7, italic=True,
+                     color=COLOR_BLACK)
+
     # === References (IEEE-numbered) ===
     add_ieee_section_heading(doc, "REFERENCES", roman=None)
     for idx, key in enumerate(cit_order, start=1):
         ref_text = IEEE_REFS[key]
         p = doc.add_paragraph()
         set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY, space_after=2)
-        r = p.add_run(f"[{idx}] ")
-        set_font(r, size=9, bold=True)
-        r2 = p.add_run(ref_text)
-        set_font(r2, size=8)
+        # Single TNR 8pt run for the entire reference entry (including the
+        # "[N]" prefix), matching the clustering companion paper's
+        # uniform-weight reference list style.
+        r = p.add_run(f"[{idx}] {ref_text}")
+        set_font(r, name=BODY_FONT, size=8, color=COLOR_BLACK)
 
     # === Author Biography (IEEE Access required, 100-150 words/author) ===
     add_ieee_section_heading(doc, "BIOGRAPHIES", roman=None)

@@ -612,9 +612,10 @@ def build_preprint(out_path: Path, *, journal_variant: bool = False):
             set_font(run, size=12)
     doc.add_page_break()
 
-    # Tables
+    # Tables and Figures (placed after References per APA 7 convention)
     add_heading(doc, "Tables", level=1)
     tf_blocks = parse_md_blocks(MD_TABLES_FIGURES)
+    figures_dir = PAPER_DIR.parent / "output" / "figures"
     in_tables = False
     in_figures = False
     for kind, text in tf_blocks:
@@ -634,6 +635,23 @@ def build_preprint(out_path: Path, *, journal_variant: bool = False):
         if in_tables or in_figures:
             if kind == "h3":
                 add_heading(doc, text, level=2)
+                # Embed the corresponding PNG immediately after the
+                # "### Figure N. Title" heading (figures section only).
+                if in_figures and figures_dir.exists():
+                    m = re.match(r"^Figure\s+(\d+)\.", text.strip())
+                    if m:
+                        fig_num = m.group(1)
+                        candidates = sorted(
+                            figures_dir.glob(f"figure{fig_num}_*.png"))
+                        if candidates:
+                            p = doc.add_paragraph()
+                            p.paragraph_format.alignment = (
+                                WD_ALIGN_PARAGRAPH.CENTER)
+                            run = p.add_run()
+                            # 5.5" fits within an 8.5"-letter page with
+                            # 1.5" total horizontal margins.
+                            run.add_picture(str(candidates[0]),
+                                            width=Inches(5.5))
             elif kind == "table":
                 render_table(doc, text)
             elif kind == "para":
