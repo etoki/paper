@@ -27,6 +27,7 @@ import re
 from pathlib import Path
 
 from docx import Document
+from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
@@ -665,15 +666,17 @@ def to_letter(n: int) -> str:
 
 
 def add_ieee_section_heading(doc, text: str, *, roman: int | None = None,
-                             centered: bool = True):
+                             centered: bool = False):
     """Major section heading: Helvetica Neue 9pt bold ALL CAPS in IEEE blue
-    (#00629B). If `roman` is given, prefixes the heading with Roman numerals
-    "I. ", "II. ", etc. Centered per IEEE Editorial Style Manual. Unnumbered
-    top-level sections (REFERENCES, ACKNOWLEDGMENT, BIOGRAPHIES) pass
-    roman=None.
+    (#00629B), left-aligned per the IEEE Access companion paper convention.
+    If `roman` is given, prefixes the heading with Roman numerals "I. ",
+    "II. ", etc. Pass roman=None for unnumbered top-level sections
+    (REFERENCES, ACKNOWLEDGMENT, BIOGRAPHIES). The `centered` flag is
+    retained for back-compat but defaults to False (left alignment) to
+    match the reference paper.
     """
     p = doc.add_paragraph()
-    align = WD_ALIGN_PARAGRAPH.CENTER if centered else None
+    align = WD_ALIGN_PARAGRAPH.CENTER if centered else WD_ALIGN_PARAGRAPH.LEFT
     set_para_format(p, align=align, space_before=8, space_after=4)
     label = f"{to_roman(roman)}. " if roman is not None else ""
     r = p.add_run(label + text.upper())
@@ -722,27 +725,133 @@ def add_ieee_list_item(doc, text: str):
     add_inline_runs(p, text, base_size=10)
 
 
-def add_ieee_table(doc, table_md: str):
-    """Render markdown pipe table as IEEE-style table (small font)."""
+def _table_set_borders(table):
+    """Apply thin black single-line borders to all cells (IEEE Access default
+    table-line treatment in the clustering companion paper)."""
+    from docx.oxml import OxmlElement
+    tbl = table._element
+    tblPr = tbl.find(qn("w:tblPr"))
+    if tblPr is None:
+        tblPr = OxmlElement("w:tblPr")
+        tbl.insert(0, tblPr)
+    tblBorders = OxmlElement("w:tblBorders")
+    for edge in ("top", "left", "bottom", "right", "insideH", "insideV"):
+        b = OxmlElement(f"w:{edge}")
+        b.set(qn("w:val"), "single")
+        b.set(qn("w:sz"), "4")  # 0.5pt
+        b.set(qn("w:space"), "0")
+        b.set(qn("w:color"), "000000")
+        tblBorders.append(b)
+    # Replace any existing borders block.
+    existing = tblPr.find(qn("w:tblBorders"))
+    if existing is not None:
+        tblPr.remove(existing)
+    tblPr.append(tblBorders)
+
+
+def _merge_first_row(table):
+    """Merge all cells in the first row horizontally into one cell."""
+    row0 = table.rows[0]
+    first_cell = row0.cells[0]
+    for c in row0.cells[1:]:
+        first_cell.merge(c)
+
+
+def add_ieee_table(doc, table_md: str, *, table_number: int | None = None,
+                  table_title: str | None = None, table_note: str | None = None):
+    """Render a markdown pipe table in IEEE Access style.
+
+    Layout (matches the clustering companion paper convention):
+      1. Centered "TABLE N" label above the table (Times New Roman 8pt).
+      2. Merged top row inside the table with the table title in ALL CAPS
+         (Times New Roman 7pt).
+      3. Header row immediately below the title row: column names in bold,
+         centered (Times New Roman 7pt).
+      4. Data rows: Times New Roman 7pt; numeric columns right-aligned by
+         markdown alignment hint, text columns left-aligned.
+      5. Thin black single-line borders on all cells.
+      6. Centered/justified note paragraph below the table (Times New Roman
+         7pt italic) if `table_note` is provided.
+    """
     rows = [r for r in table_md.split("\n") if r.strip()]
     parsed_rows: list[list[str]] = []
+    align_row: list[str] | None = None
     for row in rows:
         cells = [c.strip() for c in row.strip().strip("|").split("|")]
+        # Detect markdown alignment row (e.g., "---", ":---:", "---:")
+        if all(re.match(r"^:?-+:?$", c) for c in cells):
+            align_row = cells
+            continue
         parsed_rows.append(cells)
-    parsed_rows = [r for r in parsed_rows
-                   if not all(re.match(r"^[-:\s]+$", c) for c in r)]
     if not parsed_rows:
         return
     n_cols = len(parsed_rows[0])
-    table = doc.add_table(rows=len(parsed_rows), cols=n_cols)
+
+    # Compute per-column alignment from the markdown alignment row.
+    col_align: list = []
+    for j in range(n_cols):
+        spec = align_row[j] if align_row and j < len(align_row) else "---"
+        if spec.startswith(":") and spec.endswith(":"):
+            col_align.append(WD_ALIGN_PARAGRAPH.CENTER)
+        elif spec.endswith(":"):
+            col_align.append(WD_ALIGN_PARAGRAPH.RIGHT)
+        else:
+            col_align.append(WD_ALIGN_PARAGRAPH.LEFT)
+
+    # 1. "TABLE N" label centered above the table.
+    if table_number is not None:
+        p = doc.add_paragraph()
+        set_para_format(p, align=WD_ALIGN_PARAGRAPH.CENTER, space_before=6,
+                       space_after=0)
+        r = p.add_run(f"TABLE {to_roman(table_number)}")
+        set_font(r, name=BODY_FONT, size=8, color=COLOR_BLACK)
+
+    # 2. Build the table with an extra title row at the top.
+    has_title_row = table_title is not None
+    n_rows_total = len(parsed_rows) + (1 if has_title_row else 0)
+    table = doc.add_table(rows=n_rows_total, cols=n_cols)
+    table.alignment = WD_TABLE_ALIGNMENT.CENTER
+
+    if has_title_row:
+        # Merge the first row into one cell and write the title in ALL CAPS.
+        _merge_first_row(table)
+        title_cell = table.cell(0, 0)
+        p = title_cell.paragraphs[0]
+        for run in list(p.runs):
+            run._element.getparent().remove(run._element)
+        set_para_format(p, align=WD_ALIGN_PARAGRAPH.CENTER, space_before=0,
+                       space_after=0)
+        r = p.add_run(table_title.upper())
+        set_font(r, name=BODY_FONT, size=7, color=COLOR_BLACK)
+
+    body_offset = 1 if has_title_row else 0
     for i, cells in enumerate(parsed_rows):
         for j, cell in enumerate(cells[:n_cols]):
-            tcell = table.cell(i, j)
+            tcell = table.cell(i + body_offset, j)
             p = tcell.paragraphs[0]
             for run in list(p.runs):
                 run._element.getparent().remove(run._element)
-            add_inline_runs(p, strip_markdown_inline(cell), base_size=8,
-                           base_bold=(i == 0))
+            is_header = (i == 0)
+            set_para_format(
+                p,
+                align=(WD_ALIGN_PARAGRAPH.CENTER if is_header
+                       else col_align[j]),
+                space_before=0, space_after=0,
+            )
+            add_inline_runs(p, strip_markdown_inline(cell), base_size=7,
+                           base_bold=is_header)
+
+    _table_set_borders(table)
+
+    # 3. Note paragraph below the table.
+    if table_note:
+        p = doc.add_paragraph()
+        set_para_format(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY, space_before=2,
+                       space_after=6)
+        r = p.add_run("Note. ")
+        set_font(r, name=BODY_FONT, size=7, italic=True, color=COLOR_BLACK)
+        r2 = p.add_run(table_note)
+        set_font(r2, name=BODY_FONT, size=7, italic=True, color=COLOR_BLACK)
 
 
 # ============================================================================
@@ -891,12 +1000,39 @@ def build():
     # 1), 2), ... sub-subsections.
     # Conclusion is extracted from discussion_md and rendered as its own
     # major section (V. CONCLUSION).
+    # The 01_intro.md file contains TWO IEEE major sections after restructure:
+    # "## Introduction" (brief, high-level overview) and
+    # "## Background and History" (detailed prior literature, hypotheses, and
+    # purpose). Split intro_md by the second ## H2 boundary so each becomes
+    # its own IEEE major section, matching the IEEE Access companion paper
+    # convention (clustering/paper_IEEE/Manuscript_IEEE_rivision.docx).
+    def _split_intro(md: str) -> tuple[str, str]:
+        # Find positions of all top-level ## H2 headings, skipping ## Abstract.
+        h2_positions: list[tuple[int, str]] = []
+        for m in re.finditer(r"^##\s+(.+)$", md, flags=re.MULTILINE):
+            title = m.group(1).strip()
+            if title in SKIP_HEADINGS:
+                continue
+            h2_positions.append((m.start(), title))
+        if len(h2_positions) >= 2:
+            # First H2 = Introduction; second H2 starts Background and History.
+            split_pos = h2_positions[1][0]
+            return md[:split_pos].rstrip(), md[split_pos:].lstrip()
+        # Fallback: single-section intro_md (no Background and History split).
+        return md, ""
+
+    intro_section_md, background_section_md = _split_intro(intro_md)
+
     SECTION_PLAN = [
-        ("INTRODUCTION", intro_md),
+        ("INTRODUCTION", intro_section_md),
+    ]
+    if background_section_md:
+        SECTION_PLAN.append(("BACKGROUND AND HISTORY", background_section_md))
+    SECTION_PLAN.extend([
         ("METHODS", methods_md),
         ("RESULTS", results_md),
         ("DISCUSSION", discussion_md),
-    ]
+    ])
 
     def _strip_metadata(md_text: str) -> str:
         # Strip the entire markdown front-matter: everything before the first
@@ -929,7 +1065,15 @@ def build():
         return discussion_md, ""
 
     discussion_body, conclusion_md = _extract_conclusion(discussion_md)
-    SECTION_PLAN[3] = ("DISCUSSION", discussion_body)
+    # Replace the DISCUSSION entry's body with the content excluding the
+    # Conclusion subsection (which becomes its own major IEEE section). Look
+    # up DISCUSSION by label rather than fixed index, since SECTION_PLAN now
+    # contains either 5 or 6 entries depending on whether the intro_md split
+    # produced a separate BACKGROUND AND HISTORY section.
+    for i, (label, _) in enumerate(SECTION_PLAN):
+        if label == "DISCUSSION":
+            SECTION_PLAN[i] = ("DISCUSSION", discussion_body)
+            break
     SECTION_PLAN.append(("CONCLUSION", conclusion_md))
 
     # === Render body sections ===
@@ -960,6 +1104,18 @@ def build():
             len(h2_titles) == 1 and h2_titles[0].upper() == section_label
         )
 
+        # State for table caption association: when we encounter a body para
+        # of the form "**Table N.** Title text. Note text..." we hold it as a
+        # pending caption and apply it to the very next table_md block. This
+        # mirrors the clustering paper's "TABLE N → merged-title-row → note"
+        # rendering pattern.
+        pending_table_caption: tuple[int, str, str] | None = None
+        # Regex captures: number, title sentence, optional note remainder.
+        table_caption_re = re.compile(
+            r"^\*\*Table\s+(\d+)\.?\*\*\s*(.+?)(?:\.\s+(.+))?$",
+            flags=re.DOTALL,
+        )
+
         for kind, txt in blocks:
             txt_clean = strip_markdown_inline(txt) if kind != "table_md" else txt
             if kind == "h1":
@@ -988,11 +1144,28 @@ def build():
             elif kind == "h4":
                 add_ieee_subsubsection_heading(doc, txt_clean)
             elif kind == "para":
-                add_ieee_body_para(doc, txt_clean)
+                # Detect table-caption paragraphs and stash them for the next
+                # table_md block; otherwise render as a normal body paragraph.
+                m = table_caption_re.match(txt.strip())
+                if m:
+                    table_num = int(m.group(1))
+                    title_sentence = strip_markdown_inline(m.group(2)).rstrip(".")
+                    note_text = (strip_markdown_inline(m.group(3))
+                                if m.group(3) else "")
+                    pending_table_caption = (table_num, title_sentence,
+                                             note_text)
+                else:
+                    add_ieee_body_para(doc, txt_clean)
             elif kind == "list_item":
                 add_ieee_list_item(doc, txt_clean)
             elif kind == "table_md":
-                add_ieee_table(doc, txt)
+                if pending_table_caption is not None:
+                    n, title, note = pending_table_caption
+                    add_ieee_table(doc, txt, table_number=n,
+                                  table_title=title, table_note=note)
+                    pending_table_caption = None
+                else:
+                    add_ieee_table(doc, txt)
 
     # === ACKNOWLEDGMENT (unnumbered, before References) ===
     add_ieee_section_heading(doc, "ACKNOWLEDGMENT", roman=None)

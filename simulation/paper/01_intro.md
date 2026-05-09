@@ -26,6 +26,14 @@ Workplace harassment imposes mental-health and labor-supply costs in Japan, wher
 
 ## Introduction
 
+Workplace harassment imposes substantial mental-health and labor-supply costs in industrialized economies, and Japan is a particularly informative setting because the Ministry of Health, Labour and Welfare (MHLW) has documented a 13.2-percentage-point decline in past-three-year power-harassment victimization (32.5% in FY2016 → 19.3% in FY2023) over the period spanning enforcement of the 2020 Power Harassment Prevention Law (MHLW, 2017, 2024). This temporal pattern raises a fundamental question for occupational psychology: when both individual personality traits and organizational structures predict harassment exposure, which side of the person–environment ledger contributes more to population-level prevalence change?
+
+The present study addresses this question with a pre-registered counterfactual microsimulation that emulates a target trial of three interventions — two acting on personality (HEXACO Honesty-Humility, Agreeableness, Emotionality) and one acting on cell-level structural propensity. Under prior meta-analytic effect-size calibrations for each intervention type, the analysis classifies the configuration as REVERSAL: the structural-intervention contrast is approximately five-fold larger in absolute magnitude than the personality-intervention contrast.
+
+The remainder of this paper unfolds as follows. Section II reviews the relevant background — the public-health framing of workplace harassment in Japan, the HEXACO 7-typology and its prior connection to harassment, microsimulation as a methodological bridge, the seven pre-registered hypotheses, and the study's contribution. Section III details the methods. Section IV reports the results. Section V discusses limitations and implications. Section VI concludes.
+
+## Background and History
+
 ### Workplace harassment as a public-health and policy problem
 
 Workplace harassment has been associated with elevated risk of psychiatric morbidity, voluntary turnover, and reduced labor productivity in industrialized economies (Hershcovis & Barling, 2010; Salin, 2003). In Japan, the Ministry of Health, Labour and Welfare (MHLW) has documented past-three-year power-harassment victimization rates of 32.5% in FY2016, 31.4% in FY2020, and 19.3% in FY2023 (MHLW, 2017, 2021, 2024). The 13.2 percentage-point decline between FY2016 and FY2023 coincides with the staged enforcement of the 2020 Power Harassment Prevention Law, which mandated formal anti-harassment policies, employee-accessible reporting channels, and prohibited retaliation against complainants — first for large enterprises in June 2020, and subsequently extended to small-and-medium enterprises in April 2022. This temporal coincidence has been treated in the policy literature as a natural-experiment-like setting; it provides a substantive backdrop for the present pre-registered analysis, although the present study is observational and not a formal causal inference about the law itself.
@@ -66,7 +74,7 @@ The pre-registration (v2.0) specifies seven primary hypotheses:
 - **H6 (cross-domain triangulation)**: Power and gender harassment scales (Tou et al., 2017; Kobayashi & Tanaka, 2010) yield concordant cluster-level rankings.
 - **H7 (counterfactual ordering)**: The pre-registered ordering Δ_BA = ΔP_B − ΔP_A and Δ_BC = ΔP_B − ΔP_C is tested via the Berger and Hsu (1996) intersection-union test (IUT) at one-sided α = .05; the configuration is classified as REVERSAL, CONFIRMED, PARTIAL, or AMBIGUOUS.
 
-### Contribution and roadmap
+### Purpose and significance of the present study
 
 This study makes four scientific contributions:
 
@@ -74,5 +82,3 @@ This study makes four scientific contributions:
 2. **Empirical**: It provides a quantitative apples-to-apples comparison of person-level and system-level intervention contrasts on Japanese workplace-harassment prevalence, with each counterfactual calibrated to effect sizes drawn from prior meta-analyses.
 3. **Theoretical**: It tests the implication of treating HEXACO 7-typology as an intervention target versus as a stratification lens, and reports that the data are consistent with the latter reading. This contributes to ongoing discussions in personality and occupational-health psychology about the conditions under which trait-based prediction translates into trait-based intervention.
 4. **Substantive**: It documents a quantitative ordering — the absolute magnitude of the structural-intervention contrast is approximately five-fold larger than that of the personality-intervention contrast — under realistic prior calibrations of each, and traces the robustness of that ordering across nine pre-registered analytic axes and four cultural-attenuation factors.
-
-The remainder of this manuscript is organized as follows. Section 2 details the data sources, sample, and pre-registered analytic procedures, and reports the deposit locations and access conditions for code and data. Section 3 reports the 14-cell propensities, national prevalence aggregation, four-tier H1 classification, baseline comparison, sensitivity sweep, and counterfactual contrasts. Section 4 discusses methodological limitations (reduced-form framing, causal under-identification, heterogeneity neglect, static framing), sketches future agent-based extensions, and develops the research implications of the integrated findings.
