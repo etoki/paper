@@ -1,0 +1,33 @@
+{
+  "id": "aaou_2026",
+  "name": "AAOU 2026",
+  "full_name": "39th AAOU Annual Conference 2026",
+  "tier": "A",
+  "url": "https://www.aaou.org/",
+  "location": "Manila, Philippines",
+  "dates": {
+    "conference_start": "2026-10-22",
+    "conference_end": "2026-10-24",
+    "paper_deadline": "TBD - CFP not yet published; expected spring/early summer 2026"
+  },
+  "host": "Asian Association of Open Universities + University of the Philippines Open University",
+  "publication": {
+    "proceedings": "AAOU Bulletin / related journals"
+  },
+  "online_presentation": {
+    "available": "likely (past editions hybrid)",
+    "notes": "Confirm when CFP released"
+  },
+  "preprint_policy": {
+    "explicit": false,
+    "general_rule": "not yet published"
+  },
+  "history": "Founded 1987, formal society for Asian Open & Distance Learning",
+  "contact": "secretariat@aaou.org / aaou.org@gmail.com",
+  "candidate_papers": ["P1 extension (Online Learning theme = perfect fit)", "P3 metaanalysis"],
+  "blocking_issues": [
+    "CFP not yet published - check weekly through mid-late May 2026"
+  ],
+  "advantage": "Subject area perfectly aligned (Open & Distance Learning); good fit for Big Five x online learning research",
+  "action_required_today": "Bookmark + set weekly check; subscribe to mailing list if available"
+}
