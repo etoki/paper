@@ -191,8 +191,45 @@ Claude が半自動チェック (機械 + 文脈判断) を実行。
 
 - 2026-05-01 初版: 7 タスクに分割
 - 過去発見した hallucination パターン:
-  - Round 1 (`adaf88b`): 17 件欠落引用 + Mustafa β寄与誤記 + PRISMA 算術不整合 (合計 7 種)
-  - Round 2 (`f60760f`): Table 3 outcome_type CI 全 10 行捏造 + Table 4 sensitivity CI 全 10 行捏造 + Leave-one-out 数値誤記 (合計 5 種)
-  - Round 3 (`e0f0c89`): post-COVID k=2 vs canonical k=0 (1 件)
+  - Round 1 (`adaf88b`): 17 件欠落引用 + Mustafa β寄与誤記 + PRISMA 算術不整合(合計 7 種)
+  - Round 2 (`f60760f`): Table 3 outcome_type CI 全 10 行捏造 + Table 4 sensitivity CI 全 10 行捏造 + Leave-one-out 数値誤記(合計 5 種)
+  - Round 3 (`e0f0c89`): post-COVID k=2 vs canonical k=0(1 件)
+  - **Round 4 (`5cef6e7` → `2168a94`, 2026-05-10)**: A-25 Tokiwa (2025) の citation を「Frontiers in Psychology 16, 1420996(実刊行)」ではなく「Manuscript in preparation, SUNBLAZE Co., Ltd.」と誤記。誤りが親 preprint の `references_data.py` に潜伏し、reference_index.md A-25 → 4 conference paper References → cover letters → 親 Research Square v1 PDF(deposited 2026-04-27)reference list 32 番まで全コピー先に伝播。
 
 これらのパターンは新しいハルシネーションが発生する可能性のある場所で、各タスクで重点的にチェックする。
+
+---
+
+## ⚠️ ルール: 著者自身の論文 entry を引用する場合(Round 4 後追加)
+
+**著者自身の刊行物**(Tokiwa の場合は `online_learning/`、`clustering/`、`harassment/`、`metaanalysis/`、`simulation/` の各 directory に PDF を所持)を citation に含める場合は、**reference_index.md / references_data.py / 任意の引用個所のいずれを「正」と思って使う前に、必ず該当 directory の corpus PDF と直接突き合わせる**こと。
+
+理由: reference_index は **secondary source**(どこかから合成した index)であり、source-of-truth(実 PDF)が別の場所にある場合、index 側に潜伏した hallucination がそのまま伝播する。Round 4 では:
+
+```
+metaanalysis/data_extraction.csv      (truth, A-25 Frontiers DOI 正記)
+metaanalysis/literature_review.md     (truth, A-25 Frontiers DOI 正記)
+metaanalysis/pdf_download_urls.md     (truth, A-25 Frontiers DOI 正記)
+                                                ↓
+                                      references_data.py
+                                        (synthesised:
+                                         「Manuscript in preparation」 ← regression)
+                                                ↓
+                                      reference_index.md A-25
+                                                ↓
+                                      4 conference paper References
+                                                ↓
+                                      4 cover letters
+                                                ↓
+                                      Research Square v1 PDF
+```
+
+**チェック手順**(著者の刊行物を新規 citation する時):
+
+1. リポジトリ内で `find . -name "*.pdf" -path "*/<著者の paper directory>*"` で当該論文の PDF が corpus にあるか確認。
+2. PDF を `pdftotext -l 1` で 1 ページ目を抽出し、**タイトル・誌名・巻号・DOI・掲載日**を target source として確定。
+3. 同一 author の `[Manuscript in preparation]` / `[unpublished]` / `[under review]` 等の placeholder 表記が `reference_index.md` や source code に既存している場合、**warn flag を立てて step 2 の verification を再実行**するまで該当 entry を信用しない。
+4. submission 前に `metaanalysis/conference_submissions/scripts/check_dois.py` で全 DOI の syntax と(可能なら)resolution を verify。
+5. 「Manuscript in preparation」「[unpublished]」を citation に書く前に **本当に未刊行か** を該当 directory PDF + DOI 検索で再確認。著者本人の業績は刊行ステータスを誤りやすい。
+
+このルールは `metaanalysis/conference_submissions/scripts/check_numbers.py` の "(A) Cross-paper canonical-value consistency" にも組み込み済(Tokiwa 2025 Frontiers DOI `10.3389/fpsyg.2025.1420996` を canonical anchor として全 paper 横断で検証)。
