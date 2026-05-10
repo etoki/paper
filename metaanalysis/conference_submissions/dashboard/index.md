@@ -22,9 +22,9 @@
 
 | 学会 | Tier | Decision | Status | Paper | Action |
 |---|---|---|---|---|---|
-| **ECEL 2026** | S | ✅ GO | full paper draft + cover letter ready | P3 modality moderator | ECEL 延長返信 → 5/14 Awards / 5/21 Full Paper |
-| **ICEEL 2026** | A | ✅ GO | full paper draft + cover letter ready | P3 Hofstede + Japan | 6/30 投稿(東京 in-person) |
-| **ICERI 2026** | A | ✅ GO | full paper draft + cover letter ready | P3 cross-tab | 7/9 投稿(virtual 申請) |
+| **ECEL 2026** | S | ✅ GO | full paper draft + cover letter ready / Awards abstract ready | P3 modality moderator | **ECEL 委員会延長返信待ち**(5/13 まで)→ 承認後 5/14 Awards / 5/21 Full Paper |
+| **ICEEL 2026** | A | ✅ **SUBMITTED (2026-05-10)** | zmeeting 投稿済 / Hofstede direction-match (3/5; N+ headline) Option 2 採用版 | P3 Hofstede + Japan | acceptance 通知待ち(7/30) |
+| **ICERI 2026** | A | ✅ **SUBMITTED (2026-05-10)** | myIATED abstract 投稿済 | P3 cross-tab | acceptance 通知待ち(9/1)→ 採択時 full paper 提出 |
 | **IEEE TALE 2026** | S | ❌ **DROP** | — | — | Research Square 不可 + 無移行方針 → 投稿経路なし |
 | AAOU 2026 | A | 🟡 WATCH | CFP 待ち | 別 chat | 週次 CFP 確認 |
 | AACE E-Learn 2026 | A | 🟡 WATCH | CFP 待ち | 別 chat | 月次 CFP 確認 |
@@ -59,32 +59,36 @@
 
 ---
 
-## ✅ TODO リスト(今後 30 日)
+## ✅ TODO リスト(今後 6 か月)
 
 ### 5/10 〜 5/14
 - [x] Frontiers (Joe Fares) 宛 follow-up email 送信(A-25 reference 訂正、Frontiers in Education v2 件、ECEL とは別件)
-- [ ] **ECEL 委員会(`info@academic-conferences.org`)延長承認返信受領待ち** — 元 abstract 締切 4/22 既経過、延長承認が来てから Awards / Full Paper が submit 可能
-- [x] ECEL Excellence Awards 投稿判断 → **GO**(`awards_abstract.md` draft 完成、5/14 投稿は延長承認後)
-- [ ] PRISMA flow diagram 各 paper への埋め込み(figures は `figures/prisma_flow_*.png` に生成済)
+- [x] **ICEEL 2026 投稿**(zmeeting、Hofstede direction-match Option 2 版)
+- [x] **ICERI 2026 投稿**(myIATED、cross-tab 版)
+- [ ] **ECEL 委員会(`info@academic-conferences.org`)延長承認返信受領待ち**(〜5/13)
+- [x] ECEL Excellence Awards 投稿判断 → **GO**(`awards_abstract.md` ready)
 
-### 5/15 〜 5/21
-- [ ] ECEL 延長承認後 → ECEL Full Paper 投稿(`helen@academic-conferences.org`)
-- [ ] ECEL cover letter 最終 review
-- [ ] 延長不承認 or 5/13 まで返信なし時 → ECEL 投稿全体取り下げ判断
+### 5/15 〜 5/21(ECEL 延長承認時のみ)
+- [ ] 5/14: ECEL Awards abstract 投稿
+- [ ] 5/21: ECEL Full Paper 投稿(`helen@academic-conferences.org`)
+- [ ] 延長不承認時 → ECEL 取り下げ → AAOU / AACE / WORLDCTE の保険判断
 
-### 5/22 〜 6/30
-- [ ] ICEEL paper 最終 review → 6/30 投稿(zmeeting)
+### 6 月
+- [ ] AAOU 2026 / AACE E-Learn CFP 公開チェック(週次・月次)
 
-### 7 月
-- [ ] ICERI abstract / paper 投稿(7/9, IATED)
-- [ ] ECEL 採択結果確認(7/20)
+### 7-9 月(査読結果待ち期間)
+- [ ] 7/20: ECEL 採択結果確認(投稿していれば)
+- [ ] 7/30: **ICEEL 採択結果通知**
+- [ ] 9/1: **ICERI 採択結果通知** → 採択時 full paper 執筆
+- [ ] 採択結果に応じて保険投稿(AAOU/AACE/WORLDCTE)判断
 
-### 8 月以降
-- [ ] ECEL 最終版(8/27)+ author payment(9/17)
-- [ ] ICERI 採択結果(8 月)
-- [ ] ICEEL 採択結果(9 月)
-- [ ] 各学会への参加・発表(virtual or 東京現地)
-- [ ] SFC 提出書類作成
+### 10 月以降
+- [ ] ECEL 最終版(8/27)+ author payment(9/17)※採択時
+- [ ] ICERI full paper 提出(9 月以降、myIATED で deadline 別途通知)
+- [ ] ICEEL カメラレディ + early-bird 登録(8/30)
+- [ ] 11/9-11 ICERI 参加(virtual)
+- [ ] 11/27-29 ICEEL 参加(東京 in-person)
+- [ ] SFC 論文博士 提出書類作成
 
 ---
 
@@ -114,5 +118,7 @@
 - **2026-05-10**: A-25 Tokiwa (2025) reference を全 paper / 親 preprint source code から訂正。旧 "Manuscript in preparation, SUNBLAZE Co., Ltd." → 正 *Frontiers in Psychology, 16*, 1420996, DOI 10.3389/fpsyg.2025.1420996(CC BY)。詳細は PR #14 commit message。
 - **2026-05-10**: IEEE TALE 2026 を portfolio から DROP。Research Square 不許可 + 「RS 維持」方針で投稿経路なし。
 - **2026-05-10**: 全 conference 関連ファイルを `metaanalysis/conference_submissions/` 配下に集約。
+- **2026-05-10**: ICEEL paper Option 2 採用 — Hofstede direction-match (3/5 trait, N+ headline) を 8 件 primary citation で armoring。詳細は PR #19。
+- **2026-05-10**: ICEEL + ICERI 投稿完了。ECEL は委員会延長返信待ち。
 
-最終更新: 2026-05-10
+最終更新: 2026-05-10(2 件投稿完了後)
