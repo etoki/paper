@@ -487,6 +487,61 @@ Minkov, M., & Hofstede, G. (2014). A replication of Hofstede's uncertainty avoid
 **Use**: ICEEL の Minkov-revised UAI dimension の出典
 **⚠ 訂正**: 早期下書きで DOI を `10.1177/1470595813510415` と表記したのは誤り。実 PDF より `10.1177/1470595814521600` が正。
 
+### Hofstede & McCrae (2004) — Linking Big Five to Hofstede dimensions ✅
+Hofstede, G., & McCrae, R. R. (2004). Personality and culture revisited: Linking traits and dimensions of culture. *Cross-Cultural Research, 38*(1), 52–88. https://doi.org/10.1177/1069397103259443
+
+**Use**: ICEEL Option-2 の primary citation。Big Five × Hofstede 6-D の **国レベル相関** を直接報告。Key correlations(本文 Table 4 + 解説):
+- Uncertainty Avoidance + Neuroticism: **r = 0.31** ← 高 UAI 国は trait N 高い
+- Uncertainty Avoidance − Agreeableness: **r = 0.45** ← 高 UAI 国は trait A 低い
+- Power Distance + Conscientiousness: **r = 0.43**
+- Power Distance − Extraversion: **r = 0.31**
+- Individualism + Extraversion: **r = 0.39** ← 個人主義国 = 外向性高い
+- Masculinity + Neuroticism: **r = 0.30**
+- Masculinity + Openness: **r = 0.37**
+
+これらが Japan(PDI=54、IDV=46、MAS=95、UAI=92)に与える方向予測:C+(PDI), E−(低 IDV + 中高 PDI), N+(UAI + MAS 二重支持), A−(UAI), O+(MAS)。
+
+### Hofstede (1986) — Cultural differences in teaching and learning ✅
+Hofstede, G. (1986). Cultural differences in teaching and learning. *International Journal of Intercultural Relations, 10*(3), 301–320. https://doi.org/10.1016/0147-1767(86)90015-5
+
+**Use**: 4-D model を **教育場面**に直接適用した Hofstede 自身の論文。ICEEL audience 向け最強 primary citation。Key claims for high-UAI societies(本文 Table 5):
+- Students prefer **structured learning situations**: precise objectives, detailed assignments, strict timetables
+- Students rewarded for **accuracy** in problem solving
+- Teachers and students allowed to **behave emotionally**
+- Teachers expected to have all the answers
+
+これは「N(神経症傾向)が学習を **促進する** mechanism」=不安を回避するため careful, structured 学習に向かう、を Hofstede 自身が educational context で記述している。
+
+### Allik & McCrae (2004) — Geography of personality traits across 36 cultures ✅
+Allik, J., & McCrae, R. R. (2004). Toward a geography of personality traits: Patterns of profiles across 36 cultures. *Journal of Cross-Cultural Psychology, 35*(1), 13–28. https://doi.org/10.1177/0022022103260382
+
+**Use**: 36 国の Big Five プロファイル比較。注目点:Cluster analysis で Japan は East Asian cluster ではなく **欧州系 cluster に近接**(意外な finding、Hofstede の「Asia 一括」が問題視される根拠)。
+
+### McCrae & Terracciano (2005) — Universal features of personality, 50 cultures ✅
+McCrae, R. R., & Terracciano, A. (2005). Universal features of personality traits from the observer's perspective: Data from 50 cultures. *Journal of Personality and Social Psychology, 88*(3), 547–561. https://doi.org/10.1037/0022-3514.88.3.547
+
+**Use**: NEO-PI-R observer ratings を 50 文化で調べ、Big Five 構造の **cross-cultural 普遍性** を確立。日本含むサンプルが demographics + raw means の表で報告されている(N=191 Japanese)。
+
+### Schmitt, Allik, McCrae, & Benet-Martínez (2007) — Big Five geographic distribution, 56 nations ✅
+Schmitt, D. P., Allik, J., McCrae, R. R., & Benet-Martínez, V. (2007). The geographic distribution of Big Five personality traits: Patterns and profiles of human self-description across 56 nations. *Journal of Cross-Cultural Psychology, 38*(2), 173–212. https://doi.org/10.1177/0022022106297299
+
+**Use**: BFI ベース 56 国比較。**Japan の trait Neuroticism mean = 57.87**(56 国中上位、Italy 51.66 / Korea 56.x / Lebanon 53.35 等と比較で高い)、Extraversion = 46.73、Conscientiousness = 37.82(低)。trait レベルで Japan の N 高さを確認できる second source。
+
+### Migliore (2011) — Big Five × Hofstede empirical, USA vs India ✅
+Migliore, L. A. (2011). Relation between big five personality traits and Hofstede's cultural dimensions: Samples from the USA and India. *Cross Cultural Management: An International Journal, 18*(1), 38–54. https://doi.org/10.1108/13527601111104287
+
+**Use**: 個人レベル(国比較ではなく被験者レベル)で Big Five × Hofstede 次元相関を測定、USA(高 IDV)vs India(低 IDV)で実証。HM04 が国レベル aggregate なのに対し、これは within-country individual-level 補強。
+
+### Cheung, Cheung, Wada, & Zhang (2003) — Indigenous personality measures in Asian countries ✅
+Cheung, F. M., Cheung, S. F., Wada, S., & Zhang, J. (2003). Indigenous measures of personality assessment in Asian countries: A review. *Psychological Assessment, 15*(3), 280–289. https://doi.org/10.1037/1040-3590.15.3.280
+
+**Use**: 日本含む Asian 国の indigenous 性格測定尺度をレビュー。Western Big Five が cross-cultural に十分か、Asian 文化固有の dimension(face, harmony 等)を捕捉できないかの議論。ICEEL §5 limitations で「Western Big Five が日本で十分か」の caveat 引用に最適。
+
+### Lynn & Martin (1995) — Cross-national Extraversion / Neuroticism, 37 nations ✅
+Lynn, R., & Martin, T. (1995). National differences for thirty-seven nations in extraversion, neuroticism, psychoticism and economic, demographic and other correlates. *Personality and Individual Differences, 19*(3), 403–406. https://doi.org/10.1016/0191-8869(95)00054-A
+
+**Use**: Eysenck EPQ ベースの 37 国 N / E mean データ。Big Five と異なる尺度だが cross-national personality 比較の old reference として historical context に使える。
+
 ---
 
 ## II-F. Machine Learning Methods（IEEE TALE follow-up 用）✅
@@ -527,7 +582,7 @@ Bird, S., Dudík, M., Edgar, R., Horn, B., Lutz, R., Milan, V., Sameki, M., Wall
 
 ### Part II の範囲
 - Part II 収録のうち II-A / II-C / II-D の大部分（39 refs）は標準的な知識に基づく（PDF 非所持） → DOI を crossref.org で再確認推奨
-- II-B の Page (2021) PRISMA 2020、II-E の 3 件、II-F の 3 件（計 7 件）は 2026-05-10 に PDF を corpus に追加し ✅ 検証済
+- II-B の Page (2021) PRISMA 2020、II-E の 11 件、II-F の 3 件（計 15 件）は PDF を corpus に追加し ✅ 検証済（II-E のうち 8 件は 2026-05-10 追加分:Hofstede & McCrae 2004, Hofstede 1986, Allik & McCrae 2004, McCrae & Terracciano 2005, Schmitt et al. 2007, Migliore 2011, Cheung et al. 2003, Lynn & Martin 1995）
 - ジャーナル名・巻号・頁等の見過ごしは避ける
 
 ---
@@ -545,8 +600,8 @@ Bird, S., Dudík, M., Edgar, R., Horn, B., Lutz, R., Milan, V., Sameki, M., Wall
 | II-B | Meta-analytic methods (incl. PRISMA 2020) | 14 | 📖 + ✅ 1 件 (Page 2021) |
 | II-C | Online learning theory | 13 | 📖 標準知識 |
 | II-D | Prior meta-analyses | 11 | 📖 標準知識 |
-| II-E | Cross-cultural theory (ICEEL) | 3 | ✅ PDF 確認済 (Hofstede 2001 は書評経由) |
+| II-E | Cross-cultural theory (ICEEL) | **11** | ✅ PDF 確認済（Hofstede 2001 のみ書評経由）|
 | II-F | ML methods (IEEE TALE) | 3 | ✅ PDF 確認済 |
-| **Part II 小計** | — | **57** | **39 件 DOI 再確認推奨 / 7 件 PDF ✅** |
-| **総計** | — | **102** | — |
+| **Part II 小計** | — | **65** | **39 件 DOI 再確認推奨 / 15 件 PDF ✅** |
+| **総計** | — | **110** | — |
 
