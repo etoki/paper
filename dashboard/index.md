@@ -43,7 +43,7 @@
 
 ## 🔬 P3 サブペーパー解析パイプライン(本日 5/9 時点)
 
-`papers/P3_meta_analysis/` 配下に各学会別の analysis_plan / abstract / paper_outline と実行スクリプトを配置。
+`metaanalysis/conference_submissions/` 配下に各学会別の analysis_plan / abstract / paper_outline と実行スクリプトを配置。
 
 | 学会 | 新規分析 | スクリプト | 実行状況 | 結果 |
 |---|---|---|---|---|
@@ -52,7 +52,7 @@
 | ICEEL | Hofstede 文化次元 moderator + Japan focus | (要実装) | 🔜 5月後半 | — |
 | ICERI | Education-level × Discipline 3×3 cross-tab | (要実装) | 🔜 6月 | — |
 
-詳細結果: `papers/P3_meta_analysis/ecel/results/summary.md` ほか CSV 一式。
+詳細結果: `metaanalysis/conference_submissions/ecel/results/summary.md` ほか CSV 一式。
 
 ---
 
@@ -66,7 +66,7 @@
 
 ### 5月10日〜14日
 - [ ] ECEL Excellence Awards abstract 投稿判断(締切 5/14)
-- [ ] ECEL 用 P3 abstract 数値の最終確認(`papers/P3_meta_analysis/ecel/abstract.md`)
+- [ ] ECEL 用 P3 abstract 数値の最終確認(`metaanalysis/conference_submissions/ecel/abstract.md`)
 - [ ] sensitivity 4シナリオでロック(drop_beta_converted / drop_coi / drop_unspecified_modality)
 - [ ] preprint migration 実行(意思決定後)
 - [ ] AAOU 2026 CFP 公開チェック
@@ -121,7 +121,7 @@
 2. **各 conference paper は preprint に「無い」新規分析を含むこと**(self-plagiarism firewall)。
 3. **メールは自動送信しない。** 全 outgoing は `templates/` で起草、投稿者本人がレビューしてから送信。送信後は `_sent_<date>.md` 形式で履歴保存。
 4. **Single author only.** 共同研究者なし。
-5. **論文の数値は CSV に必ず traceable**(`papers/P3_meta_analysis/<venue>/results/`)。手打ち禁止。
+5. **論文の数値は CSV に必ず traceable**(`metaanalysis/conference_submissions/<venue>/results/`)。手打ち禁止。
 
 ---
 
