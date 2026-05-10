@@ -200,7 +200,7 @@ All references below are taken from `metaanalysis/reference_index.md` (PDF-verif
 ### Primary studies cited
 
 - N. Alkış and T. Taşkaya Temizel, "The impact of motivation and personality on academic performance in online and blended learning environments," *Journal of Educational Technology & Society*, vol. 21, no. 3, pp. 35–47, 2018.
-- E. Tokiwa, *Big Five personality traits and online learning outcomes in Japanese high school students*, manuscript in preparation, SUNBLAZE Co., Ltd., 2025.
+- E. Tokiwa, "Who excels in online learning in Japan?" *Frontiers in Psychology*, vol. 16, Article 1420996, 2025. https://doi.org/10.3389/fpsyg.2025.1420996
 
 ### Benchmark meta-analyses cited
 

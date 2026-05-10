@@ -33,7 +33,7 @@ A more comprehensive systematic review and meta-analysis by the same author appe
 
 - This is single-authored work. There are no co-authors.
 - The manuscript has not been published in any peer-reviewed venue and is not under consideration elsewhere.
-- The author declares one disclosed conflict of interest: A-25 Tokiwa (2025) is the author's own Japanese high-school primary study (manuscript in preparation, SUNBLAZE Co., Ltd.), included with a flag in the K-12 row of the cross-tabulation but contributing no extractable r values.
+- The author declares one disclosed conflict of interest: A-25 Tokiwa (2025), *Who excels in online learning in Japan?* (*Frontiers in Psychology, 16*, 1420996, CC BY; https://doi.org/10.3389/fpsyg.2025.1420996), is the author's own previously published Japanese high-school primary study, included with a flag in the K-12 row of the cross-tabulation but contributing no extractable r values. The Frontiers article is open-access and independently verifiable by reviewers.
 - The author reports no competing financial interests and received no external funding for this work.
 
 Sincerely,

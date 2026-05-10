@@ -212,7 +212,7 @@ All references below are taken from `metaanalysis/reference_index.md` (PDF-verif
 ### Primary studies cited
 
 - D. J. Rivers, "The role of personality traits and online academic self-efficacy in acceptance, actual use and achievement in Moodle," *Education and Information Technologies*, vol. 26, no. 4, pp. 4353–4378, 2021. https://doi.org/10.1007/s10639-021-10478-3
-- E. Tokiwa, *Big Five personality traits and online learning outcomes in Japanese high school students*, manuscript in preparation, SUNBLAZE Co., Ltd., 2025.
+- E. Tokiwa, "Who excels in online learning in Japan?" *Frontiers in Psychology*, vol. 16, Article 1420996, 2025. https://doi.org/10.3389/fpsyg.2025.1420996
 - P. Wang, F. Wang, and Z. Li, "Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era," *Frontiers in Psychology*, vol. 14, 1241477, 2023. https://doi.org/10.3389/fpsyg.2023.1241477
 - Z. Yu, "The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic," *International Journal of Educational Technology in Higher Education*, vol. 18, no. 1, Article 14, 2021. https://doi.org/10.1186/s41239-021-00252-3
 

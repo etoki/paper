@@ -214,7 +214,7 @@ All references below are taken from `metaanalysis/reference_index.md` (PDF-verif
 ### Primary studies cited
 
 - K. Boonyapison, G. Sittironnarit, and P. Rattanaumpawan, "Association between the big five personalities and academic performance among grade 12 students at international high school in Thailand," *Scientific Reports*, vol. 15, 16484, 2025. https://doi.org/10.1038/s41598-025-01038-7
-- E. Tokiwa, *Big Five personality traits and online learning outcomes in Japanese high school students*, manuscript in preparation, SUNBLAZE Co., Ltd., 2025.
+- E. Tokiwa, "Who excels in online learning in Japan?" *Frontiers in Psychology*, vol. 16, Article 1420996, 2025. https://doi.org/10.3389/fpsyg.2025.1420996
 - P. Wang, F. Wang, and Z. Li, "Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era," *Frontiers in Psychology*, vol. 14, 1241477, 2023. https://doi.org/10.3389/fpsyg.2023.1241477
 
 ### Benchmark meta-analyses cited

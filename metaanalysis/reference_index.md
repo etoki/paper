@@ -155,10 +155,11 @@ Tlili, A., Sun, T., Denden, M., Kinshuk, Graf, S., Fei, C., & Wang, H. (2023). I
 
 **ID**: A-24 | **Modality**: Fully online Moodle | **Country**: Tunisia | **Era**: COVID 2022 | **N**: 65 | **Inclusion**: ❌ Exclude — 効果量抽出不能（LSA process data only）
 
-### A-25. Tokiwa (2025) ⚠ **COI**
-Tokiwa, E. (2025). *Big Five personality traits and online learning outcomes in Japanese high school students* [Manuscript in preparation]. SUNBLAZE Co., Ltd.
+### A-25. Tokiwa (2025) ✅ ⚠ **COI** 🔴 **書誌訂正**
+Tokiwa, E. (2025). Who excels in online learning in Japan? *Frontiers in Psychology, 16*, Article 1420996. https://doi.org/10.3389/fpsyg.2025.1420996
 
-**ID**: A-25 | **Modality**: Online async | **Country**: Japan | **Era**: post-COVID | **N**: 103 | **Inclusion**: ⚠ Include with COI flag（著者自身の先行研究、感度分析で除外）
+**ID**: A-25 | **Modality**: Online async (Study Sapuri) | **Country**: Japan (Tokyo) | **Era**: post-COVID (data 2023-04-01 〜 2023-12-31) | **N**: 103 (3rd-year HS) | **Instrument**: BFI-2-J | **Inclusion**: ⚠ Include with COI flag（著者自身の刊行論文、感度分析で除外）
+**⚠ 訂正 (2026-05-10)**: 旧 entry が「Manuscript in preparation, SUNBLAZE Co., Ltd.」となっていたが、実際は **Frontiers in Psychology に 2025-05-05 刊行済み(CC BY、Open Access)**。PDF は `online_learning/submitted_Who excels in online learning in Japan.pdf` に所収。早期下書きで `Big Five personality traits and online learning outcomes in Japanese high school students` という暫定タイトルを使っていたが、実刊行タイトルは "Who excels in online learning in Japan?"。
 
 ### A-26. Wang, Wang, & Li (2023) ✅
 Wang, P., Wang, F., & Li, Z. (2023). Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era. *Frontiers in Psychology, 14*, 1241477. https://doi.org/10.3389/fpsyg.2023.1241477

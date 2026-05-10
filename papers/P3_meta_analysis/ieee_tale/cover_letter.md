@@ -40,7 +40,7 @@ I have submitted a separate brief inquiry to the TALE 2026 chairs regarding (a) 
 
 - This is single-authored work. There are no co-authors.
 - The manuscript has not been published in any peer-reviewed venue and is not under consideration elsewhere.
-- The author declares one disclosed conflict of interest: the corpus includes one of the author's own primary studies (Tokiwa 2025, manuscript in preparation, SUNBLAZE Co., Ltd.); inclusion is flagged and the LOSO design naturally handles per-study leakage.
+- The author declares one disclosed conflict of interest: the corpus includes one of the author's own previously published primary studies — Tokiwa, E. (2025), *Who excels in online learning in Japan?*, *Frontiers in Psychology*, 16, 1420996 (CC BY, open access; https://doi.org/10.3389/fpsyg.2025.1420996). Inclusion is flagged in the corpus, and the leave-one-study-out (LOSO) cross-validation design naturally handles per-study leakage in the ML pipeline.
 - The author reports no competing financial interests and received no external funding for this work.
 
 Sincerely,
