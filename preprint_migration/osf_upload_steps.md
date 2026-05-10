@@ -41,11 +41,11 @@
 
 ### 6. 公開
 - 投稿後、自動で DOI が発行される(数分〜数時間)
-- 新DOIをメモ → `papers/P3_metaanalysis/status.md` を更新
+- 新DOIをメモ → `metaanalysis/conference_submissions/portfolio_status.mdstatus.md` を更新
 
 ### 7. ローカル記録更新
 - `metaanalysis/paper/preprint_info.md` を更新(新DOI、新URL)
-- `papers/P3_metaanalysis/status.md` を更新
+- `metaanalysis/conference_submissions/portfolio_status.mdstatus.md` を更新
 
 ## サブドメイン選択ガイド
 
@@ -66,6 +66,6 @@
 - [ ] manuscript ファイルアップロード
 - [ ] Research Square 関係を disclosure 文に記載
 - [ ] 新DOI取得
-- [ ] `papers/P3_metaanalysis/status.md` を新DOIで更新
+- [ ] `metaanalysis/conference_submissions/portfolio_status.mdstatus.md` を新DOIで更新
 - [ ] `metaanalysis/paper/preprint_info.md` を更新
 - [ ] **その後** Research Square 撤回手続き(`research_square_withdrawal_steps.md`)

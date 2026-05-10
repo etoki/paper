@@ -20,7 +20,7 @@ Research Square は「完全削除」ではなく **withdrawn notice の付与**
 
 - [ ] OSF または arXiv に preprint アップロード完了
 - [ ] 新DOI取得済(URLとしてアクセス可能であることを確認)
-- [ ] 新DOIを `papers/P3_metaanalysis/status.md` に記録
+- [ ] 新DOIを `metaanalysis/conference_submissions/portfolio_status.mdstatus.md` に記録
 - [ ] `metaanalysis/paper/preprint_info.md` 更新
 
 ### 2. Research Square ダッシュボード確認

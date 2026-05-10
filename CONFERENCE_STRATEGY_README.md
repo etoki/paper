@@ -11,7 +11,7 @@
 ├── papers/              # 既存5論文のステータストラッカー
 │   ├── P1_online_learning/  # Frontiers Psychology 2025
 │   ├── P2_clustering/       # IEEE Xplore HEXACO Cluster
-│   ├── P3_metaanalysis/     # Research Square preprint ⚠️
+│   ├── (P3 status moved to metaanalysis/conference_submissions/portfolio_status.md)
 │   ├── P4_harassment/       # preprint
 │   └── P5_simulation/       # OSF + SocArXiv preprint ✅
 ├── dashboard/           # 締切カウントダウン + TODO

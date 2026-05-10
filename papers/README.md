@@ -37,6 +37,6 @@
 
 - `P1_online_learning/status.md`
 - `P2_clustering/status.md`
-- `P3_metaanalysis/status.md`
+- `metaanalysis/conference_submissions/portfolio_status.md`
 - `P4_harassment/status.md`
 - `P5_simulation/status.md`
