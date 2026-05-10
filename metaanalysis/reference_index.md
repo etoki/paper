@@ -525,7 +525,7 @@ McCrae, R. R., & Terracciano, A. (2005). Universal features of personality trait
 ### Schmitt, Allik, McCrae, & Benet-Martínez (2007) — Big Five geographic distribution, 56 nations ✅
 Schmitt, D. P., Allik, J., McCrae, R. R., & Benet-Martínez, V. (2007). The geographic distribution of Big Five personality traits: Patterns and profiles of human self-description across 56 nations. *Journal of Cross-Cultural Psychology, 38*(2), 173–212. https://doi.org/10.1177/0022022106297299
 
-**Use**: BFI ベース 56 国比較。**Japan の trait Neuroticism mean = 57.87**(56 国中上位、Italy 51.66 / Korea 56.x / Lebanon 53.35 等と比較で高い)、Extraversion = 46.73、Conscientiousness = 37.82(低)。trait レベルで Japan の N 高さを確認できる second source。
+**Use**: BFI ベース 56 国比較。**Japan の trait Neuroticism mean = 57.87(56 国中第 1 位)**、#2 Argentina 55.05、South Korea 53.99、Belgium 53.60、Lebanon 53.35。Japan は Extraversion = 46.73、Conscientiousness = 37.82(低)。trait レベルで Japan の N 高さ(集団トップ)を確認できる primary anchor。
 
 ### Migliore (2011) — Big Five × Hofstede empirical, USA vs India ✅
 Migliore, L. A. (2011). Relation between big five personality traits and Hofstede's cultural dimensions: Samples from the USA and India. *Cross Cultural Management: An International Journal, 18*(1), 38–54. https://doi.org/10.1108/13527601111104287
