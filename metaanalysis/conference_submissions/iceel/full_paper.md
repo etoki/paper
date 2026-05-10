@@ -15,7 +15,7 @@
 
 The parent meta-analysis (Research Square preprint, DOI 10.21203/rs.3.rs-9513298/v1) reports a binary Region moderator (Asia vs non-Asia) and finds Extraversion x Region highly significant (Q_between = 46.43, p < .001) — Asian samples r = -0.131, non-Asian r = +0.050. The within-Asia heterogeneity that produces this contrast is not decomposed in the preprint. The present paper attaches Hofstede 6-D cultural-dimensions scores at the country level and meta-regresses the Big Five — achievement correlations on each dimension within the Asian subset, then concludes with a focused synthesis of the two Japan-based primary-pool studies (A-25 Tokiwa 2025 K-12; A-31 Rivers 2021 undergraduate). With k = 2 Asian primary-pool studies contributing extractable r per trait (A-28 Yu, China; A-31 Rivers, Japan), the meta-regression has zero residual degrees of freedom and slopes are reported as descriptive only, without inferential statistics. The Asian-subset pooled correlations replicate the preprint exactly (Conscientiousness r = 0.111 [-0.039, 0.257]; Extraversion r = -0.131 [-0.314, 0.061]; Neuroticism r = 0.089 [0.008, 0.169]). The within-Asia evidence base is too thin to decompose Hofstede effects with any confirmatory power. The paper's contribution is therefore methodological: it documents that the binary Asia/non-Asia contrast in the parent preprint masks within-Asia heterogeneity that no current corpus can resolve. The Japan-specific analysis underscores instrument heterogeneity (60-item BFI-2-J vs 10-item TIPI-J) as a major confound that future syntheses cannot ignore.
 
-**Keywords**: meta-analysis, Big Five, online learning, Hofstede, cultural dimensions, Japan, ICEEL.
+**Keywords**: meta-analysis, Big Five, online learning, Hofstede cultural dimensions, Japan.
 
 ---
 
@@ -51,7 +51,9 @@ Japan-specific online-learning research is dominated by two patterns. First, the
 
 ### 3.1. Data
 
-The corpus is inherited from the parent preprint via the derived studies dataset `metaanalysis/conference_submissions/inputs/studies.csv`. The Asian subset is extracted by `region == "Asia"`. After requiring extractable Pearson r per trait, k = 2 Asian primary-pool studies remain: A-28 Yu (China; β-converted r) and A-31 Rivers (Japan; direct r). Two further Asian primary-pool studies (A-25 Tokiwa, A-26 Wang) are present in the qualitative synthesis but do not contribute extractable r values.
+The corpus is inherited from the parent preprint via the derived studies dataset `metaanalysis/conference_submissions/inputs/studies.csv`. PRISMA 2020 standards (Page et al., 2021) were followed; **Figure 1** reproduces the flow diagram with the ICEEL terminal box marking the Asian-subset extraction (k = 2 with extractable r per trait; A-25 Tokiwa Japan retained for qualitative synthesis only). The Asian subset is extracted by `region == "Asia"`. After requiring extractable Pearson r per trait, k = 2 Asian primary-pool studies remain: A-28 Yu (China; β-converted r) and A-31 Rivers (Japan; direct r). Two further Asian primary-pool studies (A-25 Tokiwa, A-26 Wang) are present in the qualitative synthesis but do not contribute extractable r values.
+
+![**Figure 1.** PRISMA 2020 flow diagram (ICEEL 2026 submission). Identification → Screening → Eligibility → Included counts trace from `metaanalysis/search_log.md`; the ICEEL terminal box marks the Asian primary-pool subset (k = 2 with extractable r per trait: A-28 Yu, China; A-31 Rivers, Japan; plus A-25 Tokiwa Japan in narrative synthesis). Adapted from Page et al. (2021), *BMJ*, 372, n71.](../figures/prisma_flow_iceel.png){#fig:prisma width=85%}
 
 ### 3.2. Hofstede cultural-dimensions table
 
