@@ -51,7 +51,9 @@ Japan-specific online-learning research is dominated by two patterns. First, the
 
 ### 3.1. Data
 
-The corpus is inherited from the parent preprint via the derived studies dataset `metaanalysis/conference_submissions/inputs/studies.csv`. The Asian subset is extracted by `region == "Asia"`. After requiring extractable Pearson r per trait, k = 2 Asian primary-pool studies remain: A-28 Yu (China; β-converted r) and A-31 Rivers (Japan; direct r). Two further Asian primary-pool studies (A-25 Tokiwa, A-26 Wang) are present in the qualitative synthesis but do not contribute extractable r values.
+The corpus is inherited from the parent preprint via the derived studies dataset `metaanalysis/conference_submissions/inputs/studies.csv`. PRISMA 2020 standards (Page et al., 2021) were followed; **Figure 1** reproduces the flow diagram with the ICEEL terminal box marking the Asian-subset extraction (k = 2 with extractable r per trait; A-25 Tokiwa Japan retained for qualitative synthesis only). The Asian subset is extracted by `region == "Asia"`. After requiring extractable Pearson r per trait, k = 2 Asian primary-pool studies remain: A-28 Yu (China; β-converted r) and A-31 Rivers (Japan; direct r). Two further Asian primary-pool studies (A-25 Tokiwa, A-26 Wang) are present in the qualitative synthesis but do not contribute extractable r values.
+
+![**Figure 1.** PRISMA 2020 flow diagram (ICEEL 2026 submission). Identification → Screening → Eligibility → Included counts trace from `metaanalysis/search_log.md`; the ICEEL terminal box marks the Asian primary-pool subset (k = 2 with extractable r per trait: A-28 Yu, China; A-31 Rivers, Japan; plus A-25 Tokiwa Japan in narrative synthesis). Adapted from Page et al. (2021), *BMJ*, 372, n71.](../figures/prisma_flow_iceel.png){#fig:prisma width=85%}
 
 ### 3.2. Hofstede cultural-dimensions table
 

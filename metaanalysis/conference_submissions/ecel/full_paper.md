@@ -37,7 +37,9 @@ This paper completes the modality moderator analysis that the parent preprint pr
 
 ### 2.1. Inheritance from the parent preprint
 
-The corpus, eligibility criteria, screening flow, and risk-of-bias scoring are inherited unchanged from the parent preprint. PRISMA 2020 standards were followed (Page et al., 2021). Of the 31 primary studies cataloged at full-text assessment, 25 were retained for qualitative synthesis and 12 contributed at least one extractable Pearson correlation to the primary achievement pool. Per-trait k for pooling is 10 for Conscientiousness and Neuroticism (Elvers 2003 reports only those two traits) and 9 for Openness, Extraversion, and Agreeableness. Detailed extraction sheets are in `metaanalysis/analysis/data_extraction_populated.csv`; the canonical replication of the parent pool is in `metaanalysis/analysis/CANONICAL_RESULTS.md`.
+The corpus, eligibility criteria, screening flow, and risk-of-bias scoring are inherited unchanged from the parent preprint. PRISMA 2020 standards were followed (Page et al., 2021); the corresponding flow diagram is reproduced in **Figure 1**. Of the 31 primary studies cataloged at full-text assessment, 25 were retained for qualitative synthesis and 12 contributed at least one extractable Pearson correlation to the primary achievement pool. Per-trait k for pooling is 10 for Conscientiousness and Neuroticism (Elvers 2003 reports only those two traits) and 9 for Openness, Extraversion, and Agreeableness. Detailed extraction sheets are in `metaanalysis/analysis/data_extraction_populated.csv`; the canonical replication of the parent pool is in `metaanalysis/analysis/CANONICAL_RESULTS.md`.
+
+![**Figure 1.** PRISMA 2020 flow diagram. Identification → Screening → Eligibility → Included counts trace from `metaanalysis/search_log.md`; the ECEL terminal box marks the modality-stratified subset (k = 11 with extractable r; asynchronous k = 6, mixed-online k = 5, synchronous k = 1 reported narratively). Adapted from Page et al. (2021), *BMJ*, 372, n71.](../figures/prisma_flow_ecel.png){#fig:prisma width=85%}
 
 ### 2.2. Modality coding
 
