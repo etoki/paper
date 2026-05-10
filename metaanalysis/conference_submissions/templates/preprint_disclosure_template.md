@@ -67,5 +67,5 @@ portfolio. Each venue must be told about it. Version A–D は preprint server
 
 ## ⚠️ 重要
 
-- 「previously unpublished」の解釈は学会により異なるため、不安な場合は事前照会が安全(`templates/iceel_inquiry.md` `templates/ieee_tale_virtual_inquiry.md` を流用)。
-- preprint migration 実施時は `preprint_migration/README.md` に従い、disclosure 文を Version C / D に切替。
+- 「previously unpublished」の解釈は学会により異なるため、不安な場合は事前照会が安全(`metaanalysis/conference_submissions/templates/iceel_inquiry.md` `metaanalysis/conference_submissions/templates/ieee_tale_virtual_inquiry.md` を流用)。
+- preprint migration 実施時は `metaanalysis/conference_submissions/preprint_migration/README.md` に従い、disclosure 文を Version C / D に切替。

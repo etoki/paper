@@ -42,6 +42,6 @@
 
 - [ ] OSF Preprints / SocArXiv の正確な DOI 記録
 - [ ] 公開日確認
-- [ ] preprint server が PSPB approved list にあるか IEEE TALE に問い合わせ(`templates/ieee_tale_preprint_inquiry.md`)
+- [ ] preprint server が PSPB approved list にあるか IEEE TALE に問い合わせ(`metaanalysis/conference_submissions/templates/ieee_tale_preprint_inquiry.md`)
 - [ ] IEEE TALE 用 4-6ページ conference paper draft 作成
 - [ ] 既存の `simulation/paper_IEEE/` の素材を活用

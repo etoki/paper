@@ -129,7 +129,7 @@ Discussion subsections:
 
 - Single-author, self-funded.
 - Disclosure of preprint (DOI 10.21203/rs.3.rs-9513298/v1) per ECEL block in
-  `templates/preprint_disclosure_template.md`.
+  `metaanalysis/conference_submissions/templates/preprint_disclosure_template.md`.
 - ORCID 0009-0009-7124-6669.
 
 ## 8. References

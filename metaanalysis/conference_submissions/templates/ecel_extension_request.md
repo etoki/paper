@@ -47,7 +47,7 @@ ORCID: 0009-0009-7124-6669
 
 ## After-send actions
 
-- 委員会から延長許可の場合: `conferences/02_ecel_2026.json` の `dates.full_paper_review` / `dates.excellence_awards_abstract` を更新し、`dashboard/index.md` のカウントダウンを再計算。
+- 委員会から延長許可の場合: `metaanalysis/conference_submissions/conferences/02_ecel_2026.json` の `dates.full_paper_review` / `dates.excellence_awards_abstract` を更新し、`metaanalysis/conference_submissions/dashboard/index.md` のカウントダウンを再計算。
 - 委員会から拒否 or 5/13 までに返信なしの場合: 当初の 5/14(Excellence Awards abstract)/ 5/21(Full paper)で投稿。
 - いずれにせよ、解析・執筆は元の締切想定で並行して進める(延長メール送信は安全マージン用)。
 

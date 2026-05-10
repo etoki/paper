@@ -2,7 +2,7 @@
 
 preprint migration 完了後、cover letter / submission portal 内で開示する文面集。
 
-`templates/preprint_disclosure_template.md` の Version C をベースに、各学会向けに微調整。
+`metaanalysis/conference_submissions/templates/preprint_disclosure_template.md` の Version C をベースに、各学会向けに微調整。
 
 ## ECEL 2026 用
 

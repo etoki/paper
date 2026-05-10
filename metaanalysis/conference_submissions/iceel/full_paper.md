@@ -173,7 +173,7 @@ The Japan synthesis's strongest contribution is the surfacing of **instrument he
 
 ### 5.4. Self-plagiarism firewall
 
-The within-Asia decomposition and the Hofstede moderator analysis are both absent from the parent preprint, which only reports the binary Asia / non-Asia contrast. The ICEEL paper's contribution is therefore distinct from the preprint at the analytic level; disclosure follows `templates/preprint_disclosure_template.md` ICEEL block, which states explicitly that the binary contrast is in the preprint but the within-Asia decomposition is novel to this submission.
+The within-Asia decomposition and the Hofstede moderator analysis are both absent from the parent preprint, which only reports the binary Asia / non-Asia contrast. The ICEEL paper's contribution is therefore distinct from the preprint at the analytic level; disclosure follows `metaanalysis/conference_submissions/templates/preprint_disclosure_template.md` ICEEL block, which states explicitly that the binary contrast is in the preprint but the within-Asia decomposition is novel to this submission.
 
 ---
 

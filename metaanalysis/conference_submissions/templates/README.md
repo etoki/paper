@@ -15,4 +15,4 @@
 1. **Claude Code は絶対に自動送信しない**(メール送信は投稿者本人)
 2. 送信前に投稿者本人がレビュー
 3. 送信後、本ディレクトリにレスポンスを保存(`*_response.md` 命名規則)
-4. 重要なやり取りは `dashboard/index.md` の該当 todo を更新
+4. 重要なやり取りは `metaanalysis/conference_submissions/dashboard/index.md` の該当 todo を更新

@@ -177,7 +177,7 @@ The k = 1 synchronous evidence (A-29 Bahçekapılı 2020 GPA, r = +0.027) is rep
 
 ### 4.4. Self-plagiarism firewall
 
-This paper completes a moderator analysis the parent preprint *registered* but elected not to *execute* on k-grounds. Both the modality-stratified table and the long-format interaction model are absent from the preprint Methods and Results sections. The disclosure block in the cover letter (template: `templates/preprint_disclosure_template.md`) makes this provenance explicit so reviewers can see the boundary between the preprint and the present contribution. The parent preprint will, for now, remain on Research Square and will not be withdrawn; the future journal version of the parent will pick up the modality moderator from this paper as one of its acknowledged extensions.
+This paper completes a moderator analysis the parent preprint *registered* but elected not to *execute* on k-grounds. Both the modality-stratified table and the long-format interaction model are absent from the preprint Methods and Results sections. The disclosure block in the cover letter (template: `metaanalysis/conference_submissions/templates/preprint_disclosure_template.md`) makes this provenance explicit so reviewers can see the boundary between the preprint and the present contribution. The parent preprint will, for now, remain on Research Square and will not be withdrawn; the future journal version of the parent will pick up the modality moderator from this paper as one of its acknowledged extensions.
 
 ---
 
