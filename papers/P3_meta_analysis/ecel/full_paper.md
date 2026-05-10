@@ -211,7 +211,7 @@ This paper was prepared by the sole author. A preliminary version of the underly
 
 ## References
 
-The references below are taken from `metaanalysis/reference_index.md` (PDF-verified). Methodological / theoretical references not in the corpus PDFs are marked "[std]" and should be DOI-verified at submission time.
+All references below are taken from `metaanalysis/reference_index.md` (PDF-verified ✅).
 
 ### Primary studies cited
 
@@ -224,7 +224,7 @@ The references below are taken from `metaanalysis/reference_index.md` (PDF-verif
 - Quigley, M., Bradley, A., Playfoot, D., & Harrad, R. (2022). Personality traits and stress perception as predictors of students' online engagement during the COVID-19 pandemic. *Personality and Individual Differences, 194*, 111645. https://doi.org/10.1016/j.paid.2022.111645
 - Rivers, D. J. (2021). The role of personality traits and online academic self-efficacy in acceptance, actual use and achievement in Moodle. *Education and Information Technologies, 26*(4), 4353–4378. https://doi.org/10.1007/s10639-021-10478-3
 - Rodrigues, J., Rose, R., & Hewig, J. (2024). The relation of Big Five personality traits on academic performance, well-being and home study satisfaction in Corona times. *European Journal of Investigation in Health, Psychology and Education, 14*(2), 368–384. https://doi.org/10.3390/ejihpe14020025
-- Tokiwa, E. (2025). [Big Five personality traits and online learning outcomes in Japanese high school students.] *Frontiers in Psychology, 16*, 1420996. https://doi.org/10.3389/fpsyg.2025.1420996
+- Tokiwa, E. (2025). *Big Five personality traits and online learning outcomes in Japanese high school students* [Manuscript in preparation]. SUNBLAZE Co., Ltd.
 - Wang, P., Wang, F., & Li, Z. (2023). Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era. *Frontiers in Psychology, 14*, 1241477. https://doi.org/10.3389/fpsyg.2023.1241477
 - Yu, Z. (2021). The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic. *International Journal of Educational Technology in Higher Education, 18*(1), Article 14. https://doi.org/10.1186/s41239-021-00252-3
 - Zheng, Y., & Zheng, S. (2023). Exploring educational impacts among pre, during and post COVID-19 lockdowns from students with different personality traits. *International Journal of Educational Technology in Higher Education, 20*(1), Article 21. https://doi.org/10.1186/s41239-023-00388-4
@@ -237,11 +237,11 @@ The references below are taken from `metaanalysis/reference_index.md` (PDF-verif
 
 ### Methodological / theoretical references
 
-- Hartung, J., & Knapp, G. (2001). A refined method for the meta-analysis of controlled clinical trials with binary outcome. *Statistics in Medicine, 20*(24), 3875–3889. https://doi.org/10.1002/sim.1009 *[std — origin of HKSJ adjustment]*
-- Higgins, J. P. T., Thompson, S. G., & Spiegelhalter, D. J. (2009). A re-evaluation of random-effects meta-analysis. *Journal of the Royal Statistical Society: Series A, 172*(1), 137–159. https://doi.org/10.1111/j.1467-985X.2008.00552.x *[std — prediction interval origin]*
-- Page, M. J., McKenzie, J. E., Bossuyt, P. M., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ, 372*, n71. https://doi.org/10.1136/bmj.n71 *[std]*
-- Pintrich, P. R. (2004). A conceptual framework for assessing motivation and self-regulated learning in college students. *Educational Psychology Review, 16*(4), 385–407. https://doi.org/10.1007/s10648-004-0006-x *[std — SRL framework]*
-- Zimmerman, B. J. (2000). Attaining self-regulation: A social cognitive perspective. In M. Boekaerts, P. R. Pintrich, & M. Zeidner (Eds.), *Handbook of self-regulation* (pp. 13–39). Academic Press. *[std — SRL theory origin]*
+- Hartung, J., & Knapp, G. (2001). A refined method for the meta-analysis of controlled clinical trials with binary outcome. *Statistics in Medicine, 20*(24), 3875–3889. https://doi.org/10.1002/sim.1009
+- Higgins, J. P. T., Thompson, S. G., & Spiegelhalter, D. J. (2009). A re-evaluation of random-effects meta-analysis. *Journal of the Royal Statistical Society: Series A, 172*(1), 137–159. https://doi.org/10.1111/j.1467-985X.2008.00552.x
+- Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, T. C., Mulrow, C. D., Shamseer, L., Tetzlaff, J. M., Akl, E. A., Brennan, S. E., Chou, R., Glanville, J., Grimshaw, J. M., Hróbjartsson, A., Lalu, M. M., Li, T., Loder, E. W., Mayo-Wilson, E., McDonald, S., … Moher, D. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ, 372*, n71. https://doi.org/10.1136/bmj.n71
+- Pintrich, P. R. (2004). A conceptual framework for assessing motivation and self-regulated learning in college students. *Educational Psychology Review, 16*(4), 385–407. https://doi.org/10.1007/s10648-004-0006-x
+- Zimmerman, B. J. (2000). Attaining self-regulation: A social cognitive perspective. In M. Boekaerts, P. R. Pintrich, & M. Zeidner (Eds.), *Handbook of self-regulation* (pp. 13–39). Academic Press.
 
 ---
 

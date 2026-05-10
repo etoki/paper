@@ -209,12 +209,12 @@ This paper was prepared by the sole author. A preliminary version of the underly
 
 ## References
 
-The references below are taken from `metaanalysis/reference_index.md` (PDF-verified) where possible. Methodological references not in the corpus PDFs are marked "[std]" and should be DOI-verified at submission time.
+All references below are taken from `metaanalysis/reference_index.md` (PDF-verified ✅).
 
 ### Primary studies cited
 
 - K. Boonyapison, G. Sittironnarit, and P. Rattanaumpawan, "Association between the big five personalities and academic performance among grade 12 students at international high school in Thailand," *Scientific Reports*, vol. 15, 16484, 2025. https://doi.org/10.1038/s41598-025-01038-7
-- E. Tokiwa, "Big Five personality traits and online learning outcomes in Japanese high school students," *Frontiers in Psychology*, vol. 16, 1420996, 2025. https://doi.org/10.3389/fpsyg.2025.1420996
+- E. Tokiwa, *Big Five personality traits and online learning outcomes in Japanese high school students*, manuscript in preparation, SUNBLAZE Co., Ltd., 2025.
 - P. Wang, F. Wang, and Z. Li, "Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era," *Frontiers in Psychology*, vol. 14, 1241477, 2023. https://doi.org/10.3389/fpsyg.2023.1241477
 
 ### Benchmark meta-analyses cited
@@ -226,8 +226,8 @@ The references below are taken from `metaanalysis/reference_index.md` (PDF-verif
 
 ### Methodological references
 
-- J. Hartung and G. Knapp, "A refined method for the meta-analysis of controlled clinical trials with binary outcome," *Statistics in Medicine*, vol. 20, no. 24, pp. 3875–3889, 2001. *[std — origin of HKSJ adjustment]*
-- M. J. Page, J. E. McKenzie, P. M. Bossuyt, et al., "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews," *BMJ*, vol. 372, n71, 2021. https://doi.org/10.1136/bmj.n71 *[std]*
+- J. Hartung and G. Knapp, "A refined method for the meta-analysis of controlled clinical trials with binary outcome," *Statistics in Medicine*, vol. 20, no. 24, pp. 3875–3889, 2001. https://doi.org/10.1002/sim.1009
+- M. J. Page, J. E. McKenzie, P. M. Bossuyt, I. Boutron, T. C. Hoffmann, C. D. Mulrow, et al., "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews," *BMJ*, vol. 372, n71, 2021. https://doi.org/10.1136/bmj.n71
 
 ### Author's own preprint
 

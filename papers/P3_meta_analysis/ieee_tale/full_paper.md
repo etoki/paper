@@ -195,12 +195,12 @@ This paper was prepared by the sole author. A preliminary version of the underly
 
 ## References
 
-The references below are taken from `metaanalysis/reference_index.md` (PDF-verified) where possible. Methodological / tooling references not in the corpus PDFs are marked "[std]" and should be DOI-verified at submission time.
+All references below are taken from `metaanalysis/reference_index.md` (PDF-verified ✅).
 
 ### Primary studies cited
 
 - N. Alkış and T. Taşkaya Temizel, "The impact of motivation and personality on academic performance in online and blended learning environments," *Journal of Educational Technology & Society*, vol. 21, no. 3, pp. 35–47, 2018.
-- E. Tokiwa, "Big Five personality traits and online learning outcomes in Japanese high school students," *Frontiers in Psychology*, vol. 16, 1420996, 2025. https://doi.org/10.3389/fpsyg.2025.1420996
+- E. Tokiwa, *Big Five personality traits and online learning outcomes in Japanese high school students*, manuscript in preparation, SUNBLAZE Co., Ltd., 2025.
 
 ### Benchmark meta-analyses cited
 
@@ -210,11 +210,11 @@ The references below are taken from `metaanalysis/reference_index.md` (PDF-verif
 
 ### Methodological / tooling references
 
-- T. Chen and C. Guestrin, "XGBoost: A scalable tree boosting system," in *Proc. ACM SIGKDD*, 2016, pp. 785–794. *[std]*
-- S. Bird, M. Dudík, R. Edgar, B. Horn, R. Lutz, V. Milan, M. Sameki, H. Wallach, and K. Walker, "Fairlearn: A toolkit for assessing and improving fairness in AI," Microsoft Tech. Report MSR-TR-2020-32, 2020. *[std]*
-- S. M. Lundberg and S.-I. Lee, "A unified approach to interpreting model predictions," in *Proc. NeurIPS*, vol. 30, 2017. *[std]*
-- M. J. Page, J. E. McKenzie, P. M. Bossuyt, et al., "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews," *BMJ*, vol. 372, n71, 2021. https://doi.org/10.1136/bmj.n71 *[std]*
-- J. Hartung and G. Knapp, "A refined method for the meta-analysis of controlled clinical trials with binary outcome," *Statistics in Medicine*, vol. 20, no. 24, pp. 3875–3889, 2001. *[std — origin of HKSJ adjustment]*
+- T. Chen and C. Guestrin, "XGBoost: A scalable tree boosting system," in *Proc. 22nd ACM SIGKDD Int. Conf. on Knowledge Discovery and Data Mining*, 2016, pp. 785–794. https://doi.org/10.1145/2939672.2939785
+- S. Bird, M. Dudík, R. Edgar, B. Horn, R. Lutz, V. Milan, M. Sameki, H. Wallach, and K. Walker, *Fairlearn: A toolkit for assessing and improving fairness in AI*, Microsoft Tech. Report MSR-TR-2020-32, 2020. https://www.microsoft.com/en-us/research/publication/fairlearn-a-toolkit-for-assessing-and-improving-fairness-in-ai/
+- S. M. Lundberg and S.-I. Lee, "A unified approach to interpreting model predictions," in *Advances in Neural Information Processing Systems 30*, 2017, pp. 4765–4774.
+- M. J. Page, J. E. McKenzie, P. M. Bossuyt, I. Boutron, T. C. Hoffmann, C. D. Mulrow, et al., "The PRISMA 2020 statement: An updated guideline for reporting systematic reviews," *BMJ*, vol. 372, n71, 2021. https://doi.org/10.1136/bmj.n71
+- J. Hartung and G. Knapp, "A refined method for the meta-analysis of controlled clinical trials with binary outcome," *Statistics in Medicine*, vol. 20, no. 24, pp. 3875–3889, 2001. https://doi.org/10.1002/sim.1009
 - E. Tokiwa, "Big Five personality traits and academic achievement in online learning environments: A systematic review and meta-analysis," *Research Square* preprint, https://doi.org/10.21203/rs.3.rs-9513298/v1, 2026.
 
 ---

@@ -35,7 +35,7 @@ The answer, given the present corpus, is preliminary and methodological. The Asi
 
 ### 2.1. Hofstede's framework
 
-Hofstede's (1980, 2001) original 4-dimensional model and its 5-D and 6-D extensions (Hofstede Insights 2024) operationalise national culture in terms of Power Distance, Individualism, Masculinity, Uncertainty Avoidance, Long-Term Orientation, and Indulgence. The framework is widely critiqued — most pointedly in cross-cultural psychology by Minkov-Hofstede (2014) and McSweeney (2002) — for ecological-fallacy risk (national scores do not represent individual-level cultural variation) and for sampling provenance (the 1970s IBM employee data underlying the original scores are no longer plausible representatives of the underlying populations). We use Hofstede here with full acknowledgement of these limitations: the dimensions are *country-level proxies for shared cultural orientation* that may correlate with research-relevant moderators of personality — achievement effects.
+Hofstede's (2001) 2nd-edition model — building on the original 4-dimensional 1970s IBM-employee study and incorporating subsequent 5-D and 6-D extensions (latest scores: Hofstede Insights, 2024) — operationalises national culture in terms of Power Distance, Individualism, Masculinity, Uncertainty Avoidance, Long-Term Orientation, and Indulgence. The framework is widely critiqued — most pointedly in cross-cultural psychology by Minkov & Hofstede (2014) and McSweeney (2002) — for ecological-fallacy risk (national scores do not represent individual-level cultural variation) and for sampling provenance (the original 1970s IBM employee data underlying the original scores are no longer plausible representatives of the underlying populations). We use Hofstede here with full acknowledgement of these limitations: the dimensions are *country-level proxies for shared cultural orientation* that may correlate with research-relevant moderators of personality — achievement effects.
 
 ### 2.2. East Asian samples in personality — academic-achievement research
 
@@ -181,7 +181,7 @@ The within-Asia decomposition and the Hofstede moderator analysis are both absen
 
 The dominant limitation is k. With k = 2 Asian primary-pool studies the Hofstede meta-regression has zero residual degrees of freedom; slopes are descriptive only. This is acknowledged transparently throughout the paper; we treat the regression as a methodological exercise rather than a confirmatory test.
 
-Hofstede's framework is itself critiqued (Minkov-Hofstede 2014; McSweeney 2002) for ecological-fallacy risk and for the IBM-employee provenance of the original scores. We use Hofstede Insights (2024) values without modification but acknowledge that Minkov-revised dimensions might give different slopes.
+Hofstede's framework is itself critiqued (Minkov & Hofstede, 2014; McSweeney, 2002) for ecological-fallacy risk and for the IBM-employee provenance of the original scores. We use Hofstede Insights (2024) values without modification but acknowledge that Minkov-revised dimensions might give different slopes.
 
 The Japan synthesis is constrained to k = 2; pooling within Japan is not justifiable on this basis. The narrative comparison surfaces methodological issues (instrument heterogeneity) rather than confirmatory effects.
 
@@ -207,12 +207,12 @@ This paper was prepared by the sole author. A preliminary version of the underly
 
 ## References
 
-The references below are taken from `metaanalysis/reference_index.md` (PDF-verified) where possible. Hofstede framework references and McSweeney critique are standard knowledge marked "[std]"; verify DOIs at submission time.
+All references below are taken from `metaanalysis/reference_index.md` (PDF-verified ✅), with the exception of the Hofstede Insights web data source, which is a website rather than a citable PDF.
 
 ### Primary studies cited
 
 - D. J. Rivers, "The role of personality traits and online academic self-efficacy in acceptance, actual use and achievement in Moodle," *Education and Information Technologies*, vol. 26, no. 4, pp. 4353–4378, 2021. https://doi.org/10.1007/s10639-021-10478-3
-- E. Tokiwa, "Big Five personality traits and online learning outcomes in Japanese high school students," *Frontiers in Psychology*, vol. 16, 1420996, 2025. https://doi.org/10.3389/fpsyg.2025.1420996
+- E. Tokiwa, *Big Five personality traits and online learning outcomes in Japanese high school students*, manuscript in preparation, SUNBLAZE Co., Ltd., 2025.
 - P. Wang, F. Wang, and Z. Li, "Exploring the ecosystem of K-12 online learning: An empirical study of impact mechanisms in the post-pandemic era," *Frontiers in Psychology*, vol. 14, 1241477, 2023. https://doi.org/10.3389/fpsyg.2023.1241477
 - Z. Yu, "The effects of gender, educational level, and personality on online learning outcomes during the COVID-19 pandemic," *International Journal of Educational Technology in Higher Education*, vol. 18, no. 1, Article 14, 2021. https://doi.org/10.1186/s41239-021-00252-3
 
@@ -223,10 +223,10 @@ The references below are taken from `metaanalysis/reference_index.md` (PDF-verif
 
 ### Hofstede framework and critiques
 
-- G. Hofstede, *Culture's Consequences: International Differences in Work-Related Values*, Sage, 1980. *[std]*
-- Hofstede Insights, "Country comparison tool," https://www.hofstede-insights.com/, accessed 2024. *[std]*
-- B. McSweeney, "Hofstede's model of national cultural differences and their consequences: A triumph of faith — a failure of analysis," *Human Relations*, vol. 55, no. 1, pp. 89–118, 2002. *[std]*
-- M. Minkov and G. Hofstede, "A replication of Hofstede's uncertainty avoidance dimension across nationally representative samples from Europe," *International Journal of Cross-Cultural Management*, vol. 14, no. 1, pp. 7–22, 2014. *[std]*
+- G. Hofstede, *Culture's Consequences: Comparing Values, Behaviors, Institutions and Organizations across Nations*, 2nd ed., Sage Publications, 2001.
+- Hofstede Insights, "Country comparison tool," https://www.hofstede-insights.com/, accessed 2024 [website data source].
+- B. McSweeney, "Hofstede's model of national cultural differences and their consequences: A triumph of faith — a failure of analysis," *Human Relations*, vol. 55, no. 1, pp. 89–118, 2002. https://doi.org/10.1177/0018726702551004
+- M. Minkov and G. Hofstede, "A replication of Hofstede's uncertainty avoidance dimension across nationally representative samples from Europe," *International Journal of Cross-Cultural Management*, vol. 14, no. 1, pp. 7–22, 2014. https://doi.org/10.1177/1470595814521600
 
 ### Author's own preprint
 
