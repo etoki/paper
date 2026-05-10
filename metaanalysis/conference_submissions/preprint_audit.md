@@ -46,7 +46,7 @@ So the preprint:
 
 ## 3. Disclosure language adjustments
 
-These additions go into `templates/preprint_disclosure_template.md`
+These additions go into `metaanalysis/conference_submissions/templates/preprint_disclosure_template.md`
 per-venue blocks (already drafted; tweak per the verdicts above):
 
 - **ECEL**: add the phrase "completes the modality moderator that was

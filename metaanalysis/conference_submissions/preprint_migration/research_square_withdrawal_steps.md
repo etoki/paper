@@ -37,7 +37,7 @@ Research Square は「完全削除」ではなく **withdrawn notice の付与**
 
 ### 4. Support 経由が必要な場合
 
-- `templates/research_square_withdrawal.md` のメールを Research Square Support に送信
+- `metaanalysis/conference_submissions/templates/research_square_withdrawal.md` のメールを Research Square Support に送信
 - 通常 1〜2週間で処理完了
 - 確認メールが届くまで他の作業を進める
 
@@ -50,7 +50,7 @@ Research Square は「完全削除」ではなく **withdrawn notice の付与**
 
 - [ ] `metaanalysis/paper/preprint_info.md` を新 preprint 情報で完全置換
 - [ ] `metaanalysis/paper/preprint_info.md` の旧記録を historical section として保存
-- [ ] `dashboard/index.md` の Preprint Migration ステータスを完了に更新
+- [ ] `metaanalysis/conference_submissions/dashboard/index.md` の Preprint Migration ステータスを完了に更新
 
 ## 撤回しない選択肢(オプションC を選んだ場合)
 

@@ -73,7 +73,7 @@
 
 ### 5月15日〜21日
 - [ ] ECEL Full Paper(10p, ACI Word テンプレ)執筆 → `helen@academic-conferences.org` に提出
-- [ ] IEEE TALE への virtual presentation 照会メール送信(`templates/ieee_tale_virtual_inquiry.md`)
+- [ ] IEEE TALE への virtual presentation 照会メール送信(`metaanalysis/conference_submissions/templates/ieee_tale_virtual_inquiry.md`)
 - [ ] IEEE TALE への P5 preprint server 適合性照会メール
 
 ### 5月22日〜31日
@@ -111,15 +111,15 @@
 | P5 simulation | OSF + SocArXiv ✅ | (既に non-profit) | 移行不要 |
 | P4 harassment | 要確認 | - | メタデータ確認待ち |
 
-詳細: `preprint_migration/README.md`
+詳細: `metaanalysis/conference_submissions/preprint_migration/README.md`
 
 ---
 
 ## 🔒 Hard rules(変更不可)
 
-1. **Preprint stays up.**(Strategy 2 確定)各学会への投稿は preprint DOI を必ず disclose。`templates/preprint_disclosure_template.md` の Version A〜D を venue ごとに使い分ける。
+1. **Preprint stays up.**(Strategy 2 確定)各学会への投稿は preprint DOI を必ず disclose。`metaanalysis/conference_submissions/templates/preprint_disclosure_template.md` の Version A〜D を venue ごとに使い分ける。
 2. **各 conference paper は preprint に「無い」新規分析を含むこと**(self-plagiarism firewall)。
-3. **メールは自動送信しない。** 全 outgoing は `templates/` で起草、投稿者本人がレビューしてから送信。送信後は `_sent_<date>.md` 形式で履歴保存。
+3. **メールは自動送信しない。** 全 outgoing は `metaanalysis/conference_submissions/templates/` で起草、投稿者本人がレビューしてから送信。送信後は `_sent_<date>.md` 形式で履歴保存。
 4. **Single author only.** 共同研究者なし。
 5. **論文の数値は CSV に必ず traceable**(`metaanalysis/conference_submissions/<venue>/results/`)。手打ち禁止。
 

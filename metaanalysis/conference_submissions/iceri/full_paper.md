@@ -173,7 +173,7 @@ The interaction Wald test (chi-squared(6) = 1.64, p = .95) is null because the d
 
 ### 5.4. Self-plagiarism firewall
 
-Education-level was pre-registered as a moderator in the parent preprint but was not quantitatively executed (k constraint, Methods Deviations subsection). Discipline was not pre-registered at all. The cross-tab interaction is novel to this submission. Disclosure follows `templates/preprint_disclosure_template.md` ICERI block, which acknowledges that education-level pre-registration overlap with the preprint and positions the cross-tab interaction as the genuinely new analytic step.
+Education-level was pre-registered as a moderator in the parent preprint but was not quantitatively executed (k constraint, Methods Deviations subsection). Discipline was not pre-registered at all. The cross-tab interaction is novel to this submission. Disclosure follows `metaanalysis/conference_submissions/templates/preprint_disclosure_template.md` ICERI block, which acknowledges that education-level pre-registration overlap with the preprint and positions the cross-tab interaction as the genuinely new analytic step.
 
 ---
 

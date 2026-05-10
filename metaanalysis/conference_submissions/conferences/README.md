@@ -38,4 +38,4 @@
 
 ## 更新ルール
 
-CFP ページが変わったら該当 JSON を編集 → `verified_on` をbump → `dashboard/index.md` の表を更新。
+CFP ページが変わったら該当 JSON を編集 → `verified_on` をbump → `metaanalysis/conference_submissions/dashboard/index.md` の表を更新。

@@ -71,7 +71,7 @@ synchronous, asynchronous, Extraversion, academic achievement.
 
 ## Submission notes
 
-- Disclose preprint per `templates/preprint_disclosure_template.md` (ECEL
+- Disclose preprint per `metaanalysis/conference_submissions/templates/preprint_disclosure_template.md` (ECEL
   block). Disclosure must say explicitly that this paper "completes the
   modality moderator that was pre-registered but not quantitatively
   executed in the preprint due to the k>=10 per-level rule" — see
