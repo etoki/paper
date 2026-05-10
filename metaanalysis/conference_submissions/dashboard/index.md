@@ -22,7 +22,7 @@
 
 | 学会 | Tier | Decision | Status | Paper | Action |
 |---|---|---|---|---|---|
-| **ECEL 2026** | S | ✅ GO | full paper draft + cover letter ready | P3 modality moderator | Frontiers メール返信 → 5/21 投稿 |
+| **ECEL 2026** | S | ✅ GO | full paper draft + cover letter ready | P3 modality moderator | ECEL 延長返信 → 5/14 Awards / 5/21 Full Paper |
 | **ICEEL 2026** | A | ✅ GO | full paper draft + cover letter ready | P3 Hofstede + Japan | 6/30 投稿(東京 in-person) |
 | **ICERI 2026** | A | ✅ GO | full paper draft + cover letter ready | P3 cross-tab | 7/9 投稿(virtual 申請) |
 | **IEEE TALE 2026** | S | ❌ **DROP** | — | — | Research Square 不可 + 無移行方針 → 投稿経路なし |
@@ -62,13 +62,15 @@
 ## ✅ TODO リスト(今後 30 日)
 
 ### 5/10 〜 5/14
-- [x] Frontiers (Joe Fares) 宛 follow-up email 送信(A-25 reference 訂正)
-- [ ] **ECEL Excellence Awards 投稿判断**(5/14 締切)
+- [x] Frontiers (Joe Fares) 宛 follow-up email 送信(A-25 reference 訂正、Frontiers in Education v2 件、ECEL とは別件)
+- [ ] **ECEL 委員会(`info@academic-conferences.org`)延長承認返信受領待ち** — 元 abstract 締切 4/22 既経過、延長承認が来てから Awards / Full Paper が submit 可能
+- [x] ECEL Excellence Awards 投稿判断 → **GO**(`awards_abstract.md` draft 完成、5/14 投稿は延長承認後)
 - [ ] PRISMA flow diagram 各 paper への埋め込み(figures は `figures/prisma_flow_*.png` に生成済)
 
 ### 5/15 〜 5/21
-- [ ] Frontiers Joe Fares 返信受領 → ECEL full paper 投稿(`helen@academic-conferences.org`)
+- [ ] ECEL 延長承認後 → ECEL Full Paper 投稿(`helen@academic-conferences.org`)
 - [ ] ECEL cover letter 最終 review
+- [ ] 延長不承認 or 5/13 まで返信なし時 → ECEL 投稿全体取り下げ判断
 
 ### 5/22 〜 6/30
 - [ ] ICEEL paper 最終 review → 6/30 投稿(zmeeting)
