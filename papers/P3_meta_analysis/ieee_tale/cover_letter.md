@@ -28,13 +28,9 @@ The 2026 theme — *AI-Augmented Learning: Redefining the Future of Engineering 
 
 The systematic review and meta-analysis on which this paper builds was deposited on Research Square as a preprint (DOI 10.21203/rs.3.rs-9513298/v1, posted 27 April 2026). The present TALE submission reports a **study-level machine-learning pipeline (Logistic Regression / Random Forest / XGBoost) trained on the STEM / engineering subset, together with SHAP-based interpretation and a Fairlearn-based fairness audit**. None of these analyses appears in the preprint.
 
-I acknowledge that IEEE's preprint policy lists permitted preprint locations (arXiv, TechRxiv, PSPB-approved non-profit servers, institutional repositories, personal websites) and that Research Square may not appear on the PSPB-approved list. I therefore wish to flag, transparently:
+I acknowledge that IEEE's preprint policy lists permitted preprint locations (arXiv, TechRxiv, PSPB-approved non-profit servers, institutional repositories, personal websites) and that Research Square may not appear on the PSPB-approved list. The preprint is hosted on Research Square under CC BY 4.0; the author has full author rights to submit elsewhere and has not transferred copyright. Upon acceptance, the author will execute the IEEE Copyright Form per standard procedure.
 
-1. The preprint is hosted on Research Square (commercial publisher Springer Nature, but operating the server as a non-profit-style preprint repository under CC BY 4.0). The author has full author rights to submit elsewhere and has not transferred copyright.
-2. Should the IEEE TALE chairs determine that the preprint must be migrated to an explicitly PSPB-approved venue (TechRxiv, arXiv, or an OSF-hosted preprint), the author is prepared to **migrate the preprint to TechRxiv** (or another PSPB-approved server) and to **withdraw the Research Square version** prior to camera-ready submission. The migration procedure is pre-prepared (`preprint_migration/README.md` in the author's working repository).
-3. Upon acceptance, the author will execute the IEEE Copyright Form per standard procedure.
-
-I have submitted a separate brief inquiry to the TALE 2026 chairs regarding (a) the explicit PSPB-status of Research Square and (b) the availability of virtual presentation, and will follow whichever guidance is provided.
+I have submitted a separate brief inquiry to the TALE 2026 chairs regarding (a) the explicit PSPB status of Research Square and (b) the availability of virtual presentation. **If Research Square is not acceptable for IEEE TALE, please advise; I will withdraw this submission rather than migrate the preprint to another server, since the parent preprint is the canonical reference for the broader research portfolio.**
 
 ## Statements
 
