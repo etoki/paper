@@ -1,0 +1,34 @@
+{
+  "id": "edulearn_2026",
+  "name": "EDULEARN 2026",
+  "full_name": "18th International Conference on Education and New Learning Technologies",
+  "tier": "C",
+  "url": "https://iated.org/edulearn/",
+  "location": "Palma de Mallorca, Spain",
+  "dates": {
+    "conference_start": "2026-06-29",
+    "conference_end": "2026-07-01",
+    "abstract_deadline": "2026-03-26",
+    "abstract_deadline_status": "PASSED"
+  },
+  "host": "IATED",
+  "publication": {
+    "proceedings": "EDULEARN 2026 Proceedings (IATED Digital Library)",
+    "indexing": ["DOI", "WoS CPCI (submitted)"]
+  },
+  "online_presentation": {
+    "available": true,
+    "official_quote": "hybrid conference, you can choose whether to submit it as an in-person presentation or a virtual one"
+  },
+  "preprint_policy": {
+    "explicit": false,
+    "general_rule": "original and previously unpublished"
+  },
+  "contact": "edulearn26@iated.org",
+  "candidate_papers": [],
+  "blocking_issues": [
+    "Abstract deadline passed (2026-03-26)",
+    "Conference is in 7 weeks (2026-06-29) - too tight to prepare and register"
+  ],
+  "decision": "BACKUP_ONLY - re-evaluate only if extension explicitly granted"
+}

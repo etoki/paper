@@ -1,0 +1,40 @@
+{
+  "id": "ascilite_2026",
+  "name": "ASCILITE 2026",
+  "full_name": "43rd ASCILITE Annual Conference",
+  "tier": "B",
+  "url": "https://2026conference.ascilite.org/",
+  "location": "Rydges South Bank, Brisbane, Australia",
+  "dates": {
+    "conference_start": "2026-11-29",
+    "conference_end": "2026-12-02",
+    "paper_deadline": "2026-06-29",
+    "review_notification": "2026-09-14",
+    "earlybird_registration": "2026-10-05"
+  },
+  "host": "Australasian Society for Computers in Learning in Tertiary Education",
+  "publication": {
+    "proceedings": "ASCILITE Proceedings (APUBS)",
+    "indexing": ["Google Scholar", "ASCILITE library"],
+    "journal_link": "AJET - Australasian Journal of Educational Technology (IF=3.3, Q1, Scopus + WoS)"
+  },
+  "online_presentation": {
+    "available": false,
+    "official_quote": "papers will be delivered live at the Conference (Full Paper, Concise Paper, Pecha Kucha, Symposium/Panel)"
+  },
+  "preprint_policy": {
+    "explicit": false,
+    "general_rule": "not stated"
+  },
+  "submission": {
+    "system": "APUBS (publications.ascilite.org)"
+  },
+  "theme_2026": "The Future is Connection: Collaboration, Creativity and Compassion in a Digital Society",
+  "subtopics": ["Human-Centred Learning Design", "Digital Wellbeing", "Creative Expression", "Rebalancing the algorithm", "Reflective Practice"],
+  "contact": "conference@ascilite.org",
+  "candidate_papers": [],
+  "blocking_issues": [
+    "EXCLUDED FROM SHORTLIST: 2026 explicitly requires live in-person presentation. Conflicts with author requirement of online/virtual presentation."
+  ],
+  "decision": "DROP - in-person mandatory"
+}

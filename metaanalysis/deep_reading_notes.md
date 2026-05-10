@@ -1387,7 +1387,7 @@ Well-being / satisfaction:
 
 ## A-25. Tokiwa (2025) ⚠ COI 研究
 
-**Citation**: Tokiwa, E. (2025). [Big Five and online learning outcomes in Japanese high school students]. （著者の先行研究、本メタ分析の COI 対象）
+**Citation**: Tokiwa, E. (2025). Who excels in online learning in Japan? *Frontiers in Psychology, 16*, Article 1420996. https://doi.org/10.3389/fpsyg.2025.1420996 （著者の先行論文、CC BY、本メタ分析の COI 対象）
 **Modality**: Online async | **Country**: Japan | **Era**: post-COVID
 
 ### Sample

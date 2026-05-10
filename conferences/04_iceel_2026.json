@@ -1,0 +1,61 @@
+{
+  "id": "iceel_2026",
+  "name": "ICEEL 2026",
+  "full_name": "10th International Conference on Education and E-Learning",
+  "tier": "A",
+  "url": "https://www.iceel.org/",
+  "location": "Tokyo, Japan",
+  "dates": {
+    "conference_start": "2026-11-27",
+    "conference_end": "2026-11-29",
+    "paper_deadline": "2026-06-30",
+    "acceptance_notification": "2026-07-30",
+    "earlybird_registration": "2026-08-30",
+    "cancellation_deadline": "2026-10-27"
+  },
+  "host": "Otsuma Women's University + Tokyo Healthcare University",
+  "patrons": ["Polytechnic Institute of Cávado and Ave (Portugal)", "Yamagata University", "University of Malaya"],
+  "publication": {
+    "proceedings": "ICEEL 2026 Conference Proceedings",
+    "indexing_history": {
+      "ei_compendex_scopus": "2019-2025 confirmed",
+      "acm_digital_library": "2019-2022 only"
+    }
+  },
+  "online_presentation": {
+    "available": "in-person preferred (no explicit online option)",
+    "no_show_policy": "Mandatory - 2-year no-show list",
+    "notes": "Tokyo location means author can attend with zero travel cost; satisfies the spirit of the low-cost requirement"
+  },
+  "preprint_policy": {
+    "explicit": false,
+    "general_rule": "previously unpublished"
+  },
+  "fees_usd": {
+    "earlybird": {
+      "author_regular": 530,
+      "author_student": 500,
+      "tpc_member": 500,
+      "presentation_only": 380,
+      "delegate": 320
+    },
+    "regular": {
+      "author_regular": 560,
+      "author_student": 530,
+      "presentation_only": 410
+    },
+    "extra_page_over_11": 80
+  },
+  "submission": {
+    "system": "https://www.zmeeting.org/submission/ICEEL2026",
+    "page_count": "8-10 pages (over 11 = $80/page)",
+    "language": "English only"
+  },
+  "theme_2026": "Future-Ready Learners: Reimagining Education and E-Learning for a Dynamic World",
+  "contact": "iceel@academic.net",
+  "candidate_papers": ["P1 extension", "P3 metaanalysis (preprint disclosure required)", "P5 simulation (Big Five generative agent)"],
+  "blocking_issues": [
+    "Online presentation not explicitly offered - email inquiry recommended (but Tokyo location makes in-person trivial)"
+  ],
+  "advantage": "Tokyo-based author = zero travel cost; perfectly satisfies low-cost requirement"
+}

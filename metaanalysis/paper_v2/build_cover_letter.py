@@ -58,13 +58,15 @@ SHARED_OPEN_SCIENCE = (
 
 SHARED_COI = (
     "__Conflict of interest.__ "
-    "I declare no financial conflicts of interest. One of my own prior primary "
-    "studies (Tokiwa, 2025, manuscript in preparation) is potentially eligible "
-    "for inclusion; this is addressed transparently through a pre-specified "
-    "sensitivity analysis excluding the author's own study, which leaves the "
-    "primary conclusions unchanged (|Δr| < .001 for every trait, because that "
-    "study did not contribute extractable zero-order correlations to the "
-    "primary quantitative pool)."
+    "I declare no financial conflicts of interest. One of my own prior, "
+    "previously published primary studies — Tokiwa, E. (2025), \"Who excels "
+    "in online learning in Japan?\", Frontiers in Psychology, 16, 1420996 "
+    "(CC BY, open access; https://doi.org/10.3389/fpsyg.2025.1420996) — is "
+    "potentially eligible for inclusion; this is addressed transparently "
+    "through a pre-specified sensitivity analysis excluding the author's own "
+    "study, which leaves the primary conclusions unchanged (|Δr| < .001 for "
+    "every trait, because that study did not contribute extractable "
+    "zero-order correlations to the primary quantitative pool)."
 )
 
 SHARED_NONDUP = (

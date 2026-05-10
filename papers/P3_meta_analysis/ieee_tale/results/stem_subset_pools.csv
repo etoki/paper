@@ -1,0 +1,6 @@
+trait,k,N_total,r_pooled,r_ci_lo,r_ci_hi,I2,tau2,note
+O,1,,,,,,,k<2
+C,1,,,,,,,k<2
+E,1,,,,,,,k<2
+A,1,,,,,,,k<2
+N,1,,,,,,,k<2

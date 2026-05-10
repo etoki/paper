@@ -620,12 +620,15 @@ def build_declaration_of_interest():
     )
     _add_paragraph(
         doc,
-        "One of the author's prior primary studies (Tokiwa, 2025; manuscript "
-        "in preparation) is potentially eligible for inclusion in the "
-        "present systematic review and meta-analysis. To address this "
-        "transparently and a priori, a sensitivity analysis excluding the "
-        "author's own study was pre-specified in the publicly time-stamped "
-        "protocol (OSF Registries, https://doi.org/10.17605/OSF.IO/E5W47, "
+        "One of the author's prior primary studies — Tokiwa, E. (2025), "
+        "\"Who excels in online learning in Japan?\", Frontiers in "
+        "Psychology, 16, Article 1420996 "
+        "(https://doi.org/10.3389/fpsyg.2025.1420996; CC BY, open access) "
+        "— is potentially eligible for inclusion in the present "
+        "systematic review and meta-analysis. To address this transparently "
+        "and a priori, a sensitivity analysis excluding the author's own "
+        "study was pre-specified in the publicly time-stamped protocol "
+        "(OSF Registries, https://doi.org/10.17605/OSF.IO/E5W47, "
         "registered 23 April 2026, prior to formal data extraction). The "
         "sensitivity analysis result, reported in the Results section and "
         "in Table 4 of the manuscript, leaves the primary trait-level "

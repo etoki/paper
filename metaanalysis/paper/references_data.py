@@ -269,9 +269,9 @@ REFERENCES = [
     'approach. <i>Frontiers in Psychology, 14</i>, 1071985. '
     'https://doi.org/10.3389/fpsyg.2023.1071985',
 
-    'Tokiwa, E. (2025). Big Five personality traits and online learning '
-    'outcomes in Japanese high school students [Manuscript in preparation]. '
-    'SUNBLAZE Co., Ltd.',
+    'Tokiwa, E. (2025). Who excels in online learning in Japan? '
+    '<i>Frontiers in Psychology, 16</i>, Article 1420996. '
+    'https://doi.org/10.3389/fpsyg.2025.1420996',
 
     # V
     'Vedel, A. (2014). The Big Five and tertiary academic performance: A '

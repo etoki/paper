@@ -1,0 +1,34 @@
+{
+  "id": "aace_elearn_2026",
+  "name": "AACE E-Learn 2026 / EdMedia + Innovate Learning Online",
+  "full_name": "EdMedia + Innovate Learning Online (formerly E-Learn)",
+  "tier": "A",
+  "url": "https://aace.org/conf/elearn/",
+  "location": "Fully virtual",
+  "dates": {
+    "conference_start": "TBD - 2026 edition not yet announced",
+    "expected_window": "Past editions: October-November",
+    "paper_deadline": "TBD - expected summer 2026"
+  },
+  "host": "AACE (Association for the Advancement of Computing in Education)",
+  "publication": {
+    "proceedings": "LearnTechLib (Learning and Technology Library)",
+    "journal_link": "International Journal on E-Learning (IJEL) and other AACE journals"
+  },
+  "online_presentation": {
+    "available": true,
+    "official_quote": "Fully virtual asynchronous conference"
+  },
+  "preprint_policy": {
+    "explicit": "TBD - check 2026 CFP",
+    "general_rule": "not stated"
+  },
+  "fees_usd_historical": 245,
+  "contact": "AACE Conference Services",
+  "candidate_papers": ["P1 extension (great fit)", "P3 metaanalysis", "P5 simulation"],
+  "blocking_issues": [
+    "2026 edition not yet announced - confirm by mid-June 2026"
+  ],
+  "advantage": "Fully virtual (perfect for author requirements); SFC evaluation high; LearnTechLib indexing solid; cheap fee",
+  "action_required_today": "Bookmark + monthly check; subscribe to AACE mailing list"
+}

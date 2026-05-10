@@ -84,11 +84,13 @@ BODY_PARAGRAPHS = [
      "https://github.com/etoki/paper."),
 
     ("__Conflict of interest.__ "
-     "I declare no financial conflicts. One of my own primary studies "
-     "(Tokiwa, 2025, manuscript in preparation) is potentially eligible "
-     "for inclusion; this is addressed through a pre-specified "
-     "sensitivity analysis excluding the author’s own study, which "
-     "leaves the primary conclusions unchanged."),
+     "I declare no financial conflicts. One of my own previously "
+     "published primary studies — Tokiwa, E. (2025), “Who excels "
+     "in online learning in Japan?”, Frontiers in Psychology, 16, "
+     "1420996 (CC BY, https://doi.org/10.3389/fpsyg.2025.1420996) — is "
+     "potentially eligible for inclusion; this is addressed through a "
+     "pre-specified sensitivity analysis excluding the author’s "
+     "own study, which leaves the primary conclusions unchanged."),
 
     ("The manuscript has not been published elsewhere and is not under "
      "consideration by another journal. The submission has been prepared "

@@ -1,0 +1,36 @@
+{
+  "id": "iceri_2026",
+  "name": "ICERI 2026",
+  "full_name": "19th International Conference of Education, Research and Innovation",
+  "tier": "A",
+  "url": "https://iated.org/iceri/",
+  "location": "Barcelo Hotel Renacimiento, Seville, Spain",
+  "dates": {
+    "conference_start": "2026-11-09",
+    "conference_end": "2026-11-11",
+    "abstract_deadline": "2026-07-09"
+  },
+  "host": "IATED (International Association of Technology, Education and Development)",
+  "publication": {
+    "proceedings": "ICERI 2026 Proceedings (ISBN, IATED Digital Library)",
+    "indexing": ["DOI assigned", "Web of Science CPCI (submitted)"],
+    "scale": "800+ international attendees"
+  },
+  "online_presentation": {
+    "available": true,
+    "official_quote": "Both in-person presentation or virtual presentation are available"
+  },
+  "preprint_policy": {
+    "explicit": false,
+    "general_rule": "original and previously unpublished"
+  },
+  "submission": {
+    "system": "https://iated.org/iceri/online_submission"
+  },
+  "contact": "iceri@iated.org",
+  "candidate_papers": ["P3 metaanalysis (after preprint migration)", "P1 extension", "P5 simulation"],
+  "blocking_issues": [
+    "Preprint policy unclear - preferred to migrate Research Square to non-profit server before submission"
+  ],
+  "advantage": "Virtual presentation officially supported; large established venue with WoS CPCI indexing"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "ecel_2026",
+  "name": "ECEL 2026",
+  "full_name": "25th European Conference on e-Learning",
+  "tier": "S",
+  "url": "https://www.academic-conferences.org/conferences/ecel/",
+  "location": "Lund University, Sweden",
+  "dates": {
+    "conference_start": "2026-10-22",
+    "conference_end": "2026-10-23",
+    "abstract_deadline": "2026-04-22",
+    "abstract_deadline_status": "PASSED_EXTENSION_AVAILABLE",
+    "excellence_awards_abstract": "2026-05-14",
+    "full_paper_review": "2026-05-21",
+    "acceptance_notification_full": "2026-07-20",
+    "earlybird_registration": "2026-08-13",
+    "final_paper": "2026-08-27",
+    "author_payment": "2026-09-17"
+  },
+  "host": "ACPI (Academic Conferences and Publishing International)",
+  "publication": {
+    "proceedings": "ECEL Proceedings, ISSN 2048-8637",
+    "indexing": ["Scopus", "Web of Science CPCI", "Ei Compendex", "Google Scholar", "ERIC", "EBSCO", "ProQuest", "Norwegian Register Rank 1"],
+    "journal_link": "Electronic Journal of e-Learning (40-50% extension; invited)"
+  },
+  "online_presentation": {
+    "available": true,
+    "official_quote": "options for those who cannot attend in person to present their work virtually"
+  },
+  "preprint_policy": {
+    "explicit": false,
+    "general_rule": "should not have been published elsewhere",
+    "requires_inquiry": true,
+    "research_square_allowed": "unclear - inquire",
+    "osf_preprints_allowed": "unclear - inquire",
+    "socarxiv_allowed": "unclear - inquire"
+  },
+  "submission": {
+    "abstract_format": "300-350 words",
+    "extension_policy": "extensions will be granted on request via info@academic-conferences.org"
+  },
+  "contact": {
+    "submission": "helen@academic-conferences.org",
+    "general": "info@academic-conferences.org"
+  },
+  "candidate_papers": ["P3 metaanalysis (preprint disclosure required)", "P1 extension"],
+  "blocking_issues": [
+    "Abstract deadline passed - extension request needed urgently",
+    "Preprint policy unclear - explicit disclosure recommended"
+  ],
+  "action_required_today": "Send extension request email + Excellence Awards abstract submission consideration by 2026-05-14"
+}
