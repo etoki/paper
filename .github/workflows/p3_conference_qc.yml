@@ -23,16 +23,20 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Install minimal deps
+      - name: Install pipeline + QC dependencies
         run: |
           python -m pip install --upgrade pip
+          # Core scientific stack used by run_modality_meta / run_hofstede_meta /
+          # run_cross_tab_meta and metaanalysis/analysis/pool.py
+          pip install numpy scipy
+          # PRISMA flow + docx QC
           pip install matplotlib python-docx
 
       - name: Regenerate studies.csv
@@ -80,7 +84,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install pandoc
         run: |
