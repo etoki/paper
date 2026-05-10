@@ -104,7 +104,7 @@
 - Schünemann et al. (2019) Cochrane Handbook Ch. 14 ✅
 - Simonsohn, Nelson, & Simmons (2014) *JEP: General*, 143(2), 534–547 ✅
 - Tipton (2015) *Psychological Methods*, 20(3), 375–393 ✅
-- Tokiwa (2025) Manuscript in preparation ✅
+- Tokiwa (2025) *Frontiers in Psychology, 16*, 1420996, DOI: 10.3389/fpsyg.2025.1420996 ✅ 🔴 **書誌訂正 (2026-05-10)**: 旧 entry「Manuscript in preparation」は誤り、実刊行論文に訂正
 - Viechtbauer (2010) *JSS*, 36(3), 1–48 ✅
 
 ---
