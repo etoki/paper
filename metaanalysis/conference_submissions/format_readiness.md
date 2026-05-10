@@ -74,27 +74,36 @@
 
 ## ICERI 2026(IATED)
 
-**Submission portal**: https://iated.org/iceri/online_submission
+**Submission portal**: https://iated.org/iceri/online_submission(myIATED platform、要 account 作成)
+**Public instructions**: https://iated.org/iceri/instructions
+**Generic IATED Word template**: https://iated.org/common/resources/paper_word_template.doc(共通テンプレ、IATED 系全 conference 共用、即 DL 可)
 **Contact**: iceri@iated.org
 **Conference dates**: 2026-11-09〜11(Seville、virtual 可)
 
-### Format 要件(公開 CFP より)
+### Format 要件(公開 instructions より)
 
 | 項目 | 要件 | 現状 | 備考 |
 |---|---|---|---|
-| Submission stage | Abstract first(7/9 締切)、accept 後に full paper | ✅ abstract 化可能 | full paper 締切は accept 後通知 |
-| Abstract format | IATED 専用 form(online) | ✅ md/docx 両形式 ready | IATED form は短 fields の copy-paste 想定 |
-| Word count(abstract) | 1500–3000 chars(IATED 標準) | 要 verify | 投稿時 truncate 可能性 |
-| Reference style | IATED 標準 | ✅ IEEE/APA 混在 | full paper 化時に IATED 仕様確認 |
-| Language | English only | ✅ 全文英語 | — |
+| Stage | Abstract first(7/9 締切)→ accepted(〜9/1) → full paper | abstract 段階対応 | full paper template は採択後 myIATED で customized 版配布 |
+| Length(full paper) | **4–8 pages**(references 含む) | 現 draft 推定 8.4 p | within range |
+| 構成 | Abstract → Intro → Method → Results → Conclusions → Acknowledgements → References | ✅ 現 draft 一致 | — |
+| Format | Word(.doc / .docx) | ✅ docx 生成済 | — |
+| 言語 | English only | ✅ 全文英語 | — |
+| Reference style | IATED 内部スタイル(template に組込) | 現 IEEE-numeric 寄り | template 流し込み時に変換 |
 | Presentation mode | Virtual / in-person 選択 | **Virtual** 申請 | cover letter で要請済 |
-| **PRISMA flow figure** | full paper で必須 | ✅ 埋込済 | abstract には不要 |
+| **PRISMA flow figure** | full paper で必須 | ✅ 埋込済 | — |
+
+### テンプレート取得手順
+
+1. **今すぐ可能**: 共通 Word テンプレ `https://iated.org/common/resources/paper_word_template.doc` をブラウザで直接 DL → `metaanalysis/conference_submissions/iceri/template_iated_generic.doc` に保存。
+2. **Abstract 採択後**(〜9/1): myIATED platform にログイン → "Download customized template" → `template_iated_customized.doc` として保存(著者名・所属・タイトル pre-filled)。
+3. customized template の段落書式に合わせて content を流し込む。
 
 ### テンプレート受領後の作業
 
-1. IATED online form に abstract fields を copy-paste
-2. accept 通知後、IATED full paper template ダウンロード(7/末頃想定)
-3. full paper template に流し込み(8/上旬)
+1. 共通テンプレに `iceri/full_paper.md` の content を流し込み
+2. 採択後 customized template に再流し込み(著者情報部分は自動で埋まる)
+3. References を IATED スタイルに微調整(template に embedded style あり)
 
 ---
 
