@@ -4,7 +4,7 @@
 
 **検証状況**: ✅ = PDF 直接確認済 / ⚠ = 一部情報 LLM 由来（要最終確認） / 📖 = 標準知識（PDF 非所持）
 
-**最終更新**: 2026-04-24
+**最終更新**: 2026-05-10
 
 ## OSF DOI Registry
 
@@ -365,6 +365,11 @@ DerSimonian, R., & Laird, N. (1986). Meta-analysis in clinical trials. *Controll
 ### Hartung & Knapp (2001) — HKSJ adjustment origin
 Hartung, J., & Knapp, G. (2001). A refined method for the meta-analysis of controlled clinical trials with binary outcome. *Statistics in Medicine, 20*(24), 3875–3889. https://doi.org/10.1002/sim.1009
 
+### Page et al. (2021) — PRISMA 2020 statement ✅
+Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, T. C., Mulrow, C. D., Shamseer, L., Tetzlaff, J. M., Akl, E. A., Brennan, S. E., Chou, R., Glanville, J., Grimshaw, J. M., Hróbjartsson, A., Lalu, M. M., Li, T., Loder, E. W., Mayo-Wilson, E., McDonald, S., McGuinness, L. A., Stewart, L. A., Thomas, J., Tricco, A. C., Welch, V. A., Whiting, P., & Moher, D. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ, 372*, n71. https://doi.org/10.1136/bmj.n71
+
+**Use**: PRISMA flow / reporting standards（ECEL §2.1, IEEE TALE §2.1, ICERI §2.1）
+
 （IntHout et al. 2014, Tipton 2015, Viechtbauer 2010, Raudenbush 2009 は Part I-A/B references 掲載済み）
 
 
@@ -462,15 +467,57 @@ Komarraju, M., Karau, S. J., Schmeck, R. R., & Avdic, A. (2011). The Big Five pe
 
 ---
 
+## II-E. Cross-Cultural Theory（ICEEL follow-up 用）✅
+
+### Hofstede (2001) — Culture's Consequences (2nd ed) ✅
+Hofstede, G. (2001). *Culture's consequences: Comparing values, behaviors, institutions and organizations across nations* (2nd ed.). Sage Publications.
+
+**Use**: ICEEL の 6-dimension 文化フレームワークの primary source
+**Note**: 本コーパス所収 PDF (`Culture's consequences ...pdf`) は Yoo & Donthu (2002) による 2nd ed. 書評（*Journal of Marketing Research, 39*(3), 388–389; JSTOR 1558603）であり、原典そのものではない。書誌情報（出版社・年・第 2 版・596 頁）は書評内で確認済。執筆時は原典の DOI/版次に注意。
+
+### McSweeney (2002) — Hofstede critique ✅
+McSweeney, B. (2002). Hofstede's model of national cultural differences and their consequences: A triumph of faith — A failure of analysis. *Human Relations, 55*(1), 89–118. https://doi.org/10.1177/0018726702551004
+
+**Use**: ICEEL の Hofstede 批判文献 / threats-to-validity に引用
+
+### Minkov & Hofstede (2014) — UAI replication ✅ 🔴 **DOI 訂正**
+Minkov, M., & Hofstede, G. (2014). A replication of Hofstede's uncertainty avoidance dimension across nationally representative samples from Europe. *International Journal of Cross-Cultural Management, 14*(1), 7–22. https://doi.org/10.1177/1470595814521600
+
+**Use**: ICEEL の Minkov-revised UAI dimension の出典
+**⚠ 訂正**: 早期下書きで DOI を `10.1177/1470595813510415` と表記したのは誤り。実 PDF より `10.1177/1470595814521600` が正。
+
+---
+
+## II-F. Machine Learning Methods（IEEE TALE follow-up 用）✅
+
+### Chen & Guestrin (2016) — XGBoost ✅
+Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. In *Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining* (pp. 785–794). Association for Computing Machinery. https://doi.org/10.1145/2939672.2939785
+
+**Use**: IEEE TALE の gradient boosting baseline（trait → GPA 予測）の出典
+
+### Lundberg & Lee (2017) — SHAP ✅
+Lundberg, S. M., & Lee, S.-I. (2017). A unified approach to interpreting model predictions. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, & R. Garnett (Eds.), *Advances in neural information processing systems 30* (pp. 4765–4774). Curran Associates. https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+
+**Use**: IEEE TALE の feature-attribution method（SHAP value）の理論的出典
+
+### Bird, Dudík, Edgar, Horn, Lutz, Milan, Sameki, Wallach, & Walker (2020) — Fairlearn ✅
+Bird, S., Dudík, M., Edgar, R., Horn, B., Lutz, R., Milan, V., Sameki, M., Wallach, H., & Walker, K. (2020). *Fairlearn: A toolkit for assessing and improving fairness in AI* (Microsoft Technical Report No. MSR-TR-2020-32). Microsoft Research. https://www.microsoft.com/en-us/research/publication/fairlearn-a-toolkit-for-assessing-and-improving-fairness-in-ai/
+
+**Use**: IEEE TALE の subgroup fairness audit（gender × locality）に使用したツールキットの出典
+
+---
+
 ## 📝 使用方法
 
 ### 執筆時の引用パターン
 1. **Primary study を引用** → Part I-A から該当 ID を参照（A-01 〜 A-37）
 2. **Benchmark meta を引用** → Part I-B から C-01 〜 C-08 を参照
 3. **Big Five 測定尺度を言及** → Part II-A
-4. **メタ分析手法を言及** → Part II-B（HKSJ, REML, RVE 等）
+4. **メタ分析手法 / PRISMA を言及** → Part II-B（HKSJ, REML, RVE, PRISMA 2020 等）
 5. **Online learning theory を言及** → Part II-C（PASH, SRL, TAM 等）
 6. **先行メタ分析を比較引用** → Part II-D
+7. **Hofstede 文化次元を言及** → Part II-E（ICEEL）
+8. **ML / XAI / fairness を言及** → Part II-F（IEEE TALE）
 
 ### Citation 誤認のチェック方法
 1. 本 index から検索 → 一致を確認
@@ -478,8 +525,8 @@ Komarraju, M., Karau, S. J., Schmeck, R. R., & Avdic, A. (2011). The Big Five pe
 3. 未収録の外部 ref は DOI で独立検証
 
 ### Part II の範囲
-- Part II 収録の 39 refs は標準的な知識に基づく（PDF 非所持）
-- 論文執筆時に引用する場合、DOI を crossref.org で再確認推奨
+- Part II 収録のうち II-A / II-C / II-D の大部分（39 refs）は標準的な知識に基づく（PDF 非所持） → DOI を crossref.org で再確認推奨
+- II-B の Page (2021) PRISMA 2020、II-E の 3 件、II-F の 3 件（計 7 件）は 2026-05-10 に PDF を corpus に追加し ✅ 検証済
 - ジャーナル名・巻号・頁等の見過ごしは避ける
 
 ---
@@ -494,9 +541,11 @@ Komarraju, M., Karau, S. J., Schmeck, R. R., & Avdic, A. (2011). The Big Five pe
 | I-D | Excluded PDFs (non-Big Five) | 5 | ✅ PDF 確認済 |
 | **Part I 小計** | — | **45** | **PDF 検証済** |
 | II-A | Big Five/HEXACO measurement | 13 | 📖 標準知識 |
-| II-B | Meta-analytic methods | 13 | 📖 標準知識 |
+| II-B | Meta-analytic methods (incl. PRISMA 2020) | 14 | 📖 + ✅ 1 件 (Page 2021) |
 | II-C | Online learning theory | 13 | 📖 標準知識 |
 | II-D | Prior meta-analyses | 11 | 📖 標準知識 |
-| **Part II 小計** | — | **50** | **DOI 再確認推奨** |
-| **総計** | — | **95** | — |
+| II-E | Cross-cultural theory (ICEEL) | 3 | ✅ PDF 確認済 (Hofstede 2001 は書評経由) |
+| II-F | ML methods (IEEE TALE) | 3 | ✅ PDF 確認済 |
+| **Part II 小計** | — | **57** | **39 件 DOI 再確認推奨 / 7 件 PDF ✅** |
+| **総計** | — | **102** | — |
 
