@@ -94,6 +94,81 @@ def cross_paper_check() -> int:
 
 
 # ----------------------------------------------------------------------
+# (A2) Round-4 regression sentinels
+#
+# After the 2026-05-10 A-25 Tokiwa regression (where the author's own
+# Frontiers paper was incorrectly listed as "Manuscript in preparation"
+# in the parent preprint references_data.py and propagated to every
+# downstream document), these sentinels guard against the placeholder
+# strings reappearing anywhere in the conference workspace.
+#
+# Rule: each FORBIDDEN literal must NOT appear in any of the 3 papers
+# or their cover letters. Any occurrence is a FAIL.
+# ----------------------------------------------------------------------
+FORBIDDEN_TOKIWA_PLACEHOLDERS = [
+    "Manuscript in preparation",
+    "manuscript in preparation",
+    "[Manuscript in preparation]",
+    # Japanese placeholder used in the JA preprint manuscript; should
+    # never appear in any English conference paper or cover letter.
+    "論文準備中",
+]
+
+REQUIRED_TOKIWA_FRONTIERS_TOKENS = [
+    # If A-25 Tokiwa is cited, all 3 anchors of the Frontiers article
+    # must be present in the same paper somewhere.
+    ("Frontiers in Psychology", "10.3389/fpsyg.2025.1420996", "1420996"),
+]
+
+
+def round4_regression_check() -> int:
+    fails = 0
+    print("\n== (A2) Round-4 regression sentinels (A-25 Tokiwa Frontiers) ==")
+    targets: list[tuple[str, str, str]] = []
+    for paper in PAPERS:
+        targets.append((paper, "full_paper.md", (WORKSPACE / paper / "full_paper.md").read_text(encoding="utf-8")))
+        cl = WORKSPACE / paper / "cover_letter.md"
+        if cl.exists():
+            targets.append((paper, "cover_letter.md", cl.read_text(encoding="utf-8")))
+
+    for paper, fname, raw in targets:
+        text = normalise(raw)
+        # Forbidden placeholders
+        for bad in FORBIDDEN_TOKIWA_PLACEHOLDERS:
+            if bad in text:
+                print(f"  FAIL  {paper}/{fname}: forbidden placeholder {bad!r} present (Round-4 regression!)")
+                fails += 1
+        # If the document mentions Tokiwa at all, it should anchor at
+        # least one of the Frontiers-citation tokens; if it mentions
+        # Frontiers but not the DOI / article number, that's also suspect.
+        mentions_tokiwa = ("Tokiwa" in text) or ("常盤" in raw)
+        if mentions_tokiwa:
+            for tokens in REQUIRED_TOKIWA_FRONTIERS_TOKENS:
+                missing = [t for t in tokens if t not in text]
+                if missing == list(tokens):
+                    # Tokiwa mentioned but no Frontiers anchor at all.
+                    # Cover-letter excerpts that only reference Tokiwa
+                    # by year (the COI line) intentionally omit the full
+                    # citation if it appears in the paper References;
+                    # however the cover letters also include a full
+                    # citation. So for cover_letter.md we permit the
+                    # case where the Tokiwa mention is only the author's
+                    # own salutation.
+                    salutation_only = (
+                        fname == "cover_letter.md"
+                        and "**Eisuke Tokiwa**" in raw
+                        and "Tokiwa, E. (2025)" not in text
+                        and "Tokiwa (2025)" not in text
+                    )
+                    if not salutation_only:
+                        print(f"  FAIL  {paper}/{fname}: mentions Tokiwa but no Frontiers anchor token in {tokens}")
+                        fails += 1
+    if fails == 0:
+        print("  OK    No regression sentinels triggered across 3 papers + cover letters.")
+    return fails
+
+
+# ----------------------------------------------------------------------
 # (B) Per-paper results-csv consistency.
 # ECEL claims Conscientiousness pooled r = 0.190 in async, 0.180 in mixed.
 # Verify against modality_pools.csv.
@@ -220,6 +295,7 @@ def per_paper_check() -> int:
 
 def main():
     fails = cross_paper_check()
+    fails += round4_regression_check()
     fails += per_paper_check()
     print(f"\nTotal failures: {fails}")
     sys.exit(1 if fails else 0)

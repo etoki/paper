@@ -1,16 +1,20 @@
-# P2: Clustering Paper (IEEE Xplore)
+# P2: Clustering Paper (IEEE Access)
 
 ## 基本情報
 
 | 項目 | 値 |
 |---|---|
 | タイトル | Cultural Influences on Personality Types: A Cluster Analysis of HEXACO Traits in Japan |
-| 著者 | Eisuke Tokiwa (sole author) |
-| 媒体 | IEEE Xplore |
-| 公開年 | 2025 (推定 — 詳細要確認) |
-| URL | https://ieeexplore.ieee.org/document/11333358 |
-| ステータス | **査読済み・出版済み** |
+| 著者 | Eisuke Tokiwa (sole author, SUNBLAZE Co., Ltd., Nishi-Shinjuku 3-3-13, Shinjuku-ku, Tokyo 160-0023, Japan) |
+| 媒体 | **IEEE Access**(査読付き open access journal) |
+| 公開年 | 2026(IEEE Access、accepted版) |
+| DOI | 10.1109/ACCESS.2026.3651324 |
+| サンプル | N = 13,668 Japanese participants |
+| 手法 | HEXACO model + Ward 階層クラスタリング + k-means + LPA + spectral |
+| ステータス | **accepted for publication**(author's version 確認済) |
 | Local PDF | `clustering/submitted_Cultural Influences on Personality Types A Cluster Analysis of HEXACO Traits in Japan.pdf` |
+| **メタ分析との関係** | **無関係**(HEXACO 性格構造のクラスタ研究、online learning 文脈なし) |
+| P3 メタ分析からの参照 | なし。 P2 は P3 corpus 外、引用しない。 |
 
 ## 学会投稿への活用方針
 
