@@ -22,8 +22,8 @@
 
 | 学会 | Tier | Decision | Status | Paper | Action |
 |---|---|---|---|---|---|
-| **ECEL 2026** | S | ✅ GO | full paper draft + cover letter ready / Awards abstract ready | P3 modality moderator | **ECEL 委員会延長返信待ち**(5/13 まで)→ 承認後 5/14 Awards / 5/21 Full Paper |
-| **ICEEL 2026** | A | ✅ **SUBMITTED (2026-05-10)** | zmeeting 投稿済 / Hofstede direction-match (3/5; N+ headline) Option 2 採用版 | P3 Hofstede + Japan | acceptance 通知待ち(7/30) |
+| **ECEL 2026** | S | ✅ Abstract SUBMITTED (2026-05-10) | abstract Google Form 投稿済 / full paper + cover letter + awards abstract ready | P3 modality moderator | (1) Awards 指示メール待ち → 5/14 提出 / (2) Full Paper 提出方法メール待ち → 5/21 提出 |
+| **ICEEL 2026** | A | ✅ **RECEIVED (Paper ID EL2036, 2026-05-10)** | zmeeting 投稿済 + secretariat 受領確認 / preliminary review 開始(〜10 working days)/ Author-Background Form 返送要 | P3 Hofstede + Japan | Author-Background Form 返送 → preliminary review 結果待ち(〜5/24) → acceptance 通知(7/30) |
 | **ICERI 2026** | A | ✅ **SUBMITTED (2026-05-10)** | myIATED abstract 投稿済 | P3 cross-tab | acceptance 通知待ち(9/1)→ 採択時 full paper 提出 |
 | **IEEE TALE 2026** | S | ❌ **DROP** | — | — | Research Square 不可 + 無移行方針 → 投稿経路なし |
 | AAOU 2026 | A | 🟡 WATCH | CFP 待ち | 別 chat | 週次 CFP 確認 |
