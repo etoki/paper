@@ -252,6 +252,44 @@ JOURNALS: dict[str, dict[str, object]] = {
             "and a sole-author declaration."
         ),
     },
+    "PLOS ONE": {
+        "addressee": ["To the Editors,", "PLOS ONE (Public Library of Science)"],
+        "section_suggestion": (
+            "I suggest the manuscript be considered under the "
+            "“Personality and Individual Differences” / “Social "
+            "Psychology” / “Industrial and Organizational Psychology” "
+            "subject areas."
+        ),
+        "fit": (
+            "__Fit with PLOS ONE.__ "
+            "PLOS ONE’s editorial criterion of evaluating submissions on "
+            "technical and methodological soundness rather than on perceived "
+            "novelty or impact is well matched to the present study, which "
+            "is a sole-authored cross-sectional confirmatory investigation "
+            "(N = 354 currently employed Japanese adults) with pre-specified "
+            "falsifiable hypotheses (H1–H5, each with explicit "
+            "disconfirmation conditions), HC3-robust hierarchical "
+            "regressions, sensitivity analyses (Cook’s D > 4/n), VIF "
+            "diagnostics, sex-stratified analyses, and fully open de-"
+            "identified data and analysis code. The substantive contribution "
+            "— quantifying the joint and incremental association of HEXACO "
+            "and Dark Triad traits with self-reported workplace harassment "
+            "perpetration tendencies in a non-WEIRD employee sample, while "
+            "explicitly framing the residual Honesty–Humility association "
+            "as an adjusted association rather than as evidence of a "
+            "separable latent fairness/sincerity factor — falls within the "
+            "broad scope of personality, social, and industrial/"
+            "organisational psychology that PLOS ONE regularly publishes."
+        ),
+        "extras": (
+            "All PLOS ONE submission requirements are addressed: ORCID, "
+            "structured declarations (Conflict of Interest, Funding, "
+            "Ethics, Informed Consent, Data Availability), full author "
+            "contributions (sole author CRediT statement), and the "
+            "publicly archived de-identified dataset and analysis code "
+            "(GitHub) referenced in the Data Availability statement."
+        ),
+    },
     "Royal Society Open Science": {
         "addressee": [
             "To the Editors,",
