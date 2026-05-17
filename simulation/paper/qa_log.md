@@ -128,3 +128,26 @@ These limitations are flagged in the Discussion section with proposed extensions
 - **2026-05-08: SocArXiv** — **accepted**, after a tone-down revision (title de-claimed; HEXACO-JP qualified competing-interest disclosure; corrected funding statement clarifying that SUNBLAZE Co., Ltd. provided no funding; "Pre-Registered" dropped from title to avoid scope-overstatement). Preprint DOI: [10.31235/osf.io/p2d8w_v1](https://osf.io/preprints/socarxiv/p2d8w_v1); public preregistration link configured as "Both" (the SocArXiv preprint page and the v2.0 OSF registration page cross-link to each other).
 
 **Implication for paper**: The Declarations section of `manuscript_preprint.docx` and all journal-specific cover letters now reference the SocArXiv preprint DOI in the front-matter; the IEEE Access cover letter additionally documents the prior preprint deposit per IEEE's preprint-permissive policy. The "previously published" closing-paragraph wording in all cover letters has been updated from "has not been previously published, is not under consideration elsewhere" to "has not been previously published in any peer-reviewed venue ... A non-peer-reviewed version has been posted as a preprint at SocArXiv (DOI ...)." This wording avoids a self-contradiction with the public preprint deposit while remaining truthful about the absence of prior peer-reviewed publication.
+
+---
+
+## Q-final-2. Journal submission outcome (IEEE Access, 2026-05-15)
+
+> **Q (investigator):** What happened with the *IEEE Access* submission and what is the next venue?
+
+**A (summary):** The manuscript was submitted to *IEEE Access* on 2026-05-XX as manuscript ID **Access-2026-21806** and was **prescreen-rejected** on 2026-05-15 by Prof. Mehrdad Saif (Editor-in-Chief). Quoting the decision letter:
+
+> "the work would be better placed and find a more appropriate audience in a publication centered on behavior management or social sciences."
+
+No substantive critique of the methods, results, or content was raised. The rejection is purely scope-based: although the manuscript carries heavy computational-statistical machinery (BCa CI cascade, Beta-Binomial empirical-Bayes shrinkage, intersection-union test, target trial emulation, microsimulation), the *substantive* framing around workplace harassment, occupational health, and HEXACO 7-typology was read as behavioral/applied-psychology rather than as an engineering-technical contribution. *IEEE Access* policy precludes resubmission.
+
+**Contrast with the companion *IEEE Access* paper.** Tokiwa (2026, *IEEE Access*, doi: 10.1109/ACCESS.2026.3651324) — the clustering paper — was accepted on first submission, because cluster analysis and HEXACO typology there were framed as a computational-statistical methodology contribution applicable to non-WEIRD samples. The present microsimulation paper foregrounds a *substantive* policy/health framing, which *IEEE Access* treats as outside its scope.
+
+**Next venues (per Editor's explicit hint of "behavior management or social sciences"):** The cover-letter set in this directory already covers four candidate venues, in recommended priority:
+
+1. **Journal of Occupational Health Psychology** (APA): matches "behavior management" hint most directly. Workplace harassment + I-O psychology + APA conventions all align. Cover letter: `cover_letter_johp.md`. Typical TAT 80–100 days.
+2. **Personality and Individual Differences** (Elsevier): HEXACO-friendly readership. Cover letter: `cover_letter_paid.md`. TAT 30–60 days.
+3. **Royal Society Open Science**: broad open-access methodological venue. Cover letter: `cover_letter_rsos.md`. APC ~£1,700.
+4. **Peer Community in Registered Reports**: free community-reviewed RR route. Cover letter: `cover_letter_pcirr.md`.
+
+**Implication for next-step manuscript.** No structural change to the manuscript text is necessary; the same `manuscript_journal.docx` body and the venue-specific cover letter suffice. The `manuscript_ieee.docx`, `cover_letter_ieee.docx`, and `conflict_of_interest_ieee.docx` artifacts remain in the IEEE Access subdirectory for historical record and for a hypothetical future IEEE-style submission (with a re-framed computational-methodology emphasis).

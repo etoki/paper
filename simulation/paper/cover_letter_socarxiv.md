@@ -33,7 +33,7 @@ SocArXiv hosts pre-registered social-science work and integrates with OSF, which
 
 ## Limitations openly disclosed
 
-Six limitations are disclosed in the Discussion: (1) reduced-form framing of Counterfactual C (statistical translation rather than mechanistic deterrence model); (2) causal under-identification (selection, confounding, and reverse causation cannot be distinguished from direct causation, only the latter inconsistent with the data); (3) heterogeneity in counterfactual response (uniform −20% across cells; cell-specific response not estimated); (4) static framing (no temporal dynamics); (5) m8 limitation (cluster proportions M3-fixed at Tokiwa, 2026, *IEEE Access* values); (6) sample size (N = 354; cell-level CIs adequate but not extensively replicated).
+Six limitations are disclosed in the Discussion: (1) reduced-form framing of Counterfactual C (statistical translation rather than mechanistic deterrence model); (2) causal under-identification (selection, confounding, and reverse causation cannot be distinguished from direct causation, only the latter inconsistent with the data); (3) heterogeneity in counterfactual response (uniform −20% across cells; cell-specific response not estimated); (4) static framing (no temporal dynamics); (5) cluster-proportion limitation (cluster proportions remain fixed at the Tokiwa, 2026, values for N = 13,668 because the Labour Force Survey does not capture HEXACO cluster membership); (6) sample size (N = 354; cell-level CIs adequate but not extensively replicated).
 
 ---
 

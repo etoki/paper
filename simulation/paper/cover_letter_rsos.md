@@ -1,7 +1,7 @@
 # Cover Letter — Royal Society Open Science (RSOS)
 
 **Submission Type:** Stage 2 Registered Report
-**Manuscript:** *Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan*
+**Manuscript:** *Person-Level versus System-Level Anti-Harassment Interventions: A HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces*
 **Author:** Eisuke Tokiwa (sole-authored)
 **Pre-registration:** OSF DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u) (v2.0; registered 2026-04-30)
 **Preprint:** SocArXiv DOI [10.31235/osf.io/p2d8w_v1](https://osf.io/preprints/socarxiv/p2d8w_v1) (posted 2026-05-08)
@@ -15,7 +15,7 @@ The Editors
 
 Dear Editors,
 
-I am pleased to submit the enclosed manuscript, *Personality Interventions Don't Work; Structural Ones Do: Counterfactual Evidence from a HEXACO 7-Typology Workplace Harassment Microsimulation in Japan*, for consideration as a Stage 2 Registered Report at *Royal Society Open Science*.
+I am pleased to submit the enclosed manuscript, *Person-Level versus System-Level Anti-Harassment Interventions: A HEXACO 7-Typology Counterfactual Microsimulation in Japanese Workplaces*, for consideration as a Stage 2 Registered Report at *Royal Society Open Science*.
 
 This submission implements, without deviation, the analysis pre-registered as v2.0 at the Open Science Framework (DOI [10.17605/OSF.IO/3Y54U](https://osf.io/3y54u); registered 2026-04-30). All seven primary hypotheses (H1–H7) are evaluated against pre-registered classification rules; all sensitivity sweeps and diagnostic procedures specified in the v2.0 master are executed and reported. The Methods Clarifications Log accompanying the v2.0 registration (Section 6.5 Level 1 deviation; SHA-256 fcaaf0d…) documents 16 minor specification clarifications resolved during the Stage 1 protocol-development phase.
 
@@ -41,9 +41,9 @@ Three contributions distinguish this work:
 
 1. **Methodological**: The first end-to-end pre-registered counterfactual microsimulation of Japanese workplace harassment, with full reproducibility (HDF5 artifacts, fixed seed = 20260429, Docker container, MIT-licensed code) and open data.
 2. **Empirical**: The first quantitative apples-to-apples comparison of person-level and system-level intervention effects on a population-level harassment-prevalence metric, leveraging effect-size calibrations from prior meta-analyses.
-3. **Substantive reframing**: We reposition HEXACO 7-typology as a *stratification variable* identifying differentially exposed populations rather than as an *intervention target*. This framing rejects victim-blaming readings of harassment exposure and aligns with workplace ethics literature.
+3. **Substantive reframing**: We reposition HEXACO 7-typology as a *stratification variable* identifying differentially exposed populations rather than as an *intervention target*, and caution against reading observational HEXACO–harassment associations as endorsing person-focused remediation.
 
-The convergence of our pre-registered counterfactual evidence with the MHLW FY2016–FY2023 natural experiment (−13.2 pp post-Power-Harassment-Prevention-Law decline) provides a rare quasi-validation of our policy-relevant claim.
+The MHLW FY2016 → FY2023 −13.2-percentage-point decline that overlaps with the staged enforcement of the 2020 Power Harassment Prevention Law is treated in the manuscript as substantive context rather than as a formal causal estimand of the law's effect; the present cross-sectional design does not support a formal causal inference about the law itself.
 
 ## Compliance with Stage 2 RR review criteria
 
@@ -60,7 +60,7 @@ The Discussion (Limitations subsection) discloses six limitations explicitly:
 2. **Causal under-identification** (selection, confounding, and reverse causation cannot be distinguished from M1 direct causation, only the latter rejected);
 3. **Heterogeneity in counterfactual response** (uniform −20% across cells; cell-specific response not estimated);
 4. **Static framing** (no temporal dynamics);
-5. **m8 limitation** (cluster proportions M3-fixed at Tokiwa 2026 *IEEE Access* values);
+5. **Cluster-proportion limitation** (cluster proportions remain fixed at the Tokiwa (2026) values for N = 13,668 because the Labour Force Survey does not capture HEXACO cluster membership);
 6. **Sample size** (N = 354; cell-level CIs adequate but not extensively replicated).
 
 We position these limitations as future-work targets rather than threats to the Stage 2 conclusion, which depends only on the apples-to-apples comparison of pre-registered effect-size calibrations.
