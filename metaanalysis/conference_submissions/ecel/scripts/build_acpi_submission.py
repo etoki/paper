@@ -158,12 +158,20 @@ def load_md_sections():
 # emphasis", italics are acceptable. To keep it simple, convert **x**
 # to plain text and _x_ to italic runs.
 # ----------------------------------------------------------------------
-INLINE_RE = re.compile(r"(\*\*([^*]+)\*\*)|(\*([^*]+)\*)")
+# Matches **bold**, *italic*, and `code` spans.
+# Group 2 = bold content; group 4 = italic content; group 6 = code content.
+INLINE_RE = re.compile(r"(\*\*([^*]+)\*\*)|(\*([^*]+)\*)|(`([^`]+)`)")
 
 
 def add_runs(paragraph, text, font_name="Calibri", font_size=10):
-    """Add text to paragraph, converting **bold** and *italic* markers."""
-    # ACPI: avoid bold for emphasis. So **x** -> plain, *x* -> italic.
+    """Add text to paragraph, converting **bold**, *italic* and `code` markers.
+
+    ACPI rule (model paper): avoid bold for emphasis; italics are
+    acceptable. We render `code` spans as Consolas-italic, which is the
+    closest available monospace + non-bold treatment that Word will
+    keep visible during ACPI typesetting (ACPI strips bold but keeps
+    italic + alternate fonts).
+    """
     pos = 0
     for m in INLINE_RE.finditer(text):
         if m.start() > pos:
@@ -173,11 +181,20 @@ def add_runs(paragraph, text, font_name="Calibri", font_size=10):
         if m.group(2) is not None:
             # **bold** -> plain (ACPI rule)
             r = paragraph.add_run(m.group(2))
-        else:
+            r.font.name = font_name
+            r.font.size = Pt(font_size)
+        elif m.group(4) is not None:
+            # *italic*
             r = paragraph.add_run(m.group(4))
             r.italic = True
-        r.font.name = font_name
-        r.font.size = Pt(font_size)
+            r.font.name = font_name
+            r.font.size = Pt(font_size)
+        else:
+            # `code` -> monospace italic
+            r = paragraph.add_run(m.group(6))
+            r.italic = True
+            r.font.name = "Consolas"
+            r.font.size = Pt(font_size)
         pos = m.end()
     if pos < len(text):
         r = paragraph.add_run(text[pos:])
