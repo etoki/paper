@@ -211,6 +211,18 @@ This paper was prepared by the sole author. A preliminary version of the underly
 
 ---
 
+## Ethics declaration
+
+This paper reports a systematic review and meta-analysis based exclusively on previously published research and on the author's own previously published primary study (Tokiwa, 2025, *Frontiers in Psychology* 16:1420996, CC BY 4.0). No new human-subjects data were collected by the author for this paper. Ethical clearance was therefore not required.
+
+---
+
+## AI declaration
+
+The author used a large language model (Anthropic's Claude) as a research assistant throughout this project. Specific uses included: drafting and editing of the manuscript text; generating Python scripts for the meta-analysis pipeline (REML pooling, Hartung–Knapp–Sidik–Jonkman CI adjustment, Q_between contrasts, weighted-OLS interaction model); formatting the manuscript to ACPI submission specifications; and assistance with literature search support and reference verification. All statistical analyses were re-executed by the author and traced to source CSVs; all bibliographic entries were verified against the corresponding primary-source PDFs; all interpretive and substantive content was reviewed and approved by the author. No AI-generated text, figure, or numerical claim was included in the manuscript without explicit author review and validation.
+
+---
+
 ## References
 
 All references below are taken from `metaanalysis/reference_index.md` (PDF-verified ✅).
