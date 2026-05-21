@@ -179,6 +179,63 @@ def redact_doc(doc, replacements):
     return n_changed
 
 
+def replace_data_availability_section(doc):
+    """Rewrite the paragraph that follows the 'Data Availability Statement'
+    heading with the Springer HSSC-compliant anonymised version (lists what
+    has been shared as anonymised supplementary files; explains that the
+    identifying URLs are withheld only for double-anonymous peer review)."""
+    new_text = (
+        "All materials underpinning this systematic review and meta-analysis "
+        "have been made available to the editorial office and referees as "
+        "anonymised supplementary files with this submission. Specifically: "
+        "(a) the completed PRISMA 2020 27-item checklist with section-level "
+        "locations (prisma_2020_checklist_anon.docx); (b) the full Boolean "
+        "search strategy, database and source list, query-level hit counts, "
+        "and the documented deviation from the pre-registered search plan "
+        "(search_strategy_anon.docx); (c) the PRISMA 2020 flow diagram "
+        "(reproduced as Figure 1 of the main manuscript); (d) the eligibility "
+        "criteria, screening decisions, and full-text exclusion reasons "
+        "(reported in the Methods and Results sections of the manuscript); "
+        "(e) the data-extraction table (reproduced as Table 1 of the "
+        "manuscript) listing every included study's country, modality, "
+        "sample size, personality instrument, outcome operationalisation, "
+        "era, region, JBI risk-of-bias score, and inclusion status; (f) the "
+        "synthesis tables (Tables 2-5 of the manuscript: pooled effects, "
+        "moderator analyses, sensitivity analyses, and adapted GRADE "
+        "ratings); and (g) the anonymised Declaration of Interest "
+        "(declaration_of_interest_anon.docx). Beyond the materials uploaded "
+        "here, the full pre-registration record on a public open-science "
+        "registry, the seven-component open-science project (protocol, "
+        "search log, screening ledger, data-extraction CSV, JBI risk-of-bias "
+        "spreadsheet, analysis code and outputs, and article-level DOI "
+        "index), and the version-controlled code repository hosting the "
+        "full Python analysis pipeline have all been permanently deposited "
+        "under stable DOIs and are publicly accessible. Those DOIs are "
+        "withheld at this stage solely because their URLs identify the "
+        "author and will be supplied to the editorial office post-"
+        "acceptance for inclusion in the final published version. Nothing "
+        "has been redacted from these deposits; the only restriction is "
+        "the temporary withholding of identifying URLs for double-anonymous "
+        "review."
+    )
+    found = False
+    for p in doc.paragraphs:
+        text = "".join(r.text for r in p.runs).strip()
+        if text == "Data Availability Statement":
+            found = True
+            continue
+        if found and text:
+            first = p.runs[0] if p.runs else None
+            for r in p.runs[1:]:
+                r.text = ""
+            if first is not None:
+                first.text = new_text
+            else:
+                p.add_run(new_text)
+            return True
+    return False
+
+
 def replace_tokiwa_reference(doc):
     """Replace the Tokiwa (2025) reference list entry with an anonymised
     placeholder so the Reference list does not betray authorship."""
@@ -244,6 +301,7 @@ def build_anonymous_manuscript(output_path):
 
     n_changed = redact_doc(doc, REPLACEMENTS)
     n_refs = replace_tokiwa_reference(doc)
+    da_replaced = replace_data_availability_section(doc)
 
     build_docx.italicize_stats_in_doc(doc)
 
@@ -251,6 +309,7 @@ def build_anonymous_manuscript(output_path):
     print(f"Wrote {output_path}")
     print(f"  paragraphs redacted: {n_changed}")
     print(f"  Tokiwa reference entries replaced: {n_refs}")
+    print(f"  Data Availability section rewritten: {da_replaced}")
 
 
 def main():
