@@ -85,9 +85,12 @@ def load_md_sections():
     n = len(lines)
     while i < n:
         line = lines[i]
-        # Headings
-        if line.startswith("# "):
+        # Headings (order matters: check longer prefixes first)
+        if line.startswith("# ") and not line.startswith("## "):
             out.append(("title", 0, line[2:].strip()))
+            i += 1; continue
+        if line.startswith("#### "):
+            out.append(("h3", 3, line[5:].strip()))
             i += 1; continue
         if line.startswith("### "):
             out.append(("h3", 3, line[4:].strip()))
@@ -113,12 +116,12 @@ def load_md_sections():
         )
         if line.strip() in ("---", "") or any(line.startswith(k) for k in FRONTMATTER_KEYS):
             i += 1; continue
-        # Image (PRISMA figure)
+        # Image (PRISMA figure, interaction figure, etc.)
         if line.startswith("!["):
-            # capture caption from inside the brackets
-            m = re.match(r"!\[(.+?)\]\((.+?)\)", line)
+            m = re.match(r"!\[(.+?)\]\((.+?)(?:\{.*\})?\)", line)
             caption = m.group(1) if m else ""
-            out.append(("figure", 0, caption))
+            img_path = m.group(2).strip() if m else ""
+            out.append(("figure", 0, (caption, img_path)))
             i += 1; continue
         # Markdown table block: header line | --- | --- ...
         if line.startswith("|") and i + 1 < n and re.match(r"^\|\s*[-:|\s]+\|\s*$", lines[i+1]):
@@ -253,11 +256,15 @@ def add_table_from_md(doc, md_block):
     doc.add_paragraph()
 
 
-def add_figure(doc, caption):
-    """Insert PRISMA figure with caption."""
-    if FIG.exists():
+def add_figure(doc, caption_and_path):
+    """Insert figure with caption. caption_and_path is (caption_str, img_path_str)."""
+    caption, img_path = caption_and_path
+    # Resolve image path relative to the ECEL directory
+    resolved = (ECEL / img_path).resolve() if img_path else FIG.resolve()
+    if resolved.exists():
+        doc.add_picture(str(resolved))
+    elif FIG.exists():
         doc.add_picture(str(FIG))
-    # Caption (Calibri 10pt, "Figure 1." prefix already in caption text)
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     add_runs(p, caption)
@@ -337,8 +344,13 @@ def apply_blind_replacements(text: str) -> str:
 def build(mode: str, out_path: Path):
     sections = load_md_sections()
     if mode == "blind":
-        # Mutate paragraph text in-place
-        sections = [(k, l, apply_blind_replacements(t)) for (k, l, t) in sections]
+        def _blind(t):
+            if isinstance(t, str):
+                return apply_blind_replacements(t)
+            if isinstance(t, tuple):
+                return tuple(_blind(x) for x in t)
+            return t
+        sections = [(k, l, _blind(t)) for (k, l, t) in sections]
     doc = Document(str(TEMPLATE))
     # The template ships with one empty paragraph; leave the body element
     # in place (its presence is required for some style lookups) but
