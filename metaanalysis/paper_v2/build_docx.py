@@ -380,7 +380,7 @@ def build_intro_part1(doc):
         "academic achievement (Mammadov, 2022; Poropat, 2009). Yet the accumulated meta-"
         "analytic evidence, as reviewed below, has been produced almost entirely from "
         "samples in which delivery modality is treated as noise rather than as a "
-        "substantive moderator. The present review is the first to address this gap "
+        "substantive moderator. The present review is , to the author\'s knowledge, the first to address this gap "
         "quantitatively."
     )
     add_para(doc, opening, indent_first=True)
@@ -661,7 +661,7 @@ def build_intro_part3(doc):
         "A null result for any of these hypotheses would itself be informative, "
         "indicating that online and face-to-face personality-achievement "
         "relationships are equivalent in the corresponding dimension. The present "
-        "review therefore offers the first quantitative evaluation of whether "
+        "review therefore offers , to the author\'s knowledge, the first quantitative evaluation of whether "
         "personality operates differently across learning modalities, and provides "
         "a necessary empirical foundation for both theoretical refinement and "
         "evidence-informed educational practice in the post-pandemic era."
@@ -1143,21 +1143,28 @@ def build_methods_part5(doc):
     add_h2(doc, "Software and Reproducibility")
 
     p3 = (
-        "All quantitative analyses were performed in R (version ≥ 4.3.0) using the "
-        "metafor package (Viechtbauer, 2010) as the primary engine for random-"
-        "effects meta-analysis, mixed-effects meta-regression, and heterogeneity "
-        "diagnostics. The clubSandwich package was used for robust variance "
-        "estimation (Pustejovsky, 2023), and the dmetar companion package (Harrer "
-        "et al., 2021) was used for auxiliary diagnostic and plotting functions. "
-        "Visualizations, including forest plots, funnel plots, and bubble plots, "
-        "were produced using ggplot2. All analysis code, session information "
-        "(sessionInfo() output), and a pinned package-version lockfile (renv.lock) "
-        "are deposited on the associated OSF project "
+        "All quantitative analyses were performed in Python (version ≥ 3.11) "
+        "using the scientific Python stack as the primary engine for "
+        "random-effects meta-analysis, mixed-effects meta-regression, and "
+        "heterogeneity diagnostics: NumPy and SciPy for numerical primitives "
+        "(REML τ² estimation, Fisher-z transformations, Hartung-Knapp-Sidik-"
+        "Jonkman confidence-interval adjustment, Q-statistic and I² "
+        "computation, prediction-interval calculation), pandas for the "
+        "extraction-CSV data layer, statsmodels for ancillary regression "
+        "and trim-and-fill calculations, and Matplotlib for forest, "
+        "funnel, and bubble plots. The clubSandwich approach to cluster-"
+        "robust variance estimation (Pustejovsky, 2023; Tipton, 2015) was "
+        "re-implemented in Python following the published mathematical "
+        "specification rather than via the R package, and was validated "
+        "against the canonical Harrer et al. (2021) worked examples. All "
+        "analysis code, the deposited extraction CSV, and pinned package "
+        "versions (uv.lock) are deposited on the associated OSF project "
         "(https://doi.org/10.17605/OSF.IO/79M5J), specifically in the "
-        "06_analysis component (https://doi.org/10.17605/OSF.IO/Q4XKB). "
-        "Any interested researcher can reproduce "
-        "every analytic step reported in this paper from the deposited "
-        "extraction CSV and the R scripts."
+        "06_analysis component (https://doi.org/10.17605/OSF.IO/Q4XKB), and "
+        "are mirrored at https://github.com/etoki/paper for version control. "
+        "Any interested researcher can reproduce every analytic step "
+        "reported in this paper from the deposited extraction CSV and the "
+        "Python scripts."
     )
     add_para(doc, p3, indent_first=True)
 
@@ -1680,7 +1687,7 @@ def build_discussion_part1(doc):
     add_h2(doc, "Summary of Findings")
 
     p1 = (
-        "The present systematic review and meta-analysis provides the first "
+        "The present systematic review and meta-analysis provides , to the author\'s knowledge, the first "
         "quantitative synthesis of the association between Big Five "
         "personality traits and academic achievement in online learning "
         "environments. Across 31 catalogued primary studies — 25 retained "
@@ -1823,7 +1830,7 @@ def build_discussion_part1(doc):
         ".061]; Q_between = 46.43, p < .001), and in objective "
         "achievement outcomes the pooled effect was r = −.038 "
         "(Q_between = 17.30, p < .001 against self-rated r = .117). "
-        "These moderator findings represent the first meta-analytic "
+        "These moderator findings represent , to the author\'s knowledge, the first meta-analytic "
         "evidence for a directional shift in the Extraversion effect "
         "attributable to (a) cultural context and (b) outcome "
         "operationalization in online learning environments, extending "
