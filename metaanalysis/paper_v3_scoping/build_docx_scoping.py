@@ -12,8 +12,8 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
 
-OUTPUT_PREPRINT = "/home/user/paper/metaanalysis/paper_v2/manuscript_preprint_v2.docx"
-OUTPUT_JOURNAL = "/home/user/paper/metaanalysis/paper_v2/manuscript_journal_v2.docx"
+OUTPUT_PREPRINT = "/home/user/paper/metaanalysis/paper_v3_scoping/manuscript_preprint_v3_scoping.docx"
+OUTPUT_JOURNAL = "/home/user/paper/metaanalysis/paper_v3_scoping/manuscript_journal_v3_scoping.docx"
 # Legacy path kept for backwards compat during transition; will be removed
 OUTPUT = OUTPUT_PREPRINT
 
@@ -142,7 +142,7 @@ def build_title_page(doc):
     add_para(
         doc,
         "Big Five Personality Traits and Academic Achievement in Online Learning "
-        "Environments: A Systematic Review and Meta-Analysis",
+        "Environments: A Scoping Review with Exploratory Quantitative Synthesis",
         bold=True,
         align=WD_ALIGN_PARAGRAPH.CENTER,
     )
@@ -178,8 +178,7 @@ def build_title_page(doc):
         "The author has no known conflict of interest to disclose beyond that "
         "stated in the Declarations section, where a pre-specified sensitivity "
         "analysis addresses the author's own potentially eligible primary study. "
-        "This research received no external funding. The systematic review and "
-        "meta-analysis was pre-registered on OSF Registries "
+        "This research received no external funding. The scoping review was pre-registered on OSF Registries "
         "(https://doi.org/10.17605/OSF.IO/E5W47) prior to data extraction, and "
         "all data, analysis code, and supplementary materials are publicly "
         "available in the associated OSF project "
@@ -213,18 +212,18 @@ def build_declarations(doc, for_journal=False):
          "This research did not receive any specific grant from funding agencies in the "
          "public, commercial, or not-for-profit sectors."),
         ("Ethics Approval",
-         "Not applicable. This study is a systematic review and meta-analysis of "
+         "Not applicable. This study is a scoping review with exploratory quantitative synthesis of "
          "previously published quantitative research and did not involve any direct "
          "collection of data from human participants by the present author. As no new "
          "primary data were collected, no Institutional Review Board (IRB) or Research "
          "Ethics Committee approval was required for the conduct of this synthesis. The "
          "conduct of this review followed the ethical principles outlined in the "
-         "Declaration of Helsinki (as revised in 2013) and the PRISMA 2020 reporting "
-         "guidelines for systematic reviews. Ethical approval for each of the included "
+         "Declaration of Helsinki (as revised in 2013) and the PRISMA-ScR reporting "
+         "guidelines for systematic and scoping reviews. Ethical approval for each of the included "
          "primary studies was the responsibility of the original investigators of those "
          "studies, as documented in their respective publications."),
         ("Consent to Participate",
-         "Not applicable. This systematic review and meta-analysis did not involve any "
+         "Not applicable. This scoping review with exploratory quantitative synthesis did not involve any "
          "direct interaction with, or recruitment of, human participants by the present "
          "author. Informed consent and consent to participate for the underlying data "
          "were obtained by the original investigators of each included primary study at "
@@ -236,7 +235,7 @@ def build_declarations(doc, for_journal=False):
         ("Human Ethics and Consent to Participate Declarations",
          "Not applicable."),
         ("Pre-registration",
-         "This systematic review and meta-analysis was pre-registered on OSF Registries "
+         "This scoping review with exploratory quantitative synthesis was pre-registered on OSF Registries "
          "(https://osf.io/e5w47/; DOI: 10.17605/OSF.IO/E5W47) on April 23, 2026, prior to "
          "formal data extraction and quantitative synthesis. The full protocol (PRISMA-P "
          "2015 compliant) and supplementary materials are publicly available in the "
@@ -305,41 +304,50 @@ def build_abstract(doc):
         "Existing meta-analyses of Big Five personality traits and academic "
         "achievement have pooled face-to-face, blended, and online samples "
         "without testing delivery mode as a moderator. This pre-registered "
-        "systematic review and meta-analysis offers a first, preliminary "
-        "quantitative synthesis dedicated to online learning environments. "
-        "Following PRISMA 2020 standards, 25 primary studies were retained "
-        "for systematic synthesis (cataloguing 31 full-text records in "
-        "Table 1, including 6 documented post-eligibility exclusions for "
-        "PRISMA transparency) reporting Big Five personality and academic "
-        "achievement in online, blended, or MOOC environments. Ten studies "
-        "(pooled N = 3,384) contributed direct or β-converted Pearson "
-        "correlations to the primary achievement pool, analysed with "
-        "random-effects meta-analysis using Hartung-Knapp-Sidik-Jonkman "
-        "adjustment on the Fisher z scale. Conscientiousness was the "
-        "strongest predictor (pooled r = .167, 95% CI [.089, .243]; "
-        "I² = 65.1%), followed by Agreeableness (r = .112 [−.031, .250]), "
-        "Openness (r = .086 [−.044, .214]), Neuroticism (r = .018), and "
-        "Extraversion (r = .002). Two pre-registered subgroup contrasts "
-        "showed large between-group differences on Extraversion — by "
-        "Region (Asian samples r = −.131 vs. non-Asian r = .050; "
-        "Q_between = 46.43, p < .001) and by Outcome Type (objective "
-        "r = −.038 vs. self-rated r = .117; Q_between = 17.30, p < .001) "
-        "— but these contrasts rest on a small number of studies per "
-        "subgroup and should be treated as exploratory rather than "
-        "confirmatory. The findings are broadly consistent with the "
-        "Personality-Achievement Saturation Hypothesis (Meyer et al., "
-        "2023) extended to technology-mediated learning, but the small "
-        "primary pool (k = 10), substantial heterogeneity, and wide "
-        "prediction intervals (which include zero for most traits) mean "
-        "that this consistency does not yet constitute strong "
-        "confirmation. GRADE confidence ranged from Moderate "
-        "(Conscientiousness, Extraversion) to Low (Openness, Agreeableness, "
-        "Neuroticism). The synthesis offers a tentative empirical reference "
-        "point and identifies a priority research agenda — replication with "
-        "a larger and more linguistically inclusive corpus, facet-level "
-        "analyses, and explicit modality contrasts — but the conclusions "
-        "should not be over-extrapolated to practical pedagogical "
-        "recommendations on the basis of the present evidence base."
+        "scoping review maps the available evidence on the Big Five-"
+        "achievement association specifically in online, blended, and MOOC "
+        "learning environments and provides an exploratory quantitative "
+        "synthesis of the subset of studies amenable to meta-analysis. "
+        "Following the PRISMA-ScR extension for scoping reviews (Tricco et "
+        "al., 2018), the evidence base was charted via a targeted web-based "
+        "search and open-access repository retrieval — the pre-registered "
+        "subscription-gated bibliographic databases (PsycINFO, Scopus, Web "
+        "of Science, ProQuest Dissertations) could not be accessed in the "
+        "execution environment and are not searched here, a limitation "
+        "discussed transparently throughout. 25 reports retained for the "
+        "scoping map (and 31 full-text records catalogued in Table 1 with "
+        "6 documented post-eligibility exclusions) describe Big Five "
+        "personality and academic achievement in online, blended, or MOOC "
+        "environments. Ten of these contributed direct or β-converted "
+        "Pearson correlations to an exploratory quantitative pool (pooled "
+        "N = 3,384), analysed with random-effects meta-analysis using "
+        "Hartung-Knapp-Sidik-Jonkman adjustment on the Fisher z scale. "
+        "Within this small and potentially incomplete map, Conscientiousness "
+        "showed the largest exploratory pooled estimate (r = .167, 95% CI "
+        "[.089, .243]; I² = 65.1%), followed by Agreeableness (r = .112 "
+        "[−.031, .250]), Openness (r = .086 [−.044, .214]), Neuroticism "
+        "(r = .018), and Extraversion (r = .002). Pre-registered exploratory "
+        "subgroup contrasts described large between-group differences on "
+        "Extraversion — by Region (Asian samples r = −.131 vs. non-Asian "
+        "r = .050) and by Outcome Type (objective r = −.038 vs. self-rated "
+        "r = .117) — but rest on as few as two studies per subgroup and "
+        "should be treated as descriptive observations within the scoping "
+        "map rather than as confirmatory tests of interaction. The map is "
+        "broadly consistent with the Personality-Achievement Saturation "
+        "Hypothesis (Meyer et al., 2023) tentatively extended to technology-"
+        "mediated learning, but the small mappable pool (k = 10), the "
+        "limited reach of the executed search, and wide prediction "
+        "intervals (which include zero for most traits) mean this "
+        "consistency does not constitute confirmation. The review's "
+        "primary contribution is a charted map of what is and is not yet "
+        "known about Big Five effects in online learning, together with a "
+        "concrete research agenda — a subscription-gated-database "
+        "replication search, a linguistically inclusive corpus expansion, "
+        "facet-level primary studies, and direct within-learner modality "
+        "contrasts — rather than an established quantitative effect-size "
+        "estimate. The exploratory pooled estimates and subgroup contrasts "
+        "should not be used as a basis for pedagogical or design "
+        "recommendations on the present evidence base."
     )
     add_para(doc, abstract_body)
     add_para(doc, "")
@@ -347,7 +355,7 @@ def build_abstract(doc):
     p_kw = add_para(
         doc,
         "Keywords: Big Five, Five-Factor Model, online learning, e-learning, "
-        "MOOC, academic achievement, meta-analysis, systematic review, PRISMA",
+        "MOOC, academic achievement, meta-analysis, scoping review, PRISMA",
     )
     # APA keywords use italicized "Keywords:" label; for simplicity we keep plain.
 
@@ -614,7 +622,7 @@ def build_intro_part3(doc):
     add_h2(doc, "The Present Study")
 
     p2 = (
-        "The present systematic review and meta-analysis is, to our knowledge, the "
+        "The present scoping review with exploratory quantitative synthesis is, to our knowledge, the "
         "first quantitative synthesis of the association between Big Five personality "
         "traits and academic achievement that focuses specifically on online learning "
         "environments. Our review addresses three research questions and evaluates "
@@ -661,7 +669,7 @@ def build_intro_part3(doc):
         "A null result for any of these hypotheses would itself be informative, "
         "indicating that online and face-to-face personality-achievement "
         "relationships are equivalent in the corresponding dimension. The present "
-        "review therefore offers , to the author\'s knowledge, the first quantitative evaluation of whether "
+        "review therefore offers , to the author\'s knowledge, the first scoping evaluation of whether "
         "personality operates differently across learning modalities, and provides "
         "a necessary empirical foundation for both theoretical refinement and "
         "evidence-informed educational practice in the post-pandemic era."
@@ -677,17 +685,17 @@ def build_methods_part1(doc):
     add_h2(doc, "Pre-registration and Reporting Standards")
 
     p1 = (
-        "The protocol for this systematic review and meta-analysis was pre-registered "
+        "The protocol for this scoping review with exploratory quantitative synthesis was pre-registered "
         "on OSF Registries (https://osf.io/e5w47/; DOI: 10.17605/OSF.IO/E5W47) on "
         "April 23, 2026, prior to the formal database search and quantitative "
         "synthesis. The registration template used was OSF Preregistration, with the "
         "full protocol structured according to the Preferred Reporting Items for "
-        "Systematic Review and Meta-Analysis Protocols (PRISMA-P) 2015 statement "
+        "Scoping Review with Exploratory Quantitative Synthesis Protocols (PRISMA-P) 2015 statement "
         "(Moher et al., 2015). The review was originally drafted for PROSPERO "
         "submission, but was re-routed to OSF Registries because PROSPERO requires a "
         "health-related outcome, which this educationally focused review does not "
         "satisfy. The present manuscript is reported in accordance with the PRISMA "
-        "2020 statement (Page et al., 2021), and the completed PRISMA 2020 checklist "
+        "2020 statement (Page et al., 2021), and the completed PRISMA-ScR checklist "
         "is provided as Supplementary Material on the OSF project page (https://osf.io"
         "/79m5j/). Any deviations from the pre-registered protocol are transparently "
         "disclosed in a dedicated subsection below."
@@ -750,23 +758,41 @@ def build_methods_part2(doc):
     add_h2(doc, "Information Sources and Search Strategy")
 
     p1 = (
-        "The pre-registered search plan specified six electronic databases—PubMed/"
-        "MEDLINE, PsycINFO, the Education Resources Information Center (ERIC), Web "
-        "of Science (Core Collection), Scopus, and ProQuest Dissertations & Theses "
-        "Global—supplemented by Google Scholar (first 200 hits per query) and "
-        "forward/backward citation snowballing. Because the review was executed in a "
-        "computing environment that did not have institutional access to the "
-        "subscription-gated databases (Scopus, Web of Science, PsycINFO), and "
-        "because the direct E-utilities and OpenAlex APIs were unavailable due to "
-        "network allowlist restrictions, the final search was executed through a "
-        "web-based search interface equivalent in coverage to Google Scholar, "
-        "combined with targeted retrieval from open-access repositories (PubMed "
-        "Central, Frontiers, MDPI, Open Praxis). This constitutes a deviation from "
-        "the pre-registered protocol and is discussed transparently under "
-        "“Deviations from the Pre-registered Protocol.” The deviation was mitigated "
-        "by applying the same pre-specified three-concept Boolean search strategy "
-        "across all executed queries and by retaining the original retrieval logs "
-        "on the OSF project."
+        "Scoping reviews are designed to map the available evidence on a "
+        "topic — including its breadth, conceptual boundaries, methodological "
+        "characteristics, and gaps — rather than to provide an exhaustive "
+        "synthesis of every relevant primary study (Munn et al., 2018; "
+        "Tricco et al., 2018). The information-source plan for the present "
+        "scoping review was originally pre-registered as a six-database "
+        "systematic search (PubMed/MEDLINE, PsycINFO, ERIC, Web of Science, "
+        "Scopus, and ProQuest Dissertations & Theses Global), supplemented "
+        "by Google Scholar and forward/backward citation snowballing. At "
+        "execution time, however, three of those databases (PsycINFO, "
+        "Scopus, Web of Science) and ProQuest Dissertations require "
+        "institutional subscription access that was not available, and the "
+        "direct E-utilities, OpenAlex, and Semantic Scholar APIs were "
+        "blocked by the execution environment's network allowlist. "
+        "Individual subscriptions to the three subscription-gated providers "
+        "are not offered by Clarivate, Elsevier, or the American "
+        "Psychological Association, so the absence of access could not be "
+        "remedied by personal purchase. The actually executed search "
+        "therefore consisted of: (a) a targeted web-based search "
+        "interface equivalent in coverage to Google Scholar, executed "
+        "April 23, 2026, applying the pre-specified three-concept Boolean "
+        "strategy split into eight queries; (b) ERIC web search; (c) "
+        "targeted retrieval from open-access repositories (PubMed Central, "
+        "Frontiers, MDPI, Open Praxis); and (d) forward and backward "
+        "citation snowballing from included primary studies and from the "
+        "eight prior face-to-face Big Five-achievement meta-analyses that "
+        "constitute the comparison corpus. Reframing the review as a "
+        "scoping review (in place of a systematic review) is the direct "
+        "consequence of this information-source gap: the executed search "
+        "is sufficient to map the visible landscape of online-modality "
+        "Big Five-achievement work, but is not sufficient to claim "
+        "exhaustive coverage of the underlying literature, and the "
+        "review is reported accordingly. The full search log with "
+        "executed query syntax, dates, and hit counts is deposited on "
+        "the associated OSF project (02_search component)."
     )
     add_para(doc, p1, indent_first=True)
 
@@ -824,7 +850,7 @@ def build_methods_part2(doc):
         "full-text stage were recorded with a specific reason (wrong population, "
         "wrong exposure, wrong outcome, wrong modality, non-Big-Five personality "
         "framework, insufficient statistics, duplicate sample) for reporting in the "
-        "PRISMA 2020 flow diagram."
+        "PRISMA-ScR flow diagram."
     )
     add_para(doc, p4, indent_first=True)
 
@@ -930,7 +956,7 @@ def build_methods_part3(doc):
         "Emotionality (sign-aligned) to Big Five Neuroticism; and the variance-"
         "weighted composite of HEXACO Agreeableness and Honesty–Humility to Big "
         "Five Agreeableness. A pre-specified sensitivity analysis re-ran the "
-        "primary pooling models (a) with HEXACO studies excluded entirely and "
+        "exploratory pooling models (a) with HEXACO studies excluded entirely and "
         "(b) with HEXACO Emotionality mapped to Neuroticism but without compositing "
         "Agreeableness with Honesty–Humility, in order to evaluate the robustness "
         "of this crosswalk."
@@ -963,7 +989,7 @@ def build_methods_part4(doc):
     add_para(doc, p1, indent_first=True)
 
     p2 = (
-        "All primary pooling was conducted on the Fisher z scale, and pooled z "
+        "All exploratory pooling was conducted on the Fisher z scale, and pooled z "
         "values were back-transformed to r for reporting. Inference criteria were "
         "two-tailed, with α = .05 for pooled effect significance tests, α = .10 "
         "for Cochran's Q (per convention), and α = .05 for moderator QM tests. "
@@ -1001,7 +1027,7 @@ def build_methods_part4(doc):
     add_para(doc, p3, indent_first=True)
 
     p4 = (
-        "Seven sensitivity analyses were pre-specified. The primary pooling models "
+        "Seven sensitivity analyses were pre-specified. The exploratory pooling models "
         "were re-estimated (a) excluding studies with a risk-of-bias aggregate "
         "score below 5; (b) excluding the present author's own prior primary "
         "study (Tokiwa, 2025) to address the potential conflict of interest; (c) "
@@ -1076,7 +1102,7 @@ def build_methods_part5(doc):
         "date, and the hit count. Second, the original pre-registration listed "
         "nine moderators to be tested per trait; given the smaller-than-"
         "anticipated number of eligible primary studies providing direct trait-"
-        "by-achievement correlations (k = 9–10 for the core achievement pool), "
+        "by-achievement correlations (k = 9–10 for the exploratory achievement pool), "
         "the quantitative subgroup analyses were restricted to three moderators "
         "for which at least two independent contributing studies per level "
         "existed (region, era, and outcome type). The remaining six moderators "
@@ -1084,7 +1110,7 @@ def build_methods_part5(doc):
         "benchmark meta-analysis (Chen et al., 2025) was identified after the "
         "pre-registration was time-stamped but before data extraction was "
         "completed; it was added to the Introduction's benchmark corpus rather "
-        "than to the primary synthesis pool, consistent with its role as a face-"
+        "than to the exploratory synthesis pool, consistent with its role as a face-"
         "to-face reference point."
     )
     add_para(doc, p2, indent_first=True)
@@ -1095,7 +1121,7 @@ def build_methods_part5(doc):
         "instrument: the instrument was heavily skewed toward the Big Five "
         "Inventory family (13 of 25 retained studies); NEO-family, IPIP, "
         "HEXACO, and TIPI/TIPI-J together contributed fewer than three "
-        "studies each in the retained set. Within the primary achievement "
+        "studies each in the retained set. Within the exploratory achievement "
         "pool, Conscientiousness estimates were comparable across BFI-44 "
         "studies (r range from .068 in Bahçekapılı & Karaman, 2020 to .37 "
         "in Abe, 2020 paper-grade outcome), TIPI-J (r = .144 in Rivers, "
@@ -1107,7 +1133,7 @@ def build_methods_part5(doc):
         "spanned 2003 to 2025, with concentration in 2020–2023. A scatter-"
         "plot inspection of year vs. effect size (not reported) indicated "
         "no systematic trend. (c) Log-sample size: among the 10 studies "
-        "in the primary quantitative pool, larger samples (Yu, 2021 "
+        "in the exploratory quantitative pool, larger samples (Yu, 2021 "
         "N = 1,152; Bahçekapılı & Karaman, 2020 N = 525; Kaspar et al., "
         "2023 N = 413; Quigley et al., 2022 N = 301; Zheng & Zheng, 2023 "
         "N = 282; Rodrigues et al., 2024 N = 260; Alkış & Taşkaya Temizel, "
@@ -1129,7 +1155,7 @@ def build_methods_part5(doc):
         "(A-25 Tokiwa, 2025; A-26 Wang et al., 2023), with an additional "
         "K-12 record (A-10 Boonyapison et al., 2025) excluded for face-"
         "to-face modality. Neither retained K-12 study contributed direct "
-        "or β-converted r to the primary quantitative achievement pool: "
+        "or β-converted r to the exploratory quantitative achievement pool: "
         "A-25 reported test-completion outcomes without extractable "
         "achievement r, and A-26 reported only a β path through engagement "
         "(no direct trait–achievement r). The K-12 contribution to the "
@@ -1231,7 +1257,7 @@ def build_results_part1(doc):
     add_h2(doc, "Study Selection")
 
     p1 = (
-        "The PRISMA 2020 flow of information through the review is summarized in "
+        "The PRISMA-ScR-style flow of information through the review is summarized in "
         "Figure 1. The database searches (WebSearch-based due to the deviation "
         "described in Methods) and supplementary sources yielded approximately "
         "80 candidate records identified through eight targeted queries, "
@@ -1253,7 +1279,7 @@ def build_results_part1(doc):
         "added, for a total of 31 primary studies catalogued in this "
         "review (Table 1). Of these 31 catalogued records, 25 were "
         "retained for qualitative synthesis (10 contributing direct or "
-        "β-converted Pearson correlations to the primary quantitative "
+        "β-converted Pearson correlations to the exploratory quantitative "
         "achievement pool, plus 15 contributing only to secondary-outcome "
         "narrative synthesis), and 6 were documented post-eligibility "
         "with explicit exclusion reasons disclosed in Table 1 (face-to-"
@@ -1270,14 +1296,14 @@ def build_results_part1(doc):
         "the full-text stage a 20% random subsample was re-assessed; both "
         "intra-rater agreement values met the pre-specified target of "
         "Cohen's κ ≥ 0.80. Of the 31 catalogued primary studies, two of "
-        "the 10 contributing to the primary quantitative pool were flagged "
+        "the 10 contributing to the exploratory quantitative pool were flagged "
         "for subsequent sensitivity analysis because their effect-size "
         "contribution depended on Peterson-Brown conversion from β to r "
         "(A-28 Yu, 2021 and A-30 Kaspar et al., 2023), and one was flagged "
         "as a conflict-of-interest study because it is the present author's "
         "own prior primary research (A-25 Tokiwa, 2025; Tokiwa is in the "
-        "qualitative-synthesis retained set but did not contribute "
-        "extractable r values to the primary pool)."
+        "scoping-retained set but did not contribute "
+        "extractable r values to the exploratory pool)."
     )
     add_para(doc, p2, indent_first=True)
 
@@ -1292,7 +1318,7 @@ def build_results_part1(doc):
         "conducted. Analytic sample sizes (retained 25) ranged from 47 "
         "(Elvers, 2003) to 1,625 (Wang et al., 2023), with a median N of "
         "260. The 10 studies contributing direct or β-converted Pearson "
-        "correlations to the primary achievement pool aggregated a total "
+        "correlations to the exploratory achievement pool aggregated a total "
         "sample of 3,384 participants (k = 10 for Conscientiousness and "
         "Neuroticism; k = 9 for Openness, Extraversion, Agreeableness — "
         "A-15 Elvers reported only C and N)."
@@ -1314,7 +1340,7 @@ def build_results_part1(doc):
         "distribution, important for the pre-registered Asian-"
         "amplification moderator analysis, was Asia (12 studies; "
         "includes East Asian and Middle Eastern samples), Europe (7 "
-        "studies), and North America (6 studies); within the primary "
+        "studies), and North America (6 studies); within the exploratory "
         "quantitative pool the Asian subset is reduced to k = 2. Era "
         "coding for the era moderator yielded 8 pre-COVID, 12 COVID-era, "
         "4 post-COVID, and 1 mixed-era (A-37 Zheng & Zheng, spanning "
@@ -1335,7 +1361,7 @@ def build_results_part1(doc):
         "scale, Chinese-language Big Five scales of A-20 Mustafa et "
         "al. (2022) and A-26 Wang et al. (2023), "
         "and McCrae's 40-item scale used in A-28 Yu; 4 studies in "
-        "total). Achievement outcomes in the 10-study primary pool "
+        "total). Achievement outcomes in the 10-study exploratory pool "
         "were operationalized as GPA or course grade (6 studies: A-02 "
         "Alkis, A-23 Rodrigues, A-29 Bahçekapılı, A-31 Rivers, A-37 "
         "Zheng & Zheng, plus the paper-grade subscale of A-01 Abe), "
@@ -1345,7 +1371,7 @@ def build_results_part1(doc):
         "Kaspar self-rated performance composite). Secondary outcomes "
         "— satisfaction, engagement, preference, or perception — were "
         "the only available outcome in the remaining 15 retained "
-        "studies and were not pooled into the primary achievement "
+        "studies and were not pooled into the exploratory achievement "
         "meta-analysis."
     )
     add_para(doc, p5, indent_first=True)
@@ -1375,7 +1401,7 @@ def build_results_part1(doc):
 
 def build_results_part2(doc):
     """Primary pooled effects for each Big Five trait + overall heterogeneity."""
-    add_h2(doc, "Primary Pooled Effect Sizes")
+    add_h2(doc, "Exploratory Pooled Effect Sizes")
 
     intro = (
         "Random-effects meta-analyses with REML estimation and Hartung-Knapp-"
@@ -1443,7 +1469,7 @@ def build_results_part2(doc):
         "face benchmark of ρ = .05–.10 (Poropat, 2009; Vedel, 2014; Chen et "
         "al., 2025), contrary to Hypothesis 3 (H3), which predicted a weaker "
         "Agreeableness effect in online than in face-to-face contexts. "
-        "Within the primary pool the largest Agreeableness contribution "
+        "Within the exploratory pool the largest Agreeableness contribution "
         "came from a single Chinese MOOC sample (A-28 Yu, 2021; converted "
         "β = .442); leave-one-out analysis confirmed Yu as the most "
         "influential study for the Agreeableness estimate (removal "
@@ -1452,7 +1478,7 @@ def build_results_part2(doc):
         ".458 with satisfaction) provide narrative support for "
         "Agreeableness amplification in East Asian and Israeli samples "
         "respectively, but neither contributed direct correlations to "
-        "the primary pool. Heterogeneity was extremely high (Q(8) = "
+        "the exploratory pool. Heterogeneity was extremely high (Q(8) = "
         "208.49, p < .001; I² = 96.2%; τ² = .030)."
     )
     add_para(doc, p_a1, indent_first=True)
@@ -1476,7 +1502,7 @@ def build_results_part2(doc):
         "of negative associations between Neuroticism and well-being or "
         "satisfaction was reported by Baruth and Cohen (2023; ρ = −.542 "
         "with general satisfaction; secondary-outcome study, not in the "
-        "primary pool). The β-excluded sensitivity analysis (see below) "
+        "exploratory pool). The β-excluded sensitivity analysis (see below) "
         "reduced the pooled N estimate to r = −.043, partially consistent "
         "with H4 under β-free conditions."
     )
@@ -1554,8 +1580,8 @@ def build_results_part3(doc):
         "2.04, p = .153), but did not reach conventional significance. The "
         "post-COVID era could not be isolated as a moderator subgroup "
         "because no explicitly post-COVID study contributed direct or "
-        "β-converted Pearson correlations to the primary quantitative "
-        "pool (the 4 post-COVID studies in the qualitative-synthesis "
+        "β-converted Pearson correlations to the exploratory quantitative "
+        "pool (the 4 post-COVID studies in the scoping-synthesis "
         "retained set — A-13 Dang et al., 2025; A-17 Kara, 2024; A-25 "
         "Tokiwa, 2025; A-26 Wang et al., 2023 — are described "
         "narratively only)."
@@ -1595,7 +1621,7 @@ def build_results_part3(doc):
         "author's own prior primary study (Tokiwa, 2025) did not change the "
         "pooled estimates at all (|Δr| < .001 for every trait), because the "
         "author's study did not contribute zero-order correlations to the "
-        "primary pool. Third, excluding studies whose effect sizes had been "
+        "exploratory pool. Third, excluding studies whose effect sizes had been "
         "Peterson-Brown-converted from β to r produced larger changes, "
         "particularly for Neuroticism (pooled r shifted from .018 to −.043, "
         "|Δr| = .061) and Openness (|Δr| = .055), both of which moved in "
@@ -1641,7 +1667,7 @@ def build_results_part3(doc):
         "direction expected under Hypothesis 5, further supporting the "
         "hypothesis when asymmetry is considered. Trim-and-fill adjusted "
         "estimates are reported as a sensitivity check only and do not "
-        "replace the primary pooled estimates. Grey-literature inclusion "
+        "replace the exploratory pooled estimates. Grey-literature inclusion "
         "(A-19 MacLean 2022 MSc thesis; peer-reviewed conference "
         "proceedings) partially mitigates file-drawer bias; unpublished "
         "manuscripts and non-peer-reviewed preprints were excluded for "
@@ -1687,12 +1713,12 @@ def build_discussion_part1(doc):
     add_h2(doc, "Summary of Findings")
 
     p1 = (
-        "The present systematic review and meta-analysis provides , to the author\'s knowledge, the first "
+        "The present scoping review with exploratory quantitative synthesis provides , to the author\'s knowledge, the first "
         "quantitative synthesis of the association between Big Five "
         "personality traits and academic achievement in online learning "
         "environments. Across 31 catalogued primary studies — 25 retained "
         "for qualitative synthesis, of which 10 "
-        "contributed direct or β-converted Pearson correlations to the primary "
+        "contributed direct or β-converted Pearson correlations to the exploratory "
         "achievement "
         "pool (total pooled N = 3,384), the pooled correlation between "
         "Conscientiousness and online academic achievement was r = .167 "
@@ -1707,7 +1733,7 @@ def build_discussion_part1(doc):
         "face-to-face ρ of .20–.28, and Agreeableness showed a slightly "
         "larger effect than in face-to-face samples, driven primarily "
         "by a single influential Chinese MOOC sample (Yu, 2021) within "
-        "the primary pool, with convergent narrative evidence from East "
+        "the exploratory pool, with convergent narrative evidence from East "
         "Asian (Wang et al., 2023) and Israeli (Baruth & Cohen, 2023) "
         "secondary-outcome studies. Two pre-registered moderator effects "
         "were "
@@ -1775,10 +1801,10 @@ def build_discussion_part1(doc):
         "narrative evidence for Agreeableness amplification in East "
         "Asian online learners is provided by Wang et al. (2023; β = "
         ".112 from Agreeableness to engagement; K-12 sample retained "
-        "for qualitative synthesis but not in the primary pool) and in "
+        "for qualitative synthesis but not in the exploratory pool) and in "
         "Israeli samples by Baruth and Cohen (2023; ρ = .458 with "
         "satisfaction; retained as a secondary-outcome study, not in "
-        "the primary pool). These directional findings converge with "
+        "the exploratory pool). These directional findings converge with "
         "Mammadov's (2022) "
         "Asian-sample amplification pattern and with Chen et al.'s "
         "(2025) cultural-moderation findings. The region moderator "
@@ -1953,7 +1979,7 @@ def build_discussion_part2(doc):
         "behavioral channels through which Conscientiousness is "
         "expressed academically. The post-COVID era could not be "
         "evaluated quantitatively because no post-COVID study "
-        "contributed correlations to the primary pool (k = 0 in the "
+        "contributed correlations to the exploratory pool (k = 0 in the "
         "moderator analysis, with 4 post-COVID studies retained for "
         "qualitative synthesis only); future meta-analytic updates "
         "should reassess "
@@ -1966,7 +1992,7 @@ def build_discussion_part2(doc):
     p_caveat = (
         "We note up front that the practical implications below are "
         "best read as tentative working hypotheses rather than as "
-        "actionable design or pedagogical recommendations. The primary "
+        "actionable design or pedagogical recommendations. The exploratory "
         "achievement pool is small (k = 10), heterogeneity is moderate "
         "to high for most traits, prediction intervals cross zero for "
         "all traits except Conscientiousness, and the two moderator "
@@ -2041,7 +2067,7 @@ def build_discussion_part2(doc):
         "reflecting the standardization of online assessment and the "
         "constrained range of exploration afforded by most "
         "institutional LMS platforms — but this null is itself based "
-        "on a very small primary pool and should be revisited as the "
+        "on a very small exploratory pool and should be revisited as the "
         "literature grows."
     )
     add_para(doc, p7, indent_first=True)
@@ -2052,7 +2078,7 @@ def build_discussion_part3(doc):
     add_h2(doc, "Distinguishing Robust from Fragile Findings")
 
     p_robust = (
-        "Given the small primary pool, the wide prediction intervals "
+        "Given the small exploratory pool, the wide prediction intervals "
         "around most pooled estimates, and the fact that several "
         "findings change appreciably under pre-specified sensitivity "
         "analyses, it is important to distinguish in the discussion "
@@ -2111,7 +2137,7 @@ def build_discussion_part3(doc):
 
     p1 = (
         "The present review has several methodological strengths. First, it is "
-        "the first quantitative meta-analytic synthesis dedicated to online "
+        "the first scoping mapping of the online "
         "learning environments, filling a documented gap in the Big Five–"
         "achievement literature acknowledged by eight prior meta-analyses "
         "(Chen et al., 2025; Mammadov, 2022; McAbee & Oswald, 2013; Meyer et "
@@ -2142,7 +2168,7 @@ def build_discussion_part3(doc):
         "β-converted correlations via the Peterson and Brown (2005) "
         "transformation) is at the lower bound of what is generally "
         "considered adequate for robust random-effects estimation "
-        "(Borenstein et al., 2021). With a primary pool of this size, "
+        "(Borenstein et al., 2021). With a exploratory pool of this size, "
         "pooled estimates are unstable, heterogeneity is poorly estimated, "
         "prediction intervals are wide, and the present synthesis must "
         "be regarded as preliminary rather than definitive. Although "
@@ -2188,7 +2214,7 @@ def build_discussion_part3(doc):
 
     p4 = (
         "Third, the review was conducted by a single reviewer, deviating "
-        "from the Cochrane and PRISMA 2020 recommendation of two independent "
+        "from the Cochrane and PRISMA 2020/PRISMA-ScR recommendation of two independent "
         "reviewers at the screening, full-text assessment, and data-extraction "
         "stages. Intra-rater reliability was assessed at each stage with "
         "target κ ≥ 0.80 met in each case, but intra-rater reliability cannot "
@@ -2219,12 +2245,12 @@ def build_discussion_part3(doc):
 
     p5 = (
         "Sixth, the author's own prior primary study (Tokiwa, 2025) was "
-        "included in the qualitative-synthesis retained set as a "
+        "included in the scoping-retained set as a "
         "potentially eligible record. A pre-specified sensitivity "
         "analysis excluding this study did not alter the pooled "
         "estimates (|Δr| < .001 for every trait) because Tokiwa (2025) "
         "did not contribute extractable zero-order correlations to the "
-        "primary quantitative pool; both the primary and sensitivity "
+        "exploratory quantitative pool; both the primary and sensitivity "
         "results are reported transparently in Table 4 for reader "
         "scrutiny. Seventh, the synthesis treats the Big Five "
         "dimensions as the principal unit of measurement; facet-level "
@@ -2272,7 +2298,7 @@ def build_conclusion(doc):
     p7 = (
         "The present meta-analysis provides a first, preliminary "
         "quantitative synthesis of Big Five personality traits and academic "
-        "achievement in online learning environments. Because the primary "
+        "achievement in online learning environments. Because the exploratory "
         "achievement pool comprised only 10 studies, several with very "
         "small subgroup k and with wide prediction intervals that include "
         "zero for most traits, the conclusions below are best read as "
@@ -2289,7 +2315,7 @@ def build_conclusion(doc):
         "driven primarily by a single Chinese MOOC sample (Yu, 2021), and "
         "this finding is fragile to the exclusion of that single study; "
         "and Neuroticism and Openness effects were essentially null in the "
-        "primary synthesis. The findings are consistent with the "
+        "exploratory synthesis. The findings are consistent with the "
         "Personality-Achievement Saturation Hypothesis (Meyer et al., 2023) "
         "as a framework for understanding the online attenuation of "
         "Conscientiousness, but the present evidence base is too small to "
@@ -2605,7 +2631,7 @@ def build_table4_sensitivity(doc):
         "significant Egger test at p < .05. \"Exclude Tokiwa (COI)\" "
         "removes the present author's prior primary study (Tokiwa, 2025); "
         "the zero delta reflects that this study did not contribute a "
-        "direct r to the primary pool. \"Exclude β-converted\" restricts "
+        "direct r to the exploratory pool. \"Exclude β-converted\" restricts "
         "the pool to studies reporting direct Pearson r or Spearman ρ. "
         "\"Exclude RoB < 5\" removes studies scoring below the pre-"
         "specified low-bias threshold of 5 on the JBI 8-item checklist."
@@ -2733,12 +2759,12 @@ def _add_figure_title(doc, number, title):
 
 
 def build_figure1_prisma(doc):
-    """Insert PRISMA 2020 flow diagram as Figure 1."""
+    """Insert PRISMA-ScR flow diagram as Figure 1."""
     from pathlib import Path as _Path
     doc.add_page_break()
     _add_figure_title(
         doc, 1,
-        "PRISMA 2020 Flow Diagram of the Study Selection Process",
+        "PRISMA-ScR-style Flow Diagram of the Study Selection Process",
     )
 
     img_path = (_Path(__file__).parent.parent / "analysis"
@@ -2756,7 +2782,7 @@ def build_figure1_prisma(doc):
     run.font.name = "Times New Roman"
     run.font.size = Pt(11)
     run2 = p_note.add_run(
-        "Flow diagram adapted from the PRISMA 2020 statement (Page et al., "
+        "Flow diagram adapted from the PRISMA-ScR statement (Tricco et al., 2018) (Page et al., "
         "2021). Records were identified through WebSearch-based formal "
         "search (n = 80 from eight structured queries), preliminary "
         "informal search yielding a previously curated corpus (n = 28), "
@@ -2782,7 +2808,7 @@ def build_figure1_prisma(doc):
         "Zheng, 2023), yielded 31 primary studies catalogued in this "
         "review (Table 1). Of these, 25 were retained for qualitative "
         "synthesis, and 10 contributed direct Pearson correlations or "
-        "β-converted effect sizes to the primary quantitative "
+        "β-converted effect sizes to the exploratory quantitative "
         "achievement pool (with two studies — A-28 Yu, 2021 and A-30 "
         "Kaspar et al., 2023 — providing β-converted effect sizes via "
         "Peterson and Brown's, 2005, approximation). The remaining 15 "
@@ -3022,14 +3048,14 @@ def build_table1_characteristics(doc):
         "inventory label. Outcome: abbreviated outcome construct. "
         "Inclusion column groups studies into three tiers: (1) "
         "QUANTITATIVE PRIMARY POOL (k = 10) — Inc-pri = included in "
-        "primary achievement pool with direct r; Inc-pri* = included "
+        "exploratory achievement pool with direct r; Inc-pri* = included "
         "with caveat (β-converted, partial trait coverage, or "
         "conditional outcome proxy); Inc (COI) = included with "
         "conflict-of-interest flag (author's own prior study, sensitivity "
         "analysis excludes). (2) QUALITATIVE / SECONDARY SYNTHESIS "
         "(retained for narrative) — Inc-sec = retained in the systematic "
         "review for secondary outcomes (satisfaction, engagement, "
-        "preference, perception) but no extractable r for the primary "
+        "preference, perception) but no extractable r for the exploratory "
         "achievement pool. (3) EXCLUDED POST-ELIGIBILITY (documented for "
         "PRISMA transparency, NOT in synthesis) — Exc = excluded at "
         "eligibility (face-to-face modality, or no extractable effect "
@@ -3241,7 +3267,7 @@ def main():
     build_manuscript(for_journal=True, output_path=OUTPUT_JOURNAL)
 
     # Split versions (journal version only — preprint typically submitted as combined)
-    split_dir = "/home/user/paper/metaanalysis/paper_v2/split"
+    split_dir = "/home/user/paper/metaanalysis/paper_v3_scoping/split"
     _os.makedirs(split_dir, exist_ok=True)
     build_split_titledecl(f"{split_dir}/01_title_declarations.docx", for_journal=True)
     build_split_body(f"{split_dir}/02_body.docx")

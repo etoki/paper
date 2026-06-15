@@ -200,6 +200,12 @@ REFERENCES = [
     'Aromataris & Z. Munn (Eds.), <i>Joanna Briggs Institute Reviewer\'s '
     'Manual</i>. The Joanna Briggs Institute.',
 
+    'Munn, Z., Peters, M. D. J., Stern, C., Tufanaru, C., McArthur, A., '
+    '& Aromataris, E. (2018). Systematic review or scoping review? '
+    'Guidance for authors when choosing between a systematic or scoping '
+    'review approach. <i>BMC Medical Research Methodology, 18</i>, 143. '
+    'https://doi.org/10.1186/s12874-018-0611-x',
+
     'Mustafa, S., Qiao, Y., Yan, X., Anwar, A., Hao, T., & Rana, S. (2022). '
     'Digital students\' satisfaction with and intention to use online '
     'teaching modes, role of Big Five personality traits. <i>Frontiers in '
@@ -289,9 +295,22 @@ REFERENCES = [
     '120</i>, 238–245. https://doi.org/10.1016/j.paid.2017.08.014',
 
     # T
+    'Tett, R. P., & Burnett, D. D. (2003). A personality trait-based '
+    'interactionist model of job performance. <i>Journal of Applied '
+    'Psychology, 88</i>(3), 500–517. '
+    'https://doi.org/10.1037/0021-9010.88.3.500',
+
     'Tipton, E. (2015). Small sample adjustments for robust variance '
     'estimation with meta-regression. <i>Psychological Methods, 20</i>(3), '
     '375–393. https://doi.org/10.1037/met0000011',
+
+    'Tricco, A. C., Lillie, E., Zarin, W., O\'Brien, K. K., Colquhoun, H., '
+    'Levac, D., Moher, D., Peters, M. D. J., Horsley, T., Weeks, L., '
+    'Hempel, S., Akl, E. A., Chang, C., McGowan, J., Stewart, L., '
+    'Hartling, L., Aldcroft, A., Wilson, M. G., Garritty, C., … Straus, '
+    'S. E. (2018). PRISMA Extension for Scoping Reviews (PRISMA-ScR): '
+    'Checklist and explanation. <i>Annals of Internal Medicine, 169</i>'
+    '(7), 467–473. https://doi.org/10.7326/M18-0850',
 
     'Tlili, A., Sun, T., Denden, M., Kinshuk, Graf, S., Fei, C., & Wang, H. '
     '(2023). Impact of personality traits on learners\' navigational '
