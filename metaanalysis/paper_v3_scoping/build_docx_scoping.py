@@ -623,45 +623,55 @@ def build_intro_part3(doc):
 
     p2 = (
         "The present scoping review with exploratory quantitative synthesis is, to our knowledge, the "
-        "first quantitative synthesis of the association between Big Five personality "
+        "first scoping mapping of the association between Big Five personality "
         "traits and academic achievement that focuses specifically on online learning "
-        "environments. Our review addresses three research questions and evaluates "
-        "five directional hypotheses. The research questions are as follows. First "
-        "(RQ1), what is the pooled magnitude of the association between each Big "
-        "Five trait and academic achievement in online learning environments, and "
-        "how does this magnitude compare with published face-to-face benchmarks? "
-        "Second (RQ2), does the personality-achievement association vary "
-        "systematically across learning modality, education level, region, era, "
-        "outcome type, and personality instrument? Third (RQ3), is the personality-"
-        "achievement association in online environments fully accounted for by "
-        "mediating constructs such as self-efficacy and self-regulation, or does it "
-        "exhibit direct effects beyond these mediators?"
+        "environments. Consistent with PRISMA-ScR convention (Tricco et al., 2018), "
+        "the review is organised around mapping questions and directional priors "
+        "rather than around hypothesis tests. Three mapping questions are addressed. "
+        "First (MQ1), how large is the available pooled estimate of the association "
+        "between each Big Five trait and academic achievement in online learning "
+        "environments within the mappable evidence base, and how does this estimate "
+        "compare with published face-to-face benchmarks? Second (MQ2), does the "
+        "association vary descriptively across learning modality, education level, "
+        "region, era, outcome type, and personality instrument within the mappable "
+        "evidence base? Third (MQ3), is the personality-achievement association in "
+        "online environments fully accounted for by mediating constructs such as "
+        "self-efficacy and self-regulation, or does it exhibit direct effects beyond "
+        "these mediators? Because the evidence base is small and the executed search "
+        "is incomplete relative to the pre-registered information-source plan, all "
+        "three mapping questions are addressed descriptively rather than as "
+        "confirmatory tests."
     )
     add_para(doc, p2, indent_first=True)
 
     p3 = (
-        "Five directional hypotheses, pre-specified in the OSF registration "
-        "(https://osf.io/e5w47/), are evaluated. Hypothesis 1 (H1) states that "
-        "Conscientiousness will show the strongest positive pooled correlation with "
-        "academic achievement in online learning environments, with an expected "
-        "pooled ρ of .20 to .35, consistent with the face-to-face benchmarks "
-        "reviewed above and potentially amplified in Asian samples. Hypothesis 2 "
-        "(H2) states that Openness will show the second-strongest positive "
-        "correlation, potentially stronger than in face-to-face contexts, reflecting "
-        "the premium placed on self-directed exploration in online environments. "
-        "Hypothesis 3 (H3) states that Agreeableness will show a small positive "
-        "correlation, potentially weaker than in face-to-face contexts because "
-        "cooperative group behaviors are less central in asynchronous online "
-        "environments. Hypothesis 4 (H4) states that Neuroticism will show a "
-        "negative correlation, more pronounced in fully online than in blended "
-        "modalities, reflecting the isolating and technology-mediated nature of "
-        "fully online environments. Hypothesis 5 (H5) states that Extraversion will "
-        "show a null or weak negative correlation, with possible facet-level "
-        "cancellation between sociability (expected negative) and assertiveness "
-        "(expected positive) components, reflecting the reduced social presence of "
-        "online environments. Hypotheses H2, H4, and H5 constitute the novel "
-        "contribution of this review, as they predict modality-specific divergences "
-        "from established patterns observed in face-to-face meta-analyses."
+        "Five directional priors, pre-specified in the OSF registration "
+        "(https://osf.io/e5w47/) as hypotheses, are reframed here as mapping priors "
+        "(MP1 through MP5) that describe expectations against which the mapped "
+        "evidence can be compared descriptively. Mapping Prior 1 (MP1) states that "
+        "Conscientiousness is expected to show the strongest positive pooled "
+        "correlation with academic achievement in online learning environments, "
+        "with an expected pooled ρ of .20 to .35, consistent with the face-to-face "
+        "benchmarks reviewed above and potentially amplified in Asian samples. "
+        "Mapping Prior 2 (MP2) states that Openness is expected to show the second-"
+        "strongest positive correlation, potentially stronger than in face-to-face "
+        "contexts, reflecting the premium placed on self-directed exploration in "
+        "online environments. Mapping Prior 3 (MP3) states that Agreeableness is "
+        "expected to show a small positive correlation, potentially weaker than in "
+        "face-to-face contexts because cooperative group behaviors are less central "
+        "in asynchronous online environments. Mapping Prior 4 (MP4) states that "
+        "Neuroticism is expected to show a negative correlation, more pronounced in "
+        "fully online than in blended modalities, reflecting the isolating and "
+        "technology-mediated nature of fully online environments. Mapping Prior 5 "
+        "(MP5) states that Extraversion is expected to show a null or weak negative "
+        "correlation, with possible facet-level cancellation between sociability "
+        "(expected negative) and assertiveness (expected positive) components, "
+        "reflecting the reduced social presence of online environments. Mapping "
+        "Priors MP2, MP4, and MP5 constitute the modality-specific contribution of "
+        "this review, as they describe expected modality-related divergences from "
+        "established patterns observed in face-to-face meta-analyses; the review "
+        "evaluates the available evidence descriptively against these priors rather "
+        "than performing formal hypothesis tests."
     )
     add_para(doc, p3, indent_first=True)
 
@@ -1064,11 +1074,11 @@ def build_methods_part4(doc):
 
 def build_methods_part5(doc):
     """GRADE confidence + Deviations from pre-registration + Software."""
-    add_h2(doc, "Confidence in Cumulative Evidence (GRADE)")
+    add_h2(doc, "Completeness-of-Evidence Mapping (adapted from GRADE)")
 
     p1 = (
         "The confidence in the cumulative evidence per Big Five trait was assessed "
-        "using an adaptation of the GRADE framework for observational correlational "
+        "using an adaptation of the GRADE framework — re-framed as a completeness-of-evidence mapping for this scoping review — for observational correlational "
         "syntheses (Schünemann et al., 2019). Five domains were evaluated: risk of "
         "bias (downgrade if the mean JBI aggregate score across included studies "
         "was below 5), inconsistency (downgrade if I² exceeded 75% or if the 95% "
@@ -1418,9 +1428,9 @@ def build_results_part2(doc):
         "studies (total N = 3,384), the pooled correlation between "
         "Conscientiousness and academic achievement in online learning "
         "environments was r = .167 (95% CI [.089, .243], 95% PI [−.020, "
-        ".343]), partially supporting Hypothesis 1 (H1: expected ρ = .20–.35). "
+        ".343]), partially consistent with Mapping Prior 1 (H1: expected ρ = .20–.35). "
         "The point estimate was the largest of the five Big Five traits in the "
-        "present synthesis, confirming the ordinal prediction of H1, but its "
+        "present synthesis, consistent with the descriptive direction of MP1, but its "
         "magnitude was somewhat below the face-to-face benchmark range of "
         "ρ = .19–.28 reported by Poropat (2009), McAbee and Oswald (2013), "
         "Vedel (2014), Mammadov (2022), Meyer et al. (2023), and Chen et al. "
@@ -1449,7 +1459,7 @@ def build_results_part2(doc):
     p_e1 = (
         "Extraversion and online academic achievement. Across k = 9 studies "
         "(total N = 3,363), the pooled correlation was r = .002 (95% CI "
-        "[−.076, .080]). This null estimate supports Hypothesis 5 (H5), which "
+        "[−.076, .080]). This null estimate supports Mapping Prior 5 (MP5), which "
         "predicted a null or weak negative Extraversion–achievement "
         "association in online environments. Notably, the direct negative "
         "effect reported by Rivers (2021; β = −.168) and the MOOC finding of "
@@ -1467,7 +1477,7 @@ def build_results_part2(doc):
         "(total N = 3,363), the pooled correlation was r = .112 (95% CI "
         "[−.031, .250]). This estimate was slightly larger than the face-to-"
         "face benchmark of ρ = .05–.10 (Poropat, 2009; Vedel, 2014; Chen et "
-        "al., 2025), contrary to Hypothesis 3 (H3), which predicted a weaker "
+        "al., 2025), contrary to Mapping Prior 3 (MP3), which predicted a weaker "
         "Agreeableness effect in online than in face-to-face contexts. "
         "Within the exploratory pool the largest Agreeableness contribution "
         "came from a single Chinese MOOC sample (A-28 Yu, 2021; converted "
@@ -1487,9 +1497,9 @@ def build_results_part2(doc):
         "Neuroticism and online academic achievement. Across k = 10 studies "
         "(total N = 3,384), the pooled correlation was r = .018 (95% CI "
         "[−.079, .114]). The direction was null and the magnitude was "
-        "substantially weaker than the prediction of Hypothesis 4 (H4), "
+        "substantially weaker than the prediction of Mapping Prior 4 (MP4), "
         "which expected a negative effect more pronounced in fully online "
-        "than in blended modalities; H4 was not supported in the primary "
+        "than in blended modalities; MP4 was not consistent with the evidence in the primary "
         "analysis. Heterogeneity was moderate-to-high (Q(9) = 42.76, "
         "p < .001; I² = 79.0%; τ² = .010). Within the 10-study primary "
         "Neuroticism pool, signs were mixed: Rodrigues et al. (2024) "
@@ -1504,7 +1514,7 @@ def build_results_part2(doc):
         "with general satisfaction; secondary-outcome study, not in the "
         "exploratory pool). The β-excluded sensitivity analysis (see below) "
         "reduced the pooled N estimate to r = −.043, partially consistent "
-        "with H4 under β-free conditions."
+        "with MP4 under β-free conditions."
     )
     add_para(doc, p_n1, indent_first=True)
 
@@ -1664,7 +1674,7 @@ def build_results_part3(doc):
         "Extraversion (adjusted r = −.036 vs. original r = .002), and zero "
         "for Conscientiousness, Agreeableness, and Neuroticism. The "
         "adjusted Extraversion estimate moved slightly in the negative "
-        "direction expected under Hypothesis 5, further supporting the "
+        "direction expected under Mapping Prior 5, further supporting the "
         "hypothesis when asymmetry is considered. Trim-and-fill adjusted "
         "estimates are reported as a sensitivity check only and do not "
         "replace the exploratory pooled estimates. Grey-literature inclusion "
@@ -1675,7 +1685,7 @@ def build_results_part3(doc):
     )
     add_para(doc, p7, indent_first=True)
 
-    add_h2(doc, "GRADE Summary of Findings")
+    add_h2(doc, "Completeness-of-Evidence Summary")
 
     p8 = (
         "The GRADE confidence rating for each Big Five trait is presented "
@@ -1691,7 +1701,7 @@ def build_results_part3(doc):
         "and significant Egger asymmetry (p = .045). Confidence in the "
         "pooled Extraversion estimate was rated Moderate, because the null "
         "result is robust to trim-and-fill adjustment, consistent with "
-        "pre-registered H5, and supported by a highly significant region × "
+        "pre-registered MP5, and supported by a highly significant region × "
         "Extraversion moderator effect. Confidence in the pooled "
         "Agreeableness estimate was rated Low, reflecting the extreme I² "
         "(96.2%) and trend-level Egger asymmetry (p = .072). Confidence in "
@@ -1706,7 +1716,7 @@ def build_results_part3(doc):
 
 
 def build_discussion_part1(doc):
-    """Discussion heading + Summary of findings + Hypothesis evaluation."""
+    """Discussion heading + Summary of findings + Mapping-Prior evaluation."""
     p = doc.add_paragraph("Discussion", style="Heading 1")
     set_double_space(p)
 
@@ -1748,7 +1758,7 @@ def build_discussion_part1(doc):
     add_h2(doc, "Evaluation of Pre-registered Hypotheses")
 
     p_h1 = (
-        "Hypothesis 1 (Conscientiousness as strongest positive predictor). "
+        "Mapping Prior 1 (Conscientiousness as strongest positive predictor). "
         "The pooled Conscientiousness–achievement correlation of r = .167 "
         "fell slightly below the pre-specified range of .20–.35, with the "
         "95% confidence interval extending to .243 and thus overlapping "
@@ -1756,7 +1766,7 @@ def build_discussion_part1(doc):
         "was unambiguously the largest positive effect of the five traits "
         "tested, and (b) the point estimate is within the broader "
         "convergent benchmark range of .19–.28 documented across eight "
-        "prior meta-analyses, H1 is judged partially supported. The "
+        "prior meta-analyses, MP1 is judged partially supported. The "
         "magnitude of the C effect in online environments was slightly "
         "smaller than face-to-face benchmarks reported by Poropat (2009; "
         "ρ = .22), McAbee and Oswald (2013; ρ = .26), Vedel (2014; "
@@ -1769,17 +1779,17 @@ def build_discussion_part1(doc):
     add_para(doc, p_h1, indent_first=True)
 
     p_h2 = (
-        "Hypothesis 2 (Openness as second-strongest positive predictor). "
+        "Mapping Prior 2 (Openness as second-strongest positive predictor). "
         "The pooled Openness–achievement correlation (r = .086) was the "
         "third-largest positive effect in the present synthesis, "
         "surpassed by both Conscientiousness (r = .167) and "
         "Agreeableness (r = .112). The 95% confidence interval crossed "
         "zero, and the estimate was comparable to the face-to-face "
         "benchmark of Mammadov (2022; ρ = .16) but substantially below "
-        "the K-12 estimate of Meyer et al. (2023; ρ = .21). H2 is not "
+        "the K-12 estimate of Meyer et al. (2023; ρ = .21). MP2 is not "
         "supported. The prediction that online environments would "
         "amplify the Openness effect through a premium on self-directed "
-        "exploration was not borne out; the failure to support H2 may "
+        "exploration was not borne out; the failure to support MP2 may "
         "partly reflect the near-universal use of undergraduate rather "
         "than K-12 samples in the online corpus, since Openness effects "
         "are known to decline with educational level (Mammadov, 2022; "
@@ -1788,7 +1798,7 @@ def build_discussion_part1(doc):
     add_para(doc, p_h2, indent_first=True)
 
     p_h3 = (
-        "Hypothesis 3 (Agreeableness as small positive effect, weaker "
+        "Mapping Prior 3 (Agreeableness as small positive effect, weaker "
         "than FtF). The pooled Agreeableness–achievement correlation was "
         "r = .112, slightly larger than the face-to-face benchmark "
         "range of .05–.10 (Poropat, 2009; Vedel, 2014; Chen et al., "
@@ -1816,11 +1826,11 @@ def build_discussion_part1(doc):
     add_para(doc, p_h3, indent_first=True)
 
     p_h4 = (
-        "Hypothesis 4 (Neuroticism as negative, more pronounced in "
+        "Mapping Prior 4 (Neuroticism as negative, more pronounced in "
         "fully online). The pooled Neuroticism–achievement correlation "
-        "was r = .018, approximately null. The first component of H4 — "
+        "was r = .018, approximately null. The first component of MP4 — "
         "an overall negative pooled effect — is not supported by the "
-        "primary analysis. The second component of H4 — a more "
+        "primary analysis. The second component of MP4 — a more "
         "pronounced negative effect in fully online than in blended "
         "modalities — could not be evaluated quantitatively because "
         "only one study (A-02 Alkış & Taşkaya Temizel, 2018) "
@@ -1829,7 +1839,7 @@ def build_discussion_part1(doc):
         "Notably, the β-excluded sensitivity analysis (restricting "
         "the pool to studies with direct Pearson r) shifted the pooled "
         "Neuroticism estimate to r = −.043, providing partial "
-        "directional support for the H4 sign prediction under the "
+        "directional support for the MP4 sign prediction under the "
         "stricter analytic specification. The discrepancy between the "
         "primary and sensitivity analyses suggests that Peterson-Brown-"
         "converted β studies (principally Yu, 2021 and Kaspar et al., "
@@ -1841,10 +1851,10 @@ def build_discussion_part1(doc):
     add_para(doc, p_h4, indent_first=True)
 
     p_h5 = (
-        "Hypothesis 5 (Extraversion as null or weak negative). The "
+        "Mapping Prior 5 (Extraversion as null or weak negative). The "
         "pooled Extraversion–achievement correlation was r = .002, "
         "consistent with H5's prediction of a null overall effect. The "
-        "overall H5 prediction is therefore supported. The proposed "
+        "overall MP5 prediction is therefore supported. The proposed "
         "facet-level cancellation mechanism (sociability negative vs. "
         "assertiveness positive) could not be directly tested because "
         "few primary studies report Extraversion at the facet level, "
@@ -1863,7 +1873,7 @@ def build_discussion_part1(doc):
         "the near-null face-to-face estimate (Poropat, 2009; Chen et "
         "al., 2025) toward a culturally and methodologically structured "
         "pattern of divergence. Whether these contextual shifts reflect "
-        "the H5 facet-cancellation mechanism (e.g., assertiveness "
+        "the MP5 facet-cancellation mechanism (e.g., assertiveness "
         "facets activated more strongly in individualistic vs. "
         "collectivistic contexts) or a separate trait-level mechanism "
         "remains an open question for facet-level primary research."
@@ -2641,11 +2651,11 @@ def build_table4_sensitivity(doc):
 
 
 def build_table5_grade(doc):
-    """Table 5: GRADE Summary of Findings per trait."""
+    """Table 5: Completeness-of-Evidence Summary per trait."""
     doc.add_page_break()
     _add_table_title(
         doc, 5,
-        "GRADE Summary of Findings: Confidence in the Pooled Associations "
+        "Completeness-of-Evidence Summary: Confidence in the Pooled Associations "
         "Between Big Five Personality Traits and Academic Achievement in "
         "Online Learning Environments",
     )
