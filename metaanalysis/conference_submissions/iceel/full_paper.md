@@ -13,9 +13,17 @@
 
 ## Abstract
 
-The parent meta-analysis (Research Square preprint, DOI 10.21203/rs.3.rs-9513298/v1) reports a binary Region moderator with Extraversion × Region highly significant (Q_between = 46.43, p < .001; Asian r = −0.131 vs non-Asian r = +0.050). The within-Asia heterogeneity is not decomposed in the preprint. The present paper attaches Hofstede 6-D scores and tests, in the Asian subset (k = 2 with extractable r: A-28 Yu, China; A-31 Rivers, Japan; plus A-25 Tokiwa, Japan, in narrative synthesis), whether observed Big Five — outcome direction in Japan studies matches Hofstede & McCrae (2004) predictions for Japan. Pooled correlations replicate the preprint (C r = 0.111; E r = −0.131; N r = 0.089). The direction-match analysis (Table 4) yields **3 of 5 trait matches**: C+ (HM04 PDI-C r = .43), E− (HM04 IDV-E r = .39), and most notably **N+** — opposite to the Western N− finding (Poropat 2009; Mammadov 2022) — supported in *both* Japan studies and doubly predicted by Japan's very high Uncertainty Avoidance (UAI = 92, HM04 r = .31) and Masculinity (MAS = 95, HM04 r = .30). The Agreeableness mismatch (predicted −, observed +) suggests online-learning *behaviour-level* A engagement may decouple from population trait-level A. A second-order finding is instrument heterogeneity (BFI-2-J vs TIPI-J) as a confound future Japan-specific syntheses cannot ignore.
+**Background.** The parent meta-analysis (Research Square preprint, DOI 10.21203/rs.3.rs-9513298/v1) reports a highly significant Extraversion × Region moderator in Big Five – academic-achievement research on online learning (Q_between = 46.43, p < .001; Asian pooled r = −0.131 vs non-Asian r = +0.050), but does not decompose the Asia bin into its country-level constituents.
 
-**Keywords**: meta-analysis, Big Five, online learning, Hofstede cultural dimensions, Japan.
+**Objective.** To (i) attach Hofstede 6-D country scores to the Asian primary-pool studies, and (ii) test whether observed Big Five – outcome directions in Japan-based studies match Hofstede & McCrae (2004) trait-dimension predictions.
+
+**Methods.** The Asian primary pool comprises k = 2 studies with extractable Pearson r (Yu 2021, China; Rivers 2021, Japan); a third Japan-based study (Tokiwa 2025, K-12) contributes descriptive Spearman ρ. Random-effects pools (REML + HKSJ) replicate the parent preprint. Because residual df = 0, single-dimension weighted-OLS Hofstede meta-regressions yield descriptive slopes only. Direction predictions for Japan, derived from Hofstede & McCrae (2004), are cross-referenced against observed r in both Japan studies.
+
+**Results.** The direction-match analysis yields **3 of 5 trait matches** (Conscientiousness+, Extraversion−, Neuroticism+; Agreeableness and Openness mismatch). The diagnostic finding is **Neuroticism+**: observed in both Japan studies, doubly predicted by Japan's very high Uncertainty Avoidance (UAI = 92) and Masculinity (MAS = 95), and opposite to the consistent N− pattern reported in Western Big Five meta-analyses (Poropat 2009; Mammadov 2022). The Agreeableness mismatch (predicted −, observed +) suggests that online-learning *behaviour-level* engagement may decouple from population trait-level A in collectivist contexts.
+
+**Conclusion.** Country-level Hofstede context materially reshapes the Big Five – achievement pattern in ways the binary Asia/non-Asia contrast obscures. With k = 2, the contribution is methodological rather than confirmatory: it flags within-Asia heterogeneity and instrument confounds (60-item BFI-2-J vs 10-item TIPI-J) as prerequisites for future Japan-specific syntheses.
+
+**Keywords**: meta-analysis; Big Five personality traits; online learning; Hofstede cultural dimensions; Japan; cross-cultural psychology.
 
 ---
 
