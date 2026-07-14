@@ -327,10 +327,6 @@ REFERENCES = [
     'systematic review and meta-analysis. <i>Personality and Individual '
     'Differences, 71</i>, 66–76. https://doi.org/10.1016/j.paid.2014.07.011',
 
-    'Viechtbauer, W. (2010). Conducting meta-analyses in R with the '
-    'metafor package. <i>Journal of Statistical Software, 36</i>(3), 1–48. '
-    'https://doi.org/10.18637/jss.v036.i03',
-
     # W
     'Wang, P., Wang, F., & Li, Z. (2023). Exploring the ecosystem of K-12 '
     'online learning: An empirical study of impact mechanisms in the post-'

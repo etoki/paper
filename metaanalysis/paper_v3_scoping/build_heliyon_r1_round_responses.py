@@ -85,17 +85,44 @@ def build_r1_thank_you(out_path):
     _add_p(
         doc,
         "Reviewer 1 did not raise additional revision requests in this "
-        "round, so no additional changes were made in response to "
-        "Reviewer 1. The minor-revision items raised by Reviewer 2 have "
-        "been addressed in a separate point-by-point response, and the "
-        "corresponding changes to the manuscript (language audit for "
-        "residual causal / predictive terminology; explicit "
-        "descriptive-only framing of the publication-bias diagnostics; "
-        "explicit inclusion of subject discipline as a candidate "
-        "moderator in Future Research Directions; further softening of "
-        "Practical Implications into a \"Hypotheses for Future "
-        "Practical Testing\" subsection) are indicated by yellow "
+        "round, so no substantive new changes were made in response to "
+        "Reviewer 1 specifically. The minor-revision items raised by "
+        "Reviewer 2 have been addressed in a separate point-by-point "
+        "response, and the corresponding changes to the manuscript "
+        "(language audit for residual causal / predictive terminology; "
+        "explicit descriptive-only framing of the publication-bias "
+        "diagnostics; explicit inclusion of subject discipline as a "
+        "candidate moderator in Future Research Directions; further "
+        "softening of Practical Implications into a \"Hypotheses for "
+        "Future Practical Testing\" subsection) are indicated by yellow "
         "highlighting in the revised manuscript.",
+        size=11,
+    )
+    _add_p(
+        doc,
+        "Verification note on Trait Activation Theory integration "
+        "(Comment #3 / #18 of the previous round). The previous "
+        "response letter reported that Trait Activation Theory (Tett "
+        "& Burnett, 2003) had been added as a complementary theoretical "
+        "anchor alongside PASH; on preparing this round of revisions, I "
+        "audited the manuscript and confirmed — following the same "
+        "check that Reviewer 2 correctly applied to the subject-"
+        "discipline moderator addition — that the TAT paragraph was not "
+        "in fact present in the previously submitted manuscript body, "
+        "even though it was described in the previous response letter. "
+        "This has now been remedied. An explicit TAT paragraph has "
+        "been added to the Introduction alongside the PASH review, "
+        "articulating three specific TAT-derived expectations for the "
+        "Big Five in online contexts (Extraversion attenuation in "
+        "asynchronous formats, Conscientiousness preservation across "
+        "modalities, and Agreeableness amplification in cooperative "
+        "cultural contexts). A second TAT reference has been added to "
+        "the Discussion's Extraversion subsection, and TAT is used "
+        "alongside PASH in the Discussion's Conscientiousness "
+        "subsection to distinguish two competing accounts of the "
+        "preserved-but-attenuated pattern. I apologise for the "
+        "oversight in the previous round and am grateful for the "
+        "opportunity to correct it before publication.",
         size=11,
     )
 
