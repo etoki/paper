@@ -19,9 +19,9 @@ publication:
      participants. Its standard errors, t-tests and the joint Wald test
      are therefore not valid and are withdrawn.
   3. tau^2 estimator. analysis/pool.py::reml_tau2 uses a fixed-point
-     update that under-estimates the REML tau^2. This script maximises
-     the restricted log-likelihood directly (cross-checked against
-     PyMARE's REML estimator when PyMARE is installed).
+     update that under-estimates the REML tau^2. This script uses
+     pool.reml_tau2_exact, which maximises the restricted log-likelihood
+     directly (cross-checked against PyMARE when PyMARE is installed).
 
 It also re-derives every Table 1 cell, because the published
 Neuroticism rows were carried over from a draft computed before the
@@ -44,7 +44,6 @@ import sys
 from pathlib import Path
 
 import numpy as np
-from scipy import optimize, stats
 
 HERE = Path(__file__).resolve().parent
 REPO_ROOT = HERE.parents[3]
@@ -65,78 +64,17 @@ CONTRAST = ("A", "M")  # asynchronous (reference) vs mixed-online
 
 
 # ---------------------------------------------------------------------------
-# Corrected estimators
+# Corrected estimators (shared with the other papers via analysis/pool.py)
 # ---------------------------------------------------------------------------
-def reml_tau2(y, v, X=None) -> float:
-    """REML tau^2 by direct maximisation of the restricted log-likelihood.
-
-    X is the moderator design matrix (intercept-only when None).
-    """
-    y = np.asarray(y, dtype=float)
-    v = np.asarray(v, dtype=float)
-    X = np.ones((len(y), 1)) if X is None else np.asarray(X, dtype=float)
-    if len(y) <= X.shape[1]:
-        return 0.0
-
-    def neg_restricted_loglik(tau2):
-        w = 1.0 / (v + tau2)
-        XtWX = (X.T * w) @ X
-        beta = np.linalg.solve(XtWX, (X.T * w) @ y)
-        resid = y - X @ beta
-        return 0.5 * (np.sum(np.log(v + tau2))
-                      + np.linalg.slogdet(XtWX)[1]
-                      + np.sum(w * resid**2))
-
-    upper = max(10.0 * float(np.var(y)), 1.0)
-    res = optimize.minimize_scalar(neg_restricted_loglik, bounds=(0.0, upper),
-                                   method="bounded", options={"xatol": 1e-12})
-    if neg_restricted_loglik(0.0) <= res.fun:
-        return 0.0
-    return float(res.x)
-
-
 def pool_re(y, v) -> dict:
     """Random-effects pool: exact REML tau^2 + HKSJ CI (t, df = k - 1)."""
-    y = np.asarray(y, dtype=float)
-    v = np.asarray(v, dtype=float)
-    k = len(y)
-    tau2 = reml_tau2(y, v)
-    w = 1.0 / (v + tau2)
-    z = float(np.sum(w * y) / np.sum(w))
-    se = float(np.sqrt(np.sum(w * (y - z) ** 2) / ((k - 1) * np.sum(w))))
-    t_crit = stats.t.ppf(0.975, df=k - 1)
-    w_fe = 1.0 / v
-    q = float(np.sum(w_fe * (y - np.sum(w_fe * y) / np.sum(w_fe)) ** 2))
-    i2 = max(0.0, (q - (k - 1)) / q * 100.0) if q > 0 else 0.0
-    return {"k": k, "z": z, "r": float(np.tanh(z)),
-            "r_lo": float(np.tanh(z - t_crit * se)),
-            "r_hi": float(np.tanh(z + t_crit * se)),
-            "tau2": tau2, "I2": i2}
+    res = parent.pool_random_effects(y, v, exact_reml=True)
+    return {"k": res["k"], "z": res["z_pooled"], "r": res["r_pooled"],
+            "r_lo": res["r_ci_lo"], "r_hi": res["r_ci_hi"],
+            "tau2": res["tau2"], "I2": res["I2"]}
 
 
-def metareg_kh(y, v, g) -> dict:
-    """Mixed-effects meta-regression z ~ 1 + g (g = 0/1 dummy) with REML
-    residual tau^2 and the Knapp-Hartung adjustment (untruncated, as in
-    metafor's test = "knha").
-    """
-    y = np.asarray(y, dtype=float)
-    v = np.asarray(v, dtype=float)
-    X = np.column_stack([np.ones_like(y), np.asarray(g, dtype=float)])
-    k, p = X.shape
-    tau2 = reml_tau2(y, v, X)
-    w = 1.0 / (v + tau2)
-    XtWX_inv = np.linalg.inv((X.T * w) @ X)
-    beta = XtWX_inv @ ((X.T * w) @ y)
-    s2 = float(np.sum(w * (y - X @ beta) ** 2) / (k - p))
-    se = float(np.sqrt(s2 * XtWX_inv[1, 1]))
-    t_val = float(beta[1] / se)
-    df = k - p
-    t_crit = stats.t.ppf(0.975, df=df)
-    return {"k": k, "tau2_resid": tau2, "diff_z": float(beta[1]), "se": se,
-            "ci_lo": float(beta[1] - t_crit * se),
-            "ci_hi": float(beta[1] + t_crit * se),
-            "F": t_val**2, "df1": 1, "df2": df,
-            "p": float(2.0 * (1.0 - stats.t.cdf(abs(t_val), df=df)))}
+metareg_kh = parent.metareg_knapp_hartung
 
 
 # ---------------------------------------------------------------------------

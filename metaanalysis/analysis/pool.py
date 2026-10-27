@@ -13,7 +13,13 @@ Output: pooling_results.csv + pooling_summary.md
 
 Notes:
 - Pure NumPy/SciPy implementation (no R/metafor available in this environment)
-- Results will match metafor::rma(..., method="REML", test="knha") closely
+- reml_tau2() is an approximate fixed-point update that under-estimates
+  the REML tau² (found 2026-10); it is kept so that published numbers stay
+  reproducible. New analyses should pass exact_reml=True to
+  pool_random_effects() or call reml_tau2_exact(), which match PyMARE's
+  REML estimator.
+- Moderator tests should use metareg_knapp_hartung(), not a chi-square
+  test on HKSJ subgroup SEs (see pool_by_subgroup).
 - Peterson-Brown β→r conversion applied to studies with only β reported
 """
 import csv
@@ -21,7 +27,7 @@ from math import log, exp, sqrt, atanh, tanh
 from pathlib import Path
 
 import numpy as np
-from scipy import stats
+from scipy import optimize, stats
 
 INPUT_CSV = Path("/home/user/paper/metaanalysis/analysis/data_extraction_populated.csv")
 RESULTS_CSV = Path("/home/user/paper/metaanalysis/analysis/pooling_results.csv")
@@ -61,6 +67,10 @@ def beta_to_r(beta):
 def reml_tau2(y, v, max_iter=200, tol=1e-8):
     """REML iterative estimation of between-study variance.
 
+    NOTE: this fixed-point update under-estimates the REML tau² (by about
+    15-20 % on the parent pool). Kept unchanged to reproduce published
+    numbers; use reml_tau2_exact() for new analyses.
+
     y: effect sizes (Fisher z)
     v: sampling variances (1/(N-3))
     Returns: tau² estimate
@@ -95,11 +105,68 @@ def reml_tau2(y, v, max_iter=200, tol=1e-8):
     return tau2
 
 
+def reml_tau2_exact(y, v, X=None):
+    """REML tau² by direct maximisation of the restricted log-likelihood.
+
+    X is the moderator design matrix (intercept-only when None). Matches
+    PyMARE's REML estimator.
+    """
+    y = np.asarray(y, dtype=float)
+    v = np.asarray(v, dtype=float)
+    X = np.ones((len(y), 1)) if X is None else np.asarray(X, dtype=float)
+    if len(y) <= X.shape[1]:
+        return 0.0
+
+    def neg_restricted_loglik(tau2):
+        w = 1.0 / (v + tau2)
+        XtWX = (X.T * w) @ X
+        beta = np.linalg.solve(XtWX, (X.T * w) @ y)
+        resid = y - X @ beta
+        return 0.5 * (np.sum(np.log(v + tau2))
+                      + np.linalg.slogdet(XtWX)[1]
+                      + np.sum(w * resid**2))
+
+    upper = max(10.0 * float(np.var(y)), 1.0)
+    res = optimize.minimize_scalar(neg_restricted_loglik, bounds=(0.0, upper),
+                                   method="bounded", options={"xatol": 1e-12})
+    if neg_restricted_loglik(0.0) <= res.fun:
+        return 0.0
+    return float(res.x)
+
+
+def metareg_knapp_hartung(y, v, g):
+    """Mixed-effects meta-regression y ~ 1 + g (g = 0/1 dummy) with REML
+    residual tau² and the Knapp-Hartung adjustment (untruncated, as in
+    metafor's test = "knha"). Use this for two-level moderator tests.
+    """
+    y = np.asarray(y, dtype=float)
+    v = np.asarray(v, dtype=float)
+    X = np.column_stack([np.ones_like(y), np.asarray(g, dtype=float)])
+    k, p = X.shape
+    tau2 = reml_tau2_exact(y, v, X)
+    w = 1.0 / (v + tau2)
+    XtWX_inv = np.linalg.inv((X.T * w) @ X)
+    beta = XtWX_inv @ ((X.T * w) @ y)
+    s2 = float(np.sum(w * (y - X @ beta) ** 2) / (k - p))
+    se = float(np.sqrt(s2 * XtWX_inv[1, 1]))
+    t_val = float(beta[1] / se)
+    df = k - p
+    t_crit = stats.t.ppf(0.975, df=df)
+    return {"k": k, "tau2_resid": tau2, "diff_z": float(beta[1]), "se": se,
+            "ci_lo": float(beta[1] - t_crit * se),
+            "ci_hi": float(beta[1] + t_crit * se),
+            "F": t_val**2, "df1": 1, "df2": df,
+            "p": float(2.0 * (1.0 - stats.t.cdf(abs(t_val), df=df)))}
+
+
 # -----------------------------------------------------------------------------
 # Pooling
 # -----------------------------------------------------------------------------
-def pool_random_effects(y, v, labels=None):
+def pool_random_effects(y, v, labels=None, exact_reml=False):
     """Random-effects meta-analysis with REML + HKSJ CI.
+
+    exact_reml=False keeps the published (approximate) tau² estimator;
+    pass True for new analyses.
 
     Returns dict with pooled estimate on z scale, back-transformed r, CI, PI,
     heterogeneity stats.
@@ -110,7 +177,7 @@ def pool_random_effects(y, v, labels=None):
     if k == 0:
         return None
 
-    tau2 = reml_tau2(y, v)
+    tau2 = reml_tau2_exact(y, v) if exact_reml else reml_tau2(y, v)
     w = 1.0 / (v + tau2)
     W = np.sum(w)
     y_bar = np.sum(w * y) / W  # pooled z
@@ -470,6 +537,11 @@ def classify_outcome_type(raw):
 
 def pool_by_subgroup(rows, trait, classifier, moderator_name):
     """Run random-effects meta-analysis within each subgroup level.
+
+    NOTE: the Q_between computed here feeds HKSJ subgroup SEs into a
+    chi-square test, which is not valid with small subgroups (it gave the
+    published E x Region Q = 46.43). Kept to reproduce published numbers;
+    use metareg_knapp_hartung() for new moderator tests.
 
     Returns dict: {level: pool_result, ..., "Q_between": Q_b, "df_between": df_b,
     "p_between": p_b}

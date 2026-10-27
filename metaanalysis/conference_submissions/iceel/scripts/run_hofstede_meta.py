@@ -1,15 +1,18 @@
 """ICEEL 2026 — Hofstede cultural-dimensions moderator on the East-Asian
 subset, plus a focused Japan synthesis.
 
-Imports the proven pooling primitives from
-`metaanalysis/analysis/pool.py` so the per-trait pooled estimates remain
-identical to the parent preprint.
+Imports the pooling primitives from `metaanalysis/analysis/pool.py`,
+using the exact REML tau² estimator (pool.reml_tau2_exact) adopted after
+the 2026-10 audit. The Asia vs non-Asia contrast cited from the parent
+preprint is recomputed with a Knapp-Hartung meta-regression instead of
+the published Q_between (= 46.43).
 
 Usage:
     python metaanalysis/conference_submissions/iceel/scripts/run_hofstede_meta.py
 
 Outputs (to metaanalysis/conference_submissions/iceel/results/):
     asia_subset_pools.csv          per-trait pooled r within the Asian subset
+    region_contrast.csv            per-trait Asia vs non-Asia pools + KH test
     hofstede_meta_regression.csv   coefficient per (trait, dimension) pair
     japan_synthesis.md             narrative table of the two Japan studies
     summary.md                     human-readable summary
@@ -117,12 +120,36 @@ def asia_pools(primary):
             ys = [o["_z"] for o in obs]
             vs = [o["_v"] for o in obs]
             labels = [f"{o.get('study_id','')} {o.get('author_year','')}" for o in obs]
-            res = parent.pool_random_effects(ys, vs, labels)
+            res = parent.pool_random_effects(ys, vs, labels, exact_reml=True)
             res["N_total"] = sum(o["_n"] for o in obs)
             res["k"] = len(obs)
             out[trait] = res
         else:
             out[trait] = {"k": len(obs), "note": "k<2"}
+    return out
+
+
+def region_contrast(primary):
+    """Per-trait Asia vs non-Asia pools and a Knapp-Hartung meta-regression
+    test (Asia = 1). Replaces the parent preprint's Q_between.
+    """
+    out = {}
+    for trait in TRAITS:
+        obs = [o for o in trait_observations(primary, trait)
+               if o.get("region") in ("Asia", "Europe", "North_America", "Other")]
+        rec = {"trait": trait}
+        for label, group in (("asia", [o for o in obs if o["region"] == "Asia"]),
+                             ("non_asia", [o for o in obs if o["region"] != "Asia"])):
+            res = parent.pool_random_effects([o["_z"] for o in group],
+                                             [o["_v"] for o in group],
+                                             exact_reml=True)
+            rec[f"k_{label}"] = res["k"]
+            rec[f"r_{label}"] = res["r_pooled"]
+        test = parent.metareg_knapp_hartung(
+            [o["_z"] for o in obs], [o["_v"] for o in obs],
+            [1.0 if o["region"] == "Asia" else 0.0 for o in obs])
+        rec.update({"F": test["F"], "df2": test["df2"], "p": test["p"]})
+        out[trait] = rec
     return out
 
 
@@ -141,7 +168,7 @@ def hofstede_meta_regression(primary):
         # Estimate tau^2 for the trait pool to use as weight
         ys = np.array([o["_z"] for o in obs])
         vs = np.array([o["_v"] for o in obs])
-        tau2 = parent.reml_tau2(ys, vs) if len(ys) >= 2 else 0.0
+        tau2 = parent.reml_tau2_exact(ys, vs) if len(ys) >= 2 else 0.0
 
         for dim in DIMENSIONS:
             # Build x, y for this dimension
@@ -230,6 +257,19 @@ def write_asia_pools(pools):
                 w.writerow([t, r.get("k", 0), "", "", "", "", "", "", r.get("note", "")])
 
 
+def write_region_contrast(contrast):
+    path = RESULTS_DIR / "region_contrast.csv"
+    with path.open("w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["trait", "k_asia", "r_asia", "k_non_asia", "r_non_asia",
+                    "F", "df1", "df2", "p"])
+        for t in TRAITS:
+            c = contrast[t]
+            w.writerow([t, c["k_asia"], f"{c['r_asia']:.4f}", c["k_non_asia"],
+                        f"{c['r_non_asia']:.4f}", f"{c['F']:.3f}", 1,
+                        c["df2"], f"{c['p']:.5f}"])
+
+
 def _fmt(v, fmt):
     return format(v, fmt) if isinstance(v, float) and not np.isnan(v) else (v if isinstance(v, str) else "")
 
@@ -286,9 +326,25 @@ def write_japan_synthesis_md(rows):
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
-def write_summary(asia, hof_rows, japan_rows):
+def write_summary(asia, contrast, hof_rows, japan_rows):
     lines = [
         "# ICEEL 2026 — Hofstede x East Asia synthesis",
+        "",
+        "## Asia vs non-Asia contrast (Knapp-Hartung meta-regression)",
+        "",
+        "Replaces the parent preprint's Q_between (E: Q = 46.43), which fed "
+        "HKSJ subgroup SEs into a chi-square test.",
+        "",
+        "| Trait | k Asia | r Asia | k non-Asia | r non-Asia | F (df) | p |",
+        "|-------|--------|--------|------------|------------|--------|---|",
+    ]
+    for t in TRAITS:
+        c = contrast[t]
+        lines.append(
+            f"| {t} | {c['k_asia']} | {c['r_asia']:+.3f} | {c['k_non_asia']} | "
+            f"{c['r_non_asia']:+.3f} | {c['F']:.2f} (1, {c['df2']}) | {c['p']:.4f} |"
+        )
+    lines += [
         "",
         "## Asian-subset pooled correlations",
         "",
@@ -351,6 +407,10 @@ def main():
     write_asia_pools(asia)
     print(f"[ICEEL] wrote asia_subset_pools.csv")
 
+    contrast = region_contrast(primary)
+    write_region_contrast(contrast)
+    print(f"[ICEEL] wrote region_contrast.csv")
+
     hof_rows = hofstede_meta_regression(primary)
     write_hofstede_csv(hof_rows)
     print(f"[ICEEL] wrote hofstede_meta_regression.csv ({len(hof_rows)} rows)")
@@ -359,7 +419,7 @@ def main():
     write_japan_synthesis_md(japan)
     print(f"[ICEEL] wrote japan_synthesis.md ({len(japan)} Japan studies)")
 
-    write_summary(asia, hof_rows, japan)
+    write_summary(asia, contrast, hof_rows, japan)
     print(f"[ICEEL] wrote summary.md")
 
 
