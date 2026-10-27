@@ -46,3 +46,6 @@ metaanalysis/sr_update/.openalex_key
 metaanalysis/sr_update/records_*.csv
 !metaanalysis/sr_update/records_index.csv
 metaanalysis/sr_update/scholar/*.csv
+# sr_update screening: batches hold abstracts (local only)
+metaanalysis/sr_update/screening/batches/
+metaanalysis/sr_update/screening/screening_ta.csv
