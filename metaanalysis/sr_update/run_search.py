@@ -3,6 +3,7 @@
     python metaanalysis/sr_update/run_search.py --check       # connectivity only
     python metaanalysis/sr_update/run_search.py               # databases + snowballing
     python metaanalysis/sr_update/run_search.py --only pubmed
+    python metaanalysis/sr_update/run_search.py --merge       # add Google Scholar, re-dedup
 
 Outputs (all under sr_update/):
   raw/<source>/          every API response, unmodified
@@ -12,7 +13,11 @@ Outputs (all under sr_update/):
                          and amended), and the PRISMA identification numbers
 
 Sources: PubMed (E-utilities), ERIC (IES API), OpenAlex, and OpenAlex
-backward/forward citation searching from seeds.csv. Set OPENALEX_API_KEY
+backward/forward citation searching from seeds.csv. Google Scholar is run
+by hand with Publish or Perish (search_strategy.GOOGLE_SCHOLAR_QUERY) and its
+CSV export saved as scholar/pop_export.csv; --merge then converts it to
+records_scholar.csv and rebuilds records_dedup.csv from every records_*.csv.
+Run --merge before screening starts, because it renumbers record_ids. Set OPENALEX_API_KEY
 if OpenAlex asks for a key.
 
 Written before the computing environment could reach these APIs; run
@@ -29,6 +34,7 @@ import re
 import sys
 import time
 import unicodedata
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -37,10 +43,15 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from search_strategy import DATABASES, online_block  # noqa: E402
+from search_strategy import (DATABASES, GOOGLE_SCHOLAR_ATTEMPTS,  # noqa: E402
+                             GOOGLE_SCHOLAR_MAX, GOOGLE_SCHOLAR_QUERY,
+                             GOOGLE_SCHOLAR_SETTINGS, online_block)
 
 MAILTO = "eisuke.tokiwa@sunblaze.jp"  # NCBI / OpenAlex contact address
-OPENALEX_KEY = os.environ.get("OPENALEX_API_KEY", "")
+KEY_FILE = HERE / ".openalex_key"  # one line, the key only; git-ignored
+OPENALEX_KEY = (os.environ.get("OPENALEX_API_KEY", "")
+                or (KEY_FILE.read_text(encoding="utf-8").strip()
+                    if KEY_FILE.exists() else ""))
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 ERIC = "https://api.ies.ed.gov/eric/"
 OPENALEX = "https://api.openalex.org/works"
@@ -57,9 +68,12 @@ SCREEN = ["ta_decision", "ta_reason", "ft_decision", "ft_reason"]
 def get(url, data=None, retries=3):
     for attempt in range(retries):
         try:
+            headers = {"User-Agent": f"sr-update (mailto:{MAILTO})"}
+            if OPENALEX_KEY and url.startswith(OPENALEX):
+                headers["Authorization"] = f"Bearer {OPENALEX_KEY}"
             req = urllib.request.Request(
                 url, data=urllib.parse.urlencode(data).encode() if data else None,
-                headers={"User-Agent": f"sr-update (mailto:{MAILTO})"})
+                headers=headers)
             with urllib.request.urlopen(req, timeout=60) as resp:
                 return resp.read()
         except Exception:
@@ -77,7 +91,26 @@ def check():
         except Exception as exc:  # noqa: BLE001
             ok = False
             print(f"  FAIL  {db}: {url.split('/')[2]} ({exc})")
+    print(f"  OpenAlex key: {'set' if OPENALEX_KEY else 'not set (shared free budget)'}; "
+          f"remaining today: {openalex_budget()}")
     return ok
+
+
+def openalex_budget():
+    """Remaining OpenAlex budget in USD, from the rate-limit headers."""
+    headers = {"User-Agent": f"sr-update (mailto:{MAILTO})"}
+    if OPENALEX_KEY:
+        headers["Authorization"] = f"Bearer {OPENALEX_KEY}"
+    req = urllib.request.Request(HOSTS["openalex"], headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            h = resp.headers
+    except urllib.error.HTTPError as e:
+        h = e.headers
+    except Exception as exc:  # noqa: BLE001
+        return f"unknown ({exc})"
+    return (f"${h.get('X-RateLimit-Remaining-USD', '?')} of "
+            f"${h.get('X-RateLimit-Limit-USD', '?')}")
 
 
 def save_raw(source, name, payload):
@@ -206,8 +239,6 @@ def openalex_works(filt, source, tag):
     records, cursor, count, page = [], "*", 0, 0
     while cursor:
         params = {"filter": filt, "per-page": 200, "cursor": cursor, "mailto": MAILTO}
-        if OPENALEX_KEY:
-            params["api_key"] = OPENALEX_KEY
         raw = get(OPENALEX + "?" + urllib.parse.urlencode(params))
         save_raw(source, f"{tag}_{page:04d}.json", raw)
         data = json.loads(raw)
@@ -224,8 +255,6 @@ def openalex_filter(query):
 
 def openalex_count(query):
     params = {"filter": openalex_filter(query), "per-page": 1, "mailto": MAILTO}
-    if OPENALEX_KEY:
-        params["api_key"] = OPENALEX_KEY
     return json.loads(get(OPENALEX + "?" + urllib.parse.urlencode(params)))["meta"]["count"]
 
 
@@ -235,29 +264,32 @@ def search_openalex(query):
 
 def openalex_by_doi(doi):
     params = {"mailto": MAILTO}
-    if OPENALEX_KEY:
-        params["api_key"] = OPENALEX_KEY
     url = f"{OPENALEX}/https://doi.org/{doi}?" + urllib.parse.urlencode(params)
     return json.loads(get(url))
 
 
 def search_citations():
     """Backward (reference lists) and forward (citing works) searching from
-    every seed in seeds.csv that has a DOI. Returns per-seed counts and the
-    records; seeds without a DOI are reported for manual searching."""
+    every seed in seeds.csv that has a DOI or an OpenAlex id (several ids,
+    separated by "|", when OpenAlex holds duplicate records of one work).
+    Returns per-seed counts and the records; seeds with neither are reported
+    for manual searching."""
     seeds = list(csv.DictReader((HERE / "seeds.csv").open(encoding="utf-8")))
     per_seed, records, missing = [], [], []
     for s in seeds:
-        if not s["doi"]:
+        ids = [i for i in (s.get("openalex_id") or "").split("|") if i]
+        if not s["doi"] and not ids:
             missing.append(s["seed_id"])
             continue
         try:
-            w = openalex_by_doi(s["doi"])
+            works = ([openalex_by_doi(s["doi"])] if s["doi"]
+                     else [json.loads(get(f"{OPENALEX}/{i}?mailto={MAILTO}")) for i in ids])
         except Exception as exc:  # noqa: BLE001
             missing.append(f"{s['seed_id']} (not found in OpenAlex: {exc})")
             continue
-        wid = w["id"].rsplit("/", 1)[-1]
-        refs = [r.rsplit("/", 1)[-1] for r in w.get("referenced_works", [])]
+        wid = "|".join(w["id"].rsplit("/", 1)[-1] for w in works)
+        refs = list(dict.fromkeys(r.rsplit("/", 1)[-1] for w in works
+                                  for r in w.get("referenced_works", [])))
         back = []
         for i in range(0, len(refs), 50):  # OR-filter takes up to 50 ids
             _, recs = openalex_works("ids.openalex:" + "|".join(refs[i:i + 50]),
@@ -320,11 +352,85 @@ def write_csv(path, rows, fields):
         w.writerows(rows)
 
 
+SOURCES_ORDER = ["pubmed", "eric", "openalex", "citations", "scholar"]
+POP_CSV = HERE / "scholar" / "pop_export.csv"
+
+
+def read_csv(path):
+    with path.open(encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def convert_pop(path):
+    """Publish or Perish CSV export -> normalised records (source 'scholar')."""
+    recs = []
+    for row in read_csv(path)[:GOOGLE_SCHOLAR_MAX]:
+        recs.append({
+            "source": "scholar",
+            "source_id": row.get("ArticleURL", "") or row.get("GSRank", ""),
+            "doi": clean_doi(row.get("DOI")),
+            "title": row.get("Title", ""),
+            "abstract": row.get("Abstract", ""),
+            "year": (row.get("Year") or "").strip(),
+            "authors": row.get("Authors", ""),
+            "journal": row.get("Source", ""),
+        })
+    return recs
+
+
+def finalize(all_records, log):
+    unique = dedup(all_records)
+    write_csv(HERE / "records_dedup.csv", unique,
+              ["record_id", "sources", *FIELDS[1:], *SCREEN])
+    # Public copy for git: bibliographic fields only. Abstracts are the
+    # publishers' text, so they stay in records_dedup.csv (local and OSF).
+    write_csv(HERE / "records_index.csv", unique,
+              ["record_id", "sources", "source_id", "doi", "title", "year",
+               "authors", "journal"])
+    log["prisma"] = {"records_identified": len(all_records),
+                     "duplicates_removed": len(all_records) - len(unique),
+                     "records_screened": len(unique)}
+    (HERE / "search_log.json").write_text(
+        json.dumps(log, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"  total {len(all_records)}, after de-duplication {len(unique)}")
+
+
+def merge():
+    """Add the Publish or Perish export and rebuild records_dedup.csv."""
+    log_path = HERE / "search_log.json"
+    if not log_path.exists():
+        sys.exit("search_log.json not found: run the database search first.")
+    log = json.loads(log_path.read_text(encoding="utf-8"))
+    if not POP_CSV.exists():
+        sys.exit(f"{POP_CSV} not found: save the Publish or Perish CSV there.")
+    recs = convert_pop(POP_CSV)
+    write_csv(HERE / "records_scholar.csv", recs, FIELDS)
+    log["sources"]["scholar"] = {
+        "name": "Google Scholar (Publish or Perish, run by the author)",
+        "query": GOOGLE_SCHOLAR_QUERY, "records_retrieved": len(recs),
+        "max_records": GOOGLE_SCHOLAR_MAX,
+        "settings": GOOGLE_SCHOLAR_SETTINGS,
+        "attempts": GOOGLE_SCHOLAR_ATTEMPTS,
+        "export_file": str(POP_CSV.relative_to(HERE)),
+        "export_modified": date.fromtimestamp(POP_CSV.stat().st_mtime).isoformat()}
+    print(f"  scholar: {len(recs)} records")
+    all_records = []
+    for src in SOURCES_ORDER:
+        path = HERE / f"records_{src}.csv"
+        if path.exists():
+            all_records += read_csv(path)
+    finalize(all_records, log)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--only", choices=[*SEARCHERS, "citations"])
+    ap.add_argument("--merge", action="store_true")
     args = ap.parse_args()
+    if args.merge:
+        merge()
+        return
 
     print("Connectivity:")
     if not check() and not args.check:
@@ -358,15 +464,7 @@ def main():
               f"by hand: {', '.join(missing) or 'none'}")
         all_records += recs
 
-    unique = dedup(all_records)
-    write_csv(HERE / "records_dedup.csv", unique,
-              ["record_id", "sources", *FIELDS[1:], *SCREEN])
-    log["prisma"] = {"records_identified": len(all_records),
-                     "duplicates_removed": len(all_records) - len(unique),
-                     "records_screened": len(unique)}
-    (HERE / "search_log.json").write_text(
-        json.dumps(log, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"  total {len(all_records)}, after de-duplication {len(unique)}")
+    finalize(all_records, log)
 
 
 if __name__ == "__main__":

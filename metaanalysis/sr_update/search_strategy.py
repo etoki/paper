@@ -85,5 +85,36 @@ DATABASES = {
     "openalex": {"name": "OpenAlex", "query": openalex_query},
 }
 
-# (date, change, reason) — empty until the amendment is registered
+# Google Scholar: one simplified query, run once by the author with Publish
+# or Perish on the same date as the API searches (Amendment 1, A1). Google
+# Scholar caps queries at 256 characters and does not honour nested Boolean
+# logic, so each block is shortened to its core terms. Fixed on 2026-10-27,
+# before any search was run.
+GOOGLE_SCHOLAR_QUERY = (
+    '("Big Five" OR "five factor" OR conscientiousness OR personality) '
+    '("online learning" OR "e-learning" OR "distance learning" OR MOOC) '
+    '("academic achievement" OR "academic performance" OR grades OR GPA)'
+)
+GOOGLE_SCHOLAR_MAX = 200
+# Publish or Perish settings used (all other fields left empty; no year limit)
+GOOGLE_SCHOLAR_SETTINGS = {
+    "field": "Keywords", "max_results": 200,
+    "include_citation_records": True, "include_patents": False,
+    "only_reviews": False, "years": "none",
+}
+# Every attempt on the search date. Google Scholar stopped serving results
+# part-way through the first two; the third returned all 200 and is the one
+# merged (scholar/pop_export.csv). The first export is kept as
+# scholar/pop_export_run1_16records.csv; the second was overwritten.
+GOOGLE_SCHOLAR_ATTEMPTS = [
+    {"time": "2026-10-27 22:12 JST", "button": "Search", "records": 16,
+     "note": "stopped early; whether patents were excluded was not recorded"},
+    {"time": "2026-10-27 22:23 JST", "button": "Search Direct", "records": 40,
+     "note": "stopped early"},
+    {"time": "2026-10-27 22:43 JST", "button": "Search Direct", "records": 200,
+     "note": "complete; merged"},
+]
+
+# (date, change, reason). Amendment 1 registered on OSF on 2026-10-27
+# (approved 12:29 UTC); its changes are recorded there, not here.
 DEVIATIONS = []
