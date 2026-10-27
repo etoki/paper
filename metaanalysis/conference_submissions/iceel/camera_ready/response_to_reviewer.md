@@ -1,0 +1,41 @@
+# ICEEL 2026 — Paper EL2036: Response to the reviewer
+
+Paper: "Cultural dimensions in online learning: A Hofstede-moderated within-Asia synthesis of the Big Five and academic achievement, with a focused look at the Japanese context" (Eisuke Tokiwa)
+
+I thank the reviewer for the careful reading and the constructive comments. The camera-ready version (EL2036_Tokiwa_final.docx, 10 pages) addresses both major points as follows. It also includes the statistical corrections described in my email of 27 October 2026 (EL2036_changes_v2), and adds the CCS concepts required by the template.
+
+## Comment 1 — Cross-level inference in Table 4 (Sections 4.4 and 5.4)
+
+> HM04 country-level correlations between Hofstede dimensions and national mean Big Five scores are used to "predict" the sign of individual-level trait–outcome correlations in Japanese learners.
+
+I agree. The analysis is now framed as an exploratory correspondence, not a prediction or validation test.
+
+- Abstract, Section 1 and Section 7: "direction-prediction match", "predicted" and "doubly predicted" are replaced by "exploratory correspondence" with "country-level trait – culture associations". The Introduction states that the reference correlations describe nations rather than learners.
+- Section 2.1: states that the Hofstede & McCrae (2004) correlations are not predictions for individual learners and are used only as a reference point.
+- Section 4.4 and Table 4: retitled "Exploratory correspondence with country-level trait – culture associations"; the column "HM04 prediction" is now "Country-level reference (HM04)", "Match?" is now "Same sign?", and the text says the reference column summarises associations between national culture scores and national trait means.
+- Section 5.4: rewritten as "Reading the Neuroticism correspondence with caution". It names the level-of-analysis mismatch as a cross-level inference and states that testing the mechanism would require individual-level cultural measures collected together with personality and outcomes.
+- Section 6: the limitation is stated explicitly — Table 4 rests on a cross-level comparison and cannot test a mechanism.
+
+## Comment 2 — Engagement vs achievement outcomes, and k = 2 slopes (Sections 4.2–4.4, 5.1–5.2; Tables 2–4)
+
+> The Japan comparison combines different constructs and statistics … while the Hofstede meta-regression has only k = 2 and df_resid = 0.
+
+I agree on both parts.
+
+Engagement and achievement are now separated:
+- Section 3.3.1 states that A-25 Tokiwa (Spearman ρ with platform engagement and mastery) and A-31 Rivers (Pearson r with course grade) are compared side by side and not pooled or treated as replications.
+- Table 3: the outcome row is relabelled "Engagement / mastery" vs "Achievement: course grade"; the caption notes that the outcomes are not directly comparable.
+- Table 4: the two Japan columns are labelled "Tokiwa: engagement (ρ)" and "Rivers: grade (r)".
+- Sections 4.3 and 4.4: state that Tokiwa's values are learning-behaviour outcomes, not achievement, that the two positive Neuroticism values do not replicate one achievement effect, and that only Rivers's r = +0.107 concerns achievement.
+
+The k = 2 slopes are presented only as descriptive contrasts:
+- The "meta-regression" label is removed for these fits. Section 4.2 is retitled "Hofstede two-country contrasts (descriptive)"; Table 2 is retitled "Hofstede two-country contrasts expressed as slopes".
+- Section 3.3 explains that, with k = 2, each line passes exactly through the two study estimates, so its slope is the Japan – China difference divided by the difference in country scores.
+- Sections 5.1 and 5.2 state that the contrast is confounded with instrument, education level, outcome measure, modality and effect-size type.
+
+The cultural and causal claims are narrowed throughout. The paper is now positioned as an exploratory methodological and narrative synthesis (Abstract, Section 1, Section 7), and the Neuroticism correspondence is described as a hypothesis for future testing rather than as evidence about academic achievement.
+
+## Other changes
+
+- CCS CONCEPTS line added after the abstract (Applied computing • Education • E-learning), and the CCS XML code added to the Word file's properties (File > Info > Comments), as described in the conference guidelines.
+- Statistical corrections from my email of 27 October 2026 (corrected region contrast, Peterson–Brown β-to-r conversion for Yu 2021, exact REML τ², corrected text for Table 2, numbered headings).
