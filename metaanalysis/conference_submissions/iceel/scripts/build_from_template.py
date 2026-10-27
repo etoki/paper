@@ -92,7 +92,7 @@ ABSTRACT_BLOCKS = [
 CCS_TEXT = "Applied computing • Education • E-learning"
 CCS_XML = """<ccs2012>
 <concept>
-<concept_id>10010405.10010489.10010490</concept_id>
+<concept_id>10010405.10010489.10010495</concept_id>
 <concept_desc>Applied computing~E-learning</concept_desc>
 <concept_significance>500</concept_significance>
 </concept>
@@ -740,7 +740,7 @@ def build():
                 "subset (k = 2 with extractable r per trait: A-28 Yu, China; "
                 "A-31 Rivers, Japan; plus A-25 Tokiwa Japan in narrative "
                 "synthesis). Adapted from Page et al. (2021), BMJ 372, n71.",
-                width_cm=12.0,
+                width_cm=10.0,
             )
         elif style in TABLE_MAP:
             hdr, rows, caption = TABLE_MAP[style]
