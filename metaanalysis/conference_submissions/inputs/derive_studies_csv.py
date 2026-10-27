@@ -151,7 +151,10 @@ def get_r(row: dict, trait: str, legacy: bool = False) -> tuple[str, str]:
         try:
             b = float(b_str)
             if abs(b) <= 0.99:
-                return (f"{peterson_brown_r(b, legacy=legacy):.4f}", "beta_converted")
+                # Full precision for the corrected rule; 4 decimals kept for the
+                # legacy file so it matches the submitted inputs byte for byte.
+                r_conv = peterson_brown_r(b, legacy=legacy)
+                return (f"{r_conv:.4f}" if legacy else f"{r_conv:.6f}", "beta_converted")
         except ValueError:
             pass
     return ("", "")

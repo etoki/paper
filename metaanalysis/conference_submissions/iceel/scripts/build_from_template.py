@@ -525,7 +525,7 @@ TABLE2_ROWS = [
     ["E", "IDV", "−0.0039", "descriptive"],
     ["E", "LTO", "−0.1001", "descriptive"],
     ["A", "PDI", "+0.0157", "descriptive"],
-    ["A", "LTO", "−0.4086", "descriptive"],
+    ["A", "LTO", "−0.4085", "descriptive"],
     ["N", "PDI", "−0.0008", "descriptive"],
     ["N", "IDV", "+0.0008", "descriptive"],
     ["N", "LTO", "+0.0209", "descriptive"],

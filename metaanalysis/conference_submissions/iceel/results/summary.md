@@ -7,10 +7,10 @@ Replaces the parent preprint's Q_between (E: Q = 46.43), which fed HKSJ subgroup
 | Trait | k Asia | r Asia | k non-Asia | r non-Asia | F (df) | p |
 |-------|--------|--------|------------|------------|--------|---|
 | O | 2 | +0.155 | 7 | +0.054 | 0.69 (1, 7) | 0.4350 |
-| C | 2 | +0.110 | 8 | +0.187 | 0.57 (1, 8) | 0.4701 |
+| C | 2 | +0.110 | 8 | +0.187 | 0.58 (1, 8) | 0.4700 |
 | E | 2 | -0.095 | 7 | +0.050 | 12.94 (1, 7) | 0.0088 |
 | A | 2 | +0.319 | 7 | +0.038 | 9.13 (1, 7) | 0.0193 |
-| N | 2 | +0.089 | 8 | -0.009 | 0.99 (1, 8) | 0.3479 |
+| N | 2 | +0.089 | 8 | -0.009 | 0.99 (1, 8) | 0.3480 |
 
 ## Asian-subset pooled correlations
 
@@ -51,7 +51,7 @@ All numbers are exploratory; k <= 4 within Asia means the regression is severely
 | A | IDV | 2 | -0.0157 | — | — | — | descriptive only (df_resid<1) |
 | A | MAS | 2 | -0.0141 | — | — | — | descriptive only (df_resid<1) |
 | A | UAI | 2 | -0.0066 | — | — | — | descriptive only (df_resid<1) |
-| A | LTO | 2 | -0.4086 | — | — | — | descriptive only (df_resid<1) |
+| A | LTO | 2 | -0.4085 | — | — | — | descriptive only (df_resid<1) |
 | A | IND | 2 | -0.0227 | — | — | — | descriptive only (df_resid<1) |
 | N | PDI | 2 | -0.0008 | — | — | — | descriptive only (df_resid<1) |
 | N | IDV | 2 | +0.0008 | — | — | — | descriptive only (df_resid<1) |

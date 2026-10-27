@@ -17,9 +17,9 @@ Table 2 (corrected). Modality moderator tests, asynchronous (A) vs mixed-online 
 | Trait | k | Δz (M − A) [95% CI] | F (df) | p | Published Q (p) |
 |---|---|---|---|---|---|
 | Openness | 8 | −0.218 [−0.494, 0.058] | 3.75 (1, 6) | .101 | 1.96 (.161) |
-| Conscientiousness | 9 | −0.020 [−0.219, 0.179] | 0.05 (1, 7) | .821 | 0.015 (.903) |
+| Conscientiousness | 9 | −0.020 [−0.219, 0.179] | 0.05 (1, 7) | .822 | 0.015 (.903) |
 | Extraversion | 8 | +0.139 [0.019, 0.258] | 8.07 (1, 6) | .030 | 17.60 (< .001) |
-| Agreeableness | 8 | −0.254 [−0.517, 0.009] | 5.59 (1, 6) | .056 | 3.28 (.070) |
+| Agreeableness | 8 | −0.254 [−0.517, 0.009] | 5.60 (1, 6) | .056 | 3.28 (.070) |
 | Neuroticism | 9 | +0.002 [−0.246, 0.250] | 0.00 (1, 7) | .984 | 0.42 (.519) |
 
 ## 2. Interaction model (Table 3) — withdrawn
@@ -67,8 +67,8 @@ The asynchronous Extraversion cell contains three studies: A-01 Abe (2020; USA; 
 - **Figure 1 (final box and caption).** "k = 11 … asynchronous k = 6, mixed-online k = 5, synchronous k = 1" should read "k = 10 … asynchronous k = 4, mixed-online k = 5, synchronous k = 1".
 - **Section 2.3.** The sentences from "Between-modality heterogeneity was tested via Q_between" to "is reported as the primary inferential statistic" are replaced by: "For each trait, the difference between asynchronous and mixed-online studies was tested with a mixed-effects meta-regression of Fisher z on a modality indicator, with REML residual τ² and the Knapp–Hartung adjustment, F(1, k − 2) (Knapp & Hartung, 2003; Viechtbauer et al., 2015). Standardised regression coefficients were converted to correlations with the rule of Peterson and Brown (2005), r = .98β + .05λ."
 - **Sections 3.2 and 4.2.** "(0.190 vs 0.180)" should read "(0.209 vs 0.179)"; the asynchronous Extraversion estimate "−0.121 [−0.246, 0.007]" should read "−0.078 [−0.203, 0.049]" (its confidence interval no longer "brushes zero"); and the mixed-online Extraversion estimate "+0.059" should read "+0.058".
-- **Section 3.3.** "Agreeableness shows a trend (p = .070)" should read "Agreeableness shows a trend (p = .056)", and "Conscientiousness is exceptionally close to zero on Q (0.015)" should read "Conscientiousness shows essentially no difference (F(1, 7) = 0.05, p = .821)".
-- **Section 4.1.** "0.190 in the asynchronous bucket and 0.180 in the mixed-online bucket — an absolute difference of 0.010 … with a Q_between p of .903" should read "0.209 in the asynchronous bucket and 0.179 in the mixed-online bucket — an absolute difference of 0.030 … with a moderator-test p of .821".
+- **Section 3.3.** "Agreeableness shows a trend (p = .070)" should read "Agreeableness shows a trend (p = .056)", and "Conscientiousness is exceptionally close to zero on Q (0.015)" should read "Conscientiousness shows essentially no difference (F(1, 7) = 0.05, p = .822)".
+- **Section 4.1.** "0.190 in the asynchronous bucket and 0.180 in the mixed-online bucket — an absolute difference of 0.010 … with a Q_between p of .903" should read "0.209 in the asynchronous bucket and 0.179 in the mixed-online bucket — an absolute difference of 0.030 … with a moderator-test p of .822".
 - **Section 4.3.** Openness: "+0.223 with an enormous CI [-0.374, 0.689] … Q_between p = .161" should read "+0.219 with an enormous CI [−0.374, 0.685] … p = .101". Agreeableness: "(A r = +0.283, M r = +0.032; Q_between p = .070)" should read "(A r = +0.274, M r = +0.043; p = .056)". Neuroticism: "(r = +0.076, CI just touching zero)" should read "(r = +0.076 [−0.036, 0.185])", and "(p = .519)" should read "(p = .984)".
 - **Section 5.** In the first paragraph, "the joint interaction test (which aggregates across cells) carries the inferential weight of this paper" is replaced by "the Extraversion contrast in particular depends on two East Asian studies (Section 5 of this correction)". The fourth paragraph ("The interaction model uses a simple weighted-OLS approximation …") is deleted.
 
