@@ -191,11 +191,36 @@ def metareg_knapp_hartung_groups(y, v, groups):
 # -----------------------------------------------------------------------------
 # Pooling
 # -----------------------------------------------------------------------------
-def pool_random_effects(y, v, labels=None, exact_reml=True):
+def dl_tau2(y, v):
+    """DerSimonian-Laird moment estimator of tau² (sensitivity analysis)."""
+    y = np.asarray(y, dtype=float)
+    v = np.asarray(v, dtype=float)
+    w = 1.0 / v
+    y_bar = np.sum(w * y) / np.sum(w)
+    q = np.sum(w * (y - y_bar) ** 2)
+    c = np.sum(w) - np.sum(w**2) / np.sum(w)
+    return max(0.0, float((q - (len(y) - 1)) / c))
+
+
+def holm_adjust(pvals):
+    """Holm (1979) step-down adjustment; returns adjusted p in input order."""
+    p = np.asarray(pvals, dtype=float)
+    m = len(p)
+    order = np.argsort(p)
+    adj = np.empty(m)
+    running = 0.0
+    for rank, idx in enumerate(order):
+        running = max(running, min(1.0, (m - rank) * p[idx]))
+        adj[idx] = running
+    return adj
+
+
+def pool_random_effects(y, v, labels=None, exact_reml=True, estimator="REML"):
     """Random-effects meta-analysis with REML + HKSJ CI.
 
     exact_reml=False selects the earlier, biased tau² estimator and is only
-    for scripts that reproduce already-submitted numbers.
+    for scripts that reproduce already-submitted numbers. estimator="DL"
+    swaps in the DerSimonian-Laird tau² for the sensitivity analysis.
 
     Returns dict with pooled estimate on z scale, back-transformed r, CI, PI,
     heterogeneity stats.
@@ -206,7 +231,10 @@ def pool_random_effects(y, v, labels=None, exact_reml=True):
     if k == 0:
         return None
 
-    tau2 = reml_tau2_exact(y, v) if exact_reml else reml_tau2(y, v)
+    if estimator == "DL":
+        tau2 = dl_tau2(y, v)
+    else:
+        tau2 = reml_tau2_exact(y, v) if exact_reml else reml_tau2(y, v)
     w = 1.0 / (v + tau2)
     W = np.sum(w)
     y_bar = np.sum(w * y) / W  # pooled z
@@ -295,14 +323,27 @@ def peterson_brown_r(beta, legacy=False):
     return max(-0.99, min(0.99, r))
 
 
-def extract_effect_for_trait(row, trait, legacy_conversion=False):
+# Studies kept in the scoping map but left out of the quantitative pool
+# (decision of 2026-10-27). Scripts that reproduce numbers submitted before
+# that decision pass exclude=() to keep the original pool.
+POOL_EXCLUSIONS = {
+    "A-37": ("pooled graduate cohorts taught face to face before and after "
+             "the pandemic and online during it; correlations reported only "
+             "as |r| < .10"),
+}
+
+
+def extract_effect_for_trait(row, trait, legacy_conversion=False,
+                             exclude=POOL_EXCLUSIONS):
     """For a given row and trait (O/C/E/A/N), return (r, N, source) or None.
 
     Applies Peterson-Brown conversion to β if r not available.
     Only returns values for studies flagged as primary_achievement=yes
-    or include_with_caveat.
+    or include_with_caveat, and not listed in `exclude`.
     """
     sid = row.get("study_id", "")
+    if sid in exclude:
+        return None
     inc = row.get("inclusion_status", "")
     prim = row.get("primary_achievement", "")
 
@@ -385,18 +426,17 @@ def egger_test(y, v):
     }
 
 
-def trim_and_fill(y, v, side="auto", max_iter=20):
-    """Duval & Tweedie (2000) trim-and-fill using L0 estimator.
+def trim_and_fill(y, v, max_iter=100):
+    """Duval & Tweedie (2000) trim-and-fill with the L0 estimator, following
+    metafor::trimfill: the side of the missing studies comes from the sign
+    of the slope of a REML meta-regression of y on sqrt(v); the centre is
+    re-estimated on the trimmed set each iteration, while the signed ranks
+    are always taken over all k studies.
 
-    Imputes hypothetical missing studies on the opposite side of the
-    asymmetric funnel, then recomputes the adjusted pooled effect.
+    (Until 2026-10 this function used argsort positions as ranks and
+    re-ranked only the already-trimmed studies, which changed k0.)
 
-    Args:
-        y: Fisher z effect sizes (array).
-        v: sampling variances (array).
-        side: 'auto' determines side from observed asymmetry.
-
-    Returns dict with k_imputed, r_adj, r_ci_lo, r_ci_hi.
+    Returns dict with side, k_imputed, r_orig, r_adj and its CI.
     """
     y = np.asarray(y, dtype=float)
     v = np.asarray(v, dtype=float)
@@ -404,98 +444,49 @@ def trim_and_fill(y, v, side="auto", max_iter=20):
     if k < 3:
         return None
 
-    # Determine side: if more asymmetry on right, impute on left, and vice versa
-    # Heuristic: use sign of Egger's intercept
-    e = egger_test(y, v)
-    if e is None:
-        return None
-    if side == "auto":
-        side = "left" if e["intercept"] > 0 else "right"
+    X = np.column_stack([np.ones(k), np.sqrt(v)])
+    w = 1.0 / (v + reml_tau2_exact(y, v, X))
+    slope = np.linalg.solve((X.T * w) @ X, (X.T * w) @ y)[1]
+    side = "right" if slope < 0 else "left"
 
-    y_work = y.copy()
-    v_work = v.copy()
-    n_trimmed = 0
+    # Work with the missing studies on the left: flip, then sort ascending.
+    yy = -y if side == "right" else y.copy()
+    order = np.argsort(yy, kind="stable")
+    yy, vv = yy[order], v[order]
 
+    def centre(ys, vs):
+        wt = 1.0 / (vs + reml_tau2_exact(ys, vs))
+        return float(np.sum(wt * ys) / np.sum(wt))
+
+    k0 = 0
     for _ in range(max_iter):
-        # Pool current set
-        tau2 = reml_tau2_exact(y_work, v_work)
-        w = 1.0 / (v_work + tau2)
-        mu = np.sum(w * y_work) / np.sum(w)
-
-        # Deviations from mean
-        dev = y_work - mu
-
-        # Sort by abs(dev); rank with sign
-        signs = np.sign(dev)
-        ranks = np.argsort(np.abs(dev)) + 1  # ranks 1..k
-
-        # L0 estimator: number of studies in the "wrong" direction
-        # Wrong direction = studies whose sign is inconsistent with side being trimmed
-        # If side="left", we remove studies on the right (positive dev)
-        if side == "left":
-            target_sign = 1  # positive residuals are "excess"
-        else:
-            target_sign = -1
-
-        # Ranks of non-target-sign studies (expected to be uniformly distributed if symmetric)
-        # L0 = max(0, (T_n - n(n+1)/4) / sqrt(n(n+1)(2n+1)/24)) transformed back
-        # Simpler formula: L0 = (4*T* - n*(n+1)) / (2n - 1), where T* = sum of ranks with target_sign
-        k_eff = len(y_work)
-        T_star = np.sum(ranks[signs == target_sign])
-        L0 = max(0, int(round((4 * T_star - k_eff * (k_eff + 1)) / (2 * k_eff - 1)))) if k_eff > 1 else 0
-
-        if L0 == 0 or L0 == n_trimmed:
-            n_trimmed = L0
+        k0_prev = k0
+        mu = centre(yy[:k - k0], vv[:k - k0])
+        dev = yy - mu
+        ranks = stats.rankdata(np.abs(dev), method="ordinal")
+        s_r = np.sum(ranks[dev > 0])
+        k0 = max(0, int(round((4 * s_r - k * (k + 1)) / (2 * k - 1))))
+        if k0 == k0_prev:
             break
 
-        # Trim L0 extreme studies on target-sign side
-        n_trimmed = L0
-        if side == "left":
-            # Remove top L0 (largest positive deviation)
-            keep_idx = np.argsort(dev)[:-L0] if L0 < k_eff else np.array([], dtype=int)
-        else:
-            # Remove bottom L0 (largest negative deviation)
-            keep_idx = np.argsort(dev)[L0:] if L0 < k_eff else np.array([], dtype=int)
-        if len(keep_idx) < 2:
-            break
-        y_work = y_work[keep_idx]
-        v_work = v_work[keep_idx]
-
-    # After trimming, re-estimate center and fill symmetric reflections
-    tau2 = reml_tau2_exact(y_work, v_work)
-    w = 1.0 / (v_work + tau2)
-    mu_trimmed = np.sum(w * y_work) / np.sum(w)
-
-    if n_trimmed > 0:
-        # Fill: reflect the n_trimmed most extreme studies on the OPPOSITE side
-        y_orig = np.asarray(y)
-        v_orig = np.asarray(v)
-        dev_orig = y_orig - mu_trimmed
-        # Select the n_trimmed most extreme in the TARGET direction (positive if side=left)
-        if side == "left":
-            extreme_idx = np.argsort(dev_orig)[-n_trimmed:]
-            filled_y = 2 * mu_trimmed - y_orig[extreme_idx]  # reflect
-        else:
-            extreme_idx = np.argsort(dev_orig)[:n_trimmed]
-            filled_y = 2 * mu_trimmed - y_orig[extreme_idx]
-        filled_v = v_orig[extreme_idx]
-
-        y_adj = np.concatenate([y_orig, filled_y])
-        v_adj = np.concatenate([v_orig, filled_v])
+    if k0 > 0:
+        fill = 2 * mu - yy[k - k0:]
+        if side == "right":
+            fill = -fill
+        y_adj = np.concatenate([y, fill])
+        v_adj = np.concatenate([v, vv[k - k0:]])
     else:
-        y_adj = np.asarray(y)
-        v_adj = np.asarray(v)
+        y_adj, v_adj = y, v
 
-    adj_res = pool_random_effects(y_adj, v_adj)
-
+    orig = pool_random_effects(y, v)
+    adj = pool_random_effects(y_adj, v_adj)
     return {
-        "k_imputed": n_trimmed,
+        "k_imputed": k0,
         "side": side,
-        "r_orig": back_transform_z(np.sum((1.0/(v + reml_tau2_exact(y, v))) * y) /
-                                     np.sum(1.0/(v + reml_tau2_exact(y, v)))),
-        "r_adj": adj_res["r_pooled"] if adj_res else None,
-        "r_adj_ci_lo": adj_res["r_ci_lo"] if adj_res else None,
-        "r_adj_ci_hi": adj_res["r_ci_hi"] if adj_res else None,
+        "r_orig": orig["r_pooled"],
+        "r_adj": adj["r_pooled"],
+        "r_adj_ci_lo": adj["r_ci_lo"],
+        "r_adj_ci_hi": adj["r_ci_hi"],
         "k_total_adj": len(y_adj),
     }
 
@@ -651,6 +642,14 @@ def run_moderator_analyses():
             all_results[mod_name][trait] = pool_by_subgroup(
                 rows, trait, classifier, mod_name
             )
+    # Holm correction within each trait across the moderators tested
+    # (the pre-registered family).
+    for trait in TRAITS:
+        tested = [m for m in moderators
+                  if all_results[m][trait]["_between"]["p"] is not None]
+        adj = holm_adjust([all_results[m][trait]["_between"]["p"] for m in tested])
+        for m, p_holm in zip(tested, adj):
+            all_results[m][trait]["_between"]["p_holm"] = float(p_holm)
     return all_results
 
 
@@ -661,7 +660,7 @@ def write_moderator_csv(mod_results):
             "moderator", "trait", "level", "k", "N_total",
             "r_pooled", "r_ci_lo", "r_ci_hi",
             "I2", "tau2",
-            "F_between", "df1_between", "df2_between", "p_between",
+            "F_between", "df1_between", "df2_between", "p_between", "p_holm",
         ])
         for mod_name, by_trait in mod_results.items():
             for trait in TRAITS:
@@ -681,12 +680,13 @@ def write_moderator_csv(mod_results):
                             between["df1"] if tested else "NA",
                             between["df2"] if tested else "NA",
                             f"{between['p']:.6f}" if tested else "NA",
+                            f"{between['p_holm']:.6f}" if tested else "NA",
                         ])
                     else:
                         writer.writerow([
                             mod_name, trait, level,
                             sub.get("k", 0), "", "", "", "", "", "",
-                            "", "", "", "",
+                            "", "", "", "", "",
                         ])
 
 
@@ -783,20 +783,21 @@ def write_summary_md_with_moderators(results, mod_results):
     lines.append("")
     lines.append("Three pre-registered moderators are reported; the remaining six (instrument, publication year, sample size, RoB score, modality, education level) are reported narratively in the manuscript due to insufficient k per level.")
     lines.append("")
-    lines.append("Moderator test: Knapp–Hartung mixed-effects meta-regression on the levels with k ≥ 2 (REML residual τ²), F(df1, df2).")
+    lines.append("Moderator test: Knapp–Hartung mixed-effects meta-regression on the levels with k ≥ 2 (REML residual τ²), F(df1, df2). p_Holm: Holm correction within each trait across the three moderators.")
     lines.append("")
 
     for mod_name, by_trait in mod_results.items():
         lines.append(f"### Moderator: {mod_name}")
         lines.append("")
-        lines.append("| Trait | Level | k | N | r [95% CI] | I² | F (df1, df2), p |")
-        lines.append("|-------|-------|---|---|-----------|-----|-----------------|")
+        lines.append("| Trait | Level | k | N | r [95% CI] | I² | F (df1, df2), p, p_Holm |")
+        lines.append("|-------|-------|---|---|-----------|-----|-------------------------|")
         for t in TRAITS:
             res = by_trait.get(t, {})
             between = res.get("_between", {})
             f_val = between.get("F")
             p = between.get("p")
-            q_str = (f"{f_val:.2f} ({between['df1']}, {between['df2']}), p={p:.3f}"
+            q_str = (f"{f_val:.2f} ({between['df1']}, {between['df2']}), p={p:.3f}, "
+                     f"p_Holm={between['p_holm']:.3f}"
                      if f_val is not None else "NA")
             first = True
             for level, sub in res.items():
@@ -833,7 +834,7 @@ def write_summary_md_with_moderators(results, mod_results):
                 if lv != "_between" and "r_pooled" in sub)
             flagged.append(
                 f"- **{t} × {mod_name}**: F({between['df1']}, {between['df2']}) = "
-                f"{between['F']:.2f}, p = {between['p']:.3f} — {levels}")
+                f"{between['F']:.2f}, p = {between['p']:.3f} (Holm {between['p_holm']:.3f}) — {levels}")
     lines.extend(flagged or ["- None."])
     lines.append("")
     lines.append("Every moderator contrast rests on k ≤ 7 per level (k = 2 for Asia and for self-report outcomes); treat all of them as exploratory.")
@@ -850,7 +851,7 @@ def write_summary_md_with_moderators(results, mod_results):
     lines.append("---")
     lines.append("")
     lines.append("## Notes")
-    lines.append("- **Power caveat**: With k = 9-10 per trait pool and Asian subgroup limited to k = 2, moderator findings are **underpowered** and should be interpreted as exploratory.")
+    lines.append("- **Power caveat**: With fewer than 10 studies per trait pool and the Asian subgroup limited to k = 2, moderator findings are **underpowered** and should be interpreted as exploratory.")
     lines.append("- **β-to-r conversion**: Peterson & Brown (2005) applied where only β was reported. The exclude-converted sensitivity analysis is in `sensitivity_results.md`.")
     lines.append("- **Sign conventions**: A-23 Rodrigues GPA sign-flipped so positive r = better performance; A-31 Rivers Emotional Stability sign-reversed to Neuroticism.")
     lines.append("- **Remaining 6 pre-registered moderators** (instrument, publication year, sample size, RoB score, modality, education level) not quantitatively analyzed due to insufficient k per level; reported narratively in Methods Deviations subsection.")
@@ -898,10 +899,13 @@ def append_publication_bias_to_summary(bias_results):
             )
     lines.append("")
     lines.append("**Interpretation**:")
-    lines.append("- Egger's test: non-zero intercept suggests small-study effects or publication bias. With k = 9–10, the test has low power; p ≥ .05 does not rule out bias.")
-    lines.append("- Trim-and-fill: imputes hypothetical missing studies on the under-represented side of the funnel. Reported as a *sensitivity check* only; adjusted estimates should NOT replace primary pooled estimates.")
-    lines.append("- Openness (Egger p = .045) shows evidence of asymmetry, with trim-and-fill suggesting possible missing small-negative studies.")
-    lines.append("- Grey literature (dissertations, conference proceedings) was included in the search to partially mitigate file-drawer bias; unpublished/preprint studies were excluded for quality reasons.")
+    lines.append("- Egger's test: non-zero intercept suggests small-study effects or publication bias. With fewer than 10 studies per trait, the test has low power; p ≥ .05 does not rule out bias.")
+    lines.append("- Trim-and-fill (L0 estimator, side from the REML regression of y on its standard error, as in metafor::trimfill): imputes hypothetical missing studies on the under-represented side of the funnel. Reported as a *sensitivity check* only; adjusted estimates should NOT replace primary pooled estimates.")
+    for t in TRAITS:
+        r = bias_results.get(t)
+        if r is not None and r["egger"]["p"] < .05:
+            lines.append(f"- {t}: Egger p = {r['egger']['p']:.3f}; trim-and-fill imputes "
+                         f"{r['trim_fill']['k_imputed']} on the {r['trim_fill']['side']}.")
     lines.append("")
     with SUMMARY_MD.open("a", encoding="utf-8") as f:
         f.write("\n".join(lines))

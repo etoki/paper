@@ -202,8 +202,10 @@ def parent_trait_pools() -> list[dict]:
         y, v, y_old, v_old = [], [], [], []
         for row in rows:
             for conv, ys, vs in ((True, y_old, v_old), (False, y, v)):
+                # exclude=(): the parent preprint's pool, which kept A-37
                 eff = parent.extract_effect_for_trait(row, trait,
-                                                      legacy_conversion=conv)
+                                                      legacy_conversion=conv,
+                                                      exclude=())
                 if eff is None:
                     continue
                 r, n, _ = eff
@@ -261,7 +263,7 @@ def parent_moderators() -> list[dict]:
     ]:
         y, v, g = [], [], []
         for row in rows:
-            eff = parent.extract_effect_for_trait(row, "E")
+            eff = parent.extract_effect_for_trait(row, "E", exclude=())
             level = clf(row.get(col, ""))
             if eff is None or level is None:
                 continue

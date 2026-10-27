@@ -1,6 +1,6 @@
 # Canonical Results Snapshot — Big Five × Online Learning Meta-Analysis
 
-**Generated**: 2026-05-01; sections 6 and 8–11 regenerated 2026-10-27 after the switch to exact REML τ², Knapp–Hartung moderator tests and the corrected Peterson–Brown conversion (re-run of `pool.py`, `sensitivity.py`)
+**Generated**: 2026-05-01; sections 6–11 regenerated 2026-10-27 by `update_canonical_results.py`
 **Purpose**: Single source of truth for hallucination checking. Values below are AUTHORITATIVE.
 **Convention**: When manuscript text disagrees with values here, the manuscript is wrong.
 
@@ -12,7 +12,7 @@
 |----------|---|-----------|
 | **Total documented in Table 1 (PRISMA flow tracked)** | **31** | A-01 to A-37 (gaps: A-14 in PRISMA only, A-32–A-36 unused) |
 | Retained in qualitative synthesis (`include*` + `exclude_from_primary`) | 25 | All except A-05, A-09, A-10, A-16, A-24, A-27 |
-| **Primary quantitative pool (achievement r)** | **10** | A-01, A-02, A-15, A-22, A-23, A-28, A-29, A-30, A-31, A-37 |
+| **Primary quantitative pool (achievement r)** | **9** | A-01, A-02, A-15, A-22, A-23, A-28, A-29, A-30, A-31 (A-37 left out on 2026-10-27; see pool.POOL_EXCLUSIONS) |
 | ↳ `include` (clean primary) | 6 | A-01 Abe, A-02 Alkis, A-23 Rodrigues, A-28 Yu, A-29 Bahcekapili, A-31 Rivers |
 | ↳ `include_with_caveat` | 5 | A-15 Elvers, A-22 Quigley, A-26 Wang, A-30 Kaspar, A-37 Zheng |
 | ↳ `include_COI` | 1 | A-25 Tokiwa (author's own; sensitivity excludes) |
@@ -26,7 +26,7 @@
 **Numerical reconciliation**:
 - **31** = total cataloged in Table 1, including studies excluded post-eligibility (with reasons disclosed per PRISMA 2020). This is the figure the manuscript reports.
 - **25** = retained in systematic review (qualitative synthesis): 13 in `include*` + 12 in `exclude_from_primary` (secondary-outcome-only studies).
-- **10** = primary quantitative pool. **k = 10 for Conscientiousness and Neuroticism** (A-15 Elvers reports only C and N); **k = 9 for Openness, Extraversion, Agreeableness** (A-15 dropped from those traits).
+- **9** = primary quantitative pool. **k = 9 for Conscientiousness and Neuroticism** (A-15 Elvers reports only C and N); **k = 8 for Openness, Extraversion, Agreeableness** (A-15 dropped from those traits). A-37 Zheng (face-to-face and online cohorts pooled; |r| < .10 entered as 0) stays in the scoping map but is out of the pool; the include-A-37 sensitivity analysis restores it.
 
 **The meta-analytic findings depend ONLY on the 10-study primary pool, which is unambiguously defined and exactly reproduces previous analyses on re-run. The meta-analysis is valid and reproducible.**
 
@@ -67,147 +67,134 @@
 
 ## 6. Primary pooled random-effects meta-analysis (REML + HKSJ)
 
-τ² is the exact REML estimate (restricted likelihood maximised directly; matches PyMARE), and β is converted with Peterson & Brown's r = .98β + .05λ. Values before 2026-10-27 used a fixed-point τ² update that under-estimated τ² and a β ± .05 conversion that pushed negative β a further .05 from zero.
+τ² is the exact REML estimate (matches PyMARE); β is converted with Peterson & Brown's r = .98β + .05λ; studies in pool.POOL_EXCLUSIONS (A-37) are left out of the pool.
 
 | Trait | k | N_total | r_pooled | 95% CI | 95% PI | I² | τ² | Q(df), p |
 |-------|---|---------|----------|--------|--------|----|----|---------|
-| O | 9 | 3363 | 0.085 | [-0.044, 0.211] | [-0.293, 0.440] | 91.7% | 0.0237 | 96.80(8), p=0.0000 |
-| C | 10 | 3384 | 0.168 | [0.090, 0.245] | [-0.039, 0.362] | 65.0% | 0.0070 | 25.74(9), p=0.0023 |
-| E | 9 | 3363 | 0.010 | [-0.059, 0.080] | [-0.165, 0.185] | 63.5% | 0.0047 | 21.90(8), p=0.0051 |
-| A | 9 | 3363 | 0.116 | [-0.020, 0.248] | [-0.309, 0.502] | 95.8% | 0.0301 | 189.85(8), p=0.0000 |
-| N | 10 | 3384 | 0.016 | [-0.080, 0.112] | [-0.246, 0.276] | 78.5% | 0.0117 | 41.93(9), p=0.0000 |
+| O | 8 | 3081 | 0.096 | [-0.052, 0.239] | [-0.319, 0.480] | 92.2% | 0.0265 | 89.58(7), p=0.0000 |
+| C | 9 | 3102 | 0.185 | [0.112, 0.255] | [0.007, 0.351] | 59.0% | 0.0047 | 19.49(8), p=0.0124 |
+| E | 8 | 3081 | 0.012 | [-0.070, 0.093] | [-0.191, 0.213] | 68.0% | 0.0058 | 21.90(7), p=0.0026 |
+| A | 8 | 3081 | 0.130 | [-0.022, 0.277] | [-0.327, 0.538] | 96.0% | 0.0324 | 176.86(7), p=0.0000 |
+| N | 9 | 3102 | 0.017 | [-0.095, 0.128] | [-0.275, 0.305] | 80.7% | 0.0138 | 41.45(8), p=0.0000 |
 
 ## 7. Contributing studies per trait pool
 
-### Trait O (k = 9)
-- A-01 Abe(r)
-- A-02 Alkis(r)
-- A-22 Quigley(r)
-- A-23 Rodrigues(r)
-- A-28 Yu(beta_converted)
-- A-29 Bahcekapili(r)
-- A-30 Kaspar(beta_converted)
-- A-31 Rivers(r)
-- A-37 Zheng(r)
+### Trait O (k = 8)
+- A-01 Abe 2020 (r)
+- A-02 Alkis 2018 (r)
+- A-22 Quigley 2022 (r)
+- A-23 Rodrigues 2024 (r)
+- A-28 Yu 2021 (beta_converted)
+- A-29 Bahcekapili 2020 (r)
+- A-30 Kaspar 2023 (beta_converted)
+- A-31 Rivers 2021 (r)
 
-### Trait C (k = 10)
-- A-01 Abe(r)
-- A-02 Alkis(r)
-- A-15 Elvers(r)
-- A-22 Quigley(r)
-- A-23 Rodrigues(r)
-- A-28 Yu(beta_converted)
-- A-29 Bahcekapili(r)
-- A-30 Kaspar(beta_converted)
-- A-31 Rivers(r)
-- A-37 Zheng(r)
+### Trait C (k = 9)
+- A-01 Abe 2020 (r)
+- A-02 Alkis 2018 (r)
+- A-15 Elvers 2003 (r)
+- A-22 Quigley 2022 (r)
+- A-23 Rodrigues 2024 (r)
+- A-28 Yu 2021 (beta_converted)
+- A-29 Bahcekapili 2020 (r)
+- A-30 Kaspar 2023 (beta_converted)
+- A-31 Rivers 2021 (r)
 
-### Trait E (k = 9)
-- A-01 Abe(r)
-- A-02 Alkis(r)
-- A-22 Quigley(r)
-- A-23 Rodrigues(r)
-- A-28 Yu(beta_converted)
-- A-29 Bahcekapili(r)
-- A-30 Kaspar(beta_converted)
-- A-31 Rivers(r)
-- A-37 Zheng(r)
+### Trait E (k = 8)
+- A-01 Abe 2020 (r)
+- A-02 Alkis 2018 (r)
+- A-22 Quigley 2022 (r)
+- A-23 Rodrigues 2024 (r)
+- A-28 Yu 2021 (beta_converted)
+- A-29 Bahcekapili 2020 (r)
+- A-30 Kaspar 2023 (beta_converted)
+- A-31 Rivers 2021 (r)
 
-### Trait A (k = 9)
-- A-01 Abe(r)
-- A-02 Alkis(r)
-- A-22 Quigley(r)
-- A-23 Rodrigues(r)
-- A-28 Yu(beta_converted)
-- A-29 Bahcekapili(r)
-- A-30 Kaspar(beta_converted)
-- A-31 Rivers(r)
-- A-37 Zheng(r)
+### Trait A (k = 8)
+- A-01 Abe 2020 (r)
+- A-02 Alkis 2018 (r)
+- A-22 Quigley 2022 (r)
+- A-23 Rodrigues 2024 (r)
+- A-28 Yu 2021 (beta_converted)
+- A-29 Bahcekapili 2020 (r)
+- A-30 Kaspar 2023 (beta_converted)
+- A-31 Rivers 2021 (r)
 
-### Trait N (k = 10)
-- A-01 Abe(r)
-- A-02 Alkis(r)
-- A-15 Elvers(r)
-- A-22 Quigley(r)
-- A-23 Rodrigues(r)
-- A-28 Yu(beta_converted)
-- A-29 Bahcekapili(r)
-- A-30 Kaspar(beta_converted)
-- A-31 Rivers(r)
-- A-37 Zheng(r)
-
-**β-converted contributors (Peterson & Brown, 2005)**: A-28 Yu (2021), A-30 Kaspar et al. (2023). **THESE ARE THE ONLY TWO.**
-**β-converted contributors NOT in primary pool (do NOT cite as contributors)**: A-04 Audet, A-06 Sahinidis, A-08 Bhagat, A-18 Keller, A-20 Mustafa.
+### Trait N (k = 9)
+- A-01 Abe 2020 (r)
+- A-02 Alkis 2018 (r)
+- A-15 Elvers 2003 (r)
+- A-22 Quigley 2022 (r)
+- A-23 Rodrigues 2024 (r)
+- A-28 Yu 2021 (beta_converted)
+- A-29 Bahcekapili 2020 (r)
+- A-30 Kaspar 2023 (beta_converted)
+- A-31 Rivers 2021 (r)
 
 ## 8. Moderator analyses
 
-Test: Knapp–Hartung mixed-effects meta-regression over the levels with k ≥ 2 (REML residual τ²), F(df1, df2). Before 2026-10-27 this section reported Q_between from HKSJ subgroup SEs in a χ² test, which overstated the evidence (E × Region Q = 46.43; E × Outcome type Q = 17.30).
+Test: Knapp–Hartung mixed-effects meta-regression over the levels with k ≥ 2 (REML residual τ²), F(df1, df2); p_Holm is Holm-corrected within each trait across the three moderators.
 
 ### Moderator: region
 
-| Trait | Level | k | N | r [95% CI] | I² | F(df1, df2), p |
-|-------|-------|---|---|------------|----|----------------|
-| O | non-Asia | 7 | 2062 | 0.054 [-0.063, 0.170] | 65.7% | 0.69(1, 7), p=0.4350 |
-| O | Asia | 2 | 1301 | 0.155 [-0.988, 0.994] | 95.8% | 0.69(1, 7), p=0.4350 |
-| C | non-Asia | 8 | 2083 | 0.187 [0.083, 0.287] | 69.9% | 0.58(1, 8), p=0.4700 |
-| C | Asia | 2 | 1301 | 0.110 [-0.045, 0.260] | 0.0% | 0.58(1, 8), p=0.4700 |
-| E | non-Asia | 7 | 2062 | 0.050 [-0.004, 0.104] | 0.0% | 12.94(1, 7), p=0.0088 |
-| E | Asia | 2 | 1301 | -0.095 [-0.541, 0.393] | 23.0% | 12.94(1, 7), p=0.0088 |
-| A | non-Asia | 7 | 2062 | 0.038 [-0.029, 0.105] | 31.5% | 9.13(1, 7), p=0.0193 |
-| A | Asia | 2 | 1301 | 0.319 [-0.979, 0.994] | 95.4% | 9.13(1, 7), p=0.0193 |
-| N | non-Asia | 8 | 2083 | -0.009 [-0.132, 0.115] | 81.0% | 0.99(1, 8), p=0.3480 |
-| N | Asia | 2 | 1301 | 0.089 [0.005, 0.171] | 0.0% | 0.99(1, 8), p=0.3480 |
+| Trait | Level | k | N | r [95% CI] | I² | F(df1, df2), p, p_Holm |
+|-------|-------|---|---|------------|----|------------------------|
+| O | non-Asia | 6 | 1780 | 0.066 [-0.082, 0.211] | 69.9% | 0.43(1, 6), p=0.5360, p_Holm=1.0000 |
+| O | Asia | 2 | 1301 | 0.155 [-0.988, 0.994] | 95.8% | 0.43(1, 6), p=0.5360, p_Holm=1.0000 |
+| C | non-Asia | 7 | 1801 | 0.211 [0.118, 0.300] | 59.0% | 1.83(1, 7), p=0.2187, p_Holm=0.6560 |
+| C | Asia | 2 | 1301 | 0.110 [-0.045, 0.260] | 0.0% | 1.83(1, 7), p=0.2187, p_Holm=0.6560 |
+| E | non-Asia | 6 | 1780 | 0.058 [-0.004, 0.120] | 2.0% | 12.96(1, 6), p=0.0114, p_Holm=0.0341 |
+| E | Asia | 2 | 1301 | -0.095 [-0.541, 0.393] | 23.0% | 12.96(1, 6), p=0.0114, p_Holm=0.0341 |
+| A | non-Asia | 6 | 1780 | 0.047 [-0.036, 0.128] | 40.6% | 6.98(1, 6), p=0.0384, p_Holm=0.1152 |
+| A | Asia | 2 | 1301 | 0.319 [-0.979, 0.994] | 95.4% | 6.98(1, 6), p=0.0384, p_Holm=0.1152 |
+| N | non-Asia | 7 | 1801 | -0.013 [-0.163, 0.138] | 83.7% | 0.87(1, 7), p=0.3812, p_Holm=0.6925 |
+| N | Asia | 2 | 1301 | 0.089 [0.005, 0.171] | 0.0% | 0.87(1, 7), p=0.3812, p_Holm=0.6925 |
 
 ### Moderator: era
 
-| Trait | Level | k | N | r [95% CI] | I² | F(df1, df2), p |
-|-------|-------|---|---|------------|----|----------------|
-| O | pre-COVID | 3 | 806 | 0.104 [-0.427, 0.581] | 84.2% | 0.00(1, 6), p=0.9542 |
-| O | COVID | 5 | 2275 | 0.094 [-0.122, 0.300] | 93.9% | 0.00(1, 6), p=0.9542 |
-| O | mixed | 1 | — | (k<2) | — | — |
-| C | pre-COVID | 4 | 827 | 0.221 [-0.033, 0.448] | 71.7% | 0.02(1, 7), p=0.8895 |
-| C | COVID | 5 | 2275 | 0.180 [0.097, 0.261] | 53.9% | 0.02(1, 7), p=0.8895 |
-| C | mixed | 1 | — | (k<2) | — | — |
-| E | pre-COVID | 3 | 806 | 0.033 [0.002, 0.063] | 0.0% | 0.22(1, 6), p=0.6586 |
-| E | COVID | 5 | 2275 | -0.002 [-0.155, 0.152] | 80.4% | 0.22(1, 6), p=0.6586 |
-| E | mixed | 1 | — | (k<2) | — | — |
-| A | pre-COVID | 3 | 806 | 0.052 [-0.159, 0.259] | 38.8% | 0.39(1, 6), p=0.5542 |
-| A | COVID | 5 | 2275 | 0.160 [-0.115, 0.412] | 97.0% | 0.39(1, 6), p=0.5542 |
-| A | mixed | 1 | — | (k<2) | — | — |
-| N | pre-COVID | 4 | 827 | -0.050 [-0.173, 0.074] | 19.6% | 1.38(1, 7), p=0.2786 |
-| N | COVID | 5 | 2275 | 0.058 [-0.124, 0.237] | 85.7% | 1.38(1, 7), p=0.2786 |
-| N | mixed | 1 | — | (k<2) | — | — |
+| Trait | Level | k | N | r [95% CI] | I² | F(df1, df2), p, p_Holm |
+|-------|-------|---|---|------------|----|------------------------|
+| O | pre-COVID | 3 | 806 | 0.104 [-0.427, 0.581] | 84.2% | 0.00(1, 6), p=0.9542, p_Holm=1.0000 |
+| O | COVID | 5 | 2275 | 0.094 [-0.122, 0.300] | 93.9% | 0.00(1, 6), p=0.9542, p_Holm=1.0000 |
+| C | pre-COVID | 4 | 827 | 0.221 [-0.033, 0.448] | 71.7% | 0.02(1, 7), p=0.8895, p_Holm=0.8895 |
+| C | COVID | 5 | 2275 | 0.180 [0.097, 0.261] | 53.9% | 0.02(1, 7), p=0.8895, p_Holm=0.8895 |
+| E | pre-COVID | 3 | 806 | 0.033 [0.002, 0.063] | 0.0% | 0.22(1, 6), p=0.6586, p_Holm=0.6586 |
+| E | COVID | 5 | 2275 | -0.002 [-0.155, 0.152] | 80.4% | 0.22(1, 6), p=0.6586, p_Holm=0.6586 |
+| A | pre-COVID | 3 | 806 | 0.052 [-0.159, 0.259] | 38.8% | 0.39(1, 6), p=0.5542, p_Holm=1.0000 |
+| A | COVID | 5 | 2275 | 0.160 [-0.115, 0.412] | 97.0% | 0.39(1, 6), p=0.5542, p_Holm=1.0000 |
+| N | pre-COVID | 4 | 827 | -0.050 [-0.173, 0.074] | 19.6% | 1.38(1, 7), p=0.2786, p_Holm=0.6925 |
+| N | COVID | 5 | 2275 | 0.058 [-0.124, 0.237] | 85.7% | 1.38(1, 7), p=0.2786, p_Holm=0.6925 |
 
 ### Moderator: outcome_type
 
-| Trait | Level | k | N | r [95% CI] | I² | F(df1, df2), p |
-|-------|-------|---|---|------------|----|----------------|
-| O | objective | 7 | 2649 | 0.091 [-0.086, 0.262] | 93.2% | 0.03(1, 7), p=0.8620 |
-| O | self-report | 2 | 714 | 0.068 [-0.636, 0.710] | 65.2% | 0.03(1, 7), p=0.8620 |
-| C | objective | 8 | 2670 | 0.151 [0.050, 0.250] | 62.4% | 1.00(1, 8), p=0.3468 |
-| C | self-report | 2 | 714 | 0.224 [-0.187, 0.568] | 0.0% | 1.00(1, 8), p=0.3468 |
-| E | objective | 7 | 2649 | -0.028 [-0.090, 0.035] | 31.7% | 9.01(1, 7), p=0.0199 |
-| E | self-report | 2 | 714 | 0.116 [-0.143, 0.361] | 0.0% | 9.01(1, 7), p=0.0199 |
-| A | objective | 7 | 2649 | 0.129 [-0.052, 0.302] | 96.4% | 0.17(1, 7), p=0.6948 |
-| A | self-report | 2 | 714 | 0.068 [-0.742, 0.797] | 77.6% | 0.17(1, 7), p=0.6948 |
-| N | objective | 8 | 2670 | -0.010 [-0.100, 0.079] | 66.4% | 2.01(1, 8), p=0.1940 |
-| N | self-report | 2 | 714 | 0.117 [-0.922, 0.951] | 92.1% | 2.01(1, 8), p=0.1940 |
+| Trait | Level | k | N | r [95% CI] | I² | F(df1, df2), p, p_Holm |
+|-------|-------|---|---|------------|----|------------------------|
+| O | objective | 6 | 2367 | 0.106 [-0.109, 0.312] | 93.6% | 0.07(1, 6), p=0.7968, p_Holm=1.0000 |
+| O | self-report | 2 | 714 | 0.068 [-0.636, 0.710] | 65.2% | 0.07(1, 6), p=0.7968, p_Holm=1.0000 |
+| C | objective | 7 | 2388 | 0.172 [0.072, 0.268] | 57.3% | 0.72(1, 7), p=0.4252, p_Holm=0.8503 |
+| C | self-report | 2 | 714 | 0.224 [-0.187, 0.568] | 0.0% | 0.72(1, 7), p=0.4252, p_Holm=0.8503 |
+| E | objective | 6 | 2367 | -0.031 [-0.108, 0.047] | 40.5% | 7.96(1, 6), p=0.0303, p_Holm=0.0605 |
+| E | self-report | 2 | 714 | 0.116 [-0.143, 0.361] | 0.0% | 7.96(1, 6), p=0.0303, p_Holm=0.0605 |
+| A | objective | 6 | 2367 | 0.151 [-0.064, 0.352] | 96.6% | 0.28(1, 6), p=0.6155, p_Holm=1.0000 |
+| A | self-report | 2 | 714 | 0.068 [-0.742, 0.797] | 77.6% | 0.28(1, 6), p=0.6155, p_Holm=1.0000 |
+| N | objective | 7 | 2388 | -0.014 [-0.124, 0.097] | 71.1% | 1.72(1, 7), p=0.2308, p_Holm=0.6925 |
+| N | self-report | 2 | 714 | 0.117 [-0.922, 0.951] | 92.1% | 1.72(1, 7), p=0.2308, p_Holm=0.6925 |
 
-## 9. Significant moderator effects (p < .05)
+## 9. Significant moderator effects (p < .05, uncorrected)
 
-1. **Extraversion × region** — F(1, 7) = 12.94, p = .009
-   - non-Asia (k=7): r = 0.050 [-0.004, 0.104]
+1. **Extraversion × region** — F(1, 6) = 12.96, p = 0.011, Holm p = 0.034
+   - non-Asia (k=6): r = 0.058 [-0.004, 0.120]
    - Asia (k=2): r = -0.095 [-0.541, 0.393]
 
-2. **Agreeableness × region** — F(1, 7) = 9.13, p = .019
-   - non-Asia (k=7): r = 0.038 [-0.029, 0.105]
+2. **Agreeableness × region** — F(1, 6) = 6.98, p = 0.038, Holm p = 0.115
+   - non-Asia (k=6): r = 0.047 [-0.036, 0.128]
    - Asia (k=2): r = 0.319 [-0.979, 0.994]
 
-3. **Extraversion × outcome_type** — F(1, 7) = 9.01, p = .020
-   - objective (k=7): r = -0.028 [-0.090, 0.035]
+3. **Extraversion × outcome_type** — F(1, 6) = 7.96, p = 0.030, Holm p = 0.061
+   - objective (k=6): r = -0.031 [-0.108, 0.047]
    - self-report (k=2): r = 0.116 [-0.143, 0.361]
 
-All of these rest on k = 2 in the smaller subgroup (A-28 Yu and A-31 Rivers for Asia; A-22 Quigley and A-30 Kaspar for self-report), so they are exploratory.
+Every contrast has k = 2 in its smaller subgroup; treat them as exploratory.
 
 ## 10. Sensitivity analyses
 
@@ -215,32 +202,61 @@ All of these rest on k = 2 in the smaller subgroup (A-28 Yu and A-31 Rivers for 
 
 | Trait | k | r [95% CI] | Δr vs primary |
 |-------|---|-----------|---------------|
-| O | 9 | 0.085 [-0.044, 0.211] | +0.000 |
-| C | 10 | 0.168 [0.090, 0.245] | +0.000 |
-| E | 9 | 0.010 [-0.059, 0.080] | +0.000 |
-| A | 9 | 0.116 [-0.020, 0.248] | +0.000 |
-| N | 10 | 0.016 [-0.080, 0.112] | +0.000 |
-**Reason for null Δ**: Tokiwa A-25 did not contribute correlations to primary pool.
+| O | 8 | 0.096 [-0.052, 0.239] | +0.000 |
+| C | 9 | 0.185 [0.112, 0.255] | +0.000 |
+| E | 8 | 0.012 [-0.070, 0.093] | +0.000 |
+| A | 8 | 0.130 [-0.022, 0.277] | +0.000 |
+| N | 9 | 0.017 [-0.095, 0.128] | +0.000 |
 
-### Exclude β-converted (Peterson-Brown approximation)
+### Exclude β-converted (A-28 Yu, A-30 Kaspar)
 
 | Trait | k | r [95% CI] | Δr vs primary |
 |-------|---|-----------|---------------|
-| O | 6 | 0.034 [-0.121, 0.188] | -0.051 🔴 |
-| C | 7 | 0.206 [0.107, 0.301] | +0.038 |
-| E | 6 | 0.016 [-0.090, 0.122] | +0.006 |
-| A | 6 | 0.069 [-0.012, 0.150] | -0.047 |
+| O | 6 | 0.034 [-0.121, 0.188] | -0.062 🔴 |
+| C | 7 | 0.206 [0.107, 0.301] | +0.022 |
+| E | 6 | 0.016 [-0.090, 0.122] | +0.004 |
+| A | 6 | 0.069 [-0.012, 0.150] | -0.061 🔴 |
 | N | 7 | -0.040 [-0.129, 0.049] | -0.057 🔴 |
 
-### Exclude RoB < 5 (low-quality)
+### Exclude RoB < 5
 
 | Trait | k | r [95% CI] | Δr vs primary |
 |-------|---|-----------|---------------|
-| O | 8 | 0.096 [-0.052, 0.239] | +0.011 |
-| C | 9 | 0.185 [0.112, 0.255] | +0.016 |
-| E | 8 | 0.012 [-0.070, 0.093] | +0.001 |
-| A | 8 | 0.130 [-0.022, 0.277] | +0.014 |
+| O | 8 | 0.096 [-0.052, 0.239] | +0.000 |
+| C | 9 | 0.185 [0.112, 0.255] | +0.000 |
+| E | 8 | 0.012 [-0.070, 0.093] | +0.000 |
+| A | 8 | 0.130 [-0.022, 0.277] | +0.000 |
 | N | 9 | 0.017 [-0.095, 0.128] | +0.000 |
+
+### Exclude analytic N < 50 (A-15 Elvers)
+
+| Trait | k | r [95% CI] | Δr vs primary |
+|-------|---|-----------|---------------|
+| O | 8 | 0.096 [-0.052, 0.239] | +0.000 |
+| C | 8 | 0.180 [0.105, 0.253] | -0.005 |
+| E | 8 | 0.012 [-0.070, 0.093] | +0.000 |
+| A | 8 | 0.130 [-0.022, 0.277] | +0.000 |
+| N | 8 | 0.030 [-0.074, 0.134] | +0.014 |
+
+### DerSimonian–Laird τ² instead of REML
+
+| Trait | k | r [95% CI] | Δr vs primary |
+|-------|---|-----------|---------------|
+| O | 8 | 0.096 [-0.052, 0.239] | -0.000 |
+| C | 9 | 0.184 [0.112, 0.255] | -0.000 |
+| E | 8 | 0.012 [-0.070, 0.093] | +0.000 |
+| A | 8 | 0.129 [-0.021, 0.273] | -0.001 |
+| N | 9 | 0.017 [-0.095, 0.128] | +0.000 |
+
+### Include A-37 Zheng (|r| < .10 entered as r = 0)
+
+| Trait | k | r [95% CI] | Δr vs primary |
+|-------|---|-----------|---------------|
+| O | 9 | 0.085 [-0.044, 0.211] | -0.011 |
+| C | 10 | 0.168 [0.090, 0.245] | -0.016 |
+| E | 9 | 0.010 [-0.059, 0.080] | -0.001 |
+| A | 9 | 0.116 [-0.020, 0.248] | -0.014 |
+| N | 10 | 0.016 [-0.080, 0.112] | -0.000 |
 
 ## 11. Publication bias
 
@@ -248,21 +264,21 @@ All of these rest on k = 2 in the smaller subgroup (A-28 Yu and A-31 Rivers for 
 
 | Trait | k | Intercept | SE | t | p |
 |-------|---|-----------|-----|---|---|
-| O | 9 | -6.270 | 2.596 | -2.42 | 0.046 🔴 |
-| C | 10 | 2.159 | 1.123 | 1.92 | 0.091 |
-| E | 9 | 1.270 | 1.602 | 0.79 | 0.454 |
-| A | 9 | -8.285 | 3.799 | -2.18 | 0.066 |
-| N | 10 | -1.780 | 1.614 | -1.10 | 0.302 |
+| O | 8 | -6.006 | 2.794 | -2.15 | 0.075 |
+| C | 9 | 2.460 | 0.872 | 2.82 | 0.026 🔴 |
+| E | 8 | 1.307 | 1.759 | 0.74 | 0.485 |
+| A | 8 | -7.926 | 4.101 | -1.93 | 0.101 |
+| N | 9 | -1.741 | 1.738 | -1.00 | 0.350 |
 
-### Duval & Tweedie trim-and-fill
+### Duval & Tweedie trim-and-fill (L0; metafor::trimfill procedure)
 
 | Trait | k_orig | k_imputed | Side | r_original | r_adjusted [95% CI] |
 |-------|--------|-----------|------|-----------|---------------------|
-| O | 9 | 1 | right | 0.085 | 0.106 [-0.017, 0.226] |
-| C | 10 | 0 | left | 0.168 | 0.168 [0.090, 0.245] |
-| E | 9 | 1 | left | 0.010 | -0.014 [-0.095, 0.067] |
-| A | 9 | 0 | right | 0.116 | 0.116 [-0.020, 0.248] |
-| N | 10 | 0 | right | 0.016 | 0.016 [-0.080, 0.112] |
+| O | 8 | 0 | right | 0.096 | 0.096 [-0.052, 0.239] |
+| C | 9 | 3 | left | 0.185 | 0.151 [0.069, 0.230] |
+| E | 8 | 0 | right | 0.012 | 0.012 [-0.070, 0.093] |
+| A | 8 | 3 | right | 0.130 | 0.216 [0.076, 0.347] |
+| N | 9 | 1 | right | 0.017 | 0.030 [-0.087, 0.147] |
 
 ## 12. Authoritative author / citation index
 
