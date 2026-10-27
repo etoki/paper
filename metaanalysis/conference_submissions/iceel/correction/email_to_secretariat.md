@@ -1,6 +1,6 @@
 # ICEEL 2026 EL2036 修正版の再提出メール
 
-本日（2026-10-27）送った確認メールへの返信として、修正版の論文と変更一覧を添付して送ります。
+本日（2026-10-27）送った確認メール（2次査読の結果が届いていないことの問い合わせ）と同じスレッド「Re: ICEEL 2026-Initial Review Result-EL2036」で、修正版の論文と変更一覧を添付して送ります。Gmail には下書きとして作成済みで、添付は手動で付けます。
 
 ## 添付ファイル
 
@@ -21,11 +21,13 @@
 ## English
 
 **To:** iceel@academic.net
-**Subject:** Re: (reply to today's email)
+**Subject:** Re: ICEEL 2026-Initial Review Result-EL2036
 
 Dear Ms. Law,
 
-Following my email earlier today, I attach the corrected version of my paper EL2036 and a list of the changes:
+Following my email earlier today about the status of my paper EL2036, I would also like to submit a corrected version of the manuscript.
+
+While re-checking the statistics in a related paper, I found that some parts of EL2036 needed to be corrected. I attach:
 
 - EL2036_Tokiwa_corrected.docx: the corrected paper in the ICEEL template (9 pages)
 - EL2036_changes.docx: a list of all changes, with the reason for each
@@ -38,16 +40,17 @@ In brief, the corrections are:
 4. I have added three short sentences on limitations and confounds.
 5. The section headings were numbered twice (for example, "1 1 INTRODUCTION"). This is now fixed.
 
-The main findings and the structure of the paper do not change. I would be grateful if this version could replace the previous one in the proceedings. If it is too late to replace the file, please let me know how I should proceed.
+The main findings and the structure of the paper do not change.
 
-I apologise for the extra work this causes.
+If the second-round review is still in progress, I would be grateful if this version could be used. If the review has already been completed, I would like this version to be used for the proceedings, and I will of course also address any comments from the reviewers.
 
-Kind regards,
+I apologise for the extra work this causes, and I look forward to hearing from you about the status of my paper.
 
+Best regards,
 Eisuke Tokiwa
 SUNBLAZE Co., Ltd., Tokyo, Japan
 ORCID: 0009-0009-7124-6669
-eisuke.tokiwa@sunblaze.jp
+Email: eisuke.tokiwa@sunblaze.jp
 
 ---
 
@@ -55,7 +58,9 @@ eisuke.tokiwa@sunblaze.jp
 
 Law 様
 
-本日お送りしたメールに続き、論文 EL2036 の修正版と変更点の一覧を添付します。
+本日、論文 EL2036 の状況についてメールをお送りしましたが、あわせて原稿の修正版を提出させてください。
+
+関連する別の論文の統計を見直す中で、EL2036 にも修正が必要な箇所があることが分かりました。次のファイルを添付します。
 
 - EL2036_Tokiwa_corrected.docx：ICEEL テンプレートで作成した修正版の論文（9 ページ）
 - EL2036_changes.docx：すべての変更点とその理由の一覧
@@ -68,9 +73,11 @@ Law 様
 4. 限界と交絡についての短い文を3つ追加しました。
 5. 節の見出し番号が二重になっていました（例：「1 1 INTRODUCTION」）。これを直しました。
 
-主な結論と論文の構成は変わりません。論文集では、この版を以前の版と差し替えていただけますと幸いです。差し替えが間に合わない場合は、どのように対応すればよいかお知らせください。
+主な結論と論文の構成は変わりません。
 
-お手数をおかけして申し訳ありません。
+2次査読がまだ進行中であれば、この版を使っていただけますと幸いです。査読がすでに終わっている場合は、論文集にこの版を使っていただきたく、査読者のコメントにももちろん対応いたします。
+
+お手数をおかけして申し訳ありません。論文の状況についてのご連絡をお待ちしております。
 
 常盤瑛祐
 株式会社 SUNBLAZE（東京）
