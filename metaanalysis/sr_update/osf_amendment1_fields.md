@@ -32,7 +32,7 @@ All sources are searched on the same date through their public APIs, with a scri
 - PubMed/MEDLINE (NCBI E-utilities): registered; to be run.
 - ERIC (IES ERIC API): registered; to be run.
 - OpenAlex: added, as an open substitute for Web of Science and Scopus, to which the author has no access.
-- PsycINFO, Web of Science, Scopus, ProQuest Dissertations & Theses: registered; not run (no institutional access); reported as not searched.
+- PsycINFO, Web of Science, Scopus, ProQuest Dissertations and Theses: registered; not run (no institutional access); reported as not searched.
 - Google Scholar: registered; run once by the author with Publish or Perish (Harzing), on the first 200 records of one simplified query, because Google Scholar has no API and limits query length. The exported records are merged and de-duplicated with the other sources.
 - Citation searching (registered), run through OpenAlex. Backward: the full reference list of each seed. Forward: every work citing each seed. Seeds: the 25 studies included in manuscript v4; the four benchmark meta-analyses named above (Poropat, 2009; Vedel, 2014; Stajkovic et al., 2018; Mammadov, 2022); two later reviews (Meyer et al., 2023; Hunter et al., 2025). Seeds without a DOI are searched by hand. Forward citations of the six reviews are restricted to works whose title or abstract matches the online-learning block, because those reviews are cited thousands of times, mostly by studies of face-to-face instruction. As registered, citation searching is repeated from newly included studies until two consecutive rounds yield no new eligible study.
 - Author contact is no longer a source (see Missing data).
@@ -52,7 +52,7 @@ A4. DATA MANAGEMENT (replaces Zotero and Rayyan)
 Records are de-duplicated by script, first by DOI and then by normalised title plus publication year, and screened in a spreadsheet with one row per unique record and the decision and reason at each stage. All files and scripts are published at https://github.com/etoki/paper (metaanalysis/sr_update/).
 
 A5. STUDIES WITH MIXED DELIVERY
-Studies that pool students taught face to face with students taught online (for example cohorts before, during and after the COVID-19 pandemic) without statistics for the online students alone are included in the evidence map but left out of the quantitative pool. This rule was applied post hoc to one study in manuscript v4 (Zheng & Zheng, 2023) and is applied prospectively to every study found by this search.
+Studies that pool students taught face to face with students taught online (for example cohorts before, during and after the COVID-19 pandemic) without statistics for the online students alone are included in the evidence map but left out of the quantitative pool. This rule was applied post hoc to one study in manuscript v4 (Zheng and Zheng, 2023) and is applied prospectively to every study found by this search.
 
 A6. FRAMING OF THE REPORT
 The report is framed by search completeness, not by the results. If the searches in A1 are run and selection follows A3, the report is a systematic review with meta-analysis (PRISMA 2020); otherwise it stays a scoping review (PRISMA-ScR). Either way, the sources not searched and all deviations are reported.
