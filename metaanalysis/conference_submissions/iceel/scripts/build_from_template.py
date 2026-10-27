@@ -72,9 +72,10 @@ ABSTRACT_BLOCKS = [
      "of 5 traits (Conscientiousness+, Extraversion−, Neuroticism+) and "
      "differ for Agreeableness and Openness. Neuroticism is positive in "
      "direction in both Japan studies (engagement in one, course grade in "
-     "the other), although neither correlation is statistically significant; "
-     "which contrasts with the null-to-negative pattern in Western "
-     "meta-analyses (Poropat 2009; Mammadov 2022) and is in line with "
+     "the other; neither correlation is statistically significant). This "
+     "contrasts with the null-to-negative pattern in earlier "
+     "meta-analyses, including their Asian samples (Poropat 2009; "
+     "Mammadov 2022), and is in line with "
      "Japan's very high Uncertainty Avoidance (UAI = 92) and Masculinity "
      "(MAS = 95). Because country-level associations do not imply "
      "individual-level effects, and the two outcomes differ in construct "
@@ -174,8 +175,8 @@ BODY = [
      "The Big Five – academic-achievement link is robust at the "
      "trait level (Poropat 2009; Mammadov 2022; Chen, Cheung, & Zeng "
      "2025) but is increasingly recognised as culturally conditional, "
-     "with Mammadov flagging Asian samples as showing amplified "
-     "Conscientiousness and sometimes inverted Extraversion. The parent "
+     "with Mammadov (2022) reporting larger correlations in Asian "
+     "samples than in other regions for every trait. The parent "
      "preprint (Tokiwa, 2026, DOI 10.21203/rs.3.rs-9513298/v1) reports "
      "a binary Asia / non-Asia contrast with Extraversion × Region "
      "the headline (Asian r = −0.131 vs non-Asian r = +0.050) but "
@@ -222,19 +223,19 @@ BODY = [
     ("Para",
      "Big Five × Hofstede linkages. Hofstede & McCrae (2004) "
      "report country-level correlations between aggregate NEO-PI-R Big "
-     "Five trait means and Hofstede dimensions. Correlations relevant "
-     "to the Asian subset (HM04 Table 4): UAI × N r = +.31; "
-     "UAI × A r = −.45; PDI × C r = +.43; "
-     "PDI × E r = −.31; IDV × E r = +.39; "
-     "MAS × N r = +.30; MAS × O r = +.37. Hofstede (1986), "
+     "Five trait means and Hofstede dimensions across 33 countries "
+     "(HM04 Table 1, zero-order r): IDV × E = +.64; PDI × E = −.57; "
+     "PDI × C = +.52; PDI × O = −.39; MAS × O = +.40; "
+     "MAS × N = +.57; MAS × A = −.36; UAI × N = +.58; "
+     "UAI × A = −.55. Hofstede (1986), "
      "applying the 4-D model directly to education, characterises "
-     "strong-UAI societies as ones in which 'students prefer "
-     "structured learning situations … rewarded for accuracy in "
-     "problem solving', and where students 'are allowed to behave "
-     "emotionally' — sketching a plausible mechanism by which "
+     "strong-UAI societies as ones in which 'students feel comfortable "
+     "in structured learning situations', 'students are rewarded for "
+     "accuracy in problem solving', and 'teachers are allowed to behave "
+     "emotionally (and so are students)' — sketching a plausible mechanism by which "
      "trait Neuroticism (anxiety, sensitivity) may promote academic "
      "engagement in high-UAI contexts. Schmitt et al. (2007) place "
-     "Japan's trait N mean at 57.87, near the top of 56 nations; Allik "
+     "Japan's trait N mean at 57.87, the highest of the 56 nations; Allik "
      "& McCrae (2004) further note that Japan does not cluster cleanly "
      "with other East Asian samples in their 36-culture geography. "
      "Together these undermine the 'Asia' moderator level as a "
@@ -247,29 +248,35 @@ BODY = [
      "national trait means, and the same association need not hold for "
      "trait – outcome correlations within one country. We use them only "
      "as a reference point. The N reference is of particular interest "
-     "because it runs opposite to the N− pattern in Western Big Five "
-     "– achievement meta-analyses (Poropat, 2009; Mammadov, 2022)."),
+     "because it runs opposite to the null-to-negative N pattern in "
+     "earlier Big Five – achievement meta-analyses, including their "
+     "Asian samples (Poropat, 2009; Mammadov, 2022)."),
 
-    ("Head2", "2.2 East Asian samples in personality – academic-achievement research"),
+    ("Head2", "2.2 Asian and collectivistic samples in earlier meta-analyses"),
     ("PostHeadPara",
-     "Reviews specific to East Asian samples (Chen et al. 2025; "
-     "Mammadov 2022) report two recurring patterns: (i) Conscientiousness "
-     "is at least as strong a predictor of achievement as in Western "
-     "samples, often slightly stronger in collectivist sub-populations; "
-     "and (ii) Extraversion's role is attenuated or reversed in "
-     "collectivist contexts where individual social initiative is "
-     "valued less highly. The Asian subset estimates here "
-     "(E r = −0.095; C r = +0.110) are consistent with this pattern."),
+     "Earlier meta-analyses of mostly face-to-face samples do not show "
+     "a weaker or negative Extraversion effect in Asia. Mammadov (2022) "
+     "found that Asian samples yielded larger correlations than other "
+     "regions for every trait: Conscientiousness ρ = 0.35, "
+     "Extraversion ρ = 0.16 and Neuroticism ρ = −0.19. Chen et al. "
+     "(2025) found Conscientiousness equally strong in individualistic "
+     "and collectivistic contexts (r = 0.21 in both), and a small "
+     "negative Extraversion correlation only in individualistic "
+     "contexts (r = −0.036; collectivistic r = 0.024, n.s.). The "
+     "negative Asian Extraversion estimate in the online-learning pool "
+     "(r = −0.095) therefore runs against, rather than with, this "
+     "evidence — one more reason to examine the Asian studies one by "
+     "one rather than as a single region."),
 
     ("Head2", "2.3 Japanese online learning context"),
     ("PostHeadPara",
-     "Japan-specific online-learning research is dominated by two "
-     "patterns. First, the use of the StudySapuri commercial LMS by "
-     "K-12 cohorts (asynchronous, self-paced video lectures plus "
-     "practice problems) — A-25 Tokiwa (2025) is one such cohort. "
-     "Second, the use of Moodle in undergraduate language education "
-     "(asynchronous LMS-paced reading and writing assignments) — "
-     "A-31 Rivers (2021) is the example here. Both studies use "
+     "The two Japan-based studies in the corpus come from two different "
+     "settings. A-25 Tokiwa (2025) studied third-year high-school "
+     "students using the StudySapuri commercial platform (asynchronous, "
+     "self-paced video lectures plus practice tests). A-31 Rivers (2021) "
+     "studied second-year university students in a compulsory 15-week "
+     "asynchronous communications course delivered through Moodle "
+     "during the COVID-19 campus closure. Both studies use "
      "asynchronous formats, but their personality instruments (60-item "
      "BFI-2-J vs 10-item TIPI-J) differ by an order of magnitude in "
      "measurement granularity, which is a major between-study confound "
@@ -391,18 +398,20 @@ BODY = [
      "achievement evidence in the pool."),
     ("Para",
      "The instrument-heterogeneity contrast is striking: A-25 uses the "
-     "60-item BFI-2-J (~12 items per trait, alphas .80 – .96); "
-     "A-31 uses the 10-item TIPI-J (2 items per trait, alphas "
-     "constrained by definition to .50 – .60 for most traits). "
-     "The per-trait reliability difference alone could account for "
+     "60-item BFI-2-J (12 items per trait, alphas .80 – .96); "
+     "A-31 uses the 10-item TIPI-J (2 items per trait), for which "
+     "internal consistency was not reported; very short scales of this "
+     "kind are designed for breadth rather than reliability. "
+     "The difference in measurement precision alone could account for "
      "substantial measurement-noise heterogeneity even before any "
      "cultural-context interaction is considered."),
 
     ("Head2", "4.4 Exploratory correspondence with country-level trait – culture associations"),
     ("PostHeadPara",
      "Table 4 places the sign of the country-level trait – culture "
-     "correlations reported by Hofstede & McCrae (2004) for Japan's most "
-     "distinctive dimensions next to the observed directions in the two "
+     "correlations reported by Hofstede & McCrae (2004), using for each "
+     "trait the dimension it is most strongly associated with, next to "
+     "the observed directions in the two "
      "Japan studies, listed separately by outcome. The reference column "
      "is not a prediction for individual learners; it summarises "
      "associations between national culture scores and national trait "
@@ -415,7 +424,8 @@ BODY = [
      "and O. Neuroticism is the most noticeable case: it is positive in "
      "direction in both studies (ρ = +0.17 and r = +0.107, neither "
      "statistically significant), which contrasts with the null-to-negative N pattern in "
-     "Western meta-analyses (Poropat 2009; Mammadov 2022), and both of "
+     "earlier meta-analyses, including their Asian samples (Mammadov "
+     "2022: Asian ρ = −0.19), and both of "
      "Japan's most extreme dimensions (UAI, MAS) are positively associated "
      "with national N means. However, the two positive values come from "
      "different constructs (engagement ρ in Tokiwa, course grade r in "
@@ -523,8 +533,8 @@ BODY = [
      "resolve (k = 2); (b) an exploratory comparison with country-level "
      "trait – culture associations (Hofstede & McCrae 2004) shows the "
      "same sign for 3 of 5 traits in two Japan-based studies, most "
-     "notably a positive Neuroticism direction that contrasts with the "
-     "Western pattern — a hypothesis to be tested with individual-level "
+     "notably a positive Neuroticism direction that contrasts with "
+     "earlier meta-analytic evidence, including Asian samples — a hypothesis to be tested with individual-level "
      "cultural measures and a common achievement outcome; and (c) it makes "
      "explicit the level-of-analysis, outcome, and instrument gaps that "
      "any future culture-moderated synthesis in this field must close."),
@@ -585,11 +595,11 @@ TABLE3_ROWS = [
 
 TABLE4_HEADER = ["Trait", "Country-level reference (HM04)", "Source", "Tokiwa: engagement (ρ)", "Rivers: grade (r)", "Same sign?"]
 TABLE4_ROWS = [
-    ["C", "+", "PDI .43", "+ (.34–.35)", "+ (.14)", "yes"],
-    ["E", "−", "IDV .39", "mixed", "− (−.17)", "yes"],
-    ["N", "+", "UAI .31; MAS .30", "+ (.17, n.s.)", "+ (.11, n.s.)", "yes"],
-    ["A", "−", "UAI −.45", "+ (.23)", "+ (.12)", "no"],
-    ["O", "+ (weak)", "MAS .37", "weak", "− (−.07)", "no"],
+    ["C", "+", "PDI +.52", "+ (.34–.35)", "+ (.14)", "yes"],
+    ["E", "−", "IDV +.64", "mixed", "− (−.17)", "yes"],
+    ["N", "+", "UAI +.58; MAS +.57", "+ (.17, n.s.)", "+ (.11, n.s.)", "yes"],
+    ["A", "−", "UAI −.55", "+ (.23)", "+ (.12)", "no"],
+    ["O", "+", "MAS +.40", "weak", "− (−.07)", "no"],
 ]
 
 TABLE_MAP = {
