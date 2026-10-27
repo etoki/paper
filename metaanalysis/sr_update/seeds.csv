@@ -1,0 +1,32 @@
+seed_id,role,doi,label,note
+A-01,included,10.1016/j.iheduc.2019.100724,Abe 2020,
+A-02,included,,Alkis 2018,no DOI; title search needed
+A-03,included,,Ashouri 2025,no DOI in extraction data
+A-04,included,10.1016/j.paid.2021.110969,Audet 2021,
+A-06,included,10.1007/978-3-030-66154-0_10,Sahinidis 2021,
+A-07,included,10.1016/j.chb.2017.02.030,Cohen 2017,
+A-08,included,10.1016/j.chb.2013.06.007,Keller 2013,
+A-11,included,10.1111/bjet.13302,Cheng 2023,
+A-12,included,10.1007/s10639-022-11199-x,Baruth 2023,DOI from paper_v4/references_data.py; data_extraction_populated.csv repeats the A-07 DOI
+A-13,included,10.3389/fpsyg.2024.1476437,Dang 2025,
+A-15,included,10.1207/S15328023TOP3002_13,Elvers 2003,
+A-17,included,10.1007/s10639-024-12755-3,Kara 2024,
+A-18,included,10.14742/ajet.4162,Bhagat 2019,
+A-19,included,,MacLean 2022,thesis; no DOI
+A-20,included,10.3389/fpsyg.2022.956281,Mustafa 2022,
+A-21,included,,Nakayama 2014,no DOI in extraction data
+A-22,included,10.1016/j.paid.2022.111645,Quigley 2022,
+A-23,included,10.3390/ejihpe14020025,Rodrigues 2024,
+A-25,included,10.3389/fpsyg.2025.1420996,Tokiwa 2025,
+A-26,included,10.3389/fpsyg.2023.1241477,Wang 2023,
+A-28,included,10.1186/s41239-021-00252-3,Yu 2021,
+A-29,included,10.34105/j.kmel.2020.12.010,Bahcekapili 2020,
+A-30,included,10.1007/s12144-023-04403-9,Kaspar 2023,
+A-31,included,10.1007/s10639-021-10478-3,Rivers 2021,
+A-37,included,10.1186/s41239-023-00388-4,Zheng 2023,in the map; left out of the pool
+M-01,benchmark,10.1037/a0014996,Poropat 2009,pre-registered snowball source
+M-02,benchmark,10.1016/j.paid.2014.07.011,Vedel 2014,pre-registered snowball source
+M-03,benchmark,10.1016/j.paid.2017.08.014,Stajkovic 2018,pre-registered snowball source
+M-04,benchmark,10.1111/jopy.12663,Mammadov 2022,pre-registered snowball source
+M-05,benchmark,10.1007/s10648-023-09736-2,Meyer 2023,added by amendment
+M-06,benchmark,10.26681/jote.2025.090209,Hunter 2025,added by amendment (online-learning systematic review)
