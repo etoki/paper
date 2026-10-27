@@ -25,8 +25,8 @@ A-24,Tlili 2023,65,A,Tunisia,Other,Undergraduate,Mixed,COVID,exclude,no,,,,,,
 A-25,Tokiwa 2025,103,A,Japan,Asia,K-12,Mixed,post-COVID,include_COI,yes,,,,,,
 A-26,Wang 2023,1625,M,China,Asia,K-12,Mixed,post-COVID,include_with_caveat,partial,,,,,,
 A-27,Wu_Yu 2024,1004,U,China,,Undergraduate,Mixed,,PDF_unavailable,unknown,,,,,,
-A-28,Yu 2021,1152,A,China,Asia,Mixed_UG_Grad,Humanities,COVID,include,yes,0.3550,0.1070,-0.1260,0.4920,0.0870,beta_converted
+A-28,Yu 2021,1152,A,China,Asia,Mixed_UG_Grad,Humanities,COVID,include,yes,0.3489,0.1059,-0.0745,0.4832,0.0863,beta_converted
 A-29,Bahcekapili 2020,525,S,Turkey,Europe,Undergraduate,Mixed,pre-COVID,include,yes,0.0700,0.0680,0.0270,-0.0130,-0.0720,r
-A-30,Kaspar 2023,413,M,Germany,Europe,Mixed_UG_Grad,Mixed,COVID,include_with_caveat,yes,0.1300,0.2000,0.1000,-0.0600,0.2500,beta_converted
+A-30,Kaspar 2023,413,M,Germany,Europe,Mixed_UG_Grad,Mixed,COVID,include_with_caveat,yes,0.1284,0.1970,0.0990,-0.0098,0.2460,beta_converted
 A-31,Rivers 2021,149,A,Japan,Asia,Undergraduate,Mixed,COVID,include,yes,-0.0660,0.1440,-0.1730,0.1180,0.1070,r
 A-37,Zheng 2023,282,M,US,North_America,Graduate,Mixed,mixed,include_with_caveat,yes,0.0000,0.0000,0.0000,0.0000,0.0000,r

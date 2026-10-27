@@ -280,7 +280,22 @@ def load_extractions():
         return list(reader)
 
 
-def extract_effect_for_trait(row, trait):
+def peterson_brown_r(beta, legacy=False):
+    """Peterson & Brown (2005) imputation: r = .98β + .05λ, λ = 1 if β ≥ 0
+    else 0.
+
+    legacy=True reproduces the earlier, incorrect rule r = β ± .05, which
+    pushed negative β a further .05 away from zero (found 2026-10); only for
+    scripts that reproduce already-submitted numbers.
+    """
+    if legacy:
+        r = beta + 0.05 if beta >= 0 else beta - 0.05
+    else:
+        r = 0.98 * beta + (0.05 if beta >= 0 else 0.0)
+    return max(-0.99, min(0.99, r))
+
+
+def extract_effect_for_trait(row, trait, legacy_conversion=False):
     """For a given row and trait (O/C/E/A/N), return (r, N, source) or None.
 
     Applies Peterson-Brown conversion to β if r not available.
@@ -317,10 +332,8 @@ def extract_effect_for_trait(row, trait):
             b = float(b_str)
             n = int(float(n_str))
             if abs(b) <= 0.99 and n > 3:
-                # Peterson-Brown: r ≈ β + 0.05 if β ≥ 0 else β - 0.05
-                r_approx = b + 0.05 if b >= 0 else b - 0.05
-                r_approx = max(-0.99, min(0.99, r_approx))
-                return (r_approx, n, "beta_converted")
+                return (peterson_brown_r(b, legacy=legacy_conversion), n,
+                        "beta_converted")
         except ValueError:
             pass
 

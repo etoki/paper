@@ -25,7 +25,8 @@ REPO_ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(REPO_ROOT / "metaanalysis" / "analysis"))
 import pool as parent  # noqa: E402
 
-INPUT_CSV = REPO_ROOT / "metaanalysis" / "conference_submissions" / "inputs" / "studies.csv"
+# Legacy Peterson-Brown conversion kept so the submitted ICERI numbers reproduce.
+INPUT_CSV = REPO_ROOT / "metaanalysis" / "conference_submissions" / "inputs" / "studies_legacy_conversion.csv"
 RESULTS_DIR = REPO_ROOT / "metaanalysis" / "conference_submissions" / "iceri" / "results"
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 

@@ -20,14 +20,25 @@ Output columns
 - primary_achievement yes / partial / no / unknown
 - r_O, r_C, r_E, r_A, r_N   Pearson correlations with achievement; blank if not extractable
 - effect_source   r / beta_converted (Peterson-Brown) / mixed
+
+Also writes studies_legacy_conversion.csv: identical except that β is
+converted with the earlier, incorrect rule (r = β ± .05). Only the scripts
+that reproduce already-submitted numbers read it.
 """
 from __future__ import annotations
 
 import csv
+import sys
 from pathlib import Path
 
 SRC = Path(__file__).resolve().parents[3] / "metaanalysis" / "analysis" / "data_extraction_populated.csv"
 DST = Path(__file__).resolve().parent / "studies.csv"
+# Same rows with the earlier, incorrect Peterson-Brown rule (r = β ± .05);
+# read only by scripts that reproduce already-submitted numbers.
+DST_LEGACY = Path(__file__).resolve().parent / "studies_legacy_conversion.csv"
+
+sys.path.insert(0, str(SRC.parent))
+from pool import peterson_brown_r  # noqa: E402
 
 
 def classify_modality(row: dict) -> str:
@@ -121,10 +132,11 @@ def classify_era(row: dict) -> str:
     return ""
 
 
-def get_r(row: dict, trait: str) -> tuple[str, str]:
+def get_r(row: dict, trait: str, legacy: bool = False) -> tuple[str, str]:
     """Return (r_value, source) for a trait. Source is 'r' / 'beta_converted' / ''.
 
-    Mirrors metaanalysis/analysis/pool.py extract_effect_for_trait().
+    Mirrors metaanalysis/analysis/pool.py extract_effect_for_trait();
+    legacy=True uses the earlier, incorrect Peterson-Brown rule.
     """
     r_str = (row.get(f"r_{trait}_outcome") or "").strip()
     if r_str:
@@ -139,15 +151,13 @@ def get_r(row: dict, trait: str) -> tuple[str, str]:
         try:
             b = float(b_str)
             if abs(b) <= 0.99:
-                r_approx = b + 0.05 if b >= 0 else b - 0.05
-                r_approx = max(-0.99, min(0.99, r_approx))
-                return (f"{r_approx:.4f}", "beta_converted")
+                return (f"{peterson_brown_r(b, legacy=legacy):.4f}", "beta_converted")
         except ValueError:
             pass
     return ("", "")
 
 
-def derive_row(row: dict) -> dict:
+def derive_row(row: dict, legacy: bool = False) -> dict:
     fa = (row.get("first_author") or "").strip()
     yr = (row.get("year") or "").strip()
     n = (row.get("n_for_correlations") or "").strip() or (row.get("n_analyzed") or "").strip()
@@ -167,7 +177,7 @@ def derive_row(row: dict) -> dict:
     }
     sources = []
     for trait in ("O", "C", "E", "A", "N"):
-        r_str, src = get_r(row, trait)
+        r_str, src = get_r(row, trait, legacy=legacy)
         out[f"r_{trait}"] = r_str
         if src:
             sources.append(src)
@@ -189,19 +199,19 @@ def main() -> None:
     with SRC.open("r", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
 
-    derived = [derive_row(r) for r in rows]
-
     fieldnames = [
         "study_id", "author_year", "N", "modality",
         "country", "region", "education_level", "discipline", "era",
         "inclusion_status", "primary_achievement",
         "r_O", "r_C", "r_E", "r_A", "r_N", "effect_source",
     ]
-    with DST.open("w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=fieldnames)
-        w.writeheader()
-        for d in derived:
-            w.writerow(d)
+    for dst, legacy in ((DST, False), (DST_LEGACY, True)):
+        derived = [derive_row(r, legacy=legacy) for r in rows]
+        with dst.open("w", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=fieldnames)
+            w.writeheader()
+            for d in derived:
+                w.writerow(d)
 
     n_primary = sum(
         1 for d in derived

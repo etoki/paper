@@ -172,7 +172,7 @@ def round4_regression_check() -> int:
 # (B) Per-paper results-csv consistency.
 # ECEL claims Conscientiousness pooled r = 0.190 in async, 0.180 in mixed.
 # Verify against modality_pools.csv.
-# ICEEL claims Asian C r = 0.111, E r = -0.131, N r = 0.089.
+# ICEEL claims Asian C r = 0.110, E r = -0.095, N r = 0.089 (corrected version).
 # Verify against asia_subset_pools.csv.
 # ICERI claims Wald chi-squared(6) = 1.64 (or 1.638), p = .95 (or 0.9498).
 # Verify against the script's reported value in the docstring trace, but the
@@ -257,7 +257,9 @@ def per_paper_check() -> int:
     # ICEEL: asia_subset_pools.csv
     asia = parse_asia_pools()
     if asia:
-        for trait, expected in (("C", "0.111"), ("E", "-0.131"), ("N", "0.089")):
+        # Corrected 2026-10-27 (exact REML, Peterson-Brown .98β + .05λ);
+        # the submitted July version had C 0.111, E -0.131, N 0.089.
+        for trait, expected in (("C", "0.110"), ("E", "-0.095"), ("N", "0.089")):
             if trait in asia:
                 ok = fmt_close(asia[trait], expected)
                 print(f"  ICEEL Asian {trait} pooled r: csv {asia[trait]:.3f}  expected {expected}  -> {'OK' if ok else 'FAIL'}")
