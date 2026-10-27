@@ -85,5 +85,18 @@ DATABASES = {
     "openalex": {"name": "OpenAlex", "query": openalex_query},
 }
 
-# (date, change, reason) — empty until the amendment is registered
+# Google Scholar: one simplified query, run once by the author with Publish
+# or Perish on the same date as the API searches (Amendment 1, A1). Google
+# Scholar caps queries at 256 characters and does not honour nested Boolean
+# logic, so each block is shortened to its core terms. Fixed on 2026-10-27,
+# before any search was run.
+GOOGLE_SCHOLAR_QUERY = (
+    '("Big Five" OR "five factor" OR conscientiousness OR personality) '
+    '("online learning" OR "e-learning" OR "distance learning" OR MOOC) '
+    '("academic achievement" OR "academic performance" OR grades OR GPA)'
+)
+GOOGLE_SCHOLAR_MAX = 200
+
+# (date, change, reason). Amendment 1 registered on OSF on 2026-10-27
+# (approved 12:29 UTC); its changes are recorded there, not here.
 DEVIATIONS = []

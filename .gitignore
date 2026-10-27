@@ -41,3 +41,4 @@ simulation/output/figures/
 metaanalysis/sr_update/raw/
 metaanalysis/sr_update/fulltext/pdf/*
 !metaanalysis/sr_update/fulltext/pdf/.gitkeep
+metaanalysis/sr_update/.openalex_key

@@ -46,7 +46,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from run_search import MAILTO  # noqa: E402  same contact as the search
+from run_search import MAILTO, OPENALEX_KEY  # noqa: E402  same contact and key as the search
 
 KEEP = {"include", "maybe"}
 UA = f"sr-update-fulltext (mailto:{MAILTO})"
@@ -55,9 +55,11 @@ PAUSE = 1.0
 
 
 def _open(url, timeout=60):
-    req = urllib.request.Request(url, headers={
-        "User-Agent": UA,
-        "Accept": "application/pdf,application/json;q=0.9,*/*;q=0.8"})
+    headers = {"User-Agent": UA,
+               "Accept": "application/pdf,application/json;q=0.9,*/*;q=0.8"}
+    if OPENALEX_KEY and url.startswith("https://api.openalex.org/"):
+        headers["Authorization"] = f"Bearer {OPENALEX_KEY}"
+    req = urllib.request.Request(url, headers=headers)
     return urllib.request.urlopen(req, timeout=timeout)
 
 

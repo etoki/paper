@@ -10,6 +10,7 @@
 | `search_strategy.py` | 検索式。事前登録した語（`PREREGISTERED`）と追加する語（`ADDED`）を分けて持っている |
 | `run_search.py` | 検索を実行し、すべての応答と記録を保存するスクリプト |
 | `seeds.csv` | 引用をたどる起点。組み入れた25本と先行レビュー6本 |
+| `scholar/pop_export.csv` | Publish or Perish で書き出した Google Scholar の結果（常盤さんが保存） |
 | `fetch_fulltext.py` | 全文段階の PDF を、無料で公開されている版から自動で取ってくるスクリプト |
 | `fulltext/pdf/` | PDF の保存先。ファイル名は `<record_id>.pdf`。著作権があるので git には入れない |
 
@@ -26,12 +27,22 @@
 
 ### 2. OSF に修正を登録する（常盤さん）
 
+**済み（2026-10-27）**: Amendment 1 を OSF の新しい版として登録した（12:29 UTC 提出・承認）。変えたのは Data collection procedures、Starting and stopping rules、Missing data の3欄で、どれも先頭に修正を足し、元の文面は残した。入れた文面は `osf_amendment1_fields.md`。以下は登録前の手順の記録。
+
+
 - 必ず検索の前に登録します。後だと「結果を見てから決めた」ことになるためです。
 - `protocol_amendment.md` の「登録前に確認してほしいこと」の3点を決めてから登録してください。
 - 登録するのは英語の部分だけです。
 - 事前登録の §4 に「方針変更は OSF に新しい version を登録する」と書いてあるので、登録ページの Update から新しい version として登録します。それができない場合は、OSF プロジェクトにファイルとして置いても日付は残ります。
 
 ### 3. 検索を実行する（Claude）
+
+**OpenAlex の API キー（常盤さん）**: OpenAlex はキーなしだと、同じ回線の全員で共有する1日の無料枠しか使えません。2026-10-27 の1回目の本番実行は、PubMed（33件）と ERIC（176件）を取ったところで OpenAlex の枠が尽きて止まりました（HTTP 429）。どの情報源も同じ日に検索する約束なので、この回の結果は使わず、キーを用意してから全部を同じ日に取り直します。
+
+1. https://openalex.org でアカウントを作り（無料）、API キーを発行する。
+2. キーだけを1行で書いたファイルを `metaanalysis/sr_update/.openalex_key` として保存する。このファイルは git に入りません。Claude はファイルの中身を見ません。
+3. Claude が `--check` で接続と残り枠を確かめてから、本番を実行します。
+
 
 ```
 python metaanalysis/sr_update/run_search.py --check   # 接続確認
@@ -43,7 +54,21 @@ python metaanalysis/sr_update/run_search.py           # 本番
 - `search_log.json`: 検索日、検索式、件数（PRISMA 図の数字）
 - `raw/`: すべての応答。大きいので git には入れず、zip にして OSF に置く
 
-Google Scholar の上位200件は、ブラウザでの手作業が必要です（やる場合だけ）。
+**Google Scholar（常盤さん。API の検索と同じ日に）**: Google Scholar には API がないので、Publish or Perish で行います。
+
+1. Publish or Perish で「Google Scholar」の検索を開き、Keywords 欄に次の式をそのまま入れる（`search_strategy.py` の `GOOGLE_SCHOLAR_QUERY`）。
+
+   ```
+   ("Big Five" OR "five factor" OR conscientiousness OR personality) ("online learning" OR "e-learning" OR "distance learning" OR MOOC) ("academic achievement" OR "academic performance" OR grades OR GPA)
+   ```
+
+2. 取得件数の上限（Maximum number of results）を 200 にして検索する。年の範囲などほかの条件は入れない。
+3. 結果を CSV で書き出し（Save Results → Results as CSV）、`metaanalysis/sr_update/scholar/pop_export.csv` に保存する。
+4. Claude が次を実行して、ほかの情報源と合わせて重複を除き直す。記録番号が振り直されるので、選別を始める前に行う。
+
+   ```
+   python metaanalysis/sr_update/run_search.py --merge
+   ```
 
 ### 4. 選別する（常盤さん）
 
