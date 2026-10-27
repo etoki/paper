@@ -30,9 +30,9 @@ OUTPUT = ICEEL / "full_paper.docx"
 PRISMA_FIG = ROOT / "metaanalysis" / "conference_submissions" / "figures" / "prisma_flow_iceel.png"
 
 TITLE = (
-    "Cultural dimensions in online learning: A Hofstede-moderated "
-    "within-Asia synthesis of the Big Five and academic achievement, "
-    "with a focused look at the Japanese context"
+    "Cultural Dimensions in Online Learning: A Hofstede-Moderated "
+    "Within-Asia Synthesis of the Big Five and Academic Achievement, "
+    "with a Focused Look at the Japanese Context"
 )
 
 AUTHOR = "Eisuke Tokiwa"
@@ -71,7 +71,8 @@ ABSTRACT_BLOCKS = [
      "The observed signs correspond to the country-level reference for 3 "
      "of 5 traits (Conscientiousness+, Extraversion−, Neuroticism+) and "
      "differ for Agreeableness and Openness. Neuroticism is positive in "
-     "both Japan studies (engagement in one, course grade in the other), "
+     "direction in both Japan studies (engagement in one, course grade in "
+     "the other), although neither correlation is statistically significant; "
      "which contrasts with the null-to-negative pattern in Western "
      "meta-analyses (Poropat 2009; Mammadov 2022) and is in line with "
      "Japan's very high Uncertainty Avoidance (UAI = 92) and Masculinity "
@@ -99,8 +100,8 @@ CCS_XML = """<ccs2012>
 </ccs2012>"""
 
 KEYWORDS = (
-    "Additional Keywords and Phrases: meta-analysis; Big Five personality "
-    "traits; online learning; Hofstede cultural dimensions; Japan; "
+    "Additional Keywords and Phrases: meta-analysis, Big Five personality "
+    "traits, online learning, Hofstede cultural dimensions, Japan, "
     "cross-cultural psychology"
 )
 
@@ -382,7 +383,7 @@ BODY = [
     ("Para",
      "A-25 Tokiwa's values are Spearman ρ with StudySapuri engagement "
      "and mastery measures (lectures watched, tests completed and "
-     "mastered; Tokiwa 2025, Table 3 and text). They are "
+     "mastered; all-subject values from Tokiwa 2025, Table 3). They are "
      "learning-behaviour outcomes, not academic achievement, and they did "
      "not meet the extraction protocol (Pearson r with achievement); they "
      "are shown only as a descriptive comparator. A-31 Rivers's values "
@@ -412,7 +413,8 @@ BODY = [
     ("Para",
      "The signs correspond for 3 of 5 traits (C, E, N) and differ for A "
      "and O. Neuroticism is the most noticeable case: it is positive in "
-     "both studies, which contrasts with the null-to-negative N pattern in "
+     "direction in both studies (ρ = +0.17 and r = +0.107, neither "
+     "statistically significant), which contrasts with the null-to-negative N pattern in "
      "Western meta-analyses (Poropat 2009; Mammadov 2022), and both of "
      "Japan's most extreme dimensions (UAI, MAS) are positively associated "
      "with national N means. However, the two positive values come from "
@@ -470,7 +472,8 @@ BODY = [
     ("PostHeadPara",
      "The Neuroticism correspondence in Table 4 is the most interesting "
      "cultural observation in this paper, but it supports a hypothesis "
-     "rather than a finding. It is consistent with Hofstede's (1986) "
+     "rather than a finding: both correlations are small and not "
+     "statistically significant. It is consistent with Hofstede's (1986) "
      "description of strong-UAI societies, in which students are rewarded "
      "for structured, accuracy-focused study — behaviour that trait "
      "anxiety might sustain. Two gaps prevent a stronger claim. First, the "
@@ -573,19 +576,19 @@ TABLE3_ROWS = [
     ["Instrument", "BFI-2-J (60 items)", "TIPI-J (10 items)"],
     ["Outcome (construct)", "Engagement / mastery: lectures, tests (Spearman ρ)", "Achievement: course grade (Pearson r)"],
     ["Era", "post-COVID", "COVID"],
-    ["r_O", "not in extractable column", "−0.066"],
-    ["r_C", "ρ = +0.30 to +0.35", "+0.144"],
-    ["r_E", "mixed (Assertiveness +0.26; Sociability −)", "−0.173"],
-    ["r_A", "ρ = +0.27 to +0.29 (Lectures Watched)", "+0.118"],
-    ["r_N", "ρ = +0.24 to +0.29 (Anxiety subscale)", "+0.107"],
+    ["r_O", "≈ 0 (0.00 to +0.10)", "−0.066"],
+    ["r_C", "ρ = +0.34 to +0.35 (tests completed, mastered)", "+0.144"],
+    ["r_E", "mixed (Assertiveness +0.26; Sociability −0.23)", "−0.173"],
+    ["r_A", "ρ = +0.23 (lectures watched)", "+0.118"],
+    ["r_N", "ρ = +0.17 (lectures watched, n.s.)", "+0.107 (n.s.)"],
 ]
 
 TABLE4_HEADER = ["Trait", "Country-level reference (HM04)", "Source", "Tokiwa: engagement (ρ)", "Rivers: grade (r)", "Same sign?"]
 TABLE4_ROWS = [
-    ["C", "+", "PDI .43", "+ (.30–.35)", "+ (.14)", "yes"],
+    ["C", "+", "PDI .43", "+ (.34–.35)", "+ (.14)", "yes"],
     ["E", "−", "IDV .39", "mixed", "− (−.17)", "yes"],
-    ["N", "+", "UAI .31; MAS .30", "+ (.24–.29)", "+ (.11)", "yes"],
-    ["A", "−", "UAI −.45", "+ (.27–.29)", "+ (.12)", "no"],
+    ["N", "+", "UAI .31; MAS .30", "+ (.17, n.s.)", "+ (.11, n.s.)", "yes"],
+    ["A", "−", "UAI −.45", "+ (.23)", "+ (.12)", "no"],
     ["O", "+ (weak)", "MAS .37", "weak", "− (−.07)", "no"],
 ]
 
@@ -658,28 +661,15 @@ REFERENCES = [
     "personality traits: Patterns of profiles across 36 cultures. "
     "Journal of Cross-Cultural Psychology 35, 1 (2004), 13–28. "
     "DOI: 10.1177/0022022103260382.",
-    "McCrae, R. R. and Terracciano, A. 2005. Universal features of "
-    "personality traits from the observer's perspective: Data from 50 "
-    "cultures. Journal of Personality and Social Psychology 88, 3 "
-    "(2005), 547–561. DOI: 10.1037/0022-3514.88.3.547.",
     "Schmitt, D. P., Allik, J., McCrae, R. R., and Benet-Martínez, V. "
     "2007. The geographic distribution of Big Five personality traits: "
     "Patterns and profiles of human self-description across 56 nations. "
     "Journal of Cross-Cultural Psychology 38, 2 (2007), 173–212. "
     "DOI: 10.1177/0022022106297299.",
-    "Migliore, L. A. 2011. Relation between big five personality "
-    "traits and Hofstede's cultural dimensions: Samples from the USA "
-    "and India. Cross Cultural Management: An International Journal "
-    "18, 1 (2011), 38–54. DOI: 10.1108/13527601111104287.",
     "Cheung, F. M., Cheung, S. F., Wada, S., and Zhang, J. 2003. "
     "Indigenous measures of personality assessment in Asian countries: "
     "A review. Psychological Assessment 15, 3 (2003), 280–289. "
     "DOI: 10.1037/1040-3590.15.3.280.",
-    "Lynn, R. and Martin, T. 1995. National differences for "
-    "thirty-seven nations in extraversion, neuroticism, psychoticism "
-    "and economic, demographic and other correlates. Personality and "
-    "Individual Differences 19, 3 (1995), 403–406. "
-    "DOI: 10.1016/0191-8869(95)00054-A.",
     "McSweeney, B. 2002. Hofstede's model of national cultural "
     "differences and their consequences: A triumph of faith — a "
     "failure of analysis. Human Relations 55, 1 (2002), 89–118. "
@@ -758,7 +748,7 @@ def build():
 
     # References
     add_para(doc, "ReferenceHead", "REFERENCES")
-    for ref in REFERENCES:
+    for ref in sorted(REFERENCES, key=lambda r: (r.split(".")[0].lower(), r)):
         add_para(doc, "Bib_entry", ref)
 
     doc.save(str(OUTPUT))

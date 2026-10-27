@@ -2,7 +2,7 @@
 
 Paper: "Cultural dimensions in online learning: A Hofstede-moderated within-Asia synthesis of the Big Five and academic achievement, with a focused look at the Japanese context" (Eisuke Tokiwa)
 
-I thank the reviewer for the careful reading and the constructive comments. The camera-ready version (EL2036_Tokiwa_final.docx, 10 pages) addresses both major points as follows. It also includes the statistical corrections described in my email of 27 October 2026 (EL2036_changes_v2), and adds the CCS concepts required by the template.
+I thank the reviewer for the careful reading and the constructive comments. The camera-ready version (EL2036_Tokiwa_final.docx, 9 pages) addresses both major points as follows. It also includes the statistical corrections described in my email of 27 October 2026 (EL2036_changes_v2), and adds the CCS concepts required by the template.
 
 ## Comment 1 — Cross-level inference in Table 4 (Sections 4.4 and 5.4)
 
@@ -38,4 +38,6 @@ The cultural and causal claims are narrowed throughout. The paper is now positio
 ## Other changes
 
 - CCS CONCEPTS line added after the abstract (Applied computing • Education • E-learning), and the CCS XML code added to the Word file's properties (File > Info > Comments), as described in the conference guidelines.
+- In a final check against the source paper, the A-25 Tokiwa (2025) values in Tables 3 and 4 were corrected to the all-subject Spearman ρ reported in Tokiwa (2025, Table 3): Conscientiousness +0.34 to +0.35, Agreeableness +0.23, Neuroticism +0.17 (previously, some values from single subjects or facets had been listed). The text now also states that neither Neuroticism correlation (ρ = +0.17; r = +0.107) is statistically significant. The direction coding in Table 4, and therefore the 3-of-5 correspondence, is unchanged.
+- Formatting: the title is in Title Case, keywords are comma-delimited, references are listed alphabetically, and three references that were not cited in the text were removed.
 - Statistical corrections from my email of 27 October 2026 (corrected region contrast, Peterson–Brown β-to-r conversion for Yu 2021, exact REML τ², corrected text for Table 2, numbered headings).
