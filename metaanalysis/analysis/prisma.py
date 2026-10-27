@@ -37,105 +37,78 @@ def draw_arrow(ax, x1, y1, x2, y2):
 
 
 def main():
-    fig, ax = plt.subplots(figsize=(10, 13))
-    ax.set_xlim(0, 10)
-    ax.set_ylim(0, 13)
+    """PRISMA-ScR flow. Counts before the full-text stage were not logged
+    and are shown as approximate; full-text counts come from Table 1
+    (data_extraction_populated.csv) and the full-text exclusions recorded
+    in deep_reading_notes.md (A-14 and five reports without a Big Five
+    measure)."""
+    fig, ax = plt.subplots(figsize=(10, 12))
+    ax.set_xlim(-0.2, 10.2)
+    ax.set_ylim(0, 12)
     ax.axis("off")
 
-    # Stage labels (left side)
-    stage_x = 0.15
-    stages = [
-        (11.5, "Identification"),
-        (9.0, "Screening"),
-        (5.5, "Eligibility"),
-        (2.5, "Included"),
-    ]
-    for y, label in stages:
+    stage_x = 0.2
+    for y, label in [(10.6, "Identification"), (8.5, "Screening"),
+                     (5.6, "Eligibility"), (2.4, "Included")]:
         ax.text(stage_x, y, label, fontsize=12, weight="bold",
                 rotation=90, va="center", ha="center", family="serif")
 
-    # Main flow boxes
-    main_x = 1.5
-    main_w = 5.5
+    main_x, main_w = 1.0, 4.9
+    excl_x, excl_w = main_x + main_w + 0.3, 3.7
+    mid = main_x + main_w / 2
 
-    # 1. Identification
-    draw_box(ax, main_x, 11.5, main_w, 1.0,
-             "Records identified from databases (n = 80)*\n"
-             "Records identified from other sources:\n"
-             "  Preliminary informal search (n = 28)\n"
-             "  Citation snowballing + open-access DL (n = 12)\n"
-             "Total records identified (n = 120)",
+    draw_box(ax, main_x, 10.0, main_w, 1.3,
+             "Records identified\n"
+             "  Web search engine, 8 queries (n \u2248 80)\n"
+             "  Previously known primary studies (n = 28)\n"
+             "  Reference lists of benchmark meta-analyses (n = 5)",
              fontsize=9, fill="#e8f1f8")
+    draw_arrow(ax, mid, 10.0, mid, 9.3)
 
-    # Arrow down
-    draw_arrow(ax, main_x + main_w / 2, 11.5, main_x + main_w / 2, 10.9)
-
-    # Dedup → right branch
-    draw_box(ax, main_x, 10.0, main_w, 0.9,
-             "Records after duplicates removed (n ≈ 80)\n"
-             "Duplicates removed (n ≈ 40)",
-             fontsize=9, fill="#e8f1f8")
-
-    # 2. Screening
-    draw_arrow(ax, main_x + main_w / 2, 10.0, main_x + main_w / 2, 9.4)
-    draw_box(ax, main_x, 8.5, main_w, 0.9,
-             "Records screened (title/abstract) (n = 80)",
+    draw_box(ax, main_x, 8.1, main_w, 1.2,
+             "Records screened (title/abstract)\n"
+             "Duplicates removed and records excluded at this stage:\n"
+             "numbers not logged",
              fontsize=9, fill="#fff4d8")
+    draw_arrow(ax, mid, 8.1, mid, 7.4)
 
-    # Right side: exclusions at t/a
-    excl_x = main_x + main_w + 0.5
-    excl_w = 3.2
-    draw_box(ax, excl_x, 8.3, excl_w, 1.1,
-             "Records excluded at title/abstract (n = 25)\n"
-             "  Wrong population / non-students (n = 10)\n"
-             "  Clearly non-Big-Five framework (n = 8)\n"
-             "  No online learning component (n = 7)",
-             fontsize=8, fill="#fde9e9")
-    draw_arrow(ax, main_x + main_w, 8.9, excl_x, 8.9)
-
-    # 3. Eligibility / full-text
-    draw_arrow(ax, main_x + main_w / 2, 8.5, main_x + main_w / 2, 7.9)
-    draw_box(ax, main_x, 7.0, main_w, 0.9,
-             "Full-text reports sought for retrieval (n = 43)",
+    draw_box(ax, main_x, 6.6, main_w, 0.8,
+             "Reports sought for retrieval (n = 37)",
              fontsize=9, fill="#fff4d8")
+    draw_box(ax, excl_x, 6.6, excl_w, 0.8,
+             "Reports not retrieved (n = 1)\n  Full text unavailable: A-27",
+             fontsize=8.5, fill="#fde9e9")
+    draw_arrow(ax, main_x + main_w, 7.0, excl_x, 7.0)
+    draw_arrow(ax, mid, 6.6, mid, 5.9)
 
-    draw_arrow(ax, main_x + main_w / 2, 7.0, main_x + main_w / 2, 6.4)
-    draw_box(ax, main_x, 5.5, main_w, 0.9,
-             "Reports not retrieved / paywall (n = 5)\n"
-             "Reports assessed for eligibility (n = 38)",
+    draw_box(ax, main_x, 5.1, main_w, 0.8,
+             "Reports assessed for eligibility (n = 36)",
              fontsize=9, fill="#fef3cd")
-
-    # Right side: exclusions at full-text
-    draw_box(ax, excl_x, 4.6, excl_w, 1.9,
-             "Reports excluded at full-text (n = 7):\n"
-             "  Non-Big-Five framework (n = 5)\n"
-             "    MBTI (n = 1), Proactive (n = 1)\n"
-             "    TAM (n = 1), TUE (n = 1), other (n = 1)\n"
-             "  Face-to-face modality (n = 4)\n"
+    draw_box(ax, excl_x, 4.2, excl_w, 2.1,
+             "Reports excluded (n = 11)\n"
+             "  No Big Five measure (n = 5)\n"
+             "  Face-to-face only (n = 4):\n"
              "    A-09, A-10, A-14, A-16\n"
-             "  Sample overlap (n = 1): A-05 / A-04\n"
-             "  Effect size not extractable (n = 1): A-24",
-             fontsize=8, fill="#fde9e9")
-    draw_arrow(ax, main_x + main_w, 5.9, excl_x, 5.5)
+             "  Sample overlap (n = 1): A-05\n"
+             "  No extractable effect size (n = 1): A-24",
+             fontsize=8.5, fill="#fde9e9")
+    draw_arrow(ax, main_x + main_w, 5.5, excl_x, 5.3)
+    draw_arrow(ax, mid, 5.1, mid, 4.0)
 
-    # 4. Included
-    draw_arrow(ax, main_x + main_w / 2, 5.5, main_x + main_w / 2, 4.4)
-    draw_box(ax, main_x, 3.0, main_w, 1.3,
-             "Studies included in systematic review (n = 31)\n"
-             "  Primary achievement pool (direct r): n = 10\n"
-             "    [A-01, A-02, A-15, A-17, A-22, A-23, A-29,\n"
-             "     A-30*, A-31, A-37]\n"
-             "  β-converted contributors (P-Brown): n = 4\n"
-             "  Secondary/narrative only: n = 17",
+    draw_box(ax, main_x, 1.6, main_w, 2.4,
+             "Studies included in the scoping review (n = 25)\n"
+             "\n"
+             "  Exploratory quantitative pool (n = 10)\n"
+             "    Direct correlations (n = 8; one entered as r = 0)\n"
+             "    Converted from \u03b2 (n = 2): A-28, A-30\n"
+             "  Narrative map only (n = 15)\n"
+             "    Secondary outcomes only (n = 13)\n"
+             "    No trait\u2013achievement r (n = 2): A-25, A-26",
              fontsize=8.5, fill="#d4edda")
 
-    # Bottom note / caption
-    ax.text(5, 0.8,
-            "PRISMA 2020 flow diagram (adapted from Page et al., 2021).",
+    ax.text(5, 0.9, "PRISMA-ScR flow diagram (Tricco et al., 2018; layout adapted from Page et al., 2021).",
             ha="center", fontsize=9, style="italic", family="serif")
-    ax.text(5, 0.3,
-            "*Records identified via WebSearch-based formal search "
-            "(deviation from pre-registered direct database access; see Methods).",
+    ax.text(5, 0.45, "Counts before the full-text stage were not logged; 31 of the 37 reports are catalogued in Table 1.",
             ha="center", fontsize=7.5, family="serif")
 
     plt.tight_layout()
