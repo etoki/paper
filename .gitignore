@@ -35,3 +35,9 @@ simulation/output/figures/
 
 # Local docx backups created by apply_hallucination_fixes.py
 *.docx.bak
+
+# sr_update: raw API responses (zipped to OSF instead) and full-text PDFs
+# (copyrighted; kept locally only)
+metaanalysis/sr_update/raw/
+metaanalysis/sr_update/fulltext/pdf/*
+!metaanalysis/sr_update/fulltext/pdf/.gitkeep

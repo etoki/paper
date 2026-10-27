@@ -10,6 +10,8 @@
 | `search_strategy.py` | 検索式。事前登録した語（`PREREGISTERED`）と追加する語（`ADDED`）を分けて持っている |
 | `run_search.py` | 検索を実行し、すべての応答と記録を保存するスクリプト |
 | `seeds.csv` | 引用をたどる起点。組み入れた25本と先行レビュー6本 |
+| `fetch_fulltext.py` | 全文段階の PDF を、無料で公開されている版から自動で取ってくるスクリプト |
+| `fulltext/pdf/` | PDF の保存先。ファイル名は `<record_id>.pdf`。著作権があるので git には入れない |
 
 ## 進め方
 
@@ -51,9 +53,22 @@ Google Scholar の上位200件は、ブラウザでの手作業が必要です�
 - 常盤さんが全件を判定します。
 - 1週間以上あけて10%を選び直し、一致度（κ）を出します。
 
+題名・要旨の判定は `records_dedup.csv` の `ta_decision` 欄に `include`（全文を読む）、`maybe`（迷う。全文を読む）、`exclude` のどれかで書きます。
+
 **全文の段階**:
-- Claude が PDF の DOI リストを作り、常盤さんがダウンロードします。
+- Claude が次のコマンドで PDF を取ります。`ta_decision` が `include` か `maybe` の行が対象です。
+
+  ```
+  python metaanalysis/sr_update/fetch_fulltext.py
+  ```
+
+- 取れなかったものは `fulltext/to_download_by_hand.csv` に、題名・DOI・DOI のリンクつきで並びます。常盤さんがダウンロードし、`save_as` 欄の名前（`fulltext/pdf/<record_id>.pdf`）で保存してください。
+- もう一度同じコマンドを実行すると、置いた PDF は飛ばし、まだ無いものだけがリストに残ります。
 - 判定は常盤さんが行い、20%を選び直します。
+
+取得の経路は、無料で公開されている版だけです（OpenAlex の OA 情報、PubMed Central の公開データ、ERIC、OSTI の順）。出版社に断られたら、ブラウザを装うなどの回避はせず、手作業のリストに回します。Unpaywall は使いません（OpenAlex が同じデータを持っており、追加でメールアドレスを送らずに済むため）。
+
+2026-10-27 に組み入れ済みの25本と先行レビュー6本で試したところ、31本中15本が自動で取れ、16本が手作業のリストに回りました。手作業になったのは、Elsevier・Springer・Wiley・APA の有料論文と DOI のない論文です。新しく見つかる論文でも、半分くらいは手作業になると見込んでください。
 
 ### 5. データを抽出し、分析をやり直す
 
