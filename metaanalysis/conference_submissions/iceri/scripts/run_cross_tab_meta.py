@@ -25,7 +25,8 @@ REPO_ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(REPO_ROOT / "metaanalysis" / "analysis"))
 import pool as parent  # noqa: E402
 
-INPUT_CSV = REPO_ROOT / "metaanalysis" / "conference_submissions" / "inputs" / "studies.csv"
+# Legacy Peterson-Brown conversion kept so the submitted ICERI numbers reproduce.
+INPUT_CSV = REPO_ROOT / "metaanalysis" / "conference_submissions" / "inputs" / "studies_legacy_conversion.csv"
 RESULTS_DIR = REPO_ROOT / "metaanalysis" / "conference_submissions" / "iceri" / "results"
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -108,7 +109,9 @@ def cross_tab_pools(primary):
             if k >= 2:
                 ys = [it["_z"] for it in items]
                 vs = [it["_v"] for it in items]
-                res = parent.pool_random_effects(ys, vs)
+                # Legacy tau² estimator kept so the submitted ICERI numbers
+                # reproduce; see pool.reml_tau2 for the known bias.
+                res = parent.pool_random_effects(ys, vs, exact_reml=False)
                 cell.update({
                     "N_total": sum(it["_n"] for it in items),
                     "r_pooled": res["r_pooled"],

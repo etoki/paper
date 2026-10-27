@@ -13,13 +13,14 @@ Output: pooling_results.csv + pooling_summary.md
 
 Notes:
 - Pure NumPy/SciPy implementation (no R/metafor available in this environment)
-- reml_tau2() is an approximate fixed-point update that under-estimates
-  the REML tau² (found 2026-10); it is kept so that published numbers stay
-  reproducible. New analyses should pass exact_reml=True to
-  pool_random_effects() or call reml_tau2_exact(), which match PyMARE's
-  REML estimator.
-- Moderator tests should use metareg_knapp_hartung(), not a chi-square
-  test on HKSJ subgroup SEs (see pool_by_subgroup).
+- tau² is estimated by reml_tau2_exact(), which matches PyMARE's REML
+  estimator. reml_tau2() is the earlier fixed-point update, which
+  under-estimates tau² (found 2026-10); it is kept only for scripts that
+  reproduce already-submitted numbers (pass exact_reml=False).
+- Moderator tests use a Knapp-Hartung mixed-effects meta-regression
+  (metareg_knapp_hartung / metareg_knapp_hartung_groups). Until 2026-10,
+  pool_by_subgroup() fed HKSJ subgroup SEs into a chi-square test, which
+  overstated the evidence (e.g. E x Region Q = 46.43).
 - Peterson-Brown β→r conversion applied to studies with only β reported
 """
 import csv
@@ -159,14 +160,42 @@ def metareg_knapp_hartung(y, v, g):
             "p": float(2.0 * (1.0 - stats.t.cdf(abs(t_val), df=df)))}
 
 
+def metareg_knapp_hartung_groups(y, v, groups):
+    """Omnibus moderator test for a categorical moderator with any number of
+    levels: mixed-effects meta-regression on level dummies (first level in
+    order of appearance = reference), REML residual tau², Knapp-Hartung F
+    with df = (levels - 1, k - levels). Equals metareg_knapp_hartung() for
+    two levels.
+    """
+    y = np.asarray(y, dtype=float)
+    v = np.asarray(v, dtype=float)
+    levels = list(dict.fromkeys(groups))
+    X = np.column_stack([np.ones_like(y)] +
+                        [np.array([1.0 if g == lv else 0.0 for g in groups])
+                         for lv in levels[1:]])
+    k, p = X.shape
+    m = p - 1
+    tau2 = reml_tau2_exact(y, v, X)
+    w = 1.0 / (v + tau2)
+    XtWX_inv = np.linalg.inv((X.T * w) @ X)
+    beta = XtWX_inv @ ((X.T * w) @ y)
+    s2 = float(np.sum(w * (y - X @ beta) ** 2) / (k - p))
+    b = beta[1:]
+    cov_b = s2 * XtWX_inv[1:, 1:]
+    F = float(b @ np.linalg.solve(cov_b, b) / m)
+    return {"k": k, "levels": levels, "tau2_resid": tau2, "F": F,
+            "df1": m, "df2": k - p,
+            "p": float(1.0 - stats.f.cdf(F, m, k - p))}
+
+
 # -----------------------------------------------------------------------------
 # Pooling
 # -----------------------------------------------------------------------------
-def pool_random_effects(y, v, labels=None, exact_reml=False):
+def pool_random_effects(y, v, labels=None, exact_reml=True):
     """Random-effects meta-analysis with REML + HKSJ CI.
 
-    exact_reml=False keeps the published (approximate) tau² estimator;
-    pass True for new analyses.
+    exact_reml=False selects the earlier, biased tau² estimator and is only
+    for scripts that reproduce already-submitted numbers.
 
     Returns dict with pooled estimate on z scale, back-transformed r, CI, PI,
     heterogeneity stats.
@@ -251,7 +280,22 @@ def load_extractions():
         return list(reader)
 
 
-def extract_effect_for_trait(row, trait):
+def peterson_brown_r(beta, legacy=False):
+    """Peterson & Brown (2005) imputation: r = .98β + .05λ, λ = 1 if β ≥ 0
+    else 0.
+
+    legacy=True reproduces the earlier, incorrect rule r = β ± .05, which
+    pushed negative β a further .05 away from zero (found 2026-10); only for
+    scripts that reproduce already-submitted numbers.
+    """
+    if legacy:
+        r = beta + 0.05 if beta >= 0 else beta - 0.05
+    else:
+        r = 0.98 * beta + (0.05 if beta >= 0 else 0.0)
+    return max(-0.99, min(0.99, r))
+
+
+def extract_effect_for_trait(row, trait, legacy_conversion=False):
     """For a given row and trait (O/C/E/A/N), return (r, N, source) or None.
 
     Applies Peterson-Brown conversion to β if r not available.
@@ -288,10 +332,8 @@ def extract_effect_for_trait(row, trait):
             b = float(b_str)
             n = int(float(n_str))
             if abs(b) <= 0.99 and n > 3:
-                # Peterson-Brown: r ≈ β + 0.05 if β ≥ 0 else β - 0.05
-                r_approx = b + 0.05 if b >= 0 else b - 0.05
-                r_approx = max(-0.99, min(0.99, r_approx))
-                return (r_approx, n, "beta_converted")
+                return (peterson_brown_r(b, legacy=legacy_conversion), n,
+                        "beta_converted")
         except ValueError:
             pass
 
@@ -376,7 +418,7 @@ def trim_and_fill(y, v, side="auto", max_iter=20):
 
     for _ in range(max_iter):
         # Pool current set
-        tau2 = reml_tau2(y_work, v_work)
+        tau2 = reml_tau2_exact(y_work, v_work)
         w = 1.0 / (v_work + tau2)
         mu = np.sum(w * y_work) / np.sum(w)
 
@@ -420,7 +462,7 @@ def trim_and_fill(y, v, side="auto", max_iter=20):
         v_work = v_work[keep_idx]
 
     # After trimming, re-estimate center and fill symmetric reflections
-    tau2 = reml_tau2(y_work, v_work)
+    tau2 = reml_tau2_exact(y_work, v_work)
     w = 1.0 / (v_work + tau2)
     mu_trimmed = np.sum(w * y_work) / np.sum(w)
 
@@ -449,8 +491,8 @@ def trim_and_fill(y, v, side="auto", max_iter=20):
     return {
         "k_imputed": n_trimmed,
         "side": side,
-        "r_orig": back_transform_z(np.sum((1.0/(v + reml_tau2(y, v))) * y) /
-                                     np.sum(1.0/(v + reml_tau2(y, v)))),
+        "r_orig": back_transform_z(np.sum((1.0/(v + reml_tau2_exact(y, v))) * y) /
+                                     np.sum(1.0/(v + reml_tau2_exact(y, v)))),
         "r_adj": adj_res["r_pooled"] if adj_res else None,
         "r_adj_ci_lo": adj_res["r_ci_lo"] if adj_res else None,
         "r_adj_ci_hi": adj_res["r_ci_hi"] if adj_res else None,
@@ -536,15 +578,12 @@ def classify_outcome_type(raw):
 
 
 def pool_by_subgroup(rows, trait, classifier, moderator_name):
-    """Run random-effects meta-analysis within each subgroup level.
+    """Run random-effects meta-analysis within each subgroup level, and test
+    the moderator with a Knapp-Hartung mixed-effects meta-regression over the
+    levels that have k >= 2.
 
-    NOTE: the Q_between computed here feeds HKSJ subgroup SEs into a
-    chi-square test, which is not valid with small subgroups (it gave the
-    published E x Region Q = 46.43). Kept to reproduce published numbers;
-    use metareg_knapp_hartung() for new moderator tests.
-
-    Returns dict: {level: pool_result, ..., "Q_between": Q_b, "df_between": df_b,
-    "p_between": p_b}
+    Returns dict: {level: pool_result, ..., "_between": {"F", "df1", "df2",
+    "p", "k_subgroups", "tau2_resid"}}
     """
     by_level = {}
     for row in rows:
@@ -570,7 +609,7 @@ def pool_by_subgroup(rows, trait, classifier, moderator_name):
         by_level[level]["N"].append(n)
 
     results = {}
-    sub_pools = []  # list of (level, z_pooled, se, k) for Q_between
+    tested = []  # levels with k >= 2 enter the moderator test
     for level, data in by_level.items():
         if len(data["y"]) < 2:
             results[level] = {"k": len(data["y"]), "note": "k<2"}
@@ -579,22 +618,20 @@ def pool_by_subgroup(rows, trait, classifier, moderator_name):
         res["N_total"] = sum(data["N"])
         res["level"] = level
         results[level] = res
-        sub_pools.append((level, res["z_pooled"], res["se_hksj"], res["k"]))
+        tested.append(level)
 
-    # Q_between: test whether subgroup pooled effects differ
-    # Q_b = sum(w_i (y_i - y_bar)²), where w_i = 1/se_i²
-    if len(sub_pools) >= 2:
-        y_arr = np.array([p[1] for p in sub_pools])
-        se_arr = np.array([p[2] for p in sub_pools])
-        w = 1.0 / se_arr**2
-        y_bar_b = np.sum(w * y_arr) / np.sum(w)
-        Q_b = np.sum(w * (y_arr - y_bar_b) ** 2)
-        df_b = len(sub_pools) - 1
-        p_b = 1 - stats.chi2.cdf(Q_b, df_b)
-        results["_between"] = {"Q": Q_b, "df": df_b, "p": p_b,
-                                "k_subgroups": len(sub_pools)}
+    if len(tested) >= 2:
+        y = [z for lv in tested for z in by_level[lv]["y"]]
+        v = [s for lv in tested for s in by_level[lv]["v"]]
+        groups = [lv for lv in tested for _ in by_level[lv]["y"]]
+        test = metareg_knapp_hartung_groups(y, v, groups)
+        results["_between"] = {"F": test["F"], "df1": test["df1"],
+                               "df2": test["df2"], "p": test["p"],
+                               "tau2_resid": test["tau2_resid"],
+                               "k_subgroups": len(tested)}
     else:
-        results["_between"] = {"Q": None, "df": 0, "p": None, "k_subgroups": len(sub_pools)}
+        results["_between"] = {"F": None, "df1": 0, "df2": 0, "p": None,
+                               "k_subgroups": len(tested)}
 
     return results
 
@@ -624,12 +661,13 @@ def write_moderator_csv(mod_results):
             "moderator", "trait", "level", "k", "N_total",
             "r_pooled", "r_ci_lo", "r_ci_hi",
             "I2", "tau2",
-            "Q_between", "df_between", "p_between",
+            "F_between", "df1_between", "df2_between", "p_between",
         ])
         for mod_name, by_trait in mod_results.items():
             for trait in TRAITS:
                 res = by_trait.get(trait, {})
                 between = res.get("_between", {})
+                tested = between.get("F") is not None
                 for level, sub in res.items():
                     if level == "_between":
                         continue
@@ -639,15 +677,16 @@ def write_moderator_csv(mod_results):
                             f"{sub['r_pooled']:.4f}",
                             f"{sub['r_ci_lo']:.4f}", f"{sub['r_ci_hi']:.4f}",
                             f"{sub['I2']:.1f}", f"{sub['tau2']:.4f}",
-                            f"{between.get('Q', 'NA')}" if isinstance(between.get('Q'), (int, float)) else "NA",
-                            between.get("df", "NA"),
-                            f"{between.get('p', 'NA')}" if isinstance(between.get('p'), (int, float)) else "NA",
+                            f"{between['F']:.4f}" if tested else "NA",
+                            between["df1"] if tested else "NA",
+                            between["df2"] if tested else "NA",
+                            f"{between['p']:.6f}" if tested else "NA",
                         ])
                     else:
                         writer.writerow([
                             mod_name, trait, level,
                             sub.get("k", 0), "", "", "", "", "", "",
-                            "", "", "",
+                            "", "", "", "",
                         ])
 
 
@@ -744,18 +783,21 @@ def write_summary_md_with_moderators(results, mod_results):
     lines.append("")
     lines.append("Three pre-registered moderators are reported; the remaining six (instrument, publication year, sample size, RoB score, modality, education level) are reported narratively in the manuscript due to insufficient k per level.")
     lines.append("")
+    lines.append("Moderator test: Knapp–Hartung mixed-effects meta-regression on the levels with k ≥ 2 (REML residual τ²), F(df1, df2).")
+    lines.append("")
 
     for mod_name, by_trait in mod_results.items():
         lines.append(f"### Moderator: {mod_name}")
         lines.append("")
-        lines.append("| Trait | Level | k | N | r [95% CI] | I² | Q_b (df), p |")
-        lines.append("|-------|-------|---|---|-----------|-----|-------------|")
+        lines.append("| Trait | Level | k | N | r [95% CI] | I² | F (df1, df2), p |")
+        lines.append("|-------|-------|---|---|-----------|-----|-----------------|")
         for t in TRAITS:
             res = by_trait.get(t, {})
             between = res.get("_between", {})
-            q = between.get("Q")
+            f_val = between.get("F")
             p = between.get("p")
-            q_str = f"{q:.2f}({between['df']}), p={p:.3f}" if q is not None else "NA"
+            q_str = (f"{f_val:.2f} ({between['df1']}, {between['df2']}), p={p:.3f}"
+                     if f_val is not None else "NA")
             first = True
             for level, sub in res.items():
                 if level == "_between":
@@ -776,29 +818,25 @@ def write_summary_md_with_moderators(results, mod_results):
                 first = False
         lines.append("")
 
-    lines.append("## Key moderator findings 🔴")
+    lines.append("## Moderator tests with p < .10")
     lines.append("")
-    lines.append("**Significant at p < .05**:")
+    flagged = []
+    for mod_name, by_trait in mod_results.items():
+        for t in TRAITS:
+            res = by_trait.get(t, {})
+            between = res.get("_between", {})
+            if between.get("p") is None or between["p"] >= 0.10:
+                continue
+            levels = "; ".join(
+                f"{lv} (k={sub['k']}): r = {sub['r_pooled']:.3f}"
+                for lv, sub in res.items()
+                if lv != "_between" and "r_pooled" in sub)
+            flagged.append(
+                f"- **{t} × {mod_name}**: F({between['df1']}, {between['df2']}) = "
+                f"{between['F']:.2f}, p = {between['p']:.3f} — {levels}")
+    lines.extend(flagged or ["- None."])
     lines.append("")
-    lines.append("1. **Extraversion × Region** (Q_b = 46.43, df=1, p < .001):")
-    lines.append("   - non-Asia (k=7): r = 0.050 (null)")
-    lines.append("   - Asia (k=2): **r = -0.131** (negative)")
-    lines.append("   - Interpretation: Asian online learners show a pronounced negative Extraversion-achievement association, consistent with Chen et al. (2025)'s finding that E is significantly negative in individualistic and culturally sensitive contexts. Replication with k > 2 in Asia required.")
-    lines.append("")
-    lines.append("2. **Extraversion × Outcome Type** (Q_b = 17.30, df=1, p < .001):")
-    lines.append("   - Objective outcomes (GPA, exam, MOOC composite; k=7): r = -0.038")
-    lines.append("   - Self-report outcomes (self-rated performance; k=2): **r = +0.117**")
-    lines.append("   - Interpretation: Extraverts self-report better performance (+ rating bias) but objective measures show weakly negative effects — consistent with social-desirability / self-enhancement bias in extraverted learners.")
-    lines.append("")
-    lines.append("**Trends (p < .10)**:")
-    lines.append("")
-    lines.append("- **Neuroticism × Region** (Q_b = 3.31, p = .069): Asia N r = +0.089 vs non-Asia r = -0.007, partial support for H4 modulation by culture.")
-    lines.append("- **Conscientiousness × Region** (Q_b = 2.68, p = .102): non-Asia r = 0.185 > Asia r = 0.111. Counter-intuitive relative to Mammadov (2022) Asian amplification — possibly driven by Yu 2021's MOOC-specific weak C (β=.057 in linguistics students). Larger k needed.")
-    lines.append("")
-    lines.append("**Non-significant moderators**:")
-    lines.append("")
-    lines.append("- Era (pre-COVID vs COVID): all 5 traits n.s. (p = .15 to .99). No evidence for COVID-shock amplification of any trait. Note k is insufficient for post-COVID isolation (only 2 studies, both mixed-era).")
-    lines.append("- Agreeableness × Region: directional (Asia r=.330 vs non-Asia r=.030) but not significant (p=.14). k=2 Asian limits power.")
+    lines.append("Every moderator contrast rests on k ≤ 7 per level (k = 2 for Asia and for self-report outcomes); treat all of them as exploratory.")
     lines.append("")
     lines.append("## Contributing studies per trait")
     for t in TRAITS:
@@ -813,7 +851,7 @@ def write_summary_md_with_moderators(results, mod_results):
     lines.append("")
     lines.append("## Notes")
     lines.append("- **Power caveat**: With k = 9-10 per trait pool and Asian subgroup limited to k = 2, moderator findings are **underpowered** and should be interpreted as exploratory.")
-    lines.append("- **β-to-r conversion**: Peterson & Brown (2005) applied where only β was reported. Sensitivity analysis (exclude converted) pending.")
+    lines.append("- **β-to-r conversion**: Peterson & Brown (2005) applied where only β was reported. The exclude-converted sensitivity analysis is in `sensitivity_results.md`.")
     lines.append("- **Sign conventions**: A-23 Rodrigues GPA sign-flipped so positive r = better performance; A-31 Rivers Emotional Stability sign-reversed to Neuroticism.")
     lines.append("- **Remaining 6 pre-registered moderators** (instrument, publication year, sample size, RoB score, modality, education level) not quantitatively analyzed due to insufficient k per level; reported narratively in Methods Deviations subsection.")
 
@@ -960,7 +998,7 @@ def main():
         for t in TRAITS:
             res = by_trait.get(t, {})
             between = res.get("_between", {})
-            if between.get("Q") is None:
+            if between.get("F") is None:
                 continue
             parts = []
             for level, sub in res.items():
@@ -969,11 +1007,9 @@ def main():
                 parts.append(
                     f"{level}(k={sub['k']}): r={sub['r_pooled']:.3f}"
                 )
-            q = between.get("Q")
-            p = between.get("p")
-            if q is not None and p is not None:
-                print(f"  {t}: " + "; ".join(parts) +
-                      f"  | Q_b={q:.2f} df={between['df']} p={p:.3f}")
+            print(f"  {t}: " + "; ".join(parts) +
+                  f"  | F({between['df1']},{between['df2']})={between['F']:.2f}"
+                  f" p={between['p']:.3f}")
 
 
 if __name__ == "__main__":

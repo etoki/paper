@@ -13,7 +13,7 @@
 
 ## Abstract
 
-**Background.** The parent meta-analysis (Research Square preprint, DOI 10.21203/rs.3.rs-9513298/v1) reports an Extraversion × Region moderator in Big Five – academic-achievement research on online learning (Asian pooled r = −0.131, k = 2, vs non-Asian r = +0.050, k = 7; Knapp–Hartung meta-regression F(1, 7) = 29.52, p < .001), but does not decompose the Asia bin into its country-level constituents.
+**Background.** The parent meta-analysis (Research Square preprint, DOI 10.21203/rs.3.rs-9513298/v1) reports an Extraversion × Region moderator in Big Five – academic-achievement research on online learning (Asian pooled r = −0.095, k = 2, vs non-Asian r = +0.050, k = 7; Knapp–Hartung meta-regression F(1, 7) = 12.94, p = .009), but does not decompose the Asia bin into its country-level constituents.
 
 **Objective.** To (i) attach Hofstede 6-D country scores to the Asian primary-pool studies, and (ii) test whether observed Big Five – outcome directions in Japan-based studies match Hofstede & McCrae (2004) trait-dimension predictions.
 
@@ -29,7 +29,7 @@
 
 ## 1. Introduction
 
-The Big Five – academic-achievement link is robust at the trait level (Poropat 2009; Mammadov 2022; Chen, Cheung, & Zeng 2025) but is increasingly recognised as culturally conditional, with Mammadov flagging Asian samples as showing amplified Conscientiousness and sometimes inverted Extraversion. The parent preprint (Tokiwa, 2026, DOI 10.21203/rs.3.rs-9513298/v1) reports a binary Asia / non-Asia contrast with Extraversion × Region the headline (Asian r = −0.131 vs non-Asian r = +0.050) but does not decompose the Asian bin into its country-level constituents — even though Japan, China, Korea, and Taiwan differ sharply on Hofstede Power Distance, UAI, MAS, and IND scores (Hofstede Insights 2024). Re-tested here with a Knapp–Hartung mixed-effects meta-regression, the contrast gives F(1, 7) = 29.52, p < .001; the preprint's Q_between = 46.43 applied a large-sample χ² test to small-sample HKSJ standard errors and overstates the evidence. Either way, the contrast rests on only two Asian studies.
+The Big Five – academic-achievement link is robust at the trait level (Poropat 2009; Mammadov 2022; Chen, Cheung, & Zeng 2025) but is increasingly recognised as culturally conditional, with Mammadov flagging Asian samples as showing amplified Conscientiousness and sometimes inverted Extraversion. The parent preprint (Tokiwa, 2026, DOI 10.21203/rs.3.rs-9513298/v1) reports a binary Asia / non-Asia contrast with Extraversion × Region the headline (Asian r = −0.131 vs non-Asian r = +0.050) but does not decompose the Asian bin into its country-level constituents — even though Japan, China, Korea, and Taiwan differ sharply on Hofstede Power Distance, UAI, MAS, and IND scores (Hofstede Insights 2024). Re-analysed here, with β converted to r by the published Peterson–Brown rule (the preprint pushed negative β a further .05 from zero) and the contrast tested with a Knapp–Hartung mixed-effects meta-regression (the preprint's Q_between = 46.43 applied a large-sample χ² test to small-sample HKSJ standard errors), the Asian estimate is r = −0.095 and the contrast F(1, 7) = 12.94, p = .009. Either way, the contrast rests on only two Asian studies.
 
 This paper asks: **once you decompose the Asia bin, do Hofstede cultural dimensions predict the *direction* of Big Five – achievement correlations within Asia?** With only k = 2 Asian primary-pool studies contributing extractable r (A-28 Yu, China; A-31 Rivers, Japan), no inference is possible from the meta-regression. We therefore reframe the analysis as a Hofstede direction-prediction match against the two Japan-based studies (Tokiwa 2025 K-12, Rivers 2021 UG; Hofstede & McCrae 2004 trait-dimension correlations as the prediction source). The headline finding is a 3-of-5 trait direction-match, with the Neuroticism positive direction in *both* Japan studies opposite to the Western pattern and doubly predicted by Japan's very high UAI and MAS.
 
@@ -47,7 +47,7 @@ Japan's profile (PDI = 54, IDV = 46, MAS = 95, UAI = 92) yields HM04-derived dir
 
 ### 2.2. East Asian samples in personality — academic-achievement research
 
-Reviews specific to East Asian samples (Chen et al. 2025; Mammadov 2022) report two recurring patterns: (i) Conscientiousness is at least as strong a predictor of achievement as in Western samples, often slightly stronger in collectivist sub-populations; and (ii) Extraversion's role is attenuated or reversed in collectivist contexts where individual social initiative is valued less highly. The preprint's Asian subset findings (E r = -0.131; C r = +0.111) are consistent with this pattern.
+Reviews specific to East Asian samples (Chen et al. 2025; Mammadov 2022) report two recurring patterns: (i) Conscientiousness is at least as strong a predictor of achievement as in Western samples, often slightly stronger in collectivist sub-populations; and (ii) Extraversion's role is attenuated or reversed in collectivist contexts where individual social initiative is valued less highly. The Asian subset estimates here (E r = −0.095; C r = +0.110) are consistent with this pattern.
 
 ### 2.3. Japanese online learning context
 
@@ -59,7 +59,7 @@ Japan-specific online-learning research is dominated by two patterns. First, the
 
 ### 3.1. Data
 
-The corpus is inherited from the parent preprint via the derived studies dataset `metaanalysis/conference_submissions/inputs/studies.csv`. PRISMA 2020 standards (Page et al., 2021) were followed; **Figure 1** reproduces the flow diagram with the ICEEL terminal box marking the Asian-subset extraction (k = 2 with extractable r per trait; A-25 Tokiwa Japan retained for qualitative synthesis only). The Asian subset is extracted by `region == "Asia"`. After requiring extractable Pearson r per trait, k = 2 Asian primary-pool studies remain: A-28 Yu (China; β-converted r) and A-31 Rivers (Japan; direct r). Two further Asian primary-pool studies (A-25 Tokiwa, A-26 Wang) are present in the qualitative synthesis but do not contribute extractable r values.
+The corpus is inherited from the parent preprint via the derived studies dataset `metaanalysis/conference_submissions/inputs/studies.csv`. PRISMA 2020 standards (Page et al., 2021) were followed; **Figure 1** reproduces the flow diagram with the ICEEL terminal box marking the Asian-subset extraction (k = 2 with extractable r per trait; A-25 Tokiwa Japan retained for qualitative synthesis only). The Asian subset is extracted by `region == "Asia"`. After requiring extractable Pearson r per trait, k = 2 Asian primary-pool studies remain: A-28 Yu (China; r converted from β with the Peterson–Brown rule r = .98β + .05λ) and A-31 Rivers (Japan; direct r). Two further Asian primary-pool studies (A-25 Tokiwa, A-26 Wang) are present in the qualitative synthesis but do not contribute extractable r values.
 
 ![**Figure 1.** PRISMA 2020 flow diagram (ICEEL 2026 submission). Identification → Screening → Eligibility → Included counts trace from `metaanalysis/search_log.md`; the ICEEL terminal box marks the Asian primary-pool subset (k = 2 with extractable r per trait: A-28 Yu, China; A-31 Rivers, Japan; plus A-25 Tokiwa Japan in narrative synthesis). Adapted from Page et al. (2021), *BMJ*, 372, n71.](../figures/prisma_flow_iceel.png){#fig:prisma width=85%}
 
@@ -96,13 +96,13 @@ Table 1 reports the per-trait pooled correlations on the Asian primary-pool subs
 
 | Trait | k | N (pooled) | r [95 % CI] | I-squared |
 |-------|---|-----------|-------------|-----------|
-| O | 2 | 1301 | 0.158 [-0.989, 0.994] | 96.0 % |
-| C | 2 | 1301 | 0.111 [-0.039, 0.257] | 0.0 % |
-| E | 2 | 1301 | -0.131 [-0.314, 0.061] | 0.0 % |
-| A | 2 | 1301 | 0.324 [-0.981, 0.995] | 95.6 % |
-| N | 2 | 1301 | 0.089 [0.008, 0.169] | 0.0 % |
+| O | 2 | 1301 | 0.155 [-0.988, 0.994] | 95.8 % |
+| C | 2 | 1301 | 0.110 [-0.045, 0.260] | 0.0 % |
+| E | 2 | 1301 | -0.095 [-0.541, 0.393] | 23.0 % |
+| A | 2 | 1301 | 0.319 [-0.979, 0.994] | 95.4 % |
+| N | 2 | 1301 | 0.089 [0.005, 0.171] | 0.0 % |
 
-C, E, and N pools have I² = 0 (the two studies agree closely in z-space); O and A pools have I² = 96 % driven by sharply different point estimates. C, E, and N match the preprint's Region: Asia row; O and A differ from it by 0.006 because τ² is estimated here by exact REML.
+C and N pools have I² = 0 (the two studies agree closely in z-space) and E has I² = 23 %; O and A pools have I² ≈ 95 % driven by sharply different point estimates. The values differ from the preprint's Region: Asia row because τ² is estimated here by exact REML and A-28's β is converted with the published Peterson–Brown rule.
 
 ### 4.2. Hofstede single-dimension meta-regression
 
@@ -112,24 +112,24 @@ Table 2 reports the per-trait per-dimension slope estimates. With df_resid = 0 t
 
 | Trait | Dimension | slope (Fisher z per unit) | note |
 |-------|-----------|--------------------------:|------|
-| O | PDI | +0.0168 | descriptive |
-| O | IDV | -0.0168 | descriptive |
-| O | LTO | -0.4372 | descriptive |
-| C | PDI | -0.0014 | descriptive |
-| C | IDV | +0.0014 | descriptive |
-| C | LTO | +0.0376 | descriptive |
-| E | PDI | +0.0018 | descriptive |
-| E | IDV | -0.0018 | descriptive |
-| E | LTO | -0.0481 | descriptive |
-| A | PDI | +0.0162 | descriptive |
-| A | LTO | -0.4201 | descriptive |
+| O | PDI | +0.0165 | descriptive |
+| O | IDV | -0.0165 | descriptive |
+| O | LTO | -0.4303 | descriptive |
+| C | PDI | -0.0015 | descriptive |
+| C | IDV | +0.0015 | descriptive |
+| C | LTO | +0.0387 | descriptive |
+| E | PDI | +0.0039 | descriptive |
+| E | IDV | -0.0039 | descriptive |
+| E | LTO | -0.1001 | descriptive |
+| A | PDI | +0.0157 | descriptive |
+| A | LTO | -0.4085 | descriptive |
 | N | PDI | -0.0008 | descriptive |
 | N | IDV | +0.0008 | descriptive |
-| N | LTO | +0.0202 | descriptive |
+| N | LTO | +0.0209 | descriptive |
 
 (Selected rows; full table in `results/hofstede_meta_regression.csv`. With k = 2, all six dimensions re-express the same single Japan – China contrast. PDI and IDV slopes are mirror images because the two countries differ by 26 points on each, in opposite directions; LTO slopes are the largest in magnitude only because the two LTO scores differ by a single point (88 vs 87), and they carry no information.)
 
-The Extraversion slope on Individualism is negative (−0.0018): Japan, the more individualistic of the two countries (IDV 46 vs 20), shows the more negative Extraversion – achievement correlation (−0.173 vs −0.126). This runs against the expectation that Extraversion is more of an asset in individualistic contexts. With df_resid = 0 these slopes carry no inferential weight; they are re-expressions of the two-country contrast, not statistical tests.
+The Extraversion slope on Individualism is negative (−0.0039): Japan, the more individualistic of the two countries (IDV 46 vs 20), shows the more negative Extraversion – achievement correlation (−0.173 vs −0.074). This runs against the expectation that Extraversion is more of an asset in individualistic contexts. With df_resid = 0 these slopes carry no inferential weight; they are re-expressions of the two-country contrast, not statistical tests.
 
 ### 4.3. Japan synthesis
 

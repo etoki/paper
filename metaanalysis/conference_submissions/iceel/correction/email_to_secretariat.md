@@ -1,6 +1,56 @@
 # ICEEL 2026 EL2036 修正版の再提出メール
 
-本日（2026-10-27）送った確認メール（2次査読の結果が届いていないことの問い合わせ）と同じスレッド「Re: ICEEL 2026-Initial Review Result-EL2036」で、修正版の論文と変更一覧を添付して送ります。Gmail には下書きとして作成済みで、添付は手動で付けます。
+## 差し替え版（v2）のメール — 未送信
+
+10/27 に送った修正版のあと、A-28 Yu の β→r 換算の誤り（Peterson–Brown の式の実装ミス）が見つかったため、差し替え版を送ります。同じスレッド「Re: ICEEL 2026-Initial Review Result-EL2036」に返信する形で送ります。
+
+### 添付ファイル
+
+| ファイル | 内容 |
+|---|---|
+| `EL2036_Tokiwa_corrected_v2.docx` | 差し替え版の論文（9 ページ） |
+| `EL2036_changes_v2.docx` | 更新した変更一覧（13 項目。13 が今回の追加） |
+
+### English
+
+**To:** iceel@academic.net
+**Subject:** Re: ICEEL 2026-Initial Review Result-EL2036
+
+Dear Ms. Law,
+
+I am sorry to write again on the same day. After sending the corrected version of EL2036 earlier today, I found one more error while re-checking the analysis: the effect sizes of one study (Yu, 2021) had been converted from regression coefficients with an incorrect formula. I attach a replacement version and an updated list of changes:
+
+- EL2036_Tokiwa_corrected_v2.docx: the corrected paper (9 pages)
+- EL2036_changes_v2.docx: the updated list of changes (item 13 is new)
+
+Compared with the version I sent earlier today, only some numbers change: the Asian Extraversion estimate in Table 1 (−0.131 → −0.095), the slopes in Table 2, and the region test cited in the Abstract and Section 1 (now F(1, 7) = 12.94, p = .009, which is still significant). The main findings and the structure of the paper do not change.
+
+Please use this version instead of the one I sent earlier today. I apologise for the extra work this causes.
+
+Best regards,
+Eisuke Tokiwa
+SUNBLAZE Co., Ltd., Tokyo, Japan
+ORCID: 0009-0009-7124-6669
+Email: eisuke.tokiwa@sunblaze.jp
+
+### 日本語訳（送信しない・確認用）
+
+Law 様
+
+同じ日に何度も申し訳ありません。本日 EL2036 の修正版をお送りしたあと、分析を見直す中でもう一つ誤りが見つかりました。1本の研究（Yu, 2021）の効果量を回帰係数から換算する際に、誤った式を使っていました。差し替え版と、更新した変更一覧を添付します。
+
+- EL2036_Tokiwa_corrected_v2.docx：修正版の論文（9 ページ）
+- EL2036_changes_v2.docx：更新した変更一覧（13 番が今回の追加）
+
+本日お送りした版から変わるのは一部の数値だけです。表1のアジアの外向性の推定値（−0.131 → −0.095）、表2の傾き、要旨と1節で引用している地域差の検定（F(1, 7) = 12.94, p = .009。引き続き有意）です。主な結論と論文の構成は変わりません。
+
+本日お送りした版ではなく、こちらの版をお使いください。お手数をおかけして申し訳ありません。
+
+---
+
+## 修正版（v1）のメール — 10/27 送信済み（記録）
+
+本日（2026-10-27）送った確認メール（2次査読の結果が届いていないことの問い合わせ）と同じスレッド「Re: ICEEL 2026-Initial Review Result-EL2036」で、修正版の論文と変更一覧を添付して送りました。
 
 ## 添付ファイル
 

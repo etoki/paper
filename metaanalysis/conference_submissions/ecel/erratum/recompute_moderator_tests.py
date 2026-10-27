@@ -23,6 +23,13 @@ publication:
      pool.reml_tau2_exact, which maximises the restricted log-likelihood
      directly (cross-checked against PyMARE when PyMARE is installed).
 
+  4. Peterson-Brown conversion. The pipeline converted β to r as
+     β ± .05, which pushes negative β a further .05 from zero; the
+     published rule is r = .98β + .05λ (λ = 1 if β ≥ 0, else 0). This
+     moved A-28 Yu's Extraversion r from -.074 to -.126. The corrected
+     analysis reads inputs/studies.csv (correct rule); the reproduction of
+     the published method reads inputs/studies_legacy_conversion.csv.
+
 It also re-derives every Table 1 cell, because the published
 Neuroticism rows were carried over from a draft computed before the
 modality re-coding of A-15, A-23 and A-30.
@@ -54,6 +61,7 @@ import pool as parent  # noqa: E402
 import run_modality_meta as published  # noqa: E402
 
 PUBLISHED_DOCX = HERE.parent / "EL-095-Tokiwa.docx"
+CORRECTED_CSV = HERE.parents[1] / "inputs" / "studies.csv"
 RESULTS_DIR = HERE / "results"
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -132,12 +140,17 @@ def modality_test(obs) -> dict:
     return metareg_kh(y, v, g)
 
 
-def table2(rows) -> list[dict]:
+def load_corrected_rows() -> list[dict]:
+    with CORRECTED_CSV.open("r", encoding="utf-8") as f:
+        return published.primary_pool(list(csv.DictReader(f)))
+
+
+def table2(rows, rows_legacy) -> list[dict]:
     out = []
     for trait in TRAITS:
         obs = contrast_obs(rows, trait)
         pub = published.pool_modality_for_trait(
-            published.trait_observations(rows, trait))["_between"]
+            published.trait_observations(rows_legacy, trait))["_between"]
         res = modality_test(obs)
         res.update({"trait": trait, "Q_published_method": pub["Q"],
                     "p_published_method": pub["p"]})
@@ -186,15 +199,17 @@ def parent_trait_pools() -> list[dict]:
     rows = parent.load_extractions()
     out = []
     for trait in TRAITS:
-        y, v = [], []
+        y, v, y_old, v_old = [], [], [], []
         for row in rows:
-            eff = parent.extract_effect_for_trait(row, trait)
-            if eff is None:
-                continue
-            r, n, _ = eff
-            y.append(parent.fisher_z(r))
-            v.append(parent.var_z(n))
-        old = parent.pool_random_effects(y, v)
+            for conv, ys, vs in ((True, y_old, v_old), (False, y, v)):
+                eff = parent.extract_effect_for_trait(row, trait,
+                                                      legacy_conversion=conv)
+                if eff is None:
+                    continue
+                r, n, _ = eff
+                ys.append(parent.fisher_z(r))
+                vs.append(parent.var_z(n))
+        old = parent.pool_random_effects(y_old, v_old, exact_reml=False)
         new = pool_re(y, v)
         out.append({"trait": trait, "k": len(y),
                     "published": f"{old['r_pooled']:.3f} "
@@ -316,7 +331,8 @@ def write_csv(path: Path, records: list[dict]) -> None:
 
 
 def main() -> None:
-    rows = published.primary_pool(published.load_studies())
+    rows = load_corrected_rows()
+    rows_legacy = published.primary_pool(published.load_studies())
     study_meta = {r["study_id"]: r for r in rows}
     pub_t1, pub_t2 = read_published_tables()
 
@@ -326,10 +342,10 @@ def main() -> None:
         rec["published_r_ci"] = pub.get("r_ci", "")
         rec["published_I2"] = pub.get("I2", "")
         rec["published_tau2"] = pub.get("tau2", "")
-    t2 = table2(rows)
+    t2 = table2(rows, rows_legacy)
     loo = extraversion_loo(rows, study_meta)
     sens = drop_beta_converted(rows)
-    inter = interaction_decomposition(rows)
+    inter = interaction_decomposition(rows_legacy)
     pm = parent_moderators()
     p31 = parent_trait_pools()
     xcheck = pymare_crosscheck(rows)
