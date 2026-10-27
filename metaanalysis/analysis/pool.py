@@ -30,10 +30,10 @@ from pathlib import Path
 import numpy as np
 from scipy import optimize, stats
 
-INPUT_CSV = Path("/home/user/paper/metaanalysis/analysis/data_extraction_populated.csv")
-RESULTS_CSV = Path("/home/user/paper/metaanalysis/analysis/pooling_results.csv")
-SUMMARY_MD = Path("/home/user/paper/metaanalysis/analysis/pooling_summary.md")
-MODERATOR_CSV = Path("/home/user/paper/metaanalysis/analysis/moderator_results.csv")
+INPUT_CSV = Path(__file__).resolve().parent / "data_extraction_populated.csv"
+RESULTS_CSV = Path(__file__).resolve().parent / "pooling_results.csv"
+SUMMARY_MD = Path(__file__).resolve().parent / "pooling_summary.md"
+MODERATOR_CSV = Path(__file__).resolve().parent / "moderator_results.csv"
 
 TRAITS = ["O", "C", "E", "A", "N"]
 

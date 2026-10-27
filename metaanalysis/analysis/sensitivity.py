@@ -29,7 +29,7 @@ from pool import (  # noqa: E402
     POOL_EXCLUSIONS,
 )
 
-OUT = Path("/home/user/paper/metaanalysis/analysis/sensitivity_results.md")
+OUT = Path(__file__).resolve().parent / "sensitivity_results.md"
 
 
 def collect_effects(rows, trait, filter_fn=None, exclude=POOL_EXCLUSIONS):

@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 from pathlib import Path
 
-OUT = Path("/home/user/paper/metaanalysis/analysis/figures/prisma_flow.png")
+OUT = Path(__file__).resolve().parent / "figures" / "prisma_flow.png"
 
 
 def draw_box(ax, x, y, w, h, text, fontsize=9, fill="#f0f0f0", edge="black"):

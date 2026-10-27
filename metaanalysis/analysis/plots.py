@@ -18,7 +18,7 @@ from pool import (  # noqa: E402
     pool_random_effects, load_extractions, extract_effect_for_trait,
 )
 
-FIG_DIR = Path("/home/user/paper/metaanalysis/analysis/figures")
+FIG_DIR = Path(__file__).resolve().parent / "figures"
 FIG_DIR.mkdir(exist_ok=True)
 
 TRAIT_NAMES = {

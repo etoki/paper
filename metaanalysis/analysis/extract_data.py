@@ -13,8 +13,8 @@ Built incrementally — currently contains A-01 to A-10.
 import csv
 from pathlib import Path
 
-INPUT_CSV = Path("/home/user/paper/metaanalysis/data_extraction.csv")
-OUTPUT_CSV = Path("/home/user/paper/metaanalysis/analysis/data_extraction_populated.csv")
+INPUT_CSV = Path(__file__).resolve().parents[1] / "data_extraction.csv"
+OUTPUT_CSV = Path(__file__).resolve().parent / "data_extraction_populated.csv"
 OUTPUT_CSV.parent.mkdir(parents=True, exist_ok=True)
 
 
