@@ -8,15 +8,12 @@
   1. PubMed、ERIC、OpenAlex を API で検索する。OpenAlex は、アクセスできない Scopus と Web of Science の代わり。
   2. 組み入れた25本と、先行メタ分析6本の引用を前後にたどる（スノーボーリング）。
   3. 登録した検索語はそのまま使い、つづりの違いや複数形などを足す。足した語の分の件数も別に報告する。
-- **選別**:
-  - 登録どおり、常盤が1人で選別し、10%を7日以上あけて選別し直して κ を出す。
-  - 追加で、Claude を2人目の独立した選別者として使う。最終判断は常盤が行う。
+- **選別**: 登録どおり、常盤が1人で選別し、10%を7日以上あけて選別し直して κ を出す（Claude を2人目の選別者にはしない。2026-10-27 決定）。
 - **A-37 の扱いを一般ルールにする**: 対面の期間とオンラインの期間を混ぜたデータで、オンラインだけの統計がない研究は、地図には入れるが統合には入れない。
 - **正直に書くこと**: この修正は、最初の分析結果を見た後に登録する。
 - **結果を見て枠組みを決めない**: 「システマティックレビュー」と名乗るかどうかは、検索がどこまでできたかだけで決める。
 
 **登録前に確認してほしいこと**:
-- [ ] A3 の「Claude を2人目の選別者にする」を入れるか。入れない場合は、その段落を消せば登録どおりの1人選別になる。
 - [ ] A1 の Google Scholar を手作業でやるか。やらない場合は「実施しない」に書き換える。
 - [ ] 実際に OSF に登録されている §10 の検索語が、`osf_registration_draft.md` と同じか。Concept 1 が "openness" か "openness to experience" か、だけ見ればよい。
 
@@ -90,12 +87,6 @@ Selection follows §11b:
 - **Reviewer:** ET screens every record.
 - **Title/abstract stage:** a 10% random subsample is re-screened after at least seven days, and Cohen's κ is reported.
 - **Full-text stage:** the same is done for 20% of the full texts.
-
-In addition, a large language model (Claude, Anthropic) screens every title and abstract independently, as a second screener. It is given the eligibility criteria of §8 and does not see ET's decisions:
-- Every disagreement is resolved by ET.
-- The model never makes a final decision.
-- Agreement between ET and the model is reported.
-- The prompts and the model's decisions are archived.
 
 The 37 reports assessed at full text for manuscript v4 keep their recorded decisions. Records new to this search go through the full process.
 

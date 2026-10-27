@@ -13,13 +13,14 @@
 
 ## 進め方
 
-### 1. 環境のネットワーク設定で、次の3つを許可する（常盤さん）
+### 1. 接続できる環境を用意する
 
+ローカルの Mac で実行するなら設定は不要です。
+
+クラウド環境で実行する場合は、環境の設定の Network access → Allowed domains で次の3つを許可します（https://code.claude.com/docs/en/cloud-environments#network-access）。2026-10-27 に許可を試しましたが、そのセッションの中では 403 のままでした。
 - `eutils.ncbi.nlm.nih.gov`（PubMed）
 - `api.ies.ed.gov`（ERIC）
 - `api.openalex.org`（OpenAlex）
-
-設定場所は、クラウド環境の設定の Network access → Allowed domains です（https://code.claude.com/docs/en/cloud-environments#network-access）。
 
 ### 2. OSF に修正を登録する（常盤さん）
 
@@ -42,11 +43,13 @@ python metaanalysis/sr_update/run_search.py           # 本番
 
 Google Scholar の上位200件は、ブラウザでの手作業が必要です（やる場合だけ）。
 
-### 4. 選別する（常盤さん、Claude）
+### 4. 選別する（常盤さん）
+
+事前登録どおり、常盤さん1人で選別します。Claude は2人目の選別者にしません（2026-10-27 決定）。
 
 **題名・要旨の段階**:
-- 常盤さんと Claude が別々に判定し、食い違いは常盤さんが決めます。
-- 1週間以上あけて10%を選び直し、一致度（κ）を出します。これは事前登録どおりの手順です。
+- 常盤さんが全件を判定します。
+- 1週間以上あけて10%を選び直し、一致度（κ）を出します。
 
 **全文の段階**:
 - Claude が PDF の DOI リストを作り、常盤さんがダウンロードします。
