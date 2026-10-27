@@ -2,7 +2,7 @@
 
 Paper: "Cultural dimensions in online learning: A Hofstede-moderated within-Asia synthesis of the Big Five and academic achievement, with a focused look at the Japanese context" (Eisuke Tokiwa)
 
-I thank the reviewer for the careful reading and the constructive comments. The camera-ready version (EL2036_Tokiwa_final.docx, 9 pages) addresses both major points as follows. It also includes the statistical corrections described in my email of 27 October 2026 (EL2036_changes_v2), and adds the CCS concepts required by the template.
+I thank the reviewer for the careful reading and the constructive comments. The camera-ready version (EL2036_Tokiwa_final.docx, 10 pages) addresses both major points as follows. It also includes the statistical corrections described in my email of 27 October 2026 (EL2036_changes_v2), and adds the CCS concepts required by the template.
 
 ## Comment 1 — Cross-level inference in Table 4 (Sections 4.4 and 5.4)
 
