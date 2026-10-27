@@ -211,13 +211,16 @@ BODY = [
     ("Head1", "2 RELATED WORK"),
     ("Head2", "2.1 Hofstede's framework, Big Five linkages, and educational implications"),
     ("PostHeadPara",
-     "Hofstede's (2001) 2nd-edition model operationalises national "
-     "culture in 6 dimensions — Power Distance (PDI), Individualism "
+     "Hofstede's model operationalises national culture in five "
+     "dimensions (Hofstede 2001), extended to six with Indulgence "
+     "(Hofstede, Hofstede, & Minkov 2010) — Power Distance (PDI), Individualism "
      "(IDV), Masculinity (MAS), Uncertainty Avoidance (UAI), Long-Term "
      "Orientation (LTO), Indulgence (IND); latest scores from Hofstede "
-     "Insights (2024). Critiques (Minkov & Hofstede, 2014; McSweeney, "
-     "2002) for ecological-fallacy risk and for the 1970s IBM-sample "
-     "provenance are acknowledged: we use the dimensions as "
+     "Insights (2024). Critiques of the framework for ecological-fallacy "
+     "risk and for the 1970s IBM-sample provenance (McSweeney, 2002) are "
+     "acknowledged, although the uncertainty-avoidance dimension has been "
+     "replicated in nationally representative European samples (Minkov "
+     "& Hofstede, 2014). We use the dimensions as "
      "country-level proxies for shared cultural orientation, not as "
      "individual-level claims."),
     ("Para",
@@ -516,9 +519,9 @@ BODY = [
      "and cannot test a mechanism. The two Japan studies also differ in "
      "outcome construct and effect-size metric (engagement ρ vs grade r) "
      "as well as in instrument. "
-     "The Hofstede framework itself is critiqued (Minkov & Hofstede, "
-     "2014; McSweeney, 2002) for ecological-fallacy risk and IBM-sample "
-     "provenance; Minkov-revised dimensions might yield different "
+     "The Hofstede framework itself is critiqued for ecological-fallacy "
+     "risk and IBM-sample provenance (McSweeney, 2002); revised or "
+     "replicated dimensions (e.g., Minkov & Hofstede, 2014) might yield different "
      "reference directions. Western-derived Big Five may not capture "
      "culture-specific personality structure in Japan (Cheung et al., "
      "2003). Single-author, single-coder; country-to-Hofstede-dimension "
@@ -665,6 +668,9 @@ REFERENCES = [
     "revisited: Linking traits and dimensions of culture. "
     "Cross-Cultural Research 38, 1 (2004), 52–88. "
     "DOI: 10.1177/1069397103259443.",
+    "Hofstede, G., Hofstede, G. J., and Minkov, M. 2010. Cultures and "
+    "Organizations: Software of the Mind (3rd. ed.). McGraw-Hill, "
+    "New York, NY.",
     "Hofstede Insights. 2024. Country comparison tool. Retrieved 2024 "
     "from https://www.hofstede-insights.com/.",
     "Allik, J. and McCrae, R. R. 2004. Toward a geography of "
@@ -686,8 +692,8 @@ REFERENCES = [
     "DOI: 10.1177/0018726702551004.",
     "Minkov, M. and Hofstede, G. 2014. A replication of Hofstede's "
     "uncertainty avoidance dimension across nationally representative "
-    "samples from Europe. International Journal of Cross-Cultural "
-    "Management 14, 1 (2014), 7–22. DOI: 10.1177/1470595814521600.",
+    "samples from Europe. International Journal of Cross Cultural "
+    "Management 14, 2 (2014), 161–171. DOI: 10.1177/1470595814521600.",
     # Methodological
     "Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., "
     "Hoffmann, T. C., Mulrow, C. D., Shamseer, L., Tetzlaff, J. M., "
@@ -758,7 +764,7 @@ def build():
 
     # References
     add_para(doc, "ReferenceHead", "REFERENCES")
-    for ref in sorted(REFERENCES, key=lambda r: (r.split(".")[0].lower(), r)):
+    for ref in sorted(REFERENCES, key=lambda r: r.replace(" and ", ", ").lower()):
         add_para(doc, "Bib_entry", ref)
 
     doc.save(str(OUTPUT))
