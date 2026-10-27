@@ -124,10 +124,14 @@ python metaanalysis/sr_update/run_search.py           # 本番
 
 **再現性の確認**: 常盤さんの判定が終わったら、1週間以上あけて10%を選び直し、一致度（κ）を出します。これは常盤さんの判定どうしの一致度で、Claude の案とは比べません。
 
-**全文の入手に進む前に**: `fetch_fulltext.py` は `records_dedup.csv` の `ta_decision` 欄を見ます。`screening_ta.csv` の `et_decision` をそこへ書き戻す必要があります（未実装）。
+**英語以外の93件**: 登録どおり除外します（E6）。中身が条件に合うものもありますが（例: R05763、スペイン語、遠隔の心理学専攻の学生）、件数が少ないため登録を変えずに除外で通します（2026-10-28 決定）。
 
 **全文の段階**:
-- Claude が次のコマンドで PDF を取ります。`ta_decision` が `include` か `maybe` の行が対象です。
+全文は842件すべてを読みます（2026-10-28 決定）。maybe を全文で確認する方針で、題名・要旨の段階では絞りません。
+
+- Claude が次のコマンドで PDF を取ります。
+
+  対象は `screening/screening_ta.csv` で `et_decision` が `include` か `maybe` の行です。`et_decision` が空の行は `claude_suggestion` を使うので、常盤さんの記入を待たずに取得を始められます。記入済みの行では常盤さんの判定が優先されます。
 
   ```
   python metaanalysis/sr_update/fetch_fulltext.py

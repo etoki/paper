@@ -4,9 +4,12 @@
     python metaanalysis/sr_update/fetch_fulltext.py --ids R0012 R0040
     python metaanalysis/sr_update/fetch_fulltext.py --records other.csv --out /tmp/ft
 
-Which records: rows of records_dedup.csv whose ta_decision is "include" or
-"maybe" (the screener's decision at the title/abstract stage), or the
-record_ids given with --ids. Records that already have a PDF are skipped,
+Which records: those kept at the title/abstract stage. By default these
+come from screening/screening_ta.csv, using the reviewer's et_decision
+where it is filled in and Claude's proposal otherwise, so retrieval can
+start before every row is confirmed. Without that sheet, rows of
+records_dedup.csv whose ta_decision is "include" or "maybe" are used.
+--ids overrides both. Records that already have a PDF are skipped,
 so the script can be re-run after downloading some files by hand.
 
 Where files go (all under sr_update/fulltext/ unless --out is given):
@@ -157,6 +160,24 @@ def candidates(row):
 
 # --------------------------------------------------------------------------
 
+def kept_in_screening(path):
+    """record_ids kept at the title/abstract stage, from the screening sheet.
+
+    Uses the reviewer's et_decision when it is filled in, and Claude's
+    proposal otherwise, so retrieval can start before every row is
+    confirmed. The reviewer's decision always wins where it exists.
+    """
+    want = []
+    with path.open(encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            d = (row.get("et_decision") or "").strip().lower()
+            if not d:
+                d = (row.get("claude_suggestion") or "").strip().lower()
+            if d in KEEP:
+                want.append(row["record_id"])
+    return want
+
+
 def select(rows, ids):
     if ids:
         want = set(ids)
@@ -176,6 +197,10 @@ def main():
     ap.add_argument("--records", type=Path, default=HERE / "records_dedup.csv")
     ap.add_argument("--out", type=Path, default=HERE / "fulltext")
     ap.add_argument("--ids", nargs="*")
+    ap.add_argument("--screening", type=Path,
+                    default=HERE / "screening" / "screening_ta.csv",
+                    help="screening sheet to take the kept record_ids from; "
+                         "ignored when --ids is given or the file is missing")
     args = ap.parse_args()
 
     if not args.records.exists():
@@ -183,10 +208,15 @@ def main():
                  "title/abstract screening first.")
     with args.records.open(encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
-    todo = select(rows, args.ids)
+    ids = args.ids
+    if not ids and args.screening.exists():
+        ids = kept_in_screening(args.screening)
+        print(f"{len(ids)} records kept at title/abstract in {args.screening.name}")
+    todo = select(rows, ids)
     if not todo:
-        sys.exit("No records selected. Mark rows 'include' or 'maybe' in "
-                 "ta_decision, or pass --ids.")
+        sys.exit("No records selected. Fill et_decision in the screening "
+                 "sheet, mark rows 'include' or 'maybe' in ta_decision, or "
+                 "pass --ids.")
 
     pdf_dir = args.out / "pdf"
     pdf_dir.mkdir(parents=True, exist_ok=True)
