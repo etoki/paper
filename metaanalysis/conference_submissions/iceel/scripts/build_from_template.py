@@ -52,38 +52,51 @@ ABSTRACT_BLOCKS = [
      "does not decompose the Asia bin into its country-level "
      "constituents."),
     ("Objective. ",
-     "To (i) attach Hofstede 6-D country scores to the Asian primary-pool "
-     "studies, and (ii) test whether observed Big Five – outcome "
-     "directions in Japan-based studies match Hofstede & McCrae (2004) "
-     "trait-dimension predictions."),
+     "To (i) describe how the Asian primary-pool studies differ on "
+     "Hofstede 6-D country scores, and (ii) explore whether the observed "
+     "Big Five – outcome directions in Japan-based studies correspond to "
+     "the directions suggested by country-level trait – culture "
+     "associations (Hofstede & McCrae 2004)."),
     ("Methods. ",
      "The Asian primary pool comprises k = 2 studies with extractable "
      "Pearson r (Yu 2021, China; Rivers 2021, Japan); a third Japan-based "
      "study (Tokiwa 2025, K-12) contributes descriptive Spearman "
      "ρ. Random-effects pools use REML + HKSJ. Because residual "
-     "df = 0, single-dimension weighted-OLS "
-     "Hofstede meta-regressions yield descriptive slopes only. Direction "
-     "predictions for Japan, derived from Hofstede & McCrae (2004), are "
-     "cross-referenced against observed r in both Japan studies."),
+     "df = 0, fits on Hofstede scores are reported only as descriptive "
+     "two-country contrasts, not as meta-regression evidence. Country-level "
+     "correlations from Hofstede & McCrae (2004) serve as an exploratory "
+     "reference point, and engagement outcomes (Tokiwa, Spearman ρ) are "
+     "kept separate from achievement outcomes (Rivers, Pearson r)."),
     ("Results. ",
-     "The direction-match analysis yields 3 of 5 trait matches "
-     "(Conscientiousness+, Extraversion−, Neuroticism+; "
-     "Agreeableness and Openness mismatch). The diagnostic finding is "
-     "Neuroticism+: observed in both Japan studies, doubly predicted by "
+     "The observed signs correspond to the country-level reference for 3 "
+     "of 5 traits (Conscientiousness+, Extraversion−, Neuroticism+) and "
+     "differ for Agreeableness and Openness. Neuroticism is positive in "
+     "both Japan studies (engagement in one, course grade in the other), "
+     "which contrasts with the null-to-negative pattern in Western "
+     "meta-analyses (Poropat 2009; Mammadov 2022) and is in line with "
      "Japan's very high Uncertainty Avoidance (UAI = 92) and Masculinity "
-     "(MAS = 95), and opposite to the consistent N− pattern reported "
-     "in Western Big Five meta-analyses (Poropat 2009; Mammadov 2022). "
-     "The Agreeableness mismatch (predicted −, observed +) suggests "
-     "that online-learning behaviour-level engagement may decouple from "
-     "population trait-level A in collectivist contexts."),
+     "(MAS = 95). Because country-level associations do not imply "
+     "individual-level effects, and the two outcomes differ in construct "
+     "and metric, this correspondence is a hypothesis rather than "
+     "replicated evidence about achievement."),
     ("Conclusion. ",
-     "Country-level Hofstede context may reshape the Big Five "
-     "– achievement pattern in ways the binary Asia/non-Asia "
-     "contrast obscures. With k = 2, the contribution is methodological "
-     "rather than confirmatory: it flags within-Asia heterogeneity and "
-     "instrument confounds (60-item BFI-2-J vs 10-item TIPI-J) as "
-     "prerequisites for future Japan-specific syntheses."),
+     "Treating Asia as one moderator level hides country-level "
+     "differences that the current evidence cannot resolve. With k = 2, "
+     "this is an exploratory methodological and narrative synthesis: it "
+     "flags within-Asia heterogeneity, the gap between culture-level and "
+     "individual-level data, and outcome and instrument confounds "
+     "(60-item BFI-2-J vs 10-item TIPI-J) as prerequisites for future "
+     "Japan-specific syntheses."),
 ]
+
+CCS_TEXT = "Applied computing • Education • E-learning"
+CCS_XML = """<ccs2012>
+<concept>
+<concept_id>10010405.10010489.10010490</concept_id>
+<concept_desc>Applied computing~E-learning</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>"""
 
 KEYWORDS = (
     "Additional Keywords and Phrases: meta-analysis; Big Five personality "
@@ -177,19 +190,21 @@ BODY = [
      "contrast F(1, 7) = 12.94, p = .009. Either way, the contrast rests "
      "on only two Asian studies."),
     ("Para",
-     "This paper asks: once you decompose the Asia bin, do Hofstede "
-     "cultural dimensions predict the direction of Big Five – "
-     "achievement correlations within Asia? With only k = 2 Asian "
+     "This paper asks whether, once the Asia bin is decomposed, "
+     "Hofstede's cultural dimensions help describe the direction of Big "
+     "Five – outcome correlations within Asia. With only k = 2 Asian "
      "primary-pool studies contributing extractable r (A-28 Yu, China; "
-     "A-31 Rivers, Japan), no inference is possible from the "
-     "meta-regression. We therefore reframe the analysis as a Hofstede "
-     "direction-prediction match against the two Japan-based studies "
-     "(Tokiwa 2025 K-12, Rivers 2021 UG; Hofstede & McCrae 2004 "
-     "trait-dimension correlations as the prediction source). The "
-     "headline finding is a 3-of-5 trait direction-match, with the "
-     "Neuroticism positive direction in both Japan studies opposite to "
-     "the Western pattern and doubly predicted by Japan's very high UAI "
-     "and MAS."),
+     "A-31 Rivers, Japan), a regression on country scores supports no "
+     "inference, so we report those fits only as descriptive two-country "
+     "contrasts. We then compare the observed directions in the two "
+     "Japan-based studies (Tokiwa 2025, K-12; Rivers 2021, undergraduate) "
+     "with the directions suggested by country-level trait – culture "
+     "correlations (Hofstede & McCrae 2004). This is an exploratory "
+     "correspondence, not a prediction test: the reference correlations "
+     "describe nations rather than learners, and the two Japan studies "
+     "measure different outcomes (platform engagement vs course grade). "
+     "The paper is therefore positioned as an exploratory methodological "
+     "and narrative synthesis."),
 
     ("Head1", "2 RELATED WORK"),
     ("Head2", "2.1 Hofstede's framework, Big Five linkages, and educational implications"),
@@ -224,12 +239,15 @@ BODY = [
      "Together these undermine the 'Asia' moderator level as a "
      "substitute for country-specific analysis."),
     ("Para",
-     "Japan's profile (PDI = 54, IDV = 46, MAS = 95, UAI = 92) yields "
-     "HM04-derived direction predictions tabulated in Section 4.4 "
-     "(Table 4). The N+ prediction is particularly diagnostic because "
-     "it is opposite to the consistent N− pattern in Western Big "
-     "Five – achievement meta-analyses (Poropat, 2009; Mammadov, "
-     "2022)."),
+     "Japan's profile (PDI = 54, IDV = 46, MAS = 95, UAI = 92) implies, "
+     "at the country level, the reference directions listed in Section "
+     "4.4 (Table 4). These are not predictions for individual learners: "
+     "Hofstede & McCrae (2004) correlate national culture scores with "
+     "national trait means, and the same association need not hold for "
+     "trait – outcome correlations within one country. We use them only "
+     "as a reference point. The N reference is of particular interest "
+     "because it runs opposite to the N− pattern in Western Big Five "
+     "– achievement meta-analyses (Poropat, 2009; Mammadov, 2022)."),
 
     ("Head2", "2.2 East Asian samples in personality – academic-achievement research"),
     ("PostHeadPara",
@@ -293,17 +311,22 @@ BODY = [
      "Per trait, REML + HKSJ pooled r is computed on the k = 2 Asian "
      "primary-pool studies (back-transformed 95 % CI reported), with "
      "τ² estimated by maximising the restricted likelihood. For "
-     "each (trait, dimension) pair, a 2-parameter weighted-OLS Hofstede "
-     "meta-regression is fit (weights = 1 / (v + τ²), "
-     "τ² from REML). Because k = 2, residual df = 0; slopes "
-     "are computable but no SE / t / p estimable, so slopes are "
-     "reported as descriptive only."),
+     "each (trait, dimension) pair, a weighted line is fit on the "
+     "Hofstede score (weights = 1 / (v + τ²), τ² from REML). "
+     "Because k = 2, residual df = 0: each line passes exactly through "
+     "the two study estimates, so its slope is the Japan – China "
+     "difference divided by the difference in country scores. The slopes "
+     "are therefore reported as descriptive two-country contrasts, not as "
+     "meta-regression evidence."),
     ("Head3", "3.3.1 Japan synthesis."),
     ("PostHeadPara",
      "The two Japan primary-pool studies are tabulated side-by-side on "
-     "N, modality, education level, instrument, and per-trait r (where "
-     "available). The narrative discussion is the analytic vehicle; no "
-     "formal pooling is attempted at k = 2."),
+     "N, modality, education level, instrument, outcome, and per-trait "
+     "correlations. Their outcomes are kept separate: A-25 Tokiwa reports "
+     "Spearman ρ with platform engagement and mastery (learning "
+     "behaviour), whereas A-31 Rivers reports Pearson r with course grade "
+     "(achievement). The two are compared side by side, not pooled or "
+     "treated as replications of each other."),
 
     ("Head2", "3.4 Reproducibility"),
     ("PostHeadPara",
@@ -326,11 +349,11 @@ BODY = [
      "here by exact REML and A-28's β is converted with the published "
      "Peterson–Brown rule."),
 
-    ("Head2", "4.2 Hofstede single-dimension meta-regression"),
+    ("Head2", "4.2 Hofstede two-country contrasts (descriptive)"),
     ("PostHeadPara",
-     "Table 2 reports the per-trait per-dimension slope estimates. "
-     "With df_resid = 0 the inferential columns (SE, t, p) are not "
-     "estimable; only the slope is reported."),
+     "Table 2 reports, for each trait and dimension, the slope of the "
+     "line through the two Asian study estimates. With df_resid = 0 these "
+     "are descriptive contrasts; SE, t and p are not estimable."),
     ("_TABLE2", None),
     ("Para",
      "(Selected rows; full table in "
@@ -357,14 +380,14 @@ BODY = [
      "side-by-side."),
     ("_TABLE3", None),
     ("Para",
-     "A-25 Tokiwa's correlations are reported as Spearman ρ "
-     "against StudySapuri usage outcomes (Tokiwa 2025, Tables 3 + body "
-     "text); they did not survive the meta-analysis extraction protocol "
-     "(which required Pearson r against achievement, not Spearman "
-     "against engagement) but are included here as the "
-     "original-publication descriptive comparator. A-31 Rivers's r "
-     "values are extractable Pearson correlations against course grade "
-     "and contribute to the meta-analysis pool."),
+     "A-25 Tokiwa's values are Spearman ρ with StudySapuri engagement "
+     "and mastery measures (lectures watched, tests completed and "
+     "mastered; Tokiwa 2025, Table 3 and text). They are "
+     "learning-behaviour outcomes, not academic achievement, and they did "
+     "not meet the extraction protocol (Pearson r with achievement); they "
+     "are shown only as a descriptive comparator. A-31 Rivers's values "
+     "are Pearson r with course grade and are the only Japanese "
+     "achievement evidence in the pool."),
     ("Para",
      "The instrument-heterogeneity contrast is striking: A-25 uses the "
      "60-item BFI-2-J (~12 items per trait, alphas .80 – .96); "
@@ -374,24 +397,31 @@ BODY = [
      "substantial measurement-noise heterogeneity even before any "
      "cultural-context interaction is considered."),
 
-    ("Head2", "4.4 Hofstede direction-prediction match in Japan studies"),
+    ("Head2", "4.4 Exploratory correspondence with country-level trait – culture associations"),
     ("PostHeadPara",
-     "Table 4 cross-references HM04-derived direction predictions for "
-     "Japan with observed Big Five – outcome direction in the two "
-     "Japan studies. Direction is coded + if observed magnitude "
-     "≥ +0.05, − if ≤ −0.05, flat otherwise; A-25 "
-     "Tokiwa's direction is the dominant-pattern Spearman ρ "
-     "against StudySapuri outcomes."),
+     "Table 4 places the sign of the country-level trait – culture "
+     "correlations reported by Hofstede & McCrae (2004) for Japan's most "
+     "distinctive dimensions next to the observed directions in the two "
+     "Japan studies, listed separately by outcome. The reference column "
+     "is not a prediction for individual learners; it summarises "
+     "associations between national culture scores and national trait "
+     "means. Direction is coded + if the observed value is ≥ +0.05, "
+     "− if ≤ −0.05, flat otherwise; for A-25 Tokiwa it is the "
+     "dominant pattern of Spearman ρ with engagement outcomes."),
     ("_TABLE4", None),
     ("Para",
-     "3 of 5 traits (C, E, N) match. The Neuroticism+ match is the "
-     "headline: opposite to the Western N− pattern (Poropat 2009; "
-     "Mammadov 2022), supported in both Japan studies, and doubly "
-     "predicted via UAI and MAS. The A mismatch (predicted −, "
-     "observed +) is informative rather than refuting: it suggests "
-     "online-learning behaviour-level A engagement may decouple from "
-     "population trait-level A in collectivist contexts — a "
-     "hypothesis future cross-cultural syntheses can test directly."),
+     "The signs correspond for 3 of 5 traits (C, E, N) and differ for A "
+     "and O. Neuroticism is the most noticeable case: it is positive in "
+     "both studies, which contrasts with the null-to-negative N pattern in "
+     "Western meta-analyses (Poropat 2009; Mammadov 2022), and both of "
+     "Japan's most extreme dimensions (UAI, MAS) are positively associated "
+     "with national N means. However, the two positive values come from "
+     "different constructs (engagement ρ in Tokiwa, course grade r in "
+     "Rivers), so they do not replicate one achievement effect; only "
+     "Rivers's r = +0.107 concerns achievement. The A difference "
+     "(country-level −, observed +) is a reminder that national trait "
+     "means need not describe within-country trait – outcome "
+     "correlations."),
 
     ("Head1", "5 DISCUSSION"),
     ("Head2", "5.1 The within-Asia evidence problem"),
@@ -436,43 +466,47 @@ BODY = [
      "instrument-level moderator analyses. The current corpus does "
      "neither."),
 
-    ("Head2", "5.4 The Hofstede direction-match in Japan"),
+    ("Head2", "5.4 Reading the Neuroticism correspondence with caution"),
     ("PostHeadPara",
-     "The 3-of-5 match in Table 4 — particularly the "
-     "doubly-supported Neuroticism positive direction — is the "
-     "strongest cultural-context finding in this paper. The N+ "
-     "direction is opposite to the Western N null/negative pattern "
-     "(Poropat 2009; Mammadov 2022) and is consistent with Hofstede's "
-     "(1986) characterisation of strong-UAI societies as ones in which "
-     "students are rewarded for structured, accuracy-focused study "
-     "— behaviours plausibly fuelled by trait-level anxiety. The "
-     "Agreeableness mismatch (predicted − by HM04 UAI −.45; "
-     "observed + in both Japan studies) is informative rather than "
-     "refuting: population trait scores need not predict "
-     "individual-level personality–outcome correlations within a "
-     "particular activity domain, and online-learning may afford "
-     "agreeable students engagement channels that decouple from "
-     "population A."),
+     "The Neuroticism correspondence in Table 4 is the most interesting "
+     "cultural observation in this paper, but it supports a hypothesis "
+     "rather than a finding. It is consistent with Hofstede's (1986) "
+     "description of strong-UAI societies, in which students are rewarded "
+     "for structured, accuracy-focused study — behaviour that trait "
+     "anxiety might sustain. Two gaps prevent a stronger claim. First, the "
+     "level of analysis differs: the reference correlations are between "
+     "nations, whereas the observed correlations are between learners "
+     "within Japan, so using one to explain the other is a cross-level "
+     "inference. Testing the mechanism would require individual-level "
+     "cultural measures (for example, personal uncertainty-avoidance "
+     "orientation) collected together with personality and outcomes. "
+     "Second, the outcomes differ: engagement in one study and course "
+     "grade in the other. The Agreeableness difference (country-level "
+     "−, observed + in both studies) points the same way: population "
+     "trait levels need not predict individual-level personality – "
+     "outcome correlations within a particular activity domain."),
 
     ("Head2", "5.5 Self-plagiarism firewall"),
     ("PostHeadPara",
-     "The within-Asia decomposition and the Hofstede direction-match "
+     "The within-Asia decomposition and the exploratory correspondence "
      "analysis (Table 4) are both absent from the parent preprint, "
      "which only reports the binary Asia / non-Asia contrast."),
 
     ("Head1", "6 LIMITATIONS"),
     ("PostHeadPara",
      "The dominant limitation is k. With k = 2 Asian primary-pool "
-     "studies, the Hofstede meta-regression has zero residual degrees "
-     "of freedom; slopes and direction-matches are descriptive only. "
-     "Hofstede & McCrae (2004) correlations describe country-level "
-     "trait means, not within-country trait – achievement "
-     "correlations; using them to predict the direction of the latter "
-     "(Table 4) is an assumption rather than an established link. "
+     "studies, the fits on Hofstede scores have zero residual degrees "
+     "of freedom; they are two-country contrasts, and the correspondence "
+     "in Table 4 is descriptive. Hofstede & McCrae (2004) correlations "
+     "describe country-level trait means, not within-country trait – "
+     "outcome correlations, so Table 4 rests on a cross-level comparison "
+     "and cannot test a mechanism. The two Japan studies also differ in "
+     "outcome construct and effect-size metric (engagement ρ vs grade r) "
+     "as well as in instrument. "
      "The Hofstede framework itself is critiqued (Minkov & Hofstede, "
      "2014; McSweeney, 2002) for ecological-fallacy risk and IBM-sample "
      "provenance; Minkov-revised dimensions might yield different "
-     "direction predictions. Western-derived Big Five may not capture "
+     "reference directions. Western-derived Big Five may not capture "
      "culture-specific personality structure in Japan (Cheung et al., "
      "2003). Single-author, single-coder; country-to-Hofstede-dimension "
      "assignment uses the canonical Hofstede Insights (2024) table "
@@ -483,21 +517,21 @@ BODY = [
      "The contribution of this paper is threefold: (a) the binary "
      "Asia / non-Asia contrast in the parent preprint conceals a "
      "within-Asia structure that the current corpus cannot statistically "
-     "resolve (k = 2); (b) a Hofstede direction-prediction analysis "
-     "(Hofstede & McCrae 2004 trait-dimension correlations) yields 3 of "
-     "5 trait direction-matches in two Japan-based studies, with the "
-     "Neuroticism positive direction in both being doubly predicted by "
-     "Japan's very high UAI and MAS and being opposite to the Western "
-     "pattern; and (c) the Agreeableness mismatch (predicted −, "
-     "observed +) opens an empirical question about whether "
-     "collectivist online-learning behaviour decouples from population "
-     "trait-level A."),
+     "resolve (k = 2); (b) an exploratory comparison with country-level "
+     "trait – culture associations (Hofstede & McCrae 2004) shows the "
+     "same sign for 3 of 5 traits in two Japan-based studies, most "
+     "notably a positive Neuroticism direction that contrasts with the "
+     "Western pattern — a hypothesis to be tested with individual-level "
+     "cultural measures and a common achievement outcome; and (c) it makes "
+     "explicit the level-of-analysis, outcome, and instrument gaps that "
+     "any future culture-moderated synthesis in this field must close."),
     ("Para",
      "Practically, Japanese ed-tech researchers should treat Big "
      "Five-based personalisation claims with caution: only "
      "Conscientiousness shows a consistent direction; instrument "
      "standardisation (60-item BFI-2-J vs 10-item TIPI-J) and "
-     "consistent trait-by-achievement reporting are prerequisites for "
+     "consistent trait-by-achievement reporting, kept separate from "
+     "engagement outcomes, are prerequisites for "
      "any future Hofstede moderator analysis with df > 0. Future work: "
      "extend the Asian primary-pool corpus by targeted recruitment of "
      "Korean and Taiwanese samples and test Minkov-revised dimensions "
@@ -537,7 +571,7 @@ TABLE3_ROWS = [
     ["Education level", "K-12 (Year 3 high school)", "Undergraduate"],
     ["Modality", "Asynchronous (StudySapuri LMS)", "Asynchronous (Moodle)"],
     ["Instrument", "BFI-2-J (60 items)", "TIPI-J (10 items)"],
-    ["Outcome", "Test completion + mastery (Spearman ρ)", "Course grade (Pearson r)"],
+    ["Outcome (construct)", "Engagement / mastery: lectures, tests (Spearman ρ)", "Achievement: course grade (Pearson r)"],
     ["Era", "post-COVID", "COVID"],
     ["r_O", "not in extractable column", "−0.066"],
     ["r_C", "ρ = +0.30 to +0.35", "+0.144"],
@@ -546,20 +580,20 @@ TABLE3_ROWS = [
     ["r_N", "ρ = +0.24 to +0.29 (Anxiety subscale)", "+0.107"],
 ]
 
-TABLE4_HEADER = ["Trait", "HM04 prediction (Japan)", "Driver", "Tokiwa", "Rivers", "Match?"]
+TABLE4_HEADER = ["Trait", "Country-level reference (HM04)", "Source", "Tokiwa: engagement (ρ)", "Rivers: grade (r)", "Same sign?"]
 TABLE4_ROWS = [
-    ["C", "+", "PDI .43", "+ (.30–.35)", "+ (.14)", "✓"],
-    ["E", "−", "IDV .39", "mixed", "− (−.17)", "✓"],
-    ["N", "+", "UAI .31 + MAS .30 (double)", "+ (.24–.29)", "+ (.11)", "✓"],
-    ["A", "−", "UAI −.45", "+ (.27–.29)", "+ (.12)", "✗"],
-    ["O", "+ (weak)", "MAS .37", "weak", "− (−.07)", "✗"],
+    ["C", "+", "PDI .43", "+ (.30–.35)", "+ (.14)", "yes"],
+    ["E", "−", "IDV .39", "mixed", "− (−.17)", "yes"],
+    ["N", "+", "UAI .31; MAS .30", "+ (.24–.29)", "+ (.11)", "yes"],
+    ["A", "−", "UAI −.45", "+ (.27–.29)", "+ (.12)", "no"],
+    ["O", "+ (weak)", "MAS .37", "weak", "− (−.07)", "no"],
 ]
 
 TABLE_MAP = {
     "_TABLE1": (TABLE1_HEADER, TABLE1_ROWS, "Table 1: Asian-subset random-effects pooled correlations (REML + HKSJ; k = 2 per trait; A-28 Yu China; A-31 Rivers Japan)."),
-    "_TABLE2": (TABLE2_HEADER, TABLE2_ROWS, "Table 2: Hofstede single-dimension meta-regression slopes, descriptive only (k = 2; df_resid = 0)."),
-    "_TABLE3": (TABLE3_HEADER, TABLE3_ROWS, "Table 3: Japan-based primary-pool studies, narrative comparison."),
-    "_TABLE4": (TABLE4_HEADER, TABLE4_ROWS, "Table 4: Hofstede-predicted vs observed direction in Japan-based studies."),
+    "_TABLE2": (TABLE2_HEADER, TABLE2_ROWS, "Table 2: Hofstede two-country contrasts expressed as slopes, descriptive only (k = 2; df_resid = 0)."),
+    "_TABLE3": (TABLE3_HEADER, TABLE3_ROWS, "Table 3: Japan-based primary-pool studies, side-by-side comparison (engagement and achievement outcomes are not directly comparable)."),
+    "_TABLE4": (TABLE4_HEADER, TABLE4_ROWS, "Table 4: Exploratory correspondence between country-level trait – culture associations (Hofstede & McCrae 2004) and observed directions in the Japan-based studies, shown separately by outcome."),
 }
 
 
@@ -683,6 +717,12 @@ def build():
         lead_run = abs_p.add_run(lead)
         lead_run.bold = True
         abs_p.add_run(tail + " ")
+
+    # CCS concepts (ACM): text line before keywords, XML in File > Info > Comments
+    ccs = doc.add_paragraph(style="CCSDescription")
+    ccs.add_run("CCS CONCEPTS • ").bold = True
+    ccs.add_run(CCS_TEXT)
+    doc.core_properties.comments = CCS_XML
 
     # Keywords
     add_para(doc, "KeyWords", KEYWORDS)
