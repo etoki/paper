@@ -1,0 +1,223 @@
+{
+  "date": "2026-10-27",
+  "sources": {
+    "pubmed": {
+      "name": "PubMed/MEDLINE",
+      "query": "(\"Big Five\"[tiab] OR \"Five-Factor Model\"[tiab] OR \"FFM\"[tiab] OR \"HEXACO\"[tiab] OR \"BFI\"[tiab] OR \"NEO-PI-R\"[tiab] OR \"NEO-FFI\"[tiab] OR \"IPIP\"[tiab] OR \"conscientiousness\"[tiab] OR \"openness\"[tiab] OR \"extraversion\"[tiab] OR \"agreeableness\"[tiab] OR \"neuroticism\"[tiab] OR \"emotional stability\"[tiab] OR \"personality traits\"[tiab] OR \"five factor\"[tiab] OR \"extroversion\"[tiab] OR \"personality\"[tiab]) AND (\"online learning\"[tiab] OR \"e-learning\"[tiab] OR \"distance learning\"[tiab] OR \"remote learning\"[tiab] OR \"virtual learning\"[tiab] OR \"blended learning\"[tiab] OR \"hybrid learning\"[tiab] OR \"MOOC\"[tiab] OR \"massive open online course\"[tiab] OR \"web-based learning\"[tiab] OR \"computer-mediated learning\"[tiab] OR \"learning management system\"[tiab] OR \"LMS\"[tiab] OR \"online course\"[tiab] OR \"synchronous online\"[tiab] OR \"asynchronous online\"[tiab] OR \"elearning\"[tiab] OR \"online education\"[tiab] OR \"distance education\"[tiab] OR \"online instruction\"[tiab] OR \"MOOCs\"[tiab] OR \"massive open online courses\"[tiab] OR \"online courses\"[tiab] OR \"emergency remote teaching\"[tiab] OR \"emergency remote learning\"[tiab] OR \"online class\"[tiab] OR \"online classes\"[tiab]) AND (\"academic performance\"[tiab] OR \"academic achievement\"[tiab] OR \"GPA\"[tiab] OR \"grade point average\"[tiab] OR \"test score\"[tiab] OR \"course grade\"[tiab] OR \"learning outcome\"[tiab] OR \"learning performance\"[tiab] OR \"academic success\"[tiab] OR \"test scores\"[tiab] OR \"course grades\"[tiab] OR \"learning outcomes\"[tiab] OR \"grades\"[tiab] OR \"exam performance\"[tiab] OR \"examination performance\"[tiab] OR \"final grade\"[tiab] OR \"course performance\"[tiab] OR \"course completion\"[tiab] OR \"academic outcomes\"[tiab]) AND english[la]",
+      "query_preregistered": "(\"Big Five\"[tiab] OR \"Five-Factor Model\"[tiab] OR \"FFM\"[tiab] OR \"HEXACO\"[tiab] OR \"BFI\"[tiab] OR \"NEO-PI-R\"[tiab] OR \"NEO-FFI\"[tiab] OR \"IPIP\"[tiab] OR \"conscientiousness\"[tiab] OR \"openness\"[tiab] OR \"extraversion\"[tiab] OR \"agreeableness\"[tiab] OR \"neuroticism\"[tiab] OR \"emotional stability\"[tiab] OR \"personality traits\"[tiab]) AND (\"online learning\"[tiab] OR \"e-learning\"[tiab] OR \"distance learning\"[tiab] OR \"remote learning\"[tiab] OR \"virtual learning\"[tiab] OR \"blended learning\"[tiab] OR \"hybrid learning\"[tiab] OR \"MOOC\"[tiab] OR \"massive open online course\"[tiab] OR \"web-based learning\"[tiab] OR \"computer-mediated learning\"[tiab] OR \"learning management system\"[tiab] OR \"LMS\"[tiab] OR \"online course\"[tiab] OR \"synchronous online\"[tiab] OR \"asynchronous online\"[tiab]) AND (\"academic performance\"[tiab] OR \"academic achievement\"[tiab] OR \"GPA\"[tiab] OR \"grade point average\"[tiab] OR \"test score\"[tiab] OR \"course grade\"[tiab] OR \"learning outcome\"[tiab] OR \"learning performance\"[tiab] OR \"academic success\"[tiab]) AND english[la]",
+      "hits": 33,
+      "records_retrieved": 33,
+      "hits_preregistered_terms_only": 12
+    },
+    "eric": {
+      "name": "ERIC",
+      "query": "(\"Big Five\" OR \"Five-Factor Model\" OR \"FFM\" OR \"HEXACO\" OR \"BFI\" OR \"NEO-PI-R\" OR \"NEO-FFI\" OR \"IPIP\" OR \"conscientiousness\" OR \"openness\" OR \"extraversion\" OR \"agreeableness\" OR \"neuroticism\" OR \"emotional stability\" OR \"personality traits\" OR \"five factor\" OR \"extroversion\" OR \"personality\") AND (\"online learning\" OR \"e-learning\" OR \"distance learning\" OR \"remote learning\" OR \"virtual learning\" OR \"blended learning\" OR \"hybrid learning\" OR \"MOOC\" OR \"massive open online course\" OR \"web-based learning\" OR \"computer-mediated learning\" OR \"learning management system\" OR \"LMS\" OR \"online course\" OR \"synchronous online\" OR \"asynchronous online\" OR \"elearning\" OR \"online education\" OR \"distance education\" OR \"online instruction\" OR \"MOOCs\" OR \"massive open online courses\" OR \"online courses\" OR \"emergency remote teaching\" OR \"emergency remote learning\" OR \"online class\" OR \"online classes\") AND (\"academic performance\" OR \"academic achievement\" OR \"GPA\" OR \"grade point average\" OR \"test score\" OR \"course grade\" OR \"learning outcome\" OR \"learning performance\" OR \"academic success\" OR \"test scores\" OR \"course grades\" OR \"learning outcomes\" OR \"grades\" OR \"exam performance\" OR \"examination performance\" OR \"final grade\" OR \"course performance\" OR \"course completion\" OR \"academic outcomes\")",
+      "query_preregistered": "(\"Big Five\" OR \"Five-Factor Model\" OR \"FFM\" OR \"HEXACO\" OR \"BFI\" OR \"NEO-PI-R\" OR \"NEO-FFI\" OR \"IPIP\" OR \"conscientiousness\" OR \"openness\" OR \"extraversion\" OR \"agreeableness\" OR \"neuroticism\" OR \"emotional stability\" OR \"personality traits\") AND (\"online learning\" OR \"e-learning\" OR \"distance learning\" OR \"remote learning\" OR \"virtual learning\" OR \"blended learning\" OR \"hybrid learning\" OR \"MOOC\" OR \"massive open online course\" OR \"web-based learning\" OR \"computer-mediated learning\" OR \"learning management system\" OR \"LMS\" OR \"online course\" OR \"synchronous online\" OR \"asynchronous online\") AND (\"academic performance\" OR \"academic achievement\" OR \"GPA\" OR \"grade point average\" OR \"test score\" OR \"course grade\" OR \"learning outcome\" OR \"learning performance\" OR \"academic success\")",
+      "hits": 176,
+      "records_retrieved": 176,
+      "hits_preregistered_terms_only": 72
+    },
+    "openalex": {
+      "name": "OpenAlex",
+      "query": "(\"Big Five\" OR \"Five-Factor Model\" OR \"FFM\" OR \"HEXACO\" OR \"BFI\" OR \"NEO-PI-R\" OR \"NEO-FFI\" OR \"IPIP\" OR \"conscientiousness\" OR \"openness\" OR \"extraversion\" OR \"agreeableness\" OR \"neuroticism\" OR \"emotional stability\" OR \"personality traits\" OR \"five factor\" OR \"extroversion\" OR \"personality\") AND (\"online learning\" OR \"e-learning\" OR \"distance learning\" OR \"remote learning\" OR \"virtual learning\" OR \"blended learning\" OR \"hybrid learning\" OR \"MOOC\" OR \"massive open online course\" OR \"web-based learning\" OR \"computer-mediated learning\" OR \"learning management system\" OR \"LMS\" OR \"online course\" OR \"synchronous online\" OR \"asynchronous online\" OR \"elearning\" OR \"online education\" OR \"distance education\" OR \"online instruction\" OR \"MOOCs\" OR \"massive open online courses\" OR \"online courses\" OR \"emergency remote teaching\" OR \"emergency remote learning\" OR \"online class\" OR \"online classes\") AND (\"academic performance\" OR \"academic achievement\" OR \"GPA\" OR \"grade point average\" OR \"test score\" OR \"course grade\" OR \"learning outcome\" OR \"learning performance\" OR \"academic success\" OR \"test scores\" OR \"course grades\" OR \"learning outcomes\" OR \"grades\" OR \"exam performance\" OR \"examination performance\" OR \"final grade\" OR \"course performance\" OR \"course completion\" OR \"academic outcomes\")",
+      "query_preregistered": "(\"Big Five\" OR \"Five-Factor Model\" OR \"FFM\" OR \"HEXACO\" OR \"BFI\" OR \"NEO-PI-R\" OR \"NEO-FFI\" OR \"IPIP\" OR \"conscientiousness\" OR \"openness\" OR \"extraversion\" OR \"agreeableness\" OR \"neuroticism\" OR \"emotional stability\" OR \"personality traits\") AND (\"online learning\" OR \"e-learning\" OR \"distance learning\" OR \"remote learning\" OR \"virtual learning\" OR \"blended learning\" OR \"hybrid learning\" OR \"MOOC\" OR \"massive open online course\" OR \"web-based learning\" OR \"computer-mediated learning\" OR \"learning management system\" OR \"LMS\" OR \"online course\" OR \"synchronous online\" OR \"asynchronous online\") AND (\"academic performance\" OR \"academic achievement\" OR \"GPA\" OR \"grade point average\" OR \"test score\" OR \"course grade\" OR \"learning outcome\" OR \"learning performance\" OR \"academic success\")",
+      "hits": 5601,
+      "records_retrieved": 5604,
+      "hits_preregistered_terms_only": 3127
+    },
+    "citations": {
+      "name": "OpenAlex backward and forward citation searching",
+      "per_seed": [
+        {
+          "seed_id": "A-01",
+          "openalex_id": "W3000321022",
+          "backward": 53,
+          "forward": 85
+        },
+        {
+          "seed_id": "A-02",
+          "openalex_id": "W2887961069",
+          "backward": 45,
+          "forward": 66
+        },
+        {
+          "seed_id": "A-03",
+          "openalex_id": "W4412790097",
+          "backward": 28,
+          "forward": 0
+        },
+        {
+          "seed_id": "A-04",
+          "openalex_id": "W3157284408",
+          "backward": 37,
+          "forward": 73
+        },
+        {
+          "seed_id": "A-06",
+          "openalex_id": "W3130256792",
+          "backward": 21,
+          "forward": 19
+        },
+        {
+          "seed_id": "A-07",
+          "openalex_id": "W2586662785",
+          "backward": 61,
+          "forward": 112
+        },
+        {
+          "seed_id": "A-08",
+          "openalex_id": "W2149462219",
+          "backward": 58,
+          "forward": 104
+        },
+        {
+          "seed_id": "A-11",
+          "openalex_id": "W4315795553",
+          "backward": 56,
+          "forward": 43
+        },
+        {
+          "seed_id": "A-12",
+          "openalex_id": "W4284708296",
+          "backward": 87,
+          "forward": 40
+        },
+        {
+          "seed_id": "A-13",
+          "openalex_id": "W4406253216",
+          "backward": 55,
+          "forward": 17
+        },
+        {
+          "seed_id": "A-15",
+          "openalex_id": "W2101573515",
+          "backward": 17,
+          "forward": 146
+        },
+        {
+          "seed_id": "A-17",
+          "openalex_id": "W4399074727",
+          "backward": 107,
+          "forward": 42
+        },
+        {
+          "seed_id": "A-18",
+          "openalex_id": "W2900088649",
+          "backward": 61,
+          "forward": 80
+        },
+        {
+          "seed_id": "A-20",
+          "openalex_id": "W4286486130",
+          "backward": 50,
+          "forward": 62
+        },
+        {
+          "seed_id": "A-21",
+          "openalex_id": "W1910973144|W7144677577",
+          "backward": 46,
+          "forward": 98
+        },
+        {
+          "seed_id": "A-22",
+          "openalex_id": "W4223657771",
+          "backward": 33,
+          "forward": 56
+        },
+        {
+          "seed_id": "A-23",
+          "openalex_id": "W4391872544",
+          "backward": 48,
+          "forward": 7
+        },
+        {
+          "seed_id": "A-25",
+          "openalex_id": "W4410092754",
+          "backward": 58,
+          "forward": 1
+        },
+        {
+          "seed_id": "A-26",
+          "openalex_id": "W4387097136",
+          "backward": 64,
+          "forward": 10
+        },
+        {
+          "seed_id": "A-28",
+          "openalex_id": "W3152309987",
+          "backward": 71,
+          "forward": 346
+        },
+        {
+          "seed_id": "A-29",
+          "openalex_id": "W3042911498",
+          "backward": 63,
+          "forward": 44
+        },
+        {
+          "seed_id": "A-30",
+          "openalex_id": "W4327967894",
+          "backward": 101,
+          "forward": 42
+        },
+        {
+          "seed_id": "A-31",
+          "openalex_id": "W3134587603",
+          "backward": 126,
+          "forward": 63
+        },
+        {
+          "seed_id": "A-37",
+          "openalex_id": "W4362578638",
+          "backward": 60,
+          "forward": 15
+        },
+        {
+          "seed_id": "M-01",
+          "openalex_id": "W2137739415",
+          "backward": 193,
+          "forward": 76
+        },
+        {
+          "seed_id": "M-02",
+          "openalex_id": "W2022705378",
+          "backward": 78,
+          "forward": 24
+        },
+        {
+          "seed_id": "M-03",
+          "openalex_id": "W2755153986",
+          "backward": 63,
+          "forward": 12
+        },
+        {
+          "seed_id": "M-04",
+          "openalex_id": "W3182816945",
+          "backward": 269,
+          "forward": 11
+        },
+        {
+          "seed_id": "M-05",
+          "openalex_id": "W4318706859",
+          "backward": 110,
+          "forward": 4
+        },
+        {
+          "seed_id": "M-06",
+          "openalex_id": "W7083316197",
+          "backward": 0,
+          "forward": 1
+        }
+      ],
+      "records_retrieved": 3818,
+      "seeds_to_search_by_hand": [
+        "A-19"
+      ]
+    }
+  },
+  "prisma": {
+    "records_identified": 9631,
+    "duplicates_removed": 1072,
+    "records_screened": 8559
+  }
+}

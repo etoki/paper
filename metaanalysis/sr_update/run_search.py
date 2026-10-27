@@ -269,21 +269,26 @@ def openalex_by_doi(doi):
 
 def search_citations():
     """Backward (reference lists) and forward (citing works) searching from
-    every seed in seeds.csv that has a DOI. Returns per-seed counts and the
-    records; seeds without a DOI are reported for manual searching."""
+    every seed in seeds.csv that has a DOI or an OpenAlex id (several ids,
+    separated by "|", when OpenAlex holds duplicate records of one work).
+    Returns per-seed counts and the records; seeds with neither are reported
+    for manual searching."""
     seeds = list(csv.DictReader((HERE / "seeds.csv").open(encoding="utf-8")))
     per_seed, records, missing = [], [], []
     for s in seeds:
-        if not s["doi"]:
+        ids = [i for i in (s.get("openalex_id") or "").split("|") if i]
+        if not s["doi"] and not ids:
             missing.append(s["seed_id"])
             continue
         try:
-            w = openalex_by_doi(s["doi"])
+            works = ([openalex_by_doi(s["doi"])] if s["doi"]
+                     else [json.loads(get(f"{OPENALEX}/{i}?mailto={MAILTO}")) for i in ids])
         except Exception as exc:  # noqa: BLE001
             missing.append(f"{s['seed_id']} (not found in OpenAlex: {exc})")
             continue
-        wid = w["id"].rsplit("/", 1)[-1]
-        refs = [r.rsplit("/", 1)[-1] for r in w.get("referenced_works", [])]
+        wid = "|".join(w["id"].rsplit("/", 1)[-1] for w in works)
+        refs = list(dict.fromkeys(r.rsplit("/", 1)[-1] for w in works
+                                  for r in w.get("referenced_works", [])))
         back = []
         for i in range(0, len(refs), 50):  # OR-filter takes up to 50 ids
             _, recs = openalex_works("ids.openalex:" + "|".join(refs[i:i + 50]),
