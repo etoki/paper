@@ -30,15 +30,51 @@ Studies contributing only β (not zero-order r), requiring Peterson & Brown (200
 
 | Trait | k | r [95% CI] | Δr vs primary |
 |-------|---|-----------|---------------|
-| O | 6 | 0.034 [-0.121, 0.188] | -0.051 🔴 |
-| C | 7 | 0.206 [0.107, 0.301] | +0.038 |
-| E | 6 | 0.016 [-0.090, 0.122] | +0.006 |
-| A | 6 | 0.069 [-0.012, 0.150] | -0.047 |
-| N | 7 | -0.040 [-0.129, 0.049] | -0.057 🔴 |
+| O | 7 | 0.026 [-0.093, 0.145] | -0.059 🔴 |
+| C | 8 | 0.181 [0.073, 0.284] | +0.012 |
+| E | 7 | 0.015 [-0.069, 0.098] | +0.005 |
+| A | 7 | 0.057 [-0.013, 0.126] | -0.059 🔴 |
+| N | 8 | -0.035 [-0.107, 0.037] | -0.051 🔴 |
 
 ## Exclude Low-Quality Studies (RoB < 5)
 
 Studies with JBI aggregate risk-of-bias score below 5 were excluded. Higher-quality subset.
+
+| Trait | k | r [95% CI] | Δr vs primary |
+|-------|---|-----------|---------------|
+| O | 8 | 0.096 [-0.052, 0.239] | +0.011 |
+| C | 9 | 0.185 [0.112, 0.255] | +0.016 |
+| E | 8 | 0.012 [-0.070, 0.093] | +0.001 |
+| A | 8 | 0.130 [-0.022, 0.277] | +0.014 |
+| N | 9 | 0.017 [-0.095, 0.128] | +0.000 |
+
+## Exclude Studies with Analytic N < 50
+
+Studies with fewer than 50 participants in the analysed sample were excluded.
+
+| Trait | k | r [95% CI] | Δr vs primary |
+|-------|---|-----------|---------------|
+| O | 9 | 0.085 [-0.044, 0.211] | +0.000 |
+| C | 9 | 0.163 [0.082, 0.242] | -0.005 |
+| E | 9 | 0.010 [-0.059, 0.080] | +0.000 |
+| A | 9 | 0.116 [-0.020, 0.248] | +0.000 |
+| N | 9 | 0.027 [-0.063, 0.117] | +0.011 |
+
+## DerSimonian-Laird Estimator
+
+All studies; tau² estimated with the DerSimonian-Laird moment estimator instead of REML.
+
+| Trait | k | r [95% CI] | Δr vs primary |
+|-------|---|-----------|---------------|
+| O | 9 | 0.085 [-0.045, 0.212] | -0.000 |
+| C | 10 | 0.167 [0.089, 0.243] | -0.001 |
+| E | 9 | 0.010 [-0.059, 0.080] | +0.000 |
+| A | 9 | 0.115 [-0.018, 0.244] | -0.001 |
+| N | 10 | 0.016 [-0.081, 0.112] | -0.000 |
+
+## Exclude A-37 Zheng (|r| < .10 entered as r = 0)
+
+A-37 reported only that all trait-grade correlations were below .10 in absolute value; the primary analysis enters them as r = 0. Not pre-registered.
 
 | Trait | k | r [95% CI] | Δr vs primary |
 |-------|---|-----------|---------------|
@@ -131,3 +167,4 @@ Each study is removed in turn to assess influence on the pooled estimate. Studie
 - COI sensitivity (exclude Tokiwa A-25) is particularly relevant given the author's prior study is included in the primary pool.
 - β-conversion sensitivity tests robustness of the Peterson-Brown approximation for studies reporting only standardized regression coefficients.
 - Low-quality exclusion tests whether findings are driven by studies below the pre-specified RoB threshold of 5.
+- Not run: the pre-registered HEXACO crosswalk variants, because no HEXACO study is in the quantitative pool.
