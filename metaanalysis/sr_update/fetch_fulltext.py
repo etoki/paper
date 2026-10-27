@@ -16,7 +16,9 @@ Where files go (all under sr_update/fulltext/ unless --out is given):
   pdf/<record_id>.pdf      every PDF, named by record_id. Not committed
                            (copyrighted); kept on this machine only.
   fetch_log.csv            one row per record: status, route, URL used
-  to_download_by_hand.csv  records that could not be fetched, with title,
+  to_download_by_hand.csv  records that could not be fetched, with the
+                           title/abstract decision (include first, then
+                           maybe), title,
                            DOI and DOI link, for the author to download.
                            Save each file as pdf/<record_id>.pdf.
 
@@ -167,14 +169,14 @@ def kept_in_screening(path):
     proposal otherwise, so retrieval can start before every row is
     confirmed. The reviewer's decision always wins where it exists.
     """
-    want = []
+    want = {}
     with path.open(encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
             d = (row.get("et_decision") or "").strip().lower()
             if not d:
                 d = (row.get("claude_suggestion") or "").strip().lower()
             if d in KEEP:
-                want.append(row["record_id"])
+                want[row["record_id"]] = d
     return want
 
 
@@ -208,9 +210,10 @@ def main():
                  "title/abstract screening first.")
     with args.records.open(encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
-    ids = args.ids
+    ids, kept = args.ids, {}
     if not ids and args.screening.exists():
-        ids = kept_in_screening(args.screening)
+        kept = kept_in_screening(args.screening)
+        ids = list(kept)
         print(f"{len(ids)} records kept at title/abstract in {args.screening.name}")
     todo = select(rows, ids)
     if not todo:
@@ -243,7 +246,8 @@ def main():
                              note=" | ".join(notes) or "no open-access copy found")
                 doi = row.get("doi", "")
                 by_hand.append({
-                    "record_id": rid, "title": row.get("title", ""),
+                    "record_id": rid, "decision": kept.get(rid, ""),
+                    "title": row.get("title", ""),
                     "year": row.get("year", ""), "authors": row.get("authors", ""),
                     "doi": doi, "doi_link": f"https://doi.org/{doi}" if doi else "",
                     "save_as": f"pdf/{rid}.pdf",
@@ -253,9 +257,11 @@ def main():
 
     write_csv(args.out / "fetch_log.csv", log,
               ["record_id", "doi", "title", "status", "route", "url", "note"])
+    rank = {"include": 0, "maybe": 1}
+    by_hand.sort(key=lambda r: (rank.get(r["decision"], 2), r["record_id"]))
     write_csv(args.out / "to_download_by_hand.csv", by_hand,
-              ["record_id", "title", "year", "authors", "doi", "doi_link",
-               "save_as", "note"])
+              ["record_id", "decision", "title", "year", "authors", "doi",
+               "doi_link", "save_as", "note"])
     got = sum(e["status"] in ("downloaded", "already_present") for e in log)
     print(f"\n{got} of {len(log)} PDFs in {pdf_dir}")
     print(f"{len(by_hand)} to download by hand: {args.out / 'to_download_by_hand.csv'}")
