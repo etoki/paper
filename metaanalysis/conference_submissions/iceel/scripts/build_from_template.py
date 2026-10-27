@@ -46,11 +46,11 @@ ABSTRACT_BLOCKS = [
      "The parent meta-analysis (Research Square preprint, "
      "DOI 10.21203/rs.3.rs-9513298/v1) reports an "
      "Extraversion × Region moderator in Big Five – "
-     "academic-achievement research on online learning "
-     "(Asian pooled r = −0.095, k = 2, vs non-Asian r = +0.050, k = 7; "
-     "Knapp–Hartung meta-regression F(1, 7) = 12.94, p = .009), but "
-     "does not decompose the Asia bin into its country-level "
-     "constituents."),
+     "academic-achievement research on online learning but does not "
+     "decompose the Asia bin into its country-level constituents. "
+     "Re-analysed here with a Knapp–Hartung meta-regression, the "
+     "contrast is Asian pooled r = −0.095 (k = 2) vs non-Asian "
+     "r = +0.050 (k = 7), F(1, 7) = 12.94, p = .009."),
     ("Objective. ",
      "To (i) describe how the Asian primary-pool studies differ on "
      "Hofstede 6-D country scores, and (ii) explore whether the observed "
@@ -183,7 +183,7 @@ BODY = [
      "does not decompose the Asian bin into its country-level "
      "constituents — even though Japan, China, Korea, and Taiwan "
      "differ sharply on Hofstede Power Distance, UAI, MAS, and IND "
-     "scores (Hofstede Insights 2024). Re-analysed here, with β "
+     "scores (The Culture Factor Group 2026). Re-analysed here, with β "
      "converted to r by the published Peterson–Brown rule (the preprint "
      "pushed negative β a further .05 from zero) and the contrast tested "
      "with a Knapp–Hartung mixed-effects meta-regression (the preprint's "
@@ -215,8 +215,11 @@ BODY = [
      "dimensions (Hofstede 2001), extended to six with Indulgence "
      "(Hofstede, Hofstede, & Minkov 2010) — Power Distance (PDI), Individualism "
      "(IDV), Masculinity (MAS), Uncertainty Avoidance (UAI), Long-Term "
-     "Orientation (LTO), Indulgence (IND); latest scores from Hofstede "
-     "Insights (2024). Critiques of the framework for ecological-fallacy "
+     "Orientation (LTO), Indulgence (IND); country scores are taken from "
+     "the current country comparison tool of The Culture Factor Group "
+     "(2026; formerly Hofstede Insights), whose Individualism and "
+     "Long-Term Orientation scores were revised in 2023. Critiques of the "
+     "framework for ecological-fallacy "
      "risk and for the 1970s IBM-sample provenance (McSweeney, 2002) are "
      "acknowledged, although the uncertainty-avoidance dimension has been "
      "replicated in nationally representative European samples (Minkov "
@@ -244,7 +247,7 @@ BODY = [
      "Together these undermine the 'Asia' moderator level as a "
      "substitute for country-specific analysis."),
     ("Para",
-     "Japan's profile (PDI = 54, IDV = 46, MAS = 95, UAI = 92) implies, "
+     "Japan's profile (PDI = 54, IDV = 62, MAS = 95, UAI = 92) implies, "
      "at the country level, the reference directions listed in Section "
      "4.4 (Table 4). These are not predictions for individual learners: "
      "Hofstede & McCrae (2004) correlate national culture scores with "
@@ -306,16 +309,19 @@ BODY = [
     ("Head2", "3.2 Hofstede cultural-dimensions table"),
     ("PostHeadPara",
      "Country-level Hofstede 6-D scores are encoded inline in the "
-     "analysis script using the canonical Hofstede Insights values. For "
-     "the Asian primary-pool countries:"),
+     "analysis script using the scores published by The Culture Factor "
+     "Group (2026; formerly Hofstede Insights), retrieved 27 October "
+     "2026, which include the 2023 revision of the Individualism and "
+     "Long-Term Orientation scores. For the Asian primary-pool "
+     "countries:"),
     ("Para",
-     "Japan: PDI = 54, IDV = 46, MAS = 95, UAI = 92, LTO = 88, IND = 42. "
-     "China: PDI = 80, IDV = 20, MAS = 66, UAI = 30, LTO = 87, IND = 24."),
+     "Japan: PDI = 54, IDV = 62, MAS = 95, UAI = 92, LTO = 100, IND = 42. "
+     "China: PDI = 80, IDV = 43, MAS = 66, UAI = 30, LTO = 77, IND = 24."),
     ("Para",
-     "These two countries differ most sharply on Individualism (Japan "
-     "+26), Power Distance (China +26), Masculinity (Japan +29), "
-     "Uncertainty Avoidance (Japan +62), and Indulgence (Japan +18), "
-     "with similar Long-Term Orientation."),
+     "These two countries differ most sharply on Uncertainty Avoidance "
+     "(Japan +62), Masculinity (Japan +29), Power Distance (China +26), "
+     "Long-Term Orientation (Japan +23), Individualism (Japan +19), and "
+     "Indulgence (Japan +18)."),
 
     ("Head2", "3.3 Statistical model"),
     ("PostHeadPara",
@@ -369,16 +375,16 @@ BODY = [
     ("Para",
      "(Selected rows; full table in "
      "results/hofstede_meta_regression.csv. With k = 2, all six "
-     "dimensions re-express the same single Japan – China contrast. "
-     "PDI and IDV slopes are mirror images because the two countries "
-     "differ by 26 points on each, in opposite directions; LTO slopes "
-     "are the largest in magnitude only because the two LTO scores "
-     "differ by a single point (88 vs 87), and they carry no "
-     "information.)"),
+     "dimensions re-express the same single Japan – China contrast: "
+     "each slope is the Japan – China difference in Fisher z divided by "
+     "the difference in country scores, so the slopes differ across "
+     "dimensions only through the size and sign of that score "
+     "difference (Japan minus China: PDI −26, IDV +19, MAS +29, "
+     "UAI +62, LTO +23, IND +18).)"),
     ("Para",
-     "The Extraversion slope on Individualism is negative (−0.0039): "
-     "Japan, the more individualistic of the two countries (IDV 46 vs "
-     "20), shows the more negative Extraversion – achievement "
+     "The Extraversion slope on Individualism is negative (−0.0053): "
+     "Japan, the more individualistic of the two countries (IDV 62 vs "
+     "43), shows the more negative Extraversion – achievement "
      "correlation (−0.173 vs −0.074). This runs against the "
      "expectation that Extraversion is more of an asset in "
      "individualistic contexts. With df_resid = 0 these slopes carry no "
@@ -466,8 +472,9 @@ BODY = [
      "β-converted vs direct r). Read this way, the Extraversion slope "
      "on Individualism runs against the theoretical expectation: the "
      "more individualistic country shows the more negative Extraversion "
-     "correlation. The LTO slopes cannot be interpreted at all, because "
-     "the two countries' LTO scores differ by only one point."),
+     "correlation. The other dimensions add nothing: with two "
+     "countries, every slope re-expresses the same contrast through a "
+     "different score difference."),
 
     ("Head2", "5.3 The Japan instrument problem"),
     ("PostHeadPara",
@@ -525,7 +532,8 @@ BODY = [
      "reference directions. Western-derived Big Five may not capture "
      "culture-specific personality structure in Japan (Cheung et al., "
      "2003). Single-author, single-coder; country-to-Hofstede-dimension "
-     "assignment uses the canonical Hofstede Insights (2024) table "
+     "assignment uses the published country comparison table of The "
+     "Culture Factor Group (2026) "
      "rather than hand-coding."),
 
     ("Head1", "7 CONCLUSION"),
@@ -566,19 +574,19 @@ TABLE1_ROWS = [
 TABLE2_HEADER = ["Trait", "Dimension", "slope (Fisher z per unit)", "note"]
 TABLE2_ROWS = [
     ["O", "PDI", "+0.0165", "descriptive"],
-    ["O", "IDV", "−0.0165", "descriptive"],
-    ["O", "LTO", "−0.4303", "descriptive"],
+    ["O", "IDV", "−0.0226", "descriptive"],
+    ["O", "LTO", "−0.0187", "descriptive"],
     ["C", "PDI", "−0.0015", "descriptive"],
-    ["C", "IDV", "+0.0015", "descriptive"],
-    ["C", "LTO", "+0.0387", "descriptive"],
+    ["C", "IDV", "+0.0020", "descriptive"],
+    ["C", "LTO", "+0.0017", "descriptive"],
     ["E", "PDI", "+0.0039", "descriptive"],
-    ["E", "IDV", "−0.0039", "descriptive"],
-    ["E", "LTO", "−0.1001", "descriptive"],
+    ["E", "IDV", "−0.0053", "descriptive"],
+    ["E", "LTO", "−0.0044", "descriptive"],
     ["A", "PDI", "+0.0157", "descriptive"],
-    ["A", "LTO", "−0.4085", "descriptive"],
+    ["A", "LTO", "−0.0178", "descriptive"],
     ["N", "PDI", "−0.0008", "descriptive"],
-    ["N", "IDV", "+0.0008", "descriptive"],
-    ["N", "LTO", "+0.0209", "descriptive"],
+    ["N", "IDV", "+0.0011", "descriptive"],
+    ["N", "LTO", "+0.0009", "descriptive"],
 ]
 
 TABLE3_HEADER = ["Field", "A-25 Tokiwa (2025)", "A-31 Rivers (2021)"]
@@ -671,8 +679,9 @@ REFERENCES = [
     "Hofstede, G., Hofstede, G. J., and Minkov, M. 2010. Cultures and "
     "Organizations: Software of the Mind (3rd. ed.). McGraw-Hill, "
     "New York, NY.",
-    "Hofstede Insights. 2024. Country comparison tool. Retrieved 2024 "
-    "from https://www.hofstede-insights.com/.",
+    "The Culture Factor Group. 2026. Country comparison tool. Retrieved "
+    "October 27, 2026 from "
+    "https://www.theculturefactor.com/country-comparison-tool.",
     "Allik, J. and McCrae, R. R. 2004. Toward a geography of "
     "personality traits: Patterns of profiles across 36 cultures. "
     "Journal of Cross-Cultural Psychology 35, 1 (2004), 13–28. "

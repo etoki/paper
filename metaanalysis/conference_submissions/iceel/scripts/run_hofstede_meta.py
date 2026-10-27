@@ -17,8 +17,8 @@ Outputs (to metaanalysis/conference_submissions/iceel/results/):
     japan_synthesis.md             narrative table of the two Japan studies
     summary.md                     human-readable summary
 
-Hofstede scores are encoded inline (Hofstede Insights canonical 6-D model
-as of 2024). When a country lacks a published score the regression skips
+Hofstede scores are encoded inline (The Culture Factor, formerly Hofstede
+Insights, country comparison tool as retrieved on 2026-10-27). When a country lacks a published score the regression skips
 the dimension for that observation.
 """
 from __future__ import annotations
@@ -40,27 +40,31 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 TRAITS = ("O", "C", "E", "A", "N")
 
-# Hofstede 6-D scores per country (Hofstede Insights, accessed 2024)
-# PDI = Power Distance Index, IDV = Individualism, MAS = Masculinity,
+# Hofstede 6-D scores per country (The Culture Factor, formerly Hofstede
+# Insights, country comparison tool, retrieved 2026-10-27; the site's IDV
+# and LTO scores were revised on 2023-10-16 following Minkov & Kaasa 2022)
+# PDI = Power Distance Index, IDV = Individualism, MAS = Masculinity
+# (now labelled "Motivation towards Achievement and Success"),
 # UAI = Uncertainty Avoidance, LTO = Long-Term Orientation, IND = Indulgence
 HOFSTEDE = {
-    "Japan":  {"PDI": 54, "IDV": 46, "MAS": 95, "UAI": 92, "LTO": 88, "IND": 42},
-    "China":  {"PDI": 80, "IDV": 20, "MAS": 66, "UAI": 30, "LTO": 87, "IND": 24},
-    "Taiwan": {"PDI": 58, "IDV": 17, "MAS": 45, "UAI": 69, "LTO": 93, "IND": 49},
-    "Korea":  {"PDI": 60, "IDV": 18, "MAS": 39, "UAI": 85, "LTO": 100, "IND": 29},
+    "Japan":  {"PDI": 54, "IDV": 62, "MAS": 95, "UAI": 92, "LTO": 100, "IND": 42},
+    "China":  {"PDI": 80, "IDV": 43, "MAS": 66, "UAI": 30, "LTO": 77, "IND": 24},
+    "Taiwan": {"PDI": 58, "IDV": 40, "MAS": 45, "UAI": 69, "LTO": 87, "IND": 49},
+    "Korea":  {"PDI": 60, "IDV": 58, "MAS": 39, "UAI": 85, "LTO": 86, "IND": 29},
     # Non-Asian countries included for context-aware narrative; not used in regression
-    "US":     {"PDI": 40, "IDV": 91, "MAS": 62, "UAI": 46, "LTO": 26, "IND": 68},
-    "UK":     {"PDI": 35, "IDV": 89, "MAS": 66, "UAI": 35, "LTO": 51, "IND": 69},
-    "Germany":{"PDI": 35, "IDV": 67, "MAS": 66, "UAI": 65, "LTO": 83, "IND": 40},
-    "Turkey": {"PDI": 66, "IDV": 37, "MAS": 45, "UAI": 85, "LTO": 46, "IND": 49},
-    "Canada": {"PDI": 39, "IDV": 80, "MAS": 52, "UAI": 48, "LTO": 36, "IND": 68},
-    "Israel": {"PDI": 13, "IDV": 54, "MAS": 47, "UAI": 81, "LTO": 38, "IND": None},
-    "Iran":   {"PDI": 58, "IDV": 41, "MAS": 43, "UAI": 59, "LTO": 14, "IND": 40},
-    "Tunisia":{"PDI": 70, "IDV": 40, "MAS": 40, "UAI": 75, "LTO": None, "IND": None},
-    "Greece": {"PDI": 60, "IDV": 35, "MAS": 57, "UAI": 100,"LTO": 45, "IND": 50},
-    "India":  {"PDI": 77, "IDV": 48, "MAS": 56, "UAI": 40, "LTO": 51, "IND": 26},
-    "Pakistan":{"PDI": 55,"IDV": 14, "MAS": 50, "UAI": 70, "LTO": 50, "IND": 0},
-    "Thailand":{"PDI": 64,"IDV": 20, "MAS": 34, "UAI": 64, "LTO": 32, "IND": 45},
+    "US":     {"PDI": 40, "IDV": 60, "MAS": 62, "UAI": 46, "LTO": 50, "IND": 68},
+    "UK":     {"PDI": 35, "IDV": 76, "MAS": 66, "UAI": 35, "LTO": 60, "IND": 69},
+    "Germany":{"PDI": 35, "IDV": 79, "MAS": 66, "UAI": 65, "LTO": 57, "IND": 40},
+    "Turkey": {"PDI": 66, "IDV": 46, "MAS": 45, "UAI": 85, "LTO": 35, "IND": 49},
+    "Canada": {"PDI": 39, "IDV": 72, "MAS": 52, "UAI": 48, "LTO": 54, "IND": 68},
+    "Israel": {"PDI": 13, "IDV": 56, "MAS": 47, "UAI": 81, "LTO": 47, "IND": None},
+    "Iran":   {"PDI": 58, "IDV": 23, "MAS": 43, "UAI": 59, "LTO": 30, "IND": 40},
+    "Tunisia":{"PDI": 78, "IDV": 27, "MAS": 47, "UAI": 74, "LTO": 24, "IND": 41},
+    "Greece": {"PDI": 60, "IDV": 59, "MAS": 57, "UAI": 100,"LTO": 51, "IND": 50},
+    "India":  {"PDI": 77, "IDV": 24, "MAS": 56, "UAI": 40, "LTO": 51, "IND": 26},
+    "Pakistan":{"PDI": 55,"IDV": 5,  "MAS": 50, "UAI": 70, "LTO": 19, "IND": 0},
+    "Thailand":{"PDI": 64,"IDV": 19, "MAS": 34, "UAI": 64, "LTO": 67, "IND": 45},
+    "Spain":  {"PDI": 57, "IDV": 67, "MAS": 42, "UAI": 86, "LTO": 47, "IND": 44},
 }
 
 DIMENSIONS = ("PDI", "IDV", "MAS", "UAI", "LTO", "IND")
