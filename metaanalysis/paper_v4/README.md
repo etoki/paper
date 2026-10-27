@@ -6,9 +6,12 @@ Heliyon で不採択になった v3（`paper_v3_scoping/`）を出発点に、�
 
 ```
 python metaanalysis/paper_v4/build_docx_v4.py
+python metaanalysis/paper_v4/build_prisma_scr_checklist_v4.py
 ```
 
-出力: `manuscript_journal_v4.docx`、`manuscript_preprint_v4.docx`、`split/`（タイトル・本文・表・図の分割版）。
+出力: `manuscript_journal_v4.docx`、`manuscript_preprint_v4.docx`、`split/`（タイトル・本文・表・図の分割版）、`prisma_scr_checklist_v4.docx`（PRISMA-ScR チェックリスト。投稿時の補足資料）と `prisma_scr_checklist_v4_anon.docx`（リポジトリと登録のリンクを伏せた二重匿名査読用）。
+
+パスはすべてスクリプトの位置からの相対で解決するので、ローカルでもクラウドでも同じコマンドで動きます（2026-10-27 に `analysis/` と `build_docx_v4.py` の絶対パスを直した。ローカルで再ビルドした本文は、コミット済みの docx と本文・表とも一致することを確認済み）。
 
 ## 数字の出どころ
 
@@ -26,6 +29,9 @@ python metaanalysis/paper_v4/build_docx_v4.py
 
 ## 投稿前に必要なこと
 
-- 追加した参考文献 5 本の DOI をブラウザで確認する（作業環境から doi.org に接続できなかった）
 - 生成 AI 利用の申告文（Declarations）と、Methods の「選別に LLM の支援を受けた」という記述が実際と合っているか確認する
-- PRISMA-ScR チェックリスト（v3 の `build_prisma_scr_checklist.py`）を v4 の節構成に合わせて作り直す
+
+## 確認済み（2026-10-27）
+
+- 追加した参考文献 5 本の DOI: 4 本は doi.org で解決し、巻・号・頁も本文と一致。Holm (1979) は DOI が存在しない論文なので DOI なしで正しい
+- PRISMA-ScR チェックリストを v4 の節構成で作り直した（`build_prisma_scr_checklist_v4.py`）。「Location reported」欄は本文の見出し名で示し、引用した見出しがすべて本文に存在することをスクリプトで照合済み。件数と誠実性の推定値は `values.py` から入れている
