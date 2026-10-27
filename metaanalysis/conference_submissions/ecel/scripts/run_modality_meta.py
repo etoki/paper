@@ -1,6 +1,11 @@
 """ECEL 2026 — Modality-stratified meta-regression and modality x trait
 interaction model.
 
+NOTE: kept unchanged because it reproduces the published EL-095 numbers.
+Its Q_between test, interaction model and tau^2 estimator are incorrect;
+see ecel/erratum/recompute_moderator_tests.py for the corrected analysis.
+Do not reuse this script for new work.
+
 Imports the proven pooling primitives from
 `metaanalysis/analysis/pool.py` (REML + HKSJ + Fisher z) so the per-trait
 pooled estimates reproduce the parent preprint exactly.

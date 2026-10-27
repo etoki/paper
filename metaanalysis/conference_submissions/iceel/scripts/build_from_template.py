@@ -15,6 +15,7 @@ metaanalysis/conference_submissions/iceel/results/ .
 """
 from __future__ import annotations
 
+import re
 from copy import deepcopy
 from pathlib import Path
 
@@ -43,12 +44,13 @@ AFFILIATION = (
 ABSTRACT_BLOCKS = [
     ("Background. ",
      "The parent meta-analysis (Research Square preprint, "
-     "DOI 10.21203/rs.3.rs-9513298/v1) reports a highly significant "
+     "DOI 10.21203/rs.3.rs-9513298/v1) reports an "
      "Extraversion × Region moderator in Big Five – "
      "academic-achievement research on online learning "
-     "(Q_between = 46.43, p < .001; Asian pooled r = −0.131 vs "
-     "non-Asian r = +0.050), but does not decompose the Asia bin into its "
-     "country-level constituents."),
+     "(Asian pooled r = −0.131, k = 2, vs non-Asian r = +0.050, k = 7; "
+     "Knapp–Hartung meta-regression F(1, 7) = 29.52, p < .001), but "
+     "does not decompose the Asia bin into its country-level "
+     "constituents."),
     ("Objective. ",
      "To (i) attach Hofstede 6-D country scores to the Asian primary-pool "
      "studies, and (ii) test whether observed Big Five – outcome "
@@ -58,8 +60,8 @@ ABSTRACT_BLOCKS = [
      "The Asian primary pool comprises k = 2 studies with extractable "
      "Pearson r (Yu 2021, China; Rivers 2021, Japan); a third Japan-based "
      "study (Tokiwa 2025, K-12) contributes descriptive Spearman "
-     "ρ. Random-effects pools (REML + HKSJ) replicate the parent "
-     "preprint. Because residual df = 0, single-dimension weighted-OLS "
+     "ρ. Random-effects pools use REML + HKSJ. Because residual "
+     "df = 0, single-dimension weighted-OLS "
      "Hofstede meta-regressions yield descriptive slopes only. Direction "
      "predictions for Japan, derived from Hofstede & McCrae (2004), are "
      "cross-referenced against observed r in both Japan studies."),
@@ -75,7 +77,7 @@ ABSTRACT_BLOCKS = [
      "that online-learning behaviour-level engagement may decouple from "
      "population trait-level A in collectivist contexts."),
     ("Conclusion. ",
-     "Country-level Hofstede context materially reshapes the Big Five "
+     "Country-level Hofstede context may reshape the Big Five "
      "– achievement pattern in ways the binary Asia/non-Asia "
      "contrast obscures. With k = 2, the contribution is methodological "
      "rather than confirmatory: it flags within-Asia heterogeneity and "
@@ -160,13 +162,18 @@ BODY = [
      "2025) but is increasingly recognised as culturally conditional, "
      "with Mammadov flagging Asian samples as showing amplified "
      "Conscientiousness and sometimes inverted Extraversion. The parent "
-     "preprint (Tokiwa, 2026, DOI 10.21203/rs.3.rs-9513298/v1) confirms "
+     "preprint (Tokiwa, 2026, DOI 10.21203/rs.3.rs-9513298/v1) reports "
      "a binary Asia / non-Asia contrast with Extraversion × Region "
-     "the headline (Q_between = 46.43, p < .001; Asian r = −0.131 "
-     "vs non-Asian r = +0.050) but does not decompose the Asian bin "
-     "into its country-level constituents — even though Japan, "
-     "China, Korea, and Taiwan differ sharply on Hofstede Power "
-     "Distance, UAI, MAS, and IND scores (Hofstede Insights 2024)."),
+     "the headline (Asian r = −0.131 vs non-Asian r = +0.050) but "
+     "does not decompose the Asian bin into its country-level "
+     "constituents — even though Japan, China, Korea, and Taiwan "
+     "differ sharply on Hofstede Power Distance, UAI, MAS, and IND "
+     "scores (Hofstede Insights 2024). Re-tested here with a "
+     "Knapp–Hartung mixed-effects meta-regression, the contrast gives "
+     "F(1, 7) = 29.52, p < .001; the preprint's Q_between = 46.43 "
+     "applied a large-sample χ² test to small-sample HKSJ standard "
+     "errors and overstates the evidence. Either way, the contrast rests "
+     "on only two Asian studies."),
     ("Para",
      "This paper asks: once you decompose the Asia bin, do Hofstede "
      "cultural dimensions predict the direction of Big Five – "
@@ -281,7 +288,8 @@ BODY = [
     ("Head2", "3.3 Statistical model"),
     ("PostHeadPara",
      "Per trait, REML + HKSJ pooled r is computed on the k = 2 Asian "
-     "primary-pool studies (back-transformed 95 % CI reported). For "
+     "primary-pool studies (back-transformed 95 % CI reported), with "
+     "τ² estimated by maximising the restricted likelihood. For "
      "each (trait, dimension) pair, a 2-parameter weighted-OLS Hofstede "
      "meta-regression is fit (weights = 1 / (v + τ²), "
      "τ² from REML). Because k = 2, residual df = 0; slopes "
@@ -310,8 +318,9 @@ BODY = [
     ("Para",
      "C, E, and N pools have I² = 0 (the two studies agree closely "
      "in z-space); O and A pools have I² = 96 % driven by sharply "
-     "different point estimates. These numbers replicate the preprint "
-     "Region: Asia row exactly."),
+     "different point estimates. C, E, and N match the preprint's "
+     "Region: Asia row; O and A differ from it by 0.006 because τ² "
+     "is estimated here by exact REML."),
 
     ("Head2", "4.2 Hofstede single-dimension meta-regression"),
     ("PostHeadPara",
@@ -321,17 +330,21 @@ BODY = [
     ("_TABLE2", None),
     ("Para",
      "(Selected rows; full table in "
-     "results/hofstede_meta_regression.csv. PDI vs IDV slopes are "
-     "mirror images because Japan and China differ on these in "
-     "opposite directions; LTO is exception-near-zero because the two "
-     "countries' LTO scores happen to be very close.)"),
+     "results/hofstede_meta_regression.csv. With k = 2, all six "
+     "dimensions re-express the same single Japan – China contrast. "
+     "PDI and IDV slopes are mirror images because the two countries "
+     "differ by 26 points on each, in opposite directions; LTO slopes "
+     "are the largest in magnitude only because the two LTO scores "
+     "differ by a single point (88 vs 87), and they carry no "
+     "information.)"),
     ("Para",
-     "The pattern that does emerge is consistent with the directional "
-     "theoretical expectation: higher Individualism (lower Collectivism) "
-     "is associated with more positive Extraversion – achievement "
-     "correlations, since Extraversion-as-asset is tied to individualistic "
-     "affordances. But with df_resid = 0 these slopes carry no "
-     "inferential weight; they are visualisations of the two-country "
+     "The Extraversion slope on Individualism is negative (−0.0018): "
+     "Japan, the more individualistic of the two countries (IDV 46 vs "
+     "20), shows the more negative Extraversion – achievement "
+     "correlation (−0.173 vs −0.126). This runs against the "
+     "expectation that Extraversion is more of an asset in "
+     "individualistic contexts. With df_resid = 0 these slopes carry no "
+     "inferential weight; they are re-expressions of the two-country "
      "contrast, not statistical tests."),
 
     ("Head2", "4.3 Japan synthesis"),
@@ -390,21 +403,22 @@ BODY = [
      "'Extraversion is more negative in our two Asian sample-points "
      "than in our seven non-Asian sample-points', and the fact that "
      "the two Asian points happen to be from different countries "
-     "(China, Japan) is a confound that no current corpus can resolve."),
+     "(China, Japan) is a confound that no current corpus can resolve. "
+     "Both Asian studies are also asynchronous and both use objective "
+     "achievement outcomes, so with the present corpus a region effect "
+     "cannot be separated from a modality or outcome-type effect."),
 
-    ("Head2", "5.2 Hofstede slopes as direction-finders"),
+    ("Head2", "5.2 What the Hofstede slopes can and cannot show"),
     ("PostHeadPara",
-     "Even at k = 2, the slope signs in Table 2 are interpretable as "
-     "directional indicators rather than tests. The Extraversion slope "
-     "on Individualism is small but consistent with theoretical "
-     "prediction (+ slope = more positive Extraversion in more "
-     "individualistic contexts; the two Asian countries differ by "
-     "IDV = 26 points). The Conscientiousness slope on Long-Term "
-     "Orientation is small and positive (+0.0376), which is consistent "
-     "with cultural amplification of self-regulation in "
-     "long-term-oriented societies — but at k = 2 this could "
-     "reflect any number of alternative explanations (instrument "
-     "differences, education-level differences, era differences)."),
+     "With k = 2, the slopes in Table 2 can only be read as the "
+     "direction of a single Japan – China contrast, and that contrast "
+     "is confounded with everything else that differs between the two "
+     "studies (instrument, education level, outcome measure, "
+     "β-converted vs direct r). Read this way, the Extraversion slope "
+     "on Individualism runs against the theoretical expectation: the "
+     "more individualistic country shows the more negative Extraversion "
+     "correlation. The LTO slopes cannot be interpreted at all, because "
+     "the two countries' LTO scores differ by only one point."),
 
     ("Head2", "5.3 The Japan instrument problem"),
     ("PostHeadPara",
@@ -428,7 +442,7 @@ BODY = [
      "(1986) characterisation of strong-UAI societies as ones in which "
      "students are rewarded for structured, accuracy-focused study "
      "— behaviours plausibly fuelled by trait-level anxiety. The "
-     "Agreeableness mismatch (predicted − by HM04 UAI .45; "
+     "Agreeableness mismatch (predicted − by HM04 UAI −.45; "
      "observed + in both Japan studies) is informative rather than "
      "refuting: population trait scores need not predict "
      "individual-level personality–outcome correlations within a "
@@ -447,6 +461,10 @@ BODY = [
      "The dominant limitation is k. With k = 2 Asian primary-pool "
      "studies, the Hofstede meta-regression has zero residual degrees "
      "of freedom; slopes and direction-matches are descriptive only. "
+     "Hofstede & McCrae (2004) correlations describe country-level "
+     "trait means, not within-country trait – achievement "
+     "correlations; using them to predict the direction of the latter "
+     "(Table 4) is an assumption rather than an established link. "
      "The Hofstede framework itself is critiqued (Minkov & Hofstede, "
      "2014; McSweeney, 2002) for ecological-fallacy risk and IBM-sample "
      "provenance; Minkov-revised dimensions might yield different "
@@ -484,10 +502,10 @@ BODY = [
 
 TABLE1_HEADER = ["Trait", "k", "N (pooled)", "r [95 % CI]", "I²"]
 TABLE1_ROWS = [
-    ["O", "2", "1301", "0.164 [−0.989, 0.994]", "96.0 %"],
+    ["O", "2", "1301", "0.158 [−0.989, 0.994]", "96.0 %"],
     ["C", "2", "1301", "0.111 [−0.039, 0.257]", "0.0 %"],
     ["E", "2", "1301", "−0.131 [−0.314, 0.061]", "0.0 %"],
-    ["A", "2", "1301", "0.330 [−0.981, 0.995]", "95.6 %"],
+    ["A", "2", "1301", "0.324 [−0.981, 0.995]", "95.6 %"],
     ["N", "2", "1301", "0.089 [0.008, 0.169]", "0.0 %"],
 ]
 
@@ -683,6 +701,10 @@ def build():
         elif style in TABLE_MAP:
             hdr, rows, caption = TABLE_MAP[style]
             add_table(doc, hdr, rows, caption=caption)
+        elif style in ("Head1", "Head2", "Head3"):
+            # The template's heading styles number themselves, so drop the
+            # manual "4.2 " prefix to avoid "4.2 4.2 ..." in the output.
+            add_para(doc, style, re.sub(r"^\d+(\.\d+)*\s+", "", text))
         else:
             add_para(doc, style, text)
 

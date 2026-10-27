@@ -13,15 +13,15 @@
 
 ## Abstract
 
-**Background.** The parent meta-analysis (Research Square preprint, DOI 10.21203/rs.3.rs-9513298/v1) reports a highly significant Extraversion × Region moderator in Big Five – academic-achievement research on online learning (Q_between = 46.43, p < .001; Asian pooled r = −0.131 vs non-Asian r = +0.050), but does not decompose the Asia bin into its country-level constituents.
+**Background.** The parent meta-analysis (Research Square preprint, DOI 10.21203/rs.3.rs-9513298/v1) reports an Extraversion × Region moderator in Big Five – academic-achievement research on online learning (Asian pooled r = −0.131, k = 2, vs non-Asian r = +0.050, k = 7; Knapp–Hartung meta-regression F(1, 7) = 29.52, p < .001), but does not decompose the Asia bin into its country-level constituents.
 
 **Objective.** To (i) attach Hofstede 6-D country scores to the Asian primary-pool studies, and (ii) test whether observed Big Five – outcome directions in Japan-based studies match Hofstede & McCrae (2004) trait-dimension predictions.
 
-**Methods.** The Asian primary pool comprises k = 2 studies with extractable Pearson r (Yu 2021, China; Rivers 2021, Japan); a third Japan-based study (Tokiwa 2025, K-12) contributes descriptive Spearman ρ. Random-effects pools (REML + HKSJ) replicate the parent preprint. Because residual df = 0, single-dimension weighted-OLS Hofstede meta-regressions yield descriptive slopes only. Direction predictions for Japan, derived from Hofstede & McCrae (2004), are cross-referenced against observed r in both Japan studies.
+**Methods.** The Asian primary pool comprises k = 2 studies with extractable Pearson r (Yu 2021, China; Rivers 2021, Japan); a third Japan-based study (Tokiwa 2025, K-12) contributes descriptive Spearman ρ. Random-effects pools use REML + HKSJ. Because residual df = 0, single-dimension weighted-OLS Hofstede meta-regressions yield descriptive slopes only. Direction predictions for Japan, derived from Hofstede & McCrae (2004), are cross-referenced against observed r in both Japan studies.
 
 **Results.** The direction-match analysis yields **3 of 5 trait matches** (Conscientiousness+, Extraversion−, Neuroticism+; Agreeableness and Openness mismatch). The diagnostic finding is **Neuroticism+**: observed in both Japan studies, doubly predicted by Japan's very high Uncertainty Avoidance (UAI = 92) and Masculinity (MAS = 95), and opposite to the consistent N− pattern reported in Western Big Five meta-analyses (Poropat 2009; Mammadov 2022). The Agreeableness mismatch (predicted −, observed +) suggests that online-learning *behaviour-level* engagement may decouple from population trait-level A in collectivist contexts.
 
-**Conclusion.** Country-level Hofstede context materially reshapes the Big Five – achievement pattern in ways the binary Asia/non-Asia contrast obscures. With k = 2, the contribution is methodological rather than confirmatory: it flags within-Asia heterogeneity and instrument confounds (60-item BFI-2-J vs 10-item TIPI-J) as prerequisites for future Japan-specific syntheses.
+**Conclusion.** Country-level Hofstede context may reshape the Big Five – achievement pattern in ways the binary Asia/non-Asia contrast obscures. With k = 2, the contribution is methodological rather than confirmatory: it flags within-Asia heterogeneity and instrument confounds (60-item BFI-2-J vs 10-item TIPI-J) as prerequisites for future Japan-specific syntheses.
 
 **Keywords**: meta-analysis; Big Five personality traits; online learning; Hofstede cultural dimensions; Japan; cross-cultural psychology.
 
@@ -29,7 +29,7 @@
 
 ## 1. Introduction
 
-The Big Five – academic-achievement link is robust at the trait level (Poropat 2009; Mammadov 2022; Chen, Cheung, & Zeng 2025) but is increasingly recognised as culturally conditional, with Mammadov flagging Asian samples as showing amplified Conscientiousness and sometimes inverted Extraversion. The parent preprint (Tokiwa, 2026, DOI 10.21203/rs.3.rs-9513298/v1) confirms a binary Asia / non-Asia contrast with Extraversion × Region the headline (Q_between = 46.43, p < .001; Asian r = −0.131 vs non-Asian r = +0.050) but does not decompose the Asian bin into its country-level constituents — even though Japan, China, Korea, and Taiwan differ sharply on Hofstede Power Distance, UAI, MAS, and IND scores (Hofstede Insights 2024).
+The Big Five – academic-achievement link is robust at the trait level (Poropat 2009; Mammadov 2022; Chen, Cheung, & Zeng 2025) but is increasingly recognised as culturally conditional, with Mammadov flagging Asian samples as showing amplified Conscientiousness and sometimes inverted Extraversion. The parent preprint (Tokiwa, 2026, DOI 10.21203/rs.3.rs-9513298/v1) reports a binary Asia / non-Asia contrast with Extraversion × Region the headline (Asian r = −0.131 vs non-Asian r = +0.050) but does not decompose the Asian bin into its country-level constituents — even though Japan, China, Korea, and Taiwan differ sharply on Hofstede Power Distance, UAI, MAS, and IND scores (Hofstede Insights 2024). Re-tested here with a Knapp–Hartung mixed-effects meta-regression, the contrast gives F(1, 7) = 29.52, p < .001; the preprint's Q_between = 46.43 applied a large-sample χ² test to small-sample HKSJ standard errors and overstates the evidence. Either way, the contrast rests on only two Asian studies.
 
 This paper asks: **once you decompose the Asia bin, do Hofstede cultural dimensions predict the *direction* of Big Five – achievement correlations within Asia?** With only k = 2 Asian primary-pool studies contributing extractable r (A-28 Yu, China; A-31 Rivers, Japan), no inference is possible from the meta-regression. We therefore reframe the analysis as a Hofstede direction-prediction match against the two Japan-based studies (Tokiwa 2025 K-12, Rivers 2021 UG; Hofstede & McCrae 2004 trait-dimension correlations as the prediction source). The headline finding is a 3-of-5 trait direction-match, with the Neuroticism positive direction in *both* Japan studies opposite to the Western pattern and doubly predicted by Japan's very high UAI and MAS.
 
@@ -74,7 +74,7 @@ These two countries differ most sharply on Individualism (Japan +26), Power Dist
 
 ### 3.3. Statistical model
 
-Per trait, REML + HKSJ pooled r is computed on the k = 2 Asian primary-pool studies (back-transformed 95 % CI reported). For each (trait, dimension) pair, a 2-parameter weighted-OLS Hofstede meta-regression is fit (weights = 1 / (v + τ²), τ² from REML). Because k = 2, residual df = 0; slopes are computable but no SE / t / p estimable, so slopes are reported as **descriptive only**.
+Per trait, REML + HKSJ pooled r is computed on the k = 2 Asian primary-pool studies (back-transformed 95 % CI reported), with τ² estimated by maximising the restricted likelihood. For each (trait, dimension) pair, a 2-parameter weighted-OLS Hofstede meta-regression is fit (weights = 1 / (v + τ²), τ² from REML). Because k = 2, residual df = 0; slopes are computable but no SE / t / p estimable, so slopes are reported as **descriptive only**.
 
 #### 3.3.3. Japan synthesis
 
@@ -96,13 +96,13 @@ Table 1 reports the per-trait pooled correlations on the Asian primary-pool subs
 
 | Trait | k | N (pooled) | r [95 % CI] | I-squared |
 |-------|---|-----------|-------------|-----------|
-| O | 2 | 1301 | 0.164 [-0.989, 0.994] | 96.0 % |
+| O | 2 | 1301 | 0.158 [-0.989, 0.994] | 96.0 % |
 | C | 2 | 1301 | 0.111 [-0.039, 0.257] | 0.0 % |
 | E | 2 | 1301 | -0.131 [-0.314, 0.061] | 0.0 % |
-| A | 2 | 1301 | 0.330 [-0.981, 0.995] | 95.6 % |
+| A | 2 | 1301 | 0.324 [-0.981, 0.995] | 95.6 % |
 | N | 2 | 1301 | 0.089 [0.008, 0.169] | 0.0 % |
 
-C, E, and N pools have I² = 0 (the two studies agree closely in z-space); O and A pools have I² = 96 % driven by sharply different point estimates. These numbers replicate the preprint Region: Asia row exactly.
+C, E, and N pools have I² = 0 (the two studies agree closely in z-space); O and A pools have I² = 96 % driven by sharply different point estimates. C, E, and N match the preprint's Region: Asia row; O and A differ from it by 0.006 because τ² is estimated here by exact REML.
 
 ### 4.2. Hofstede single-dimension meta-regression
 
@@ -127,9 +127,9 @@ Table 2 reports the per-trait per-dimension slope estimates. With df_resid = 0 t
 | N | IDV | +0.0008 | descriptive |
 | N | LTO | +0.0202 | descriptive |
 
-(Selected rows; full table in `results/hofstede_meta_regression.csv`. PDI vs IDV slopes are mirror images because Japan and China differ on these in opposite directions; LTO is exception-near-zero because the two countries' LTO scores happen to be very close.)
+(Selected rows; full table in `results/hofstede_meta_regression.csv`. With k = 2, all six dimensions re-express the same single Japan – China contrast. PDI and IDV slopes are mirror images because the two countries differ by 26 points on each, in opposite directions; LTO slopes are the largest in magnitude only because the two LTO scores differ by a single point (88 vs 87), and they carry no information.)
 
-The pattern that *does* emerge is consistent with the directional theoretical expectation: higher Individualism (lower Collectivism) is associated with more *positive* Extraversion — achievement correlations, since Extraversion-as-asset is tied to individualistic affordances. But with df_resid = 0 these slopes carry no inferential weight; they are visualisations of the two-country contrast, not statistical tests.
+The Extraversion slope on Individualism is negative (−0.0018): Japan, the more individualistic of the two countries (IDV 46 vs 20), shows the more negative Extraversion – achievement correlation (−0.173 vs −0.126). This runs against the expectation that Extraversion is more of an asset in individualistic contexts. With df_resid = 0 these slopes carry no inferential weight; they are re-expressions of the two-country contrast, not statistical tests.
 
 ### 4.3. Japan synthesis
 
@@ -177,11 +177,11 @@ Table 4 cross-references HM04-derived direction predictions for Japan with obser
 
 ### 5.1. The within-Asia evidence problem
 
-The headline finding of this paper is **structural**: the binary Asia/non-Asia contrast in the parent preprint, while statistically significant for Extraversion, is supported by a *very thin* Asian primary pool (k = 2 with extractable r). This is not a critique of the preprint — its k constraints are entirely transparent — but a reminder that "Asia" as a moderator level is doing more work than k = 2 can sustain. The interpretation "Extraversion is more negative in Asia" is best read as "Extraversion is more negative in our two Asian sample-points than in our seven non-Asian sample-points", and the fact that the two Asian points happen to be from different countries (China, Japan) is a confound that no current corpus can resolve.
+The headline finding of this paper is **structural**: the binary Asia/non-Asia contrast in the parent preprint, while statistically significant for Extraversion, is supported by a *very thin* Asian primary pool (k = 2 with extractable r). This is not a critique of the preprint — its k constraints are entirely transparent — but a reminder that "Asia" as a moderator level is doing more work than k = 2 can sustain. The interpretation "Extraversion is more negative in Asia" is best read as "Extraversion is more negative in our two Asian sample-points than in our seven non-Asian sample-points", and the fact that the two Asian points happen to be from different countries (China, Japan) is a confound that no current corpus can resolve. Both Asian studies are also asynchronous and both use objective achievement outcomes, so with the present corpus a region effect cannot be separated from a modality or outcome-type effect.
 
-### 5.2. Hofstede slopes as direction-finders
+### 5.2. What the Hofstede slopes can and cannot show
 
-Even at k = 2, the slope signs in Table 2 are interpretable as *directional indicators* rather than tests. The Extraversion slope on Individualism is small but consistent with theoretical prediction (+ slope = more positive Extraversion in more individualistic contexts; the two Asian countries differ by IDV = 26 points). The Conscientiousness slope on Long-Term Orientation is small and positive (+0.0376), which is consistent with cultural amplification of self-regulation in long-term-oriented societies — but at k = 2 this could reflect any number of alternative explanations (instrument differences, education-level differences, era differences).
+With k = 2, the slopes in Table 2 can only be read as the direction of a single Japan – China contrast, and that contrast is confounded with everything else that differs between the two studies (instrument, education level, outcome measure, β-converted vs direct r). Read this way, the Extraversion slope on Individualism runs against the theoretical expectation: the more individualistic country shows the more negative Extraversion correlation. The LTO slopes cannot be interpreted at all, because the two countries' LTO scores differ by only one point.
 
 ### 5.3. The Japan instrument problem
 
@@ -189,7 +189,7 @@ The Japan synthesis's strongest contribution is the surfacing of **instrument he
 
 ### 5.4. The Hofstede direction-match in Japan
 
-The 3-of-5 match in Table 4 — particularly the **doubly-supported Neuroticism positive direction** — is the strongest cultural-context finding in this paper. The N+ direction is opposite to the Western N null/negative pattern (Poropat 2009; Mammadov 2022) and is consistent with Hofstede's (1986) characterisation of strong-UAI societies as ones in which students are rewarded for structured, accuracy-focused study — behaviours plausibly fuelled by trait-level anxiety. The Agreeableness mismatch (predicted − by HM04 UAI .45; observed + in both Japan studies) is informative rather than refuting: population trait scores need not predict individual-level personality–outcome correlations within a particular activity domain, and online-learning may afford agreeable students engagement channels that decouple from population A.
+The 3-of-5 match in Table 4 — particularly the **doubly-supported Neuroticism positive direction** — is the strongest cultural-context finding in this paper. The N+ direction is opposite to the Western N null/negative pattern (Poropat 2009; Mammadov 2022) and is consistent with Hofstede's (1986) characterisation of strong-UAI societies as ones in which students are rewarded for structured, accuracy-focused study — behaviours plausibly fuelled by trait-level anxiety. The Agreeableness mismatch (predicted − by HM04 UAI −.45; observed + in both Japan studies) is informative rather than refuting: population trait scores need not predict individual-level personality–outcome correlations within a particular activity domain, and online-learning may afford agreeable students engagement channels that decouple from population A.
 
 ### 5.5. Self-plagiarism firewall
 
@@ -199,7 +199,7 @@ The within-Asia decomposition and the Hofstede direction-match analysis (Table 4
 
 ## 6. Limitations
 
-The dominant limitation is k. With k = 2 Asian primary-pool studies, the Hofstede meta-regression has zero residual degrees of freedom; slopes and direction-matches are descriptive only. The Hofstede framework itself is critiqued (Minkov & Hofstede, 2014; McSweeney, 2002) for ecological-fallacy risk and IBM-sample provenance; Minkov-revised dimensions might yield different direction predictions. Western-derived Big Five may not capture culture-specific personality structure in Japan (Cheung et al., 2003). Single-author, single-coder; country-to-Hofstede-dimension assignment uses the canonical Hofstede Insights (2024) table rather than hand-coding.
+The dominant limitation is k. With k = 2 Asian primary-pool studies, the Hofstede meta-regression has zero residual degrees of freedom; slopes and direction-matches are descriptive only. Hofstede & McCrae (2004) correlations describe country-level trait means, not within-country trait – achievement correlations; using them to predict the direction of the latter (Table 4) is an assumption rather than an established link. The Hofstede framework itself is critiqued (Minkov & Hofstede, 2014; McSweeney, 2002) for ecological-fallacy risk and IBM-sample provenance; Minkov-revised dimensions might yield different direction predictions. Western-derived Big Five may not capture culture-specific personality structure in Japan (Cheung et al., 2003). Single-author, single-coder; country-to-Hofstede-dimension assignment uses the canonical Hofstede Insights (2024) table rather than hand-coding.
 
 ---
 
