@@ -43,8 +43,9 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from search_strategy import (DATABASES, GOOGLE_SCHOLAR_MAX,  # noqa: E402
-                             GOOGLE_SCHOLAR_QUERY, online_block)
+from search_strategy import (DATABASES, GOOGLE_SCHOLAR_ATTEMPTS,  # noqa: E402
+                             GOOGLE_SCHOLAR_MAX, GOOGLE_SCHOLAR_QUERY,
+                             GOOGLE_SCHOLAR_SETTINGS, online_block)
 
 MAILTO = "eisuke.tokiwa@sunblaze.jp"  # NCBI / OpenAlex contact address
 KEY_FILE = HERE / ".openalex_key"  # one line, the key only; git-ignored
@@ -381,6 +382,11 @@ def finalize(all_records, log):
     unique = dedup(all_records)
     write_csv(HERE / "records_dedup.csv", unique,
               ["record_id", "sources", *FIELDS[1:], *SCREEN])
+    # Public copy for git: bibliographic fields only. Abstracts are the
+    # publishers' text, so they stay in records_dedup.csv (local and OSF).
+    write_csv(HERE / "records_index.csv", unique,
+              ["record_id", "sources", "source_id", "doi", "title", "year",
+               "authors", "journal"])
     log["prisma"] = {"records_identified": len(all_records),
                      "duplicates_removed": len(all_records) - len(unique),
                      "records_screened": len(unique)}
@@ -403,6 +409,8 @@ def merge():
         "name": "Google Scholar (Publish or Perish, run by the author)",
         "query": GOOGLE_SCHOLAR_QUERY, "records_retrieved": len(recs),
         "max_records": GOOGLE_SCHOLAR_MAX,
+        "settings": GOOGLE_SCHOLAR_SETTINGS,
+        "attempts": GOOGLE_SCHOLAR_ATTEMPTS,
         "export_file": str(POP_CSV.relative_to(HERE)),
         "export_modified": date.fromtimestamp(POP_CSV.stat().st_mtime).isoformat()}
     print(f"  scholar: {len(recs)} records")

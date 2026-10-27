@@ -213,11 +213,47 @@
       "seeds_to_search_by_hand": [
         "A-19"
       ]
+    },
+    "scholar": {
+      "name": "Google Scholar (Publish or Perish, run by the author)",
+      "query": "(\"Big Five\" OR \"five factor\" OR conscientiousness OR personality) (\"online learning\" OR \"e-learning\" OR \"distance learning\" OR MOOC) (\"academic achievement\" OR \"academic performance\" OR grades OR GPA)",
+      "records_retrieved": 200,
+      "max_records": 200,
+      "settings": {
+        "field": "Keywords",
+        "max_results": 200,
+        "include_citation_records": true,
+        "include_patents": false,
+        "only_reviews": false,
+        "years": "none"
+      },
+      "attempts": [
+        {
+          "time": "2026-10-27 22:12 JST",
+          "button": "Search",
+          "records": 16,
+          "note": "stopped early; whether patents were excluded was not recorded"
+        },
+        {
+          "time": "2026-10-27 22:23 JST",
+          "button": "Search Direct",
+          "records": 40,
+          "note": "stopped early"
+        },
+        {
+          "time": "2026-10-27 22:43 JST",
+          "button": "Search Direct",
+          "records": 200,
+          "note": "complete; merged"
+        }
+      ],
+      "export_file": "scholar/pop_export.csv",
+      "export_modified": "2026-10-27"
     }
   },
   "prisma": {
-    "records_identified": 9631,
-    "duplicates_removed": 1072,
-    "records_screened": 8559
+    "records_identified": 9831,
+    "duplicates_removed": 1161,
+    "records_screened": 8670
   }
 }

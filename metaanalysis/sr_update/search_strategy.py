@@ -96,6 +96,24 @@ GOOGLE_SCHOLAR_QUERY = (
     '("academic achievement" OR "academic performance" OR grades OR GPA)'
 )
 GOOGLE_SCHOLAR_MAX = 200
+# Publish or Perish settings used (all other fields left empty; no year limit)
+GOOGLE_SCHOLAR_SETTINGS = {
+    "field": "Keywords", "max_results": 200,
+    "include_citation_records": True, "include_patents": False,
+    "only_reviews": False, "years": "none",
+}
+# Every attempt on the search date. Google Scholar stopped serving results
+# part-way through the first two; the third returned all 200 and is the one
+# merged (scholar/pop_export.csv). The first export is kept as
+# scholar/pop_export_run1_16records.csv; the second was overwritten.
+GOOGLE_SCHOLAR_ATTEMPTS = [
+    {"time": "2026-10-27 22:12 JST", "button": "Search", "records": 16,
+     "note": "stopped early; whether patents were excluded was not recorded"},
+    {"time": "2026-10-27 22:23 JST", "button": "Search Direct", "records": 40,
+     "note": "stopped early"},
+    {"time": "2026-10-27 22:43 JST", "button": "Search Direct", "records": 200,
+     "note": "complete; merged"},
+]
 
 # (date, change, reason). Amendment 1 registered on OSF on 2026-10-27
 # (approved 12:29 UTC); its changes are recorded there, not here.
