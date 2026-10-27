@@ -11,7 +11,7 @@
 | `build_correction_docx.py` | 上の Markdown から Word 版を作る |
 | `correction_EL-095.docx` | 主催者に送る正誤表（Word） |
 | `correction_EL-095_ja.md` | 正誤表の日本語参考訳（送信しない） |
-| `email_to_acpil.md` | 主催者宛てメール（英語＋日本語訳）と送信前チェック |
+| `email_to_acpil.md` | 主催者への最初の問い合わせメール（差し替え可否・添付なし）、日本語訳、返信後の手順 |
 
 再実行:
 
