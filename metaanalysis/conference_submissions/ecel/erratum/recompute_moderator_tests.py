@@ -194,7 +194,7 @@ def parent_trait_pools() -> list[dict]:
             r, n, _ = eff
             y.append(parent.fisher_z(r))
             v.append(parent.var_z(n))
-        old = parent.pool_random_effects(y, v)
+        old = parent.pool_random_effects(y, v, exact_reml=False)
         new = pool_re(y, v)
         out.append({"trait": trait, "k": len(y),
                     "published": f"{old['r_pooled']:.3f} "

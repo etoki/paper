@@ -126,7 +126,8 @@ def pool_modality_for_trait(obs: list[dict]) -> dict:
         ys = [o["_z"] for o in items]
         vs = [o["_v"] for o in items]
         labels = [f"{o.get('study_id','')} {o.get('author_year','')}" for o in items]
-        res = parent.pool_random_effects(ys, vs, labels)
+        # Legacy estimator on purpose: this script reproduces the published paper.
+        res = parent.pool_random_effects(ys, vs, labels, exact_reml=False)
         res["N_total"] = sum(o["_n"] for o in items)
         res["level"] = level
         out[level] = res

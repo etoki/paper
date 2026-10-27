@@ -108,7 +108,9 @@ def cross_tab_pools(primary):
             if k >= 2:
                 ys = [it["_z"] for it in items]
                 vs = [it["_v"] for it in items]
-                res = parent.pool_random_effects(ys, vs)
+                # Legacy tau² estimator kept so the submitted ICERI numbers
+                # reproduce; see pool.reml_tau2 for the known bias.
+                res = parent.pool_random_effects(ys, vs, exact_reml=False)
                 cell.update({
                     "N_total": sum(it["_n"] for it in items),
                     "r_pooled": res["r_pooled"],
