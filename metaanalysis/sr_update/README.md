@@ -106,7 +106,7 @@ python metaanalysis/sr_update/run_search.py           # 本番
 3. 全件を分ける。`make_batches.py` が 8,670 件を200件ずつ44束にする。並び順は、人格の語とオンラインの語の両方を含むもの、どちらかを含むもの、どちらも含まないもの。
 4. 束ごとに、同じ指示文で Claude（Opus 5）に案を出させる。見せるのは題名・要旨・年・掲載誌だけ。出力は `screening/suggestions/batch_NNN.jsonl`（record_id、suggestion、reason、note）。要旨を含まないので git に入れる。
    束001は最初に別のモデル（Opus 5.5）で走らせたため、やり直しました。捨てた分は `screening/superseded/batch_001_opus-5-5.jsonl` に残してあり、使っていません。
-5. `merge_suggestions.py` で検証する。全件に案が1つずつあるか、値と除外コードが許したものだけか、を確かめる。通ると `screening/screening_ta.csv` ができる。
+5. `merge_suggestions.py` で検証する。全件に案が1つずつあるか、値と除外コードが許したものだけか、を確かめる。通ると `screening/screening_ta.csv`（全件）と `screening/screening_ta_shortlist.csv`（案が include か maybe のものだけ）ができる。
 
 案の内訳（8,670 件）:
 
@@ -120,7 +120,8 @@ python metaanalysis/sr_update/run_search.py           # 本番
 
 既知の28本はすべて include か maybe に残りました（11本が maybe。授業形態や結果変数が要旨から読み取れないもの）。
 
-**常盤さんがやること**: `screening/screening_ta.csv` を開き、`et_decision` 欄に `include` / `maybe` / `exclude` を入れます。`claude_suggestion` がそのまま妥当なら同じ値を書けば済みます。並び順は include → maybe → exclude なので、上の842件を先に見れば、全文を読む対象が決まります。変える場合は `et_reason`（除外なら E1〜E7）と `et_note` に理由を書いてください。このファイルは要旨を含むので git に入れません。
+**常盤さんがやること**: まず `screening/screening_ta_shortlist.csv`（案が include か maybe の842件、約1MB）を開き、`et_decision` 欄に `include` / `maybe` / `exclude` を入れます。ここで全文を読む対象が決まります。除外の7,828件は `screening/screening_ta.csv`（全8,670件、約21MB）に入っています。どちらも `claude_suggestion` がそのまま妥当なら同じ値を書けば済みます。変える場合は `et_reason`（除外なら E1〜E7）と `et_note` に理由を書いてください。どちらのファイルも要旨を含むので git に入れません。
+
 **再現性の確認**: 常盤さんの判定が終わったら、1週間以上あけて10%を選び直し、一致度（κ）を出します。これは常盤さんの判定どうしの一致度で、Claude の案とは比べません。
 
 **全文の入手に進む前に**: `fetch_fulltext.py` は `records_dedup.csv` の `ta_decision` 欄を見ます。`screening_ta.csv` の `et_decision` をそこへ書き戻す必要があります（未実装）。

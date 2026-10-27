@@ -100,11 +100,16 @@ def full():
     fields = ["record_id", "claude_suggestion", "claude_reason", "claude_note",
               "et_decision", "et_reason", "et_note", "title", "year", "journal",
               "abstract", "batch"]
-    with (HERE / "screening_ta.csv").open("w", encoding="utf-8-sig", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
-        w.writeheader()
-        w.writerows(rows)
+    def write(name, these):
+        with (HERE / name).open("w", encoding="utf-8-sig", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+            w.writeheader()
+            w.writerows(these)
+    write("screening_ta.csv", rows)
+    short = [r for r in rows if r["claude_suggestion"] != "exclude"]
+    write("screening_ta_shortlist.csv", short)
     print(f"{len(rows)} records; proposals: {dict(Counter(r['claude_suggestion'] for r in rows))}")
+    print(f"screening_ta_shortlist.csv: {len(short)} records proposed include or maybe")
 
 
 if __name__ == "__main__":

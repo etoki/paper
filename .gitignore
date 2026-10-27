@@ -49,3 +49,4 @@ metaanalysis/sr_update/scholar/*.csv
 # sr_update screening: batches hold abstracts (local only)
 metaanalysis/sr_update/screening/batches/
 metaanalysis/sr_update/screening/screening_ta.csv
+metaanalysis/sr_update/screening/screening_ta_shortlist.csv
