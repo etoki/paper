@@ -12,12 +12,14 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
 import math
+from pathlib import Path as _Path
 
 from values import MINUS, V, TRAITS, TRAIT_NAMES, apa, ci
 
 
-OUTPUT_PREPRINT = "/home/user/paper/metaanalysis/paper_v4/manuscript_preprint_v4.docx"
-OUTPUT_JOURNAL = "/home/user/paper/metaanalysis/paper_v4/manuscript_journal_v4.docx"
+HERE = _Path(__file__).resolve().parent
+OUTPUT_PREPRINT = str(HERE / "manuscript_preprint_v4.docx")
+OUTPUT_JOURNAL = str(HERE / "manuscript_journal_v4.docx")
 # Legacy path kept for backwards compat during transition; will be removed
 OUTPUT = OUTPUT_PREPRINT
 
@@ -2678,7 +2680,7 @@ def main():
     build_manuscript(for_journal=True, output_path=OUTPUT_JOURNAL)
 
     # Split versions (journal version only — preprint typically submitted as combined)
-    split_dir = "/home/user/paper/metaanalysis/paper_v4/split"
+    split_dir = str(HERE / "split")
     _os.makedirs(split_dir, exist_ok=True)
     build_split_titledecl(f"{split_dir}/01_title_declarations.docx", for_journal=True)
     build_split_body(f"{split_dir}/02_body.docx")
