@@ -7,8 +7,9 @@ Sensitivity analyses. Pre-registered (OSF Registration §15e) and run here:
 (f) Leave-one-out
 (g) DerSimonian-Laird instead of REML for tau²
 Added after the pre-registration:
-(h) Exclude A-37 Zheng, whose correlations were reported only as |r| < .10
-    and were entered as r = 0
+(h) Include A-37 Zheng, which the primary analysis leaves out of the pool
+    (pool.POOL_EXCLUSIONS); its correlations, reported only as |r| < .10,
+    are entered as r = 0
 Not run: (e) HEXACO crosswalk variants — no HEXACO study is in the pool.
 
 Reads data_extraction_populated.csv, writes sensitivity_results.md.
@@ -25,12 +26,13 @@ sys.path.insert(0, str(Path(__file__).parent))
 from pool import (  # noqa: E402
     TRAITS, fisher_z, back_transform_z, var_z, reml_tau2,
     pool_random_effects, load_extractions, extract_effect_for_trait,
+    POOL_EXCLUSIONS,
 )
 
 OUT = Path("/home/user/paper/metaanalysis/analysis/sensitivity_results.md")
 
 
-def collect_effects(rows, trait, filter_fn=None):
+def collect_effects(rows, trait, filter_fn=None, exclude=POOL_EXCLUSIONS):
     """Collect (y, v, labels) for a trait, optionally filtering rows.
 
     filter_fn(row) -> bool. If returns False, study is excluded.
@@ -39,7 +41,7 @@ def collect_effects(rows, trait, filter_fn=None):
     for row in rows:
         if filter_fn is not None and not filter_fn(row):
             continue
-        ext = extract_effect_for_trait(row, trait)
+        ext = extract_effect_for_trait(row, trait, exclude=exclude)
         if ext is None:
             continue
         r, n, source = ext
@@ -120,12 +122,12 @@ def run_sensitivity(rows):
             pool_random_effects(y, v, estimator="DL") if len(y) >= 2 else None
         )
 
-    # (h) Exclude A-37 Zheng (|r| < .10 entered as r = 0)
-    results["exclude_imputed_zero"] = {}
-    fn_not_bounded = lambda r: r.get("effect_size_type") != "r_bounded"
+    # (h) Include A-37 Zheng (|r| < .10 entered as r = 0)
+    results["include_a37"] = {}
+    keep = {k: v for k, v in POOL_EXCLUSIONS.items() if k != "A-37"}
     for t in TRAITS:
-        y, v, _ = collect_effects(rows, t, filter_fn=fn_not_bounded)
-        results["exclude_imputed_zero"][t] = (
+        y, v, _ = collect_effects(rows, t, exclude=keep)
+        results["include_a37"][t] = (
             pool_random_effects(y, v) if len(y) >= 2 else None
         )
 
@@ -181,8 +183,8 @@ def write_md(results):
          "Studies with fewer than 50 participants in the analysed sample were excluded."),
         ("dl_estimator", "DerSimonian-Laird Estimator",
          "All studies; tau² estimated with the DerSimonian-Laird moment estimator instead of REML."),
-        ("exclude_imputed_zero", "Exclude A-37 Zheng (|r| < .10 entered as r = 0)",
-         "A-37 reported only that all trait-grade correlations were below .10 in absolute value; the primary analysis enters them as r = 0. Not pre-registered."),
+        ("include_a37", "Include A-37 Zheng (|r| < .10 entered as r = 0)",
+         "A-37 pooled face-to-face and online cohorts and reported only that all trait-grade correlations were below .10 in absolute value; the primary analysis leaves it out of the pool. Here it is added with r = 0. Not pre-registered."),
     ]
 
     for key, title, desc in sections:
@@ -246,7 +248,7 @@ def main():
     write_md(results)
     print("\n=== Sensitivity summary ===")
     for key in ("exclude_tokiwa", "exclude_beta_converted", "exclude_low_quality",
-                "exclude_small_n", "dl_estimator", "exclude_imputed_zero"):
+                "exclude_small_n", "dl_estimator", "include_a37"):
         print(f"\n[{key}]")
         for t in TRAITS:
             prim = results["primary"].get(t)

@@ -13,7 +13,7 @@ from docx.oxml import OxmlElement
 
 import math
 
-from values import V, TRAITS, TRAIT_NAMES, apa, ci
+from values import MINUS, V, TRAITS, TRAIT_NAMES, apa, ci
 
 
 OUTPUT_PREPRINT = "/home/user/paper/metaanalysis/paper_v4/manuscript_preprint_v4.docx"
@@ -308,7 +308,7 @@ def build_abstract(doc):
         "estimate in the two Asian studies and a higher one for self-rated "
         "outcomes, but each contrast rests on two studies per subgroup, and "
         "the contrasts overlap with each other and with asynchronous "
-        "delivery. All prediction intervals included zero. The review's "
+        f"delivery. {pi_summary()} The review's "
         "contribution is a map of the evidence and its gaps — no "
         "comprehensive database search, few K-12 or Asian samples, and "
         "almost no facet-level or modality-contrast data — rather than an "
@@ -902,9 +902,12 @@ def build_methods_part3(doc):
         "r = .98β + .05λ, where λ = 1 if β ≥ 0 and λ = 0 if β < 0, and "
         "were flagged for a sensitivity analysis that excludes them. "
         "Second, one study (A-37 Zheng & Zheng, 2023) reported only that "
-        "every trait–grade correlation was below .10 in absolute value; "
-        "these correlations were entered as r = 0, and a sensitivity "
-        "analysis excludes the study. The pre-specified conversions from "
+        "every trait–grade correlation was below .10 in absolute value, "
+        "and its graduate cohorts were taught face to face before and after "
+        "the pandemic and online only during it. It was kept in the scoping "
+        "map but left out of the quantitative pool; a sensitivity analysis "
+        "adds it with its correlations entered as r = 0. The pre-specified "
+        "conversions from "
         "Cohen's d, η², t, and F were not needed because no included study "
         "reported only those statistics."
     )
@@ -973,8 +976,8 @@ def build_methods_part4(doc):
         "below 50; (e) removing each study in turn (leave-one-out); and "
         "(f) with the DerSimonian–Laird estimator of τ² in place of REML. "
         "All six were pre-registered. A seventh analysis, not "
-        "pre-registered, (g) excluded A-37 Zheng and Zheng (2023), whose "
-        "correlations were entered as r = 0. A change of |Δr| > .05 was "
+        "pre-registered, (g) added A-37 Zheng and Zheng (2023), with its "
+        "correlations entered as r = 0. A change of |Δr| > .05 was "
         "treated as potentially influential."
     )
     add_para(doc, p4, indent_first=True)
@@ -989,7 +992,7 @@ def build_methods_part4(doc):
         "of the slope in a REML meta-regression of the effect sizes on "
         "their standard errors, and the centre was re-estimated on the "
         "trimmed set at each iteration (the procedure of metafor's "
-        "trimfill). These diagnostics have little power at k = 9–10 "
+        f"trimfill). These diagnostics have little power at k = {k_range()} "
         "(Sterne et al., 2011), so they are reported descriptively: a "
         "non-significant Egger test does not show that bias is absent, and "
         "trim-and-fill estimates are a sensitivity check, not a correction. "
@@ -1048,12 +1051,16 @@ def build_methods_part5(doc):
         "subgroup standard errors is unreliable with two to eight studies "
         "per subgroup (Viechtbauer et al., 2015). (6) Sensitivity: the "
         "HEXACO crosswalk analysis was not applicable, and an analysis "
-        "excluding the study entered as r = 0 was added. (7) Publication "
+        "that adds A-37 back was included. (7) Pool: A-37 Zheng and Zheng (2023) was "
+        "moved from the quantitative pool to the narrative map during "
+        "revision, after the pooled results were known, because most of "
+        "its cohorts were taught face to face; the sensitivity analysis "
+        "shows the estimates with it included. (8) Publication "
         "bias: Peters' test and p-curve analysis (Simonsohn et al., 2014) "
         "were not carried out; the pool contains too few statistically "
         "significant primary estimates for a meaningful p-curve. "
-        "(8) Software: the analyses were run in Python rather than in R "
-        "with metafor. (9) Framing: the review is reported as a scoping "
+        "(9) Software: the analyses were run in Python rather than in R "
+        "with metafor. (10) Framing: the review is reported as a scoping "
         "review under PRISMA-ScR rather than as a systematic review and "
         "meta-analysis under PRISMA 2020. In addition, a benchmark "
         "meta-analysis published after registration (Chen et al., 2025) "
@@ -1061,7 +1068,6 @@ def build_methods_part5(doc):
     )
     add_para(doc, p2, indent_first=True)
 
-    d = V["sens.exclude_low_quality.C.d"]
     p3 = (
         "The six moderators that could not be tested quantitatively are "
         "described here for orientation only. (a) Personality instrument: "
@@ -1080,9 +1086,12 @@ def build_methods_part5(doc):
         "Karaman, 2020, N = 525) gave smaller correlations than the "
         "smallest ones (Abe, 2020, N = 92; Elvers et al., 2003, online "
         "subsample N = 21), a pattern compatible with small-study effects "
-        f"that Egger's test did not detect ({V['egger.C.short']}). "
-        "(d) Risk-of-bias score: excluding the studies scoring below 5 "
-        f"changed the Conscientiousness estimate by {d} (Table 4). "
+        + ("that Egger's test also flags" if V["egger.C.p_raw"] < .05
+           else "that Egger's test did not detect")
+        + f" ({V['egger.C.short']}). "
+        "(d) Risk-of-bias score: every study in the quantitative pool "
+        f"scored 5 or more (mean = {V['pool.rob_mean']}), so the score "
+        "could not be examined. "
         "(e) Modality: one retained study used an engagement scale that "
         "was not specific to online learning (A-13 Dang et al., 2025), one "
         "contributed separate online and blended subsamples (A-02 Alkış & "
@@ -1194,9 +1203,11 @@ def build_results_part1(doc):
         f"{V['n_retained']} retained studies, {V['n_pool']} contributed "
         "correlations between personality and achievement to the "
         f"quantitative pool ({V['n_direct']} direct, {V['n_beta']} "
-        "converted from β); the other 15 reported only secondary outcomes "
-        "(13) or no extractable trait–achievement correlation (2: A-25 "
-        "Tokiwa, 2025; A-26 Wang et al., 2023)."
+        f"converted from β). The other {V['n_retained'] - V['n_pool']} "
+        "comprised 13 studies with only secondary outcomes, two without an "
+        "extractable trait–achievement correlation (A-25 Tokiwa, 2025; "
+        "A-26 Wang et al., 2023), and A-37 Zheng and Zheng (2023), which "
+        "was left out of the pool (see Methods)."
     )
     add_para(doc, p1, indent_first=True)
 
@@ -1249,7 +1260,7 @@ def build_results_part1(doc):
         "10-item TIPI and TIPI-J, and other Big Five scales, including "
         "Chinese-language scales and McCrae's scale used by Yu (2021). "
         "In the quantitative pool, achievement was measured as GPA or "
-        "course grade (A-01, A-02, A-23, A-29, A-31, A-37), an "
+        "course grade (A-01, A-02, A-23, A-29, A-31), an "
         "introductory psychology exam (A-15), a MOOC platform composite "
         "(A-28), or self-rated performance (A-22, A-30). In the other "
         "retained studies, the only outcomes were satisfaction, "
@@ -1265,9 +1276,8 @@ def build_results_part1(doc):
         f"{V['ret.rob_mean']} (SD = {V['ret.rob_sd']}, range "
         f"{V['ret.rob_min']}–{V['ret.rob_max']}); {V['ret.rob_ge5']} "
         f"studies scored 5 or more and {V['ret.rob_lt5']} scored below 5 "
-        f"({', '.join(V['ret.rob_lt5_ids'])}). Within the quantitative "
-        f"pool, the only study below 5 was A-37 (score 4); the pool's "
-        f"mean was {V['pool.rob_mean']}."
+        f"({', '.join(V['ret.rob_lt5_ids'])}). Every study in the "
+        f"quantitative pool scored 5 or more (mean = {V['pool.rob_mean']})."
     )
     add_para(doc, p6, indent_first=True)
 
@@ -1288,9 +1298,12 @@ def build_results_part2(doc):
         "in line with Mapping Prior 1, but below that prior's expected "
         "range (ρ = .20–.35) and below the face-to-face benchmarks of "
         "ρ = .19–.28 (Poropat, 2009; McAbee & Oswald, 2013; Vedel, 2014; "
-        "Mammadov, 2022; Meyer et al., 2023; Chen et al., 2025). Its "
-        "confidence interval excluded zero, but its prediction interval "
-        "did not."
+        "Mammadov, 2022; Meyer et al., 2023; Chen et al., 2025). "
+        + ("Both its confidence interval and its prediction interval "
+           "excluded zero, the latter only just."
+           if pi_excludes_zero("C") else
+           "Its confidence interval excluded zero, but its prediction "
+           "interval did not.")
     )
     add_para(doc, p_c1, indent_first=True)
 
@@ -1344,10 +1357,10 @@ def build_results_part2(doc):
     p_het = (
         "Heterogeneity was substantial for every trait, with I² from "
         f"{i2s[0][0]:.1f}% ({TRAIT_NAMES[i2s[0][1]]}) to {i2s[-1][0]:.1f}% "
-        f"({TRAIT_NAMES[i2s[-1][1]]}). All five 95% prediction intervals "
-        "included zero; for Agreeableness the interval spanned "
-        f"{V['A.pi']}. A new online study could therefore find an "
-        "association of quite different size, or even of opposite sign."
+        f"({TRAIT_NAMES[i2s[-1][1]]}). {pi_summary()} For "
+        f"Agreeableness the interval spanned {V['A.pi']}: a new online "
+        "study could find an association of quite different size, or of "
+        "opposite sign."
     )
     add_para(doc, p_het, indent_first=True)
 
@@ -1371,7 +1384,7 @@ def build_results_part3(doc):
     min_p_other = min(M["region"][t]["_between"]["p"] for t in others)
     p2 = (
         "Region. With two Asian studies (A-28 Yu, China; A-31 Rivers, "
-        "Japan) against seven or eight non-Asian studies, the Extraversion "
+        f"Japan) against {non_asia_k()} non-Asian studies, the Extraversion "
         f"estimate was lower in the Asian subgroup (r = {V['region.E.Asia.r']}, "
         f"95% CI {V['region.E.Asia.ci']}) than in the non-Asian subgroup "
         f"(r = {V['region.E.non-Asia.r']}, {V['region.E.non-Asia.ci']}); "
@@ -1435,20 +1448,21 @@ def build_results_part3(doc):
         "Table 4 summarises the sensitivity analyses. Excluding the "
         "author's own study (Tokiwa, 2025) changed nothing, because it "
         "contributed no correlation to the pool. The DerSimonian–Laird "
-        "estimator changed every pooled estimate by .001 or less. "
+        f"estimator changed the estimates by at most {max_abs('dl_estimator')}. "
         "Excluding studies with N < 50 (A-15 Elvers et al.) changed the "
-        f"estimates by at most {max_abs('exclude_small_n')}. Excluding the "
-        "only study below the risk-of-bias threshold (A-37 Zheng & Zheng), "
-        "which is also the study whose correlations were entered as r = 0, "
-        f"raised every estimate slightly (Conscientiousness "
-        f"{d('exclude_low_quality', 'C')}; largest change "
-        f"{max_abs('exclude_low_quality')}). Excluding the two studies "
+        f"estimates by at most {max_abs('exclude_small_n')}. No study in "
+        "the pool scored below the risk-of-bias threshold, so that "
+        "analysis repeats the primary one. Adding A-37 Zheng and Zheng "
+        "(2023) with r = 0 lowered the estimates slightly "
+        f"(Conscientiousness {d('include_a37', 'C')}; largest change "
+        f"{max_abs('include_a37')}). Excluding the two studies "
         "whose effects were converted from β (A-28 Yu; A-30 Kaspar) "
         "changed the estimates by more than .05 for "
-        f"{join_names(big_beta)} (Openness to "
-        f"{V['sens.exclude_beta_converted.O.r']}, Agreeableness to "
-        f"{V['sens.exclude_beta_converted.A.r']}, Neuroticism to "
-        f"{V['sens.exclude_beta_converted.N.r']}); Conscientiousness "
+        f"{join_names(big_beta)} ("
+        + ", ".join(f"{TRAIT_NAMES[t]} to "
+                    f"{V[f'sens.exclude_beta_converted.{t}.r']}"
+                    for t in big_beta)
+        + "); Conscientiousness "
         f"stayed positive ({V['sens.exclude_beta_converted.C.r']}, "
         f"{V['sens.exclude_beta_converted.C.ci']})."
     )
@@ -1468,13 +1482,9 @@ def build_results_part3(doc):
     add_h2(doc, "Publication-Bias Diagnostics (descriptive only)")
 
     p6 = (
-        "Funnel plots are shown in Figures 7 to 11. Egger's test was "
-        f"significant for Openness ({V['egger.O']}) and not for "
-        f"Conscientiousness ({V['egger.C.short']}), Agreeableness "
-        f"({V['egger.A.short']}), Neuroticism ({V['egger.N.short']}), or "
-        f"Extraversion ({V['egger.E.short']}). With k = 9–10 the test has "
-        "little power, so the non-significant results do not show that "
-        "bias is absent."
+        f"Funnel plots are shown in Figures 7 to 11. {egger_summary()} "
+        f"With k = {k_range()} the test has little power, so the "
+        "non-significant results do not show that bias is absent."
     )
     add_para(doc, p6, indent_first=True)
 
@@ -1486,6 +1496,9 @@ def build_results_part3(doc):
                 f"{TRAIT_NAMES[t]}, {k0} on the {V[f'tf.{t}.side']} "
                 f"(adjusted r = {V[f'tf.{t}.r']}, {V[f'tf.{t}.ci']})")
     none = [TRAIT_NAMES[t] for t in TRAITS if not V[f"tf.{t}.k0"]]
+    def _lo(key):
+        return float(V[key][1:].split(",")[0].replace(MINUS, "-"))
+    assert _lo("tf.C.ci") > 0 and _lo("tf.A.ci") > 0 and V["tf.A.k0"] > 0
     p7 = (
         "Trim-and-fill imputed studies for "
         + "; ".join(tf_parts)
@@ -1511,12 +1524,14 @@ def build_results_part3(doc):
         "Table 5 summarises the confidence ratings. The "
         "Conscientiousness association was rated Low: its confidence "
         "interval excluded zero and it was robust to the sensitivity "
-        "analyses, but heterogeneity was substantial and the search was "
-        "not comprehensive. The Extraversion estimate was also rated Low, "
-        "because its confidence interval was narrow around zero. The "
-        "Openness, Agreeableness, and Neuroticism estimates were rated "
-        "Very Low, because of very high heterogeneity, imprecision, and "
-        "the incomplete search."
+        "analyses, but heterogeneity was substantial, "
+        + ("Egger's test suggested small-study effects, "
+           if V["egger.C.p_raw"] < .05 else "")
+        + "and the search was not comprehensive. The Extraversion estimate "
+        "was also rated Low, because its confidence interval was narrow "
+        "around zero. The Openness, Agreeableness, and Neuroticism "
+        "estimates were rated Very Low, because of very high "
+        "heterogeneity, imprecision, and the incomplete search."
     )
     add_para(doc, p8, indent_first=True)
 
@@ -1580,7 +1595,10 @@ def build_discussion_part1(doc):
         f"samples) was not supported in direction: r = {V['A.r']} was "
         "slightly above the face-to-face range of .05–.10. This estimate "
         "rests largely on Yu (2021); without that study it is "
-        f"{V['loo.A.r']}, close to the face-to-face range. Narrative "
+        f"{V['loo.A.r']}, "
+        + ("within" if .05 <= float(V['loo.A.r'].replace(MINUS, '-')) <= .10
+           else "close to")
+        + " the face-to-face range. Narrative "
         "evidence from studies outside the pool (Wang et al., 2023; "
         "Baruth & Cohen, 2023) points in the same direction for East "
         "Asian and Israeli samples, but this does not offset the "
@@ -1627,7 +1645,8 @@ def build_discussion_part2(doc):
         "conscientious study — deadlines, assessments, milestones — are "
         "preserved online, so the association should be preserved too. "
         "The present data cannot tell these accounts apart. The gap from "
-        "the benchmarks (Δr ≈ .02–.11, depending on the benchmark) is "
+        f"the benchmarks (Δr ≈ {apa(.19 - V['C.r_raw'], 2)}–"
+        f"{apa(.28 - V['C.r_raw'], 2)}, depending on the benchmark) is "
         "small, the confidence interval reaches the benchmark range, and "
         "the confidence rating is Low."
     )
@@ -1725,8 +1744,11 @@ def build_discussion_part3(doc):
         f"positive without the converted estimates "
         f"({V['sens.exclude_beta_converted.C.r']}) and after trim-and-fill "
         f"({V['tf.C.r']}), and matches the direction of all eight "
-        "face-to-face meta-analyses. Its prediction interval still "
-        f"includes zero ({V['C.pi']})."
+        "face-to-face meta-analyses. "
+        + (f"Its prediction interval also excludes zero ({V['C.pi']}), "
+           "but only just."
+           if pi_excludes_zero("C") else
+           f"Its prediction interval still includes zero ({V['C.pi']}).")
     )
     add_para(doc, p_robust2, indent_first=True)
 
@@ -1765,8 +1787,8 @@ def build_discussion_part3(doc):
 
     p2 = (
         f"First, the quantitative pool is small (k = {V['n_pool']}: "
-        f"{V['n_direct']} studies with direct correlations, including one "
-        f"entered as r = 0, and {V['n_beta']} converted from β). With so "
+        f"{V['n_direct']} studies with direct correlations and "
+        f"{V['n_beta']} converted from β). With so "
         "few studies the pooled estimates are unstable, heterogeneity is "
         "poorly estimated, and every moderator contrast has two studies in "
         "its smaller subgroup. Second, the search did not cover the "
@@ -1787,12 +1809,13 @@ def build_discussion_part3(doc):
         "coding errors that a second reviewer would catch. Analysis errors "
         "were also found during revision: an incorrect β-to-r conversion "
         "and an inappropriate subgroup test in earlier versions were "
-        "corrected for this version. Fourth, three effect sizes rest on "
-        "assumptions: two are converted from β, and one study (A-37 Zheng "
-        "& Zheng, 2023) reported only that its correlations were below .10 "
-        "and pooled cohorts taught face to face before and after the "
-        "pandemic with an online cohort during it. The sensitivity "
-        "analyses show how much each choice matters."
+        "corrected for this version. Fourth, two effect sizes are "
+        "converted from β, and one study (A-37 Zheng & Zheng, 2023) was "
+        "moved to the narrative map during revision, after the pooled "
+        "results were known, because most of its cohorts were taught face "
+        "to face and its correlations were reported only as |r| < .10. "
+        "Adding it back with r = 0 changes the estimates by at most "
+        f"{max_abs('include_a37')} (Table 4)."
     )
     add_para(doc, p3, indent_first=True)
 
@@ -1965,9 +1988,8 @@ def build_table3_moderators(doc):
         "the three moderators. Asia = East Asian or Middle Eastern "
         "samples; within the quantitative pool only A-28 (China) and A-31 "
         "(Japan) are Asian. Era: pre-COVID = data collected up to 2019; "
-        "COVID = 2020–2022; no post-COVID study contributed a correlation, "
-        "and the one mixed-period study (A-37) is not assigned to an era "
-        "level. Outcome: objective = GPA, course grade, examination, or "
+        "COVID = 2020–2022; no post-COVID study contributed a correlation. "
+        "Outcome: objective = GPA, course grade, examination, or "
         "MOOC platform composite; self-rated = self-reported performance "
         "(A-22, A-30). Both Asian studies used objective outcomes and "
         "asynchronous delivery, so the region and outcome contrasts "
@@ -1986,9 +2008,10 @@ def build_table4_sensitivity(doc):
     rows_spec = [
         ("Exclude Tokiwa (2025; COI)", "exclude_tokiwa"),
         ("Exclude β-converted (A-28, A-30)", "exclude_beta_converted"),
-        ("Exclude RoB < 5 / r = 0 entry (A-37)", "exclude_low_quality"),
+        ("Exclude RoB < 5 (none in pool)", "exclude_low_quality"),
         ("Exclude N < 50 (A-15)", "exclude_small_n"),
         ("DerSimonian–Laird τ²", "dl_estimator"),
+        ("Include A-37 (r = 0)", "include_a37"),
     ]
     data = [["Trait", "Analysis", "k", "r [95% CI]", "Δr"]]
     for t in TRAITS:
@@ -2013,14 +2036,15 @@ def build_table4_sensitivity(doc):
     _add_table_note(
         doc,
         "Δr = change from the primary pooled correlation; ‡ marks "
-        "|Δr| > .05. Excluding A-37 removes both the only study with a "
-        "risk-of-bias score below 5 and the study whose correlations were "
-        "entered as r = 0, so the two analyses coincide. Leave-one-out "
+        "|Δr| > .05. No study in the pool scored below 5 on risk of bias, "
+        "so that analysis repeats the primary one. A-37, which is left out "
+        "of the primary pool, is added with its correlations entered as "
+        "r = 0. Leave-one-out "
         "gives the range of pooled r when each study is removed in turn "
         "and the largest change. Trim-and-fill uses the L0 estimator; the "
         "side is that on which studies were imputed. Egger and "
         "trim-and-fill results are descriptive: both have little power at "
-        "k = 9–10."
+        f"k = {k_range()}."
     )
 
 
@@ -2058,9 +2082,8 @@ def build_table5_grade(doc):
         "95% CI includes zero and a value of |r| ≥ .10, or is wider than "
         ".20. Publication bias is rated serious for every trait because "
         "the search could not cover the main bibliographic databases. "
-        "Indirectness: two pooled studies used self-rated performance and "
-        "one (A-37) pooled face-to-face and online cohorts; these were "
-        "judged not serious and are examined in Tables 3 and 4."
+        "Indirectness: two pooled studies used self-rated performance; "
+        "this was judged not serious and is examined in Table 3."
     )
 
 
@@ -2111,9 +2134,10 @@ def build_figure1_prisma(doc):
         "only, 4: A-09, A-10, A-14, A-16; sample overlap, 1: A-05; no "
         "extractable effect size, 1: A-24), leaving 25 studies. Of these, "
         f"{V['n_pool']} contributed correlations to the quantitative pool "
-        f"({V['n_direct']} direct, one of them entered as r = 0; "
-        f"{V['n_beta']} converted from β) and 15 entered the narrative map "
-        "only. Table 1 catalogues 31 of the 37 reports."
+        f"({V['n_direct']} direct, {V['n_beta']} converted from β) and "
+        f"{V['n_retained'] - V['n_pool']} entered the narrative map only, "
+        "including A-37, which was left out of the pool. Table 1 "
+        "catalogues 31 of the 37 reports."
     )
 
 
@@ -2227,7 +2251,7 @@ def _load_studies_for_table1():
     for r in rows:
         modality = short_modality.get(r.get("modality", ""), r.get("modality", "") or "—")
         if r.get("study_id") == "A-37":
-            modality = "FtF/Online†"
+            modality = "FtF/Online"
         out.append([
             r.get("study_id", ""),
             f"{r.get('first_author', '')} ({r.get('year', '')})",
@@ -2396,6 +2420,53 @@ def join_names(items, names=True):
         return f"{words[0]} and {words[1]}"
     return ", ".join(words[:-1]) + f", and {words[-1]}"
 
+NUM_WORDS = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
+             6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten"}
+
+
+def join_words(words, conj="and"):
+    words = list(words)
+    if len(words) <= 1:
+        return "".join(words)
+    if len(words) == 2:
+        return f"{words[0]} {conj} {words[1]}"
+    return ", ".join(words[:-1]) + f", {conj} {words[-1]}"
+
+
+def pi_excludes_zero(t):
+    return V[f"{t}.pi_lo_raw"] > 0 or V[f"{t}.pi_hi_raw"] < 0
+
+
+def pi_summary():
+    excl = [t for t in TRAITS if pi_excludes_zero(t)]
+    if not excl:
+        return "All five 95% prediction intervals included zero."
+    plural = "s" if len(excl) > 1 else ""
+    return (f"Only the {join_names(excl)} prediction interval{plural} "
+            f"excluded zero ({'; '.join(V[f'{t}.pi'] for t in excl)}).")
+
+
+def non_asia_k():
+    ks = sorted({V["_moderators"]["region"][t]["non-Asia"]["k"] for t in TRAITS})
+    return join_words([NUM_WORDS[k] for k in ks], "or")
+
+
+def k_range():
+    ks = sorted(int(V[f"{t}.k"]) for t in TRAITS)
+    return f"{ks[0]}–{ks[-1]}" if ks[0] != ks[-1] else str(ks[0])
+
+
+def egger_summary():
+    sig = [t for t in TRAITS if V[f"egger.{t}.p_raw"] < .05]
+    ns = [t for t in TRAITS if t not in sig]
+    short = [f"{TRAIT_NAMES[t]} ({V[f'egger.{t}.short']})" for t in ns]
+    if not sig:
+        return f"Egger's test was not significant for any trait: {'; '.join(short)}."
+    full = [f"{TRAIT_NAMES[t]} ({V[f'egger.{t}']})" for t in sig]
+    return (f"Egger's test was significant for {join_words(full)} and not "
+            f"for {join_words(short, 'or')}.")
+
+
 def grade(t):
     """Completeness-of-evidence rating for one trait, from the rules stated
     in Methods: start High; −1 per serious, −2 per very serious concern."""
@@ -2449,9 +2520,9 @@ def _table1_status(row):
     sid = row.get("study_id", "")
     sources = {(_pool.extract_effect_for_trait(row, t) or (0, 0, ""))[2]
                for t in TRAITS} - {""}
+    if sid in _pool.POOL_EXCLUSIONS:
+        return "Map only†"
     if sources:
-        if row.get("effect_size_type") == "r_bounded":
-            return "Pool (r = 0)"
         return "Pool (β→r)" if sources == {"beta_converted"} else "Pool (r)"
     status = row.get("inclusion_status", "")
     if status in ("include", "include_with_caveat", "include_secondary",
@@ -2468,16 +2539,17 @@ TABLE1_NOTE = (
     "ID = study identifier used throughout the review. N = analytic sample "
     "size. Mode: Online = fully online; FtF = face-to-face; Mixed = blended "
     "or mode-comparing design; Online* = engagement scale not specific to "
-    "online learning; † = A-37 pooled graduate cohorts taught face to face "
-    "before and after the pandemic and online during it. Level: UG = "
+    "online learning. Level: UG = "
     "undergraduate; Grad = graduate; UG/Grad = mixed; K-12 = elementary "
     "through high school; Sec/Post = mixed secondary and post-secondary. "
     "Era: pre-COVID ≤ 2019; COVID = 2020–2022; post-COVID ≥ 2023. Status: "
     "Pool (r) = contributed direct correlations to the quantitative pool; "
     "Pool (β→r) = contributed correlations converted from β (Peterson & "
-    "Brown, 2005); Pool (r = 0) = reported only |r| < .10, entered as 0; "
-    "Map only = retained for the narrative map (secondary outcomes or no "
-    "extractable trait–achievement correlation); COI = the author's own "
+    "Brown, 2005); Map only = retained for the narrative map (secondary outcomes or no "
+    "extractable trait–achievement correlation); † = A-37, left out of the "
+    "pool because its graduate cohorts were taught face to face before "
+    "and after the pandemic and online only during it, and its "
+    "correlations were reported only as |r| < .10; COI = the author's own "
     "study; Exc = excluded at full text (FtF = face-to-face only; no ES = "
     "no extractable effect size; overlap = sample overlap with A-04); Not "
     "retrieved = full text unavailable. RoB = Joanna Briggs Institute "

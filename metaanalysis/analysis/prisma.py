@@ -98,12 +98,13 @@ def main():
     draw_box(ax, main_x, 1.6, main_w, 2.4,
              "Studies included in the scoping review (n = 25)\n"
              "\n"
-             "  Exploratory quantitative pool (n = 10)\n"
-             "    Direct correlations (n = 8; one entered as r = 0)\n"
+             "  Exploratory quantitative pool (n = 9)\n"
+             "    Direct correlations (n = 7)\n"
              "    Converted from \u03b2 (n = 2): A-28, A-30\n"
-             "  Narrative map only (n = 15)\n"
+             "  Narrative map only (n = 16)\n"
              "    Secondary outcomes only (n = 13)\n"
-             "    No trait\u2013achievement r (n = 2): A-25, A-26",
+             "    No trait\u2013achievement r (n = 2): A-25, A-26\n"
+             "    Left out of the pool (n = 1): A-37",
              fontsize=8.5, fill="#d4edda")
 
     ax.text(5, 0.9, "PRISMA-ScR flow diagram (Tricco et al., 2018; layout adapted from Page et al., 2021).",

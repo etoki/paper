@@ -27,7 +27,7 @@ TRAITS = ["C", "O", "E", "A", "N"]  # manuscript order
 TRAIT_NAMES = {"O": "Openness", "C": "Conscientiousness", "E": "Extraversion",
                "A": "Agreeableness", "N": "Neuroticism"}
 SENS_KEYS = ["exclude_tokiwa", "exclude_beta_converted", "exclude_low_quality",
-             "exclude_small_n", "dl_estimator", "exclude_imputed_zero"]
+             "exclude_small_n", "dl_estimator", "include_a37"]
 
 
 def apa(x: float, d: int = 3) -> str:
@@ -80,6 +80,7 @@ def build() -> dict:
         V[f"{t}.ci"] = ci(r["r_ci_lo"], r["r_ci_hi"])
         V[f"{t}.pi"] = ci(r["r_pi_lo"], r["r_pi_hi"])
         V[f"{t}.pi_lo_raw"] = r["r_pi_lo"]
+        V[f"{t}.pi_hi_raw"] = r["r_pi_hi"]
         V[f"{t}.I2"] = f"{r['I2']:.1f}%"
         V[f"{t}.tau2"] = apa(r["tau2"])
         V[f"{t}.tau"] = apa(r["tau"])

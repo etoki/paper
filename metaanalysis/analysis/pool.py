@@ -323,14 +323,27 @@ def peterson_brown_r(beta, legacy=False):
     return max(-0.99, min(0.99, r))
 
 
-def extract_effect_for_trait(row, trait, legacy_conversion=False):
+# Studies kept in the scoping map but left out of the quantitative pool
+# (decision of 2026-10-27). Scripts that reproduce numbers submitted before
+# that decision pass exclude=() to keep the original pool.
+POOL_EXCLUSIONS = {
+    "A-37": ("pooled graduate cohorts taught face to face before and after "
+             "the pandemic and online during it; correlations reported only "
+             "as |r| < .10"),
+}
+
+
+def extract_effect_for_trait(row, trait, legacy_conversion=False,
+                             exclude=POOL_EXCLUSIONS):
     """For a given row and trait (O/C/E/A/N), return (r, N, source) or None.
 
     Applies Peterson-Brown conversion to β if r not available.
     Only returns values for studies flagged as primary_achievement=yes
-    or include_with_caveat.
+    or include_with_caveat, and not listed in `exclude`.
     """
     sid = row.get("study_id", "")
+    if sid in exclude:
+        return None
     inc = row.get("inclusion_status", "")
     prim = row.get("primary_achievement", "")
 
@@ -838,7 +851,7 @@ def write_summary_md_with_moderators(results, mod_results):
     lines.append("---")
     lines.append("")
     lines.append("## Notes")
-    lines.append("- **Power caveat**: With k = 9-10 per trait pool and Asian subgroup limited to k = 2, moderator findings are **underpowered** and should be interpreted as exploratory.")
+    lines.append("- **Power caveat**: With fewer than 10 studies per trait pool and the Asian subgroup limited to k = 2, moderator findings are **underpowered** and should be interpreted as exploratory.")
     lines.append("- **β-to-r conversion**: Peterson & Brown (2005) applied where only β was reported. The exclude-converted sensitivity analysis is in `sensitivity_results.md`.")
     lines.append("- **Sign conventions**: A-23 Rodrigues GPA sign-flipped so positive r = better performance; A-31 Rivers Emotional Stability sign-reversed to Neuroticism.")
     lines.append("- **Remaining 6 pre-registered moderators** (instrument, publication year, sample size, RoB score, modality, education level) not quantitatively analyzed due to insufficient k per level; reported narratively in Methods Deviations subsection.")
@@ -886,7 +899,7 @@ def append_publication_bias_to_summary(bias_results):
             )
     lines.append("")
     lines.append("**Interpretation**:")
-    lines.append("- Egger's test: non-zero intercept suggests small-study effects or publication bias. With k = 9–10, the test has low power; p ≥ .05 does not rule out bias.")
+    lines.append("- Egger's test: non-zero intercept suggests small-study effects or publication bias. With fewer than 10 studies per trait, the test has low power; p ≥ .05 does not rule out bias.")
     lines.append("- Trim-and-fill (L0 estimator, side from the REML regression of y on its standard error, as in metafor::trimfill): imputes hypothetical missing studies on the under-represented side of the funnel. Reported as a *sensitivity check* only; adjusted estimates should NOT replace primary pooled estimates.")
     for t in TRAITS:
         r = bias_results.get(t)
