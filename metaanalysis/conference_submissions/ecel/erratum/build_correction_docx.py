@@ -4,11 +4,15 @@ Handles the subset of Markdown the correction uses: '#'/'##' headings,
 paragraphs, '- ' bullets, pipe tables, **bold** and *italic*.
 
 Usage:
-    python metaanalysis/conference_submissions/ecel/erratum/build_correction_docx.py
+    python metaanalysis/conference_submissions/ecel/erratum/build_correction_docx.py [SRC.md OUT.docx]
+
+With no arguments it builds the ECEL correction; other papers pass their
+own Markdown source and output path.
 """
 from __future__ import annotations
 
 import re
+import sys
 from pathlib import Path
 
 from docx import Document
@@ -51,8 +55,9 @@ def add_table(doc, lines: list[str]) -> None:
 
 
 def main() -> None:
+    src, out = (Path(a) for a in sys.argv[1:3]) if len(sys.argv) == 3 else (SRC, OUT)
     doc = Document()
-    lines = SRC.read_text(encoding="utf-8").splitlines()
+    lines = src.read_text(encoding="utf-8").splitlines()
     i = 0
     while i < len(lines):
         line = lines[i]
@@ -76,8 +81,8 @@ def main() -> None:
         else:
             add_inline(doc.add_paragraph(), line)
         i += 1
-    doc.save(str(OUT))
-    print(f"Wrote {OUT}")
+    doc.save(str(out))
+    print(f"Wrote {out}")
 
 
 if __name__ == "__main__":

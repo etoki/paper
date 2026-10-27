@@ -15,6 +15,7 @@ metaanalysis/conference_submissions/iceel/results/ .
 """
 from __future__ import annotations
 
+import re
 from copy import deepcopy
 from pathlib import Path
 
@@ -293,12 +294,7 @@ BODY = [
      "meta-regression is fit (weights = 1 / (v + τ²), "
      "τ² from REML). Because k = 2, residual df = 0; slopes "
      "are computable but no SE / t / p estimable, so slopes are "
-     "reported as descriptive only. With two studies, each slope is "
-     "simply the Japan − China difference in Fisher z divided by the "
-     "Japan − China difference in the dimension score, so the weights "
-     "do not affect it. The Asia vs non-Asia contrast cited from the "
-     "parent preprint is re-tested with a mixed-effects meta-regression "
-     "on a region indicator with the Knapp–Hartung adjustment."),
+     "reported as descriptive only."),
     ("Head3", "3.3.1 Japan synthesis."),
     ("PostHeadPara",
      "The two Japan primary-pool studies are tabulated side-by-side on "
@@ -705,6 +701,10 @@ def build():
         elif style in TABLE_MAP:
             hdr, rows, caption = TABLE_MAP[style]
             add_table(doc, hdr, rows, caption=caption)
+        elif style in ("Head1", "Head2", "Head3"):
+            # The template's heading styles number themselves, so drop the
+            # manual "4.2 " prefix to avoid "4.2 4.2 ..." in the output.
+            add_para(doc, style, re.sub(r"^\d+(\.\d+)*\s+", "", text))
         else:
             add_para(doc, style, text)
 

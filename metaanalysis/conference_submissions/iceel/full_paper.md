@@ -74,7 +74,7 @@ These two countries differ most sharply on Individualism (Japan +26), Power Dist
 
 ### 3.3. Statistical model
 
-Per trait, REML + HKSJ pooled r is computed on the k = 2 Asian primary-pool studies (back-transformed 95 % CI reported), with τ² estimated by maximising the restricted likelihood. For each (trait, dimension) pair, a 2-parameter weighted-OLS Hofstede meta-regression is fit (weights = 1 / (v + τ²), τ² from REML). Because k = 2, residual df = 0; slopes are computable but no SE / t / p estimable, so slopes are reported as **descriptive only**. With two studies, each slope is simply the Japan − China difference in Fisher z divided by the Japan − China difference in the dimension score, so the weights do not affect it. The Asia vs non-Asia contrast cited from the parent preprint is re-tested with a mixed-effects meta-regression on a region indicator with the Knapp–Hartung adjustment.
+Per trait, REML + HKSJ pooled r is computed on the k = 2 Asian primary-pool studies (back-transformed 95 % CI reported), with τ² estimated by maximising the restricted likelihood. For each (trait, dimension) pair, a 2-parameter weighted-OLS Hofstede meta-regression is fit (weights = 1 / (v + τ²), τ² from REML). Because k = 2, residual df = 0; slopes are computable but no SE / t / p estimable, so slopes are reported as **descriptive only**.
 
 #### 3.3.3. Japan synthesis
 

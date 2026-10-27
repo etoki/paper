@@ -1,43 +1,46 @@
-# ICEEL 2026 EL2036 修正版の差し替え依頼メール
+# ICEEL 2026 EL2036 修正版の再提出メール
 
-最初のメールでは、修正版の最終原稿を出せるかを問い合わせます。添付はしません。許可が出たら、`iceel/full_paper.docx`（修正済み）と `changes_EL2036.md` の内容を送ります。
+本日（2026-10-27）送った確認メールへの返信として、修正版の論文と変更一覧を添付して送ります。
+
+## 添付ファイル
+
+| ファイル | 内容 |
+|---|---|
+| `EL2036_Tokiwa_corrected.docx` | 修正版の論文（ICEEL テンプレート、9 ページ）。`iceel/full_paper.docx` のコピー |
+| `EL2036_changes.docx` | 変更一覧（英語、12 項目と理由） |
 
 ## 送信前チェック
 
-- [ ] **ICEEL の現在の状況を確認する**（採択済みか、最終原稿を提出済みか）。メール本文は「採択済み・最終原稿は提出済み」を想定しています。最終原稿をまだ出していない場合は、メールを送らずに修正版をそのまま提出すれば済みます
-- [ ] 修正版 `iceel/full_paper.docx` を Word で開いてページ数を確認する（修正で約 220 語増えた。規定は 8〜10 ページ、11 ページ超は 1 ページ 80 ドル）
-- [ ] 宛先: `iceel@academic.net`（7 月に原稿の形式についてやり取りした Roselyn Law さん宛て）
+- [ ] 本日送った確認メールに**返信する形**で送る（同じスレッドにまとめるため）
+- [ ] 添付 2 つを付ける
+- [ ] `EL2036_Tokiwa_corrected.docx` を Word で開いて、10 ページ以内か確認する（作業環境ではテンプレート指定フォント Linux Libertine O / Biolinum O で 9 ページ。PC にこのフォントがないと Word の表示上のページ数が変わることがある）
 - [ ] 送信元: `eisuke.tokiwa@sunblaze.jp`
-- [ ] 添付なし
-
-## 返信が来たら
-
-- **差し替え OK**: `iceel/full_paper.docx` と、変更一覧（`changes_EL2036.md` を Word か PDF にしたもの）を送る
-- **差し替え不可**: 発表スライドと口頭説明で正しい数字を使い、論文集の扱いは事務局の案内に従う
 
 ---
 
 ## English
 
 **To:** iceel@academic.net
-**Subject:** ICEEL 2026 – Paper EL2036 (Tokiwa): request to submit a corrected final version
+**Subject:** Re: (reply to today's email)
 
 Dear Ms. Law,
 
-I am the author of paper EL2036, "Cultural dimensions in online learning: A Hofstede-moderated within-Asia synthesis of the Big Five and academic achievement, with a focused look at the Japanese context".
+Following my email earlier today, I attach the corrected version of my paper EL2036 and a list of the changes:
 
-While re-checking the statistics in a related paper, I found that some parts of my paper need to be corrected. In brief:
+- EL2036_Tokiwa_corrected.docx: the corrected paper in the ICEEL template (9 pages)
+- EL2036_changes.docx: a list of all changes, with the reason for each
 
-1. A test result that I cite from my earlier preprint (Q_between = 46.43) was calculated with an inappropriate method. With the correct method the result is F(1, 7) = 29.52, p < .001. The conclusion does not change, but I would like to report the correct value.
+In brief, the corrections are:
+
+1. A test result that I cite from my earlier preprint (Q_between = 46.43) was calculated with an inappropriate method. The correct result is F(1, 7) = 29.52, p < .001, so the conclusion does not change.
 2. Two values in Table 1 change slightly (by 0.006).
 3. Some sentences that describe Table 2 did not match the table, and I have corrected them.
 4. I have added three short sentences on limitations and confounds.
+5. The section headings were numbered twice (for example, "1 1 INTRODUCTION"). This is now fixed.
 
-The main findings and the structure of the paper do not change.
+The main findings and the structure of the paper do not change. I would be grateful if this version could replace the previous one in the proceedings. If it is too late to replace the file, please let me know how I should proceed.
 
-Could you please let me know whether I may send a corrected final version for the proceedings, and if so, by what date and in what format? I can send the corrected file and a full list of the changes right away.
-
-I apologise for the inconvenience.
+I apologise for the extra work this causes.
 
 Kind regards,
 
@@ -50,24 +53,24 @@ eisuke.tokiwa@sunblaze.jp
 
 ## 日本語訳（送信しない・確認用）
 
-**件名:** ICEEL 2026 – 論文 EL2036（常盤）：修正した最終原稿の提出のお願い
-
 Law 様
 
-論文 EL2036「Cultural dimensions in online learning: A Hofstede-moderated within-Asia synthesis of the Big Five and academic achievement, with a focused look at the Japanese context」の著者です。
+本日お送りしたメールに続き、論文 EL2036 の修正版と変更点の一覧を添付します。
 
-関連する別の論文の統計を見直す中で、本論文にも修正が必要な箇所があることが分かりました。概要は次のとおりです。
+- EL2036_Tokiwa_corrected.docx：ICEEL テンプレートで作成した修正版の論文（9 ページ）
+- EL2036_changes.docx：すべての変更点とその理由の一覧
 
-1. 以前のプレプリントから引用している検定結果（Q_between = 46.43）が、不適切な方法で計算されていました。正しい方法では F(1, 7) = 29.52, p < .001 です。結論は変わりませんが、正しい値に直したいと考えています。
+修正の概要は次のとおりです。
+
+1. 以前のプレプリントから引用している検定結果（Q_between = 46.43）が、不適切な方法で計算されていました。正しい結果は F(1, 7) = 29.52, p < .001 で、結論は変わりません。
 2. 表1の値が2つ、わずかに変わります（0.006）。
 3. 表2を説明する文の一部が表と合っていなかったため、修正しました。
 4. 限界と交絡についての短い文を3つ追加しました。
+5. 節の見出し番号が二重になっていました（例：「1 1 INTRODUCTION」）。これを直しました。
 
-主な結論と論文の構成は変わりません。
+主な結論と論文の構成は変わりません。論文集では、この版を以前の版と差し替えていただけますと幸いです。差し替えが間に合わない場合は、どのように対応すればよいかお知らせください。
 
-論文集用に修正した最終原稿を送ってもよいか、よければ期限と形式を教えていただけますか。修正版のファイルと変更点の一覧は、すぐにお送りできます。
-
-ご不便をおかけして申し訳ありません。
+お手数をおかけして申し訳ありません。
 
 常盤瑛祐
 株式会社 SUNBLAZE（東京）
