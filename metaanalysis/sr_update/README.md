@@ -137,7 +137,9 @@ python metaanalysis/sr_update/run_search.py           # 本番
   python metaanalysis/sr_update/fetch_fulltext.py
   ```
 
-- 取れなかったものは `fulltext/to_download_by_hand.csv` に、案（`decision`）・題名・DOI・DOI のリンクつきで並びます。`include` が先、次に `maybe` の順です。常盤さんがダウンロードし、`save_as` 欄の名前（`fulltext/pdf/<record_id>.pdf`）で保存してください。
+- 取れなかったものは `fulltext/to_download_by_hand.csv` に並びます。出版社ごと（件数の多い順）、その中で案（`decision`）は `include` が先です。同じサイトの中で続けて作業できるようにしてあります。`link` 欄を開き、`save_as` 欄の名前（`fulltext/pdf/<record_id>.pdf`）で保存してください。DOI がない記録では `link` が題名での検索になります。
+
+  2026-10-28 時点の内訳は、Elsevier 152件、DOI なし146件、Springer 89件、Taylor and Francis 43件、SAGE 24件、APA 24件、Wiley 40件、以下は10件台以下です。掲載誌は340種あり、253種は1件だけです。
 - もう一度同じコマンドを実行すると、置いた PDF は飛ばし、まだ無いものだけがリストに残ります。
 - 判定は常盤さんが行い、20%を選び直します。
 

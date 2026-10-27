@@ -16,9 +16,10 @@ Where files go (all under sr_update/fulltext/ unless --out is given):
   pdf/<record_id>.pdf      every PDF, named by record_id. Not committed
                            (copyrighted); kept on this machine only.
   fetch_log.csv            one row per record: status, route, URL used
-  to_download_by_hand.csv  records that could not be fetched, with the
-                           title/abstract decision (include first, then
-                           maybe), title,
+  to_download_by_hand.csv  records that could not be fetched, grouped by
+                           publisher (largest group first) and within a
+                           group by decision (include first, then maybe),
+                           with the title,
                            DOI and DOI link, for the author to download.
                            Save each file as pdf/<record_id>.pdf.
 
@@ -47,6 +48,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+from collections import Counter
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -162,6 +164,41 @@ def candidates(row):
 
 # --------------------------------------------------------------------------
 
+# DOI prefixes of the publishers that hold most of the by-hand records.
+# Grouping by publisher lets the author work through one platform at a
+# time instead of jumping between sites for every record.
+PUBLISHERS = {
+    "10.1016": "Elsevier (ScienceDirect)",
+    "10.1007": "Springer",
+    "10.1080": "Taylor and Francis",
+    "10.1177": "SAGE",
+    "10.1037": "APA",
+    "10.1111": "Wiley",
+    "10.1002": "Wiley",
+    "10.1109": "IEEE",
+    "10.1108": "Emerald",
+    "10.1145": "ACM",
+    "10.3390": "MDPI",
+    "10.4018": "IGI Global",
+    "10.3389": "Frontiers",
+    "10.1348": "Wiley (BPS)",
+    "10.1207": "Taylor and Francis",
+}
+SCHOLAR = "https://scholar.google.com/scholar?q="
+
+
+def publisher(doi):
+    return PUBLISHERS.get((doi or "").split("/")[0], "その他" if doi else "DOI なし")
+
+
+def search_link(row):
+    """Where to go to get this PDF: the DOI, or a title search."""
+    doi = (row.get("doi") or "").strip()
+    if doi:
+        return f"https://doi.org/{doi}"
+    return SCHOLAR + urllib.parse.quote('"' + (row.get("title") or "")[:200] + '"')
+
+
 def kept_in_screening(path):
     """record_ids kept at the title/abstract stage, from the screening sheet.
 
@@ -247,21 +284,25 @@ def main():
                 doi = row.get("doi", "")
                 by_hand.append({
                     "record_id": rid, "decision": kept.get(rid, ""),
+                    "publisher": publisher(doi),
                     "title": row.get("title", ""),
                     "year": row.get("year", ""), "authors": row.get("authors", ""),
-                    "doi": doi, "doi_link": f"https://doi.org/{doi}" if doi else "",
+                    "journal": row.get("journal", ""),
+                    "doi": doi, "link": search_link(row),
                     "save_as": f"pdf/{rid}.pdf",
-                    "note": "" if doi else "no DOI; search by title"})
+                    "note": "" if doi else "no DOI; the link is a title search"})
         log.append(entry)
         print(f"[{n}/{len(todo)}] {rid}: {entry['status']} {entry['route']}")
 
     write_csv(args.out / "fetch_log.csv", log,
               ["record_id", "doi", "title", "status", "route", "url", "note"])
     rank = {"include": 0, "maybe": 1}
-    by_hand.sort(key=lambda r: (rank.get(r["decision"], 2), r["record_id"]))
+    size = Counter(r["publisher"] for r in by_hand)
+    by_hand.sort(key=lambda r: (-size[r["publisher"]], r["publisher"],
+                                rank.get(r["decision"], 2), r["record_id"]))
     write_csv(args.out / "to_download_by_hand.csv", by_hand,
-              ["record_id", "decision", "title", "year", "authors", "doi",
-               "doi_link", "save_as", "note"])
+              ["record_id", "decision", "publisher", "title", "year", "authors",
+               "journal", "doi", "link", "save_as", "note"])
     got = sum(e["status"] in ("downloaded", "already_present") for e in log)
     print(f"\n{got} of {len(log)} PDFs in {pdf_dir}")
     print(f"{len(by_hand)} to download by hand: {args.out / 'to_download_by_hand.csv'}")
