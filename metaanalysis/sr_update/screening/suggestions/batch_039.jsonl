@@ -1,0 +1,200 @@
+{"record_id": "R03174", "suggestion": "exclude", "reason": "E1", "note": "Program repair/cognitive model for coding; no personality measure."}
+{"record_id": "R03176", "suggestion": "exclude", "reason": "E1", "note": "MITx edX course report; no personality measure."}
+{"record_id": "R03183", "suggestion": "exclude", "reason": "E2", "note": "Peer selection algorithm; not a study of learning."}
+{"record_id": "R03196", "suggestion": "exclude", "reason": "E1", "note": "MITx edX course report; no personality measure."}
+{"record_id": "R03202", "suggestion": "exclude", "reason": "E1", "note": "Automated programming assessment method; no personality measure."}
+{"record_id": "R03207", "suggestion": "exclude", "reason": "E1", "note": "MITx edX course report; no personality measure."}
+{"record_id": "R03213", "suggestion": "exclude", "reason": "E1", "note": "MITx edX course report; no personality measure."}
+{"record_id": "R03214", "suggestion": "exclude", "reason": "E1", "note": "Machine-learning prediction method; no personality measure."}
+{"record_id": "R03218", "suggestion": "exclude", "reason": "E1", "note": "MITx edX course report; no personality measure."}
+{"record_id": "R03222", "suggestion": "exclude", "reason": "E1", "note": "MITx edX course report; no personality measure."}
+{"record_id": "R03223", "suggestion": "exclude", "reason": "E1", "note": "Automatic mind-map grader; no personality measure."}
+{"record_id": "R03236", "suggestion": "exclude", "reason": "E1", "note": "Fuzzy grade-adjustment system; no personality measure."}
+{"record_id": "R03242", "suggestion": "exclude", "reason": "E5", "note": "Book on L2 listening metacognition, not a primary study."}
+{"record_id": "R03247", "suggestion": "exclude", "reason": "E1", "note": "MITx edX course report; no personality measure."}
+{"record_id": "R03262", "suggestion": "exclude", "reason": "E1", "note": "Open textbook impact; no personality measure."}
+{"record_id": "R03278", "suggestion": "exclude", "reason": "E1", "note": "MITx edX course report; no personality measure."}
+{"record_id": "R03289", "suggestion": "exclude", "reason": "E1", "note": "MITx edX course report; no personality measure."}
+{"record_id": "R03291", "suggestion": "exclude", "reason": "E1", "note": "Course recommender with learning styles, not Big Five."}
+{"record_id": "R03292", "suggestion": "exclude", "reason": "E1", "note": "Open educational resources initiative; no personality measure."}
+{"record_id": "R03294", "suggestion": "exclude", "reason": "E1", "note": "LLM test-question generation; no personality measure."}
+{"record_id": "R03309", "suggestion": "exclude", "reason": "E1", "note": "AI feedback system design; no personality measure."}
+{"record_id": "R03318", "suggestion": "exclude", "reason": "E1", "note": "Description of learner support services; no personality measure."}
+{"record_id": "R03321", "suggestion": "exclude", "reason": "E1", "note": "Metric for student regularity; no personality measure."}
+{"record_id": "R03325", "suggestion": "exclude", "reason": "E1", "note": "Automated programming assessment method; no personality measure."}
+{"record_id": "R03331", "suggestion": "exclude", "reason": "E2", "note": "Electrochemistry item; not about learning."}
+{"record_id": "R03348", "suggestion": "exclude", "reason": "E5", "note": "Book introduction, not a primary study."}
+{"record_id": "R03349", "suggestion": "exclude", "reason": "E1", "note": "Course quality evaluation framework; no personality measure."}
+{"record_id": "R03384", "suggestion": "exclude", "reason": "E1", "note": "Content personalisation by data mining; no personality measure."}
+{"record_id": "R03397", "suggestion": "exclude", "reason": "E1", "note": "Activity index for self-regulated learning; no personality measure."}
+{"record_id": "R03401", "suggestion": "exclude", "reason": "E1", "note": "Peer feedback framework; no personality measure."}
+{"record_id": "R03404", "suggestion": "exclude", "reason": "E1", "note": "Fuzzy peer-assessment method; no personality measure."}
+{"record_id": "R03424", "suggestion": "exclude", "reason": "E5", "note": "Systematic literature review."}
+{"record_id": "R03437", "suggestion": "exclude", "reason": "E2", "note": "Time-series clustering method; not about learning."}
+{"record_id": "R03447", "suggestion": "maybe", "reason": "", "note": "Factors in transition to open schooling; constructs and outcome unclear from title."}
+{"record_id": "R03454", "suggestion": "maybe", "reason": "", "note": "Factors in transition to open schooling; constructs and outcome unclear from title."}
+{"record_id": "R03466", "suggestion": "exclude", "reason": "E1", "note": "Network resource conditions in problem-based learning; no personality measure."}
+{"record_id": "R03482", "suggestion": "exclude", "reason": "E1", "note": "Neural-network teaching support system; no personality measure."}
+{"record_id": "R03484", "suggestion": "exclude", "reason": "E5", "note": "Journal editorial."}
+{"record_id": "R03494", "suggestion": "exclude", "reason": "E7", "note": "Zenodo deposit of teaching toolkit, not an eligible report."}
+{"record_id": "R03499", "suggestion": "exclude", "reason": "E1", "note": "Teacher professional development and reading comprehension; no personality measure."}
+{"record_id": "R03504", "suggestion": "exclude", "reason": "E1", "note": "Resilience only, not a Big Five or HEXACO measure."}
+{"record_id": "R03508", "suggestion": "exclude", "reason": "E1", "note": "Distance BLS training and willingness to do CPR; no personality measure."}
+{"record_id": "R03511", "suggestion": "exclude", "reason": "E5", "note": "Book on language acquisition, not a primary study."}
+{"record_id": "R03517", "suggestion": "exclude", "reason": "E2", "note": "Rhinoplasty scar study; not about learning."}
+{"record_id": "R03521", "suggestion": "exclude", "reason": "E1", "note": "Game-theoretic peer assessment model; no personality measure."}
+{"record_id": "R03530", "suggestion": "exclude", "reason": "E5", "note": "Book on language attrition, not a primary study."}
+{"record_id": "R03534", "suggestion": "exclude", "reason": "E2", "note": "Breast implant surgery; not about learning."}
+{"record_id": "R03535", "suggestion": "exclude", "reason": "E1", "note": "Student-lecturer cultural differences, not a Big Five measure."}
+{"record_id": "R03544", "suggestion": "exclude", "reason": "E1", "note": "Open- vs closed-book exams; no personality measure."}
+{"record_id": "R03550", "suggestion": "exclude", "reason": "E1", "note": "Persuasive technology conditions; no personality measure."}
+{"record_id": "R03562", "suggestion": "exclude", "reason": "E2", "note": "Oncology trial; not about learning."}
+{"record_id": "R03565", "suggestion": "exclude", "reason": "E1", "note": "AI exam-preparation tool; no personality measure."}
+{"record_id": "R03566", "suggestion": "exclude", "reason": "E1", "note": "ANFIS quality-of-experience model; no personality measure."}
+{"record_id": "R03583", "suggestion": "exclude", "reason": "E5", "note": "Opinion piece on higher education."}
+{"record_id": "R03593", "suggestion": "exclude", "reason": "E1", "note": "Moodle use account; no personality measure."}
+{"record_id": "R03601", "suggestion": "exclude", "reason": "E2", "note": "Skin closure after abdominoplasty; not about learning."}
+{"record_id": "R03609", "suggestion": "exclude", "reason": "E2", "note": "Strategic voting study; not about learning."}
+{"record_id": "R03624", "suggestion": "exclude", "reason": "E1", "note": "Theatre arts in L2 teaching; no personality measure."}
+{"record_id": "R03630", "suggestion": "exclude", "reason": "E5", "note": "Overview of internationalisation trends."}
+{"record_id": "R03635", "suggestion": "exclude", "reason": "E2", "note": "Oncology trial; not about learning."}
+{"record_id": "R03665", "suggestion": "exclude", "reason": "E1", "note": "Course delivery with ICT; no personality measure."}
+{"record_id": "R03676", "suggestion": "exclude", "reason": "E1", "note": "Knowledge diagnosis model; no personality measure."}
+{"record_id": "R03679", "suggestion": "exclude", "reason": "E1", "note": "Learning analytics dashboard use; no personality measure."}
+{"record_id": "R03687", "suggestion": "exclude", "reason": "E1", "note": "Performance prediction from learning behaviour; no personality measure."}
+{"record_id": "R03696", "suggestion": "exclude", "reason": "E1", "note": "Digital teaching techniques chapter; no personality measure."}
+{"record_id": "R03722", "suggestion": "exclude", "reason": "E1", "note": "Flipped classroom implementation; no personality measure."}
+{"record_id": "R03736", "suggestion": "exclude", "reason": "E1", "note": "Descriptive higher-education survey; no personality measure."}
+{"record_id": "R03805", "suggestion": "exclude", "reason": "E3", "note": "Population is university teachers."}
+{"record_id": "R03809", "suggestion": "exclude", "reason": "E1", "note": "Neuro-fuzzy performance prediction; no personality measure."}
+{"record_id": "R03820", "suggestion": "maybe", "reason": "", "note": "No title or abstract available; cannot judge."}
+{"record_id": "R03821", "suggestion": "exclude", "reason": "E1", "note": "Inferring emotions from video watching; no personality measure."}
+{"record_id": "R03865", "suggestion": "exclude", "reason": "E1", "note": "Quiz statistics; no personality measure."}
+{"record_id": "R03877", "suggestion": "maybe", "reason": "", "note": "Student characteristics and computer-mediated communication; no abstract, may cover traits."}
+{"record_id": "R03914", "suggestion": "exclude", "reason": "E1", "note": "Learning environment integration framework; no personality measure."}
+{"record_id": "R03952", "suggestion": "exclude", "reason": "E5", "note": "Review of outcome-based assessment."}
+{"record_id": "R03954", "suggestion": "exclude", "reason": "E1", "note": "Self-directed learning readiness, not a Big Five measure."}
+{"record_id": "R03958", "suggestion": "exclude", "reason": "E1", "note": "AI for microeconomics competencies; no personality measure."}
+{"record_id": "R03965", "suggestion": "exclude", "reason": "E5", "note": "Research overview of video-based learning."}
+{"record_id": "R03985", "suggestion": "exclude", "reason": "E1", "note": "Data-driven learning intervention; no personality measure."}
+{"record_id": "R03991", "suggestion": "exclude", "reason": "E1", "note": "Problem-based instruction action research; no personality measure."}
+{"record_id": "R04015", "suggestion": "exclude", "reason": "E1", "note": "Theoretical model for smart learning; no personality measure."}
+{"record_id": "R04045", "suggestion": "exclude", "reason": "E1", "note": "Machine-learning group composition; no personality measure."}
+{"record_id": "R04051", "suggestion": "exclude", "reason": "E1", "note": "Curriculum design process; no personality measure."}
+{"record_id": "R04052", "suggestion": "exclude", "reason": "E5", "note": "Special section editorial."}
+{"record_id": "R04083", "suggestion": "exclude", "reason": "E1", "note": "Big data teaching management; no personality measure."}
+{"record_id": "R04100", "suggestion": "maybe", "reason": "", "note": "Heterogeneity of LLM support effects; moderators may include traits, no abstract."}
+{"record_id": "R04110", "suggestion": "exclude", "reason": "E1", "note": "Human-computer mismatch chapter; no personality measure of learners."}
+{"record_id": "R04134", "suggestion": "exclude", "reason": "E5", "note": "Literature study of engagement measurement methods."}
+{"record_id": "R04172", "suggestion": "exclude", "reason": "E1", "note": "Java domain ontology; no personality measure."}
+{"record_id": "R04193", "suggestion": "exclude", "reason": "E5", "note": "Journal editorial."}
+{"record_id": "R04212", "suggestion": "exclude", "reason": "E1", "note": "Digital classroom management innovation; no personality measure."}
+{"record_id": "R04216", "suggestion": "exclude", "reason": "E1", "note": "Educational design assistant tool; no personality measure."}
+{"record_id": "R04268", "suggestion": "exclude", "reason": "E1", "note": "Engagement modelling from behaviour logs; no personality measure."}
+{"record_id": "R04278", "suggestion": "exclude", "reason": "E5", "note": "Country report on smart education."}
+{"record_id": "R04330", "suggestion": "exclude", "reason": "E1", "note": "Learning design and analytics; no personality measure."}
+{"record_id": "R04357", "suggestion": "exclude", "reason": "E1", "note": "Lifelong learning competencies, not a Big Five measure."}
+{"record_id": "R04374", "suggestion": "exclude", "reason": "E1", "note": "Pedagogical agent SDK; no personality measure."}
+{"record_id": "R04382", "suggestion": "exclude", "reason": "E1", "note": "Prompting for clinical reasoning; no personality measure."}
+{"record_id": "R04385", "suggestion": "exclude", "reason": "E2", "note": "Gynaecologic oncology study; not about learning."}
+{"record_id": "R04388", "suggestion": "exclude", "reason": "E1", "note": "Storytelling and game-based learning framework; no personality measure."}
+{"record_id": "R04391", "suggestion": "exclude", "reason": "E2", "note": "Ambient assisted living advisory concept; not about student learning."}
+{"record_id": "R04414", "suggestion": "exclude", "reason": "E1", "note": "Predicting self-regulated learning support needs; no personality measure."}
+{"record_id": "R04437", "suggestion": "exclude", "reason": "E7", "note": "1932 student newspaper item, not an eligible report."}
+{"record_id": "R04457", "suggestion": "exclude", "reason": "E1", "note": "Reinforcement learning for feedback generation; no personality measure."}
+{"record_id": "R04473", "suggestion": "exclude", "reason": "E1", "note": "Learning styles model, not a Big Five measure."}
+{"record_id": "R04478", "suggestion": "exclude", "reason": "E1", "note": "AI scaffolding intervention; no personality measure."}
+{"record_id": "R04544", "suggestion": "exclude", "reason": "E1", "note": "Pedagogical perspective on mobile teaching; no personality measure."}
+{"record_id": "R04545", "suggestion": "exclude", "reason": "E1", "note": "Pedagogical perspective on mobile teaching; no personality measure."}
+{"record_id": "R04557", "suggestion": "exclude", "reason": "E1", "note": "Development of hybrid learning materials; no personality measure."}
+{"record_id": "R04573", "suggestion": "exclude", "reason": "E5", "note": "Systematic review of teacher competence tools."}
+{"record_id": "R04581", "suggestion": "exclude", "reason": "E1", "note": "Game-based learning with dashboards; no personality measure."}
+{"record_id": "R04587", "suggestion": "exclude", "reason": "E1", "note": "LLM-generated self-regulated learning prompts; no personality measure."}
+{"record_id": "R04602", "suggestion": "exclude", "reason": "E1", "note": "Formative vs summative assessment comparison; no personality measure."}
+{"record_id": "R04606", "suggestion": "exclude", "reason": "E5", "note": "Conceptual chapter on learning culture."}
+{"record_id": "R04607", "suggestion": "exclude", "reason": "E2", "note": "Oncology trial; not about learning."}
+{"record_id": "R04610", "suggestion": "exclude", "reason": "E1", "note": "Pedagogical perspective on mobile teaching; no personality measure."}
+{"record_id": "R04627", "suggestion": "exclude", "reason": "E1", "note": "Generative AI learning framework; no personality measure."}
+{"record_id": "R04638", "suggestion": "exclude", "reason": "E1", "note": "Peer assessment method; no personality measure."}
+{"record_id": "R04677", "suggestion": "exclude", "reason": "E5", "note": "Narrative overview of digital technology in orthodontic education."}
+{"record_id": "R04698", "suggestion": "exclude", "reason": "E7", "note": "Book review."}
+{"record_id": "R04723", "suggestion": "exclude", "reason": "E5", "note": "Commentary on open and distance learning institutions."}
+{"record_id": "R04757", "suggestion": "exclude", "reason": "E1", "note": "Students' media preferences; no personality measure."}
+{"record_id": "R04761", "suggestion": "exclude", "reason": "E1", "note": "Development of digital learning media; no personality measure."}
+{"record_id": "R04764", "suggestion": "exclude", "reason": "E1", "note": "Neural network prediction of at-risk students; no personality measure."}
+{"record_id": "R04815", "suggestion": "exclude", "reason": "E1", "note": "Facebook as pedagogical tool; no personality measure."}
+{"record_id": "R04818", "suggestion": "exclude", "reason": "E5", "note": "Commentary on medical student assessment during COVID-19."}
+{"record_id": "R04866", "suggestion": "exclude", "reason": "E2", "note": "Antibody kinetics prediction preprint; not about learning."}
+{"record_id": "R04884", "suggestion": "exclude", "reason": "E2", "note": "Surgical technique for osmidrosis; not about learning."}
+{"record_id": "R04925", "suggestion": "exclude", "reason": "E5", "note": "Qualitative case study of hybrid learning."}
+{"record_id": "R04926", "suggestion": "exclude", "reason": "E5", "note": "Systems-theoretical conceptual paper."}
+{"record_id": "R04930", "suggestion": "exclude", "reason": "E2", "note": "Pathology interobserver variability; not about learning."}
+{"record_id": "R04984", "suggestion": "exclude", "reason": "E5", "note": "Case study of cyberbullying."}
+{"record_id": "R04987", "suggestion": "exclude", "reason": "E2", "note": "Clinical study of leiomyosarcoma; not about learning."}
+{"record_id": "R05042", "suggestion": "exclude", "reason": "E1", "note": "Anatomy study modules evaluation; no personality measure."}
+{"record_id": "R05053", "suggestion": "exclude", "reason": "E1", "note": "Self-regulated learning dashboard design; no personality measure."}
+{"record_id": "R05065", "suggestion": "exclude", "reason": "E1", "note": "Team dynamics intervention in pharmacy; no personality measure."}
+{"record_id": "R05070", "suggestion": "exclude", "reason": "E2", "note": "Oncology trial; not about learning."}
+{"record_id": "R05081", "suggestion": "exclude", "reason": "E2", "note": "Breast biopsy technique; not about learning."}
+{"record_id": "R05084", "suggestion": "exclude", "reason": "E2", "note": "Surgical algorithm; not about learning."}
+{"record_id": "R05130", "suggestion": "exclude", "reason": "E1", "note": "Question paper generation app; no personality measure."}
+{"record_id": "R05131", "suggestion": "exclude", "reason": "E2", "note": "Biographical profile; not about learning."}
+{"record_id": "R05158", "suggestion": "exclude", "reason": "E2", "note": "Oncology treatment commentary; not about learning."}
+{"record_id": "R05187", "suggestion": "exclude", "reason": "E5", "note": "Qualitative study of theories-in-action."}
+{"record_id": "R05191", "suggestion": "exclude", "reason": "E2", "note": "Acne scar treatment; not about learning."}
+{"record_id": "R05196", "suggestion": "exclude", "reason": "E1", "note": "Oncology curriculum implementation; no personality measure."}
+{"record_id": "R05219", "suggestion": "exclude", "reason": "E2", "note": "Surgical drains after mastectomy; not about learning."}
+{"record_id": "R05233", "suggestion": "exclude", "reason": "E2", "note": "Battery cathode materials; not about learning."}
+{"record_id": "R05243", "suggestion": "exclude", "reason": "E1", "note": "Mobile tutor for economics; no personality measure."}
+{"record_id": "R05249", "suggestion": "exclude", "reason": "E2", "note": "Rhinosinusitis clinical trial; not about learning."}
+{"record_id": "R05259", "suggestion": "exclude", "reason": "E5", "note": "Commentary on education services during COVID-19."}
+{"record_id": "R05284", "suggestion": "exclude", "reason": "E7", "note": "Conference abstract collection."}
+{"record_id": "R05323", "suggestion": "exclude", "reason": "E7", "note": "Book review."}
+{"record_id": "R05383", "suggestion": "exclude", "reason": "E1", "note": "Radiation oncology curriculum pilot; no personality measure."}
+{"record_id": "R05404", "suggestion": "exclude", "reason": "E2", "note": "Sarcoma chemotherapy trial; not about learning."}
+{"record_id": "R05413", "suggestion": "exclude", "reason": "E7", "note": "Letters to the editor."}
+{"record_id": "R05421", "suggestion": "exclude", "reason": "E5", "note": "Editorial-style commentary."}
+{"record_id": "R05434", "suggestion": "exclude", "reason": "E5", "note": "Commentary on academic book publishing."}
+{"record_id": "R05507", "suggestion": "exclude", "reason": "E7", "note": "Conference abstract collection."}
+{"record_id": "R05520", "suggestion": "exclude", "reason": "E7", "note": "Conference abstract collection."}
+{"record_id": "R05522", "suggestion": "exclude", "reason": "E7", "note": "Conference abstract collection."}
+{"record_id": "R05574", "suggestion": "exclude", "reason": "E7", "note": "Conference abstract collection."}
+{"record_id": "R05577", "suggestion": "exclude", "reason": "E1", "note": "Student demographics in forestry programmes; no personality measure."}
+{"record_id": "R05598", "suggestion": "exclude", "reason": "E7", "note": "Society sustaining members listing."}
+{"record_id": "R05601", "suggestion": "exclude", "reason": "E5", "note": "Address on academic advising, not a primary study."}
+{"record_id": "R05607", "suggestion": "exclude", "reason": "E5", "note": "Essay on surgical education identity."}
+{"record_id": "R05610", "suggestion": "exclude", "reason": "E7", "note": "Conference abstract collection."}
+{"record_id": "R05624", "suggestion": "exclude", "reason": "E7", "note": "Conference poster abstract collection."}
+{"record_id": "R05625", "suggestion": "exclude", "reason": "E5", "note": "Journal editorial."}
+{"record_id": "R05632", "suggestion": "exclude", "reason": "E7", "note": "Biographical notice."}
+{"record_id": "R05635", "suggestion": "exclude", "reason": "E5", "note": "Journal review column."}
+{"record_id": "R05636", "suggestion": "exclude", "reason": "E7", "note": "Congress report."}
+{"record_id": "R05637", "suggestion": "exclude", "reason": "E5", "note": "Conference session report on international medical graduates."}
+{"record_id": "R05638", "suggestion": "exclude", "reason": "E7", "note": "Conference abstract collection."}
+{"record_id": "R05639", "suggestion": "exclude", "reason": "E7", "note": "Placement advertisements."}
+{"record_id": "R05642", "suggestion": "exclude", "reason": "E2", "note": "Clinical guidelines on pain assessment; not about learning."}
+{"record_id": "R05647", "suggestion": "exclude", "reason": "E7", "note": "Conference abstract collection."}
+{"record_id": "R05649", "suggestion": "exclude", "reason": "E7", "note": "Presidential address."}
+{"record_id": "R05654", "suggestion": "exclude", "reason": "E7", "note": "Name index of a book."}
+{"record_id": "R05656", "suggestion": "exclude", "reason": "E1", "note": "Community of inquiry conceptual paper; no personality measure."}
+{"record_id": "R05657", "suggestion": "exclude", "reason": "E1", "note": "LIWC text analysis methods; no personality trait measure of learners."}
+{"record_id": "R05664", "suggestion": "exclude", "reason": "E1", "note": "Coh-Metrix text analysis tool; no personality measure."}
+{"record_id": "R05665", "suggestion": "exclude", "reason": "E1", "note": "Community of inquiry instrument validation; no personality measure."}
+{"record_id": "R05669", "suggestion": "exclude", "reason": "E1", "note": "Function word use and college grades; no personality inventory."}
+{"record_id": "R05677", "suggestion": "maybe", "reason": "", "note": "Predictors of web-student performance; individual differences of online learners, no abstract."}
+{"record_id": "R05682", "suggestion": "exclude", "reason": "E1", "note": "Metacognition construct development; no personality measure."}
+{"record_id": "R05686", "suggestion": "exclude", "reason": "E5", "note": "Literature review of self-efficacy research."}
+{"record_id": "R05695", "suggestion": "exclude", "reason": "E1", "note": "Emotional intelligence, not a Big Five or HEXACO measure."}
+{"record_id": "R05698", "suggestion": "exclude", "reason": "E3", "note": "Analysis of a central banker's speeches, not students."}
+{"record_id": "R05699", "suggestion": "exclude", "reason": "E3", "note": "Analysis of political figures' language, not students."}
+{"record_id": "R05706", "suggestion": "exclude", "reason": "E1", "note": "Metacognition construct development; no personality measure."}
+{"record_id": "R05715", "suggestion": "exclude", "reason": "E1", "note": "Bloom taxonomy learning activities; no personality measure."}
+{"record_id": "R05729", "suggestion": "exclude", "reason": "E1", "note": "ICT use by mathematics students; no personality measure."}
+{"record_id": "R05730", "suggestion": "exclude", "reason": "E1", "note": "Discussion platform metrics validation; no personality measure."}
+{"record_id": "R05731", "suggestion": "exclude", "reason": "E2", "note": "Speech-to-text methodology; not about learning."}
+{"record_id": "R05740", "suggestion": "exclude", "reason": "E3", "note": "Survey of business faculty, not students."}
+{"record_id": "R05747", "suggestion": "exclude", "reason": "E3", "note": "Survey of secondary school teachers."}
+{"record_id": "R05749", "suggestion": "exclude", "reason": "E1", "note": "Learning discipline, parenting and facilities, not Big Five traits."}
+{"record_id": "R05754", "suggestion": "exclude", "reason": "E4", "note": "Big Five and e-learning readiness only; readiness is not an eligible outcome (Turkish)."}
+{"record_id": "R05756", "suggestion": "exclude", "reason": "E1", "note": "Narrative developmental themes in adults; no personality measure or learning outcome."}
+{"record_id": "R05763", "suggestion": "exclude", "reason": "E6", "note": "Spanish only; otherwise fits distance students, traits, achievement."}

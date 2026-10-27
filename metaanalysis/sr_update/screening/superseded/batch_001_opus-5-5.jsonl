@@ -1,0 +1,200 @@
+{"record_id": "R00001", "suggestion": "include", "reason": "", "note": "Students in C-LMS virtual environment; Big Five; knowledge test and continued use"}
+{"record_id": "R00003", "suggestion": "exclude", "reason": "E1", "note": "Inverted classroom evaluation; no personality measure"}
+{"record_id": "R00004", "suggestion": "exclude", "reason": "E1", "note": "Trust in AI scale development; no Big Five measure"}
+{"record_id": "R00005", "suggestion": "exclude", "reason": "E1", "note": "Academic stress inventory validation; no Big Five measure"}
+{"record_id": "R00006", "suggestion": "maybe", "reason": "", "note": "Teachers as trainees in online training; Big Five; performance expectancy - population and outcome unclear"}
+{"record_id": "R00007", "suggestion": "include", "reason": "", "note": "Japanese high school online platform; BFI-2-J; learning logs and outcomes"}
+{"record_id": "R00008", "suggestion": "exclude", "reason": "E5", "note": "RCT protocol"}
+{"record_id": "R00009", "suggestion": "exclude", "reason": "E1", "note": "Social media use and prosocial personality; no Big Five measure"}
+{"record_id": "R00010", "suggestion": "exclude", "reason": "E1", "note": "Blended teaching intervention; no personality measure"}
+{"record_id": "R00011", "suggestion": "exclude", "reason": "E1", "note": "Affective states scale for online learning; no Big Five"}
+{"record_id": "R00012", "suggestion": "exclude", "reason": "E1", "note": "Ambiguity tolerance only; not Big Five"}
+{"record_id": "R00013", "suggestion": "exclude", "reason": "E1", "note": "Medical students eLearning engagement factors; no personality measure"}
+{"record_id": "R00014", "suggestion": "maybe", "reason": "", "note": "Emergency online learning satisfaction; personal characteristics incl. emotional stability - measure unclear"}
+{"record_id": "R00015", "suggestion": "include", "reason": "", "note": "K-12 online learning; Big Five; achievement and engagement"}
+{"record_id": "R00017", "suggestion": "include", "reason": "", "note": "STEM online courses; personality traits; academic performance"}
+{"record_id": "R00018", "suggestion": "exclude", "reason": "E1", "note": "Blended learning readiness scale; no Big Five measure"}
+{"record_id": "R00019", "suggestion": "maybe", "reason": "", "note": "COVID online university students; trait conscientiousness only; expected grades"}
+{"record_id": "R00020", "suggestion": "exclude", "reason": "E1", "note": "Proactive personality only"}
+{"record_id": "R00021", "suggestion": "maybe", "reason": "", "note": "Blended learning adaptability; personality characteristics mentioned - measure unclear"}
+{"record_id": "R00022", "suggestion": "maybe", "reason": "", "note": "COVID e-learning exchange students; personality; academic performance - measure unclear"}
+{"record_id": "R00023", "suggestion": "maybe", "reason": "", "note": "Personality traits and academic performance with virtual experience; setting and measure unclear"}
+{"record_id": "R00024", "suggestion": "include", "reason": "", "note": "Online course satisfaction scale; correlated with conscientiousness and neuroticism"}
+{"record_id": "R00025", "suggestion": "include", "reason": "", "note": "COVID online learning; Big Five traits; online learning outcomes"}
+{"record_id": "R00026", "suggestion": "maybe", "reason": "", "note": "Extraversion and agreeableness; perceptions of online collaboration - outcome fit unclear"}
+{"record_id": "R00027", "suggestion": "exclude", "reason": "E1", "note": "Gender differences in e-learning quiz; no personality measure"}
+{"record_id": "R00028", "suggestion": "maybe", "reason": "", "note": "Personality and behavioural data predicting academic performance; online setting partial"}
+{"record_id": "R00029", "suggestion": "exclude", "reason": "E5", "note": "Systematic review"}
+{"record_id": "R00030", "suggestion": "exclude", "reason": "E1", "note": "MBTI and learning styles"}
+{"record_id": "R00031", "suggestion": "maybe", "reason": "", "note": "Blended Moodle course; self-perceived introversion/extroversion - measure unclear"}
+{"record_id": "R00032", "suggestion": "exclude", "reason": "E1", "note": "Web-based anatomy videos; no personality measure"}
+{"record_id": "R00033", "suggestion": "exclude", "reason": "E1", "note": "Distance seminars for residents; instructor personality not measured"}
+{"record_id": "R00034", "suggestion": "include", "reason": "", "note": "E-learners; BFI; GPA"}
+{"record_id": "R00035", "suggestion": "include", "reason": "", "note": "Online and blended course; BFI; LMS use and grades"}
+{"record_id": "R00036", "suggestion": "include", "reason": "", "note": "Online learners; five-factor traits; GPA"}
+{"record_id": "R00037", "suggestion": "exclude", "reason": "E3", "note": "Instructor personality (NEO-FFI), not students"}
+{"record_id": "R00038", "suggestion": "include", "reason": "", "note": "University e-learning; five-factor model; e-learning engagement"}
+{"record_id": "R00039", "suggestion": "include", "reason": "", "note": "Online vs face-to-face course; BFI; academic performance"}
+{"record_id": "R00041", "suggestion": "maybe", "reason": "", "note": "Blended vs traditional; NEO-FFI; achievement - trait-outcome association unclear"}
+{"record_id": "R00042", "suggestion": "include", "reason": "", "note": "Online courses; personality; academic performance"}
+{"record_id": "R00044", "suggestion": "exclude", "reason": "E5", "note": "Meta-analysis"}
+{"record_id": "R00046", "suggestion": "maybe", "reason": "", "note": "ISM modelling of online learning readiness incl. Big Five traits - design and outcome unclear"}
+{"record_id": "R00047", "suggestion": "include", "reason": "", "note": "Online community college students; EI and personality; GPA"}
+{"record_id": "R00048", "suggestion": "include", "reason": "", "note": "Online courses; personality traits; academic success"}
+{"record_id": "R00049", "suggestion": "include", "reason": "", "note": "Hybrid language course; BFI; final grades"}
+{"record_id": "R00050", "suggestion": "include", "reason": "", "note": "Electronic university students; NEO; academic achievement"}
+{"record_id": "R00051", "suggestion": "include", "reason": "", "note": "Online doctoral students; BFI conscientiousness and grit; GPA"}
+{"record_id": "R00052", "suggestion": "include", "reason": "", "note": "Adaptive e-learning tool; conscientiousness and openness; academic performance"}
+{"record_id": "R00053", "suggestion": "exclude", "reason": "E5", "note": "Qualitative interview study of MOOC dropout"}
+{"record_id": "R00054", "suggestion": "exclude", "reason": "E1", "note": "Descriptive account of MOOC formats; no personality"}
+{"record_id": "R00055", "suggestion": "include", "reason": "", "note": "Online management course; personality traits; learning outcomes"}
+{"record_id": "R00056", "suggestion": "include", "reason": "", "note": "Online vocational international students; conscientiousness and openness; learning effectiveness"}
+{"record_id": "R00057", "suggestion": "maybe", "reason": "", "note": "Distance learning; extroversion-introversion; achievement - measure unclear"}
+{"record_id": "R00058", "suggestion": "include", "reason": "", "note": "Distance psychology students; personality traits; GPA"}
+{"record_id": "R00059", "suggestion": "exclude", "reason": "E1", "note": "MBTI"}
+{"record_id": "R00060", "suggestion": "include", "reason": "", "note": "Face-to-face vs videoconferencing; extroversion and neuroticism; achievement"}
+{"record_id": "R00061", "suggestion": "exclude", "reason": "E3", "note": "Teacher interviews on MOOC evaluation"}
+{"record_id": "R00063", "suggestion": "exclude", "reason": "E1", "note": "MBTI-type preferences"}
+{"record_id": "R00064", "suggestion": "include", "reason": "", "note": "University online classes; agreeableness and conscientiousness; perceived achievement and satisfaction"}
+{"record_id": "R00065", "suggestion": "include", "reason": "", "note": "Hybrid courses; personality incl. conscientiousness; grades"}
+{"record_id": "R00066", "suggestion": "include", "reason": "", "note": "Distance video lectures; five personality dimensions; exam performance"}
+{"record_id": "R00067", "suggestion": "maybe", "reason": "", "note": "Online learning; conscientiousness facets only; procrastination - outcome fit unclear"}
+{"record_id": "R00069", "suggestion": "exclude", "reason": "E1", "note": "MBTI"}
+{"record_id": "R00071", "suggestion": "exclude", "reason": "E1", "note": "Online readiness survey, not a Big Five inventory"}
+{"record_id": "R00072", "suggestion": "exclude", "reason": "E1", "note": "Hartman personality type theory"}
+{"record_id": "R00074", "suggestion": "exclude", "reason": "E1", "note": "Resilience traits and mental health; no Big Five"}
+{"record_id": "R00076", "suggestion": "maybe", "reason": "", "note": "Online/ERT environments; personality traits; dishonesty and prior achievement"}
+{"record_id": "R00077", "suggestion": "maybe", "reason": "", "note": "Online community college; conscientiousness and extraversion; collaboration outcomes"}
+{"record_id": "R00078", "suggestion": "exclude", "reason": "E5", "note": "Systematic review"}
+{"record_id": "R00082", "suggestion": "maybe", "reason": "", "note": "Hybrid and online courses; personality among learner characteristics; essay test performance"}
+{"record_id": "R00083", "suggestion": "maybe", "reason": "", "note": "Multi-access courses; introversion-extraversion; flow and modality choice"}
+{"record_id": "R00085", "suggestion": "exclude", "reason": "E1", "note": "Self-regulation and motivation; no personality measure"}
+{"record_id": "R00086", "suggestion": "maybe", "reason": "", "note": "Blended learning; personality trait, anxiety and academic performance - measure unclear"}
+{"record_id": "R00087", "suggestion": "exclude", "reason": "E5", "note": "Literature review"}
+{"record_id": "R00088", "suggestion": "exclude", "reason": "E1", "note": "Grit only"}
+{"record_id": "R00089", "suggestion": "maybe", "reason": "", "note": "Online vs face-to-face; openness to experience; global openness change - outcome fit unclear"}
+{"record_id": "R00090", "suggestion": "include", "reason": "", "note": "Online discussion; Five Factor test; task engagement"}
+{"record_id": "R00091", "suggestion": "exclude", "reason": "E1", "note": "MBTI"}
+{"record_id": "R00093", "suggestion": "exclude", "reason": "E4", "note": "COVID coping and personality; no academic outcome"}
+{"record_id": "R00094", "suggestion": "exclude", "reason": "E4", "note": "Personality and attitudes toward cameras; no eligible outcome"}
+{"record_id": "R00095", "suggestion": "exclude", "reason": "E3", "note": "Teachers' usability ratings"}
+{"record_id": "R00096", "suggestion": "exclude", "reason": "E1", "note": "MBTI"}
+{"record_id": "R00097", "suggestion": "exclude", "reason": "E5", "note": "Critical commentary on GenAI"}
+{"record_id": "R00098", "suggestion": "exclude", "reason": "E3", "note": "Faculty perceptions case study"}
+{"record_id": "R00100", "suggestion": "exclude", "reason": "E5", "note": "Systematic literature review"}
+{"record_id": "R00101", "suggestion": "exclude", "reason": "E1", "note": "Interpersonal interaction quasi-experiment; no personality measure"}
+{"record_id": "R00102", "suggestion": "exclude", "reason": "E1", "note": "MOOC motivation and engagement; no personality measure"}
+{"record_id": "R00103", "suggestion": "exclude", "reason": "E1", "note": "MBTI"}
+{"record_id": "R00104", "suggestion": "maybe", "reason": "", "note": "Blended e-education; extraversion and self-efficacy; achievement - measure unclear"}
+{"record_id": "R00105", "suggestion": "maybe", "reason": "", "note": "Online distance course; conscientiousness only; performance"}
+{"record_id": "R00107", "suggestion": "exclude", "reason": "E1", "note": "E-learning task design; no personality measure"}
+{"record_id": "R00108", "suggestion": "include", "reason": "", "note": "Zoom e-learning; Big 5; learning gain"}
+{"record_id": "R00111", "suggestion": "maybe", "reason": "", "note": "E-learning dataset classification incl. personality attribute - outcome unclear"}
+{"record_id": "R00112", "suggestion": "exclude", "reason": "E1", "note": "Holland career personality types"}
+{"record_id": "R00113", "suggestion": "exclude", "reason": "E1", "note": "MBTI-type cognitive styles"}
+{"record_id": "R00114", "suggestion": "exclude", "reason": "E1", "note": "Learning approaches and perceptions; no personality measure"}
+{"record_id": "R00116", "suggestion": "exclude", "reason": "E1", "note": "E-component in face-to-face classes; no personality measure"}
+{"record_id": "R00118", "suggestion": "exclude", "reason": "E1", "note": "Cognitive style and self-regulation; no Big Five"}
+{"record_id": "R00119", "suggestion": "exclude", "reason": "E1", "note": "Insights Discovery personality assessment"}
+{"record_id": "R00120", "suggestion": "exclude", "reason": "E1", "note": "Blended language teaching; no personality measure"}
+{"record_id": "R00122", "suggestion": "include", "reason": "", "note": "Online team-based courses; conscientiousness; course grades"}
+{"record_id": "R00124", "suggestion": "exclude", "reason": "E1", "note": "Type A and locus of control; no Big Five"}
+{"record_id": "R00125", "suggestion": "exclude", "reason": "E5", "note": "Theoretical framework paper"}
+{"record_id": "R00126", "suggestion": "maybe", "reason": "", "note": "Online courses; conscientiousness only; impressions and engagement"}
+{"record_id": "R00127", "suggestion": "exclude", "reason": "E5", "note": "Systematic review"}
+{"record_id": "R00128", "suggestion": "exclude", "reason": "E1", "note": "Helplessness and implicit theories; no Big Five"}
+{"record_id": "R00129", "suggestion": "exclude", "reason": "E4", "note": "Personality and cyberbullying; no eligible outcome"}
+{"record_id": "R00132", "suggestion": "exclude", "reason": "E3", "note": "Administrative staff survey"}
+{"record_id": "R00133", "suggestion": "exclude", "reason": "E1", "note": "Grit and growth mindset conceptual paper"}
+{"record_id": "R00134", "suggestion": "exclude", "reason": "E3", "note": "Faculty and staff diversity course"}
+{"record_id": "R00137", "suggestion": "exclude", "reason": "E5", "note": "Ethics commentary"}
+{"record_id": "R00138", "suggestion": "exclude", "reason": "E3", "note": "Real estate practitioners; MIPS"}
+{"record_id": "R00140", "suggestion": "exclude", "reason": "E1", "note": "Grit only"}
+{"record_id": "R00147", "suggestion": "exclude", "reason": "E5", "note": "Review of prediction methods"}
+{"record_id": "R00149", "suggestion": "maybe", "reason": "", "note": "E-learning exercises supplementing lecture; personality traits as controls; exam performance"}
+{"record_id": "R00150", "suggestion": "exclude", "reason": "E5", "note": "Review"}
+{"record_id": "R00151", "suggestion": "exclude", "reason": "E5", "note": "Qualitative single-case study"}
+{"record_id": "R00153", "suggestion": "maybe", "reason": "", "note": "Distance vs face-to-face teacher trainees; personal characteristics; performance - measure unclear"}
+{"record_id": "R00155", "suggestion": "exclude", "reason": "E3", "note": "Teachers' professional development"}
+{"record_id": "R00156", "suggestion": "exclude", "reason": "E5", "note": "Descriptive account of teacher education system"}
+{"record_id": "R00157", "suggestion": "maybe", "reason": "", "note": "CSCL vs face-to-face; personality characteristics; learning outcomes - measure unclear"}
+{"record_id": "R00159", "suggestion": "exclude", "reason": "E1", "note": "Enneagram temperament test"}
+{"record_id": "R00160", "suggestion": "exclude", "reason": "E1", "note": "Goal instability only"}
+{"record_id": "R00161", "suggestion": "exclude", "reason": "E1", "note": "COVID learning impact survey; no trait measure"}
+{"record_id": "R00162", "suggestion": "exclude", "reason": "E5", "note": "Workplace e-learning commentary"}
+{"record_id": "R00163", "suggestion": "exclude", "reason": "E1", "note": "Design-based research on metacognition"}
+{"record_id": "R00164", "suggestion": "exclude", "reason": "E3", "note": "Teachers in SEL training"}
+{"record_id": "R00165", "suggestion": "maybe", "reason": "", "note": "Online/FTF course; academic introversion-extraversion; satisfaction and achievement"}
+{"record_id": "R00167", "suggestion": "exclude", "reason": "E5", "note": "Bibliometric mapping"}
+{"record_id": "R00168", "suggestion": "exclude", "reason": "E1", "note": "Online discussion format; personality not measured"}
+{"record_id": "R00174", "suggestion": "exclude", "reason": "E1", "note": "Proactive personality only"}
+{"record_id": "R00175", "suggestion": "maybe", "reason": "", "note": "COVID online university students; trait conscientiousness only; expected grades"}
+{"record_id": "R00177", "suggestion": "exclude", "reason": "E1", "note": "Trait anxiety only; not Big Five"}
+{"record_id": "R00179", "suggestion": "exclude", "reason": "E5", "note": "Descriptive account of virtual school"}
+{"record_id": "R00180", "suggestion": "exclude", "reason": "E1", "note": "MBTI"}
+{"record_id": "R00181", "suggestion": "exclude", "reason": "E3", "note": "Online tutors peer observation"}
+{"record_id": "R00182", "suggestion": "exclude", "reason": "E1", "note": "Learning styles only"}
+{"record_id": "R00183", "suggestion": "exclude", "reason": "E1", "note": "Traveller pupils schooling; no personality"}
+{"record_id": "R00184", "suggestion": "exclude", "reason": "E1", "note": "LMS quality perceptions; no personality"}
+{"record_id": "R00185", "suggestion": "exclude", "reason": "E1", "note": "Scenario-based e-learning; no personality measure"}
+{"record_id": "R00186", "suggestion": "exclude", "reason": "E5", "note": "Policy country note"}
+{"record_id": "R00190", "suggestion": "exclude", "reason": "E5", "note": "Book for campus leaders"}
+{"record_id": "R00191", "suggestion": "exclude", "reason": "E1", "note": "Smartphone apps perceptions; no personality"}
+{"record_id": "R00192", "suggestion": "maybe", "reason": "", "note": "Conference proceedings volume; check dispositional learning analytics paper"}
+{"record_id": "R00193", "suggestion": "exclude", "reason": "E5", "note": "Systematic literature review"}
+{"record_id": "R00194", "suggestion": "exclude", "reason": "E5", "note": "Teaching handbook"}
+{"record_id": "R00195", "suggestion": "exclude", "reason": "E1", "note": "Virtual team building; no personality"}
+{"record_id": "R00196", "suggestion": "exclude", "reason": "E1", "note": "Instructor personal presence; qualitative, no trait measure"}
+{"record_id": "R00197", "suggestion": "exclude", "reason": "E1", "note": "EDM proceedings; no personality study listed"}
+{"record_id": "R00199", "suggestion": "exclude", "reason": "E1", "note": "Affective responses to analytics; no personality"}
+{"record_id": "R00201", "suggestion": "exclude", "reason": "E1", "note": "MBTI"}
+{"record_id": "R00202", "suggestion": "maybe", "reason": "", "note": "Proceedings volume incl. personality types and grades paper; setting and measure unclear"}
+{"record_id": "R00203", "suggestion": "exclude", "reason": "E5", "note": "Opinion article"}
+{"record_id": "R00204", "suggestion": "exclude", "reason": "E1", "note": "Agricultural education proceedings; no personality study"}
+{"record_id": "R00205", "suggestion": "exclude", "reason": "E1", "note": "Comparative education conference book; no personality study"}
+{"record_id": "R00206", "suggestion": "exclude", "reason": "E1", "note": "Sport games conference supplement; no personality study"}
+{"record_id": "R00275", "suggestion": "exclude", "reason": "E1", "note": "MOOC integration; no personality"}
+{"record_id": "R00363", "suggestion": "exclude", "reason": "E5", "note": "MOOC primer"}
+{"record_id": "R00428", "suggestion": "include", "reason": "", "note": "MOOC adult learners; personality trait complexes; performance and completion"}
+{"record_id": "R00429", "suggestion": "exclude", "reason": "E1", "note": "Diabetes self-management MOOC; no personality"}
+{"record_id": "R00486", "suggestion": "include", "reason": "", "note": "Blended course; Big Five; course grades"}
+{"record_id": "R00487", "suggestion": "maybe", "reason": "", "note": "No abstract; title suggests personality and online learning outcome"}
+{"record_id": "R00493", "suggestion": "maybe", "reason": "", "note": "No abstract; Big Five, online activities and achievement; Korean journal, language unclear"}
+{"record_id": "R00498", "suggestion": "exclude", "reason": "E5", "note": "OSF project/protocol for systematic review and meta-analysis"}
+{"record_id": "R00501", "suggestion": "include", "reason": "", "note": "COVID online learning; BFI; self-reported grades; report type to check"}
+{"record_id": "R00507", "suggestion": "include", "reason": "", "note": "Distance education students; NEO-FFI; math and GPA; report type to check"}
+{"record_id": "R00513", "suggestion": "include", "reason": "", "note": "MOOC learners; personality; academic performance"}
+{"record_id": "R00516", "suggestion": "include", "reason": "", "note": "Dissertation; online courses; BFI; course grades"}
+{"record_id": "R00530", "suggestion": "include", "reason": "", "note": "MOOC and blended course; personality characteristics; course performance"}
+{"record_id": "R00539", "suggestion": "maybe", "reason": "", "note": "Web-based course; Big Five; learning outcomes; book chapter report type"}
+{"record_id": "R00545", "suggestion": "include", "reason": "", "note": "Online learning; Big Five; academic performance"}
+{"record_id": "R00552", "suggestion": "exclude", "reason": "E1", "note": "MOOC credit recognition; no personality"}
+{"record_id": "R00555", "suggestion": "include", "reason": "", "note": "Distance vs full-time; BFI; academic performance"}
+{"record_id": "R00558", "suggestion": "exclude", "reason": "E1", "note": "SPOC platform design; no personality"}
+{"record_id": "R00564", "suggestion": "maybe", "reason": "", "note": "No abstract; personality and online course format"}
+{"record_id": "R00579", "suggestion": "maybe", "reason": "", "note": "Online course; personal qualities and openness; academic success - measure unclear"}
+{"record_id": "R00582", "suggestion": "include", "reason": "", "note": "E-learning university; NEO-FFI; final grades"}
+{"record_id": "R00594", "suggestion": "include", "reason": "", "note": "Online secondary education; BFI; learning satisfaction"}
+{"record_id": "R00637", "suggestion": "maybe", "reason": "", "note": "Remote course; personality traits; peer assessment behaviour - outcome fit unclear"}
+{"record_id": "R00640", "suggestion": "exclude", "reason": "E1", "note": "MBTI"}
+{"record_id": "R00663", "suggestion": "maybe", "reason": "", "note": "Online course; personality mentioned; learning performance - abstract truncated"}
+{"record_id": "R00665", "suggestion": "include", "reason": "", "note": "Distance psychology students; Big Five; GPA"}
+{"record_id": "R00677", "suggestion": "exclude", "reason": "E5", "note": "Practice commentary"}
+{"record_id": "R00692", "suggestion": "include", "reason": "", "note": "Online learning; personality traits; satisfaction"}
+{"record_id": "R00701", "suggestion": "exclude", "reason": "E3", "note": "Teachers' usability ratings"}
+{"record_id": "R00705", "suggestion": "exclude", "reason": "E1", "note": "E-learning acceptance; no personality"}
+{"record_id": "R00713", "suggestion": "maybe", "reason": "", "note": "Blended reading; Eysenck EPI introversion-extraversion - measure eligibility unclear"}
+{"record_id": "R00721", "suggestion": "exclude", "reason": "E5", "note": "Discussion paper on teacher personality"}
+{"record_id": "R00730", "suggestion": "exclude", "reason": "E5", "note": "Qualitative interview study of MOOC dropout"}
+{"record_id": "R00746", "suggestion": "exclude", "reason": "E1", "note": "Blended e-module; no personality"}
+{"record_id": "R00752", "suggestion": "exclude", "reason": "E1", "note": "Lecturer anxiety and TAM; no Big Five"}
+{"record_id": "R00781", "suggestion": "maybe", "reason": "", "note": "Formal vs distance education; personality types; academic achievement - measure unclear"}
+{"record_id": "R00791", "suggestion": "exclude", "reason": "E5", "note": "Horizon report commentary"}
+{"record_id": "R00794", "suggestion": "exclude", "reason": "E5", "note": "Theoretical gamification framework"}
+{"record_id": "R00819", "suggestion": "exclude", "reason": "E4", "note": "ODL students; personality; achievement motivation only"}
+{"record_id": "R00821", "suggestion": "exclude", "reason": "E5", "note": "Practice commentary"}
+{"record_id": "R00823", "suggestion": "exclude", "reason": "E5", "note": "Systematic literature review"}
+{"record_id": "R00824", "suggestion": "maybe", "reason": "", "note": "E-learning hypermedia; personality; performance - measure unclear"}
+{"record_id": "R00825", "suggestion": "include", "reason": "", "note": "Online courses; TIPI; procrastination and academic performance"}
+{"record_id": "R00831", "suggestion": "exclude", "reason": "E1", "note": "True Colors assessment"}
+{"record_id": "R00846", "suggestion": "exclude", "reason": "E5", "note": "Editorial"}

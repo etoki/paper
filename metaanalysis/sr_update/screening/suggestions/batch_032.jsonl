@@ -1,0 +1,200 @@
+{"record_id": "R06512", "suggestion": "exclude", "reason": "E4", "note": "college students; Big Five; outcome career resilience/success, not academic"}
+{"record_id": "R06513", "suggestion": "exclude", "reason": "E3", "note": "university academic and administrative personnel, not students"}
+{"record_id": "R06517", "suggestion": "exclude", "reason": "E1", "note": "emotion regulation and social support, no Big Five measure"}
+{"record_id": "R06520", "suggestion": "exclude", "reason": "E3", "note": "general survey respondents on investment preferences, not students"}
+{"record_id": "R06522", "suggestion": "maybe", "reason": "", "note": "higher education students; BFI; cognitive engagement; setting not stated"}
+{"record_id": "R06523", "suggestion": "exclude", "reason": "E4", "note": "five factor inventory; outcome positive/negative affect, not academic"}
+{"record_id": "R06526", "suggestion": "exclude", "reason": "E3", "note": "non-clinical community sample aged 18-55; alexithymia"}
+{"record_id": "R06527", "suggestion": "exclude", "reason": "E1", "note": "16 Personalities (MBTI-type) measure, not Big Five"}
+{"record_id": "R06529", "suggestion": "maybe", "reason": "", "note": "high school students; personality traits plus math problem-solving performance; measure and setting unclear"}
+{"record_id": "R06530", "suggestion": "exclude", "reason": "E3", "note": "population is university teachers, outcome rated by teachers"}
+{"record_id": "R06531", "suggestion": "maybe", "reason": "", "note": "no abstract; personality and education design, cannot judge"}
+{"record_id": "R06533", "suggestion": "exclude", "reason": "E4", "note": "Big Five predicted from EEG; no learning outcome"}
+{"record_id": "R06534", "suggestion": "exclude", "reason": "E6", "note": "title and abstract in Spanish"}
+{"record_id": "R06543", "suggestion": "exclude", "reason": "E4", "note": "Big Five and trait procrastination only, no learning outcome"}
+{"record_id": "R06544", "suggestion": "exclude", "reason": "E1", "note": "web vs traditional nursing course, no personality measure"}
+{"record_id": "R06545", "suggestion": "exclude", "reason": "E4", "note": "five-factor model and procrastination facets, no learning outcome"}
+{"record_id": "R06547", "suggestion": "exclude", "reason": "E1", "note": "procrastination scale and test incentives, no Big Five"}
+{"record_id": "R06550", "suggestion": "exclude", "reason": "E3", "note": "distance educators' perceptions, not students"}
+{"record_id": "R06552", "suggestion": "exclude", "reason": "E5", "note": "meta-analytic and theoretical review"}
+{"record_id": "R06554", "suggestion": "exclude", "reason": "E5", "note": "conceptual framework paper"}
+{"record_id": "R06555", "suggestion": "exclude", "reason": "E1", "note": "procrastination and performance, no Big Five measure"}
+{"record_id": "R06556", "suggestion": "exclude", "reason": "E1", "note": "LMS indicators only, no personality measure"}
+{"record_id": "R06558", "suggestion": "exclude", "reason": "E1", "note": "motivation and self-regulation, no Big Five measure"}
+{"record_id": "R06559", "suggestion": "exclude", "reason": "E1", "note": "online vs face-to-face collaboration, no personality measure"}
+{"record_id": "R06561", "suggestion": "exclude", "reason": "E1", "note": "data mining of procrastination behaviour, no personality measure"}
+{"record_id": "R06562", "suggestion": "exclude", "reason": "E1", "note": "LMS procrastination and achievement, no Big Five measure"}
+{"record_id": "R06563", "suggestion": "exclude", "reason": "E5", "note": "qualitative content and sentiment analysis of YouTube comments"}
+{"record_id": "R06564", "suggestion": "exclude", "reason": "E5", "note": "interview-based qualitative study"}
+{"record_id": "R06566", "suggestion": "exclude", "reason": "E1", "note": "time management intervention, no personality measure"}
+{"record_id": "R06567", "suggestion": "exclude", "reason": "E1", "note": "MOOC field experiment on calls to action, no personality measure"}
+{"record_id": "R06568", "suggestion": "exclude", "reason": "E1", "note": "online vs face-to-face performance comparison, no personality measure"}
+{"record_id": "R06570", "suggestion": "exclude", "reason": "E5", "note": "descriptive qualitative study"}
+{"record_id": "R06573", "suggestion": "exclude", "reason": "E1", "note": "perceptions of online learning, no personality measure"}
+{"record_id": "R06574", "suggestion": "exclude", "reason": "E1", "note": "self-regulation, motivation, statistics anxiety; no Big Five"}
+{"record_id": "R06576", "suggestion": "exclude", "reason": "E1", "note": "MOOC scheduling nudge experiment, no personality measure"}
+{"record_id": "R06577", "suggestion": "exclude", "reason": "E1", "note": "academic procrastination and performance, no Big Five measure"}
+{"record_id": "R06579", "suggestion": "exclude", "reason": "E1", "note": "social media addiction and procrastination, no Big Five measure"}
+{"record_id": "R06580", "suggestion": "exclude", "reason": "E1", "note": "procrastination moderator from administrative data, no Big Five measure"}
+{"record_id": "R06581", "suggestion": "exclude", "reason": "E1", "note": "log-based self-regulation indicators, no personality measure"}
+{"record_id": "R06583", "suggestion": "exclude", "reason": "E1", "note": "procrastination and task complexity, no personality measure"}
+{"record_id": "R06584", "suggestion": "exclude", "reason": "E1", "note": "academic delay and motivational beliefs, no Big Five measure"}
+{"record_id": "R06585", "suggestion": "exclude", "reason": "E1", "note": "machine learning prediction of procrastination, no personality measure"}
+{"record_id": "R06586", "suggestion": "exclude", "reason": "E1", "note": "self-regulation failure from LMS logs, no personality measure"}
+{"record_id": "R06587", "suggestion": "exclude", "reason": "E5", "note": "narrative review of self-directed learning"}
+{"record_id": "R06588", "suggestion": "exclude", "reason": "E1", "note": "online vs face-to-face linguistics course, no personality measure"}
+{"record_id": "R06590", "suggestion": "exclude", "reason": "E1", "note": "prediction of procrastination from submission logs, no personality measure"}
+{"record_id": "R06591", "suggestion": "exclude", "reason": "E1", "note": "procrastination and academic attitudes, no Big Five measure"}
+{"record_id": "R06592", "suggestion": "exclude", "reason": "E1", "note": "attributions and procrastination, no Big Five measure"}
+{"record_id": "R06593", "suggestion": "exclude", "reason": "E1", "note": "blended instruction effects, no personality measure"}
+{"record_id": "R06594", "suggestion": "exclude", "reason": "E1", "note": "e-learning design paper, no personality measure"}
+{"record_id": "R06596", "suggestion": "exclude", "reason": "E1", "note": "wikis for peer evaluation, no personality measure"}
+{"record_id": "R06597", "suggestion": "exclude", "reason": "E1", "note": "self-regulated learning and digital literacy, no Big Five measure"}
+{"record_id": "R06598", "suggestion": "exclude", "reason": "E1", "note": "push notification intervention, no personality measure"}
+{"record_id": "R06599", "suggestion": "exclude", "reason": "E5", "note": "book chapter, narrative discussion"}
+{"record_id": "R06600", "suggestion": "exclude", "reason": "E1", "note": "early delay indicators from course data, no personality measure"}
+{"record_id": "R06601", "suggestion": "exclude", "reason": "E1", "note": "e-learning perceptions and outcomes, no personality measure"}
+{"record_id": "R06603", "suggestion": "exclude", "reason": "E5", "note": "qualitative interview case study"}
+{"record_id": "R06604", "suggestion": "exclude", "reason": "E1", "note": "online vs traditional outcomes and satisfaction, no personality measure"}
+{"record_id": "R06605", "suggestion": "exclude", "reason": "E1", "note": "comparison feedback experiment, no Big Five measure"}
+{"record_id": "R06608", "suggestion": "exclude", "reason": "E1", "note": "work habits and programming performance, no personality measure"}
+{"record_id": "R06609", "suggestion": "exclude", "reason": "E1", "note": "teaching experience and achievement, no personality measure"}
+{"record_id": "R06610", "suggestion": "exclude", "reason": "E1", "note": "log-data self-regulated learning in ERT, no personality measure"}
+{"record_id": "R06612", "suggestion": "exclude", "reason": "E1", "note": "procrastination as mediator, no Big Five measure"}
+{"record_id": "R06614", "suggestion": "exclude", "reason": "E1", "note": "rewards and deadlines on procrastination, no Big Five measure"}
+{"record_id": "R06615", "suggestion": "exclude", "reason": "E1", "note": "knowledge sharing in virtual community, no personality measure"}
+{"record_id": "R06619", "suggestion": "exclude", "reason": "E1", "note": "online learning readiness scale, no personality measure"}
+{"record_id": "R06622", "suggestion": "exclude", "reason": "E1", "note": "VLE access behaviour, no personality measure"}
+{"record_id": "R06623", "suggestion": "exclude", "reason": "E5", "note": "literature review"}
+{"record_id": "R06624", "suggestion": "exclude", "reason": "E1", "note": "clustering of LMS behaviours, no personality measure"}
+{"record_id": "R06625", "suggestion": "exclude", "reason": "E1", "note": "procrastination on e-learning platform, no Big Five measure"}
+{"record_id": "R06630", "suggestion": "exclude", "reason": "E5", "note": "framework chapter, not a primary study"}
+{"record_id": "R06631", "suggestion": "exclude", "reason": "E5", "note": "case study of course design changes"}
+{"record_id": "R06632", "suggestion": "exclude", "reason": "E1", "note": "preference and satisfaction survey, no personality measure"}
+{"record_id": "R06634", "suggestion": "exclude", "reason": "E1", "note": "asynchronous vs synchronous assessment, no personality measure"}
+{"record_id": "R06636", "suggestion": "exclude", "reason": "E1", "note": "self-regulation supports chapter, no personality measure"}
+{"record_id": "R06637", "suggestion": "exclude", "reason": "E1", "note": "deadline conditions and procrastination level, no Big Five measure"}
+{"record_id": "R06638", "suggestion": "exclude", "reason": "E1", "note": "survey of suggestions to prevent procrastination, no Big Five measure"}
+{"record_id": "R06639", "suggestion": "exclude", "reason": "E1", "note": "revised MSLQ learning strategies instrument, no personality measure"}
+{"record_id": "R06640", "suggestion": "exclude", "reason": "E2", "note": "crowdsourced humanitarian volunteering, not about learning"}
+{"record_id": "R06641", "suggestion": "exclude", "reason": "E1", "note": "descriptive essentials for online learning, no personality measure"}
+{"record_id": "R06642", "suggestion": "exclude", "reason": "E1", "note": "temporal changes in procrastination, no Big Five measure"}
+{"record_id": "R06643", "suggestion": "exclude", "reason": "E1", "note": "e-learning course components and satisfaction, no personality measure"}
+{"record_id": "R06646", "suggestion": "exclude", "reason": "E1", "note": "real-time procrastination monitoring system, no personality measure"}
+{"record_id": "R06647", "suggestion": "exclude", "reason": "E5", "note": "course development commentary"}
+{"record_id": "R06648", "suggestion": "exclude", "reason": "E1", "note": "self-regulation supports chapter, no personality measure"}
+{"record_id": "R06651", "suggestion": "exclude", "reason": "E1", "note": "teaching interventions on deadlines and emails, no personality measure"}
+{"record_id": "R06652", "suggestion": "exclude", "reason": "E1", "note": "patience and self-regulated learning, no Big Five measure"}
+{"record_id": "R06654", "suggestion": "exclude", "reason": "E1", "note": "TAM factors and procrastination, no Big Five measure"}
+{"record_id": "R06657", "suggestion": "exclude", "reason": "E1", "note": "video feedback chapter, no personality measure"}
+{"record_id": "R06658", "suggestion": "exclude", "reason": "E3", "note": "employees in workplace e-learning"}
+{"record_id": "R06659", "suggestion": "exclude", "reason": "E1", "note": "procrastination chapter, no Big Five measure"}
+{"record_id": "R06660", "suggestion": "exclude", "reason": "E5", "note": "methodological overview of clickstream studies"}
+{"record_id": "R06661", "suggestion": "exclude", "reason": "E5", "note": "review chapter on online courses"}
+{"record_id": "R06662", "suggestion": "exclude", "reason": "E1", "note": "online vs traditional achievement and satisfaction, no personality measure"}
+{"record_id": "R06664", "suggestion": "exclude", "reason": "E7", "note": "SSRN preprint"}
+{"record_id": "R06666", "suggestion": "exclude", "reason": "E5", "note": "qualitative case study"}
+{"record_id": "R06667", "suggestion": "exclude", "reason": "E5", "note": "institutional case study"}
+{"record_id": "R06669", "suggestion": "exclude", "reason": "E1", "note": "mixed-methods thesis on attitudes, no Big Five measure"}
+{"record_id": "R06670", "suggestion": "exclude", "reason": "E3", "note": "faculty training resource, not students"}
+{"record_id": "R06671", "suggestion": "exclude", "reason": "E1", "note": "online vs face-to-face computer course, no personality measure"}
+{"record_id": "R06672", "suggestion": "exclude", "reason": "E1", "note": "comparison of instructional strategies, no personality measure"}
+{"record_id": "R06673", "suggestion": "exclude", "reason": "E5", "note": "practice chapter on engagement strategies"}
+{"record_id": "R06674", "suggestion": "exclude", "reason": "E1", "note": "traditional vs distance course formats, no personality measure"}
+{"record_id": "R06675", "suggestion": "exclude", "reason": "E1", "note": "online readiness instrument (ToOLS), not a Big Five measure"}
+{"record_id": "R06676", "suggestion": "exclude", "reason": "E1", "note": "email intercession and procrastination, no Big Five measure"}
+{"record_id": "R06677", "suggestion": "exclude", "reason": "E5", "note": "qualitative study of flexible delivery"}
+{"record_id": "R06679", "suggestion": "exclude", "reason": "E5", "note": "practice chapter on time management"}
+{"record_id": "R06680", "suggestion": "exclude", "reason": "E5", "note": "practice chapter on engagement strategies"}
+{"record_id": "R06681", "suggestion": "exclude", "reason": "E1", "note": "video feedback chapter, no personality measure"}
+{"record_id": "R06682", "suggestion": "exclude", "reason": "E3", "note": "staff training delivery, not students"}
+{"record_id": "R06685", "suggestion": "exclude", "reason": "E1", "note": "LMS access behaviour and marks, no personality measure"}
+{"record_id": "R06686", "suggestion": "exclude", "reason": "E1", "note": "ground vs online exam performance, no personality measure"}
+{"record_id": "R06687", "suggestion": "exclude", "reason": "E1", "note": "survey of off-task distraction, no personality measure"}
+{"record_id": "R06688", "suggestion": "exclude", "reason": "E3", "note": "unit of analysis is school districts, not students"}
+{"record_id": "R06689", "suggestion": "exclude", "reason": "E1", "note": "social support and learning processes, no Big Five measure"}
+{"record_id": "R06690", "suggestion": "exclude", "reason": "E5", "note": "methodological article on moderation and mediation"}
+{"record_id": "R06692", "suggestion": "exclude", "reason": "E5", "note": "structural equation modeling textbook"}
+{"record_id": "R06701", "suggestion": "exclude", "reason": "E4", "note": "Spanish BFI validation; no learning outcome"}
+{"record_id": "R06703", "suggestion": "exclude", "reason": "E5", "note": "book on anxiety and cognition"}
+{"record_id": "R06707", "suggestion": "maybe", "reason": "", "note": "students; openness and conscientiousness; school grades; setting not stated"}
+{"record_id": "R06708", "suggestion": "exclude", "reason": "E1", "note": "self-regulated learning profiles, no Big Five measure"}
+{"record_id": "R06709", "suggestion": "maybe", "reason": "", "note": "university students; NEO-PI-R; examination grades; setting not stated"}
+{"record_id": "R06711", "suggestion": "exclude", "reason": "E5", "note": "practitioner book on online teaching"}
+{"record_id": "R06715", "suggestion": "exclude", "reason": "E5", "note": "instrument description for counseling use"}
+{"record_id": "R06716", "suggestion": "exclude", "reason": "E4", "note": "personality and goal orientations predicting strategy use, no eligible outcome"}
+{"record_id": "R06718", "suggestion": "exclude", "reason": "E1", "note": "preflection in self-regulated online learning, no personality measure"}
+{"record_id": "R06719", "suggestion": "exclude", "reason": "E1", "note": "learning analytics on engagement and instructor role, no personality measure"}
+{"record_id": "R06721", "suggestion": "exclude", "reason": "E1", "note": "self-regulation for interaction, no personality measure"}
+{"record_id": "R06722", "suggestion": "exclude", "reason": "E2", "note": "Big Five and road accident involvement, not about learning"}
+{"record_id": "R06723", "suggestion": "exclude", "reason": "E1", "note": "self-efficacy and strategy use, no Big Five measure"}
+{"record_id": "R06724", "suggestion": "exclude", "reason": "E5", "note": "commentary on the five-factor model"}
+{"record_id": "R06725", "suggestion": "exclude", "reason": "E1", "note": "action research on instructional strategies, no personality measure"}
+{"record_id": "R06726", "suggestion": "exclude", "reason": "E1", "note": "feedback and cognitive engagement, no personality measure"}
+{"record_id": "R06729", "suggestion": "maybe", "reason": "", "note": "university students; NEO-FFI; academic achievement; setting not stated"}
+{"record_id": "R06730", "suggestion": "exclude", "reason": "E1", "note": "developmental work personality scale, not a Big Five measure"}
+{"record_id": "R06731", "suggestion": "exclude", "reason": "E1", "note": "online scaffolds in simulation, no personality measure"}
+{"record_id": "R06734", "suggestion": "exclude", "reason": "E5", "note": "statistical methodology article"}
+{"record_id": "R06738", "suggestion": "exclude", "reason": "E5", "note": "meta-analysis"}
+{"record_id": "R06739", "suggestion": "exclude", "reason": "E1", "note": "student engagement mechanisms, no personality measure"}
+{"record_id": "R06740", "suggestion": "exclude", "reason": "E5", "note": "systematic evidence map"}
+{"record_id": "R06741", "suggestion": "exclude", "reason": "E1", "note": "interest, self-efficacy, self-regulation and engagement; no Big Five"}
+{"record_id": "R06742", "suggestion": "exclude", "reason": "E1", "note": "NSSE engagement benchmarks, no personality measure"}
+{"record_id": "R06744", "suggestion": "exclude", "reason": "E1", "note": "MOOC motivation and language, no personality measure"}
+{"record_id": "R06746", "suggestion": "exclude", "reason": "E5", "note": "systematic review"}
+{"record_id": "R06747", "suggestion": "exclude", "reason": "E1", "note": "online learning attitudes and intention, no personality measure"}
+{"record_id": "R06748", "suggestion": "exclude", "reason": "E5", "note": "conceptual framework article"}
+{"record_id": "R06750", "suggestion": "exclude", "reason": "E1", "note": "validation of self-regulated online learning questionnaire, no Big Five"}
+{"record_id": "R06751", "suggestion": "maybe", "reason": "", "note": "college students; self-regulated learning profiles related to achievement and personality; setting not stated"}
+{"record_id": "R06753", "suggestion": "exclude", "reason": "E1", "note": "engagement disparities by learning mode, no personality measure"}
+{"record_id": "R06755", "suggestion": "exclude", "reason": "E1", "note": "online learning profiles and metacognition, no personality measure"}
+{"record_id": "R06756", "suggestion": "exclude", "reason": "E5", "note": "practitioner book on online teaching"}
+{"record_id": "R06758", "suggestion": "exclude", "reason": "E5", "note": "review paper on personality, learning and achievement"}
+{"record_id": "R06760", "suggestion": "exclude", "reason": "E4", "note": "laboratory studies of attitude-behaviour consistency, no learning outcome"}
+{"record_id": "R06761", "suggestion": "exclude", "reason": "E1", "note": "instructor video content, no personality measure"}
+{"record_id": "R06762", "suggestion": "maybe", "reason": "", "note": "junior high students; conscientiousness; science achievement; setting not stated"}
+{"record_id": "R06764", "suggestion": "exclude", "reason": "E1", "note": "conceptions of learning English and online self-regulation, no Big Five"}
+{"record_id": "R06767", "suggestion": "exclude", "reason": "E3", "note": "general adult sample; motive dimensions and FFM, no learning outcome"}
+{"record_id": "R06768", "suggestion": "exclude", "reason": "E5", "note": "interview and document analysis study"}
+{"record_id": "R06769", "suggestion": "exclude", "reason": "E1", "note": "flipped learning, self-regulation and procrastination; no Big Five"}
+{"record_id": "R06771", "suggestion": "exclude", "reason": "E5", "note": "conceptual review of online learner engagement"}
+{"record_id": "R06772", "suggestion": "exclude", "reason": "E1", "note": "self-regulated learning strategies and GPA, no Big Five measure"}
+{"record_id": "R06773", "suggestion": "exclude", "reason": "E1", "note": "mixed-methods study of ERT engagement, no personality measure"}
+{"record_id": "R06774", "suggestion": "exclude", "reason": "E5", "note": "qualitative study of academic stress"}
+{"record_id": "R06776", "suggestion": "maybe", "reason": "", "note": "college students; Big Five; learning engagement; setting not stated"}
+{"record_id": "R06778", "suggestion": "exclude", "reason": "E3", "note": "population is EFL teachers"}
+{"record_id": "R06781", "suggestion": "exclude", "reason": "E1", "note": "IT mindfulness and AI literacy, no Big Five measure"}
+{"record_id": "R06782", "suggestion": "exclude", "reason": "E1", "note": "self-regulated learning profiles, no personality measure"}
+{"record_id": "R06783", "suggestion": "exclude", "reason": "E1", "note": "teacher credibility and engagement, no Big Five measure"}
+{"record_id": "R06786", "suggestion": "exclude", "reason": "E5", "note": "conceptual integrative framework article"}
+{"record_id": "R06787", "suggestion": "exclude", "reason": "E4", "note": "Big Five profiles and emotion regulation, no learning outcome"}
+{"record_id": "R06788", "suggestion": "exclude", "reason": "E5", "note": "qualitative interview study"}
+{"record_id": "R06789", "suggestion": "exclude", "reason": "E1", "note": "online learning readiness and engagement, no Big Five measure"}
+{"record_id": "R06790", "suggestion": "exclude", "reason": "E5", "note": "phenomenological qualitative study of online counseling"}
+{"record_id": "R06792", "suggestion": "exclude", "reason": "E1", "note": "self-regulated learning and employability skills, no Big Five measure"}
+{"record_id": "R06794", "suggestion": "exclude", "reason": "E1", "note": "digital literacy and engagement, no Big Five measure"}
+{"record_id": "R06795", "suggestion": "exclude", "reason": "E1", "note": "instrument development for sense of control, no personality measure"}
+{"record_id": "R06797", "suggestion": "maybe", "reason": "", "note": "Slovak adolescents; Mini-IPIP Big Five; school engagement; setting not stated"}
+{"record_id": "R06798", "suggestion": "exclude", "reason": "E1", "note": "teacher support and learning satisfaction, no Big Five measure"}
+{"record_id": "R06799", "suggestion": "exclude", "reason": "E3", "note": "employees in workplace blended learning"}
+{"record_id": "R06801", "suggestion": "exclude", "reason": "E1", "note": "AI assessment acceptance, no personality measure"}
+{"record_id": "R06802", "suggestion": "exclude", "reason": "E1", "note": "need for cognition only, not a Big Five measure"}
+{"record_id": "R06804", "suggestion": "exclude", "reason": "E1", "note": "parent-child relationship and psychological capital, no Big Five measure"}
+{"record_id": "R06805", "suggestion": "exclude", "reason": "E2", "note": "youth athletes in AI-based sports training, not academic learning"}
+{"record_id": "R06807", "suggestion": "exclude", "reason": "E4", "note": "extraversion and self-regulated learning strategies, no eligible outcome"}
+{"record_id": "R06808", "suggestion": "exclude", "reason": "E1", "note": "online learning challenges survey, no personality measure"}
+{"record_id": "R06809", "suggestion": "exclude", "reason": "E4", "note": "Big Five and self-regulated learning phases with GenAI, no eligible outcome"}
+{"record_id": "R06810", "suggestion": "exclude", "reason": "E1", "note": "learning analytics, engagement and math performance; no Big Five"}
+{"record_id": "R06812", "suggestion": "exclude", "reason": "E4", "note": "Mini-IPIP scale validation, no learning outcome"}
+{"record_id": "R06813", "suggestion": "exclude", "reason": "E5", "note": "edited book on online learning theory and practice"}
+{"record_id": "R06814", "suggestion": "exclude", "reason": "E1", "note": "social presence and interaction, no personality measure"}
+{"record_id": "R06815", "suggestion": "exclude", "reason": "E1", "note": "e-learning acceptance, no personality measure"}
+{"record_id": "R06816", "suggestion": "maybe", "reason": "", "note": "personality and cognitive ability predicting academic performance; setting not stated"}
+{"record_id": "R06817", "suggestion": "exclude", "reason": "E5", "note": "review and theory article on interaction"}
+{"record_id": "R06818", "suggestion": "exclude", "reason": "E5", "note": "personality psychology textbook"}
+{"record_id": "R06819", "suggestion": "exclude", "reason": "E1", "note": "cross-cultural online collaboration behaviours, no personality measure"}
+{"record_id": "R06820", "suggestion": "exclude", "reason": "E1", "note": "social presence in online communities, no personality measure"}
+{"record_id": "R06821", "suggestion": "exclude", "reason": "E1", "note": "cross-cultural online learning motivation, no Big Five measure"}
+{"record_id": "R06822", "suggestion": "exclude", "reason": "E5", "note": "conceptual article on interaction and immediacy"}
+{"record_id": "R06823", "suggestion": "maybe", "reason": "", "note": "college students; broad and narrow personality traits; domain-specific satisfaction unclear"}
+{"record_id": "R06824", "suggestion": "exclude", "reason": "E1", "note": "online vs traditional completion and performance, no personality measure"}

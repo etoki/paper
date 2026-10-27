@@ -95,13 +95,35 @@ python metaanalysis/sr_update/run_search.py           # 本番
 
 ### 4. 選別する（常盤さん）
 
-事前登録どおり、常盤さん1人で選別します。Claude は2人目の選別者にしません（2026-10-27 決定）。
+判定するのは常盤さん1人です。Claude は2人目の選別者ではなく、全件に「こう判定するのが筋だ」という案を出すだけです（2026-10-27 決定）。常盤さんが全件を最終確認して初めて判定になります。
 
-**題名・要旨の段階**:
-- 常盤さんが全件を判定します。
-- 1週間以上あけて10%を選び直し、一致度（κ）を出します。
+**題名・要旨の段階（2026-10-28 に案を作成済み）**
 
-題名・要旨の判定は `records_dedup.csv` の `ta_decision` 欄に `include`（全文を読む）、`maybe`（迷う。全文を読む）、`exclude` のどれかで書きます。
+手順:
+
+1. 条件と判定の規則を `screening/criteria.md` に書く。版番号をつけ、変えたら番号を上げる。いまは version 2。
+2. 試験をする。`make_batches.py --pilot` で、v4 の既知28本と無作為72件を混ぜた100件を作り、案を出させ、`merge_suggestions.py --pilot` で既知28本が残るか見る。version 1 では28本中26本しか残らなかった（授業形態が要旨に書かれていない研究を落としていた）。規則4を直して version 2 とし、28本すべてが残った。
+3. 全件を分ける。`make_batches.py` が 8,670 件を200件ずつ44束にする。並び順は、人格の語とオンラインの語の両方を含むもの、どちらかを含むもの、どちらも含まないもの。
+4. 束ごとに、同じ指示文で Claude（Opus 5）に案を出させる。見せるのは題名・要旨・年・掲載誌だけ。出力は `screening/suggestions/batch_NNN.jsonl`（record_id、suggestion、reason、note）。要旨を含まないので git に入れる。
+   束001は最初に別のモデル（Opus 5.5）で走らせたため、やり直しました。捨てた分は `screening/superseded/batch_001_opus-5-5.jsonl` に残してあり、使っていません。
+5. `merge_suggestions.py` で検証する。全件に案が1つずつあるか、値と除外コードが許したものだけか、を確かめる。通ると `screening/screening_ta.csv` ができる。
+
+案の内訳（8,670 件）:
+
+| 案 | 件数 |
+|---|---|
+| include | 161 |
+| maybe | 681 |
+| exclude | 7,828 |
+
+除外コードの内訳: E1（Big Five の尺度なし）4,679、E5（量的な一次研究でない）1,899、E3（対象が学生でない）522、E7（報告の種類が不適）233、E2（対面のみ、または学習の研究でない）204、E4（該当する結果変数なし）198、E6（英語でない）93。
+
+既知の28本はすべて include か maybe に残りました（11本が maybe。授業形態や結果変数が要旨から読み取れないもの）。
+
+**常盤さんがやること**: `screening/screening_ta.csv` を開き、`et_decision` 欄に `include` / `maybe` / `exclude` を入れます。`claude_suggestion` がそのまま妥当なら同じ値を書けば済みます。並び順は include → maybe → exclude なので、上の842件を先に見れば、全文を読む対象が決まります。変える場合は `et_reason`（除外なら E1〜E7）と `et_note` に理由を書いてください。このファイルは要旨を含むので git に入れません。
+**再現性の確認**: 常盤さんの判定が終わったら、1週間以上あけて10%を選び直し、一致度（κ）を出します。これは常盤さんの判定どうしの一致度で、Claude の案とは比べません。
+
+**全文の入手に進む前に**: `fetch_fulltext.py` は `records_dedup.csv` の `ta_decision` 欄を見ます。`screening_ta.csv` の `et_decision` をそこへ書き戻す必要があります（未実装）。
 
 **全文の段階**:
 - Claude が次のコマンドで PDF を取ります。`ta_decision` が `include` か `maybe` の行が対象です。

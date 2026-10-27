@@ -1,0 +1,200 @@
+{"record_id": "R02242", "suggestion": "maybe", "reason": "", "note": "Transfer/distance-learning students; noncognitive predictors of GPA and persistence; trait measure unclear"}
+{"record_id": "R02245", "suggestion": "exclude", "reason": "E1", "note": "Learning motivation, not a Big Five measure"}
+{"record_id": "R02246", "suggestion": "exclude", "reason": "E3", "note": "Online instructors' perceptions, not students"}
+{"record_id": "R02247", "suggestion": "exclude", "reason": "E1", "note": "Self-esteem, not a Big Five measure"}
+{"record_id": "R02250", "suggestion": "exclude", "reason": "E1", "note": "Learners' perceptions of success; no personality measure"}
+{"record_id": "R02251", "suggestion": "exclude", "reason": "E1", "note": "MOOC/virtual lab implementation; no personality measure"}
+{"record_id": "R02252", "suggestion": "exclude", "reason": "E1", "note": "Gamification mechanics in MOOCs; no personality measure"}
+{"record_id": "R02254", "suggestion": "exclude", "reason": "E1", "note": "Crowdsourced peer-grading framework; no personality measure"}
+{"record_id": "R02257", "suggestion": "exclude", "reason": "E1", "note": "PBL in blended learning; no personality measure"}
+{"record_id": "R02258", "suggestion": "exclude", "reason": "E1", "note": "Evaluation of online teaching; no personality measure"}
+{"record_id": "R02259", "suggestion": "exclude", "reason": "E1", "note": "Blended language course outcomes; no personality measure"}
+{"record_id": "R02260", "suggestion": "exclude", "reason": "E3", "note": "Digital competence of teaching staff, not students"}
+{"record_id": "R02261", "suggestion": "exclude", "reason": "E1", "note": "Machine-learning prediction from OULAD; no personality measure"}
+{"record_id": "R02262", "suggestion": "exclude", "reason": "E1", "note": "Hidden Markov model of learning trajectories; no personality measure"}
+{"record_id": "R02263", "suggestion": "exclude", "reason": "E3", "note": "Inuit frontline health workers, not students"}
+{"record_id": "R02264", "suggestion": "exclude", "reason": "E1", "note": "E-sports PE module evaluation; no personality measure"}
+{"record_id": "R02266", "suggestion": "exclude", "reason": "E1", "note": "Qualitative study of doctoral students' beliefs; no personality measure"}
+{"record_id": "R02267", "suggestion": "exclude", "reason": "E3", "note": "Dual-enrolment coordinators and counsellors, not students"}
+{"record_id": "R02268", "suggestion": "exclude", "reason": "E1", "note": "Teaching engineering software at a distance; no personality measure"}
+{"record_id": "R02270", "suggestion": "exclude", "reason": "E1", "note": "Hearing impairment and achievement; no personality measure"}
+{"record_id": "R02271", "suggestion": "exclude", "reason": "E1", "note": "Learning analytics as metacognitive tool; no personality measure"}
+{"record_id": "R02272", "suggestion": "exclude", "reason": "E1", "note": "Distance education administration barriers; no personality measure"}
+{"record_id": "R02273", "suggestion": "exclude", "reason": "E1", "note": "Moodle data-visualisation plugin; no personality measure"}
+{"record_id": "R02274", "suggestion": "exclude", "reason": "E1", "note": "B-learning physics performance comparison; no personality measure"}
+{"record_id": "R02275", "suggestion": "exclude", "reason": "E1", "note": "YouTube video lessons intervention; no personality measure"}
+{"record_id": "R02276", "suggestion": "exclude", "reason": "E1", "note": "Online learning motivation profiles, not Big Five"}
+{"record_id": "R02277", "suggestion": "exclude", "reason": "E1", "note": "Family literacy eLearning module; no personality measure"}
+{"record_id": "R02278", "suggestion": "exclude", "reason": "E1", "note": "ANN-BiLSTM performance prediction; no personality measure"}
+{"record_id": "R02279", "suggestion": "exclude", "reason": "E1", "note": "Satisfaction with blended learning; demographic and technological factors only"}
+{"record_id": "R02280", "suggestion": "exclude", "reason": "E1", "note": "Blended reading intervention; no personality measure"}
+{"record_id": "R02281", "suggestion": "exclude", "reason": "E1", "note": "Preservice teachers' views on distance education; no personality measure"}
+{"record_id": "R02282", "suggestion": "exclude", "reason": "E1", "note": "Perceived usefulness of Canvas (TAM); no personality measure"}
+{"record_id": "R02283", "suggestion": "exclude", "reason": "E1", "note": "Course outcomes under ODL; no personality measure"}
+{"record_id": "R02284", "suggestion": "exclude", "reason": "E1", "note": "Perceptions of cheating in distance learning; no personality measure"}
+{"record_id": "R02285", "suggestion": "exclude", "reason": "E1", "note": "Factorization machine performance prediction; no personality measure"}
+{"record_id": "R02286", "suggestion": "exclude", "reason": "E1", "note": "Moodle feature use and performance; no personality measure"}
+{"record_id": "R02287", "suggestion": "exclude", "reason": "E1", "note": "Blended role-play case study; no personality measure"}
+{"record_id": "R02291", "suggestion": "exclude", "reason": "E1", "note": "Video-based e-learning satisfaction; no personality measure"}
+{"record_id": "R02292", "suggestion": "exclude", "reason": "E1", "note": "Predictors of success are sex, location and GPA; no personality measure"}
+{"record_id": "R02293", "suggestion": "exclude", "reason": "E1", "note": "Video conferencing and exam results; no personality measure"}
+{"record_id": "R02295", "suggestion": "exclude", "reason": "E1", "note": "OpenWHO enrolment and completion statistics; no personality measure"}
+{"record_id": "R02296", "suggestion": "exclude", "reason": "E1", "note": "Privacy and trust in e-learning; no personality measure"}
+{"record_id": "R02297", "suggestion": "exclude", "reason": "E1", "note": "Needs analysis for OBS hybrid model; no personality measure"}
+{"record_id": "R02298", "suggestion": "exclude", "reason": "E1", "note": "Grade prediction from click-streams; no personality measure"}
+{"record_id": "R02299", "suggestion": "exclude", "reason": "E1", "note": "Perceptions of face-to-face versus online learning; no personality measure"}
+{"record_id": "R02301", "suggestion": "exclude", "reason": "E1", "note": "Automatic assessment of programming; no personality measure"}
+{"record_id": "R02302", "suggestion": "exclude", "reason": "E1", "note": "Neural-network performance forecasting; no personality measure"}
+{"record_id": "R02303", "suggestion": "exclude", "reason": "E1", "note": "Social presence and cognitive presence; no personality measure"}
+{"record_id": "R02304", "suggestion": "exclude", "reason": "E1", "note": "Peer review, onboarding and motivation; no personality measure"}
+{"record_id": "R02305", "suggestion": "exclude", "reason": "E3", "note": "Army instructors' perceptions, not students"}
+{"record_id": "R02306", "suggestion": "exclude", "reason": "E3", "note": "Mentors' perceptions of mentoring, not students"}
+{"record_id": "R02307", "suggestion": "exclude", "reason": "E3", "note": "Oncology drug trial in patients, not students"}
+{"record_id": "R02308", "suggestion": "exclude", "reason": "E1", "note": "Active learning in asynchronous dental physiology; no personality measure"}
+{"record_id": "R02309", "suggestion": "maybe", "reason": "", "note": "Blended-course undergraduates; learning orientations and achievement; trait measure unclear"}
+{"record_id": "R02310", "suggestion": "exclude", "reason": "E1", "note": "Gamified distance learning and digital creativity; no personality measure"}
+{"record_id": "R02311", "suggestion": "maybe", "reason": "", "note": "Title only; approach to studying learners' learning in e-learning, cannot judge"}
+{"record_id": "R02312", "suggestion": "exclude", "reason": "E1", "note": "Motivational teaching techniques, not a personality measure"}
+{"record_id": "R02313", "suggestion": "exclude", "reason": "E1", "note": "Student expectations of tutor support; no personality measure"}
+{"record_id": "R02314", "suggestion": "exclude", "reason": "E5", "note": "Literature review of AI-powered e-tutors"}
+{"record_id": "R02315", "suggestion": "exclude", "reason": "E5", "note": "Narrative review of psychological capital literature"}
+{"record_id": "R02316", "suggestion": "exclude", "reason": "E1", "note": "Psychomotor skills in ODL laboratory courses; no personality measure"}
+{"record_id": "R02317", "suggestion": "exclude", "reason": "E1", "note": "Memory-augmented automated grading model; no personality measure"}
+{"record_id": "R02318", "suggestion": "exclude", "reason": "E1", "note": "Web-based preparation for simulation training; no personality measure"}
+{"record_id": "R02319", "suggestion": "exclude", "reason": "E1", "note": "Description of an e-learning examination platform; no personality measure"}
+{"record_id": "R02320", "suggestion": "exclude", "reason": "E3", "note": "EFL teachers' perceptions, not students"}
+{"record_id": "R02321", "suggestion": "exclude", "reason": "E1", "note": "Attitudes and exam performance in blended learning; no personality measure"}
+{"record_id": "R02322", "suggestion": "exclude", "reason": "E1", "note": "Perceptions of remote learning; no personality measure"}
+{"record_id": "R02323", "suggestion": "exclude", "reason": "E1", "note": "3D virtual environment and problem solving; no personality measure"}
+{"record_id": "R02324", "suggestion": "exclude", "reason": "E1", "note": "Development of an AI interactive system; no personality measure"}
+{"record_id": "R02326", "suggestion": "exclude", "reason": "E1", "note": "Design of assessment transcript standards; no personality measure"}
+{"record_id": "R02327", "suggestion": "exclude", "reason": "E1", "note": "360-degree video in blended learning; no personality measure"}
+{"record_id": "R02328", "suggestion": "exclude", "reason": "E1", "note": "Blended learning effect on performance; no personality measure"}
+{"record_id": "R02329", "suggestion": "exclude", "reason": "E1", "note": "Slack as an LMS complement; no personality measure"}
+{"record_id": "R02330", "suggestion": "exclude", "reason": "E1", "note": "Teacher candidates' views on an LMS; no personality measure"}
+{"record_id": "R02332", "suggestion": "exclude", "reason": "E1", "note": "LMS middleware architecture; no personality measure"}
+{"record_id": "R02333", "suggestion": "exclude", "reason": "E5", "note": "Review of online assessment strategies"}
+{"record_id": "R02334", "suggestion": "exclude", "reason": "E1", "note": "Automated code grading; no personality measure"}
+{"record_id": "R02335", "suggestion": "exclude", "reason": "E1", "note": "Automatic evaluation and teacher feedback; no personality measure"}
+{"record_id": "R02336", "suggestion": "exclude", "reason": "E1", "note": "Students' evaluation of tutors; no personality measure"}
+{"record_id": "R02337", "suggestion": "exclude", "reason": "E1", "note": "Higher-order thinking in blended learning; no personality measure"}
+{"record_id": "R02338", "suggestion": "exclude", "reason": "E1", "note": "Students' views on written feedback; no personality measure"}
+{"record_id": "R02339", "suggestion": "exclude", "reason": "E1", "note": "Qualitative study of blended learning experiences; no personality measure"}
+{"record_id": "R02340", "suggestion": "exclude", "reason": "E1", "note": "LMS engagement and placement test score; no personality measure"}
+{"record_id": "R02341", "suggestion": "exclude", "reason": "E1", "note": "Auto-grader for cyber-physical systems; no personality measure"}
+{"record_id": "R02343", "suggestion": "exclude", "reason": "E1", "note": "Online dental traumatology learning tool; no personality measure"}
+{"record_id": "R02344", "suggestion": "exclude", "reason": "E1", "note": "ICVE blended teaching and performance; no personality measure"}
+{"record_id": "R02345", "suggestion": "exclude", "reason": "E1", "note": "Behavioural patterns on a MOOC platform; no personality measure"}
+{"record_id": "R02346", "suggestion": "exclude", "reason": "E3", "note": "Lecturers' computer skills, not students"}
+{"record_id": "R02347", "suggestion": "exclude", "reason": "E3", "note": "International school leaders, not students"}
+{"record_id": "R02348", "suggestion": "exclude", "reason": "E1", "note": "LMS accessibility and student success; no personality measure"}
+{"record_id": "R02349", "suggestion": "exclude", "reason": "E1", "note": "Online versus face-to-face success by race; no personality measure"}
+{"record_id": "R02350", "suggestion": "exclude", "reason": "E5", "note": "Systematic literature review of achievement emotions"}
+{"record_id": "R02351", "suggestion": "exclude", "reason": "E1", "note": "Online versus face-to-face achievement and satisfaction; no personality measure"}
+{"record_id": "R02352", "suggestion": "exclude", "reason": "E1", "note": "Teachers' techno-pedagogical competency; no personality measure"}
+{"record_id": "R02353", "suggestion": "exclude", "reason": "E1", "note": "Development of an online course (ADDIE); no personality measure"}
+{"record_id": "R02354", "suggestion": "exclude", "reason": "E1", "note": "Development of an online practicum platform; no personality measure"}
+{"record_id": "R02355", "suggestion": "exclude", "reason": "E3", "note": "Lecturers' e-learning readiness, not students"}
+{"record_id": "R02356", "suggestion": "exclude", "reason": "E1", "note": "Teenage pregnancy and achievement; no personality measure"}
+{"record_id": "R02357", "suggestion": "exclude", "reason": "E1", "note": "COVID-19 impact on GPA; no personality measure"}
+{"record_id": "R02358", "suggestion": "exclude", "reason": "E1", "note": "Evaluation of interactive fieldcasts; no personality measure"}
+{"record_id": "R02359", "suggestion": "exclude", "reason": "E1", "note": "Case study of assessment on an open course; no personality measure"}
+{"record_id": "R02360", "suggestion": "exclude", "reason": "E1", "note": "Learning analytics of demographic and log data; no personality measure"}
+{"record_id": "R02361", "suggestion": "exclude", "reason": "E3", "note": "Senior management interviews, not students"}
+{"record_id": "R02362", "suggestion": "exclude", "reason": "E1", "note": "Interactive e-learning design and learner interest; no personality measure"}
+{"record_id": "R02365", "suggestion": "exclude", "reason": "E1", "note": "Teaching strategies for critical thinking; no personality measure"}
+{"record_id": "R02366", "suggestion": "exclude", "reason": "E1", "note": "Impact of Blackboard LMS on a course; no personality measure"}
+{"record_id": "R02367", "suggestion": "exclude", "reason": "E1", "note": "Deep neural network performance prediction; no personality measure"}
+{"record_id": "R02368", "suggestion": "exclude", "reason": "E1", "note": "Hybrid learning and quality of education; no personality measure"}
+{"record_id": "R02369", "suggestion": "exclude", "reason": "E1", "note": "Course outcome evaluation under ODL; no personality measure"}
+{"record_id": "R02370", "suggestion": "exclude", "reason": "E1", "note": "Discussion of MOOCs for military education; no personality measure"}
+{"record_id": "R02371", "suggestion": "exclude", "reason": "E1", "note": "Qualitative blended history-learning design; no personality measure"}
+{"record_id": "R02372", "suggestion": "exclude", "reason": "E1", "note": "SERVQUAL service quality in ODL; no personality measure"}
+{"record_id": "R02374", "suggestion": "exclude", "reason": "E1", "note": "FAQ chatbot for online learners; no personality measure"}
+{"record_id": "R02375", "suggestion": "exclude", "reason": "E1", "note": "Enrolling in a MOOC with friends; no personality measure"}
+{"record_id": "R02376", "suggestion": "exclude", "reason": "E1", "note": "Readiness to use AI in distance learning; no personality measure"}
+{"record_id": "R02377", "suggestion": "exclude", "reason": "E1", "note": "Comparison of learner support systems; no personality measure"}
+{"record_id": "R02378", "suggestion": "exclude", "reason": "E1", "note": "Group peer assessment model; no personality measure"}
+{"record_id": "R02379", "suggestion": "exclude", "reason": "E1", "note": "Smart pen technology in distance teaching; no personality measure"}
+{"record_id": "R02380", "suggestion": "exclude", "reason": "E1", "note": "Attitudes towards online learning systems; no personality measure"}
+{"record_id": "R02381", "suggestion": "exclude", "reason": "E1", "note": "Effectiveness of face-to-face tutoring; no personality measure"}
+{"record_id": "R02382", "suggestion": "exclude", "reason": "E1", "note": "Automated grading with software checking; no personality measure"}
+{"record_id": "R02383", "suggestion": "exclude", "reason": "E3", "note": "Community health workers' training, not students"}
+{"record_id": "R02384", "suggestion": "exclude", "reason": "E1", "note": "Classroom response system in blended teaching; no personality measure"}
+{"record_id": "R02385", "suggestion": "exclude", "reason": "E1", "note": "Machine-learning comparison on OULAD; no personality measure"}
+{"record_id": "R02386", "suggestion": "exclude", "reason": "E1", "note": "Plagiarism-detection service usage; no personality measure"}
+{"record_id": "R02387", "suggestion": "exclude", "reason": "E1", "note": "Discussion of online assessment strategies; no personality measure"}
+{"record_id": "R02388", "suggestion": "exclude", "reason": "E1", "note": "Risks in a university e-learning system; no personality measure"}
+{"record_id": "R02389", "suggestion": "exclude", "reason": "E1", "note": "Machine-learning detection of learning disability; no personality measure"}
+{"record_id": "R02390", "suggestion": "exclude", "reason": "E1", "note": "Case study of station-rotation blended learning; no personality measure"}
+{"record_id": "R02391", "suggestion": "exclude", "reason": "E1", "note": "Predictive modelling of engagement from logs; no personality measure"}
+{"record_id": "R02393", "suggestion": "exclude", "reason": "E1", "note": "Validity of continuous assessment; no personality measure"}
+{"record_id": "R02394", "suggestion": "maybe", "reason": "", "note": "Title only; increasing engagement in e-learning systems, cannot judge"}
+{"record_id": "R02396", "suggestion": "exclude", "reason": "E1", "note": "Dialogue behaviour and attributes such as age and motivation; no Big Five measure"}
+{"record_id": "R02397", "suggestion": "exclude", "reason": "E1", "note": "Factors in online programming videos; no personality measure"}
+{"record_id": "R02399", "suggestion": "exclude", "reason": "E1", "note": "OER blended learning and critical thinking; no personality measure"}
+{"record_id": "R02400", "suggestion": "exclude", "reason": "E1", "note": "Ensemble learning on OULAD; no personality measure"}
+{"record_id": "R02401", "suggestion": "exclude", "reason": "E1", "note": "ODL effect on programme learning outcomes; no personality measure"}
+{"record_id": "R02402", "suggestion": "exclude", "reason": "E1", "note": "Development of an e-learning system; no personality measure"}
+{"record_id": "R02403", "suggestion": "exclude", "reason": "E1", "note": "Locus of control and other learner variables, not a Big Five measure"}
+{"record_id": "R02404", "suggestion": "exclude", "reason": "E1", "note": "Theory of ordinal peer grading; no personality measure"}
+{"record_id": "R02405", "suggestion": "exclude", "reason": "E1", "note": "Framework for an AI virtual learning space; no personality measure"}
+{"record_id": "R02406", "suggestion": "exclude", "reason": "E1", "note": "Blended learning and primary school performance; no personality measure"}
+{"record_id": "R02407", "suggestion": "exclude", "reason": "E3", "note": "Teachers' difficulties in modular learning, not students"}
+{"record_id": "R02408", "suggestion": "exclude", "reason": "E1", "note": "Renewable assessment strategy design; no personality measure"}
+{"record_id": "R02409", "suggestion": "exclude", "reason": "E1", "note": "Historical account of e-learning; no personality measure"}
+{"record_id": "R02411", "suggestion": "exclude", "reason": "E1", "note": "Adapting field laboratories for online delivery; no personality measure"}
+{"record_id": "R02412", "suggestion": "exclude", "reason": "E1", "note": "Organisation of blended learning activities; no personality measure"}
+{"record_id": "R02413", "suggestion": "exclude", "reason": "E1", "note": "Content curation and engagement; no personality measure"}
+{"record_id": "R02414", "suggestion": "exclude", "reason": "E1", "note": "Qualitative analysis of critical thinking; no personality measure"}
+{"record_id": "R02415", "suggestion": "exclude", "reason": "E1", "note": "Experiment on video examples and prompts; no personality measure"}
+{"record_id": "R02416", "suggestion": "exclude", "reason": "E1", "note": "Book on simulations for e-learning; no personality measure"}
+{"record_id": "R02417", "suggestion": "exclude", "reason": "E1", "note": "Flipped blended learning action research; no personality measure"}
+{"record_id": "R02418", "suggestion": "exclude", "reason": "E1", "note": "Learning analytics of Moodle resource use; no personality measure"}
+{"record_id": "R02419", "suggestion": "exclude", "reason": "E1", "note": "Practice advice on academic dishonesty; no personality measure"}
+{"record_id": "R02420", "suggestion": "exclude", "reason": "E1", "note": "Digital divide and online success; no personality measure"}
+{"record_id": "R02421", "suggestion": "exclude", "reason": "E1", "note": "Qualitative analysis of grammar errors; no personality measure"}
+{"record_id": "R02422", "suggestion": "exclude", "reason": "E1", "note": "Gamification elements in Moodle; no personality measure"}
+{"record_id": "R02424", "suggestion": "exclude", "reason": "E1", "note": "Students' views on emergency distance education; no personality measure"}
+{"record_id": "R02425", "suggestion": "exclude", "reason": "E5", "note": "Meta-analysis of distance education effectiveness"}
+{"record_id": "R02426", "suggestion": "exclude", "reason": "E1", "note": "Attitudes towards Moodle; no personality measure"}
+{"record_id": "R02427", "suggestion": "exclude", "reason": "E3", "note": "Teachers' acceptance of transmedia storytelling, not students"}
+{"record_id": "R02428", "suggestion": "exclude", "reason": "E1", "note": "Students' experience of blended learning and marks; no personality measure"}
+{"record_id": "R02429", "suggestion": "exclude", "reason": "E1", "note": "Gamification design principles; no personality measure"}
+{"record_id": "R02430", "suggestion": "exclude", "reason": "E1", "note": "Online tool for critical thinking assessment; no personality measure"}
+{"record_id": "R02431", "suggestion": "exclude", "reason": "E1", "note": "Development of a teaching toolkit; no personality measure"}
+{"record_id": "R02432", "suggestion": "exclude", "reason": "E1", "note": "Qualitative study of inclusive interfaces; no personality measure"}
+{"record_id": "R02433", "suggestion": "exclude", "reason": "E1", "note": "Recorded seminars as a distance method; no personality measure"}
+{"record_id": "R02435", "suggestion": "exclude", "reason": "E1", "note": "H5P interactive learning objects; no personality measure"}
+{"record_id": "R02436", "suggestion": "exclude", "reason": "E1", "note": "Cognitive style and creativity, not a Big Five measure"}
+{"record_id": "R02437", "suggestion": "exclude", "reason": "E1", "note": "Case study of assessment on an open course; no personality measure"}
+{"record_id": "R02438", "suggestion": "exclude", "reason": "E1", "note": "Qualitative perceptions of blended speaking classes; no personality measure"}
+{"record_id": "R02439", "suggestion": "exclude", "reason": "E1", "note": "Wiki-based learning assessment; no personality measure"}
+{"record_id": "R02440", "suggestion": "exclude", "reason": "E1", "note": "Development of physical education e-modules; no personality measure"}
+{"record_id": "R02441", "suggestion": "exclude", "reason": "E1", "note": "Model of college English blended learning; no personality measure"}
+{"record_id": "R02443", "suggestion": "exclude", "reason": "E1", "note": "Children's motivation and achievement, not a Big Five measure"}
+{"record_id": "R02444", "suggestion": "exclude", "reason": "E3", "note": "Teachers' perceptions of web tools, not students"}
+{"record_id": "R02445", "suggestion": "exclude", "reason": "E1", "note": "Qualitative study of rural students' challenges; no personality measure"}
+{"record_id": "R02446", "suggestion": "exclude", "reason": "E1", "note": "Conceptual article on online learning essentials; no personality measure"}
+{"record_id": "R02448", "suggestion": "exclude", "reason": "E1", "note": "Account of blended learning implementation; no personality measure"}
+{"record_id": "R02449", "suggestion": "exclude", "reason": "E1", "note": "Knowledge quality instrument and satisfaction; no personality measure"}
+{"record_id": "R02451", "suggestion": "exclude", "reason": "E1", "note": "Opinions about gaps in online education; no personality measure"}
+{"record_id": "R02452", "suggestion": "exclude", "reason": "E1", "note": "Views on assessment question types; no personality measure"}
+{"record_id": "R02453", "suggestion": "exclude", "reason": "E1", "note": "Facial attention tracking system; no personality measure"}
+{"record_id": "R02454", "suggestion": "exclude", "reason": "E1", "note": "Wiki communities and a Moodle module; no personality measure"}
+{"record_id": "R02455", "suggestion": "exclude", "reason": "E3", "note": "Parents and teachers surveyed, not students"}
+{"record_id": "R02456", "suggestion": "exclude", "reason": "E1", "note": "Course recommendation system; no personality measure"}
+{"record_id": "R02457", "suggestion": "exclude", "reason": "E1", "note": "Online versus modular instruction effects; no personality measure"}
+{"record_id": "R02458", "suggestion": "exclude", "reason": "E3", "note": "Primary school teachers surveyed, not students"}
+{"record_id": "R02459", "suggestion": "exclude", "reason": "E5", "note": "Systematic review of self-regulated learning"}
+{"record_id": "R02460", "suggestion": "exclude", "reason": "E1", "note": "Domestic violence and achievement; no personality measure"}
+{"record_id": "R02461", "suggestion": "exclude", "reason": "E1", "note": "Design of a programming exercise platform; no personality measure"}
+{"record_id": "R02462", "suggestion": "exclude", "reason": "E1", "note": "Flipped classroom in-person versus online; no personality measure"}
+{"record_id": "R02463", "suggestion": "exclude", "reason": "E1", "note": "Blended learning achievement and satisfaction; no personality measure"}
+{"record_id": "R02464", "suggestion": "exclude", "reason": "E1", "note": "Qualitative analysis of student engagement; no personality measure"}
+{"record_id": "R02465", "suggestion": "exclude", "reason": "E1", "note": "Retention tracking in open language courses; no personality measure"}
+{"record_id": "R02466", "suggestion": "exclude", "reason": "E1", "note": "Library user education programme; no personality measure"}
+{"record_id": "R02467", "suggestion": "exclude", "reason": "E1", "note": "Report on K-12 online course provision; no personality measure"}
+{"record_id": "R02468", "suggestion": "exclude", "reason": "E1", "note": "Phenomenological study of first-generation students' GPA; no personality measure"}
+{"record_id": "R02469", "suggestion": "exclude", "reason": "E1", "note": "Gardner learning styles, not a Big Five measure"}
+{"record_id": "R02470", "suggestion": "exclude", "reason": "E1", "note": "Hybrid learning and learning interest; no personality measure"}
