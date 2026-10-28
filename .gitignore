@@ -50,3 +50,4 @@ metaanalysis/sr_update/scholar/*.csv
 metaanalysis/sr_update/screening/batches/
 metaanalysis/sr_update/screening/screening_ta.csv
 metaanalysis/sr_update/screening/screening_ta_shortlist.csv
+metaanalysis/sr_update/records_dedup.csv.bak

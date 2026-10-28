@@ -20,7 +20,11 @@ Routes, in order, all free and all with an honest User-Agent:
   2. Europe PMC      ebi.ac.uk/europepmc/.../search      (abstractText)
   3. PubMed          eutils efetch by DOI                (AbstractText)
 Records without a DOI are searched by title and accepted only when the
-normalised title matches exactly.
+normalised title matches exactly. A DOI lookup is accepted only when the
+record that comes back carries that same DOI: PubMed answers an unknown
+DOI by searching its parts and returning a different paper, which in the
+first run of 2026-10-28 attached one paramedic abstract to seven Springer
+book chapters.
 
 Output:
   abstracts_added.csv   record_id, route, chars, title  (committed; no abstracts)
@@ -108,9 +112,14 @@ def _europepmc(query):
 def from_europepmc(row):
     doi = (row.get("doi") or "").strip()
     hits = _europepmc(f'DOI:"{doi}"') if doi else _europepmc(f'TITLE:"{row["title"]}"')
-    want = norm(row["title"])
+    want, want_doi = norm(row["title"]), doi.lower()
     for h in hits:
-        if doi or norm(h.get("title", "")) == want:
+        # Accept a hit only when it is provably the same work: the same DOI,
+        # or the same normalised title. A search that matches neither has
+        # found a different paper.
+        if want_doi and (h.get("doi") or "").strip().lower() == want_doi:
+            return clean(h.get("abstractText", ""))
+        if norm(h.get("title", "")) == want:
             return clean(h.get("abstractText", ""))
     return ""
 
@@ -127,6 +136,13 @@ def from_pubmed(row):
     url = (EUTILS + "efetch.fcgi?db=pubmed&retmode=xml&email=" + MAILTO
            + "&id=" + ids[0])
     root = ET.fromstring(get(url))
+    # PubMed does not fail on an unknown DOI: it splits the string into
+    # terms and returns whatever matches, which is a different paper. Only
+    # accept the record when it carries the DOI we asked for.
+    got = [(e.text or "").strip().lower() for e in root.iter("ArticleId")
+           if e.get("IdType") == "doi"]
+    if doi.lower() not in got:
+        return ""
     parts = [(e.text or "") for e in root.iter("AbstractText")]
     return clean(" ".join(parts))
 

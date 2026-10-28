@@ -13,6 +13,10 @@ term come first, then records that mention either, then the rest; within a
 group, by record_id. The order only decides which records are proposed and
 checked first; every record is screened.
 
+--rescreen writes batches/rescreen_NNN.jsonl: the records whose abstract
+fetch_abstracts.py recovered after the first pass, so they can be judged
+from the abstract instead of the title alone.
+
 --pilot writes batches/pilot.jsonl: the records of the 28 studies from
 manuscript v4 that the search found, plus a fixed random sample of other
 records (seed 20261027), shuffled together so the known studies are not
@@ -91,6 +95,9 @@ def write_jsonl(path, recs):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pilot", action="store_true")
+    ap.add_argument("--rescreen", action="store_true",
+                    help="only the records whose abstract was recovered later "
+                         "by fetch_abstracts.py, for a second pass")
     args = ap.parse_args()
     with (SR / "records_dedup.csv").open(encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
@@ -107,6 +114,19 @@ def main():
         (OUT / "pilot_known.json").write_text(
             json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
         print(f"pilot: {len(pilot)} records ({len(known)} known v4 studies)")
+        return
+
+    if args.rescreen:
+        path = SR / "abstracts_added.csv"
+        if not path.exists():
+            raise SystemExit(f"{path} not found. Run fetch_abstracts.py first.")
+        with path.open(encoding="utf-8") as f:
+            want = {r["record_id"] for r in csv.DictReader(f)}
+        recs = [r for r in rows if r["record_id"] in want]
+        for i in range(0, len(recs), BATCH_SIZE):
+            write_jsonl(OUT / f"rescreen_{i // BATCH_SIZE + 1:03d}.jsonl",
+                        recs[i:i + BATCH_SIZE])
+        print(f"rescreen: {len(recs)} records with a recovered abstract")
         return
 
     ordered = sorted(rows, key=lambda r: (tier(r), r["record_id"]))

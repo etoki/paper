@@ -140,12 +140,28 @@ python metaanalysis/sr_update/run_search.py           # 本番
 - 取れなかったものは `fulltext/to_download_by_hand.csv` に並びます。出版社ごと（件数の多い順）、その中で案（`decision`）は `include` が先です。同じサイトの中で続けて作業できるようにしてあります。`link` 欄を開き、`save_as` 欄の名前（`fulltext/pdf/<record_id>.pdf`）で保存してください。DOI がない記録では `link` が題名での検索になります。
 
   2026-10-28 時点の内訳は、Elsevier 152件、DOI なし146件、Springer 89件、Taylor and Francis 43件、SAGE 24件、APA 24件、Wiley 40件、以下は10件台以下です。掲載誌は340種あり、253種は1件だけです。
-- もう一度同じコマンドを実行すると、置いた PDF は飛ばし、まだ無いものだけがリストに残ります。
+- 出版社がつけたままのファイル名（`theobald2021.pdf`、`EJ1196465.pdf` など）で `fulltext/` に置いてかまいません。次のコマンドが本文から DOI か題名を読み取り、`pdf/<record_id>.pdf` に直します。
+
+  ```
+  /usr/local/bin/python3 metaanalysis/sr_update/place_pdfs.py
+  ```
+
+  `--dry-run` で何に割り当てるかだけ確認できます。割り当てた結果は `fulltext/placed_by_hand.csv` に残ります。特定できなかったファイルは `fulltext/` に残るので、その場合は教えてください。pypdf が必要なので、Homebrew の python3 ではなく `/usr/local/bin/python3` で動かします。
+
+- リストを作り直すときは次のコマンドです。通信はしません。PDF が入った記録と、選別で落ちた記録がリストから外れます。
+
+  ```
+  python metaanalysis/sr_update/fetch_fulltext.py --rebuild-lists
+  ```
+
+**重複している記録**: 検索が同じ論文を2回拾っている組があります。DOI のない ERIC の記録と、DOI つきの記録が、別の `record_id`、ときに別の出版年（冊子と電子版）で入っているためです。題名の正規化で照合すると、8,670件の中に45件の余分があり、全文候補842件の中では10件です。リストの `note` に「same paper as Rxxxxx; download once」と出します。片方をダウンロードすれば `place_pdfs.py` が相手にも同じ PDF を置きます。`record_id` は振り直しません（選別の記録が追えなくなるため）。
+
+  原因は2つです。ERIC が題名に `&apos;` のような実体参照を入れていること、情報源どうしで出版年が1年ずれることです。`run_search.py` の `dedup()` はどちらも考慮していません。
 - 判定は常盤さんが行い、20%を選び直します。
 
 取得の経路は、無料で公開されている版だけです（OpenAlex の OA 情報、PubMed Central の公開データ、ERIC、OSTI の順）。出版社に断られたら、ブラウザを装うなどの回避はせず、手作業のリストに回します。Unpaywall は使いません（OpenAlex が同じデータを持っており、追加でメールアドレスを送らずに済むため）。
 
-**2026-10-28 の実行結果**: 842件のうち163件が自動で取れ、679件が手作業に回りました。
+**2026-10-28 の実行結果**: 842件のうち163件が自動で取れ、679件が手作業に回りました。常盤さんが50件を手作業で入手し、重複の相手4件にも同じ PDF を置いたので、`pdf/` は217件、手作業の残りは626件（案 include は60件）です。
 
 | 経路 | 件数 |
 |---|---|

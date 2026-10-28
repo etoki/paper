@@ -79,17 +79,40 @@ def pilot():
     print(f"\nknown studies kept (include or maybe): {len(known) - missed} of {len(known)}")
 
 
+def rescreened():
+    """Second-pass proposals, keyed by record_id.
+
+    Records whose abstract the search did not return were judged from the
+    title alone in the first pass. fetch_abstracts.py recovered some of
+    those abstracts, and the rescreen batches judge them again from the
+    abstract. The second proposal replaces the first.
+    """
+    out = {}
+    for path in sorted((HERE / "suggestions").glob("rescreen_*.jsonl")):
+        name = path.stem
+        _, by_id, pr = check(name)
+        for p in pr:
+            print("PROBLEM", p)
+        for rid, o in by_id.items():
+            out[rid] = (o, name)
+    return out
+
+
 def full():
     batches = sorted(p.stem for p in (HERE / "batches").glob("batch_*.jsonl"))
+    again = rescreened()
     rows, problems = [], []
     for b in batches:
         inp, by_id, pr = check(b)
         problems += pr
         for r in inp:
             o = by_id.get(r["record_id"], {})
-            rows.append({**r, "claude_suggestion": o.get("suggestion", ""),
-                         "claude_reason": o.get("reason", ""),
-                         "claude_note": o.get("note", ""), "batch": b,
+            second, where = again.get(r["record_id"], (None, ""))
+            rows.append({**r, "claude_suggestion": (second or o).get("suggestion", ""),
+                         "claude_reason": (second or o).get("reason", ""),
+                         "claude_note": (second or o).get("note", ""), "batch": b,
+                         "rescreened": where,
+                         "first_suggestion": o.get("suggestion", "") if second else "",
                          "et_decision": "", "et_reason": "", "et_note": ""})
     for p in problems:
         print("PROBLEM", p)
@@ -99,7 +122,7 @@ def full():
     rows.sort(key=lambda r: (order[r["claude_suggestion"]], r["record_id"]))
     fields = ["record_id", "claude_suggestion", "claude_reason", "claude_note",
               "et_decision", "et_reason", "et_note", "title", "year", "journal",
-              "abstract", "batch"]
+              "abstract", "batch", "rescreened", "first_suggestion"]
     def write(name, these):
         with (HERE / name).open("w", encoding="utf-8-sig", newline="") as f:
             w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
@@ -110,6 +133,13 @@ def full():
     write("screening_ta_shortlist.csv", short)
     print(f"{len(rows)} records; proposals: {dict(Counter(r['claude_suggestion'] for r in rows))}")
     print(f"screening_ta_shortlist.csv: {len(short)} records proposed include or maybe")
+    moved = [r for r in rows if r["rescreened"]
+             and r["first_suggestion"] != r["claude_suggestion"]]
+    if again:
+        print(f"re-screened with a recovered abstract: {len(again)}; "
+              f"proposal changed for {len(moved)}")
+        print("changes:", dict(Counter(
+            f"{r['first_suggestion']} -> {r['claude_suggestion']}" for r in moved)))
 
 
 if __name__ == "__main__":
