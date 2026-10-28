@@ -1,0 +1,200 @@
+{"record_id": "R02705", "suggestion": "exclude", "reason": "E1", "note": "web interface design, no personality measure"}
+{"record_id": "R02706", "suggestion": "exclude", "reason": "E1", "note": "descriptive survey of chemistry learning difficulties, no trait measure"}
+{"record_id": "R02707", "suggestion": "exclude", "reason": "E1", "note": "distance programme evaluation; predictors are demographic/work factors"}
+{"record_id": "R02708", "suggestion": "exclude", "reason": "E1", "note": "reinforcement-learning recommender system, no personality"}
+{"record_id": "R02709", "suggestion": "exclude", "reason": "E1", "note": "gamified blended learning and listening motivation, no trait measure"}
+{"record_id": "R02710", "suggestion": "exclude", "reason": "E1", "note": "analysis of teachers' comprehension questions, no trait measure"}
+{"record_id": "R02711", "suggestion": "exclude", "reason": "E1", "note": "blended learning effect on achievement, no personality measure"}
+{"record_id": "R02712", "suggestion": "exclude", "reason": "E1", "note": "learning styles and comfort, not Big Five or HEXACO"}
+{"record_id": "R02713", "suggestion": "exclude", "reason": "E1", "note": "design of a recommender system, no personality"}
+{"record_id": "R02714", "suggestion": "exclude", "reason": "E1", "note": "LMS/laboratory telemetry predicting exams, no trait measure"}
+{"record_id": "R02716", "suggestion": "exclude", "reason": "E1", "note": "test anxiety plus gender, age, classification; no Big Five"}
+{"record_id": "R02717", "suggestion": "exclude", "reason": "E1", "note": "qualitative study of the transition to distance teaching, no trait measure"}
+{"record_id": "R02718", "suggestion": "exclude", "reason": "E5", "note": "instructional design report, not a quantitative primary study"}
+{"record_id": "R02721", "suggestion": "exclude", "reason": "E3", "note": "participants are in-service primary teachers"}
+{"record_id": "R02722", "suggestion": "exclude", "reason": "E1", "note": "qualitative study of engagement, no personality measure"}
+{"record_id": "R02725", "suggestion": "exclude", "reason": "E1", "note": "self-organizing maps for test items, no personality"}
+{"record_id": "R02726", "suggestion": "exclude", "reason": "E1", "note": "MOOC process mining of video viewing, no trait measure"}
+{"record_id": "R02727", "suggestion": "exclude", "reason": "E1", "note": "online course redesign for speaking, no personality measure"}
+{"record_id": "R02728", "suggestion": "exclude", "reason": "E5", "note": "book chapter reviewing learning theories"}
+{"record_id": "R02729", "suggestion": "exclude", "reason": "E3", "note": "training for elementary school teachers"}
+{"record_id": "R02730", "suggestion": "exclude", "reason": "E5", "note": "narrative synthesis book chapter"}
+{"record_id": "R02731", "suggestion": "exclude", "reason": "E5", "note": "column describing the author's teaching experience"}
+{"record_id": "R02732", "suggestion": "exclude", "reason": "E1", "note": "AI microlearning framework, no personality measure"}
+{"record_id": "R02733", "suggestion": "exclude", "reason": "E1", "note": "qualitative narrative inquiry on perceptions, no trait measure"}
+{"record_id": "R02736", "suggestion": "exclude", "reason": "E3", "note": "teachers' opinions on the EBA platform"}
+{"record_id": "R02737", "suggestion": "exclude", "reason": "E5", "note": "book-length account of learning analytics, no trait measure"}
+{"record_id": "R02738", "suggestion": "exclude", "reason": "E1", "note": "automatic short answer grading thesis, no personality"}
+{"record_id": "R02739", "suggestion": "exclude", "reason": "E1", "note": "development of an online lesson, no trait measure"}
+{"record_id": "R02740", "suggestion": "exclude", "reason": "E1", "note": "self-efficacy, motivation, self-directed learning; no Big Five"}
+{"record_id": "R02741", "suggestion": "exclude", "reason": "E5", "note": "survey/review of e-learning platforms"}
+{"record_id": "R02744", "suggestion": "exclude", "reason": "E1", "note": "digital resource quality and performance, no trait measure"}
+{"record_id": "R02745", "suggestion": "exclude", "reason": "E1", "note": "proctoring field experiment, no personality measure"}
+{"record_id": "R02747", "suggestion": "exclude", "reason": "E1", "note": "online learning readiness, no Big Five measure"}
+{"record_id": "R02748", "suggestion": "exclude", "reason": "E1", "note": "descriptive account of a national e-learning project"}
+{"record_id": "R02749", "suggestion": "exclude", "reason": "E3", "note": "participants are TESL tutors"}
+{"record_id": "R02750", "suggestion": "exclude", "reason": "E1", "note": "students' challenges during the shift online, no trait measure"}
+{"record_id": "R02751", "suggestion": "exclude", "reason": "E1", "note": "engagement with technology-enhanced resources, no Big Five"}
+{"record_id": "R02752", "suggestion": "exclude", "reason": "E1", "note": "LSTM prediction of learning behaviour, no trait measure"}
+{"record_id": "R02753", "suggestion": "exclude", "reason": "E1", "note": "predictive modelling system, no personality measure"}
+{"record_id": "R02754", "suggestion": "exclude", "reason": "E1", "note": "RCT comparing teaching modes, no personality measure"}
+{"record_id": "R02755", "suggestion": "exclude", "reason": "E1", "note": "effect of poor health on performance, no trait measure"}
+{"record_id": "R02756", "suggestion": "exclude", "reason": "E1", "note": "e-learning platform description, no personality"}
+{"record_id": "R02757", "suggestion": "exclude", "reason": "E5", "note": "literature review of academic integrity strategies"}
+{"record_id": "R02758", "suggestion": "exclude", "reason": "E5", "note": "monograph on Microsoft 365 services"}
+{"record_id": "R02759", "suggestion": "exclude", "reason": "E1", "note": "school feeding programme and performance, no trait measure"}
+{"record_id": "R02760", "suggestion": "exclude", "reason": "E1", "note": "learning approaches (R-SPQ-2F), not Big Five or HEXACO"}
+{"record_id": "R02761", "suggestion": "exclude", "reason": "E1", "note": "effect of indiscipline on performance, no trait measure"}
+{"record_id": "R02762", "suggestion": "exclude", "reason": "E1", "note": "learning analytics dashboard system, no personality"}
+{"record_id": "R02763", "suggestion": "exclude", "reason": "E1", "note": "e-learning acceptance predictors, no trait measure"}
+{"record_id": "R02764", "suggestion": "exclude", "reason": "E1", "note": "Moodle clustering software tool, no personality"}
+{"record_id": "R02765", "suggestion": "exclude", "reason": "E1", "note": "causes of poor performance of hearing-impaired pupils, no trait measure"}
+{"record_id": "R02766", "suggestion": "exclude", "reason": "E1", "note": "socio-economic background and performance, no trait measure"}
+{"record_id": "R02767", "suggestion": "exclude", "reason": "E1", "note": "family poverty and performance, no trait measure"}
+{"record_id": "R02768", "suggestion": "exclude", "reason": "E1", "note": "learning environment and performance, no trait measure"}
+{"record_id": "R02769", "suggestion": "exclude", "reason": "E1", "note": "poverty and performance, no trait measure"}
+{"record_id": "R02770", "suggestion": "exclude", "reason": "E1", "note": "impact of strikes on performance, no trait measure"}
+{"record_id": "R02771", "suggestion": "exclude", "reason": "E1", "note": "school environment and performance, no trait measure"}
+{"record_id": "R02772", "suggestion": "exclude", "reason": "E1", "note": "development of blended EMI workshops, no trait measure"}
+{"record_id": "R02773", "suggestion": "exclude", "reason": "E1", "note": "HIV/AIDS and performance, no trait measure"}
+{"record_id": "R02774", "suggestion": "exclude", "reason": "E1", "note": "untrained teachers and performance, no trait measure"}
+{"record_id": "R02776", "suggestion": "exclude", "reason": "E1", "note": "school environment and performance, no trait measure"}
+{"record_id": "R02777", "suggestion": "exclude", "reason": "E1", "note": "corporal punishment and performance, no trait measure"}
+{"record_id": "R02778", "suggestion": "exclude", "reason": "E5", "note": "literature review of AR and VR in education"}
+{"record_id": "R02780", "suggestion": "exclude", "reason": "E1", "note": "weighted-sum ranking of e-learning websites, no learners' traits"}
+{"record_id": "R02781", "suggestion": "exclude", "reason": "E1", "note": "discipline and performance, no trait measure"}
+{"record_id": "R02782", "suggestion": "exclude", "reason": "E1", "note": "psychometrics of an instructional design quality scale, no trait measure"}
+{"record_id": "R02783", "suggestion": "exclude", "reason": "E1", "note": "open-ended survey on instructional practices, no trait measure"}
+{"record_id": "R02784", "suggestion": "exclude", "reason": "E3", "note": "participants are practising nurses, not students"}
+{"record_id": "R02785", "suggestion": "exclude", "reason": "E1", "note": "distance programme evaluation, no personality measure"}
+{"record_id": "R02786", "suggestion": "exclude", "reason": "E1", "note": "adaptive lessons in dental education, no trait measure"}
+{"record_id": "R02788", "suggestion": "exclude", "reason": "E1", "note": "perceptions of effective tutors, no learner trait measure"}
+{"record_id": "R02789", "suggestion": "exclude", "reason": "E5", "note": "review/column on social networking in e-learning"}
+{"record_id": "R02790", "suggestion": "exclude", "reason": "E1", "note": "nursing students' attitudes to online education, no trait measure"}
+{"record_id": "R02791", "suggestion": "exclude", "reason": "E1", "note": "skill-based assessment experience report, no trait measure"}
+{"record_id": "R02792", "suggestion": "exclude", "reason": "E1", "note": "blended project-based learning and argumentation, no trait measure"}
+{"record_id": "R02793", "suggestion": "exclude", "reason": "E1", "note": "plagiarism-detection software comparison, no personality"}
+{"record_id": "R02794", "suggestion": "exclude", "reason": "E3", "note": "respondents are business educators"}
+{"record_id": "R02795", "suggestion": "exclude", "reason": "E1", "note": "virtual learning community intervention report, no trait measure"}
+{"record_id": "R02796", "suggestion": "exclude", "reason": "E5", "note": "description of e-learning modules, not a primary study"}
+{"record_id": "R02797", "suggestion": "exclude", "reason": "E1", "note": "automated exercise generation, no personality"}
+{"record_id": "R02798", "suggestion": "exclude", "reason": "E1", "note": "parental involvement and performance, no trait measure"}
+{"record_id": "R02799", "suggestion": "exclude", "reason": "E1", "note": "teachers' motivation and pupils' performance, no trait measure"}
+{"record_id": "R02800", "suggestion": "exclude", "reason": "E1", "note": "LMS design and usage report, no trait measure"}
+{"record_id": "R02801", "suggestion": "exclude", "reason": "E1", "note": "machine learning performance prediction, no trait measure"}
+{"record_id": "R02802", "suggestion": "exclude", "reason": "E1", "note": "early marriage and performance, no trait measure"}
+{"record_id": "R02803", "suggestion": "exclude", "reason": "E1", "note": "peer-learning platform description, no personality"}
+{"record_id": "R02804", "suggestion": "exclude", "reason": "E7", "note": "book review"}
+{"record_id": "R02807", "suggestion": "exclude", "reason": "E1", "note": "qualitative study of learner autonomy, no trait measure"}
+{"record_id": "R02809", "suggestion": "exclude", "reason": "E1", "note": "course redesign case study, no trait measure"}
+{"record_id": "R02810", "suggestion": "exclude", "reason": "E1", "note": "e-learning versus traditional learning comparison, no trait measure"}
+{"record_id": "R02811", "suggestion": "exclude", "reason": "E1", "note": "effect of policy changes on grades, no trait measure"}
+{"record_id": "R02812", "suggestion": "exclude", "reason": "E1", "note": "machine-learning grading of programs, no personality"}
+{"record_id": "R02813", "suggestion": "exclude", "reason": "E5", "note": "bibliometric and systematic review"}
+{"record_id": "R02814", "suggestion": "exclude", "reason": "E1", "note": "attitudes towards Moodle use, no trait measure"}
+{"record_id": "R02815", "suggestion": "exclude", "reason": "E1", "note": "interaction patterns and challenge-skill balance, no Big Five"}
+{"record_id": "R02816", "suggestion": "exclude", "reason": "E5", "note": "project proposal for an emotion-aware system"}
+{"record_id": "R02817", "suggestion": "exclude", "reason": "E1", "note": "experiment on social nudges and self-regulated learning, no trait measure"}
+{"record_id": "R02818", "suggestion": "exclude", "reason": "E1", "note": "VLE usability and motivation evaluation, no trait measure"}
+{"record_id": "R02819", "suggestion": "exclude", "reason": "E1", "note": "usability of gamification plug-ins, no trait measure"}
+{"record_id": "R02820", "suggestion": "exclude", "reason": "E3", "note": "high school teachers' attitudes to distance education"}
+{"record_id": "R02822", "suggestion": "exclude", "reason": "E3", "note": "participants are university EFL instructors"}
+{"record_id": "R02823", "suggestion": "exclude", "reason": "E1", "note": "ICT competence in distance learning, no trait measure"}
+{"record_id": "R02824", "suggestion": "exclude", "reason": "E1", "note": "design of MOOC videos, no personality measure"}
+{"record_id": "R02825", "suggestion": "exclude", "reason": "E1", "note": "3D virtual learning environment experiment, no trait measure"}
+{"record_id": "R02827", "suggestion": "exclude", "reason": "E1", "note": "LLM coding of MOOC participation, no trait measure"}
+{"record_id": "R02828", "suggestion": "exclude", "reason": "E3", "note": "educators' perspectives on online learning"}
+{"record_id": "R02829", "suggestion": "exclude", "reason": "E1", "note": "synchronous versus asynchronous achievement, no trait measure"}
+{"record_id": "R02830", "suggestion": "exclude", "reason": "E1", "note": "social network analysis of MOOC interaction, no trait measure"}
+{"record_id": "R02833", "suggestion": "exclude", "reason": "E1", "note": "peer-grading mechanism design, no personality"}
+{"record_id": "R02834", "suggestion": "exclude", "reason": "E3", "note": "teacher professional development evaluation"}
+{"record_id": "R02835", "suggestion": "exclude", "reason": "E1", "note": "Delphi study of e-learning trends, no learners' traits"}
+{"record_id": "R02836", "suggestion": "exclude", "reason": "E1", "note": "data-mining behaviour model, no trait measure"}
+{"record_id": "R02838", "suggestion": "exclude", "reason": "E1", "note": "overview of data-mining algorithms, no trait measure"}
+{"record_id": "R02839", "suggestion": "exclude", "reason": "E1", "note": "students' perceptions of e-learning, no trait measure"}
+{"record_id": "R02841", "suggestion": "exclude", "reason": "E1", "note": "qualitative description of an LMS, no trait measure"}
+{"record_id": "R02842", "suggestion": "exclude", "reason": "E1", "note": "discussion boards, motivation and connectedness; no Big Five"}
+{"record_id": "R02843", "suggestion": "exclude", "reason": "E1", "note": "students' responses to online learning, no trait measure"}
+{"record_id": "R02844", "suggestion": "exclude", "reason": "E1", "note": "virtual pharmacy training and performance, no trait measure"}
+{"record_id": "R02845", "suggestion": "exclude", "reason": "E1", "note": "non-formal MOOC project report, no trait measure"}
+{"record_id": "R02846", "suggestion": "exclude", "reason": "E1", "note": "motivation and performance of slow learners, no Big Five"}
+{"record_id": "R02847", "suggestion": "exclude", "reason": "E1", "note": "school-level problems and performance, no trait measure"}
+{"record_id": "R02848", "suggestion": "exclude", "reason": "E1", "note": "Moodle data visualization plug-in, no personality"}
+{"record_id": "R02850", "suggestion": "exclude", "reason": "E1", "note": "development of a blended CTL model, no trait measure"}
+{"record_id": "R02851", "suggestion": "exclude", "reason": "E3", "note": "respondents are senior high school mathematics teachers"}
+{"record_id": "R02852", "suggestion": "exclude", "reason": "E1", "note": "factors in performance of hearing-impaired learners, no trait measure"}
+{"record_id": "R02853", "suggestion": "exclude", "reason": "E1", "note": "learning strategies and academic emotions, not Big Five"}
+{"record_id": "R02854", "suggestion": "exclude", "reason": "E1", "note": "school environment and performance, no trait measure"}
+{"record_id": "R02855", "suggestion": "exclude", "reason": "E7", "note": "SSRN working paper, no abstract"}
+{"record_id": "R02856", "suggestion": "exclude", "reason": "E1", "note": "multimodal emotion and fatigue detection, no trait measure"}
+{"record_id": "R02858", "suggestion": "exclude", "reason": "E1", "note": "fuzzy evaluation method, no personality"}
+{"record_id": "R02859", "suggestion": "exclude", "reason": "E1", "note": "development of online learning media, no trait measure"}
+{"record_id": "R02860", "suggestion": "exclude", "reason": "E3", "note": "kindergarten teachers' readiness for online learning"}
+{"record_id": "R02861", "suggestion": "exclude", "reason": "E1", "note": "visual learning experiment, no trait measure"}
+{"record_id": "R02862", "suggestion": "exclude", "reason": "E1", "note": "descriptive analysis of university e-learning, no trait measure"}
+{"record_id": "R02863", "suggestion": "exclude", "reason": "E1", "note": "students' views of a virtual family case, no trait measure"}
+{"record_id": "R02864", "suggestion": "exclude", "reason": "E1", "note": "comparison of online and face-to-face programming teaching, no trait measure"}
+{"record_id": "R02865", "suggestion": "exclude", "reason": "E1", "note": "educational metadata profile, no personality"}
+{"record_id": "R02866", "suggestion": "exclude", "reason": "E1", "note": "LLM-based grading of source code, no personality"}
+{"record_id": "R02867", "suggestion": "exclude", "reason": "E1", "note": "automatic classification of short answers, no personality"}
+{"record_id": "R02868", "suggestion": "exclude", "reason": "E1", "note": "gamification and AI grading in Moodle, no trait measure"}
+{"record_id": "R02869", "suggestion": "exclude", "reason": "E5", "note": "book chapter analysing online education experience"}
+{"record_id": "R02870", "suggestion": "exclude", "reason": "E1", "note": "project-based blended learning and critical thinking, no trait measure"}
+{"record_id": "R02871", "suggestion": "exclude", "reason": "E1", "note": "self-regulated learning strategies, not Big Five"}
+{"record_id": "R02872", "suggestion": "exclude", "reason": "E1", "note": "mobile game-based learning project report, no trait measure"}
+{"record_id": "R02873", "suggestion": "exclude", "reason": "E1", "note": "development of an instructional design model, no trait measure"}
+{"record_id": "R02874", "suggestion": "exclude", "reason": "E1", "note": "crowdsourcing mechanism design, no personality"}
+{"record_id": "R02875", "suggestion": "exclude", "reason": "E1", "note": "neural language models for curriculum design, no personality"}
+{"record_id": "R02878", "suggestion": "exclude", "reason": "E1", "note": "forum community structure in a MOOC, no trait measure"}
+{"record_id": "R02879", "suggestion": "maybe", "reason": "", "note": "personality and resilience with educational recovery; no abstract, setting unclear"}
+{"record_id": "R02880", "suggestion": "exclude", "reason": "E1", "note": "formative assessment and exam performance, no trait measure"}
+{"record_id": "R02881", "suggestion": "exclude", "reason": "E1", "note": "peer pressure and environment as dishonesty predictors, no Big Five"}
+{"record_id": "R02883", "suggestion": "exclude", "reason": "E1", "note": "online social presence patterns and performance, no Big Five"}
+{"record_id": "R02884", "suggestion": "exclude", "reason": "E1", "note": "e-learning media and problem solving, no trait measure"}
+{"record_id": "R02885", "suggestion": "exclude", "reason": "E1", "note": "description of a nodal delivery method, no trait measure"}
+{"record_id": "R02886", "suggestion": "exclude", "reason": "E5", "note": "magazine feature on virtual schools"}
+{"record_id": "R02887", "suggestion": "exclude", "reason": "E5", "note": "conceptual design paper, not a primary study"}
+{"record_id": "R02888", "suggestion": "exclude", "reason": "E1", "note": "finite state machine model of learner states, no personality"}
+{"record_id": "R02889", "suggestion": "exclude", "reason": "E5", "note": "review-based guidelines with qualitative data only"}
+{"record_id": "R02891", "suggestion": "exclude", "reason": "E1", "note": "machine learning performance prediction on OULAD, no trait measure"}
+{"record_id": "R02892", "suggestion": "exclude", "reason": "E5", "note": "experience report on course transition"}
+{"record_id": "R02893", "suggestion": "exclude", "reason": "E1", "note": "team formation algorithm, no personality measure"}
+{"record_id": "R02895", "suggestion": "exclude", "reason": "E1", "note": "dental students' perceptions of distance learning, no trait measure"}
+{"record_id": "R02896", "suggestion": "exclude", "reason": "E5", "note": "dataset descriptor, no trait measure"}
+{"record_id": "R02897", "suggestion": "exclude", "reason": "E1", "note": "drug abuse and performance, no trait measure"}
+{"record_id": "R02898", "suggestion": "exclude", "reason": "E1", "note": "teacher-learner relationship and performance, no trait measure"}
+{"record_id": "R02899", "suggestion": "exclude", "reason": "E1", "note": "experiences of the shift online and distress, no trait measure"}
+{"record_id": "R02900", "suggestion": "exclude", "reason": "E1", "note": "open educational resources and science scores, no trait measure"}
+{"record_id": "R02901", "suggestion": "exclude", "reason": "E5", "note": "instructional design report, not a quantitative primary study"}
+{"record_id": "R02902", "suggestion": "exclude", "reason": "E1", "note": "AI chatbot platform development, no trait measure"}
+{"record_id": "R02903", "suggestion": "exclude", "reason": "E1", "note": "discipline and performance, no trait measure"}
+{"record_id": "R02904", "suggestion": "exclude", "reason": "E1", "note": "mental health burden and performance, no Big Five measure"}
+{"record_id": "R02905", "suggestion": "exclude", "reason": "E1", "note": "absenteeism and performance, no trait measure"}
+{"record_id": "R02907", "suggestion": "exclude", "reason": "E1", "note": "education level and course completion, no trait measure"}
+{"record_id": "R02908", "suggestion": "exclude", "reason": "E1", "note": "process-situation-result evaluation model, no trait measure"}
+{"record_id": "R02909", "suggestion": "exclude", "reason": "E1", "note": "digital content versus classical teaching, no trait measure"}
+{"record_id": "R02910", "suggestion": "exclude", "reason": "E1", "note": "automated transcription grading tool, no trait measure"}
+{"record_id": "R02911", "suggestion": "exclude", "reason": "E5", "note": "letter to the editor describing a support system"}
+{"record_id": "R02912", "suggestion": "exclude", "reason": "E3", "note": "English teachers' practices and opinions"}
+{"record_id": "R02913", "suggestion": "exclude", "reason": "E1", "note": "employment, language and age as predictors; no Big Five"}
+{"record_id": "R02914", "suggestion": "exclude", "reason": "E1", "note": "web-enhanced case versus paper case RCT, no trait measure"}
+{"record_id": "R02915", "suggestion": "exclude", "reason": "E1", "note": "m-learning framework design, no trait measure"}
+{"record_id": "R02916", "suggestion": "exclude", "reason": "E1", "note": "qualitative study of mental health, no trait measure"}
+{"record_id": "R02917", "suggestion": "exclude", "reason": "E1", "note": "satisfaction with teaching methods, no trait measure"}
+{"record_id": "R02919", "suggestion": "exclude", "reason": "E1", "note": "machine learning prediction of performance, no trait measure"}
+{"record_id": "R02920", "suggestion": "exclude", "reason": "E3", "note": "participants are EFL preparatory school instructors"}
+{"record_id": "R02921", "suggestion": "exclude", "reason": "E7", "note": "book review"}
+{"record_id": "R02922", "suggestion": "exclude", "reason": "E5", "note": "systematic literature review"}
+{"record_id": "R02923", "suggestion": "exclude", "reason": "E1", "note": "e-learning courseware and achievement, no trait measure"}
+{"record_id": "R02924", "suggestion": "exclude", "reason": "E5", "note": "bachelor's case study report, no trait measure"}
+{"record_id": "R02926", "suggestion": "exclude", "reason": "E1", "note": "effects of peer and self assessment on assessors, no trait measure"}
+{"record_id": "R02927", "suggestion": "exclude", "reason": "E1", "note": "qualitative views on digital technologies, no trait measure"}
+{"record_id": "R02928", "suggestion": "exclude", "reason": "E1", "note": "performance and satisfaction in online learning, no trait measure"}
+{"record_id": "R02929", "suggestion": "exclude", "reason": "E1", "note": "qualitative study of MOOC interactions, no trait measure"}
+{"record_id": "R02930", "suggestion": "exclude", "reason": "E1", "note": "effectiveness of online English learning, no trait measure"}
+{"record_id": "R02931", "suggestion": "exclude", "reason": "E5", "note": "book chapter on teaching online"}
+{"record_id": "R02932", "suggestion": "exclude", "reason": "E1", "note": "machine-learning grading of programs, no personality"}
+{"record_id": "R02933", "suggestion": "exclude", "reason": "E5", "note": "autoethnography of a single MOOC learner"}
+{"record_id": "R02934", "suggestion": "exclude", "reason": "E3", "note": "respondents are parents"}
+{"record_id": "R02935", "suggestion": "exclude", "reason": "E1", "note": "qualitative study of hybrid learning, no trait measure"}
+{"record_id": "R02936", "suggestion": "exclude", "reason": "E5", "note": "overview paper on teleteaching"}

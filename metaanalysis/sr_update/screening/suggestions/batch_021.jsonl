@@ -1,0 +1,200 @@
+{"record_id": "R03661", "suggestion": "exclude", "reason": "E5", "note": "overview of reviews, not a primary study"}
+{"record_id": "R03662", "suggestion": "exclude", "reason": "E5", "note": "conference proceedings front matter, not a study"}
+{"record_id": "R03663", "suggestion": "exclude", "reason": "E1", "note": "EEG confusion detection in MOOCs, no personality measure"}
+{"record_id": "R03664", "suggestion": "exclude", "reason": "E5", "note": "teaching tip / commentary on flipped classroom"}
+{"record_id": "R03667", "suggestion": "exclude", "reason": "E5", "note": "descriptive case study of a chatbot deployment"}
+{"record_id": "R03669", "suggestion": "exclude", "reason": "E1", "note": "LMS behaviour clustering, no personality measure"}
+{"record_id": "R03670", "suggestion": "exclude", "reason": "E1", "note": "text mining methods thesis, no personality measure"}
+{"record_id": "R03671", "suggestion": "exclude", "reason": "E1", "note": "LMS acceptance and gender, no personality measure"}
+{"record_id": "R03672", "suggestion": "exclude", "reason": "E1", "note": "survey of interactive language platforms, no personality"}
+{"record_id": "R03673", "suggestion": "exclude", "reason": "E1", "note": "dissertation on education equity, no personality measure"}
+{"record_id": "R03674", "suggestion": "exclude", "reason": "E1", "note": "anxiety/stress of FFL students, no Big Five measure"}
+{"record_id": "R03675", "suggestion": "exclude", "reason": "E1", "note": "CDIO teaching model and learning behaviour model, no personality"}
+{"record_id": "R03678", "suggestion": "exclude", "reason": "E5", "note": "qualitative study of seven preservice teachers"}
+{"record_id": "R03680", "suggestion": "exclude", "reason": "E5", "note": "discussion paper on ethical issues"}
+{"record_id": "R03681", "suggestion": "exclude", "reason": "E1", "note": "online help-seeking and flipped learning, no Big Five"}
+{"record_id": "R03682", "suggestion": "exclude", "reason": "E5", "note": "descriptive overview of language MOOCs"}
+{"record_id": "R03683", "suggestion": "exclude", "reason": "E1", "note": "remote-learning inequality in Ghana, no personality measure"}
+{"record_id": "R03684", "suggestion": "exclude", "reason": "E5", "note": "conceptual paper on organising independent work"}
+{"record_id": "R03685", "suggestion": "exclude", "reason": "E5", "note": "edited book collection, not a primary study"}
+{"record_id": "R03686", "suggestion": "exclude", "reason": "E1", "note": "self-regulated learning scale, not Big Five"}
+{"record_id": "R03688", "suggestion": "exclude", "reason": "E1", "note": "social media tool in ODL, no personality measure"}
+{"record_id": "R03689", "suggestion": "exclude", "reason": "E1", "note": "pair-programming tool evaluation, no personality measure"}
+{"record_id": "R03691", "suggestion": "exclude", "reason": "E1", "note": "EEG neurofeedback online lectures, no personality measure"}
+{"record_id": "R03692", "suggestion": "exclude", "reason": "E1", "note": "video tutorial library survey, no personality measure"}
+{"record_id": "R03693", "suggestion": "exclude", "reason": "E3", "note": "faculty preparation and experiences, not students"}
+{"record_id": "R03694", "suggestion": "exclude", "reason": "E1", "note": "social network analysis of fora, no personality measure"}
+{"record_id": "R03695", "suggestion": "exclude", "reason": "E2", "note": "oncology clinical trial, not about learning"}
+{"record_id": "R03697", "suggestion": "exclude", "reason": "E5", "note": "literature review of peer assessment designs"}
+{"record_id": "R03698", "suggestion": "exclude", "reason": "E1", "note": "lecture capture and engagement, no personality measure"}
+{"record_id": "R03699", "suggestion": "exclude", "reason": "E1", "note": "MATLAB exercise design in a MOOC, no personality measure"}
+{"record_id": "R03700", "suggestion": "exclude", "reason": "E5", "note": "conference talk on curriculum standardization"}
+{"record_id": "R03701", "suggestion": "exclude", "reason": "E1", "note": "tagging study of informal learning communities, no personality"}
+{"record_id": "R03702", "suggestion": "exclude", "reason": "E1", "note": "LMS data mining to predict achievement, no personality"}
+{"record_id": "R03703", "suggestion": "exclude", "reason": "E1", "note": "gaze and pupil response, no personality measure"}
+{"record_id": "R03705", "suggestion": "exclude", "reason": "E1", "note": "learning analytics framework for Moodle, no personality"}
+{"record_id": "R03707", "suggestion": "exclude", "reason": "E1", "note": "self-explanation and smartphone use, no Big Five"}
+{"record_id": "R03708", "suggestion": "exclude", "reason": "E3", "note": "needs analysis with teachers, not students"}
+{"record_id": "R03709", "suggestion": "exclude", "reason": "E1", "note": "grounded-theory model of online interaction, no Big Five"}
+{"record_id": "R03710", "suggestion": "exclude", "reason": "E1", "note": "teaching presence in online discussions, no personality"}
+{"record_id": "R03711", "suggestion": "exclude", "reason": "E1", "note": "online learning readiness and outcomes, not Big Five"}
+{"record_id": "R03712", "suggestion": "maybe", "reason": "", "note": "no abstract; book chapter on engagement, cannot judge"}
+{"record_id": "R03713", "suggestion": "exclude", "reason": "E1", "note": "middle school CS course design, no personality measure"}
+{"record_id": "R03714", "suggestion": "exclude", "reason": "E5", "note": "conference session description on reflection journals"}
+{"record_id": "R03716", "suggestion": "exclude", "reason": "E5", "note": "report of two microcredential cases"}
+{"record_id": "R03717", "suggestion": "exclude", "reason": "E5", "note": "description of an e-learning system"}
+{"record_id": "R03718", "suggestion": "exclude", "reason": "E5", "note": "qualitative phenomenological study"}
+{"record_id": "R03720", "suggestion": "exclude", "reason": "E1", "note": "educational game interface, no personality measure"}
+{"record_id": "R03721", "suggestion": "exclude", "reason": "E5", "note": "journal editorial"}
+{"record_id": "R03723", "suggestion": "exclude", "reason": "E3", "note": "clinicians in continuing professional development, not students"}
+{"record_id": "R03724", "suggestion": "exclude", "reason": "E1", "note": "plagiarism detection algorithm, no personality measure"}
+{"record_id": "R03725", "suggestion": "exclude", "reason": "E5", "note": "advice column, not a study"}
+{"record_id": "R03727", "suggestion": "exclude", "reason": "E1", "note": "satisfaction with online vs offline classes, no Big Five"}
+{"record_id": "R03728", "suggestion": "exclude", "reason": "E5", "note": "conference proceedings front matter"}
+{"record_id": "R03730", "suggestion": "exclude", "reason": "E5", "note": "grant project description"}
+{"record_id": "R03731", "suggestion": "exclude", "reason": "E1", "note": "MOOC platform for civic education, no personality measure"}
+{"record_id": "R03732", "suggestion": "exclude", "reason": "E5", "note": "descriptive qualitative study of teachers"}
+{"record_id": "R03733", "suggestion": "exclude", "reason": "E5", "note": "journal editorial"}
+{"record_id": "R03734", "suggestion": "exclude", "reason": "E3", "note": "qualitative survey of elementary teachers"}
+{"record_id": "R03735", "suggestion": "exclude", "reason": "E1", "note": "rank aggregation methods thesis, no personality measure"}
+{"record_id": "R03737", "suggestion": "exclude", "reason": "E1", "note": "flipped classroom readiness and understanding, no Big Five"}
+{"record_id": "R03738", "suggestion": "exclude", "reason": "E5", "note": "qualitative study of blended learning management"}
+{"record_id": "R03739", "suggestion": "exclude", "reason": "E1", "note": "machine learning on OULAD, no personality measure"}
+{"record_id": "R03740", "suggestion": "exclude", "reason": "E1", "note": "LMS interoperability description, no personality measure"}
+{"record_id": "R03741", "suggestion": "exclude", "reason": "E1", "note": "astronomy MOOC experience report, no personality measure"}
+{"record_id": "R03742", "suggestion": "exclude", "reason": "E5", "note": "question-and-answer column, not a study"}
+{"record_id": "R03743", "suggestion": "exclude", "reason": "E1", "note": "online readiness assessment, not a Big Five measure"}
+{"record_id": "R03744", "suggestion": "exclude", "reason": "E5", "note": "description of study programmes"}
+{"record_id": "R03745", "suggestion": "exclude", "reason": "E1", "note": "emotion detection from course reviews, no personality measure"}
+{"record_id": "R03746", "suggestion": "exclude", "reason": "E5", "note": "review of digital assessment methods"}
+{"record_id": "R03748", "suggestion": "exclude", "reason": "E5", "note": "book chapter on engagement, not a primary study"}
+{"record_id": "R03749", "suggestion": "exclude", "reason": "E5", "note": "book chapter on course design and evaluation"}
+{"record_id": "R03750", "suggestion": "exclude", "reason": "E3", "note": "faculty development MOOC, participants are faculty"}
+{"record_id": "R03751", "suggestion": "exclude", "reason": "E5", "note": "reflective article on programme redesign"}
+{"record_id": "R03752", "suggestion": "exclude", "reason": "E1", "note": "linked-data approach to competency-based education, no personality"}
+{"record_id": "R03753", "suggestion": "maybe", "reason": "", "note": "no abstract; anxiety in an online chemistry course, cannot judge"}
+{"record_id": "R03754", "suggestion": "exclude", "reason": "E5", "note": "institutional experience report"}
+{"record_id": "R03755", "suggestion": "exclude", "reason": "E1", "note": "virtual agent social fidelity, no learner personality measure"}
+{"record_id": "R03756", "suggestion": "exclude", "reason": "E1", "note": "neural network prediction of assistant eligibility, no personality"}
+{"record_id": "R03757", "suggestion": "exclude", "reason": "E1", "note": "xAPI dataset descriptor, no personality measure"}
+{"record_id": "R03758", "suggestion": "exclude", "reason": "E5", "note": "virtual lab manual, not a study"}
+{"record_id": "R03759", "suggestion": "exclude", "reason": "E5", "note": "review of pedagogical aspects of e-learning"}
+{"record_id": "R03761", "suggestion": "exclude", "reason": "E1", "note": "connectivism-based course, no personality measure"}
+{"record_id": "R03762", "suggestion": "exclude", "reason": "E1", "note": "machine learning on engagement and performance, no personality"}
+{"record_id": "R03763", "suggestion": "exclude", "reason": "E1", "note": "historical short stories intervention, no personality measure"}
+{"record_id": "R03764", "suggestion": "exclude", "reason": "E1", "note": "video courseware pre-post test, no personality measure"}
+{"record_id": "R03765", "suggestion": "exclude", "reason": "E1", "note": "perceptions of e-assessment, no personality measure"}
+{"record_id": "R03766", "suggestion": "exclude", "reason": "E3", "note": "health workers' online training, not students"}
+{"record_id": "R03767", "suggestion": "exclude", "reason": "E5", "note": "reflective essay on teaching online"}
+{"record_id": "R03768", "suggestion": "exclude", "reason": "E5", "note": "report on a quality improvement process"}
+{"record_id": "R03769", "suggestion": "exclude", "reason": "E7", "note": "retracted article"}
+{"record_id": "R03770", "suggestion": "exclude", "reason": "E5", "note": "descriptive article about the ALEKS system"}
+{"record_id": "R03771", "suggestion": "exclude", "reason": "E5", "note": "qualitative interviews with lecturers on assessment design"}
+{"record_id": "R03774", "suggestion": "exclude", "reason": "E5", "note": "policy analysis and literature review"}
+{"record_id": "R03775", "suggestion": "exclude", "reason": "E1", "note": "no abstract; predicting performance from discussion participation"}
+{"record_id": "R03776", "suggestion": "exclude", "reason": "E5", "note": "practitioner handbook on Moodle"}
+{"record_id": "R03777", "suggestion": "exclude", "reason": "E1", "note": "school-related stressors survey, no Big Five measure"}
+{"record_id": "R03778", "suggestion": "exclude", "reason": "E1", "note": "self-directed vs traditional anatomy teaching, no personality"}
+{"record_id": "R03779", "suggestion": "exclude", "reason": "E5", "note": "editorial for a research topic"}
+{"record_id": "R03780", "suggestion": "exclude", "reason": "E1", "note": "fairness of at-risk prediction models, no personality measure"}
+{"record_id": "R03781", "suggestion": "exclude", "reason": "E1", "note": "self-explanation prompts experiment, no Big Five measure"}
+{"record_id": "R03782", "suggestion": "exclude", "reason": "E1", "note": "online vs on-campus translation classes, no personality measure"}
+{"record_id": "R03783", "suggestion": "exclude", "reason": "E5", "note": "proposed accreditation framework"}
+{"record_id": "R03784", "suggestion": "exclude", "reason": "E1", "note": "students' reflections on online PBL, no personality measure"}
+{"record_id": "R03785", "suggestion": "exclude", "reason": "E1", "note": "survival analysis of dropout with demographics, no personality"}
+{"record_id": "R03786", "suggestion": "exclude", "reason": "E5", "note": "book section on course planning"}
+{"record_id": "R03787", "suggestion": "exclude", "reason": "E1", "note": "test anxiety and procrastination, not a Big Five measure"}
+{"record_id": "R03788", "suggestion": "exclude", "reason": "E1", "note": "sense of belonging focus groups, no Big Five measure"}
+{"record_id": "R03789", "suggestion": "exclude", "reason": "E3", "note": "teachers' digital competence in postgraduate courses"}
+{"record_id": "R03791", "suggestion": "exclude", "reason": "E1", "note": "class attendance and performance, no personality measure"}
+{"record_id": "R03793", "suggestion": "exclude", "reason": "E5", "note": "descriptive institutional report"}
+{"record_id": "R03795", "suggestion": "exclude", "reason": "E3", "note": "survey of academic coaches, not students"}
+{"record_id": "R03796", "suggestion": "exclude", "reason": "E1", "note": "multiple choice question format, no personality measure"}
+{"record_id": "R03797", "suggestion": "exclude", "reason": "E1", "note": "no abstract; satisfaction across learning environments, no personality"}
+{"record_id": "R03799", "suggestion": "exclude", "reason": "E5", "note": "conference presentation on course redesign"}
+{"record_id": "R03800", "suggestion": "exclude", "reason": "E5", "note": "position paper on quality assurance"}
+{"record_id": "R03801", "suggestion": "exclude", "reason": "E5", "note": "exploratory qualitative study of virtual mentoring"}
+{"record_id": "R03804", "suggestion": "exclude", "reason": "E1", "note": "survey of perceptions of the transition, no personality measure"}
+{"record_id": "R03806", "suggestion": "exclude", "reason": "E1", "note": "gamification and critical thinking, no personality measure"}
+{"record_id": "R03807", "suggestion": "exclude", "reason": "E1", "note": "survey on online engineering education, no personality measure"}
+{"record_id": "R03808", "suggestion": "exclude", "reason": "E1", "note": "continuous course feedback and grades, no personality measure"}
+{"record_id": "R03811", "suggestion": "exclude", "reason": "E5", "note": "analysis of international trends, not a primary study"}
+{"record_id": "R03813", "suggestion": "exclude", "reason": "E5", "note": "qualitative interview study of interactive pedagogies"}
+{"record_id": "R03814", "suggestion": "exclude", "reason": "E1", "note": "action research on engagement strategies, no personality"}
+{"record_id": "R03815", "suggestion": "exclude", "reason": "E3", "note": "qualitative study of instructors' perspectives"}
+{"record_id": "R03816", "suggestion": "exclude", "reason": "E1", "note": "no abstract; perceptions of an online writing course, no personality"}
+{"record_id": "R03817", "suggestion": "exclude", "reason": "E3", "note": "skilled workers in online training, not students"}
+{"record_id": "R03818", "suggestion": "exclude", "reason": "E5", "note": "analytical overview of digitalisation in medical education"}
+{"record_id": "R03819", "suggestion": "exclude", "reason": "E1", "note": "adaptation, stress tolerance, self-organisation; not Big Five"}
+{"record_id": "R03822", "suggestion": "exclude", "reason": "E5", "note": "case study of teaching strategies"}
+{"record_id": "R03823", "suggestion": "exclude", "reason": "E1", "note": "virtual learning application experiment, no personality measure"}
+{"record_id": "R03824", "suggestion": "exclude", "reason": "E5", "note": "overview of digital technologies in education"}
+{"record_id": "R03825", "suggestion": "exclude", "reason": "E5", "note": "programme evaluation essay on an online studio"}
+{"record_id": "R03827", "suggestion": "exclude", "reason": "E5", "note": "systematic review with Delphi expert review"}
+{"record_id": "R03828", "suggestion": "exclude", "reason": "E5", "note": "discussion paper on emotion and learning analytics"}
+{"record_id": "R03829", "suggestion": "exclude", "reason": "E1", "note": "analysis of TED talk features, no personality measure"}
+{"record_id": "R03830", "suggestion": "exclude", "reason": "E1", "note": "learning analytics and SRL in primary school, no personality"}
+{"record_id": "R03831", "suggestion": "exclude", "reason": "E1", "note": "machine learning prediction from LMS data, no personality"}
+{"record_id": "R03832", "suggestion": "exclude", "reason": "E5", "note": "systematic literature review"}
+{"record_id": "R03833", "suggestion": "exclude", "reason": "E5", "note": "descriptive article on leaders' perspectives"}
+{"record_id": "R03834", "suggestion": "exclude", "reason": "E5", "note": "institutional practice report"}
+{"record_id": "R03835", "suggestion": "exclude", "reason": "E3", "note": "survey of lecturers' use of digital resources"}
+{"record_id": "R03837", "suggestion": "exclude", "reason": "E1", "note": "development of an LMS worksheet tool, no personality measure"}
+{"record_id": "R03838", "suggestion": "exclude", "reason": "E5", "note": "descriptive paper on online mathematics programmes"}
+{"record_id": "R03839", "suggestion": "exclude", "reason": "E5", "note": "compilation of research abstracts"}
+{"record_id": "R03841", "suggestion": "exclude", "reason": "E5", "note": "conceptual chapter on learning environment design"}
+{"record_id": "R03843", "suggestion": "exclude", "reason": "E1", "note": "course innovation evaluation, no personality measure"}
+{"record_id": "R03844", "suggestion": "exclude", "reason": "E1", "note": "virtual tensile testing simulation project, no personality"}
+{"record_id": "R03845", "suggestion": "exclude", "reason": "E5", "note": "journal editorial"}
+{"record_id": "R03846", "suggestion": "exclude", "reason": "E1", "note": "academic information system description, no personality measure"}
+{"record_id": "R03847", "suggestion": "exclude", "reason": "E1", "note": "OER case study on grades, no personality measure"}
+{"record_id": "R03848", "suggestion": "exclude", "reason": "E5", "note": "course redesign case report"}
+{"record_id": "R03849", "suggestion": "exclude", "reason": "E1", "note": "student feedback survey for course quality, no personality"}
+{"record_id": "R03851", "suggestion": "exclude", "reason": "E1", "note": "survival analysis of MOOC completion, no personality measure"}
+{"record_id": "R03852", "suggestion": "exclude", "reason": "E5", "note": "discussion of a smart education system design"}
+{"record_id": "R03853", "suggestion": "exclude", "reason": "E5", "note": "theoretical paper"}
+{"record_id": "R03854", "suggestion": "exclude", "reason": "E3", "note": "survey of medical teaching staff, not students"}
+{"record_id": "R03855", "suggestion": "exclude", "reason": "E1", "note": "presentation format experiment with MTurk workers, no personality"}
+{"record_id": "R03856", "suggestion": "exclude", "reason": "E1", "note": "no abstract; improving online interaction, no personality measure"}
+{"record_id": "R03857", "suggestion": "exclude", "reason": "E1", "note": "autograder system poster, no personality measure"}
+{"record_id": "R03858", "suggestion": "exclude", "reason": "E7", "note": "book review"}
+{"record_id": "R03859", "suggestion": "exclude", "reason": "E1", "note": "gamification and critical thinking, no personality measure"}
+{"record_id": "R03860", "suggestion": "exclude", "reason": "E1", "note": "peer assessment algorithms, no personality measure"}
+{"record_id": "R03861", "suggestion": "exclude", "reason": "E7", "note": "author biographical data, not a study"}
+{"record_id": "R03862", "suggestion": "exclude", "reason": "E5", "note": "Moodle teaching handbook"}
+{"record_id": "R03863", "suggestion": "exclude", "reason": "E5", "note": "conceptual book chapter"}
+{"record_id": "R03866", "suggestion": "exclude", "reason": "E3", "note": "faculty webinars and miniMOOCs, participants are faculty"}
+{"record_id": "R03867", "suggestion": "exclude", "reason": "E5", "note": "methodological recommendations paper"}
+{"record_id": "R03870", "suggestion": "exclude", "reason": "E5", "note": "descriptive article about a virtual school network"}
+{"record_id": "R03871", "suggestion": "exclude", "reason": "E5", "note": "conceptual paper on flipped classroom evaluation"}
+{"record_id": "R03872", "suggestion": "exclude", "reason": "E7", "note": "table of contents"}
+{"record_id": "R03873", "suggestion": "exclude", "reason": "E5", "note": "review of literature on training transfer, SMB owners"}
+{"record_id": "R03874", "suggestion": "exclude", "reason": "E1", "note": "flipped classroom achievement study, no personality measure"}
+{"record_id": "R03875", "suggestion": "exclude", "reason": "E1", "note": "OER and course throughput rates, no personality measure"}
+{"record_id": "R03878", "suggestion": "exclude", "reason": "E3", "note": "pre-service teachers' teaching practice outcomes"}
+{"record_id": "R03879", "suggestion": "exclude", "reason": "E5", "note": "journal issue editorial"}
+{"record_id": "R03880", "suggestion": "exclude", "reason": "E3", "note": "phenomenography with university teachers"}
+{"record_id": "R03881", "suggestion": "exclude", "reason": "E5", "note": "description of a digital library"}
+{"record_id": "R03882", "suggestion": "exclude", "reason": "E1", "note": "learning style and motivation, not a Big Five measure"}
+{"record_id": "R03883", "suggestion": "exclude", "reason": "E1", "note": "flipped classroom case study, no personality measure"}
+{"record_id": "R03884", "suggestion": "exclude", "reason": "E1", "note": "learning design and analytics in primary school, no personality"}
+{"record_id": "R03885", "suggestion": "exclude", "reason": "E5", "note": "reflective essay on teaching graphic novels"}
+{"record_id": "R03886", "suggestion": "exclude", "reason": "E7", "note": "book review"}
+{"record_id": "R03887", "suggestion": "exclude", "reason": "E5", "note": "review of CPD methods in periodontology"}
+{"record_id": "R03888", "suggestion": "exclude", "reason": "E5", "note": "report on evidence-based course design"}
+{"record_id": "R03889", "suggestion": "exclude", "reason": "E1", "note": "Edmodo writing intervention, no personality measure"}
+{"record_id": "R03890", "suggestion": "exclude", "reason": "E5", "note": "systematic literature review"}
+{"record_id": "R03891", "suggestion": "exclude", "reason": "E5", "note": "report on a feedback and improvement process"}
+{"record_id": "R03892", "suggestion": "exclude", "reason": "E1", "note": "feedback on Google Classroom, no personality measure"}
+{"record_id": "R03894", "suggestion": "exclude", "reason": "E1", "note": "hybrid flipped course case study, no personality measure"}
+{"record_id": "R03895", "suggestion": "exclude", "reason": "E5", "note": "discussion of barriers, not a primary study"}
+{"record_id": "R03896", "suggestion": "exclude", "reason": "E7", "note": "campus newsletter"}
+{"record_id": "R03897", "suggestion": "exclude", "reason": "E5", "note": "systematic review of blended learning models"}
+{"record_id": "R03898", "suggestion": "exclude", "reason": "E5", "note": "qualitative study of perceptions of course design"}
+{"record_id": "R03899", "suggestion": "exclude", "reason": "E1", "note": "perceptions of online physics labs, no personality measure"}
+{"record_id": "R03900", "suggestion": "exclude", "reason": "E5", "note": "descriptive essay on ICT during COVID-19"}
+{"record_id": "R03901", "suggestion": "exclude", "reason": "E5", "note": "reflective article by three instructors"}
+{"record_id": "R03902", "suggestion": "exclude", "reason": "E5", "note": "virtual lab manual, not a study"}
+{"record_id": "R03903", "suggestion": "exclude", "reason": "E3", "note": "qualitative study of dental faculty"}
+{"record_id": "R03904", "suggestion": "exclude", "reason": "E1", "note": "engagement and achievement correlation, no Big Five measure"}
+{"record_id": "R03905", "suggestion": "exclude", "reason": "E1", "note": "technology acceptance and learning outcome, no personality"}

@@ -4,16 +4,22 @@
     python metaanalysis/sr_update/fetch_fulltext.py --ids R0012 R0040
     python metaanalysis/sr_update/fetch_fulltext.py --records other.csv --out /tmp/ft
 
-Which records: rows of records_dedup.csv whose ta_decision is "include" or
-"maybe" (the screener's decision at the title/abstract stage), or the
-record_ids given with --ids. Records that already have a PDF are skipped,
+Which records: those kept at the title/abstract stage. By default these
+come from screening/screening_ta.csv, using the reviewer's et_decision
+where it is filled in and Claude's proposal otherwise, so retrieval can
+start before every row is confirmed. Without that sheet, rows of
+records_dedup.csv whose ta_decision is "include" or "maybe" are used.
+--ids overrides both. Records that already have a PDF are skipped,
 so the script can be re-run after downloading some files by hand.
 
 Where files go (all under sr_update/fulltext/ unless --out is given):
   pdf/<record_id>.pdf      every PDF, named by record_id. Not committed
                            (copyrighted); kept on this machine only.
   fetch_log.csv            one row per record: status, route, URL used
-  to_download_by_hand.csv  records that could not be fetched, with title,
+  to_download_by_hand.csv  records that could not be fetched, grouped by
+                           publisher (largest group first) and within a
+                           group by decision (include first, then maybe),
+                           with the title,
                            DOI and DOI link, for the author to download.
                            Save each file as pdf/<record_id>.pdf.
 
@@ -42,6 +48,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+from collections import Counter
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -157,6 +164,59 @@ def candidates(row):
 
 # --------------------------------------------------------------------------
 
+# DOI prefixes of the publishers that hold most of the by-hand records.
+# Grouping by publisher lets the author work through one platform at a
+# time instead of jumping between sites for every record.
+PUBLISHERS = {
+    "10.1016": "Elsevier (ScienceDirect)",
+    "10.1007": "Springer",
+    "10.1080": "Taylor and Francis",
+    "10.1177": "SAGE",
+    "10.1037": "APA",
+    "10.1111": "Wiley",
+    "10.1002": "Wiley",
+    "10.1109": "IEEE",
+    "10.1108": "Emerald",
+    "10.1145": "ACM",
+    "10.3390": "MDPI",
+    "10.4018": "IGI Global",
+    "10.3389": "Frontiers",
+    "10.1348": "Wiley (BPS)",
+    "10.1207": "Taylor and Francis",
+}
+SCHOLAR = "https://scholar.google.com/scholar?q="
+
+
+def publisher(doi):
+    return PUBLISHERS.get((doi or "").split("/")[0], "その他" if doi else "DOI なし")
+
+
+def search_link(row):
+    """Where to go to get this PDF: the DOI, or a title search."""
+    doi = (row.get("doi") or "").strip()
+    if doi:
+        return f"https://doi.org/{doi}"
+    return SCHOLAR + urllib.parse.quote('"' + (row.get("title") or "")[:200] + '"')
+
+
+def kept_in_screening(path):
+    """record_ids kept at the title/abstract stage, from the screening sheet.
+
+    Uses the reviewer's et_decision when it is filled in, and Claude's
+    proposal otherwise, so retrieval can start before every row is
+    confirmed. The reviewer's decision always wins where it exists.
+    """
+    want = {}
+    with path.open(encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            d = (row.get("et_decision") or "").strip().lower()
+            if not d:
+                d = (row.get("claude_suggestion") or "").strip().lower()
+            if d in KEEP:
+                want[row["record_id"]] = d
+    return want
+
+
 def select(rows, ids):
     if ids:
         want = set(ids)
@@ -171,11 +231,115 @@ def write_csv(path, data, fields):
         w.writerows(data)
 
 
+def twin_notes(rows, kept):
+    """record_id -> the other record_id holding the same paper.
+
+    The search kept some papers twice: an ERIC record with no DOI, and a
+    record with a DOI, under different ids and sometimes different years
+    (print vs online). Both can sit in the to-download list, so the note
+    says which pairs are one paper. place_pdfs.py copies a placed PDF to
+    the twin, so only one download is needed.
+    """
+    import html as _html
+    groups = {}
+    for r in rows:
+        n = _norm_title(r["title"])
+        if len(n) >= 25:
+            groups.setdefault(n, []).append(r)
+    out = {}
+    for v in groups.values():
+        if len(v) < 2:
+            continue
+        ys = [int(x["year"]) if (x["year"] or "").isdigit() else 0 for x in v]
+        if max(ys) - min(ys) > 1:
+            continue
+        ids = [x["record_id"] for x in v if x["record_id"] in kept]
+        if len(ids) > 1:
+            for a in ids:
+                out[a] = [b for b in ids if b != a]
+    return out
+
+
+def _norm_title(t):
+    import html as _html
+    import unicodedata as _ud
+    t = _html.unescape(_html.unescape(t or ""))
+    t = _ud.normalize("NFKD", t).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", " ", t).strip()
+
+
+def rebuild_lists(args, rows):
+    """Rewrite the by-hand list from the existing log, with no network use.
+
+    Used when the screening decisions changed: records dropped at the
+    title/abstract stage leave the list, and the publisher grouping and
+    the decision column are rebuilt from the current screening sheet.
+    """
+    rec = {r["record_id"]: r for r in rows}
+    kept = (kept_in_screening(args.screening) if args.screening.exists() else {})
+    log_path = args.out / "fetch_log.csv"
+    if not log_path.exists():
+        sys.exit(f"{log_path} not found. Run the fetch first.")
+    with log_path.open(encoding="utf-8") as f:
+        log = list(csv.DictReader(f))
+    pdf_dir = args.out / "pdf"
+    twin = twin_notes(rows, set(kept))
+    by_hand, dropped, now_have = [], 0, 0
+    for e in log:
+        rid = e["record_id"]
+        if e["status"] != "by_hand":
+            continue
+        if kept and rid not in kept:
+            dropped += 1
+            continue
+        dest = pdf_dir / f"{rid}.pdf"
+        if dest.exists() and dest.read_bytes()[:5] == b"%PDF-":
+            now_have += 1
+            continue
+        row = rec.get(rid, {})
+        doi = (row.get("doi") or "").strip()
+        by_hand.append({
+            "record_id": rid, "decision": kept.get(rid, ""),
+            "publisher": publisher(doi), "title": row.get("title", ""),
+            "year": row.get("year", ""), "authors": row.get("authors", ""),
+            "journal": row.get("journal", ""), "doi": doi,
+            "link": search_link(row), "save_as": f"pdf/{rid}.pdf",
+            "note": " ".join(filter(None, [
+                "" if doi else "no DOI; the link is a title search",
+                ("same paper as " + ", ".join(twin[rid]) + "; download once")
+                if rid in twin else ""]))})
+    write_by_hand(args.out, by_hand)
+    print(f"{len(by_hand)} to download by hand: "
+          f"{args.out / 'to_download_by_hand.csv'}")
+    if now_have:
+        print(f"{now_have} records left the list: the PDF is now in {pdf_dir.name}/")
+    if dropped:
+        print(f"{dropped} records left the list: no longer kept at title/abstract")
+
+
+def write_by_hand(out, by_hand):
+    rank = {"include": 0, "maybe": 1}
+    size = Counter(r["publisher"] for r in by_hand)
+    by_hand.sort(key=lambda r: (-size[r["publisher"]], r["publisher"],
+                                rank.get(r["decision"], 2), r["record_id"]))
+    write_csv(out / "to_download_by_hand.csv", by_hand,
+              ["record_id", "decision", "publisher", "title", "year", "authors",
+               "journal", "doi", "link", "save_as", "note"])
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--records", type=Path, default=HERE / "records_dedup.csv")
     ap.add_argument("--out", type=Path, default=HERE / "fulltext")
     ap.add_argument("--ids", nargs="*")
+    ap.add_argument("--rebuild-lists", action="store_true",
+                    help="rewrite to_download_by_hand.csv from fetch_log.csv "
+                         "without fetching anything, after the screening "
+                         "decisions changed")
+    ap.add_argument("--screening", type=Path,
+                    default=HERE / "screening" / "screening_ta.csv",
+                    help="screening sheet to take the kept record_ids from; "
+                         "ignored when --ids is given or the file is missing")
     args = ap.parse_args()
 
     if not args.records.exists():
@@ -183,10 +347,19 @@ def main():
                  "title/abstract screening first.")
     with args.records.open(encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
-    todo = select(rows, args.ids)
+    ids, kept = args.ids, {}
+    if args.rebuild_lists:
+        rebuild_lists(args, rows)
+        return
+    if not ids and args.screening.exists():
+        kept = kept_in_screening(args.screening)
+        ids = list(kept)
+        print(f"{len(ids)} records kept at title/abstract in {args.screening.name}")
+    todo = select(rows, ids)
     if not todo:
-        sys.exit("No records selected. Mark rows 'include' or 'maybe' in "
-                 "ta_decision, or pass --ids.")
+        sys.exit("No records selected. Fill et_decision in the screening "
+                 "sheet, mark rows 'include' or 'maybe' in ta_decision, or "
+                 "pass --ids.")
 
     pdf_dir = args.out / "pdf"
     pdf_dir.mkdir(parents=True, exist_ok=True)
@@ -213,19 +386,20 @@ def main():
                              note=" | ".join(notes) or "no open-access copy found")
                 doi = row.get("doi", "")
                 by_hand.append({
-                    "record_id": rid, "title": row.get("title", ""),
+                    "record_id": rid, "decision": kept.get(rid, ""),
+                    "publisher": publisher(doi),
+                    "title": row.get("title", ""),
                     "year": row.get("year", ""), "authors": row.get("authors", ""),
-                    "doi": doi, "doi_link": f"https://doi.org/{doi}" if doi else "",
+                    "journal": row.get("journal", ""),
+                    "doi": doi, "link": search_link(row),
                     "save_as": f"pdf/{rid}.pdf",
-                    "note": "" if doi else "no DOI; search by title"})
+                    "note": "" if doi else "no DOI; the link is a title search"})
         log.append(entry)
         print(f"[{n}/{len(todo)}] {rid}: {entry['status']} {entry['route']}")
 
     write_csv(args.out / "fetch_log.csv", log,
               ["record_id", "doi", "title", "status", "route", "url", "note"])
-    write_csv(args.out / "to_download_by_hand.csv", by_hand,
-              ["record_id", "title", "year", "authors", "doi", "doi_link",
-               "save_as", "note"])
+    write_by_hand(args.out, by_hand)
     got = sum(e["status"] in ("downloaded", "already_present") for e in log)
     print(f"\n{got} of {len(log)} PDFs in {pdf_dir}")
     print(f"{len(by_hand)} to download by hand: {args.out / 'to_download_by_hand.csv'}")

@@ -1,0 +1,200 @@
+{"record_id": "R00683", "suggestion": "exclude", "reason": "E1", "note": "MOOC log-based behaviour patterns; no personality measure"}
+{"record_id": "R00684", "suggestion": "exclude", "reason": "E1", "note": "Learning analytics intervention in a MOOC; no personality measure"}
+{"record_id": "R00685", "suggestion": "maybe", "reason": "", "note": "No abstract; variables linked to MOOC completion not specified"}
+{"record_id": "R00686", "suggestion": "exclude", "reason": "E1", "note": "Data mining of pre-course clickstream; no personality measure"}
+{"record_id": "R00687", "suggestion": "exclude", "reason": "E5", "note": "Systematic review of MOOC research"}
+{"record_id": "R00688", "suggestion": "exclude", "reason": "E5", "note": "Systematic literature review"}
+{"record_id": "R00689", "suggestion": "exclude", "reason": "E5", "note": "MOOC development report, not a primary study"}
+{"record_id": "R00690", "suggestion": "exclude", "reason": "E5", "note": "Description of a peer assessment workflow"}
+{"record_id": "R00691", "suggestion": "maybe", "reason": "", "note": "No abstract; motivational dispositions and MOOC completion"}
+{"record_id": "R00693", "suggestion": "exclude", "reason": "E1", "note": "Prior skill and goals as predictors; no personality measure"}
+{"record_id": "R00694", "suggestion": "exclude", "reason": "E1", "note": "Social support and continuance intention; no personality measure"}
+{"record_id": "R00695", "suggestion": "maybe", "reason": "", "note": "No abstract; blended MOOC English teaching for students"}
+{"record_id": "R00696", "suggestion": "exclude", "reason": "E1", "note": "Peer grading models; no personality measure"}
+{"record_id": "R00697", "suggestion": "exclude", "reason": "E5", "note": "Game-theoretic model, not an empirical learner study"}
+{"record_id": "R00698", "suggestion": "exclude", "reason": "E1", "note": "Demographic predictors of perceived outcomes; no personality measure"}
+{"record_id": "R00699", "suggestion": "exclude", "reason": "E1", "note": "OER quality perception and achievement; no personality measure"}
+{"record_id": "R00700", "suggestion": "exclude", "reason": "E5", "note": "Conceptual paper on learner privacy"}
+{"record_id": "R00702", "suggestion": "exclude", "reason": "E5", "note": "Descriptive practitioner account of online course technology"}
+{"record_id": "R00703", "suggestion": "exclude", "reason": "E5", "note": "Project description of an OER/MOOC initiative"}
+{"record_id": "R00704", "suggestion": "exclude", "reason": "E1", "note": "Question-frequency experiment; no personality measure"}
+{"record_id": "R00706", "suggestion": "exclude", "reason": "E1", "note": "Interaction pattern analysis from logs; no personality measure"}
+{"record_id": "R00707", "suggestion": "maybe", "reason": "", "note": "No abstract; blended MOOC use in computer science training"}
+{"record_id": "R00708", "suggestion": "exclude", "reason": "E5", "note": "Exploratory review of MOOC problems and challenges"}
+{"record_id": "R00709", "suggestion": "exclude", "reason": "E1", "note": "LMS effectiveness pre-post study; no personality measure"}
+{"record_id": "R00710", "suggestion": "exclude", "reason": "E1", "note": "Project-based MOOC attitudes and motivation; no personality measure"}
+{"record_id": "R00711", "suggestion": "exclude", "reason": "E5", "note": "Discussion paper on ICT in distance counselling"}
+{"record_id": "R00712", "suggestion": "exclude", "reason": "E7", "note": "SSRN preprint"}
+{"record_id": "R00714", "suggestion": "exclude", "reason": "E1", "note": "Students' perceptions of hybrid MOOC learning; no personality measure"}
+{"record_id": "R00715", "suggestion": "exclude", "reason": "E1", "note": "Retrieval practice intervention; no personality measure"}
+{"record_id": "R00716", "suggestion": "exclude", "reason": "E5", "note": "Commentary on MOOC research challenges"}
+{"record_id": "R00717", "suggestion": "exclude", "reason": "E5", "note": "Online course description, not a study"}
+{"record_id": "R00718", "suggestion": "exclude", "reason": "E1", "note": "Metacognition and cognitive presence; no Big Five measure"}
+{"record_id": "R00719", "suggestion": "exclude", "reason": "E5", "note": "Report on the development and delivery of one MOOC"}
+{"record_id": "R00720", "suggestion": "exclude", "reason": "E5", "note": "Meta-analysis"}
+{"record_id": "R00722", "suggestion": "exclude", "reason": "E1", "note": "Web-based assessment mode project; no personality measure"}
+{"record_id": "R00723", "suggestion": "exclude", "reason": "E1", "note": "A/B testing of platform features; no personality measure"}
+{"record_id": "R00724", "suggestion": "exclude", "reason": "E3", "note": "Respondents are academic teaching staff, not students"}
+{"record_id": "R00725", "suggestion": "exclude", "reason": "E3", "note": "Participants are educators, not students"}
+{"record_id": "R00726", "suggestion": "exclude", "reason": "E1", "note": "Survey of e-learning usage and challenges; no personality measure"}
+{"record_id": "R00727", "suggestion": "exclude", "reason": "E5", "note": "Teaching experience report on one MOOC"}
+{"record_id": "R00728", "suggestion": "exclude", "reason": "E5", "note": "Descriptive article on course design principles"}
+{"record_id": "R00729", "suggestion": "exclude", "reason": "E1", "note": "ICT quality and learning outcomes; no personality measure"}
+{"record_id": "R00731", "suggestion": "maybe", "reason": "", "note": "No abstract; critical thinking and distance learning outcomes"}
+{"record_id": "R00732", "suggestion": "exclude", "reason": "E5", "note": "Review of MOOC advantages and limitations"}
+{"record_id": "R00733", "suggestion": "exclude", "reason": "E5", "note": "Encyclopaedic overview of MOOCs"}
+{"record_id": "R00734", "suggestion": "exclude", "reason": "E1", "note": "Automatic forum grading algorithm; no personality measure"}
+{"record_id": "R00735", "suggestion": "exclude", "reason": "E3", "note": "Respondents are faculty and training staff, not students"}
+{"record_id": "R00736", "suggestion": "exclude", "reason": "E5", "note": "Practitioner essay on open-ended questions"}
+{"record_id": "R00737", "suggestion": "exclude", "reason": "E1", "note": "Divided attention detection system; no personality measure"}
+{"record_id": "R00738", "suggestion": "exclude", "reason": "E1", "note": "Machine learning dropout prediction from clickstream; no personality measure"}
+{"record_id": "R00739", "suggestion": "exclude", "reason": "E1", "note": "Peer-review participation and outcomes; no personality measure"}
+{"record_id": "R00740", "suggestion": "exclude", "reason": "E5", "note": "Mechanism design evaluated with simulated data"}
+{"record_id": "R00741", "suggestion": "exclude", "reason": "E1", "note": "Self-regulated learning prompt experiment; no personality measure"}
+{"record_id": "R00742", "suggestion": "exclude", "reason": "E1", "note": "Data mining with demographics and grades; no personality measure"}
+{"record_id": "R00743", "suggestion": "exclude", "reason": "E5", "note": "Review of MOOC enhancement techniques"}
+{"record_id": "R00744", "suggestion": "exclude", "reason": "E1", "note": "Flipped course with MOOC technology; no personality measure"}
+{"record_id": "R00745", "suggestion": "exclude", "reason": "E1", "note": "Clickstream time-series modelling; no personality measure"}
+{"record_id": "R00747", "suggestion": "exclude", "reason": "E1", "note": "Peer interaction and MOOC outcomes; no personality measure"}
+{"record_id": "R00748", "suggestion": "exclude", "reason": "E1", "note": "Blended MOOC integration case study; no personality measure"}
+{"record_id": "R00749", "suggestion": "exclude", "reason": "E1", "note": "Machine learning certification prediction; no personality measure"}
+{"record_id": "R00750", "suggestion": "exclude", "reason": "E1", "note": "GPA-based enrolment restriction policy; no personality measure"}
+{"record_id": "R00751", "suggestion": "exclude", "reason": "E5", "note": "Critical commentary on MOOCs"}
+{"record_id": "R00753", "suggestion": "exclude", "reason": "E1", "note": "Institutional and student engagement factors; no personality measure"}
+{"record_id": "R00754", "suggestion": "exclude", "reason": "E1", "note": "Facial engagement recognition model; no personality measure"}
+{"record_id": "R00755", "suggestion": "exclude", "reason": "E1", "note": "Video engagement analysis in a MOOC; no personality measure"}
+{"record_id": "R00756", "suggestion": "exclude", "reason": "E1", "note": "Contextual tips A/B test; no personality measure"}
+{"record_id": "R00757", "suggestion": "exclude", "reason": "E5", "note": "Descriptive qualitative content analysis"}
+{"record_id": "R00758", "suggestion": "maybe", "reason": "", "note": "Student characteristics and SRL with satisfaction and performance in MOOCs"}
+{"record_id": "R00759", "suggestion": "exclude", "reason": "E1", "note": "LMS usage and pass rates; no personality measure"}
+{"record_id": "R00760", "suggestion": "exclude", "reason": "E1", "note": "Pair programming tool study; no personality measure"}
+{"record_id": "R00761", "suggestion": "exclude", "reason": "E5", "note": "Comprehensive review of gamification"}
+{"record_id": "R00762", "suggestion": "exclude", "reason": "E5", "note": "Game-theoretic peer grading model"}
+{"record_id": "R00763", "suggestion": "exclude", "reason": "E1", "note": "No abstract; e-learning adoption, not personality or an eligible outcome"}
+{"record_id": "R00764", "suggestion": "exclude", "reason": "E1", "note": "Language style experiment; no personality measure"}
+{"record_id": "R00765", "suggestion": "exclude", "reason": "E1", "note": "No abstract; program-level learning strategies, not personality"}
+{"record_id": "R00766", "suggestion": "exclude", "reason": "E5", "note": "Methodological and technological framework proposal"}
+{"record_id": "R00767", "suggestion": "exclude", "reason": "E5", "note": "Systematic literature review"}
+{"record_id": "R00768", "suggestion": "exclude", "reason": "E1", "note": "Chatbot intervention in an online course; no personality measure"}
+{"record_id": "R00769", "suggestion": "exclude", "reason": "E3", "note": "Participants are in-service teachers, not students"}
+{"record_id": "R00770", "suggestion": "exclude", "reason": "E1", "note": "Availability of texts and learning outcomes; no personality measure"}
+{"record_id": "R00771", "suggestion": "exclude", "reason": "E5", "note": "Learning design framework paper"}
+{"record_id": "R00772", "suggestion": "exclude", "reason": "E1", "note": "Types of knowledge from script analysis; no personality measure"}
+{"record_id": "R00773", "suggestion": "exclude", "reason": "E5", "note": "Qualitative problem characterization with expert interviews"}
+{"record_id": "R00774", "suggestion": "exclude", "reason": "E5", "note": "Overview paper on MOOC options for teachers"}
+{"record_id": "R00775", "suggestion": "exclude", "reason": "E1", "note": "Factor analysis of activity participation; no personality measure"}
+{"record_id": "R00776", "suggestion": "exclude", "reason": "E1", "note": "Motivational email experiment; no personality measure"}
+{"record_id": "R00777", "suggestion": "exclude", "reason": "E5", "note": "Systematic review proposing an architecture model"}
+{"record_id": "R00778", "suggestion": "exclude", "reason": "E1", "note": "Auto-grader infrastructure evaluation; no learner traits"}
+{"record_id": "R00779", "suggestion": "exclude", "reason": "E5", "note": "Discussion paper on e-learning platforms"}
+{"record_id": "R00780", "suggestion": "exclude", "reason": "E5", "note": "Description of an online course framework"}
+{"record_id": "R00782", "suggestion": "exclude", "reason": "E1", "note": "No abstract; evaluation and feedback system, not personality"}
+{"record_id": "R00783", "suggestion": "exclude", "reason": "E1", "note": "Adaptive peer assessment methods; no personality measure"}
+{"record_id": "R00784", "suggestion": "exclude", "reason": "E1", "note": "Attrition factors dissertation; no personality measure"}
+{"record_id": "R00785", "suggestion": "exclude", "reason": "E1", "note": "Choice of formative assessment activities; no personality measure"}
+{"record_id": "R00786", "suggestion": "exclude", "reason": "E1", "note": "Online learning behaviour and achievement; no personality measure"}
+{"record_id": "R00787", "suggestion": "exclude", "reason": "E1", "note": "Optimization of personalized learning paths; no personality measure"}
+{"record_id": "R00788", "suggestion": "exclude", "reason": "E5", "note": "Action research on converting a course online"}
+{"record_id": "R00789", "suggestion": "exclude", "reason": "E1", "note": "Teaching quality and course design predictors; no personality measure"}
+{"record_id": "R00790", "suggestion": "exclude", "reason": "E5", "note": "Institutional survey report on online education"}
+{"record_id": "R00792", "suggestion": "exclude", "reason": "E1", "note": "Technology acceptance model of OER use; no personality measure"}
+{"record_id": "R00793", "suggestion": "exclude", "reason": "E1", "note": "Chatbot design for an LMS; no personality measure"}
+{"record_id": "R00795", "suggestion": "exclude", "reason": "E1", "note": "SPOC teaching method experiment; no personality measure"}
+{"record_id": "R00796", "suggestion": "exclude", "reason": "E5", "note": "Course innovation description"}
+{"record_id": "R00797", "suggestion": "exclude", "reason": "E5", "note": "Description of MOOC design on privacy and GDPR"}
+{"record_id": "R00798", "suggestion": "exclude", "reason": "E1", "note": "Genetic algorithm test generation; no personality measure"}
+{"record_id": "R00799", "suggestion": "exclude", "reason": "E5", "note": "Conference presentation describing two courses"}
+{"record_id": "R00800", "suggestion": "exclude", "reason": "E5", "note": "Analytical economic model of peer grading"}
+{"record_id": "R00801", "suggestion": "exclude", "reason": "E1", "note": "Learner perceptions of workforce skills; no personality measure"}
+{"record_id": "R00802", "suggestion": "maybe", "reason": "", "note": "No abstract; early prediction of MOOC certification, predictors unspecified"}
+{"record_id": "R00803", "suggestion": "exclude", "reason": "E1", "note": "New peer assessment method; no personality measure"}
+{"record_id": "R00804", "suggestion": "exclude", "reason": "E5", "note": "Discussion of learning platform design"}
+{"record_id": "R00805", "suggestion": "exclude", "reason": "E1", "note": "Peer-grading validation study; no personality measure"}
+{"record_id": "R00806", "suggestion": "exclude", "reason": "E3", "note": "Participants are laboratory staff, not students"}
+{"record_id": "R00807", "suggestion": "exclude", "reason": "E1", "note": "Gamified LMS pre-post study; no personality measure"}
+{"record_id": "R00808", "suggestion": "exclude", "reason": "E1", "note": "Online learning behaviour and achievement; no personality measure"}
+{"record_id": "R00809", "suggestion": "exclude", "reason": "E1", "note": "Learner diversity and program outcomes; no personality measure"}
+{"record_id": "R00810", "suggestion": "exclude", "reason": "E1", "note": "Motivation types only; no Big Five or HEXACO measure"}
+{"record_id": "R00811", "suggestion": "exclude", "reason": "E1", "note": "Automatic forum grading algorithm; no personality measure"}
+{"record_id": "R00812", "suggestion": "exclude", "reason": "E5", "note": "Survey of AI applied to MOOCs"}
+{"record_id": "R00813", "suggestion": "exclude", "reason": "E1", "note": "Institutional service predictors of performance; no personality measure"}
+{"record_id": "R00814", "suggestion": "exclude", "reason": "E5", "note": "Systematic literature review"}
+{"record_id": "R00815", "suggestion": "exclude", "reason": "E5", "note": "Comparative description of MOOCs for university lecturers"}
+{"record_id": "R00816", "suggestion": "exclude", "reason": "E1", "note": "Graph-based grade prediction; no personality measure"}
+{"record_id": "R00817", "suggestion": "exclude", "reason": "E1", "note": "MOOC programme evaluation; no personality measure"}
+{"record_id": "R00818", "suggestion": "exclude", "reason": "E1", "note": "Blended histology course comparison; no personality measure"}
+{"record_id": "R00820", "suggestion": "exclude", "reason": "E1", "note": "No abstract; MOOC use for translator development, not personality"}
+{"record_id": "R00822", "suggestion": "exclude", "reason": "E1", "note": "Course recommendation model; no personality measure"}
+{"record_id": "R00826", "suggestion": "exclude", "reason": "E5", "note": "Proposal paper for adopting MOOCs"}
+{"record_id": "R00827", "suggestion": "exclude", "reason": "E1", "note": "Peer assessment clustering method; no personality measure"}
+{"record_id": "R00828", "suggestion": "exclude", "reason": "E1", "note": "Achievement emotions from forum posts; no Big Five measure"}
+{"record_id": "R00829", "suggestion": "exclude", "reason": "E5", "note": "Conceptual paper on transmedia MOOC pedagogy"}
+{"record_id": "R00830", "suggestion": "exclude", "reason": "E5", "note": "Teaching experience report"}
+{"record_id": "R00832", "suggestion": "exclude", "reason": "E1", "note": "MOOC versus gamification hybrid models; no personality measure"}
+{"record_id": "R00833", "suggestion": "exclude", "reason": "E1", "note": "No abstract; clickstream-based performance prediction"}
+{"record_id": "R00834", "suggestion": "exclude", "reason": "E1", "note": "MOOC with badges and certificates; no personality measure"}
+{"record_id": "R00835", "suggestion": "exclude", "reason": "E1", "note": "Course perceptions and effort; no personality measure"}
+{"record_id": "R00836", "suggestion": "exclude", "reason": "E5", "note": "Online course description"}
+{"record_id": "R00837", "suggestion": "exclude", "reason": "E1", "note": "No abstract; peer assessment factorization method"}
+{"record_id": "R00838", "suggestion": "exclude", "reason": "E5", "note": "Systematic literature review of sentiment analysis"}
+{"record_id": "R00839", "suggestion": "exclude", "reason": "E1", "note": "No abstract; confidence in communicating, no personality measure"}
+{"record_id": "R00840", "suggestion": "exclude", "reason": "E1", "note": "Adaptive recommendation model for retention; no personality measure"}
+{"record_id": "R00841", "suggestion": "exclude", "reason": "E1", "note": "No abstract; women's participation in MOOCs, no personality measure"}
+{"record_id": "R00842", "suggestion": "exclude", "reason": "E1", "note": "Motivation profiles only; no Big Five measure"}
+{"record_id": "R00843", "suggestion": "exclude", "reason": "E5", "note": "Survey of AI and data mining for MOOCs"}
+{"record_id": "R00844", "suggestion": "exclude", "reason": "E1", "note": "No abstract; learning behaviours predicting grades"}
+{"record_id": "R00845", "suggestion": "exclude", "reason": "E1", "note": "Quality of delivery predictors of achievement; no personality measure"}
+{"record_id": "R00847", "suggestion": "exclude", "reason": "E1", "note": "Blended learning capacity and enrolments; no personality measure"}
+{"record_id": "R00848", "suggestion": "exclude", "reason": "E1", "note": "MOOC versus traditional nursing teaching; no personality measure"}
+{"record_id": "R00849", "suggestion": "exclude", "reason": "E1", "note": "Grades and clickstream activity; no personality measure"}
+{"record_id": "R00850", "suggestion": "exclude", "reason": "E5", "note": "Description of MOOC project development"}
+{"record_id": "R00851", "suggestion": "exclude", "reason": "E1", "note": "LMS technical and pedagogical dimensions; no personality measure"}
+{"record_id": "R00853", "suggestion": "exclude", "reason": "E1", "note": "Short-answer grading practices; no personality measure"}
+{"record_id": "R00854", "suggestion": "exclude", "reason": "E5", "note": "Framework proposal for evaluating global learning"}
+{"record_id": "R00855", "suggestion": "exclude", "reason": "E5", "note": "Qualitative phenomenological study"}
+{"record_id": "R00856", "suggestion": "exclude", "reason": "E1", "note": "Machine learning dropout prediction; no personality measure"}
+{"record_id": "R00857", "suggestion": "exclude", "reason": "E1", "note": "Automated feedback technique; no personality measure"}
+{"record_id": "R00858", "suggestion": "exclude", "reason": "E5", "note": "Descriptive account of e-portfolio and open badge use"}
+{"record_id": "R00859", "suggestion": "exclude", "reason": "E1", "note": "No abstract; assessment of project-based learning, no personality"}
+{"record_id": "R00860", "suggestion": "exclude", "reason": "E1", "note": "Comparison of design thinking methods; no personality measure"}
+{"record_id": "R00861", "suggestion": "exclude", "reason": "E5", "note": "Framework for revising formative assessments"}
+{"record_id": "R00862", "suggestion": "exclude", "reason": "E1", "note": "Mindfulness intervention and mindfulness outcome; no Big Five measure"}
+{"record_id": "R00863", "suggestion": "exclude", "reason": "E1", "note": "Assignment data for performance prediction; no personality measure"}
+{"record_id": "R00864", "suggestion": "exclude", "reason": "E1", "note": "Learner course-sequence trends; no personality measure"}
+{"record_id": "R00865", "suggestion": "exclude", "reason": "E1", "note": "Computer anxiety and learning style; no Big Five measure"}
+{"record_id": "R00866", "suggestion": "exclude", "reason": "E1", "note": "Auto-grader security considerations; no learner traits"}
+{"record_id": "R00867", "suggestion": "exclude", "reason": "E5", "note": "Issues and strategies paper on collaborative activities"}
+{"record_id": "R00868", "suggestion": "exclude", "reason": "E1", "note": "Student authentication model; no personality measure"}
+{"record_id": "R00869", "suggestion": "maybe", "reason": "", "note": "No abstract; empirical study of realtime online courses in hospitality"}
+{"record_id": "R00870", "suggestion": "exclude", "reason": "E1", "note": "Concept extraction from subtitles; no personality measure"}
+{"record_id": "R00871", "suggestion": "exclude", "reason": "E1", "note": "Open badges experiment; no Big Five measure"}
+{"record_id": "R00872", "suggestion": "exclude", "reason": "E1", "note": "Grade inflation and academic fraud analytics; no personality measure"}
+{"record_id": "R00873", "suggestion": "exclude", "reason": "E5", "note": "No abstract; teaching experience report"}
+{"record_id": "R00874", "suggestion": "exclude", "reason": "E5", "note": "Editorial commentary"}
+{"record_id": "R00875", "suggestion": "exclude", "reason": "E1", "note": "Forum discourse analysis frameworks; no personality measure"}
+{"record_id": "R00876", "suggestion": "exclude", "reason": "E5", "note": "Learning analytics framework paper"}
+{"record_id": "R00877", "suggestion": "exclude", "reason": "E5", "note": "Description of a student-led e-learning resource"}
+{"record_id": "R00878", "suggestion": "exclude", "reason": "E1", "note": "Machine learning grade prediction from behaviour; no personality measure"}
+{"record_id": "R00879", "suggestion": "exclude", "reason": "E5", "note": "Qualitative interview study"}
+{"record_id": "R00880", "suggestion": "exclude", "reason": "E1", "note": "Survey of audio-video resource use; no personality measure"}
+{"record_id": "R00881", "suggestion": "exclude", "reason": "E1", "note": "LMS log analysis of completion factors; no personality measure"}
+{"record_id": "R00882", "suggestion": "exclude", "reason": "E1", "note": "Survey of MOOC awareness and use; no personality measure"}
+{"record_id": "R00883", "suggestion": "exclude", "reason": "E1", "note": "Interaction in Greek MOOCs; no personality measure"}
+{"record_id": "R00885", "suggestion": "exclude", "reason": "E5", "note": "Teaching experience report on a robotics MOOC"}
+{"record_id": "R00886", "suggestion": "exclude", "reason": "E1", "note": "Forum listening responses and performance; no personality measure"}
+{"record_id": "R00887", "suggestion": "exclude", "reason": "E5", "note": "Conceptual value-based delivery model"}
+{"record_id": "R00888", "suggestion": "exclude", "reason": "E1", "note": "Time-investment patterns from logs; no personality measure"}
+{"record_id": "R00889", "suggestion": "exclude", "reason": "E1", "note": "MOOC platform features and satisfaction; no personality measure"}
+{"record_id": "R00890", "suggestion": "exclude", "reason": "E1", "note": "Social network properties and performance; no personality measure"}
+{"record_id": "R00891", "suggestion": "exclude", "reason": "E1", "note": "Course modularization effects; no personality measure"}
+{"record_id": "R00892", "suggestion": "exclude", "reason": "E1", "note": "Automated grading implementation thesis; no personality measure"}
+{"record_id": "R00893", "suggestion": "exclude", "reason": "E1", "note": "Blended versus asynchronous outcomes; no personality measure"}
+{"record_id": "R00894", "suggestion": "exclude", "reason": "E1", "note": "No abstract; CNN/LSTM dropout prediction"}
+{"record_id": "R00895", "suggestion": "exclude", "reason": "E1", "note": "No abstract; synthetic MOOC for lipreading, not a learner-trait study"}
+{"record_id": "R00896", "suggestion": "exclude", "reason": "E1", "note": "Serious games as MOOC activities; no personality measure"}
+{"record_id": "R00897", "suggestion": "exclude", "reason": "E1", "note": "Machine learning prediction from VLE activity; no personality measure"}
+{"record_id": "R00898", "suggestion": "exclude", "reason": "E1", "note": "Learning behaviour patterns by achievement level; no personality measure"}
+{"record_id": "R00899", "suggestion": "exclude", "reason": "E1", "note": "No abstract; classification of urgent forum posts"}
+{"record_id": "R00900", "suggestion": "exclude", "reason": "E5", "note": "Single-subject qualitative case study"}
+{"record_id": "R00901", "suggestion": "exclude", "reason": "E5", "note": "Research and development of a learning model product"}
+{"record_id": "R00902", "suggestion": "exclude", "reason": "E3", "note": "Participants are healthcare workers, not students"}

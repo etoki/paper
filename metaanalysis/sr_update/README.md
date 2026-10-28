@@ -95,28 +95,86 @@ python metaanalysis/sr_update/run_search.py           # 本番
 
 ### 4. 選別する（常盤さん）
 
-事前登録どおり、常盤さん1人で選別します。Claude は2人目の選別者にしません（2026-10-27 決定）。
+判定するのは常盤さん1人です。Claude は2人目の選別者ではなく、全件に「こう判定するのが筋だ」という案を出すだけです（2026-10-27 決定）。常盤さんが全件を最終確認して初めて判定になります。
 
-**題名・要旨の段階**:
-- 常盤さんが全件を判定します。
-- 1週間以上あけて10%を選び直し、一致度（κ）を出します。
+**題名・要旨の段階（2026-10-28 に案を作成済み）**
 
-題名・要旨の判定は `records_dedup.csv` の `ta_decision` 欄に `include`（全文を読む）、`maybe`（迷う。全文を読む）、`exclude` のどれかで書きます。
+手順:
+
+1. 条件と判定の規則を `screening/criteria.md` に書く。版番号をつけ、変えたら番号を上げる。いまは version 2。
+2. 試験をする。`make_batches.py --pilot` で、v4 の既知28本と無作為72件を混ぜた100件を作り、案を出させ、`merge_suggestions.py --pilot` で既知28本が残るか見る。version 1 では28本中26本しか残らなかった（授業形態が要旨に書かれていない研究を落としていた）。規則4を直して version 2 とし、28本すべてが残った。
+3. 全件を分ける。`make_batches.py` が 8,670 件を200件ずつ44束にする。並び順は、人格の語とオンラインの語の両方を含むもの、どちらかを含むもの、どちらも含まないもの。
+4. 束ごとに、同じ指示文で Claude（Opus 5）に案を出させる。見せるのは題名・要旨・年・掲載誌だけ。出力は `screening/suggestions/batch_NNN.jsonl`（record_id、suggestion、reason、note）。要旨を含まないので git に入れる。
+   束001は最初に別のモデル（Opus 5.5）で走らせたため、やり直しました。捨てた分は `screening/superseded/batch_001_opus-5-5.jsonl` に残してあり、使っていません。
+5. `merge_suggestions.py` で検証する。全件に案が1つずつあるか、値と除外コードが許したものだけか、を確かめる。通ると `screening/screening_ta.csv`（全件）と `screening/screening_ta_shortlist.csv`（案が include か maybe のものだけ）ができる。
+
+案の内訳（8,670 件）:
+
+| 案 | 件数 |
+|---|---|
+| include | 161 |
+| maybe | 681 |
+| exclude | 7,828 |
+
+除外コードの内訳: E1（Big Five の尺度なし）4,679、E5（量的な一次研究でない）1,899、E3（対象が学生でない）522、E7（報告の種類が不適）233、E2（対面のみ、または学習の研究でない）204、E4（該当する結果変数なし）198、E6（英語でない）93。
+
+既知の28本はすべて include か maybe に残りました（11本が maybe。授業形態や結果変数が要旨から読み取れないもの）。
+
+**常盤さんがやること**: まず `screening/screening_ta_shortlist.csv`（案が include か maybe の842件、約1MB）を開き、`et_decision` 欄に `include` / `maybe` / `exclude` を入れます。ここで全文を読む対象が決まります。除外の7,828件は `screening/screening_ta.csv`（全8,670件、約21MB）に入っています。どちらも `claude_suggestion` がそのまま妥当なら同じ値を書けば済みます。変える場合は `et_reason`（除外なら E1〜E7）と `et_note` に理由を書いてください。どちらのファイルも要旨を含むので git に入れません。
+
+**再現性の確認**: 常盤さんの判定が終わったら、1週間以上あけて10%を選び直し、一致度（κ）を出します。これは常盤さんの判定どうしの一致度で、Claude の案とは比べません。
+
+**英語以外の93件**: 登録どおり除外します（E6）。中身が条件に合うものもありますが（例: R05763、スペイン語、遠隔の心理学専攻の学生）、件数が少ないため登録を変えずに除外で通します（2026-10-28 決定）。
 
 **全文の段階**:
-- Claude が次のコマンドで PDF を取ります。`ta_decision` が `include` か `maybe` の行が対象です。
+全文は842件すべてを読みます（2026-10-28 決定）。maybe を全文で確認する方針で、題名・要旨の段階では絞りません。
+
+- Claude が次のコマンドで PDF を取ります。
+
+  対象は `screening/screening_ta.csv` で `et_decision` が `include` か `maybe` の行です。`et_decision` が空の行は `claude_suggestion` を使うので、常盤さんの記入を待たずに取得を始められます。記入済みの行では常盤さんの判定が優先されます。
 
   ```
   python metaanalysis/sr_update/fetch_fulltext.py
   ```
 
-- 取れなかったものは `fulltext/to_download_by_hand.csv` に、題名・DOI・DOI のリンクつきで並びます。常盤さんがダウンロードし、`save_as` 欄の名前（`fulltext/pdf/<record_id>.pdf`）で保存してください。
-- もう一度同じコマンドを実行すると、置いた PDF は飛ばし、まだ無いものだけがリストに残ります。
+- 取れなかったものは `fulltext/to_download_by_hand.csv` に並びます。出版社ごと（件数の多い順）、その中で案（`decision`）は `include` が先です。同じサイトの中で続けて作業できるようにしてあります。`link` 欄を開き、`save_as` 欄の名前（`fulltext/pdf/<record_id>.pdf`）で保存してください。DOI がない記録では `link` が題名での検索になります。
+
+  2026-10-28 時点の内訳は、Elsevier 152件、DOI なし146件、Springer 89件、Taylor and Francis 43件、SAGE 24件、APA 24件、Wiley 40件、以下は10件台以下です。掲載誌は340種あり、253種は1件だけです。
+- 出版社がつけたままのファイル名（`theobald2021.pdf`、`EJ1196465.pdf` など）で `fulltext/` に置いてかまいません。次のコマンドが本文から DOI か題名を読み取り、`pdf/<record_id>.pdf` に直します。
+
+  ```
+  /usr/local/bin/python3 metaanalysis/sr_update/place_pdfs.py
+  ```
+
+  `--dry-run` で何に割り当てるかだけ確認できます。割り当てた結果は `fulltext/placed_by_hand.csv` に残ります。特定できなかったファイルは `fulltext/` に残るので、その場合は教えてください。pypdf が必要なので、Homebrew の python3 ではなく `/usr/local/bin/python3` で動かします。
+
+- リストを作り直すときは次のコマンドです。通信はしません。PDF が入った記録と、選別で落ちた記録がリストから外れます。
+
+  ```
+  python metaanalysis/sr_update/fetch_fulltext.py --rebuild-lists
+  ```
+
+**Google スプレッドシートで作業する場合**: 常盤さんは [to_download_by_hand](https://docs.google.com/spreadsheets/d/1ehr3JW_QdM1VQW1kwb79P5tK0BrI1ZlxvFLjv4d2NQk/edit) に CSV を入れて作業しています。`Check` 列に 1、取れなかったものは `note` 列に「no DL」と要旨を貼る、という使い方です。Claude が足した列は `publisher`、`status`（`placed` タブを引く数式）、`search_link`（DOI がない行だけ題名で検索する数式）、`same_paper_as`（重複の相手）です。`placed` タブに入手済み54件と重複10件、件数の集計があります。行は消していません。`status` が「入手済み」の行を絞れば残りだけ見られます。
+
+**重複している記録**: 検索が同じ論文を2回拾っている組があります。DOI のない ERIC の記録と、DOI つきの記録が、別の `record_id`、ときに別の出版年（冊子と電子版）で入っているためです。題名の正規化で照合すると、8,670件の中に45件の余分があり、全文候補842件の中では10件です。リストの `note` に「same paper as Rxxxxx; download once」と出します。片方をダウンロードすれば `place_pdfs.py` が相手にも同じ PDF を置きます。`record_id` は振り直しません（選別の記録が追えなくなるため）。
+
+  原因は2つです。ERIC が題名に `&apos;` のような実体参照を入れていること、情報源どうしで出版年が1年ずれることです。`run_search.py` の `dedup()` はどちらも考慮していません。
 - 判定は常盤さんが行い、20%を選び直します。
 
 取得の経路は、無料で公開されている版だけです（OpenAlex の OA 情報、PubMed Central の公開データ、ERIC、OSTI の順）。出版社に断られたら、ブラウザを装うなどの回避はせず、手作業のリストに回します。Unpaywall は使いません（OpenAlex が同じデータを持っており、追加でメールアドレスを送らずに済むため）。
 
-2026-10-27 に組み入れ済みの25本と先行レビュー6本で試したところ、31本中15本が自動で取れ、16本が手作業のリストに回りました。手作業になったのは、Elsevier・Springer・Wiley・APA の有料論文と DOI のない論文です。新しく見つかる論文でも、半分くらいは手作業になると見込んでください。
+**2026-10-28 の実行結果**: 842件のうち163件が自動で取れ、679件が手作業に回りました。常盤さんが50件を手作業で入手し、重複の相手4件にも同じ PDF を置いたので、`pdf/` は217件、手作業の残りは625件（案 include は60件）です。
+
+| 経路 | 件数 |
+|---|---|
+| OpenAlex の OA 情報 | 131 |
+| PubMed Central | 28 |
+| ERIC | 4 |
+| 手作業 | 679 |
+
+手作業の679件のうち、112件が案 `include`、567件が案 `maybe` です。146件は DOI がなく、題名で探す必要があります。取れなかった理由は、無料で公開された版が見つからないもの597件、出版社に 403 で断られたもの47件、PDF ではなく案内ページが返ったもの19件、残りが ERIC の 404 と通信エラーです。通信エラーの4件（R02008、R06264、R07167、R08437）は時間をおいて再試行しましたが、やはり取れませんでした。
+
+2026-10-27 に組み入れ済みの25本と先行レビュー6本で試したときは、31本中15本が自動で取れました。本番では自動で取れた割合がこれより低く（19%）、無料で読める版がない論文が大半です。
 
 ### 5. データを抽出し、分析をやり直す
 
