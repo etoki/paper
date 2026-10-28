@@ -137,6 +137,8 @@ python metaanalysis/sr_update/fetch_abstracts.py
 
 取り直した記録は `make_batches.py --rescreen` で1束にまとめ、同じ指示文で再選別します。2回目の案が1回目を上書きし、`merge_suggestions.py` が `screening_ta.csv` の `rescreened` 欄と `first_suggestion` 欄にその経過を残します。
 
+2026-10-28 の再選別では148件のうち12件で判定が変わりました。内訳は maybe から exclude が10件、maybe から include が1件（R06854）、exclude から maybe が1件（R08404）です。全文候補は842件から833件に、手作業の残りは625件から619件になりました。**題名だけで除外していた記録から1件を拾い直せました**。これが要旨の取り直しの実際の効果です。
+
 注: 1回目の実行には不具合がありました。PubMed は DOI が見つからないと文字列を語に分解して検索し、別の論文を返します。その1件目を受け取っていたため、救急隊員の研究の要旨が Springer の書籍章7件に、ほかの要旨が2件に入りました。DOI で引いたときは返ってきた記録が同じ DOI を持っているか確認するようにして直し、記録のファイルをバックアップから戻して取り直しました。
 
 **英語以外の93件**: 登録どおり除外します（E6）。中身が条件に合うものもありますが（例: R05763、スペイン語、遠隔の心理学専攻の学生）、件数が少ないため登録を変えずに除外で通します（2026-10-28 決定）。
@@ -169,7 +171,7 @@ python metaanalysis/sr_update/fetch_abstracts.py
   python metaanalysis/sr_update/fetch_fulltext.py --rebuild-lists
   ```
 
-**Google スプレッドシートで作業する場合**: 常盤さんは [to_download_by_hand](https://docs.google.com/spreadsheets/d/1ehr3JW_QdM1VQW1kwb79P5tK0BrI1ZlxvFLjv4d2NQk/edit) に CSV を入れて作業しています。`Check` 列に 1、取れなかったものは `note` 列に「no DL」と要旨を貼る、という使い方です。Claude が足した列は `publisher`、`status`（`placed` タブを引く数式）、`search_link`（DOI がない行だけ題名で検索する数式）、`same_paper_as`（重複の相手）です。`placed` タブに入手済み54件と重複10件、件数の集計があります。行は消していません。`status` が「入手済み」の行を絞れば残りだけ見られます。
+**Google スプレッドシートで作業する場合**: 常盤さんは [to_download_by_hand](https://docs.google.com/spreadsheets/d/1ehr3JW_QdM1VQW1kwb79P5tK0BrI1ZlxvFLjv4d2NQk/edit) に CSV を入れて作業しています。`Check` 列に 1、取れなかったものは `note` 列に「no DL」と要旨を貼る、という使い方です。Claude が足した列は `publisher`、`status`（`placed` タブを引く数式）、`search_link`（DOI がない行だけ題名で検索する数式）、`same_paper_as`（重複の相手）です。`placed` タブに入手済み54件、重複10件、再選別で外れた7件、件数の集計があります。行は消していません。`status` が「入手済み」の行を絞れば残りだけ見られます。
 
 **重複している記録**: 検索が同じ論文を2回拾っている組があります。DOI のない ERIC の記録と、DOI つきの記録が、別の `record_id`、ときに別の出版年（冊子と電子版）で入っているためです。題名の正規化で照合すると、8,670件の中に45件の余分があり、全文候補842件の中では10件です。リストの `note` に「same paper as Rxxxxx; download once」と出します。片方をダウンロードすれば `place_pdfs.py` が相手にも同じ PDF を置きます。`record_id` は振り直しません（選別の記録が追えなくなるため）。
 
@@ -178,7 +180,7 @@ python metaanalysis/sr_update/fetch_abstracts.py
 
 取得の経路は、無料で公開されている版だけです（OpenAlex の OA 情報、PubMed Central の公開データ、ERIC、OSTI の順）。出版社に断られたら、ブラウザを装うなどの回避はせず、手作業のリストに回します。Unpaywall は使いません（OpenAlex が同じデータを持っており、追加でメールアドレスを送らずに済むため）。
 
-**2026-10-28 の実行結果**: 842件のうち163件が自動で取れ、679件が手作業に回りました。常盤さんが50件を手作業で入手し、重複の相手4件にも同じ PDF を置いたので、`pdf/` は217件、手作業の残りは625件（案 include は60件）です。
+**2026-10-28 の実行結果**: 842件のうち163件が自動で取れ、679件が手作業に回りました。常盤さんが50件を手作業で入手し、重複の相手4件にも同じ PDF を置いたので、`pdf/` は217件、手作業の残りは619件（案 include は59件）です。
 
 | 経路 | 件数 |
 |---|---|

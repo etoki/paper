@@ -397,7 +397,17 @@ def main():
         log.append(entry)
         print(f"[{n}/{len(todo)}] {rid}: {entry['status']} {entry['route']}")
 
-    write_csv(args.out / "fetch_log.csv", log,
+    # Merge into the existing log instead of replacing it, so a run over
+    # a few --ids does not erase the record of the full run.
+    log_path = args.out / "fetch_log.csv"
+    merged = {}
+    if log_path.exists():
+        with log_path.open(encoding="utf-8") as f:
+            for e in csv.DictReader(f):
+                merged[e["record_id"]] = e
+    for e in log:
+        merged[e["record_id"]] = e
+    write_csv(log_path, sorted(merged.values(), key=lambda e: e["record_id"]),
               ["record_id", "doi", "title", "status", "route", "url", "note"])
     write_by_hand(args.out, by_hand)
     got = sum(e["status"] in ("downloaded", "already_present") for e in log)
