@@ -124,6 +124,21 @@ python metaanalysis/sr_update/run_search.py           # 本番
 
 **再現性の確認**: 常盤さんの判定が終わったら、1週間以上あけて10%を選び直し、一致度（κ）を出します。これは常盤さんの判定どうしの一致度で、Claude の案とは比べません。
 
+**要旨がない記録の取り直し**: 検索が返した記録のうち1,230件に要旨がなく、題名だけで判断しました（出所は引用をたどった分710件、OpenAlex 511件）。次のコマンドで Crossref、Europe PMC、PubMed から取り直します。
+
+```
+python metaanalysis/sr_update/fetch_abstracts.py --check
+python metaanalysis/sr_update/fetch_abstracts.py
+```
+
+取れた要旨は `records_dedup.csv` の `abstract` 欄に入り、どこから取ったかが `abstract_source` 欄に入ります。上書き前のファイルは `records_dedup.csv.bak` に残ります。取れた記録の一覧は `abstracts_added.csv`（要旨は含まないので git に入れる）です。
+
+2026-10-28 の結果は1,230件中148件（12%）でした。Europe PMC 112件、Crossref 35件、題名検索1件です。回収率が低いのは、Elsevier と Springer と Wiley が Crossref に要旨を出しておらず、Europe PMC が医学・生命科学しか収録していないためです。Semantic Scholar も試しましたが、Elsevier の要旨を持っておらず、キーなしでは429で弾かれます。**全文の手作業件数はこの手では減りません**（全文候補に入るのは17件のみ。残る131件は除外していた記録で、題名だけの判断を補強する意味があります）。
+
+取り直した記録は `make_batches.py --rescreen` で1束にまとめ、同じ指示文で再選別します。2回目の案が1回目を上書きし、`merge_suggestions.py` が `screening_ta.csv` の `rescreened` 欄と `first_suggestion` 欄にその経過を残します。
+
+注: 1回目の実行には不具合がありました。PubMed は DOI が見つからないと文字列を語に分解して検索し、別の論文を返します。その1件目を受け取っていたため、救急隊員の研究の要旨が Springer の書籍章7件に、ほかの要旨が2件に入りました。DOI で引いたときは返ってきた記録が同じ DOI を持っているか確認するようにして直し、記録のファイルをバックアップから戻して取り直しました。
+
 **英語以外の93件**: 登録どおり除外します（E6）。中身が条件に合うものもありますが（例: R05763、スペイン語、遠隔の心理学専攻の学生）、件数が少ないため登録を変えずに除外で通します（2026-10-28 決定）。
 
 **全文の段階**:
