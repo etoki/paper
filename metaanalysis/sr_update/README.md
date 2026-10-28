@@ -154,6 +154,8 @@ python metaanalysis/sr_update/run_search.py           # 本番
   python metaanalysis/sr_update/fetch_fulltext.py --rebuild-lists
   ```
 
+**Google スプレッドシートで作業する場合**: 常盤さんは [to_download_by_hand](https://docs.google.com/spreadsheets/d/1ehr3JW_QdM1VQW1kwb79P5tK0BrI1ZlxvFLjv4d2NQk/edit) に CSV を入れて作業しています。`Check` 列に 1、取れなかったものは `note` 列に「no DL」と要旨を貼る、という使い方です。Claude が足した列は `publisher`、`status`（`placed` タブを引く数式）、`search_link`（DOI がない行だけ題名で検索する数式）、`same_paper_as`（重複の相手）です。`placed` タブに入手済み54件と重複10件、件数の集計があります。行は消していません。`status` が「入手済み」の行を絞れば残りだけ見られます。
+
 **重複している記録**: 検索が同じ論文を2回拾っている組があります。DOI のない ERIC の記録と、DOI つきの記録が、別の `record_id`、ときに別の出版年（冊子と電子版）で入っているためです。題名の正規化で照合すると、8,670件の中に45件の余分があり、全文候補842件の中では10件です。リストの `note` に「same paper as Rxxxxx; download once」と出します。片方をダウンロードすれば `place_pdfs.py` が相手にも同じ PDF を置きます。`record_id` は振り直しません（選別の記録が追えなくなるため）。
 
   原因は2つです。ERIC が題名に `&apos;` のような実体参照を入れていること、情報源どうしで出版年が1年ずれることです。`run_search.py` の `dedup()` はどちらも考慮していません。
@@ -161,7 +163,7 @@ python metaanalysis/sr_update/run_search.py           # 本番
 
 取得の経路は、無料で公開されている版だけです（OpenAlex の OA 情報、PubMed Central の公開データ、ERIC、OSTI の順）。出版社に断られたら、ブラウザを装うなどの回避はせず、手作業のリストに回します。Unpaywall は使いません（OpenAlex が同じデータを持っており、追加でメールアドレスを送らずに済むため）。
 
-**2026-10-28 の実行結果**: 842件のうち163件が自動で取れ、679件が手作業に回りました。常盤さんが50件を手作業で入手し、重複の相手4件にも同じ PDF を置いたので、`pdf/` は217件、手作業の残りは626件（案 include は60件）です。
+**2026-10-28 の実行結果**: 842件のうち163件が自動で取れ、679件が手作業に回りました。常盤さんが50件を手作業で入手し、重複の相手4件にも同じ PDF を置いたので、`pdf/` は217件、手作業の残りは625件（案 include は60件）です。
 
 | 経路 | 件数 |
 |---|---|
