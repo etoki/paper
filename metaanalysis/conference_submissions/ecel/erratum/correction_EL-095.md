@@ -1,8 +1,14 @@
-# Correction to: Modality matters for Extraversion: A Big Five meta-regression in online learning environments
+# Author's correction to: Modality matters for Extraversion: A Big Five meta-regression in online learning environments
 
-Eisuke Tokiwa, SUNBLAZE Co., Ltd., Tokyo, Japan (ORCID 0009-0009-7124-6669)
+Eisuke Tokiwa, SUNBLAZE Co., Ltd., Tokyo, Japan (ORCID 0009-0009-7124-6669; eisuke.tokiwa@sunblaze.jp)
 
-Original paper: Tokiwa, E. (2026). Modality matters for Extraversion: A Big Five meta-regression in online learning environments. In *Proceedings of the 25th European Conference on e-Learning (ECEL 2026)*, Lund, Sweden, 22–23 October 2026 (Paper EL-095, pp. [PAGES]). https://doi.org/[DOI]
+Posted on OSF: 4 November 2026. Licence: CC BY 4.0.
+
+Original paper: Tokiwa, E. (2026). Modality matters for Extraversion: A Big Five meta-regression in online learning environments. In *Proceedings of the 25th European Conference on e-Learning (ECEL 2026)*, Lund, Sweden, 22–23 October 2026, Vol. 25, No. 1, pp. 464–471. https://doi.org/10.34190/ecel.25.1.4996
+
+## Status of this correction
+
+This correction is issued by the author. On 27 October 2026 the author asked the publisher (Academic Conferences and Publishing International) to replace the published paper with a corrected version or to publish a correction notice. On 2 November 2026 the publisher replied that it was too late to make any changes to the paper. The published version therefore remains unchanged, and this notice is posted on OSF so that readers can find the corrected results. Readers who use or cite the original paper are asked to use the corrected values given here.
 
 ## Summary
 
@@ -84,7 +90,7 @@ The asynchronous Extraversion cell contains three studies: A-01 Abe (2020; USA; 
 
 ## 8. Cause of the errors and data availability
 
-The errors were in the analysis scripts, which were prepared with the AI assistance declared in the paper. They were not detected when the author re-executed the scripts before submission; they were identified when the statistical procedures were re-examined after publication. The corrected analysis script and its complete output are openly available in the project repository (https://github.com/etoki/paper, folder metaanalysis/conference_submissions/ecel/erratum).
+The errors were in the analysis scripts, which were prepared with the AI assistance declared in the paper. They were not detected when the author re-executed the scripts before submission; they were identified when the statistical procedures were re-examined after publication. The corrected analysis script (recompute_moderator_tests.py) and its complete output (summary.md and the CSV files) are posted with this notice on OSF, and are also available in the project repository (https://github.com/etoki/paper, folder metaanalysis/conference_submissions/ecel/erratum). Note: an earlier email to the publisher (27 October 2026) gave p = .011 for the Extraversion modality test; that value was computed before the conversion correction in Section 3, and the correct value is p = .030 as reported here.
 
 ## Additional references
 
