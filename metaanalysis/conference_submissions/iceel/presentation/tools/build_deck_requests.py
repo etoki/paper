@@ -1,7 +1,8 @@
 """Build Google Slides batchUpdate requests for the ICEEL 2026 (EL2036) deck.
 
 Slide plan: ../20261128_slides.md. Colours: Japan = red {r:}, China = blue {b:},
-same direction = green {g:}. Output: b0.json, b1.json ... (one batchUpdate each).
+same direction = green {g:}.
+Title slide (S1) was edited in place: name and conference boxes set to 16 pt. Output: b0.json, b1.json ... (one batchUpdate each).
 """
 import json
 from slides_requests import slide
@@ -15,14 +16,14 @@ S += slide("iceel_s02", 1, "About Me",
 "The question: **culture.**", size=22)
 
 S += slide("iceel_s03", 2, "Key Words: The Big Five", None,
- table={"box": (25, 78, 670, 190), "size": 16, "colw": [250, 420], "rows": [
+ table={"box": (25, 78, 670, 190), "size": 20, "colw": [250, 420], "rows": [
   ["Trait", "In simple words"],
   ["Openness", "Interest in new things"],
   ["**Conscientiousness**", "Careful and well-planned"],
   ["**Extraversion**", "Outgoing"],
   ["Agreeableness", "Kind and cooperative"],
   ["**Neuroticism**", "Easily anxious or worried"]]},
- extra_text=[("Face-to-face classes: **Conscientiousness** has the strongest link with grades.", (25, 290, 670, 40), 18)],
+ extra_text=[("Face-to-face classes: **Conscientiousness** has the strongest link with grades.", (25, 314, 670, 30), 18)],
  source="Sources: Poropat (2009), Psychological Bulletin; Mammadov (2022), Journal of Personality.")
 
 S += slide("iceel_s04", 3, "Extraversion and Grades: Asia vs. Outside Asia", None,
@@ -44,7 +45,7 @@ S += slide("iceel_s05", 4, "But \"Asia\" Is Only Two Studies", None,
  source="Sources: Yu (2021), Int. J. Educ. Technol. High. Educ.; Rivers (2021), Educ. Inf. Technol.")
 
 S += slide("iceel_s06", 5, "Hofstede's Cultural Dimensions (3 of 6)", None,
- table={"box": (25, 80, 670, 160), "size": 17, "colw": [210, 260, 100, 100], "rows": [
+ table={"box": (25, 80, 670, 160), "size": 19, "colw": [230, 280, 80, 80], "rows": [
   ["Dimension", "Meaning", "{r:Japan}", "{b:China}"],
   ["Individualism", "Individual or group?", "62", "43"],
   ["**Uncertainty Avoidance**", "Avoid unclear situations?", "{r:92}", "30"],
@@ -63,7 +64,7 @@ S += slide("iceel_s08", 7, "Method",
 "**Step 2 — Two studies from Japan**\n"
 "> Rivers (2021): university / Tokiwa (2025): high school\n"
 "**Reference: Hofstede & McCrae (2004)**\n"
-"> 33 countries: culture scores × average personality", size=20,
+"> 33 countries: culture scores × average personality", size=22,
  source="Sources: Hofstede & McCrae (2004), Cross-Cultural Research; Tokiwa (2025), Frontiers in Psychology.")
 
 S += slide("iceel_s09", 8, "Result 1: Extraversion Goes the Opposite Way", None,
@@ -72,28 +73,28 @@ S += slide("iceel_s09", 8, "Result 1: Extraversion Goes the Opposite Way", None,
   ["Individualism", "43", "{r:62}"],
   ["Extraversion × grades (r)", "−0.074", "{r:−0.173}"]]},
  extra_text=[("Expected: Extraversion helps more in individualistic cultures.\nFound: **the opposite.**", (25, 210, 670, 62), 20),
-             ("⚠ {i:Only a two-country comparison}", (25, 292, 670, 28), 17)],
+             ("⚠ {i:Only a two-country comparison}", (25, 292, 670, 28), 18)],
  source="Sources: Yu (2021); Rivers (2021). China r converted from β (Peterson & Brown, 2005).")
 
 S += slide("iceel_s10", 9, "Result 2: Two Japanese Studies Are Very Different", None,
- table={"box": (25, 78, 670, 200), "size": 15, "colw": [150, 260, 260], "rows": [
+ table={"box": (25, 78, 670, 200), "size": 18, "colw": [170, 250, 250], "rows": [
   ["", "Rivers (2021)", "Tokiwa (2025)"],
   ["Students", "University (N = 149)", "High school (N = 103)"],
   ["Format", "Asynchronous (Moodle)", "Asynchronous (StudySapuri)"],
   ["**Outcome**", "**Grades**", "**Learning behavior** (videos, tests)"],
   ["**Personality test**", "**10 items** (TIPI-J)", "**60 items** (BFI-2-J)"]]},
- extra_text=[("**6×** difference in test length → more measurement error", (25, 300, 670, 32), 20)],
+ extra_text=[("**6×** difference in test length → more measurement error", (25, 322, 670, 32), 20)],
  source="Sources: Rivers (2021), Educ. Inf. Technol.; Tokiwa (2025), Frontiers in Psychology.")
 
 S += slide("iceel_s11", 10, "Result 3: Three of Five Traits Match", None,
- table={"box": (25, 76, 670, 215), "size": 15, "colw": [180, 130, 140, 130, 90], "highlight": [3], "rows": [
+ table={"box": (25, 76, 670, 215), "size": 18, "colw": [190, 130, 140, 130, 80], "highlight": [3], "rows": [
   ["Trait", "Culture suggests", "Tokiwa (behavior)", "Rivers (grades)", "Same?"],
   ["Conscientiousness", "+", "+", "+", "{g:✓}"],
   ["Extraversion", "−", "mixed", "−", "{g:✓}"],
   ["**Neuroticism**", "**+**", "{r:+ 0.17}", "{r:+ 0.107}", "{g:✓}"],
   ["Agreeableness", "−", "+", "+", "✗"],
   ["Openness", "+", "weak", "−", "✗"]]},
- extra_text=[("Earlier reviews: Neuroticism × grades is **zero or negative** (Asian data: **−0.19**)", (25, 312, 670, 30), 17)],
+ extra_text=[("Earlier reviews: Neuroticism × grades is **zero or negative** (Asian data: **−0.19**)", (25, 322, 670, 30), 18)],
  source="Sources: Hofstede & McCrae (2004); Mammadov (2022), Journal of Personality. Tokiwa (2025): Spearman ρ; Rivers (2021): Pearson r.")
 
 S += slide("iceel_s12", 11, "Why Is Neuroticism Positive? (A Hypothesis)",
@@ -104,7 +105,7 @@ S += slide("iceel_s12", 11, "Why Is Neuroticism Positive? (A Hypothesis)",
 "→ Students who worry a little may **study more carefully**\n"
 "**⚠ Only a hypothesis**\n"
 "> Both values are small and **not significant**\n"
-"> Culture scores = **countries**; correlations = **individual students**", size=19,
+"> Culture scores = **countries**; correlations = **individual students**", size=21,
  source="Source: Hofstede (1986), International Journal of Intercultural Relations.")
 
 S += slide("iceel_s13", 12, "Three Messages",
