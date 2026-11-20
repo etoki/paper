@@ -2,7 +2,7 @@
 
 Slide plan: ../20261128_slides.md. Colours: Japan = red {r:}, China = blue {b:},
 same direction = green {g:}.
-Title slide (S1) was edited in place: name and conference boxes set to 16 pt. Output: b0.json, b1.json ... (one batchUpdate each).
+Title slide (S1) was edited in place: name box 16 pt; conference box 14 pt, moved to y = 60 pt so it does not overlap the title. Output: b0.json, b1.json ... (one batchUpdate each).
 """
 import json
 from slides_requests import slide
